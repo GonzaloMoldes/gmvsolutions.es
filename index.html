@@ -1001,7 +1001,7 @@
       <div class="result-cta">
         <h4>¿Quieres resolver esto de raíz?</h4>
         <p>Documentamos el know-how de tu fábrica en micro-píldoras de video para que cualquier operador pueda sustituir a otro en minutos. Te llamamos sin compromiso.</p>
-        <a href="tel:+34600000000" class="btn-primary">Quiero que me llamen →</a>
+        <a href="#" onclick="enviarWhatsApp()" class="btn-primary">Quiero que me llamen →</a>
       </div>
 
     </div>
@@ -1127,18 +1127,22 @@
 
     // ── Guardar lead en base de datos ──────────────────────────
     // ↓ Cambia esta URL por la de tu Synology
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyoUMGNL4R2pArI9dSq50hipd45OCcCcYIW91JHkHimtxqkQyURvTmTKD99gSgdiq1B/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbycv4Ws-kKh-dqk-wDtO4i-Vo_FBA5_6Vqk5Jq3i8Na_MMdi-GRY4gxIMstQfuvUgae/exec';
+
+    // Google Apps Script requiere enviar como FormData con mode no-cors
+    const formData = new FormData();
+    formData.append('data', JSON.stringify({
+      nombre, empresa, email, telefono, score: totalScore,
+      q1: answers.q1, q2: answers.q2, q3: answers.q3,
+      q4: answers.q4, q5: answers.q5, q6: answers.q6,
+      q7: answers.q7, q8: answers.q8, q9: answers.q9,
+      q10: answers.q10, q11: answers.q11
+    }));
 
     fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nombre, empresa, email, telefono, score: totalScore,
-        q1: answers.q1, q2: answers.q2, q3: answers.q3,
-        q4: answers.q4, q5: answers.q5, q6: answers.q6,
-        q7: answers.q7, q8: answers.q8, q9: answers.q9,
-        q10: answers.q10, q11: answers.q11
-      })
+      mode: 'no-cors',
+      body: formData
     }).catch(err => console.warn('No se pudo guardar el lead:', err));
     // ───────────────────────────────────────────────────────────
 
@@ -1241,6 +1245,33 @@
         </div>
       </div>
     `).join('');
+  }
+
+  function enviarWhatsApp() {
+    const empresa = document.getElementById('r-empresa').textContent || '';
+    const score   = document.getElementById('score-num').textContent || '';
+    const nivel   = document.getElementById('score-title').textContent || '';
+    const nombre  = document.getElementById('c-nombre') ? document.getElementById('c-nombre').value : '';
+    const telefono = document.getElementById('c-telefono') ? document.getElementById('c-telefono').value : '';
+
+    const mensaje = encodeURIComponent(
+      '👋 Hola, acabo de hacer la evaluación de riesgo operativo en vuestra web.' +
+      '
+
+🏭 Empresa: ' + empresa +
+      '
+👤 Nombre: ' + nombre +
+      '
+📞 Teléfono: ' + telefono +
+      '
+📊 Score: ' + score + '/100' +
+      '
+⚠️ Nivel de riesgo: ' + nivel +
+      '
+
+Me gustaría que me llamarais para comentar los resultados.'
+    );
+    window.open('https://wa.me/34671887372?text=' + mensaje, '_blank');
   }
 </script>
 </body>
