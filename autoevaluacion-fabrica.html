@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué pasa en tu fábrica cuando falta el operador clave?</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F4521E;
+    --orange-dark: #C93D0F;
+    --black: #0D0D0D;
+    --dark: #1A1A1A;
+    --mid: #2E2E2E;
+    --gray: #6B6B6B;
+    --light: #F5F3EF;
+    --white: #FFFFFF;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 5vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(244,82,30,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(244,82,30,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(244,82,30,0.15);
+    border: 1px solid rgba(244,82,30,0.3);
+    color: var(--orange);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+
+  h1 span {
+    color: var(--orange);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.35s;
+  }
+
+  .hero-cta {
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-dark);
+    transform: translateY(-2px);
+  }
+
+  /* PAIN SECTION */
+  .pain {
+    padding: 100px 5vw;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+
+  .pain h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    max-width: 700px;
+    line-height: 1.2;
+    margin-bottom: 60px;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .pain-item {
+    background: var(--black);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .pain-item:hover { background: var(--dark); }
+
+  .pain-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(244,82,30,0.2);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .pain-item h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .pain-item p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* QUIZ SECTION */
+  .quiz-section {
+    padding: 100px 5vw;
+    border-top: 1px solid var(--border);
+  }
+
+  .quiz-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    max-width: 700px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .quiz-section .sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+    margin-bottom: 60px;
+    max-width: 520px;
+  }
+
+  .quiz-container {
+    max-width: 780px;
+  }
+
+  /* Progress */
+  .progress-bar-wrap {
+    background: var(--mid);
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--orange);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .progress-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  /* Question blocks */
+  .question-block {
+    display: none;
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .question-block.active { display: block; }
+
+  .block-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(244,82,30,0.2);
+  }
+
+  .question {
+    margin-bottom: 36px;
+  }
+
+  .question label {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .question label .q-num {
+    color: var(--orange);
+    margin-right: 6px;
+  }
+
+  /* Input styles */
+  input[type="number"],
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 14px 18px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  input:focus, select:focus {
+    border-color: var(--orange);
+  }
+
+  select option { background: var(--dark); }
+
+  /* Radio & checkbox */
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .option-btn {
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 14px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+
+  .option-btn:hover {
+    border-color: rgba(244,82,30,0.4);
+    color: var(--white);
+  }
+
+  .option-btn.selected {
+    background: rgba(244,82,30,0.12);
+    border-color: var(--orange);
+    color: var(--white);
+  }
+
+  /* Navigation */
+  .quiz-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn-next {
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    padding: 15px 36px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-next:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  .btn-back {
+    background: transparent;
+    color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 15px 20px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-back:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+  /* CONTACT BLOCK */
+  .contact-block {
+    display: none;
+  }
+
+  .contact-block.active { display: block; animation: fadeUp 0.4s ease forwards; }
+
+  .contact-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .contact-block p {
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+  }
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact-field { margin-bottom: 16px; }
+  .contact-field label {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+
+  /* RESULTS */
+  .results-block {
+    display: none;
+  }
+
+  .results-block.active { display: block; animation: fadeUp 0.5s ease forwards; }
+
+  .result-header {
+    border-left: 4px solid var(--orange);
+    padding-left: 24px;
+    margin-bottom: 50px;
+  }
+
+  .result-header .company-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .result-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .result-header .result-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+  }
+
+  /* Risk score */
+  .risk-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .risk-score-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 36px;
+    border-radius: 2px;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .score-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .score-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    opacity: 0.7;
+  }
+
+  .score-risk-low { background: rgba(34,197,94,0.12); border: 2px solid rgba(34,197,94,0.4); color: #22c55e; }
+  .score-risk-medium { background: rgba(245,158,11,0.12); border: 2px solid rgba(245,158,11,0.4); color: #f59e0b; }
+  .score-risk-high { background: rgba(244,82,30,0.15); border: 2px solid rgba(244,82,30,0.5); color: var(--orange); }
+  .score-risk-critical { background: rgba(220,38,38,0.15); border: 2px solid rgba(220,38,38,0.5); color: #dc2626; }
+
+  .score-description h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .score-description p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Metric cards */
+  .metric-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 28px;
+    border-radius: 2px;
+  }
+
+  .metric-card .metric-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .metric-card .metric-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .metric-card .metric-sub {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  /* Risk areas */
+  .risk-areas {
+    margin-bottom: 40px;
+  }
+
+  .risk-areas h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(244,82,30,0.2);
+  }
+
+  .risk-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .risk-bar-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 180px;
+    flex-shrink: 0;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .risk-bar-track {
+    flex: 1;
+    height: 6px;
+    background: var(--mid);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .risk-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease 0.3s;
+  }
+
+  .risk-bar-pct {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 40px;
+    text-align: right;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Recomendaciones */
+  .recommendations {
+    margin-bottom: 40px;
+  }
+
+  .recommendations h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(244,82,30,0.2);
+  }
+
+  .rec-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  .rec-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(244,82,30,0.12);
+    border: 1px solid rgba(244,82,30,0.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .rec-content h5 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .rec-content p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* CTA final */
+  .result-cta {
+    background: linear-gradient(135deg, rgba(244,82,30,0.15) 0%, rgba(244,82,30,0.05) 100%);
+    border: 1px solid rgba(244,82,30,0.3);
+    padding: 40px;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .result-cta h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .result-cta p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Footer */
+  footer {
+    padding: 40px 5vw;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.8rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .contact-row { grid-template-columns: 1fr; }
+    .risk-overview { grid-template-columns: 1fr; }
+    .risk-score-card { flex-direction: column; text-align: center; }
+    .risk-bar-label { width: 120px; font-size: 0.75rem; }
+    .options-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Diagnóstico gratuito para fabricantes</div>
+  <h1>¿Qué pasa en tu fábrica cuando <span>falta el operador clave?</span></h1>
+  <p class="hero-sub">El 73% de las PYMES industriales no tiene ningún plan si su operador más especializado no aparece mañana. ¿Y tú?</p>
+  <div class="hero-cta">
+    <a href="#evaluacion" class="btn-primary" onclick="scrollToEval(event)">Descubrir mi nivel de riesgo →</a>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="section-label">El problema real</div>
+  <h2>El conocimiento de tu fábrica vive en la cabeza de pocas personas</h2>
+  <div class="pain-grid">
+    <div class="pain-item">
+      <div class="pain-num">01</div>
+      <h3>Un operador falta y la producción para</h3>
+      <p>Nadie más sabe manejar esa máquina. El turno se bloquea, los pedidos se retrasan y el coste se dispara.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">02</div>
+      <h3>La formación es lenta y cara</h3>
+      <p>Incorporar a alguien nuevo tarda semanas. Y mientras tanto, alguien improvisa con el riesgo que eso conlleva.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">03</div>
+      <h3>No hay nada documentado</h3>
+      <p>Manuales en papel que nadie lee. PDFs que nadie encuentra. El know-how real está solo en la experiencia de unos pocos.</p>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">04</div>
+      <h3>Cada vez que alguien se va, pierdes</h3>
+      <p>Rotación, jubilaciones, bajas. Cada salida se lleva consigo años de conocimiento que nunca vuelve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="evaluacion">
+  <div class="section-label">Autoevaluación</div>
+  <h2>Descubre tu índice de riesgo operativo</h2>
+  <p class="sub">11 preguntas. 5 minutos. Recibirás un informe con tu nivel de vulnerabilidad real.</p>
+
+  <div class="quiz-container">
+    <div class="progress-label" id="progress-label">Bloque 1 de 4</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar"></div>
+    </div>
+
+    <!-- BLOQUE 1 -->
+    <div class="question-block active" id="block-1">
+      <div class="block-title">📋 Bloque 1 — Tu equipo</div>
+
+      <div class="question">
+        <label><span class="q-num">1.</span> ¿Cuántos operadores trabajan en tu línea de producción?</label>
+        <input type="number" id="q1" min="1" max="500" placeholder="Número de operadores">
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">2.</span> ¿Cuántas máquinas o puestos críticos tienes en tu proceso?</label>
+        <input type="number" id="q2" min="1" max="200" placeholder="Número de máquinas o puestos">
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">3.</span> ¿Cuántos de esos puestos solo sabe operarlos una única persona?</label>
+        <input type="number" id="q3" min="0" max="200" placeholder="Número de puestos sin backup">
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-next" onclick="nextBlock(1)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- BLOQUE 2 -->
+    <div class="question-block" id="block-2">
+      <div class="block-title">⚠️ Bloque 2 — El riesgo real</div>
+
+      <div class="question">
+        <label><span class="q-num">4.</span> En los últimos 12 meses, ¿cuántas veces ha faltado un operador clave de forma inesperada?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q4', 0)">Nunca</button>
+          <button class="option-btn" onclick="selectOption(this, 'q4', 1)">1 - 2 veces</button>
+          <button class="option-btn" onclick="selectOption(this, 'q4', 2)">3 - 5 veces</button>
+          <button class="option-btn" onclick="selectOption(this, 'q4', 3)">Más de 5 veces</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">5.</span> Cuando falta esa persona, ¿qué suele pasar?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q5', 0)">Tenemos un plan definido</button>
+          <button class="option-btn" onclick="selectOption(this, 'q5', 1)">Alguien lo intenta sin formación específica</button>
+          <button class="option-btn" onclick="selectOption(this, 'q5', 2)">La producción se ralentiza</button>
+          <button class="option-btn" onclick="selectOption(this, 'q5', 3)">La producción para</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">6.</span> ¿Cuánto tiempo tardarías en tener a alguien operativo en ese puesto si la persona clave no volviera?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q6', 0)">Menos de 1 día</button>
+          <button class="option-btn" onclick="selectOption(this, 'q6', 1)">1 - 3 días</button>
+          <button class="option-btn" onclick="selectOption(this, 'q6', 2)">1 - 2 semanas</button>
+          <button class="option-btn" onclick="selectOption(this, 'q6', 3)">Más de 2 semanas</button>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="prevBlock(2)">← Atrás</button>
+        <button class="btn-next" onclick="nextBlock(2)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- BLOQUE 3 -->
+    <div class="question-block" id="block-3">
+      <div class="block-title">📁 Bloque 3 — Documentación actual</div>
+
+      <div class="question">
+        <label><span class="q-num">7.</span> ¿Tienes documentado el proceso de operación de tus máquinas?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q7', 0)">Sí, completamente</button>
+          <button class="option-btn" onclick="selectOption(this, 'q7', 1)">Solo algunas máquinas</button>
+          <button class="option-btn" onclick="selectOption(this, 'q7', 2)">Muy poco o nada</button>
+          <button class="option-btn" onclick="selectOption(this, 'q7', 3)">No tenemos nada</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">8.</span> Si tienes documentación, ¿en qué formato está?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q8', 0)">Videos estructurados</button>
+          <button class="option-btn" onclick="selectOption(this, 'q8', 1)">PDFs o documentos digitales</button>
+          <button class="option-btn" onclick="selectOption(this, 'q8', 2)">Manuales en papel</button>
+          <button class="option-btn" onclick="selectOption(this, 'q8', 3)">No tenemos documentación</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">9.</span> ¿Con qué facilidad un operador nuevo encuentra esa información cuando la necesita?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q9', 0)">Muy fácil, está organizada</button>
+          <button class="option-btn" onclick="selectOption(this, 'q9', 1)">Con algo de esfuerzo</button>
+          <button class="option-btn" onclick="selectOption(this, 'q9', 2)">Difícil, hay que buscarla</button>
+          <button class="option-btn" onclick="selectOption(this, 'q9', 3)">Imposible, no está accesible</button>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="prevBlock(3)">← Atrás</button>
+        <button class="btn-next" onclick="nextBlock(3)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- BLOQUE 4 -->
+    <div class="question-block" id="block-4">
+      <div class="block-title">💶 Bloque 4 — Impacto económico</div>
+
+      <div class="question">
+        <label><span class="q-num">10.</span> Cuando una máquina para por falta de operador, ¿cuánto estimas que te cuesta por hora?</label>
+        <select id="q10">
+          <option value="">Selecciona un rango</option>
+          <option value="0">Menos de 100€/hora</option>
+          <option value="1">100€ - 500€/hora</option>
+          <option value="2">500€ - 2.000€/hora</option>
+          <option value="3">Más de 2.000€/hora</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label><span class="q-num">11.</span> ¿Has tenido que retrasar algún pedido o incumplir un plazo por este motivo?</label>
+        <div class="options-grid">
+          <button class="option-btn" onclick="selectOption(this, 'q11', 0)">Nunca ha ocurrido</button>
+          <button class="option-btn" onclick="selectOption(this, 'q11', 1)">Alguna vez, puntualmente</button>
+          <button class="option-btn" onclick="selectOption(this, 'q11', 2)">Varias veces al año</button>
+          <button class="option-btn" onclick="selectOption(this, 'q11', 3)">Es algo frecuente</button>
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="prevBlock(4)">← Atrás</button>
+        <button class="btn-next" onclick="showContact()">Ver mi informe →</button>
+      </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="contact-block" id="contact-block">
+      <h3>Casi listo — ¿dónde enviamos tu informe?</h3>
+      <p>Introduce tus datos para recibir el informe completo. Te llamaremos si quieres comentarlo juntos.</p>
+
+      <div class="contact-row">
+        <div class="contact-field">
+          <label>Nombre</label>
+          <input type="text" id="c-nombre" placeholder="Tu nombre">
+        </div>
+        <div class="contact-field">
+          <label>Empresa</label>
+          <input type="text" id="c-empresa" placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-field">
+          <label>Email</label>
+          <input type="email" id="c-email" placeholder="tu@empresa.com">
+        </div>
+        <div class="contact-field">
+          <label>Teléfono</label>
+          <input type="tel" id="c-telefono" placeholder="+34 600 000 000">
+        </div>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn-back" onclick="backToQuiz()">← Atrás</button>
+        <button class="btn-next" onclick="generateReport()">Generar mi informe →</button>
+      </div>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="results-block" id="results-block">
+
+      <div class="result-header">
+        <div class="company-name" id="r-empresa">—</div>
+        <h3 id="r-titulo">Informe de Riesgo Operativo</h3>
+        <div class="result-date" id="r-fecha">—</div>
+      </div>
+
+      <!-- Score principal -->
+      <div class="risk-overview">
+        <div class="risk-score-card">
+          <div class="score-circle" id="score-circle">
+            <span class="score-num" id="score-num">—</span>
+            <span class="score-label">/ 100</span>
+          </div>
+          <div class="score-description">
+            <h4 id="score-title">—</h4>
+            <p id="score-desc">—</p>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Puestos sin backup</div>
+          <div class="metric-value" id="r-puestos-sin-backup">—</div>
+          <div class="metric-sub" id="r-puestos-sub">de tus puestos críticos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Coste estimado de parada</div>
+          <div class="metric-value" id="r-coste">—</div>
+          <div class="metric-sub">por hora sin operador</div>
+        </div>
+      </div>
+
+      <!-- Barras de riesgo por área -->
+      <div class="risk-areas">
+        <h4>Análisis por área</h4>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label">Cobertura de equipo</div>
+          <div class="risk-bar-track"><div class="risk-bar-fill" id="bar-equipo" style="width:0%"></div></div>
+          <div class="risk-bar-pct" id="pct-equipo">0%</div>
+        </div>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label">Gestión de ausencias</div>
+          <div class="risk-bar-track"><div class="risk-bar-fill" id="bar-ausencias" style="width:0%"></div></div>
+          <div class="risk-bar-pct" id="pct-ausencias">0%</div>
+        </div>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label">Documentación</div>
+          <div class="risk-bar-track"><div class="risk-bar-fill" id="bar-docs" style="width:0%"></div></div>
+          <div class="risk-bar-pct" id="pct-docs">0%</div>
+        </div>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label">Impacto económico</div>
+          <div class="risk-bar-track"><div class="risk-bar-fill" id="bar-impacto" style="width:0%"></div></div>
+          <div class="risk-bar-pct" id="pct-impacto">0%</div>
+        </div>
+      </div>
+
+      <!-- Recomendaciones -->
+      <div class="recommendations">
+        <h4>Recomendaciones prioritarias</h4>
+        <div id="rec-container"></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="result-cta">
+        <h4>¿Quieres resolver esto de raíz?</h4>
+        <p>Documentamos el know-how de tu fábrica en micro-píldoras de video para que cualquier operador pueda sustituir a otro en minutos. Te llamamos sin compromiso.</p>
+        <a href="tel:+34600000000" class="btn-primary">Quiero que me llamen →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 · Diagnóstico gratuito para PYMES industriales · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  // State
+  const answers = {};
+  let currentBlock = 1;
+  const totalBlocks = 4;
+
+  function scrollToEval(e) {
+    e.preventDefault();
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function selectOption(btn, questionId, value) {
+    const parent = btn.closest('.options-grid');
+    parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[questionId] = value;
+  }
+
+  function updateProgress(block) {
+    const pct = ((block - 1) / totalBlocks) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = `Bloque ${block} de ${totalBlocks}`;
+  }
+
+  function nextBlock(current) {
+    // Validate
+    if (current === 1) {
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      if (!q1 || !q2 || !q3) { alert('Por favor, completa todas las preguntas antes de continuar.'); return; }
+      answers.q1 = parseInt(q1);
+      answers.q2 = parseInt(q2);
+      answers.q3 = parseInt(q3);
+    }
+    if (current === 2) {
+      if (answers.q4 === undefined || answers.q5 === undefined || answers.q6 === undefined) {
+        alert('Por favor, selecciona una opción en cada pregunta.'); return;
+      }
+    }
+    if (current === 3) {
+      if (answers.q7 === undefined || answers.q8 === undefined || answers.q9 === undefined) {
+        alert('Por favor, selecciona una opción en cada pregunta.'); return;
+      }
+    }
+
+    document.getElementById(`block-${current}`).classList.remove('active');
+    currentBlock = current + 1;
+    document.getElementById(`block-${currentBlock}`).classList.add('active');
+    updateProgress(currentBlock);
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function prevBlock(current) {
+    document.getElementById(`block-${current}`).classList.remove('active');
+    currentBlock = current - 1;
+    document.getElementById(`block-${currentBlock}`).classList.add('active');
+    updateProgress(currentBlock);
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showContact() {
+    // Validate block 4
+    const q10 = document.getElementById('q10').value;
+    if (q10 === '') { alert('Por favor, selecciona el coste estimado de parada.'); return; }
+    if (answers.q11 === undefined) { alert('Por favor, selecciona una opción en la última pregunta.'); return; }
+    answers.q10 = parseInt(q10);
+
+    document.getElementById(`block-4`).classList.remove('active');
+    document.getElementById('contact-block').classList.add('active');
+    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('progress-label').textContent = 'Último paso';
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function backToQuiz() {
+    document.getElementById('contact-block').classList.remove('active');
+    document.getElementById('block-4').classList.add('active');
+    updateProgress(4);
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function generateReport() {
+    const nombre = document.getElementById('c-nombre').value.trim();
+    const empresa = document.getElementById('c-empresa').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const telefono = document.getElementById('c-telefono').value.trim();
+
+    if (!nombre || !empresa || !email || !telefono) {
+      alert('Por favor, completa todos los campos de contacto.'); return;
+    }
+
+    // Calculate scores
+    const q1 = answers.q1 || 10;
+    const q2 = answers.q2 || 5;
+    const q3 = answers.q3 || 0;
+
+    // Equipo risk (0-100)
+    const puestosRatio = q2 > 0 ? q3 / q2 : 0;
+    const equipoRisk = Math.round(puestosRatio * 100);
+
+    // Ausencias risk
+    const ausenciasRisk = Math.round(((answers.q4 || 0) / 3) * 50 + ((answers.q5 || 0) / 3) * 30 + ((answers.q6 || 0) / 3) * 20);
+
+    // Docs risk
+    const docsRisk = Math.round(((answers.q7 || 0) / 3) * 40 + ((answers.q8 || 0) / 3) * 30 + ((answers.q9 || 0) / 3) * 30);
+
+    // Impacto risk
+    const impactoRisk = Math.round(((answers.q10 || 0) / 3) * 60 + ((answers.q11 || 0) / 3) * 40);
+
+    // Total score (weighted)
+    const totalScore = Math.round(equipoRisk * 0.3 + ausenciasRisk * 0.25 + docsRisk * 0.25 + impactoRisk * 0.2);
+
+    // ── Guardar lead en base de datos ──────────────────────────
+    // ↓ Cambia esta URL por la de tu Synology
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyoUMGNL4R2pArI9dSq50hipd45OCcCcYIW91JHkHimtxqkQyURvTmTKD99gSgdiq1B/exec';
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre, empresa, email, telefono, score: totalScore,
+        q1: answers.q1, q2: answers.q2, q3: answers.q3,
+        q4: answers.q4, q5: answers.q5, q6: answers.q6,
+        q7: answers.q7, q8: answers.q8, q9: answers.q9,
+        q10: answers.q10, q11: answers.q11
+      })
+    }).catch(err => console.warn('No se pudo guardar el lead:', err));
+    // ───────────────────────────────────────────────────────────
+
+    // Render results
+    document.getElementById('contact-block').classList.remove('active');
+    document.getElementById('results-block').classList.add('active');
+
+    document.getElementById('r-empresa').textContent = empresa;
+    document.getElementById('r-titulo').textContent = `Informe de Riesgo Operativo — ${nombre}`;
+    document.getElementById('r-fecha').textContent = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Score circle
+    const scoreEl = document.getElementById('score-num');
+    scoreEl.textContent = totalScore;
+    const circle = document.getElementById('score-circle');
+    const titleEl = document.getElementById('score-title');
+    const descEl = document.getElementById('score-desc');
+
+    circle.className = 'score-circle';
+    if (totalScore <= 25) {
+      circle.classList.add('score-risk-low');
+      titleEl.textContent = 'Riesgo Bajo';
+      descEl.textContent = `${empresa} tiene una buena base de cobertura operativa. Aun así, existen áreas donde documentar mejor el conocimiento puede marcar la diferencia ante imprevistos.`;
+    } else if (totalScore <= 50) {
+      circle.classList.add('score-risk-medium');
+      titleEl.textContent = 'Riesgo Moderado';
+      descEl.textContent = `${empresa} está expuesta a interrupciones si faltan personas clave. Sin un plan de contingencia documentado, cada ausencia inesperada supone un riesgo real para la producción.`;
+    } else if (totalScore <= 75) {
+      circle.classList.add('score-risk-high');
+      titleEl.textContent = 'Riesgo Alto';
+      descEl.textContent = `${empresa} tiene una exposición significativa. La falta de documentación y cobertura de puestos clave hace que cada ausencia pueda convertirse en un problema costoso y difícil de gestionar.`;
+    } else {
+      circle.classList.add('score-risk-critical');
+      titleEl.textContent = 'Riesgo Crítico';
+      descEl.textContent = `${empresa} opera con una dependencia peligrosa en personas individuales y sin documentación de procesos. La siguiente ausencia inesperada puede tener un impacto muy grave en la producción y los clientes.`;
+    }
+
+    // Metrics
+    const pct = q2 > 0 ? Math.round((q3 / q2) * 100) : 0;
+    document.getElementById('r-puestos-sin-backup').textContent = q3;
+    document.getElementById('r-puestos-sub').textContent = `de ${q2} puestos críticos (${pct}%)`;
+
+    const costes = ['< 100€/h', '100–500€/h', '500–2.000€/h', '> 2.000€/h'];
+    document.getElementById('r-coste').textContent = costes[answers.q10] || '—';
+
+    // Bars (animate after a tick)
+    setTimeout(() => {
+      setBar('bar-equipo', 'pct-equipo', equipoRisk, getRiskColor(equipoRisk));
+      setBar('bar-ausencias', 'pct-ausencias', ausenciasRisk, getRiskColor(ausenciasRisk));
+      setBar('bar-docs', 'pct-docs', docsRisk, getRiskColor(docsRisk));
+      setBar('bar-impacto', 'pct-impacto', impactoRisk, getRiskColor(impactoRisk));
+    }, 100);
+
+    // Recommendations
+    buildRecommendations(totalScore, equipoRisk, ausenciasRisk, docsRisk, impactoRisk);
+
+    document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function setBar(barId, pctId, value, color) {
+    const bar = document.getElementById(barId);
+    bar.style.width = value + '%';
+    bar.style.background = color;
+    document.getElementById(pctId).textContent = value + '%';
+  }
+
+  function getRiskColor(val) {
+    if (val <= 25) return '#22c55e';
+    if (val <= 50) return '#f59e0b';
+    if (val <= 75) return '#F4521E';
+    return '#dc2626';
+  }
+
+  function buildRecommendations(total, equipo, ausencias, docs, impacto) {
+    const recs = [];
+
+    if (docs >= 50) {
+      recs.push({ icon: '🎬', title: 'Documenta los procesos en vídeo', text: 'Los manuales en papel nadie los lee. Las micro-píldoras en vídeo permiten que cualquier operador aprenda un proceso en minutos, desde el móvil, en el propio puesto de trabajo.' });
+    }
+    if (equipo >= 40) {
+      recs.push({ icon: '🔄', title: 'Crea polivalencia real en tu equipo', text: 'Identifica los puestos con mayor riesgo y forma a un segundo operador en cada uno. Con el conocimiento bien documentado, esta formación cruzada puede hacerse en días, no en semanas.' });
+    }
+    if (ausencias >= 40) {
+      recs.push({ icon: '📋', title: 'Define un plan de contingencia por puesto', text: 'Para cada máquina o puesto crítico, define por escrito quién la cubre, cómo accede a la información y qué hacer en los primeros 30 minutos de una ausencia imprevista.' });
+    }
+    if (impacto >= 50) {
+      recs.push({ icon: '💶', title: 'Calcula el coste real de tu exposición', text: 'Multiplica el coste por hora de parada por las horas perdidas el año pasado. Ese número justifica con creces una inversión en documentación y formación preventiva.' });
+    }
+    if (recs.length === 0) {
+      recs.push({ icon: '✅', title: 'Mantén y mejora lo que funciona', text: 'Tu operativa está en buen estado. El siguiente nivel es centralizar el conocimiento en un formato digital accesible para todo el equipo y seguir actualizándolo.' });
+    }
+
+    const container = document.getElementById('rec-container');
+    container.innerHTML = recs.map(r => `
+      <div class="rec-item">
+        <div class="rec-icon">${r.icon}</div>
+        <div class="rec-content">
+          <h5>${r.title}</h5>
+          <p>${r.text}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+</script>
+</body>
+</html>
