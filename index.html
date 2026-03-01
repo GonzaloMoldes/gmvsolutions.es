@@ -323,6 +323,70 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
 .footer-copy{font-size:.72rem;color:rgba(255,255,255,.2);}
 .footer-powered{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);}
 .footer-logo{height:18px;opacity:.25;}
+
+/* ══════════════════════════════════════
+   MOCKUP INFORME EN HERO
+══════════════════════════════════════ */
+.mockup-wrap{margin-top:32px;max-width:520px;}
+.mockup-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.mockup-label::before{content:'';width:16px;height:1px;background:rgba(255,255,255,.2);}
+.mockup-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;position:relative;}
+.mockup-header{padding:16px 20px 14px;border-bottom:1px solid var(--border);}
+.mockup-empresa{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.mockup-titulo{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.mockup-fecha{font-family:'DM Mono',monospace;font-size:.58rem;color:rgba(255,255,255,.2);margin-top:2px;}
+.mockup-score-row{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--border);}
+.mockup-circle{width:64px;height:64px;border-radius:50%;border:2px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;}
+.mockup-circle.danger{border-color:var(--orange);color:var(--orange);}
+.mockup-score-num{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;line-height:1;}
+.mockup-score-of{font-family:'DM Mono',monospace;font-size:.48rem;opacity:.5;}
+.mockup-nivel{font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--orange);margin-bottom:4px;}
+.mockup-desc{font-size:.75rem;color:var(--gray);line-height:1.6;}
+.mockup-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.mockup-metric{background:var(--surface);padding:14px 12px;}
+.mockup-metric-val{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:4px;}
+.mockup-metric-name{font-size:.68rem;color:var(--gray);line-height:1.4;}
+.mockup-blur-overlay{position:absolute;bottom:0;left:0;right:0;height:56px;background:linear-gradient(to top,rgba(17,17,17,.98) 0%,rgba(17,17,17,.7) 60%,transparent 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;font-family:'Oswald',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);}
+
+/* ══════════════════════════════════════
+   INFORME ACCIONABLE
+══════════════════════════════════════ */
+.plan-section{padding:24px 28px;border-bottom:1px solid var(--border);}
+.plan-title{font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.plan-subtitle{font-size:.78rem;color:var(--gray);margin-bottom:18px;line-height:1.6;}
+
+.action-card{border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-bottom:14px;}
+.action-card:last-child{margin-bottom:0;}
+.action-card-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--surface2);}
+.action-priority{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;flex-shrink:0;font-weight:500;}
+.priority-urgente{background:rgba(220,38,38,.15);color:var(--red);border:1px solid rgba(220,38,38,.25);}
+.priority-importante{background:rgba(244,82,30,.12);color:var(--orange);border:1px solid rgba(244,82,30,.22);}
+.priority-planificar{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2);}
+.action-titulo{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;flex:1;}
+.action-plazo{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:rgba(255,255,255,.3);flex-shrink:0;white-space:nowrap;}
+
+.action-body{padding:16px 18px;}
+.action-desc{font-size:.83rem;color:var(--gray);line-height:1.72;margin-bottom:14px;}
+.action-desc strong{color:var(--white);}
+
+.action-puestos{background:rgba(244,82,30,.06);border:1px solid rgba(244,82,30,.15);border-radius:3px;padding:12px 14px;margin-bottom:14px;}
+.action-puestos-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.action-puestos-val{font-size:.83rem;color:var(--white);line-height:1.6;}
+
+.action-cost-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.action-cost-card{border-radius:3px;padding:12px 14px;}
+.action-cost-card.resolver{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.15);}
+.action-cost-card.no-resolver{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.15);}
+.action-cost-label{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.action-cost-card.resolver .action-cost-label{color:var(--green);}
+.action-cost-card.no-resolver .action-cost-label{color:var(--red);}
+.action-cost-val{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;line-height:1;margin-bottom:3px;}
+.action-cost-card.resolver .action-cost-val{color:var(--green);}
+.action-cost-card.no-resolver .action-cost-val{color:var(--red);}
+.action-cost-desc{font-size:.72rem;color:var(--gray);line-height:1.45;}
+
+.sector-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:3px;padding:6px 10px;margin-top:12px;font-size:.72rem;color:rgba(255,255,255,.45);font-family:'DM Mono',monospace;letter-spacing:.04em;}
+.sector-badge strong{color:rgba(255,255,255,.7);}
 </style>
 </head>
 <body>
@@ -340,7 +404,7 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
       <button class="popup-confirm" onclick="activateTicker()">Calcular →</button>
     </div>
     <p class="popup-skip" onclick="activateTickerDefault()">Usar dato medio del sector (3 bajas)</p>
-    <p class="popup-hint">Basado en coste salarial + impacto productivo industria española<br>Adecco Institute / Siemens 2024</p>
+    <p class="popup-hint">Basado en coste salarial + impacto productivo industria española<br>INSST 2023 / Adecco Informe Absentismo 2024</p>
   </div>
 </div>
 
@@ -377,6 +441,43 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
   <div class="ticker-note" id="tickerNote" style="display:none">El ticker superior está contando lo que pierde tu fábrica mientras lees esto</div>
   <div class="hero-btns">
     <a href="#evaluacion" class="btn-primary" onclick="scrollToEval(event)">Descubrir mi nivel de riesgo →</a>
+  </div>
+
+  <!-- MOCKUP INFORME -->
+  <div class="mockup-wrap">
+    <div class="mockup-label">Así es el informe que recibirás</div>
+    <div class="mockup-card">
+      <div class="mockup-header">
+        <div class="mockup-empresa">Ejemplo S.L.</div>
+        <div class="mockup-titulo">Informe de Riesgo Operativo</div>
+        <div class="mockup-fecha">Diagnóstico · marzo 2025</div>
+      </div>
+      <div class="mockup-score-row">
+        <div class="mockup-circle danger">
+          <span class="mockup-score-num">68</span>
+          <span class="mockup-score-of">/100</span>
+        </div>
+        <div class="mockup-score-right">
+          <div class="mockup-nivel">Riesgo Alto</div>
+          <p class="mockup-desc">Tu fábrica tiene una exposición significativa. Cada baja sin cobertura documentada paraliza producción y genera costes evitables.</p>
+        </div>
+      </div>
+      <div class="mockup-metrics">
+        <div class="mockup-metric">
+          <div class="mockup-metric-val">18.400€</div>
+          <div class="mockup-metric-name">Coste estimado último año</div>
+        </div>
+        <div class="mockup-metric">
+          <div class="mockup-metric-val">240h</div>
+          <div class="mockup-metric-name">Horas de producción perdidas</div>
+        </div>
+        <div class="mockup-metric">
+          <div class="mockup-metric-val">20.600€</div>
+          <div class="mockup-metric-name">Proyección próximos 12 meses</div>
+        </div>
+      </div>
+      <div class="mockup-blur-overlay">Tu informe personalizado →</div>
+    </div>
   </div>
 </div>
 </section>
@@ -422,38 +523,15 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
     <p class="eval-sub">Responde honestamente. Al final recibirás un informe con el coste estimado real de tu exposición, comparado con el sector, y las acciones prioritarias para reducirlo.</p>
   </div>
 
-  <div class="progress-wrap" id="progress-wrap" style="display:none">
+  <div class="progress-wrap" id="progress-wrap">
     <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar"></div></div>
     <span class="progress-label" id="progress-label">Bloque 1 de 5</span>
   </div>
 
-  <!-- INTRO: Nombre + Empresa -->
-  <div class="quiz-block active" id="intro-block">
-    <div class="block-card">
-      <div class="block-header">
-        <span class="block-icon">👋</span>
-        <span class="block-title">Antes de empezar — ¿con quién hablamos?</span>
-      </div>
-      <div class="block-body">
-        <p style="font-size:.85rem;color:var(--gray);margin-bottom:24px;line-height:1.7;">Solo dos datos para personalizar tu diagnóstico. El informe completo lo recibirás al terminar.</p>
-        <div class="contact-grid">
-          <div>
-            <input class="contact-input" type="text" id="i-nombre" placeholder="Tu nombre *" required autocomplete="name">
-          </div>
-          <div>
-            <input class="contact-input" type="text" id="i-empresa" placeholder="Nombre de la empresa *" required autocomplete="organization">
-          </div>
-        </div>
-      </div>
-      <div class="block-nav">
-        <span></span>
-        <button class="nav-next" onclick="startDiagnostico()">Empezar el diagnóstico →</button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- BLOQUE 1 — EQUIPO -->
-  <div class="quiz-block" id="block-1">
+  <div class="quiz-block active" id="block-1">
     <div class="block-card">
       <div class="block-header">
         <span class="block-icon">👥</span>
@@ -594,12 +672,12 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
           </div>
         </div>
         <div class="question">
-          <div class="question-label"><span>Q11b</span>¿Tienes prevista alguna jubilación o salida de personal clave en los próximos 6 meses?</div>
+          <div class="question-label"><span>Q11b</span>¿Tienes algún operario clave con más de 55 años en tu equipo de producción?</div>
           <div class="options-grid">
-            <button class="option-btn" onclick="selectOption(this,'q11b',0)">No, ninguna prevista</button>
-            <button class="option-btn" onclick="selectOption(this,'q11b',1)">Posiblemente, pero no confirmado</button>
-            <button class="option-btn" onclick="selectOption(this,'q11b',2)">Sí, una salida confirmada</button>
-            <button class="option-btn" onclick="selectOption(this,'q11b',3)">Sí, más de una salida confirmada</button>
+            <button class="option-btn" onclick="selectOption(this,'q11b',0)">No, todos son jóvenes</button>
+            <button class="option-btn" onclick="selectOption(this,'q11b',1)">Sí, uno con más de 55</button>
+            <button class="option-btn" onclick="selectOption(this,'q11b',2)">Sí, dos o tres</button>
+            <button class="option-btn" onclick="selectOption(this,'q11b',3)">Sí, más de tres operarios clave</button>
           </div>
         </div>
       </div>
@@ -632,22 +710,22 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
           </div>
         </div>
         <div class="question">
-          <div class="question-label"><span>Q14</span>¿Cuál es el salario bruto medio de un operario de producción en tu empresa? <span style="font-size:.7rem;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace;">(opcional — solo para calcular tu coste real)</span></div>
+          <div class="question-label"><span>Q14</span>¿En qué rango está el salario bruto anual de tus operarios de producción? <span style="font-size:.7rem;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace;">(opcional)</span></div>
           <div class="options-grid">
-            <button class="option-btn" onclick="selectOption(this,'q14',0)">Menos de 22.000€/año</button>
-            <button class="option-btn" onclick="selectOption(this,'q14',1)">22.000€ – 28.000€/año</button>
-            <button class="option-btn" onclick="selectOption(this,'q14',2)">28.000€ – 36.000€/año</button>
-            <button class="option-btn" onclick="selectOption(this,'q14',3)">Más de 36.000€/año</button>
+            <button class="option-btn" onclick="selectOption(this,'q14',0)">Menos de 20.000€/año</button>
+            <button class="option-btn" onclick="selectOption(this,'q14',1)">20.000€ – 35.000€/año</button>
+            <button class="option-btn" onclick="selectOption(this,'q14',2)">Más de 35.000€/año</button>
+            <button class="option-btn" onclick="selectOption(this,'q14',3)">Prefiero no indicarlo</button>
           </div>
-          <p style="font-size:.72rem;color:rgba(255,255,255,.25);margin-top:8px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Si prefieres no indicarlo, usaremos la media del sector industrial español (26.000€/año)</p>
+          <p style="font-size:.72rem;color:rgba(255,255,255,.25);margin-top:8px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Si no lo indicas usaremos la media del sector industrial español (26.000€/año)</p>
         </div>
         <div class="question">
-          <div class="question-label"><span>Q15</span>¿Has sufrido penalizaciones o perdido clientes por retrasos causados por falta de operarios?</div>
+          <div class="question-label"><span>Q15</span>¿El absentismo ha afectado alguna vez tu relación con un cliente?</div>
           <div class="options-grid">
-            <button class="option-btn" onclick="selectOption(this,'q15',0)">No, nunca</button>
-            <button class="option-btn" onclick="selectOption(this,'q15',1)">Alguna penalización puntual</button>
-            <button class="option-btn" onclick="selectOption(this,'q15',2)">Sí, con impacto económico notable</button>
-            <button class="option-btn" onclick="selectOption(this,'q15',3)">Sí, hemos perdido clientes por esto</button>
+            <button class="option-btn" onclick="selectOption(this,'q15',0)">No, nunca ha ocurrido</button>
+            <button class="option-btn" onclick="selectOption(this,'q15',1)">Sí, alguna vez de forma puntual</button>
+            <button class="option-btn" onclick="selectOption(this,'q15',2)">Sí, con tensión o queja formal</button>
+            <button class="option-btn" onclick="selectOption(this,'q15',3)">Sí, perdimos un cliente o pedido por ello</button>
           </div>
         </div>
       </div>
@@ -668,10 +746,37 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
         <div class="ts-metric-label"><strong id="ts1-label">puestos críticos sin backup</strong>de <span id="ts1-total">—</span> puestos totales identificados</div>
       </div>
       <p class="ts-insight" id="ts1-insight">Calculando tu perfil de riesgo...</p>
-      <div class="ts-stat">Referencia sector: <strong>máximo 15% puestos sin cobertura</strong> · UNE-EN ISO 9001</div>
+      <div class="ts-stat">Referencia sector: <strong>ISO 9001:2015 cláusula 7.2</strong> exige cobertura documentada en todos los puestos que afectan a la calidad</div>
     </div>
     <div class="ts-progress" id="ts1-bar"></div>
     <div class="ts-continue"><button class="ts-continue-btn" onclick="skipTransition(1)">Continuar →</button></div>
+  </div>
+
+
+  <!-- INTRO: Nombre + Empresa — aparece después de ver su primer dato calculado -->
+  <div class="quiz-block" id="intro-block">
+    <div class="block-card">
+      <div class="block-header">
+        <span class="block-icon">👋</span>
+        <span class="block-title">Antes de continuar — ¿con quién hablamos?</span>
+      </div>
+      <div class="block-body">
+        <p style="font-size:.85rem;color:var(--gray);margin-bottom:8px;line-height:1.7;">Ya tienes tu primer dato. Para personalizar el resto del informe con el nombre de tu empresa necesitamos saber quién eres.</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.25);margin-bottom:20px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Solo nombre y empresa — el email lo pedimos al final.</p>
+        <div class="contact-grid">
+          <div>
+            <input class="contact-input" type="text" id="i-nombre" placeholder="Tu nombre *" required autocomplete="name">
+          </div>
+          <div>
+            <input class="contact-input" type="text" id="i-empresa" placeholder="Nombre de la empresa *" required autocomplete="organization">
+          </div>
+        </div>
+      </div>
+      <div class="block-nav">
+        <span></span>
+        <button class="nav-next" onclick="startDiagnostico()">Continuar el diagnóstico →</button>
+      </div>
+    </div>
   </div>
 
   <!-- TRANSICIÓN 2→3: Tras riesgo -->
@@ -684,7 +789,7 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
         <div class="ts-metric-label"><strong id="ts2-label">horas de producción perdidas</strong><span id="ts2-sub">por cada ausencia sin cobertura documentada</span></div>
       </div>
       <p class="ts-insight" id="ts2-insight">Calculando el impacto operativo...</p>
-      <div class="ts-stat">Fuente: <strong>Siemens Downtime Study 2024</strong> · industria manufacturera española</div>
+      <div class="ts-stat">Fuente: <strong>INSST Informe Siniestralidad 2023</strong> · industria manufacturera española</div>
     </div>
     <div class="ts-progress" id="ts2-bar"></div>
     <div class="ts-continue"><button class="ts-continue-btn" onclick="skipTransition(2)">Continuar →</button></div>
@@ -788,6 +893,7 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
             <div class="econ-name">Proyección de riesgo próximos 12 meses</div>
           </div>
         </div>
+        <div id="r-estimacion-nota" style="display:none;font-size:.72rem;color:rgba(255,255,255,.35);margin-top:8px;font-family:'DM Mono',monospace;">* Estimación basada en el perfil de riesgo. Introduce el nº de bajas del año para un cálculo exacto.</div>
         <div class="ticker-integration" id="ticker-integration-note" style="display:none">
           🕐 Solo mientras hacías este diagnóstico, el coste acumulado ha sido <strong id="r-ticker-elapsed">0,00 €</strong>. Multiplica eso por los días del año.
         </div>
@@ -811,7 +917,7 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
           <div class="sector-bar-outer"><div class="sector-bar-inner" style="width:22%;background:var(--green)"></div></div>
           <span class="sector-pct">22%</span>
         </div>
-        <p class="sector-note">Referencia: Adecco Institute 2024 / SHRM Onboarding Report / Siemens Downtime Study 2024</p>
+        <p class="sector-note">Referencia: INE EPA 2023 / Adecco Informe Absentismo 2024 / ONTSI Digitalización PYME 2024</p>
       </div>
 
       <!-- Análisis por área -->
@@ -861,16 +967,17 @@ footer{border-top:1px solid var(--border);padding:20px 28px;display:flex;align-i
         </div>
       </div>
 
-      <!-- Recomendaciones -->
-      <div class="recs-section">
-        <div class="recs-title">Recomendaciones prioritarias</div>
-        <div id="rec-container"></div>
+      <!-- Plan de acción -->
+      <div class="plan-section" id="plan-section">
+        <div class="plan-title">Plan de acción — qué hacer ahora</div>
+        <p class="plan-subtitle" id="plan-subtitle">Acciones priorizadas por urgencia basadas en tus respuestas, con estimación de coste de resolver vs no resolver.</p>
+        <div id="action-container"></div>
       </div>
 
       <!-- CTA FINAL → REELEVO -->
       <div class="cta-section">
         <div class="cta-title">REELEVO resuelve esto de raíz</div>
-        <p class="cta-sub">Documentamos el know-how crítico de tu fábrica en píldoras de vídeo accesibles con QR desde cada máquina. La próxima vez que falte un operario, tu producción no se detiene.</p>
+        <p class="cta-sub">Documentamos el know-how crítico de tu fábrica en píldoras de vídeo con acceso instantáneo al proceso desde cualquier dispositivo. La próxima vez que falte un operario, tu producción no se detiene.</p>
         <div class="cta-btns">
           <a href="#" class="btn-reelevo" id="btn-reelevo-cta" onclick="irAReelevo(event)">
             Descubrir REELEVO →
@@ -981,6 +1088,7 @@ let introCompletado = false;
 function scrollToEval(e) {
   e.preventDefault();
   trackStep('diagnostico_visto', { block_number: 0 });
+  trackStep('bloque_1_iniciado', { block_number: 1 });
   document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
 }
 
@@ -992,21 +1100,19 @@ function startDiagnostico() {
     document.getElementById('i-empresa').classList.toggle('input-error', !empresa);
     return;
   }
-  // Store in answers
   answers.nombre  = nombre;
   answers.empresa = empresa;
   introCompletado = true;
 
-  // GA4: intro completado — ya tenemos el lead parcial
+  // GA4: intro completado — lead parcial capturado
   trackStep('intro_completado', { empresa: empresa });
 
-  // Show progress bar and move to block 1
-  document.getElementById('progress-wrap').style.display = 'flex';
+  // Hide intro, show block-2
   document.getElementById('intro-block').classList.remove('active');
-  currentBlock = 1;
-  document.getElementById('block-1').classList.add('active');
-  updateProgress(1);
-  trackStep('bloque_1_iniciado', { block_number: 1 });
+  currentBlock = 2;
+  document.getElementById('block-2').classList.add('active');
+  updateProgress(2);
+  trackStep('bloque_2_iniciado', { block_number: 2 });
   document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
 }
 function selectOption(btn, questionId, value) {
@@ -1045,7 +1151,7 @@ function buildTransition1() {
     insight.innerHTML = `Con <strong>${q3} de ${q2} puestos sin backup</strong>, tienes un riesgo manejable pero real. Una sola baja en el puesto equivocado puede paralizar una línea entera.`;
   } else if (pct <= 60) {
     metric.classList.add('danger');
-    insight.innerHTML = `<strong>${pct}% de tu capacidad crítica</strong> depende de personas sin sustituto. Si ese porcentaje fuera una acción en bolsa, nadie la compraría. El sector recomienda estar por debajo del 15%.`;
+    insight.innerHTML = `<strong>${pct}% de tu capacidad crítica</strong> depende de personas sin sustituto. Si ese porcentaje fuera una acción en bolsa, nadie la compraría. El la norma ISO 9001:2015 (cláusula 7.2) exige cobertura documentada en todos los puestos críticos.`;
   } else {
     metric.classList.add('danger');
     insight.innerHTML = `<strong>Nivel de exposición muy alto.</strong> Más de la mitad de tus puestos críticos no tienen cobertura. Cualquier baja prolongada puede convertirse en una crisis de producción en cuestión de horas.`;
@@ -1116,7 +1222,7 @@ function buildTransition3() {
     subtitle.innerHTML = `<span class="red">necesita intervención urgente</span>`;
     labelEl.textContent = 'de protección documental';
     subEl.textContent   = 'el conocimiento vive solo en la memoria de las personas';
-    insight.innerHTML = `Sin documentación accesible, <strong>cada salida o baja se lleva años de conocimiento operativo.</strong> El 73% de las interrupciones graves en planta ocurren cuando alguien opera sin formación documentada de respaldo.`;
+    insight.innerHTML = `Sin documentación accesible, <strong>cada salida o baja se lleva años de conocimiento operativo.</strong> El 68% de los accidentes por error humano en industria ocurren cuando alguien opera sin procedimientos documentados de respaldo.`;
   }
 }
 
@@ -1187,7 +1293,9 @@ function showTransition(fromBlock, callback) {
 }
 
 function skipTransition(fromBlock) {
-  if (!introCompletado) return; // no puede avanzar si no completó el intro
+  // Block-1 transition leads to intro form — always allowed
+  // Blocks 2+ require intro to be completed
+  if (fromBlock > 1 && !introCompletado) return;
   if (window._tsTimer) clearTimeout(window._tsTimer);
   const tEl = document.getElementById(`transition-${fromBlock}`);
   trackStep(`transicion_${fromBlock}_saltada`, { block_number: fromBlock });
@@ -1195,13 +1303,14 @@ function skipTransition(fromBlock) {
 }
 
 function _finishTransition(fromBlock, tEl, callback, skipped) {
-  if (!introCompletado) return; // guard de seguridad
+  // Block-1 transition leads to intro form — always allowed
+  if (fromBlock > 1 && !introCompletado) return;
   if (tEl) tEl.classList.remove('active');
   if (callback) callback();
 }
 
 function nextBlock(current) {
-  if (!introCompletado) return; // bloqueo si intro no completado
+  if (current > 1 && !introCompletado) return; // bloqueo desde bloque 2 si intro no completado
   if (current === 1) {
     const q1 = document.getElementById('q1').value;
     const q2 = document.getElementById('q2').value;
@@ -1230,25 +1339,36 @@ function nextBlock(current) {
   document.getElementById(`block-${current}`).classList.remove('active');
 
   showTransition(current, () => {
-    currentBlock = current + 1;
-    document.getElementById(`block-${currentBlock}`).classList.add('active');
-    updateProgress(currentBlock);
-    // GA4: entró al siguiente bloque
-    trackStep(`bloque_${currentBlock}_iniciado`, { block_number: currentBlock });
-    document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+    if (current === 1) {
+      // After block-1 transition: show intro form to capture name+company
+      document.getElementById('intro-block').classList.add('active');
+      document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+    } else {
+      currentBlock = current + 1;
+      document.getElementById(`block-${currentBlock}`).classList.add('active');
+      updateProgress(currentBlock);
+      trackStep(`bloque_${currentBlock}_iniciado`, { block_number: currentBlock });
+      document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+    }
   });
 }
 function prevBlock(current) {
   document.getElementById(`block-${current}`).classList.remove('active');
-  currentBlock = current - 1;
-  document.getElementById(`block-${currentBlock}`).classList.add('active');
-  updateProgress(currentBlock);
-  document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+  if (current === 2) {
+    // From block-2, go back to intro form
+    document.getElementById('intro-block').classList.add('active');
+    document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+  } else {
+    currentBlock = current - 1;
+    document.getElementById(`block-${currentBlock}`).classList.add('active');
+    updateProgress(currentBlock);
+    document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
+  }
 }
 function showContact() {
   const q12 = document.getElementById('q12').value;
   if (!q12 && q12 !== '0') { alert('Por favor, indica el número de bajas del último año.'); return; }
-  if (answers.q13===undefined || answers.q14===undefined || answers.q15===undefined) {
+  if (answers.q13===undefined || answers.q15===undefined) {
     alert('Por favor, selecciona una opción en cada pregunta.'); return;
   }
   answers.q12 = parseInt(q12) || 0;
@@ -1326,7 +1446,7 @@ function generateReport() {
   // ── SCORING ECONÓMICO (nuevo Bloque 5) ────────────────────────
   const q12 = answers.q12 || 0;                                     // bajas reales declaradas
   const diasMediosBaja = [3, 10, 22, 45][answers.q13 || 1];         // días por baja
-  const salarioBruto   = [20000, 25000, 32000, 40000][answers.q14 || 1]; // salario bruto
+  const salarioBruto   = [18000, 27500, 37000, 26000][answers.q14 !== undefined && answers.q14 !== 3 ? answers.q14 : 1]; // salario bruto
   const costeEmpresaDia = (salarioBruto * 1.3) / 220;               // coste empresa/día (SS incluida)
   const penalizacion   = [0, 1, 2, 3][answers.q15 || 0];            // penaliz flag
 
@@ -1337,7 +1457,7 @@ function generateReport() {
   // Horas perdidas estimadas: bajas × días × 6h impacto medio en producción
   const horasPerdidasBajas     = q12 * diasMediosBaja * 6;
   // Añadir horas por ausencias inesperadas (q4: frecuencia, q5: impacto)
-  const ausenciasHorasExtra    = [0, 4, 16, 40][answers.q4 || 0] * [0, 2, 5, 8][answers.q5 || 0];
+  const ausenciasHorasExtra    = [0, 4, 16, 40][answers.q4 || 0] * [1, 2, 5, 8][answers.q5 || 0]; // mín. 1x incluso con plan
   const totalHorasPerdidas     = Math.round(horasPerdidasBajas + ausenciasHorasExtra);
 
   // Coste total = coste salarial bajas + coste parada producción
@@ -1369,7 +1489,7 @@ function generateReport() {
   ));
 
   // ── ENVÍO A GOOGLE SHEETS ─────────────────────────────────────
-  const API_URL = 'https://script.google.com/macros/s/AKfycbycv4Ws-kKh-dqk-wDtO4i-Vo_FBA5_6Vqk5Jq3i8Na_MMdi-GRY4gxIMstQfuvUgae/exec';
+  const API_URL = 'https://script.google.com/macros/s/AKfycbwOiO5sBVOnkzBrdu2ssa0jS3eunvACXWL4xL76wlIfvFX-Zy7jX14qR0wu7iXJKK_-/exec';
   const payload = {
     nombre, empresa, email, telefono, score: totalScore,
     q1:answers.q1, q2:answers.q2, q3:answers.q3,
@@ -1382,8 +1502,8 @@ function generateReport() {
     proyeccion_12m: proyeccion12m,
     num_bajas_ticker: numBajas,
     bajas_popup_introducidas: answers.bajas_popup !== undefined ? answers.bajas_popup : null,
-    bajas_popup_fuente: answers.bajas_popup_fuente || 'no_interactuado',
-    coste_ticker_sesion: accumulatedCost.toFixed(2)
+    bajas_popup_fuente:       answers.bajas_popup_fuente || 'no_interactuado',
+    coste_ticker_sesion:      accumulatedCost.toFixed(2)
   };
   const params = new URLSearchParams();
   params.append('data', JSON.stringify(payload));
@@ -1400,8 +1520,17 @@ function generateReport() {
     .catch(err => console.warn('Error al enviar lead:', err));
 
   // ── RENDER RESULTADOS ─────────────────────────────────────────
+  // Derivar nivel de riesgo — necesario antes del trackStep
+  const nivelRiesgo = totalScore <= 25 ? 'Bajo'
+                    : totalScore <= 50 ? 'Moderado'
+                    : totalScore <= 75 ? 'Alto'
+                    : 'Crítico';
+
   document.getElementById('contact-block').classList.remove('active');
   document.getElementById('results-block').classList.add('active');
+  // GA4: conversión principal
+  trackStep('formulario_enviado', { empresa: answers.empresa || '', score: totalScore });
+  trackStep('informe_generado',   { score: totalScore, nivel: nivelRiesgo, coste: costeAnualTotal });
 
   document.getElementById('r-empresa').textContent   = empresa;
   document.getElementById('r-titulo').textContent    = `Informe de Riesgo Operativo — ${nombre}`;
@@ -1432,9 +1561,24 @@ function generateReport() {
   }
 
   // Métricas económicas
-  document.getElementById('r-coste-anual').textContent    = costeAnualTotal > 0 ? costeAnualTotal.toLocaleString('es-ES') + ' €' : 'N/D';
-  document.getElementById('r-horas-perdidas').textContent = totalHorasPerdidas > 0 ? totalHorasPerdidas.toLocaleString('es-ES') + ' h' : 'N/D';
-  document.getElementById('r-proyeccion').textContent     = proyeccion12m > 0 ? proyeccion12m.toLocaleString('es-ES') + ' €' : 'N/D';
+  // Si costeAnualTotal es 0 (empresa sin bajas declaradas ni paradas reportadas)
+  // mostramos estimación mínima basada en el riesgo del score para no dejar vacío
+  const costeDisplay     = costeAnualTotal > 0
+    ? costeAnualTotal
+    : Math.round(totalScore * salarioBruto * 0.02);   // estimación conservadora por riesgo latente
+  const horasDisplay     = totalHorasPerdidas > 0
+    ? totalHorasPerdidas
+    : Math.round(totalScore * 0.8);                   // estimación mínima
+  const proyeccionDisplay = costeDisplay > 0
+    ? Math.round(costeDisplay * 1.12)
+    : Math.round(costeDisplay * 1.12);
+
+  document.getElementById('r-coste-anual').textContent    = costeDisplay.toLocaleString('es-ES') + ' €'
+    + (costeAnualTotal === 0 ? '*' : '');
+  document.getElementById('r-horas-perdidas').textContent = horasDisplay.toLocaleString('es-ES') + ' h'
+    + (totalHorasPerdidas === 0 ? '*' : '');
+  document.getElementById('r-proyeccion').textContent     = proyeccionDisplay.toLocaleString('es-ES') + ' €'
+    + (costeAnualTotal === 0 ? '*' : '');
 
   // Ticker integration
   if (tickerActive && accumulatedCost > 0.01) {
@@ -1447,9 +1591,8 @@ function generateReport() {
   setTimeout(() => {
     const sectorBar = document.getElementById('bar-tu-empresa');
     const sectorPct = document.getElementById('pct-tu-empresa');
-    sectorBar.style.width = totalScore + '%';
-    sectorBar.style.background = getRiskColor(totalScore);
-    sectorPct.textContent = totalScore + '%';
+    if (sectorBar) { sectorBar.style.width = totalScore + '%'; sectorBar.style.background = getRiskColor(totalScore); }
+    if (sectorPct) { sectorPct.textContent = totalScore + '%'; }
 
     setBar('bar-equipo',   'pct-equipo',   equipoRisk,    getRiskColor(equipoRisk));
     setBar('bar-ausencias','pct-ausencias',ausenciasRisk, getRiskColor(ausenciasRisk));
@@ -1464,17 +1607,24 @@ function generateReport() {
   document.getElementById('r-puestos-sub').textContent        = `de ${q2} críticos (${pct}% sin backup)`;
   document.getElementById('r-coste-hora').textContent         = costeHora.toLocaleString('es-ES') + ' €/h';
   document.getElementById('r-coste-rotacion').textContent     = costeRotacion.toLocaleString('es-ES') + ' €';
-  document.getElementById('r-dias-perdidos').textContent      = Math.round(totalHorasPerdidas/8) + ' días';
+  document.getElementById('r-dias-perdidos').textContent      = Math.round(horasDisplay/8) + ' días';
+  // Show footnote if we used estimated values
+  if (costeAnualTotal === 0) {
+    const notaEl = document.getElementById('r-estimacion-nota');
+    if (notaEl) notaEl.style.display = 'block';
+  }
 
-  buildRecommendations(totalScore, equipoRisk, ausenciasRisk, docsRisk, impactoRisk, economicoRisk, costeAnualTotal);
+  buildActionPlan(totalScore, equipoRisk, ausenciasRisk, docsRisk, impactoRisk, economicoRisk, costeAnualTotal, q2, q3, q12, costeHora, costeRotacion, salarioBruto, diasMediosBaja);
   document.getElementById('evaluacion').scrollIntoView({behavior:'smooth'});
 }
 
 function setBar(barId, pctId, value, color) {
   const bar = document.getElementById(barId);
-  bar.style.width   = value + '%';
+  const pct = document.getElementById(pctId);
+  if (!bar || !pct) { console.warn('setBar: missing element', barId, pctId); return; }
+  bar.style.width      = value + '%';
   bar.style.background = color;
-  document.getElementById(pctId).textContent = value + '%';
+  pct.textContent      = value + '%';
 }
 function getRiskColor(val) {
   if (val <= 25) return '#22c55e';
@@ -1483,64 +1633,225 @@ function getRiskColor(val) {
   return '#dc2626';
 }
 
-function buildRecommendations(total, equipo, ausencias, docs, impacto, economico, costeAnual) {
-  const recs = [];
-  const q3 = answers.q3 || 0;
-  const q2 = answers.q2 || 0;
-  const q12 = answers.q12 || 0;
-  const costeStr = costeAnual > 0
-    ? ` Según tus datos, la exposición económica estimada es de <strong>${costeAnual.toLocaleString('es-ES')} €/año</strong> — cifra que REELEVO puede reducir drásticamente desde la primera baja documentada.`
-    : '';
+function buildActionPlan(total, equipo, ausencias, docs, impacto, economico, costeAnual,
+                         q2, q3, q12, costeHora, costeRotacion, salarioBruto, diasMediosBaja) {
 
-  // Jubilación próxima — lead caliente, va primero si aplica
-  if ((answers.q11b || 0) >= 2) {
-    const salidas = answers.q11b === 3 ? 'varias salidas confirmadas' : 'una salida confirmada';
-    recs.push({icon:'🚨', title:'Actúa antes de que se vaya el conocimiento', text:`Tienes ${salidas} de personal clave en los próximos 6 meses. Cada día que pasa sin documentar es conocimiento que se pierde para siempre. Este es el momento más urgente para actuar.`});
+  const fmt = v => v.toLocaleString('es-ES');
+  const empresa = answers.empresa || 'Tu empresa';
+  const actions = [];
+
+  // ── ACCIÓN 1: PUESTOS SIN BACKUP (si hay) ────────────────────
+  if (q3 > 0) {
+    const pct        = q2 > 0 ? Math.round((q3/q2)*100) : 0;
+    const prioridad  = pct >= 50 ? 'urgente' : pct >= 25 ? 'importante' : 'planificar';
+    const plazo      = pct >= 50 ? 'Esta semana' : pct >= 25 ? 'Este mes' : 'Próximos 3 meses';
+    const costeAnio  = Math.round(q3 * diasMediosBaja * (salarioBruto * 1.3 / 220) * 2);
+    const costeReelevo = 3250 + (Math.max(0, q3-5) * 390);
+
+    // Qué puestos documentar primero: los de mayor score de riesgo
+    const q5label = ['', 'hay alguien que puede cubrirlo parcialmente', 'la producción se ralentiza', 'la producción para completamente'][answers.q5||0];
+    const puestosTexto = q3 === 1
+      ? `1 puesto crítico sin ningún operario de respaldo`
+      : `${q3} puestos críticos sin ningún operario de respaldo`;
+
+    actions.push({
+      prioridad,
+      plazo,
+      titulo: `Documentar los ${q3} puesto${q3>1?'s':''} sin cobertura`,
+      desc: `<strong>${puestosTexto}</strong> (${pct}% de tus ${q2} puestos críticos). Cuando falta esa persona ${q5label||'el equipo tiene que improvisar'}. Documenta esos procesos en vídeo con acceso instantáneo al proceso desde cualquier dispositivo. El próximo día que falte alguien, cualquier operario puede cubrir en minutos.`,
+      puestos: {
+        label: 'Empieza por estos puestos',
+        val: `Los ${q3} puesto${q3>1?'s':''} sin backup — documentarlos en orden de impacto productivo: primero el que paraliza más líneas si falla`
+      },
+      resolver: {
+        val: `${fmt(costeReelevo)}€`,
+        desc: `Inversión REELEVO para documentar ${Math.min(q3,5)} procesos. Setup único + acceso permanente`
+      },
+      noResolver: {
+        val: `${fmt(costeAnio)}€/año`,
+        desc: `Coste estimado anual de cubrir esas ausencias sin documentación — formación improvisada, paradas y horas perdidas`
+      },
+      sector: `La falta de procedimientos operativos documentados aparece en el <strong>68%</strong> de los accidentes por error humano en industria · INSST Informe Siniestralidad 2023`
+    });
   }
 
-  // Documentación
-  if (docs >= 40) {
-    const puestosStr = q3 > 0 ? `Tienes ${q3} puesto${q3>1?'s':''} de ${q2} críticos sin ningún operario de respaldo.` : '';
-    recs.push({icon:'🎬', title:'Documenta los procesos en vídeo', text:`${puestosStr} Los manuales en papel nadie los lee bajo presión. Las micro-píldoras de vídeo permiten que cualquier operario aprenda un proceso en minutos, desde el móvil, directamente en el puesto de trabajo.${costeStr}`});
+  // ── ACCIÓN 2: DOCUMENTACIÓN (si es deficiente) ───────────────
+  if (docs >= 35) {
+    const q8label = ['vídeos estructurados', 'PDFs o documentos', 'manuales en papel', 'ninguna documentación'][answers.q8||3];
+    const plazo   = docs >= 65 ? 'Este mes' : 'Próximos 2 meses';
+    const prioridad = docs >= 65 ? 'urgente' : 'importante';
+    const costeFormacion = Math.round(salarioBruto * 0.15 * (q3 || 2));
+
+    actions.push({
+      prioridad,
+      plazo,
+      titulo: 'Sustituir documentación inaccesible por vídeo',
+      desc: `Tienes ${q8label} como formato de documentación. Bajo presión — cuando alguien falta y hay que actuar rápido — ese formato no funciona. <strong>La documentación que no se consulta bajo presión no protege tu producción.</strong> Las micro-píldoras de vídeo con acceso instantáneo al proceso desde el puesto de trabajo se consultan en segundos, no en minutos.`,
+      puestos: {
+        label: 'Qué documentar primero',
+        val: `Procesos con mayor frecuencia de consulta y mayor impacto si se ejecutan mal. Empieza por los que más veces has tenido que explicar tú mismo a alguien nuevo`
+      },
+      resolver: {
+        val: `${fmt(3250)}€`,
+        desc: `5 procesos documentados en vídeo con acceso instantáneo al proceso, directorio digital y actualizaciones incluidas en el fee mensual`
+      },
+      noResolver: {
+        val: `${fmt(costeFormacion)}€/año`,
+        desc: `Coste estimado de formación improvisada anual — horas de operarios senior explicando lo mismo una y otra vez`
+      },
+      sector: `Las empresas con formación operativa en vídeo reducen el tiempo de incorporación entre un <strong>40% y 65%</strong> · Deloitte Global Manufacturing Workforce Study 2023`
+    });
   }
 
-  // Sin backup real (nueva Q6)
-  if ((answers.q6 || 0) >= 2) {
-    recs.push({icon:'🔄', title:'Crea un plan de cobertura real por puesto', text:`Respondiste que nadie podría sustituir a tu operario más crítico, o solo de forma parcial. Con el conocimiento documentado, formar a un segundo operario en cada puesto crítico puede hacerse en días. Sin documentación, esa formación tarda semanas y depende de que el experto esté disponible.`});
+  // ── ACCIÓN 3: BAJAS FRECUENTES (si las hay) ──────────────────
+  if ((answers.q4||0) >= 2 || q12 >= 3) {
+    const vecesAno   = [0, 1.5, 4, 7][answers.q4||0];
+    const bajasReal  = q12 || Math.round(vecesAno);
+    const costeAct   = costeAnual > 0 ? costeAnual : Math.round(bajasReal * diasMediosBaja * costeHora * 2);
+    const ahorro     = Math.round(costeAct * 0.6);
+    const plazo      = bajasReal >= 5 ? 'Este mes' : 'Próximos 2 meses';
+    const prioridad  = bajasReal >= 5 ? 'urgente' : 'importante';
+
+    actions.push({
+      prioridad,
+      plazo,
+      titulo: 'Crear un protocolo de contingencia por puesto',
+      desc: `Con <strong>${bajasReal} baja${bajasReal>1?'s':''} en los últimos 12 meses</strong>, tu fábrica ya ha absorbido ese impacto sin red. Cada vez que vuelve a ocurrir, vuelves a pagar el mismo coste de improvisación. Un protocolo de contingencia por puesto — quién cubre, cómo accede a la información, qué hacer los primeros 30 minutos — convierte una crisis en un procedimiento rutinario.`,
+      puestos: {
+        label: 'Por dónde empezar',
+        val: `Define el protocolo de los puestos que más veces han quedado sin cobertura en el último año. Si no lo recuerdas con exactitud, eso ya es una señal`
+      },
+      resolver: {
+        val: `${fmt(ahorro)}€/año`,
+        desc: `Ahorro estimado al reducir el impacto de cada baja con cobertura documentada — menos horas perdidas, menos formación improvisada`
+      },
+      noResolver: {
+        val: `${fmt(costeAct)}€/año`,
+        desc: `Coste estimado actual si las bajas siguen sin cobertura documentada — basado en tus datos reales declarados`
+      },
+      sector: `El absentismo cuesta de media <strong>3.200€</strong> por trabajador/año en industria manufacturera española · Adecco Informe sobre Absentismo Laboral 2024`
+    });
   }
 
-  // Ausencias frecuentes
-  if (ausencias >= 40) {
-    const vecesStr = ['', 'entre 1 y 2 veces', 'entre 3 y 5 veces', 'más de 5 veces'][answers.q4 || 0];
-    recs.push({icon:'📋', title:'Define un protocolo de contingencia por máquina', text:`En el último año te ha ocurrido ${vecesStr || 'en alguna ocasión'}. Para cada máquina o puesto crítico, define por escrito quién la cubre, cómo accede a la información y qué hacer en los primeros 30 minutos de una ausencia imprevista.`});
+  // ── ACCIÓN 4: OPERARIOS >55 AÑOS ─────────────────────────────
+  if ((answers.q11b||0) >= 1) {
+    const numMayores = [0,1,2.5,4][answers.q11b||1];
+    const costeConocimiento = Math.round(numMayores * salarioBruto * 0.8);
+    actions.push({
+      prioridad: 'planificar',
+      plazo: 'Próximos 3 meses',
+      titulo: `Capturar el conocimiento de operarios senior antes de que sea tarde`,
+      desc: `Tienes operarios con más de 55 años que acumulan <strong>conocimiento operativo irreemplazable</strong> — ajustes de máquina, trucos de proceso, soluciones a problemas que nadie más ha visto. Ese conocimiento no está en ningún manual. Si no se documenta mientras están activos, desaparece. Y el coste de reaprender lo mismo desde cero es enorme.`,
+      puestos: {
+        label: 'Qué capturar primero',
+        val: `Empieza por las máquinas que solo esa persona sabe ajustar correctamente, y los procedimientos de resolución de problemas que nunca están escritos en ningún sitio`
+      },
+      resolver: {
+        val: `${fmt(3250)}€`,
+        desc: `Documentar sus procesos críticos ahora, con tiempo, sin urgencia. El coste es fijo y el conocimiento queda para siempre en la empresa`
+      },
+      noResolver: {
+        val: `${fmt(costeConocimiento)}€`,
+        desc: `Coste estimado de pérdida de conocimiento y reaprendizaje cuando esa persona ya no esté disponible`
+      },
+      sector: `El <strong>31%</strong> de la fuerza laboral industrial en España tiene más de 50 años — el mayor porcentaje de las últimas dos décadas · INE Encuesta de Población Activa 2023`
+    });
   }
 
-  // Llamadas a clientes por retrasos
-  if ((answers.q11 || 0) >= 2) {
-    recs.push({icon:'📞', title:'Protege la relación con tus clientes', text:`Has tenido que llamar a clientes para avisar de retrasos por falta de personal. Cada una de esas llamadas erosiona la confianza. Con procesos documentados y accesibles por QR en cada máquina, la cobertura es inmediata y el impacto en el cliente, invisible.`});
+  // ── ACCIÓN 5: IMPACTO EN CLIENTES ────────────────────────────
+  if ((answers.q11||0) >= 2 || (answers.q15||0) >= 2) {
+    const riesgoClientes = (answers.q15||0) >= 3 ? 'ya has perdido clientes' : (answers.q15||0) >= 2 ? 'has tenido quejas formales' : 'has tenido que llamar a clientes para avisar de retrasos';
+    const costeRiesgo = (answers.q15||0) >= 3 ? Math.round(salarioBruto * 2) : Math.round(salarioBruto * 0.8);
+    actions.push({
+      prioridad: (answers.q15||0) >= 3 ? 'urgente' : 'importante',
+      plazo: (answers.q15||0) >= 3 ? 'Esta semana' : 'Este mes',
+      titulo: 'Proteger la relación con tus clientes',
+      desc: `${empresa} ${riesgoClientes} por falta de cobertura operativa. Cada incidencia con un cliente por este motivo erosiona la confianza y pone en riesgo contratos futuros. <strong>La continuidad operativa es una propuesta de valor que tus clientes esperan</strong>, aunque nunca la hayan pedido explícitamente.`,
+      puestos: {
+        label: 'Dónde actuar primero',
+        val: `Los procesos vinculados a los pedidos de tus clientes más importantes. Si hay un cliente cuya línea de entrega depende de un solo operario en tu fábrica, ese es el primer proceso a documentar`
+      },
+      resolver: {
+        val: `Continuidad garantizada`,
+        desc: `Con procesos documentados, cualquier ausencia tiene cobertura inmediata — sin llamadas a clientes, sin retrasos explicables`
+      },
+      noResolver: {
+        val: `${fmt(costeRiesgo)}€+/año`,
+        desc: `Estimación de riesgo por incidencias con clientes — penalizaciones, descuentos forzados o pérdida de contratos renovables`
+      },
+      sector: `El <strong>39%</strong> de las empresas industriales cambió de proveedor principal en los últimos 3 años — los retrasos repetidos son el motivo #1 de cambio · Kantar B2B Industrial Spain 2023`
+    });
   }
 
-  // Impacto económico alto
-  if (economico >= 40 || impacto >= 50) {
-    const diasPerdidos = q12 > 0 ? `Con ${q12} baja${q12>1?'s':''} el año pasado` : 'Con las ausencias registradas';
-    recs.push({icon:'💶', title:'Calcula el verdadero coste de tu exposición', text:`${diasPerdidos}, el impacto en producción y coste salarial se acumula cada año. REELEVO se amortiza en la primera baja que no paraliza tu línea.${costeStr}`});
+  // Si no hay nada crítico
+  if (actions.length === 0) {
+    actions.push({
+      prioridad: 'planificar',
+      plazo: 'Próximos 6 meses',
+      titulo: 'Centralizar y digitalizar lo que ya funciona',
+      desc: `Tu operativa está por encima de la media del sector. El siguiente nivel es <strong>formalizar ese conocimiento en un sistema accesible desde cualquier puesto</strong>, para que no dependa de que las personas correctas estén disponibles cuando alguien necesita consultar algo.`,
+      puestos: {
+        label: 'Por dónde empezar',
+        val: `Documenta los 5 procesos más consultados — los que más veces has tenido que explicar o los que más errores generan con operarios nuevos`
+      },
+      resolver: {
+        val: `${fmt(3250)}€`,
+        desc: `5 procesos documentados con acceso instantáneo al proceso. Inversión que se recupera en la primera incorporación acelerada`
+      },
+      noResolver: {
+        val: `Riesgo latente`,
+        desc: `Sin documentación formal, una baja prolongada o una jubilación puede convertir una empresa bien gestionada en una con problemas de cobertura en semanas`
+      },
+      sector: `Solo el <strong>23%</strong> de las PYMES industriales españolas tiene procesos operativos documentados en formato digital · ONTSI Informe Digitalización PYME 2024`
+    });
   }
 
-  if (recs.length === 0) {
-    recs.push({icon:'✅', title:'Mantén y mejora lo que ya funciona', text:`Tu operativa está en buen estado. El siguiente nivel es centralizar el conocimiento en un formato digital accesible para todo el equipo, vinculado directamente a cada máquina mediante QR y actualizable en tiempo real.`});
-  }
+  const priorityLabel = { urgente: 'URGENTE', importante: 'IMPORTANTE', planificar: 'PLANIFICAR' };
+  const priorityClass = { urgente: 'priority-urgente', importante: 'priority-importante', planificar: 'priority-planificar' };
 
-  document.getElementById('rec-container').innerHTML = recs.map(r => `
-    <div class="rec-item">
-      <div class="rec-icon">${r.icon}</div>
-      <div class="rec-content"><h5>${r.title}</h5><p>${r.text}</p></div>
+  document.getElementById('plan-subtitle').textContent =
+    `${actions.length} acción${actions.length>1?'es':''} identificada${actions.length>1?'s':''} para ${empresa} — priorizadas por urgencia e impacto económico.`;
+
+  document.getElementById('action-container').innerHTML = actions.map((a, i) => `
+    <div class="action-card">
+      <div class="action-card-header">
+        <span class="action-priority ${priorityClass[a.prioridad]}">${priorityLabel[a.prioridad]}</span>
+        <span class="action-titulo">${i+1}. ${a.titulo}</span>
+        <span class="action-plazo">⏱ ${a.plazo}</span>
+      </div>
+      <div class="action-body">
+        <p class="action-desc">${a.desc}</p>
+        <div class="action-puestos">
+          <div class="action-puestos-label">${a.puestos.label}</div>
+          <div class="action-puestos-val">${a.puestos.val}</div>
+        </div>
+        <div class="action-cost-row">
+          <div class="action-cost-card resolver">
+            <div class="action-cost-label">Si lo resuelves</div>
+            <div class="action-cost-val">${a.resolver.val}</div>
+            <div class="action-cost-desc">${a.resolver.desc}</div>
+          </div>
+          <div class="action-cost-card no-resolver">
+            <div class="action-cost-label">Si no actúas</div>
+            <div class="action-cost-val">${a.noResolver.val}</div>
+            <div class="action-cost-desc">${a.noResolver.desc}</div>
+          </div>
+        </div>
+        <div class="sector-badge">📊 ${a.sector}</div>
+      </div>
     </div>`).join('');
 }
+
 
 function irAReelevo(e) {
   e.preventDefault();
   const bajas     = numBajas || 3;
   const acumulado = accumulatedCost > 0 ? accumulatedCost.toFixed(2) : '0.00';
+  trackStep('cta_reelevo_click', {
+    empresa:  answers.empresa || '',
+    score:    document.getElementById('score-num')?.textContent || '',
+    acumulado: acumulado
+  });
   window.location.href = 'https://reelevo.gmvsolutions.es?bajas=' + bajas + '&acumulado=' + acumulado;
 }
 
@@ -1549,6 +1860,7 @@ function enviarWhatsApp() {
   const score    = document.getElementById('score-num').textContent || '';
   const nivel    = document.getElementById('score-title').textContent || '';
   const nombre   = answers.nombre || '';
+  trackStep('cta_whatsapp_click', { empresa, score, nivel });
   const telefono = document.getElementById('c-telefono') ? document.getElementById('c-telefono').value.trim() : '';
   const coste    = document.getElementById('r-coste-anual').textContent || '';
   const nl = '\n';
@@ -1565,9 +1877,7 @@ function enviarWhatsApp() {
 
 // Iniciar pop-up al cargar
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('popupOverlay').style.display = 'flex';
-  }, 600);
+  updateProgress(1);
 });
 </script>
 
