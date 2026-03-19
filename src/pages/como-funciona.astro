@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Cómo funciona REELEVO — Documentación operativa en 3 pasos simples";
-const description = "El operario experto graba cada paso del proceso. Imprimimos el QR en la máquina. El sustituto escanea y accede a las instrucciones paso a paso. Sin usuarios, sin apps, sin complicaciones.";
+const description = "El operario experto captura cada paso del proceso. El conocimiento queda disponible directamente en la máquina para cualquier sustituto. Sin usuarios, sin apps, sin complicaciones.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -12,15 +12,15 @@ const schema = {
   "step": [
     {
       "@type": "HowToStep",
-      "text": "El operario experto graba cada paso del proceso con su móvil"
+      "text": "El operario experto captura cada paso del proceso"
     },
     {
       "@type": "HowToStep",
-      "text": "Subimos los vídeos al panel y generamos el QR para la máquina"
+      "text": "El conocimiento queda disponible en la máquina para cualquier operario"
     },
     {
       "@type": "HowToStep",
-      "text": "El sustituto escanea el QR y accede a las instrucciones"
+      "text": "El sustituto accede al proceso y sigue las instrucciones paso a paso"
     }
   ]
 };
@@ -51,7 +51,7 @@ const schema = {
           <div class="step-role">👨‍🔧 El operario experto</div>
           <h2 class="section-title">Graba su conocimiento</h2>
           <p class="section-sub">
-            Con su propio móvil, el operario clave graba cada paso del proceso.
+            Con su propio móvil, el operario clave captura cada paso del proceso.
             30-90 segundos por paso, sin prisas, explicando los detalles que importan.
           </p>
 
@@ -147,7 +147,7 @@ const schema = {
           <div class="step-role">👤 El sustituto / nuevo operario</div>
           <h2 class="section-title">Opera desde el primer momento</h2>
           <p class="section-sub">
-            Escanea el QR de la máquina, introduce el código de empresa de 4 dígitos
+            Accede al proceso de la máquina, introduce el código de empresa de 4 dígitos
             y accede a las instrucciones paso a paso. Sin crear cuenta, sin instalaciones.
           </p>
 
@@ -367,18 +367,18 @@ const schema = {
     </h2>
     <p class="cta-sub fade-up delay-2">
       Configura tu primer proceso en menos de 1 hora.
-      30 días gratis para probarlo en tu planta.
+      Solicita una demo para probarlo en tu planta.
     </p>
-    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Crear cuenta gratis →
+        Solicitar demo →
       </a>
       <a href="/precios" class="btn-ghost">
         Ver precios
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Sin tarjeta de crédito · Implementación asistida · Configuración en 1 día
+      Sin compromiso · Implementación asistida · Configuración en 1 día
     </div>
   </section>
 </BaseLayout>
@@ -424,21 +424,28 @@ const schema = {
   .scenarios-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 24px;
     margin-top: 40px;
   }
 
   .benefits-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 24px;
     margin-top: 48px;
   }
 
   .benefit-card {
     background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     padding: 32px 28px;
     text-align: center;
+    transition: border-color .25s;
+  }
+
+  .benefit-card:hover {
+    border-color: var(--border-hover);
   }
 
   .benefit-card-icon {

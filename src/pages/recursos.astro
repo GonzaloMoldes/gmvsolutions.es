@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Recursos y guías — Documentación operativa industrial para pymes españolas";
-const description = "Guías prácticas, estudios de caso y recursos gratuitos sobre documentación operativa, absentismo industrial, onboarding de operarios y gestión del conocimiento en pymes manufactureras.";
+const description = "Guías prácticas, herramientas gratuitas y recursos sobre documentación operativa, absentismo industrial y gestión del conocimiento en pymes manufactureras.";
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  "@type": "WebPage",
   "headline": "Recursos sobre documentación operativa industrial",
-  "description": "Guías y recursos para mejorar la documentación operativa en pymes industriales",
+  "description": description,
   "author": {
     "@type": "Organization",
     "name": "GMV Solutions"
@@ -26,7 +26,7 @@ const schema = {
   <section class="page-hero">
     <div class="eyebrow fade-up">Centro de conocimiento</div>
     <h1 class="fade-up delay-1">Recursos y <em>guías prácticas</em><br>para tu planta.</h1>
-    <p class="fade-up delay-2">Estudios, guías y herramientas gratuitas sobre documentación operativa, gestión del absentismo y optimización de procesos para pymes industriales españolas.</p>
+    <p class="fade-up delay-2">Herramientas gratuitas y guías sobre documentación operativa, gestión del absentismo y cómo dejar de depender de una sola persona.</p>
     <div class="hero-cta-group fade-up delay-3">
       <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Calcular mi riesgo operativo →</a>
     </div>
@@ -42,8 +42,8 @@ const schema = {
         <div class="eyebrow">Herramientas gratuitas</div>
         <h2 class="section-title">Calcula el impacto real</h2>
         <p class="section-sub">
-          Herramientas online gratuitas para evaluar tu situación actual
-          y el potencial de mejora en tu empresa.
+          Herramientas online para evaluar tu situación actual
+          y ver cuánto te está costando la dependencia operativa.
         </p>
       </div>
 
@@ -53,14 +53,14 @@ const schema = {
           <div class="tool-icon">📊</div>
           <h3 class="tool-title">Calculadora de riesgo operativo</h3>
           <p class="tool-desc">
-            Descubre cuánto te está costando realmente la dependencia de operarios clave.
-            Análisis personalizado basado en los datos de tu empresa.
+            16 preguntas sobre tu planta. Resultado inmediato con tu nivel de riesgo
+            y un plan de acción personalizado.
           </p>
           <div class="tool-features">
             <div class="tool-feature">✓ Evaluación en 2 minutos</div>
-            <div class="tool-feature">✓ Informe personalizado con plan de acción</div>
+            <div class="tool-feature">✓ Informe personalizado</div>
             <div class="tool-feature">✓ Benchmark con el sector</div>
-            <div class="tool-feature">✓ ROI estimado de soluciones</div>
+            <div class="tool-feature">✓ ROI estimado</div>
           </div>
           <div class="tool-cta">
             <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Hacer diagnóstico →</a>
@@ -69,35 +69,18 @@ const schema = {
 
         <div class="tool-card">
           <div class="tool-icon">💰</div>
-          <h3 class="tool-title">Calculadora de ROI REELEVO</h3>
+          <h3 class="tool-title">Calculadora de ROI</h3>
           <p class="tool-desc">
-            Calcula el retorno de inversión específico de implementar
-            REELEVO en tu planta.
+            Calcula cuánto te ahorrarías con REELEVO en función
+            del tamaño de tu equipo y tu tasa de absentismo.
           </p>
           <div class="tool-features">
-            <div class="tool-feature">✓ Personalizada por sector</div>
+            <div class="tool-feature">✓ Personalizada por datos reales</div>
             <div class="tool-feature">✓ Tiempo de amortización</div>
             <div class="tool-feature">✓ Ahorro anual estimado</div>
           </div>
           <div class="tool-cta">
             <a href="/precios#roi" class="btn-ghost">Calcular ROI →</a>
-          </div>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-icon">📋</div>
-          <h3 class="tool-title">Checklist de implementación</h3>
-          <p class="tool-desc">
-            Lista paso a paso para documentar tus procesos críticos
-            sin herramientas especializadas.
-          </p>
-          <div class="tool-features">
-            <div class="tool-feature">✓ 15 pasos validados</div>
-            <div class="tool-feature">✓ Plantillas incluidas</div>
-            <div class="tool-feature">✓ Casos de éxito</div>
-          </div>
-          <div class="tool-cta">
-            <a href="#guias" class="btn-ghost">Ver checklist →</a>
           </div>
         </div>
       </div>
@@ -113,8 +96,8 @@ const schema = {
         <div class="eyebrow">Guías prácticas</div>
         <h2 class="section-title">Aprende paso a paso</h2>
         <p class="section-sub">
-          Guías detalladas basadas en casos reales de pymes industriales españolas.
-          Implementación práctica sin teoría innecesaria.
+          Guías directas al grano, sin teoría innecesaria.
+          Lo que necesitas saber para documentar tu planta.
         </p>
       </div>
 
@@ -141,8 +124,8 @@ const schema = {
           <div class="guide-category">Gestión absentismo</div>
           <h3 class="guide-title">Plan de contingencia para bajas inesperadas</h3>
           <p class="guide-desc">
-            Protocolo completo para minimizar el impacto de ausencias no programadas.
-            Basado en casos reales del sector manufacturero.
+            Protocolo para minimizar el impacto cuando el operario clave
+            no viene a trabajar. Paso a paso.
           </p>
           <div class="guide-meta">
             <span class="guide-time">⏱️ 12 min. lectura</span>
@@ -159,8 +142,8 @@ const schema = {
           <div class="guide-category">Onboarding operarios</div>
           <h3 class="guide-title">Onboarding de operarios en 3 días sin tutor</h3>
           <p class="guide-desc">
-            Sistema completo para que nuevas incorporaciones alcancen
-            el rendimiento óptimo en el menor tiempo posible.
+            Sistema para que las nuevas incorporaciones rindan rápido
+            sin que nadie deje su puesto para enseñar.
           </p>
           <div class="guide-meta">
             <span class="guide-time">⏱️ 18 min. lectura</span>
@@ -175,10 +158,10 @@ const schema = {
 
         <div class="guide-card">
           <div class="guide-category">Personal ETT</div>
-          <h3 class="guide-title">Integración express de personal temporal</h3>
+          <h3 class="guide-title">Que el personal temporal rinda desde el primer turno</h3>
           <p class="guide-desc">
-            Cómo conseguir que el personal ETT rinda desde el primer turno
-            sin comprometer la calidad ni la seguridad.
+            Cómo conseguir que el personal ETT opere correctamente
+            sin comprometer calidad ni seguridad.
           </p>
           <div class="guide-meta">
             <span class="guide-time">⏱️ 10 min. lectura</span>
@@ -195,8 +178,8 @@ const schema = {
           <div class="guide-category">Transferencia conocimiento</div>
           <h3 class="guide-title">Captura el conocimiento antes de que se vaya</h3>
           <p class="guide-desc">
-            Metodología para extraer y documentar el conocimiento crítico
-            de operarios veteranos antes de su jubilación.
+            Cómo extraer y documentar lo que saben tus operarios veteranos
+            antes de que se jubilen o cambien de empresa.
           </p>
           <div class="guide-meta">
             <span class="guide-time">⏱️ 20 min. lectura</span>
@@ -213,8 +196,8 @@ const schema = {
           <div class="guide-category">ROI y métricas</div>
           <h3 class="guide-title">Cómo medir el ROI de la documentación operativa</h3>
           <p class="guide-desc">
-            Métricas clave y metodología para demostrar el retorno de inversión
-            de implementar sistemas de documentación operativa.
+            Métricas y metodología para demostrar a dirección que esto
+            merece la inversión. Con números, no con opiniones.
           </p>
           <div class="guide-meta">
             <span class="guide-time">⏱️ 16 min. lectura</span>
@@ -229,9 +212,9 @@ const schema = {
       </div>
 
       <div class="guides-cta fade-up delay-2">
-        <h3>¿Necesitas una guía específica?</h3>
-        <p>Cuéntanos tu situación y crearemos contenido personalizado para tu sector o problema específico.</p>
-        <a href="mailto:hola@gmvsolutions.es?subject=Solicitud de guía personalizada" class="btn-ghost">Solicitar guía personalizada →</a>
+        <h3>¿Necesitas una guía para tu caso concreto?</h3>
+        <p>Cuéntanos tu situación y preparamos contenido adaptado a tu sector.</p>
+        <a href="mailto:hola@gmvsolutions.es?subject=Solicitud de guía personalizada" class="btn-ghost">Pedir guía personalizada →</a>
       </div>
     </div>
   </section>
@@ -242,11 +225,11 @@ const schema = {
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Estudios del sector</div>
-        <h2 class="section-title">Datos y tendencias</h2>
+        <div class="eyebrow">Datos del sector</div>
+        <h2 class="section-title">Números que importan</h2>
         <p class="section-sub">
-          Investigaciones propias y análisis del mercado industrial español.
-          Datos actualizados sobre absentismo, rotación y costes operativos.
+          Datos actualizados sobre absentismo, rotación y costes operativos
+          en la industria española.
         </p>
       </div>
 
@@ -269,15 +252,15 @@ const schema = {
             </div>
           </div>
           <p class="study-desc">
-            Primer estudio exhaustivo sobre la dependencia de perfiles técnicos clave
+            Primer estudio sobre la dependencia de perfiles técnicos clave
             en pymes manufactureras españolas de 10-200 empleados.
           </p>
           <div class="study-highlights">
             <h4>Conclusiones principales:</h4>
             <ul>
-              <li>El 87% identifica "dependencia de operarios clave" como riesgo alto</li>
+              <li>El 87% identifica la dependencia de operarios clave como riesgo alto</li>
               <li>Pérdida media de 3,2 horas por baja no cubierta correctamente</li>
-              <li>Solo el 23% tiene procesos documentados actualizados</li>
+              <li>Solo el 23% tiene procesos documentados y actualizados</li>
             </ul>
           </div>
         </div>
@@ -302,9 +285,9 @@ const schema = {
           <div class="study-highlights">
             <h4>Por sectores:</h4>
             <ul>
-              <li><strong>Automoción:</strong> 8,1% tasa absentismo - €2.4k/empleado</li>
-              <li><strong>Alimentario:</strong> 6,8% tasa absentismo - €1.9k/empleado</li>
-              <li><strong>Metal/mecánica:</strong> 7,5% tasa absentismo - €2.2k/empleado</li>
+              <li><strong>Automoción:</strong> 8,1% tasa absentismo — €2.4k/empleado</li>
+              <li><strong>Alimentario:</strong> 6,8% tasa absentismo — €1.9k/empleado</li>
+              <li><strong>Metal/mecánica:</strong> 7,5% tasa absentismo — €2.2k/empleado</li>
             </ul>
           </div>
         </div>
@@ -314,7 +297,13 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- CASOS DE ÉXITO -->
+  <!--
+  ═══════════════════════════════════════════
+  CASOS DE ÉXITO — COMENTADO
+  Los casos actuales son inventados. Descomentar
+  cuando tengamos casos reales documentados.
+  ═══════════════════════════════════════════
+
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
@@ -322,155 +311,40 @@ const schema = {
         <h2 class="section-title">Casos de éxito documentados</h2>
         <p class="section-sub">
           Historias reales de pymes industriales que han resuelto su dependencia operativa.
-          Resultados medibles y lecciones aprendidas.
         </p>
       </div>
-
       <div class="cases-grid fade-up delay-1">
-        <div class="case-card">
-          <div class="case-sector">Sector automoción • 45 empleados</div>
-          <h3 class="case-title">«Redujimos el tiempo de incorporación de 2 semanas a 3 días»</h3>
-          <div class="case-challenge">
-            <h4>Situación inicial:</h4>
-            <p>
-              Empresa de componentes de automoción con alta dependencia del jefe de taller.
-              Cada baja suponía parar 2 líneas durante medio día.
-            </p>
-          </div>
-          <div class="case-solution">
-            <h4>Solución implementada:</h4>
-            <p>
-              Documentación de 8 procesos críticos con REELEVO.
-              QR en cada estación de trabajo con acceso directo.
-            </p>
-          </div>
-          <div class="case-results">
-            <h4>Resultados en 6 meses:</h4>
-            <ul>
-              <li>-73% tiempo de incorporación nuevos operarios</li>
-              <li>-45% de llamadas al jefe de taller durante bajas</li>
-              <li>+12% productividad en líneas documentadas</li>
-              <li>ROI: 340% en el primer año</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case-card">
-          <div class="case-sector">Alimentario • 28 empleados</div>
-          <h3 class="case-title">«El personal ETT rinde desde el primer turno»</h3>
-          <div class="case-challenge">
-            <h4>Situación inicial:</h4>
-            <p>
-              Procesadora de alimentos con picos estacionales. El personal temporal
-              necesitaba 1 semana para alcanzar el rendimiento esperado.
-            </p>
-          </div>
-          <div class="case-solution">
-            <h4>Solución implementada:</h4>
-            <p>
-              Procesos de empaquetado y control de calidad documentados paso a paso.
-              Certificación automática por ejecución correcta.
-            </p>
-          </div>
-          <div class="case-results">
-            <h4>Resultados en 4 meses:</h4>
-            <ul>
-              <li>-85% tiempo hasta rendimiento óptimo personal ETT</li>
-              <li>-60% errores de empaquetado primeros días</li>
-              <li>+25% eficiencia en picos estacionales</li>
-              <li>100% cumplimiento protocolos de seguridad alimentaria</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="case-card">
-          <div class="case-sector">Metal-mecánica • 67 empleados</div>
-          <h3 class="case-title">«Capturamos 20 años de experiencia antes de la jubilación»</h3>
-          <div class="case-challenge">
-            <h4>Situación inicial:</h4>
-            <p>
-              Taller de mecanizado con operario veterano próximo a jubilarse.
-              Su conocimiento de configuración de máquinas no estaba documentado.
-            </p>
-          </div>
-          <div class="case-solution">
-            <h4>Solución implementada:</h4>
-            <p>
-              Sesiones de grabación intensivas de configuraciones complejas.
-              Troubleshooting inline para problemas habituales.
-            </p>
-          </div>
-          <div class="case-results">
-            <h4>Resultados en 3 meses:</h4>
-            <ul>
-              <li>15 configuraciones complejas documentadas</li>
-              <li>-90% dependencia del operario veterano</li>
-              <li>3 operarios certificados en configuraciones críticas</li>
-              <li>Transición sin impacto en producción</li>
-            </ul>
-          </div>
-        </div>
+        — Aquí irán los casos reales cuando los tengamos —
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
+  -->
 
-  <!-- WEBINARS Y EVENTOS -->
+  <!-- WEBINARS — Próximamente -->
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Formación</div>
         <h2 class="section-title">Webinars y eventos</h2>
         <p class="section-sub">
-          Sesiones formativas online gratuitas sobre documentación operativa,
-          gestión del conocimiento y optimización de procesos.
+          Sesiones formativas online gratuitas sobre documentación operativa
+          y gestión del conocimiento industrial.
         </p>
       </div>
 
-      <div class="webinars-grid fade-up delay-1">
-        <div class="webinar-card upcoming">
-          <div class="webinar-status">Próximo webinar</div>
-          <div class="webinar-date">Miércoles 2 Abril • 11:00h</div>
-          <h3 class="webinar-title">Cómo reducir la dependencia operativa en 30 días</h3>
-          <p class="webinar-desc">
-            Masterclass práctica: desde la identificación de procesos críticos
-            hasta la implementación de sistemas de documentación.
-          </p>
-          <div class="webinar-agenda">
-            <h4>Agenda (60 min):</h4>
-            <ul>
-              <li>Matriz de dependencias operativas (15 min)</li>
-              <li>Técnicas de captura de conocimiento (20 min)</li>
-              <li>Sistemas de distribución del conocimiento (15 min)</li>
-              <li>Q&A con casos reales (10 min)</li>
-            </ul>
-          </div>
-          <div class="webinar-cta">
-            <a href="mailto:hola@gmvsolutions.es?subject=Registro webinar 2 abril" class="btn-primary">Registrarme gratis →</a>
-          </div>
-        </div>
-
-        <div class="webinar-card past">
-          <div class="webinar-status">Grabación disponible</div>
-          <div class="webinar-date">Febrero 2025 • 156 asistentes</div>
-          <h3 class="webinar-title">El coste real del absentismo industrial</h3>
-          <p class="webinar-desc">
-            Análisis de datos del sector y metodologías para calcular
-            el impacto económico real de las ausencias no programadas.
-          </p>
-          <div class="webinar-highlights">
-            <h4>Puntos clave:</h4>
-            <ul>
-              <li>Cálculo del coste total por ausencia</li>
-              <li>Diferencias por sector industrial</li>
-              <li>ROI de sistemas de contingencia</li>
-            </ul>
-          </div>
-          <div class="webinar-cta">
-            <a href="mailto:hola@gmvsolutions.es?subject=Solicitar grabación absentismo" class="btn-ghost">Ver grabación →</a>
-          </div>
-        </div>
+      <div class="webinars-coming-soon fade-up delay-1">
+        <div class="coming-soon-icon">🎙️</div>
+        <h3 class="coming-soon-title">Próximamente</h3>
+        <p class="coming-soon-desc">
+          Estamos preparando nuestros primeros webinars sobre documentación operativa,
+          gestión del absentismo y onboarding de operarios.<br><br>
+          Si quieres que te avisemos cuando publiquemos fechas, déjanos tu email.
+        </p>
+        <a href="mailto:hola@gmvsolutions.es?subject=Avísame de próximos webinars" class="btn-ghost">
+          Quiero que me aviséis →
+        </a>
       </div>
     </div>
   </section>
@@ -479,15 +353,15 @@ const schema = {
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Tienes una pregunta específica?</div>
+    <div class="cta-eyebrow fade-up">¿Tienes una pregunta?</div>
     <h2 class="cta-title fade-up delay-1">
       Hablemos de tu <em>situación</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Cada empresa industrial es diferente. Consulta tu caso específico
+      Cada empresa es diferente. Cuéntanos tu caso
       y te ayudamos a encontrar la mejor solución.
     </p>
-    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <div class="cta-actions fade-up delay-3">
       <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
         Evaluar mi situación →
       </a>
@@ -496,94 +370,103 @@ const schema = {
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Respuesta en menos de 4 horas · Consulta sin compromiso
+      Respuesta en menos de 4 horas · Sin compromiso
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
   /* Tools grid */
   .tools-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
     margin-top: 48px;
   }
 
   .tool-card {
     background: var(--surface);
-    padding: 32px 28px;
-    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .25s;
+  }
+
+  .tool-card:hover {
+    border-color: var(--border-hover);
   }
 
   .tool-card.featured {
-    border: 2px solid var(--orange);
+    border-color: var(--orange);
   }
 
   .tool-tag {
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--orange);
-    color: var(--white);
     font-family: 'DM Mono', monospace;
     font-size: .6rem;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    padding: 6px 16px;
-    font-weight: 500;
+    color: var(--orange);
+    margin-bottom: 16px;
   }
 
   .tool-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
   }
 
   .tool-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .03em;
-    margin-bottom: 16px;
-    line-height: 1.2;
+    margin-bottom: 12px;
   }
 
   .tool-desc {
     font-size: .9rem;
     color: var(--gray);
     line-height: 1.65;
-    margin-bottom: 20px;
-  }
-
-  .tool-features {
     margin-bottom: 24px;
   }
 
-  .tool-feature {
-    font-size: .8rem;
-    color: rgba(255, 255, 255, .8);
-    margin-bottom: 6px;
+  .tool-features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex: 1;
   }
 
-  .tool-cta {
-    margin-top: auto;
+  .tool-feature {
+    font-size: .82rem;
+    color: rgba(255, 255, 255, .75);
+    line-height: 1.4;
   }
+
+  .tool-feature .check { color: var(--green); }
 
   /* Guides grid */
   .guides-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
     margin-top: 48px;
   }
 
   .guide-card {
     background: var(--surface);
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    transition: border-color .25s;
+  }
+
+  .guide-card:hover {
+    border-color: var(--border-hover);
   }
 
   .guide-category {
@@ -597,17 +480,16 @@ const schema = {
 
   .guide-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: .03em;
+    letter-spacing: .02em;
     margin-bottom: 12px;
     line-height: 1.2;
-    flex: 1;
   }
 
   .guide-desc {
-    font-size: .85rem;
+    font-size: .88rem;
     color: var(--gray);
     line-height: 1.65;
     margin-bottom: 16px;
@@ -617,57 +499,67 @@ const schema = {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
+  }
+
+  .guide-time, .guide-difficulty {
     font-size: .75rem;
     color: var(--gray2);
   }
 
   .guide-topics {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .guide-topics span {
-    font-size: .7rem;
-    color: rgba(255, 255, 255, .6);
-    padding: 2px 8px;
-    background: rgba(255, 255, 255, .05);
-    border-radius: 2px;
-    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--gray);
+    background: var(--surface2);
+    padding: 4px 10px;
+    border-radius: 3px;
   }
 
   .guides-cta {
-    text-align: center;
-    margin-top: 48px;
-    padding: 32px;
     background: var(--surface);
-    border-radius: 4px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 32px;
   }
 
   .guides-cta h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
     margin-bottom: 8px;
   }
 
   .guides-cta p {
     font-size: .9rem;
     color: var(--gray);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.6;
   }
 
   /* Studies */
   .studies-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    gap: 24px;
     margin-top: 48px;
+    text-align: left;
   }
 
   .study-card {
     background: var(--surface);
-    padding: 32px 28px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 36px 32px;
   }
 
   .study-type {
@@ -676,7 +568,7 @@ const schema = {
     letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .study-title {
@@ -684,7 +576,7 @@ const schema = {
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: .03em;
+    letter-spacing: .02em;
     margin-bottom: 20px;
     line-height: 1.2;
   }
@@ -695,9 +587,7 @@ const schema = {
     margin-bottom: 20px;
   }
 
-  .study-stat {
-    text-align: center;
-  }
+  .study-stat { text-align: center; }
 
   .study-stat-number {
     font-family: 'Oswald', sans-serif;
@@ -753,193 +643,44 @@ const schema = {
     font-weight: 500;
   }
 
-  /* Cases grid */
-  .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+  /* Webinars — Próximamente */
+  .webinars-coming-soon {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 64px 40px;
+    text-align: center;
     margin-top: 48px;
   }
 
-  .case-card {
-    background: var(--surface);
-    padding: 28px 24px;
-  }
-
-  .case-sector {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 12px;
-  }
-
-  .case-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: .95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    color: var(--orange);
-  }
-
-  .case-challenge,
-  .case-solution,
-  .case-results {
-    margin-bottom: 16px;
-  }
-
-  .case-challenge h4,
-  .case-solution h4,
-  .case-results h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gray2);
-    margin-bottom: 6px;
-  }
-
-  .case-results h4 {
-    color: var(--orange);
-  }
-
-  .case-challenge p,
-  .case-solution p {
-    font-size: .8rem;
-    color: var(--gray);
-    line-height: 1.6;
-  }
-
-  .case-results ul {
-    list-style: none;
-    font-size: .8rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, .8);
-  }
-
-  .case-results li {
-    margin-bottom: 3px;
-  }
-
-  .case-results li::before {
-    content: '✓';
-    color: var(--green);
-    margin-right: 6px;
-    font-weight: 600;
-  }
-
-  /* Webinars */
-  .webinars-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    margin-top: 48px;
-  }
-
-  .webinar-card {
-    background: var(--surface);
-    padding: 32px 28px;
-    position: relative;
-  }
-
-  .webinar-card.upcoming {
-    border: 2px solid var(--orange);
-  }
-
-  .webinar-status {
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--orange);
-    color: var(--white);
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    font-weight: 500;
-  }
-
-  .webinar-card.past .webinar-status {
-    background: var(--gray);
-  }
-
-  .webinar-date {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin: 20px 0 16px;
-  }
-
-  .webinar-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .webinar-desc {
-    font-size: .9rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 20px;
-  }
-
-  .webinar-agenda h4,
-  .webinar-highlights h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: .65rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 8px;
-  }
-
-  .webinar-agenda ul,
-  .webinar-highlights ul {
-    list-style: none;
-    font-size: .8rem;
-    line-height: 1.6;
+  .coming-soon-icon {
+    font-size: 3rem;
     margin-bottom: 24px;
   }
 
-  .webinar-agenda li,
-  .webinar-highlights li {
-    margin-bottom: 4px;
-    color: rgba(255, 255, 255, .8);
+  .coming-soon-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--orange);
+    margin-bottom: 16px;
   }
 
-  .webinar-agenda li::before,
-  .webinar-highlights li::before {
-    content: '→';
-    color: var(--orange);
-    margin-right: 8px;
-    font-weight: 500;
+  .coming-soon-desc {
+    font-size: .95rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto 32px;
   }
 
   /* Responsive */
   @media (max-width: 900px) {
-    .tools-grid {
-      grid-template-columns: 1fr;
-    }
-
+    .tools-grid,
     .guides-grid,
-    .cases-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .studies-grid,
-    .webinars-grid {
+    .studies-grid {
       grid-template-columns: 1fr;
     }
 
