@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "REELEVO — Documentación operativa industrial | Cualquier operario, desde el primer día";
-const description = "REELEVO captura el conocimiento de tus operarios expertos en vídeo y lo distribuye por QR físico en cada máquina. Reduce el tiempo hasta rendir de sustitutos y nuevas incorporaciones. Sin usuarios ni contraseñas.";
+const title = "REELEVO — Que cualquier operario rinda como tu mejor experto desde el primer día";
+const description = "REELEVO captura el conocimiento de tus operarios expertos en vídeo y lo pone disponible en cada máquina por QR. Sin apps, sin usuarios, sin esperar a que alguien enseñe.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -12,46 +12,40 @@ const schema = {
   "publisher": {
     "@type": "Organization",
     "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es",
-    "logo": "https://gmvsolutions.es/logo.png"
+    "url": "https://gmvsolutions.es"
   }
 };
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  schema={schema}
-  activeNav=""
->
-  <!-- Background for hero -->
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- Imagen de fondo fija (solo hero) -->
   <div class="hero-bg"></div>
 
-  <!-- HERO -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-eyebrow fade-up">Incorporación operativa · Sustitución sin fricción</div>
+    <div class="hero-eyebrow fade-up">Documentación operativa para tu planta</div>
     <h1 class="hero-title fade-up delay-1">
-      Cualquier persona,<br>
-      desde el <em>primer día,</em><br>
-      puede operar como<br>
-      un experto.
+      Que cualquier persona<br>
+      opere como tu <em>mejor experto</em><br>
+      desde el primer día.
     </h1>
     <p class="hero-sub fade-up delay-2">
-      Da igual si es una incorporación nueva, un sustituto temporal o alguien de ETT.<br>
-      <strong>El conocimiento de tus mejores empleados está disponible en segundos,</strong> en cada puesto, sin depender de nadie.
+      Da igual si es un sustituto, alguien de ETT o una incorporación nueva.<br>
+      <strong>El conocimiento de tus mejores operarios está en cada máquina,</strong> listo para usar en segundos.
     </p>
     <div class="hero-actions fade-up delay-3">
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Ver mi situación →</a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Crear cuenta</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">¿Cuál es tu situación? →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Probar gratis</a>
     </div>
     <div class="hero-proof fade-up delay-4">
       <div class="hero-proof-item">
         <div class="hero-proof-num">7,2%</div>
-        <div class="hero-proof-label">absentismo en pymes industriales</div>
+        <div class="hero-proof-label">absentismo medio en pymes industriales</div>
       </div>
       <div class="hero-proof-item">
         <div class="hero-proof-num">40%</div>
-        <div class="hero-proof-label">responsables llaman al experto cuando alguien falta</div>
+        <div class="hero-proof-label">de jefes de planta llaman al experto cuando falta</div>
       </div>
       <div class="hero-proof-item">
         <div class="hero-proof-num">3-5 días</div>
@@ -60,339 +54,351 @@ const schema = {
     </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- ═══ Desde aquí: fondo sólido (tapa la imagen hero) ═══ -->
+  <div class="section-solid">
 
-  <!-- DOS CASOS -->
-  <section class="section" id="casos">
-    <div class="section-inner">
-      <div class="section-center fade-up" style="margin-bottom:64px;">
-        <div class="eyebrow">El problema</div>
-        <h2 class="section-title">¿Te suena familiar?</h2>
-        <p class="section-sub">
-          Estos son los dos escenarios más comunes en cualquier empresa industrial.
-          El coste oculto de no tener documentados los procesos operativos.
-        </p>
-      </div>
+    <div class="divider"></div>
 
-      <div class="casos fade-up delay-1">
-        <div class="caso">
-          <div class="caso-tag">El experto está de baja</div>
-          <h3 class="caso-title">
-            «Javi no ha venido.<br>
-            ¿Quién sabe manejar<br>
-            esta máquina?»
-          </h3>
-          <p class="caso-desc">
-            Es martes por la mañana y el operario clave de la línea 2 está de baja médica.
-            Su sustituto no domina el proceso. La producción se frena hasta encontrar
-            a alguien que pueda enseñarle o hasta que Javi vuelva.
+    <!-- ═══ EL PROBLEMA ═══ -->
+    <section class="section" id="casos">
+      <div class="section-inner">
+        <div class="casos-header fade-up">
+          <div class="eyebrow">El día a día</div>
+          <h2 class="section-title">¿Te suena esto?</h2>
+          <p class="section-sub">
+            Son las dos situaciones que más se repiten en cualquier planta.
+            Y las que más dinero cuestan sin que nadie las mida.
           </p>
-          <ul class="caso-benefits">
-            <li>La línea se para 2-4 horas hasta encontrar solución</li>
-            <li>Presión sobre otros operarios para cubrir</li>
-            <li>Errores de operación por prisas y falta de conocimiento</li>
-            <li>Llamadas constantes al experto durante su baja</li>
-            <li>Pérdida de producción y retrasos en entregas</li>
-          </ul>
         </div>
 
-        <div class="caso">
-          <div class="caso-tag">Nueva incorporación</div>
-          <h3 class="caso-title">
-            «Es su primer día.<br>
-            Alguien tiene que<br>
-            estar con él.»
-          </h3>
-          <p class="caso-desc">
-            Llega personal nuevo (fijo, ETT, sustituto) y necesita aprender
-            el proceso. Uno de tus mejores operarios debe dejar su puesto
-            para hacer de tutor durante días o semanas.
+        <div class="casos fade-up delay-1">
+          <div class="caso">
+            <div class="caso-tag">El experto no ha venido</div>
+            <h3 class="caso-title">
+              «Javi está de baja.<br>
+              ¿Quién arranca<br>
+              la llenadora?»
+            </h3>
+            <p class="caso-desc">
+              Es martes a las 6:30. Javi lleva 15 años en esa máquina y hoy está en urgencias.
+              Su sustituto no domina el proceso. La línea no arranca hasta que alguien
+              encuentre la solución o hasta que Javi coja el teléfono.
+            </p>
+            <ul class="caso-benefits">
+              <li>2-4 horas de línea parada buscando quién sabe</li>
+              <li>Presión sobre el resto del equipo para cubrir</li>
+              <li>Errores por improvisar sin instrucciones claras</li>
+              <li>Llamadas al experto durante su baja (sí, pasa siempre)</li>
+              <li>Pedidos retrasados y clientes que no esperan</li>
+            </ul>
+          </div>
+
+          <div class="caso">
+            <div class="caso-tag">Incorporación nueva</div>
+            <h3 class="caso-title">
+              «Es su primer día.<br>
+              Alguien tiene que<br>
+              enseñarle.»
+            </h3>
+            <p class="caso-desc">
+              Llega alguien nuevo — fijo, ETT, lo que sea — y necesita aprender el puesto.
+              Uno de tus mejores operarios deja su máquina para hacer de tutor.
+              Dos personas ocupadas, un solo puesto produciendo.
+            </p>
+            <ul class="caso-benefits">
+              <li>Tu mejor operario pierde tiempo productivo enseñando</li>
+              <li>Dos personas para un solo puesto durante días</li>
+              <li>El aprendizaje depende de quién enseña y cómo</li>
+              <li>Mayor riesgo de errores mientras dura la formación</li>
+              <li>«Siempre me toca enseñar a los nuevos» — desmotivación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ DATOS ═══ -->
+    <section class="section section-center">
+      <div class="section-inner">
+        <div class="fade-up">
+          <div class="eyebrow">Lo que dicen los números</div>
+          <h2 class="section-title">El coste que nadie mide</h2>
+          <p class="section-sub">
+            Son datos del sector industrial español. La mayoría de empresas
+            asumen esto como "normal". No lo es.
           </p>
-          <ul class="caso-benefits">
-            <li>El experto pierde tiempo productivo haciendo de tutor</li>
-            <li>Duplicidad de tareas: dos personas para un puesto</li>
-            <li>Aprendizaje lento e inconsistente</li>
-            <li>Mayor riesgo de errores durante la formación</li>
-            <li>Desmotivación: «siempre me toca enseñar a los nuevos»</li>
-          </ul>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- DOLOR -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El coste real</div>
-        <h2 class="section-title">Tu situación en números</h2>
-        <p class="section-sub">
-          Los datos del sector industrial español revelan el coste oculto
-          de la dependencia operativa. ¿Cuánto te está costando realmente?
-        </p>
-      </div>
-
-      <div class="dolor-grid fade-up delay-1">
-        <div class="dolor-item">
-          <div class="dolor-num">7,2<sup>%</sup></div>
-          <div class="dolor-label">
-            <strong>Tasa de absentismo</strong> media en pymes industriales españolas.
-            1 de cada 14 empleados falta cada día.
+        <div class="dolor-grid fade-up delay-1">
+          <div class="dolor-item">
+            <div class="dolor-num">7,2<sup>%</sup></div>
+            <div class="dolor-label">
+              <strong>Tasa de absentismo</strong> media en pymes industriales.
+              1 de cada 14 trabajadores falta cada día.
+            </div>
+          </div>
+          <div class="dolor-item">
+            <div class="dolor-num">3-5</div>
+            <div class="dolor-label">
+              <strong>Días de aprendizaje</strong> hasta que una incorporación nueva
+              rinde como el operario titular.
+            </div>
+          </div>
+          <div class="dolor-item">
+            <div class="dolor-num">40<sup>%</sup></div>
+            <div class="dolor-label">
+              <strong>De jefes de planta</strong> llaman directamente al experto
+              cuando alguien falta. Aunque esté de baja.
+            </div>
           </div>
         </div>
-        <div class="dolor-item">
-          <div class="dolor-num">3-5</div>
-          <div class="dolor-label">
-            <strong>Días de aprendizaje</strong> hasta que una nueva incorporación
-            alcanza el rendimiento del operario titular.
-          </div>
-        </div>
-        <div class="dolor-item">
-          <div class="dolor-num">40<sup>%</sup></div>
-          <div class="dolor-label">
-            <strong>Responsables de planta</strong> que llaman directamente al operario
-            experto cuando alguien falta (Encuesta REELEVO, 2025).
+
+        <div class="dolor-cta fade-up delay-2">
+          <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+            Calcular mi coste real →
+          </a>
+          <div class="dolor-cta-note">
+            Calculadora gratuita · Resultado en 2 minutos
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="section-center fade-up delay-2" style="margin-top:56px;">&lt;
+    <div class="divider"></div>
+
+    <!-- ═══ CÓMO FUNCIONA ═══ -->
+    <section class="section section-center">
+      <div class="section-inner">
+        <div class="fade-up">
+          <div class="eyebrow">La solución</div>
+          <h2 class="section-title">Así funciona <em>REELEVO</em></h2>
+          <p class="section-sub">
+            Tu experto graba lo que sabe. El QR va pegado en la máquina.
+            El sustituto escanea y trabaja. Ya está.
+          </p>
+        </div>
+
+        <div class="steps-grid fade-up delay-1">
+          <div class="step-card">
+            <div class="step-card-icon">📹</div>
+            <h3 class="step-card-title">1. Graba</h3>
+            <p class="step-card-desc">
+              El operario que sabe graba cada paso del proceso con su móvil.
+              30-90 segundos por paso, con sus palabras, sin guión.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-card-icon">📱</div>
+            <h3 class="step-card-title">2. QR en máquina</h3>
+            <p class="step-card-desc">
+              Se genera un QR único para esa máquina y se pega en el chasis.
+              Una pegatina. Hecho.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-card-icon">⚡</div>
+            <h3 class="step-card-title">3. Escanea y opera</h3>
+            <p class="step-card-desc">
+              El sustituto escanea, mete el PIN de empresa y tiene
+              el proceso paso a paso en vídeo. Sin cuenta, sin app.
+            </p>
+          </div>
+        </div>
+
+        <div class="steps-cta fade-up delay-2">
+          <a href="/como-funciona" class="btn-ghost">Ver el flujo completo →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ PARA QUIÉN ═══ -->
+    <section class="section" id="perfiles">
+      <div class="section-inner">
+        <div class="perfiles-header fade-up">
+          <div class="eyebrow">¿Para quién es esto?</div>
+          <h2 class="section-title">Cada persona ve un valor distinto</h2>
+          <p class="section-sub">
+            REELEVO resuelve problemas diferentes según tu rol.
+            Pero todos tienen una cosa en común: dejan de depender de una sola persona.
+          </p>
+        </div>
+
+        <div class="perfiles-grid fade-up delay-1">
+          <div class="perfil-card">
+            <div class="perfil-card-icon">👷</div>
+            <h3 class="perfil-card-title">Jefe de producción</h3>
+            <p class="perfil-card-desc">
+              Tu línea no puede parar porque falte alguien.
+              Con REELEVO, cualquier sustituto opera correctamente desde el minuto 1.
+            </p>
+            <a href="/para-quien/jefe-de-produccion" class="perfil-card-link">Ver cómo te ayuda →</a>
+          </div>
+
+          <div class="perfil-card">
+            <div class="perfil-card-icon">👥</div>
+            <h3 class="perfil-card-title">Responsable RRHH</h3>
+            <p class="perfil-card-desc">
+              Onboarding estandarizado que no depende de quién enseña.
+              Certificación por ejecución real, no por horas de formación.
+            </p>
+            <a href="/para-quien/responsable-rrhh" class="perfil-card-link">Ver cómo te ayuda →</a>
+          </div>
+
+          <div class="perfil-card">
+            <div class="perfil-card-icon">💼</div>
+            <h3 class="perfil-card-title">Gerente / Propietario</h3>
+            <p class="perfil-card-desc">
+              ROI claro, precio fijo por empresa e implementación en 1 día.
+              Sin sorpresas, sin permanencia.
+            </p>
+            <a href="/para-quien/gerente-propietario" class="perfil-card-link">Ver cómo te ayuda →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ BENEFICIOS ═══ -->
+    <section class="section section-center" id="beneficios">
+      <div class="section-inner">
+        <div class="fade-up">
+          <div class="eyebrow">¿Qué ganas?</div>
+          <h2 class="section-title">Resultados desde el primer día</h2>
+          <p class="section-sub">
+            No es un proyecto de 6 meses. Implementas hoy,
+            mañana ya tienes tu primera máquina documentada.
+          </p>
+        </div>
+
+        <div class="benefits-grid fade-up delay-1">
+          <div class="benefit-card">
+            <div class="benefit-card-icon">⚡</div>
+            <h3 class="benefit-card-title">Sin curva de aprendizaje</h3>
+            <p class="benefit-card-desc">
+              El sustituto opera bien desde el momento 1.
+              Sin tutor, sin esperas, sin improvisar.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-card-icon">📱</div>
+            <h3 class="benefit-card-title">Sin usuarios ni apps</h3>
+            <p class="benefit-card-desc">
+              QR + PIN de empresa. Sin cuentas que crear,
+              sin apps que instalar, sin IT involucrado.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-card-icon">💰</div>
+            <h3 class="benefit-card-title">Precio fijo</h3>
+            <p class="benefit-card-desc">
+              Desde 49€/mes por empresa. Da igual que sean
+              5 operarios o 500. Sin costes ocultos.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-card-icon">📊</div>
+            <h3 class="benefit-card-title">Sabes qué pasa</h3>
+            <p class="benefit-card-desc">
+              Quién opera qué máquina, cuándo y con qué resultado.
+              Datos reales, no intuiciones.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-card-icon">✅</div>
+            <h3 class="benefit-card-title">Certificación real</h3>
+            <p class="benefit-card-desc">
+              REELEVO certifica competencias por ejecución,
+              no por asistir a una formación.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-card-icon">🔧</div>
+            <h3 class="benefit-card-title">Problemas resueltos</h3>
+            <p class="benefit-card-desc">
+              Troubleshooting paso a paso integrado.
+              Si no basta, aviso automático al supervisor por WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══ CTA FINAL ═══ -->
+    <section class="cta-section">
+      <div class="cta-eyebrow fade-up">¿Te interesa?</div>
+      <h2 class="cta-title fade-up delay-1">
+        Descubre cuánto te cuesta<br><em>no tener esto</em>
+      </h2>
+      <p class="cta-sub fade-up delay-2">
+        Haz el diagnóstico gratuito y ve tu situación real.
+        O créate una cuenta y pruébalo 30 días sin compromiso.
+      </p>
+      <div class="cta-actions fade-up delay-3">
         <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
-          Calcular mi coste real →
+          Ver mi situación →
         </a>
-        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);margin-top:16px;">
-          Calculadora gratuita · Resultado en 2 minutos
-        </div>
+        <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
+          Probar gratis 30 días
+        </a>
       </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CÓMO FUNCIONA -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">La solución</div>
-        <h2 class="section-title">Cómo <em>REELEVO</em> soluciona esto</h2>
-        <p class="section-sub">
-          Capturamos el conocimiento del experto en vídeo y lo ponemos disponible
-          en segundos, directamente en la máquina, para cualquier sustituto.
-        </p>
+      <div class="cta-note fade-up delay-4">
+        Sin tarjeta de crédito · Sin compromiso · Resultado en 2 minutos
       </div>
+    </section>
 
-      <!-- Steps will be added here -->
-      <div class="steps fade-up delay-1">
-        <div class="step-card">
-          <div class="step-icon">📹</div>
-          <h3 class="step-title">1. Grabar</h3>
-          <p class="step-desc">
-            El experto graba cada paso del proceso con su móvil.
-            30-90 segundos por paso.
-          </p>
-        </div>
-        <div class="step-card">
-          <div class="step-icon">📱</div>
-          <h3 class="step-title">2. QR en máquina</h3>
-          <p class="step-desc">
-            Imprimimos el QR y lo pegamos físicamente en cada máquina.
-          </p>
-        </div>
-        <div class="step-card">
-          <div class="step-icon">⚡</div>
-          <h3 class="step-title">3. Acceso instantáneo</h3>
-          <p class="step-desc">
-            El sustituto escanea el QR y accede a las instrucciones
-            paso a paso en vídeo.
-          </p>
-        </div>
-      </div>
+  </div><!-- /.section-solid -->
 
-      <div class="section-center fade-up delay-2" style="margin-top:48px;">&lt;
-        <a href="/como-funciona" class="btn-ghost">Ver flujo completo →</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PARA QUIÉN -->
-  <section class="section" id="perfiles">
-    <div class="section-inner">
-      <div class="section-center section-inner fade-up" style="margin-bottom:64px;">
-        <div class="eyebrow">Para quién</div>
-        <h2 class="section-title">Cada rol ve valor inmediato</h2>
-        <p class="section-sub">
-          REELEVO resuelve problemas específicos de cada perfil en la empresa.
-          Desde operaciones hasta RRHH y dirección.
-        </p>
-      </div>
-
-      <div class="perfiles fade-up delay-1">
-        <div class="perfil-card">
-          <div class="perfil-icon">👷</div>
-          <h3 class="perfil-title">Jefe de producción</h3>
-          <p class="perfil-desc">
-            La línea no puede parar cuando falta el operario clave.
-            Cobertura inmediata de bajas y monitoreo en tiempo real.
-          </p>
-          <a href="/para-quien/jefe-de-produccion" class="perfil-link">Ver detalles →</a>
-        </div>
-
-        <div class="perfil-card">
-          <div class="perfil-icon">👥</div>
-          <h3 class="perfil-title">Responsable RRHH</h3>
-          <p class="perfil-desc">
-            Onboarding estandarizado, certificación por ejecución real
-            e integración con tu software de RRHH.
-          </p>
-          <a href="/para-quien/responsable-rrhh" class="perfil-link">Ver detalles →</a>
-        </div>
-
-        <div class="perfil-card">
-          <div class="perfil-icon">💼</div>
-          <h3 class="perfil-title">Gerente / Propietario</h3>
-          <p class="perfil-desc">
-            ROI claro, precio fijo por empresa e implementación
-            en 1 día. Sin sorpresas ni costes ocultos.
-          </p>
-          <a href="/para-quien/gerente-propietario" class="perfil-link">Ver detalles →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- BENEFICIOS -->
-  <section class="section section-center" id="beneficios">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Los beneficios</div>
-        <h2 class="section-title">Resultados desde el primer día</h2>
-        <p class="section-sub">
-          Implementación instantánea con impacto inmediato en productividad,
-          costes operativos y autonomía del equipo.
-        </p>
-      </div>
-
-      <div class="benefits-grid fade-up delay-1">
-        <div class="benefit-card">
-          <div class="benefit-card-icon">⚡</div>
-          <h4 class="benefit-card-title">Sin curva de aprendizaje</h4>
-          <p class="benefit-card-desc">
-            El sustituto opera correctamente desde el momento 1.
-            Sin tutores, sin esperas.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">📱</div>
-          <h4 class="benefit-card-title">Sin usuarios ni apps</h4>
-          <p class="benefit-card-desc">
-            Acceso directo por QR con código de empresa.
-            Sin crear cuentas, sin instalaciones.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">💰</div>
-          <h4 class="benefit-card-title">Precio fijo por empresa</h4>
-          <p class="benefit-card-desc">
-            Desde 49€/mes. Da igual que sean 5 o 500 operarios.
-            Sin costes ocultos.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">📊</div>
-          <h4 class="benefit-card-title">Monitor en tiempo real</h4>
-          <p class="benefit-card-desc">
-            Quién está operando qué máquina, cuándo y con qué resultado.
-            Dashboard en vivo.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">✅</div>
-          <h4 class="benefit-card-title">Certificación automática</h4>
-          <p class="benefit-card-desc">
-            REELEVO certifica competencias por ejecución real,
-            no por asistencia a formación.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">🔧</div>
-          <h4 class="benefit-card-title">Troubleshooting inline</h4>
-          <p class="benefit-card-desc">
-            Problemas comunes resueltos paso a paso.
-            Aviso automático al supervisor si lo necesita.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CTA FINAL -->
-  <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza hoy</div>
-    <h2 class="cta-title fade-up delay-1">
-      ¿Cuál es tu <em>situación real?</em>
-    </h2>
-    <p class="cta-sub fade-up delay-2">
-      Descubre cuánto te está costando la dependencia operativa
-      y cómo REELEVO puede solucionarlo desde el primer día.
-    </p>
-    <div class="hero-actions fade-up delay-3">
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
-        Ver mi situación →
-      </a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
-        Crear cuenta gratis
-      </a>
-    </div>
-    <div class="cta-note fade-up delay-4">
-      Calculadora gratuita · Sin compromiso · Resultado en 2 minutos
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
-  .dolor-label {
-    font-size: .9rem;
-    color: var(--gray);
-    line-height: 1.65;
-    text-align: left;
+  .casos-header,
+  .perfiles-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .casos-header .eyebrow,
+  .perfiles-header .eyebrow {
+    justify-content: center;
+  }
+  .casos-header .eyebrow::after,
+  .perfiles-header .eyebrow::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--orange);
+  }
+  .casos-header .section-sub,
+  .perfiles-header .section-sub {
+    margin: 0 auto;
   }
 
-  .dolor-label strong {
-    color: var(--white);
-    font-weight: 500;
+  .dolor-cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+  .dolor-cta-note {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-top: 16px;
   }
 
-  @media (max-width: 900px) {
-    .steps {
-      grid-template-columns: 1fr !important;
-      gap: 32px !important;
-    }
-
-    .perfiles {
-      grid-template-columns: 1fr !important;
-    }
-
-    .benefits-grid {
-      grid-template-columns: 1fr 1fr !important;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .benefits-grid {
-      grid-template-columns: 1fr !important;
-    }
+  .steps-cta {
+    text-align: center;
+    margin-top: 48px;
   }
 </style>
