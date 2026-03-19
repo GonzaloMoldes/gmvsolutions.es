@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Cómo funciona REELEVO — Documentación operativa en 3 pasos simples";
-const description = "El operario experto captura cada paso del proceso. El conocimiento queda disponible directamente en la máquina para cualquier sustituto. Sin usuarios, sin apps, sin complicaciones.";
+const title = "Cómo funciona REELEVO — El conocimiento del experto, disponible para todos";
+const description = "El operario experto captura su conocimiento. Queda disponible en cada máquina para cualquier sustituto. Sin usuarios, sin apps, sin complicaciones.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -10,18 +10,9 @@ const schema = {
   "name": "Cómo usar REELEVO",
   "description": "Guía paso a paso para documentar procesos operativos con REELEVO",
   "step": [
-    {
-      "@type": "HowToStep",
-      "text": "El operario experto captura cada paso del proceso"
-    },
-    {
-      "@type": "HowToStep",
-      "text": "El conocimiento queda disponible en la máquina para cualquier operario"
-    },
-    {
-      "@type": "HowToStep",
-      "text": "El sustituto accede al proceso y sigue las instrucciones paso a paso"
-    }
+    { "@type": "HowToStep", "text": "El operario experto captura su conocimiento paso a paso" },
+    { "@type": "HowToStep", "text": "El conocimiento queda disponible en cada máquina" },
+    { "@type": "HowToStep", "text": "Cualquier sustituto accede y opera desde el primer día" }
   ]
 };
 ---
@@ -49,29 +40,29 @@ const schema = {
         <div class="step-number">1</div>
         <div class="step-content">
           <div class="step-role">👨‍🔧 El operario experto</div>
-          <h2 class="section-title">Graba su conocimiento</h2>
+          <h2 class="section-title">Captura su <em>conocimiento</em></h2>
           <p class="section-sub">
-            Con su propio móvil, el operario clave captura cada paso del proceso.
-            30-90 segundos por paso, sin prisas, explicando los detalles que importan.
+            El operario que sabe captura cada paso del proceso con sus propias palabras.
+            Sin guión, sin producción, en minutos. Lo que lleva 20 años en su cabeza queda documentado para siempre.
           </p>
 
           <div class="scenarios-grid">
             <div class="scenario-card">
               <div class="scenario-tag">Preparación</div>
               <h3 class="scenario-card-title">«Así preparo la máquina»</h3>
-              <p>Graba el checklist de preparación, parámetros clave, puntos de atención.</p>
+              <p>El checklist de preparación, parámetros clave y puntos de atención que solo el experto conoce.</p>
             </div>
 
             <div class="scenario-card">
               <div class="scenario-tag">Ejecución</div>
               <h3 class="scenario-card-title">«Esto es lo que hago»</h3>
-              <p>Cada paso del proceso operativo, con los trucos y detalles de la experiencia.</p>
+              <p>Cada paso del proceso operativo, con los trucos y detalles que vienen de la experiencia.</p>
             </div>
 
             <div class="scenario-card">
               <div class="scenario-tag">Problemas</div>
               <h3 class="scenario-card-title">«Si pasa esto, haces esto»</h3>
-              <p>Troubleshooting para los problemas más comunes y cuándo avisar al supervisor.</p>
+              <p>Soluciones a los problemas más comunes y cuándo es necesario avisar al supervisor.</p>
             </div>
           </div>
         </div>
@@ -79,7 +70,7 @@ const schema = {
 
       <div class="step-arrow fade-up delay-1">
         <svg viewBox="0 0 24 24" style="width:40px;height:40px;fill:var(--orange);">
-          <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
         </svg>
       </div>
 
@@ -88,46 +79,46 @@ const schema = {
         <div class="step-number">2</div>
         <div class="step-content">
           <div class="step-role">⚙️ El responsable / supervisor</div>
-          <h2 class="section-title">Organiza y distribuye</h2>
+          <h2 class="section-title">Organiza y hace accesible <em>el conocimiento</em></h2>
           <p class="section-sub">
-            Los vídeos se suben al panel de administración. Se organizan por
-            máquina, se genera el QR y se imprime para pegatinas físicas.
+            El conocimiento capturado se organiza por máquina y proceso en el panel.
+            Queda disponible directamente en cada puesto de trabajo para cualquier operario.
           </p>
 
           <div class="benefit-list">
             <div class="benefit-row">
-              <div class="benefit-icon">📱</div>
+              <div class="benefit-icon">📋</div>
               <div>
                 <h3 class="benefit-title">Organización automática</h3>
-                <p class="benefit-desc">Los vídeos se clasifican por máquina y proceso. Sin complicaciones técnicas.</p>
+                <p class="benefit-desc">Los procesos se clasifican por máquina y tipo. Sin complicaciones técnicas, sin IT involucrado.</p>
               </div>
               <div class="benefit-result">
-                <div class="benefit-result-label">Resultado</div>
-                <p>QR listo para imprimir y pegar en la máquina</p>
+                <div class="benefit-result-label">Beneficio</div>
+                <p>Cada máquina tiene su documentación accesible en segundos</p>
               </div>
             </div>
 
             <div class="benefit-row">
-              <div class="benefit-icon">🏷️</div>
+              <div class="benefit-icon">🔓</div>
               <div>
-                <h3 class="benefit-title">QR físico personalizado</h3>
-                <p class="benefit-desc">Un QR único por máquina con el código de acceso de la empresa. Pegatina resistente.</p>
+                <h3 class="benefit-title">Acceso sin fricción</h3>
+                <p class="benefit-desc">Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios.</p>
               </div>
               <div class="benefit-result">
-                <div class="benefit-result-label">Resultado</div>
-                <p>Acceso directo sin usuarios ni contraseñas</p>
+                <div class="benefit-result-label">Beneficio</div>
+                <p>Cualquier sustituto opera desde el minuto 1, sin configuración previa</p>
               </div>
             </div>
 
             <div class="benefit-row">
               <div class="benefit-icon">📊</div>
               <div>
-                <h3 class="benefit-title">Monitor en tiempo real</h3>
-                <p class="benefit-desc">Dashboard que muestra quién está operando qué máquina y cuándo.</p>
+                <h3 class="benefit-title">Visibilidad total</h3>
+                <p class="benefit-desc">Dashboard que muestra quién está operando qué máquina, cuándo y con qué resultado.</p>
               </div>
               <div class="benefit-result">
-                <div class="benefit-result-label">Resultado</div>
-                <p>Visibilidad total de la actividad operativa</p>
+                <div class="benefit-result-label">Beneficio</div>
+                <p>Sabes lo que pasa en planta sin preguntar a nadie</p>
               </div>
             </div>
           </div>
@@ -136,7 +127,7 @@ const schema = {
 
       <div class="step-arrow fade-up delay-2">
         <svg viewBox="0 0 24 24" style="width:40px;height:40px;fill:var(--orange);">
-          <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
         </svg>
       </div>
 
@@ -145,32 +136,32 @@ const schema = {
         <div class="step-number">3</div>
         <div class="step-content">
           <div class="step-role">👤 El sustituto / nuevo operario</div>
-          <h2 class="section-title">Opera desde el primer momento</h2>
+          <h2 class="section-title">Opera <em>desde el primer momento</em></h2>
           <p class="section-sub">
-            Accede al proceso de la máquina, introduce el código de empresa de 4 dígitos
-            y accede a las instrucciones paso a paso. Sin crear cuenta, sin instalaciones.
+            El sustituto accede al proceso de la máquina, introduce el código de empresa
+            y sigue las instrucciones paso a paso. Sin cuenta, sin app, sin esperar a nadie.
           </p>
 
           <div class="scenario-grid">
             <div class="scenario-card">
-              <div class="scenario-card-tag">1. Escanear QR</div>
-              <h3 class="scenario-card-title">Con cualquier móvil</h3>
+              <div class="scenario-card-tag">1. Accede al proceso</div>
+              <h3 class="scenario-card-title">Desde cualquier móvil</h3>
               <div class="scenario-before">Sin REELEVO: Buscar al supervisor, esperar explicación, preguntar dudas</div>
-              <div class="scenario-after">Con REELEVO: Escaneo QR → código empresa → instrucciones al instante</div>
+              <div class="scenario-after">Con REELEVO: Acceso directo → código empresa → instrucciones al instante</div>
             </div>
 
             <div class="scenario-card">
-              <div class="scenario-card-tag">2. Seguir pasos</div>
-              <h3 class="scenario-card-title">Vídeo a vídeo</h3>
+              <div class="scenario-card-tag">2. Sigue los pasos</div>
+              <h3 class="scenario-card-title">Paso a paso</h3>
               <div class="scenario-before">Sin REELEVO: Depender de la memoria, cometer errores, llamar al tutor</div>
-              <div class="scenario-after">Con REELEVO: Cada paso explicado por el experto, sin dudas</div>
+              <div class="scenario-after">Con REELEVO: Cada paso explicado por el experto, en orden, sin dudas</div>
             </div>
 
             <div class="scenario-card">
-              <div class="scenario-card-tag">3. Resolver problemas</div>
-              <h3 class="scenario-card-title">Troubleshooting inline</h3>
+              <div class="scenario-card-tag">3. Resuelve problemas</div>
+              <h3 class="scenario-card-title">Troubleshooting integrado</h3>
               <div class="scenario-before">Sin REELEVO: Parar la línea, llamar al supervisor, esperar ayuda</div>
-              <div class="scenario-after">Con REELEVO: Problemas comunes resueltos al instante, aviso automático si necesita ayuda</div>
+              <div class="scenario-after">Con REELEVO: Problemas comunes resueltos al instante, aviso al supervisor si lo necesita</div>
             </div>
           </div>
         </div>
@@ -180,70 +171,70 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- DETALLES TÉCNICOS -->
+  <!-- QUÉ GANAS -->
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Detalles técnicos</div>
-        <h2 class="section-title">Sin complicaciones tecnológicas</h2>
+        <div class="eyebrow">Lo que consigues</div>
+        <h2 class="section-title">Sin complicaciones, con resultados</h2>
         <p class="section-sub">
-          REELEVO está diseñado para funcionar con la tecnología que ya tienes.
-          Sin instalaciones, sin infraestructura adicional.
+          REELEVO está diseñado para funcionar con lo que ya tienes.
+          Sin instalaciones, sin infraestructura adicional, sin IT.
         </p>
       </div>
 
       <div class="benefits-grid fade-up delay-1">
         <div class="benefit-card">
-          <div class="benefit-card-icon">📱</div>
-          <h3 class="benefit-card-title">Móvil cualquiera</h3>
+          <div class="benefit-card-icon">⚡</div>
+          <h3 class="benefit-card-title">Autonomía inmediata</h3>
           <p class="benefit-card-desc">
-            Funciona con cualquier smartphone con cámara.
-            iOS o Android. Sin app que instalar.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">☁️</div>
-          <h3 class="benefit-card-title">En la nube</h3>
-          <p class="benefit-card-desc">
-            Acceso desde cualquier lugar con internet.
-            Copias de seguridad automáticas.
+            El sustituto opera correctamente desde el primer momento.
+            Sin tutor, sin esperas, sin improvisar.
           </p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-card-icon">🔒</div>
-          <h3 class="benefit-card-title">Seguro y cumpliante</h3>
+          <h3 class="benefit-card-title">Conocimiento protegido</h3>
           <p class="benefit-card-desc">
-            Servidores en Europa, RGPD cumpliante.
-            Sin almacenar datos personales de operarios.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">⚡</div>
-          <h3 class="benefit-card-title">Velocidad</h3>
-          <p class="benefit-card-desc">
-            Los vídeos se cargan inmediatamente.
-            Optimizados para conexiones móviles.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">🔌</div>
-          <h3 class="benefit-card-title">Integraciones</h3>
-          <p class="benefit-card-desc">
-            API para conectar con tu ERP, sistema de RRHH
-            o software de gestión de planta.
+            Lo que sabe tu experto ya no vive solo en su cabeza.
+            Está documentado, accesible y no se pierde cuando se va.
           </p>
         </div>
 
         <div class="benefit-card">
           <div class="benefit-card-icon">📊</div>
-          <h3 class="benefit-card-title">Analytics</h3>
+          <h3 class="benefit-card-title">Datos, no intuiciones</h3>
           <p class="benefit-card-desc">
-            Informes de uso, competencias adquiridas,
-            tiempo de acceso por operación.
+            Sabes qué procesos se consultan, cuáles generan incidencias
+            y qué operarios necesitan más apoyo.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">🛡️</div>
+          <h3 class="benefit-card-title">Menos errores</h3>
+          <p class="benefit-card-desc">
+            El proceso se ejecuta siempre igual. Mismo orden, mismos criterios.
+            Menos reprocesos, menos riesgo.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">✅</div>
+          <h3 class="benefit-card-title">Certificación real</h3>
+          <p class="benefit-card-desc">
+            REELEVO certifica competencias por ejecución,
+            no por asistir a una formación.
+          </p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card-icon">🔧</div>
+          <h3 class="benefit-card-title">Problemas resueltos</h3>
+          <p class="benefit-card-desc">
+            Troubleshooting paso a paso integrado en cada proceso.
+            Aviso automático al supervisor si hace falta.
           </p>
         </div>
       </div>
@@ -253,13 +244,13 @@ const schema = {
   <div class="divider"></div>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section section-center">
     <div class="section-inner">
-      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
+      <div class="fade-up" style="margin-bottom:48px;">
         <div class="eyebrow">Preguntas frecuentes</div>
         <h2 class="section-title">Resolvemos tus dudas</h2>
         <p class="section-sub">
-          Las preguntas más habituales sobre implementación, seguridad y funcionamiento técnico.
+          Las preguntas más habituales sobre implementación, seguridad y funcionamiento.
         </p>
       </div>
 
@@ -267,14 +258,12 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Cuánto tiempo lleva implementar REELEVO?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>La implementación de REELEVO es <strong>inmediata</strong>. Una vez que el operario experto graba los procesos (30-90 minutos por proceso completo), generamos los QR y en cuestión de horas ya tienes el sistema funcionando en planta.</p>
-              <p>No hay que instalar software, configurar servidores ni formar a los operarios en nuevas herramientas. Simplemente escanean y operan.</p>
+              <p>La implementación es <strong>inmediata</strong>. Una vez que el experto captura los procesos (menos de 1 hora por proceso completo), el sistema está funcionando en planta.</p>
+              <p>No hay que instalar software, configurar servidores ni formar a los operarios. Acceden directamente y operan.</p>
             </div>
           </div>
         </div>
@@ -282,14 +271,11 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Qué pasa si no hay cobertura móvil en la planta?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>REELEVO funciona con <strong>cualquier conexión a internet</strong>: 4G, 5G, WiFi de empresa, etc. Los vídeos están optimizados para cargar rápidamente incluso con conexiones lentas.</p>
-              <p>Si hay zonas sin cobertura, podemos diseñar una solución híbrida con contenido offline para esas áreas específicas.</p>
+              <p>REELEVO funciona con <strong>cualquier conexión a internet</strong>: 4G, 5G o WiFi de empresa. Los contenidos están optimizados para cargar rápidamente incluso con conexiones lentas.</p>
             </div>
           </div>
         </div>
@@ -297,14 +283,11 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Los operarios tienen que crearse una cuenta?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p><strong>No</strong>. Es nuestro diferencial clave. Los operarios escanean el QR, introducen el código de empresa de 4 dígitos, y acceden al contenido. Sin crear cuentas, sin contraseñas, sin gestión de usuarios.</p>
-              <p>Esto elimina la fricción de adopción y hace que cualquier sustituto (fijo, ETT, temporal) pueda operar inmediatamente.</p>
+              <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto opera inmediatamente.</p>
             </div>
           </div>
         </div>
@@ -312,14 +295,11 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Cómo sabemos quién ha accedido y cuándo?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Aunque no hay cuentas de operario, <strong>REELEVO rastrea toda la actividad</strong>: qué QR se ha escaneado, cuándo, qué proceso se ha consultado, y si se ha completado correctamente.</p>
-              <p>El dashboard en tiempo real te muestra qué máquinas están siendo operadas y por cuánto tiempo. Sin comprometer la privacidad, con total trazabilidad operativa.</p>
+              <p>Aunque no hay cuentas de operario, <strong>REELEVO registra toda la actividad</strong>: qué proceso se ha consultado, cuándo, y si se ha completado correctamente. Trazabilidad total sin comprometer la simplicidad.</p>
             </div>
           </div>
         </div>
@@ -327,14 +307,11 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Podemos actualizar los procesos fácilmente?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p><strong>Sí</strong>. Cualquier administrador puede subir nuevos vídeos, modificar procesos existentes o reorganizar los contenidos desde el panel de administración.</p>
-              <p>Los cambios se reflejan automáticamente en todos los QR. No hay que reimprimir pegatinas ni reconfigurar nada. El operario siempre accede a la versión más actual del proceso.</p>
+              <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario siempre accede a la versión más actual.</p>
             </div>
           </div>
         </div>
@@ -342,14 +319,11 @@ const schema = {
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             <span>¿Es compatible con nuestros sistemas de gestión?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor">
-              <polyline points="6,9 12,15 18,9"></polyline>
-            </svg>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>REELEVO integra con <strong>Factorial, Personio, SAP, Oracle</strong> y la mayoría de sistemas de RRHH y ERP mediante API.</p>
-              <p>Esto permite sincronizar competencias adquiridas, horas de formación efectivas y certificaciones automáticas directamente en tu sistema de gestión de personal.</p>
+              <p>REELEVO puede integrarse con los principales sistemas de RRHH y ERP mediante API, permitiendo sincronizar competencias y certificaciones directamente en tu sistema de gestión.</p>
             </div>
           </div>
         </div>
@@ -367,15 +341,11 @@ const schema = {
     </h2>
     <p class="cta-sub fade-up delay-2">
       Configura tu primer proceso en menos de 1 hora.
-      Solicita una demo para probarlo en tu planta.
+      Solicita una demo y te lo enseñamos funcionando.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Solicitar demo →
-      </a>
-      <a href="/precios" class="btn-ghost">
-        Ver precios
-      </a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
+      <a href="/precios" class="btn-ghost">Ver precios</a>
     </div>
     <div class="cta-note fade-up delay-4">
       Sin compromiso · Implementación asistida · Configuración en 1 día
@@ -384,7 +354,6 @@ const schema = {
 </BaseLayout>
 
 <style>
-  /* Step sections */
   .step-section {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -428,137 +397,13 @@ const schema = {
     margin-top: 40px;
   }
 
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .benefit-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 28px;
-    text-align: center;
-    transition: border-color .25s;
-  }
-
-  .benefit-card:hover {
-    border-color: var(--border-hover);
-  }
-
-  .benefit-card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-
-  .benefit-card-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    margin-bottom: 12px;
-  }
-
-  .benefit-card-desc {
-    font-size: .85rem;
-    color: var(--gray);
-    line-height: 1.65;
-  }
-
-  /* FAQ */
-  .faq-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-top: 48px;
-  }
-
-  .faq-item {
-    background: var(--surface);
-  }
-
-  .faq-question {
-    width: 100%;
-    padding: 22px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: background .15s;
-    color: inherit;
-  }
-
-  .faq-question:hover {
-    background: rgba(255, 255, 255, .02);
-  }
-
-  .faq-question span {
-    font-family: 'Oswald', sans-serif;
-    font-size: .92rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    color: var(--white);
-  }
-
-  .faq-question svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    stroke: var(--gray);
-    transition: transform .3s;
-    fill: none;
-    stroke-width: 2;
-  }
-
-  .faq-item.open .faq-question svg {
-    transform: rotate(180deg);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 400px;
-  }
-
-  .faq-answer-inner {
-    padding: 0 32px 24px;
-    font-size: .88rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 680px;
-  }
-
-  .faq-answer-inner p {
-    margin-bottom: 12px;
-  }
-
-  .faq-answer-inner strong {
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  /* Responsive */
   @media (max-width: 900px) {
     .step-section {
       grid-template-columns: 1fr;
       gap: 20px;
       text-align: center;
     }
-
-    .scenarios-grid,
-    .benefits-grid {
+    .scenarios-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -567,14 +412,6 @@ const schema = {
     .step-section {
       margin: 60px 0;
     }
-
-    .faq-question {
-      padding: 18px 20px;
-    }
-
-    .faq-answer-inner {
-      padding: 0 20px 20px;
-    }
   }
 </style>
 
@@ -582,13 +419,9 @@ const schema = {
   function toggleFaq(button: HTMLButtonElement) {
     const item = button.closest('.faq-item');
     const isOpen = item?.classList.contains('open');
-
-    // Close all FAQ items
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('open');
     });
-
-    // Open clicked item if it wasn't already open
     if (!isOpen) {
       item?.classList.add('open');
     }

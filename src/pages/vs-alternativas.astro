@@ -452,54 +452,79 @@ const schema = {
   /* Main comparison table */
   .comparison-table-main {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 0 -32px;
     padding: 0 32px;
   }
 
+  .comp-table-wrapper {
+    min-width: 0;
+  }
+
   .comp-table {
     width: 100%;
-    min-width: 800px;
-    border-collapse: collapse;
-    font-size: .85rem;
+    min-width: 750px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: .82rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
   }
 
   .comp-table th {
     background: var(--surface2);
-    padding: 16px 12px;
+    padding: 14px 10px;
     font-family: 'Oswald', sans-serif;
-    font-size: .8rem;
+    font-size: .75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .03em;
     text-align: center;
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .comp-table th:last-child {
+    border-right: none;
   }
 
   .feature-col {
-    width: 25%;
+    width: 22%;
     text-align: left !important;
   }
 
   .reelevo-col {
-    background: rgba(244, 82, 30, 0.1);
-    border-color: rgba(244, 82, 30, 0.3) !important;
-    width: 15%;
+    background: rgba(244, 82, 30, 0.12) !important;
+    width: 16%;
   }
 
   .competitor-col {
-    width: 12%;
+    width: 12.5%;
   }
 
   .comp-table td {
-    padding: 12px;
-    border: 1px solid var(--border);
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  .comp-table td:last-child {
+    border-right: none;
+  }
+
+  .comp-table tr:last-child td {
+    border-bottom: none;
   }
 
   .feature-name {
     background: var(--surface);
     font-weight: 500;
     text-align: left;
+    white-space: nowrap;
   }
 
   .reelevo-cell {
@@ -511,6 +536,7 @@ const schema = {
   .competitor-cell {
     background: var(--surface);
     text-align: center;
+    color: var(--gray);
   }
 
   .comp-table .check {
