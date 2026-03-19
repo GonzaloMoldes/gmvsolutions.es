@@ -1,4 +1,6 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": true
+  "buildCommand": "cd reelevo-site && npm run build",
+  "outputDirectory": "reelevo-site/dist",
+  "installCommand": "cd reelevo-site && npm install",
+  "framework": "astro"
 }
