@@ -65,7 +65,7 @@ const schema = {
   <!-- DOS CASOS -->
   <section class="section" id="casos">
     <div class="section-inner">
-      <div style="text-align:center;margin-bottom:64px;" class="fade-up">
+      <div class="section-center fade-up" style="margin-bottom:64px;">
         <div class="eyebrow">El problema</div>
         <h2 class="section-title">¿Te suena familiar?</h2>
         <p class="section-sub">
@@ -75,7 +75,7 @@ const schema = {
       </div>
 
       <div class="casos fade-up delay-1">
-        <div class="caso caso-baja">
+        <div class="caso">
           <div class="caso-tag">El experto está de baja</div>
           <h3 class="caso-title">
             «Javi no ha venido.<br>
@@ -96,7 +96,7 @@ const schema = {
           </ul>
         </div>
 
-        <div class="caso caso-nuevo">
+        <div class="caso">
           <div class="caso-tag">Nueva incorporación</div>
           <h3 class="caso-title">
             «Es su primer día.<br>
@@ -158,7 +158,7 @@ const schema = {
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:56px;" class="fade-up delay-2">
+      <div class="section-center fade-up delay-2" style="margin-top:56px;">&lt;
         <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
           Calcular mi coste real →
         </a>
@@ -184,45 +184,33 @@ const schema = {
       </div>
 
       <!-- Steps will be added here -->
-      <div class="steps fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px;">
-        <div style="text-align:center;">
-          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
-            <div style="font-size:3rem;margin-bottom:16px;">📹</div>
-            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
-              1. Grabar
-            </h3>
-            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
-              El experto graba cada paso del proceso con su móvil.
-              30-90 segundos por paso.
-            </p>
-          </div>
+      <div class="steps fade-up delay-1">
+        <div class="step-card">
+          <div class="step-icon">📹</div>
+          <h3 class="step-title">1. Grabar</h3>
+          <p class="step-desc">
+            El experto graba cada paso del proceso con su móvil.
+            30-90 segundos por paso.
+          </p>
         </div>
-        <div style="text-align:center;">
-          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
-            <div style="font-size:3rem;margin-bottom:16px;">📱</div>
-            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
-              2. QR en máquina
-            </h3>
-            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
-              Imprimimos el QR y lo pegamos físicamente en cada máquina.
-            </p>
-          </div>
+        <div class="step-card">
+          <div class="step-icon">📱</div>
+          <h3 class="step-title">2. QR en máquina</h3>
+          <p class="step-desc">
+            Imprimimos el QR y lo pegamos físicamente en cada máquina.
+          </p>
         </div>
-        <div style="text-align:center;">
-          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
-            <div style="font-size:3rem;margin-bottom:16px;">⚡</div>
-            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
-              3. Acceso instantáneo
-            </h3>
-            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
-              El sustituto escanea el QR y accede a las instrucciones
-              paso a paso en vídeo.
-            </p>
-          </div>
+        <div class="step-card">
+          <div class="step-icon">⚡</div>
+          <h3 class="step-title">3. Acceso instantáneo</h3>
+          <p class="step-desc">
+            El sustituto escanea el QR y accede a las instrucciones
+            paso a paso en vídeo.
+          </p>
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:48px;" class="fade-up delay-2">
+      <div class="section-center fade-up delay-2" style="margin-top:48px;">&lt;
         <a href="/como-funciona" class="btn-ghost">Ver flujo completo →</a>
       </div>
     </div>
@@ -233,7 +221,7 @@ const schema = {
   <!-- PARA QUIÉN -->
   <section class="section" id="perfiles">
     <div class="section-inner">
-      <div class="fade-up" style="text-align:center;margin-bottom:64px;">
+      <div class="section-center section-inner fade-up" style="margin-bottom:64px;">
         <div class="eyebrow">Para quién</div>
         <h2 class="section-title">Cada rol ve valor inmediato</h2>
         <p class="section-sub">
@@ -242,47 +230,35 @@ const schema = {
         </p>
       </div>
 
-      <div class="perfiles fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
-        <div style="background:var(--surface);padding:40px;text-align:center;">
-          <div style="font-size:2.5rem;margin-bottom:20px;">👷</div>
-          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
-            Jefe de producción
-          </h3>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+      <div class="perfiles fade-up delay-1">
+        <div class="perfil-card">
+          <div class="perfil-icon">👷</div>
+          <h3 class="perfil-title">Jefe de producción</h3>
+          <p class="perfil-desc">
             La línea no puede parar cuando falta el operario clave.
             Cobertura inmediata de bajas y monitoreo en tiempo real.
           </p>
-          <a href="/para-quien/jefe-de-produccion" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
-            Ver detalles →
-          </a>
+          <a href="/para-quien/jefe-de-produccion" class="perfil-link">Ver detalles →</a>
         </div>
 
-        <div style="background:var(--surface);padding:40px;text-align:center;">
-          <div style="font-size:2.5rem;margin-bottom:20px;">👥</div>
-          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
-            Responsable RRHH
-          </h3>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+        <div class="perfil-card">
+          <div class="perfil-icon">👥</div>
+          <h3 class="perfil-title">Responsable RRHH</h3>
+          <p class="perfil-desc">
             Onboarding estandarizado, certificación por ejecución real
             e integración con tu software de RRHH.
           </p>
-          <a href="/para-quien/responsable-rrhh" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
-            Ver detalles →
-          </a>
+          <a href="/para-quien/responsable-rrhh" class="perfil-link">Ver detalles →</a>
         </div>
 
-        <div style="background:var(--surface);padding:40px;text-align:center;">
-          <div style="font-size:2.5rem;margin-bottom:20px;">💼</div>
-          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
-            Gerente / Propietario
-          </h3>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+        <div class="perfil-card">
+          <div class="perfil-icon">💼</div>
+          <h3 class="perfil-title">Gerente / Propietario</h3>
+          <p class="perfil-desc">
             ROI claro, precio fijo por empresa e implementación
             en 1 día. Sin sorpresas ni costes ocultos.
           </p>
-          <a href="/para-quien/gerente-propietario" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
-            Ver detalles →
-          </a>
+          <a href="/para-quien/gerente-propietario" class="perfil-link">Ver detalles →</a>
         </div>
       </div>
     </div>
@@ -302,68 +278,56 @@ const schema = {
         </p>
       </div>
 
-      <div class="benefits-grid fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;">
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">⚡</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Sin curva de aprendizaje
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+      <div class="benefits-grid fade-up delay-1">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">⚡</div>
+          <h4 class="benefit-card-title">Sin curva de aprendizaje</h4>
+          <p class="benefit-card-desc">
             El sustituto opera correctamente desde el momento 1.
             Sin tutores, sin esperas.
           </p>
         </div>
 
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">📱</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Sin usuarios ni apps
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">📱</div>
+          <h4 class="benefit-card-title">Sin usuarios ni apps</h4>
+          <p class="benefit-card-desc">
             Acceso directo por QR con código de empresa.
             Sin crear cuentas, sin instalaciones.
           </p>
         </div>
 
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">💰</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Precio fijo por empresa
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">💰</div>
+          <h4 class="benefit-card-title">Precio fijo por empresa</h4>
+          <p class="benefit-card-desc">
             Desde 49€/mes. Da igual que sean 5 o 500 operarios.
             Sin costes ocultos.
           </p>
         </div>
 
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">📊</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Monitor en tiempo real
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">📊</div>
+          <h4 class="benefit-card-title">Monitor en tiempo real</h4>
+          <p class="benefit-card-desc">
             Quién está operando qué máquina, cuándo y con qué resultado.
             Dashboard en vivo.
           </p>
         </div>
 
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">✅</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Certificación automática
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">✅</div>
+          <h4 class="benefit-card-title">Certificación automática</h4>
+          <p class="benefit-card-desc">
             REELEVO certifica competencias por ejecución real,
             no por asistencia a formación.
           </p>
         </div>
 
-        <div style="background:var(--surface);padding:32px;text-align:center;">
-          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">🔧</div>
-          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
-            Troubleshooting inline
-          </h4>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+        <div class="benefit-card">
+          <div class="benefit-card-icon">🔧</div>
+          <h4 class="benefit-card-title">Troubleshooting inline</h4>
+          <p class="benefit-card-desc">
             Problemas comunes resueltos paso a paso.
             Aviso automático al supervisor si lo necesita.
           </p>
@@ -384,7 +348,7 @@ const schema = {
       Descubre cuánto te está costando la dependencia operativa
       y cómo REELEVO puede solucionarlo desde el primer día.
     </p>
-    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <div class="hero-actions fade-up delay-3">
       <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
         Ver mi situación →
       </a>

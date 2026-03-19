@@ -181,3 +181,69 @@ body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif
   .faq-question{padding:18px 20px;}
   .faq-answer-inner{padding:0 20px 20px;}
 }
+
+/* ── INDEX PAGE SPECIFIC ── */
+.section-center{text-align:center;}
+.hero-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, var(--black) 0%, #0F0F0F 50%, var(--black) 100%);z-index:-2;}
+.hero{padding:140px 32px 96px;max-width:1100px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:32px;}
+.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(2.5rem,6vw,4.2rem);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.95;margin-bottom:32px;}
+.hero-title em{color:var(--orange);font-style:normal;}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--gray);max-width:720px;margin:0 auto 48px;line-height:1.65;}
+.hero-sub strong{color:var(--white);font-weight:400;}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
+.hero-proof{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+.hero-proof-item{text-align:center;max-width:200px;}
+.hero-proof-num{font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--orange);line-height:1;margin-bottom:8px;}
+.hero-proof-label{font-size:.8rem;color:var(--gray2);line-height:1.5;}
+
+.casos{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+.caso{background:var(--surface);padding:40px 36px;position:relative;}
+.caso-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.caso-title{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.15;margin-bottom:20px;}
+.caso-desc{font-size:.9rem;color:var(--gray);line-height:1.65;margin-bottom:24px;}
+.caso-benefits{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.caso-benefits li{font-size:.82rem;color:var(--gray2);line-height:1.5;padding-left:16px;position:relative;}
+.caso-benefits li::before{content:'—';position:absolute;left:0;color:var(--orange);}
+
+.dolor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+.dolor-item{background:var(--surface);padding:40px 32px;text-align:center;}
+.dolor-num{font-family:'Oswald',sans-serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--orange);line-height:1;margin-bottom:16px;}
+.dolor-num sup{font-size:1.2rem;}
+.dolor-label{font-size:.9rem;color:var(--gray);line-height:1.65;text-align:left;}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px;}
+.step-card{background:var(--surface);padding:40px;border-radius:4px;text-align:center;}
+.step-icon{font-size:3rem;margin-bottom:16px;}
+.step-title{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+.step-desc{font-size:.9rem;color:var(--gray);line-height:1.6;}
+
+.perfiles{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.perfil-card{background:var(--surface);padding:40px;text-align:center;}
+.perfil-icon{font-size:2.5rem;margin-bottom:20px;}
+.perfil-title{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;}
+.perfil-desc{font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;}
+.perfil-link{font-size:.8rem;color:var(--orange);text-decoration:none;}
+
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+.benefit-card{background:var(--surface);padding:32px;text-align:center;}
+.benefit-card-icon{color:var(--orange);font-size:1.8rem;margin-bottom:16px;}
+.benefit-card-title{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+.benefit-card-desc{font-size:.85rem;color:var(--gray);line-height:1.6;}
+
+/* Responsive for index page */
+@media(max-width:900px){
+  .casos{grid-template-columns:1fr;}
+  .dolor-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;gap:32px;}
+  .perfiles{grid-template-columns:1fr;}
+  .benefits-grid{grid-template-columns:1fr 1fr;}
+  .hero-proof{gap:32px;}
+}
+@media(max-width:600px){
+  .benefits-grid{grid-template-columns:1fr;}
+  .hero{padding:110px 20px 72px;}
+  .hero-proof{gap:24px;}
+  .caso{padding:32px 24px;}
+  .dolor-item{padding:32px 20px;}
+}
