@@ -1,0 +1,701 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Precios REELEVO — Desde 49€/mes para empresas | Sin límite de operarios";
+const description = "Precio fijo por empresa, no por usuario. Desde 49€/mes para operarios ilimitados. Prueba gratis 30 días sin tarjeta de crédito. El único software con precio transparente en euros.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "REELEVO",
+  "description": "Plataforma de documentación operativa industrial",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "price": "49",
+      "priceCurrency": "EUR",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    {
+      "@type": "Offer",
+      "name": "Profesional",
+      "price": "149",
+      "priceCurrency": "EUR",
+      "url": "https://app.gmvsolutions.es/registro"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav="precios"
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Precios transparentes</div>
+    <h1 class="fade-up delay-1">Precio por empresa.<br><em>No por operario.</em></h1>
+    <p class="fade-up delay-2">Da igual que tengas 5 o 500 personas accediendo a los procesos. El precio es fijo por empresa. Sin sorpresas. El único del mercado que lo publica en euros.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLANES -->
+  <section class="section" id="planes">
+    <div class="section-inner">
+      <div class="plans-grid fade-up">
+        <!-- STARTER -->
+        <div class="plan-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">49€<sub>/mes</sub></div>
+          <div class="plan-period">Facturación mensual · Sin permanencia</div>
+          <div class="plan-desc">Para empresas que quieren empezar a documentar sus procesos críticos y cubrir las bajas sin parones.</div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="check">✓</span>1 planta / centro de trabajo</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 20 máquinas o puestos</div>
+            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados por máquina</div>
+            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
+            <div class="plan-feature"><span class="check">✓</span>Acceso por QR sin cuenta de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Troubleshooting inline</div>
+            <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
+            <div class="plan-feature"><span class="check">✓</span>Certificación automática por ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Estadísticas básicas de uso</div>
+            <div class="plan-feature"><span class="check">✓</span>Exportación CSV</div>
+            <div class="plan-feature"><span class="cross">×</span>Múltiples plantas</div>
+            <div class="plan-feature"><span class="cross">×</span>API de integración</div>
+          </div>
+          <div class="plan-cta">
+            <a href="https://app.gmvsolutions.es/registro" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Empezar gratis 30 días</a>
+            <p class="plan-note">Sin tarjeta de crédito</p>
+          </div>
+        </div>
+
+        <!-- PROFESIONAL -->
+        <div class="plan-card featured">
+          <div class="plan-badge">Más popular</div>
+          <div class="plan-name">Profesional</div>
+          <div class="plan-price">149€<sub>/mes</sub></div>
+          <div class="plan-period">Facturación mensual · Sin permanencia</div>
+          <div class="plan-desc">Para empresas con múltiples plantas que necesitan escalabilidad y integraciones con sus sistemas existentes.</div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="check">✓</span>Hasta 3 plantas / centros</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 100 máquinas o puestos</div>
+            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados por máquina</div>
+            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
+            <div class="plan-feature"><span class="check">✓</span>Acceso por QR sin cuenta de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Troubleshooting inline</div>
+            <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
+            <div class="plan-feature"><span class="check">✓</span>Certificación automática por ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Dashboard avanzado y reports</div>
+            <div class="plan-feature"><span class="check">✓</span>Exportación CSV y Excel</div>
+            <div class="plan-feature"><span class="check">✓</span>Integración API con Factorial/Personio</div>
+            <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
+          </div>
+          <div class="plan-cta">
+            <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Empezar gratis 30 días</a>
+            <p class="plan-note">Sin tarjeta de crédito</p>
+          </div>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="plan-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">A medida</div>
+          <div class="plan-period">Contacta para presupuesto personalizado</div>
+          <div class="plan-desc">Para grandes empresas industriales con necesidades específicas de compliance, seguridad y escalabilidad.</div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="check">✓</span>Plantas ilimitadas</div>
+            <div class="plan-feature"><span class="check">✓</span>Máquinas y puestos ilimitados</div>
+            <div class="plan-feature"><span class="check">✓</span>Usuarios administrativos ilimitados</div>
+            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
+            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Profesional</div>
+            <div class="plan-feature"><span class="check">✓</span>SSO / Azure AD / LDAP</div>
+            <div class="plan-feature"><span class="check">✓</span>API completa personalizada</div>
+            <div class="plan-feature"><span class="check">✓</span>Integración ERP (SAP, Oracle)</div>
+            <div class="plan-feature"><span class="check">✓</span>Auditoría y compliance avanzado</div>
+            <div class="plan-feature"><span class="check">✓</span>SLA garantizado</div>
+            <div class="plan-feature"><span class="check">✓</span>Soporte dedicado</div>
+            <div class="plan-feature"><span class="check">✓</span>Implementación asistida</div>
+          </div>
+          <div class="plan-cta">
+            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Contactar</a>
+            <p class="plan-note">Respuesta en 24h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="max-width:100%;"></div>
+
+  <!-- CALCULADORA ROI -->
+  <section class="roi-section" id="roi">
+    <div class="roi-inner">
+      <div class="eyebrow fade-up" style="display:flex;align-items:center;gap:10px;"><span style="width:28px;height:1px;background:var(--orange);display:block;flex-shrink:0;"></span>Calculadora de ROI</div>
+      <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;margin-bottom:12px;" class="fade-up delay-1">¿Cuánto te cuesta <em style="color:var(--orange);font-style:normal;">no tener</em> REELEVO?</h2>
+      <p style="font-size:.95rem;color:var(--gray);max-width:520px;line-height:1.7;" class="fade-up delay-2">Calcula el impacto real del absentismo en tu empresa y cuánto tiempo tardas en recuperar la inversión.</p>
+
+      <div class="roi-grid fade-up delay-3">
+        <div class="roi-inputs">
+          <div class="roi-field">
+            <label>Número de trabajadores <span id="lbl-workers">40</span></label>
+            <input type="range" min="10" max="200" step="5" value="40" id="sl-workers">
+          </div>
+          <div class="roi-field">
+            <label>Tasa de absentismo (%) <span id="lbl-abs">7</span>%</label>
+            <input type="range" min="3" max="15" step="0.5" value="7" id="sl-abs">
+          </div>
+          <div class="roi-field">
+            <label>Coste diario por trabajador (€) <span id="lbl-daily">120</span>€</label>
+            <input type="range" min="60" max="300" step="10" value="120" id="sl-daily">
+          </div>
+          <div class="roi-field">
+            <label>Días perdidos por baja sin cubrir <span id="lbl-lost">1.5</span></label>
+            <input type="range" min="0.5" max="5" step="0.5" value="1.5" id="sl-lost">
+          </div>
+          <div style="font-size:.78rem;color:var(--gray2);line-height:1.55;">* Días efectivos de producción reducida por baja no cubierta correctamente hasta que entra el sustituto a pleno rendimiento.</div>
+        </div>
+
+        <div class="roi-result">
+          <div class="roi-result-row">
+            <span class="roi-result-label">Bajas anuales estimadas</span>
+            <span class="roi-result-value" id="res-absences">315</span>
+          </div>
+          <div class="roi-result-row">
+            <span class="roi-result-label">Coste por cada baja mal cubierta</span>
+            <span class="roi-result-value" id="res-perbaja">180€</span>
+          </div>
+          <div class="roi-result-row prominent">
+            <span class="roi-result-label">Coste total anual estimado</span>
+            <span class="roi-result-value" id="res-annual">56.700€</span>
+          </div>
+          <div class="roi-result-summary">
+            <div class="roi-result-big">
+              <span class="roi-result-big-label">ROI</span>
+              <span class="roi-result-big-value" id="res-roi">×31.7</span>
+            </div>
+            <div class="roi-result-payback" id="res-payback">Recuperas la inversión en menos de 1 mes</div>
+          </div>
+          <div style="margin-top:20px;">
+            <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="font-size:.8rem;padding:12px 24px;">Empezar prueba gratuita →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="max-width:100%;"></div>
+
+  <!-- TRIAL BAND -->
+  <div class="trial-band">
+    <div class="trial-title fade-up">Piloto gratuito de <em>30 días</em></div>
+    <div class="trial-bullets fade-up delay-1">
+      <div class="trial-bullet"><span>✓</span>Sin tarjeta de crédito</div>
+      <div class="trial-bullet"><span>✓</span>Sin permanencia</div>
+      <div class="trial-bullet"><span>✓</span>Te ayudamos a configurar los primeros procesos</div>
+      <div class="trial-bullet"><span>✓</span>Implementación en 1 día</div>
+      <div class="trial-bullet"><span>✓</span>Soporte en español</div>
+    </div>
+    <div class="fade-up delay-2" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Empezar gratis ahora →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost" style="background:var(--surface);border-color:var(--border);">Ver mi situación</a>
+    </div>
+  </div>
+
+  <div class="divider" style="max-width:100%;"></div>
+
+  <!-- COMPARATIVA -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Comparación del mercado</div>
+        <h2 class="section-title">REELEVO vs competencia internacional</h2>
+        <p class="section-sub">
+          Somos los únicos que publican precio en euros y están diseñados específicamente para pymes industriales españolas.
+        </p>
+      </div>
+
+      <div class="comparison-table fade-up delay-1" style="margin-top:48px;">
+        <div class="comp-table">
+          <div class="comp-header">
+            <div class="comp-cell"></div>
+            <div class="comp-cell highlight">REELEVO</div>
+            <div class="comp-cell">Dozuki</div>
+            <div class="comp-cell">Poka (IFS)</div>
+            <div class="comp-cell">GembaDocs</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Precio visible</div>
+            <div class="comp-cell highlight"><span class="check">✓</span> 49€/mes</div>
+            <div class="comp-cell"><span class="cross">×</span> ~$850/mes</div>
+            <div class="comp-cell"><span class="cross">×</span> Oculto</div>
+            <div class="comp-cell"><span class="cross">×</span> Oculto</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Sin cuenta operario</div>
+            <div class="comp-cell highlight"><span class="check">✓</span> Total</div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Sin app operario</div>
+            <div class="comp-cell highlight"><span class="check">✓</span> Total</div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell"><span class="cross">×</span> App obligatoria</div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Monitor tiempo real</div>
+            <div class="comp-cell highlight"><span class="check">✓</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell">Parcial</div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Certificación ejecución</div>
+            <div class="comp-cell highlight"><span class="check">✓</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">En español nativo</div>
+            <div class="comp-cell highlight"><span class="check">✓</span></div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+            <div class="comp-cell">Parcial</div>
+            <div class="comp-cell"><span class="cross">×</span></div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-cell label">Para pyme española</div>
+            <div class="comp-cell highlight"><span class="check">✓</span> Específico</div>
+            <div class="comp-cell"><span class="cross">×</span> Fortune 500</div>
+            <div class="comp-cell"><span class="cross">×</span> Enterprise</div>
+            <div class="comp-cell">Parcial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Empieza hoy</div>
+    <h2 class="cta-title fade-up delay-1">
+      Prueba <em>REELEVO</em> gratis
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      30 días para documentar tus procesos críticos y ver el impacto real.
+      Sin tarjeta de crédito, sin permanencia, sin riesgo.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Crear cuenta gratis →
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Configuración en 1 día · Soporte incluido · Implementación asistida
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Plans */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .plan-card {
+    background: var(--surface);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .plan-card.featured {
+    border: 2px solid var(--orange);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    font-weight: 500;
+  }
+
+  .plan-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .plan-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-price sub {
+    font-size: .6rem;
+    color: var(--gray);
+  }
+
+  .plan-period {
+    font-size: .8rem;
+    color: var(--gray2);
+    margin-bottom: 20px;
+  }
+
+  .plan-desc {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .plan-features {
+    flex: 1;
+    margin-bottom: 32px;
+  }
+
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .85rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .plan-feature .check {
+    color: var(--green);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .plan-feature .cross {
+    color: var(--gray2);
+    flex-shrink: 0;
+  }
+
+  .plan-cta {
+    text-align: center;
+  }
+
+  .plan-note {
+    font-size: .75rem;
+    color: var(--gray2);
+    margin-top: 8px;
+  }
+
+  /* ROI Calculator */
+  .roi-section {
+    background: var(--surface);
+    padding: 80px 32px;
+    text-align: center;
+  }
+
+  .roi-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    text-align: left;
+  }
+
+  .roi-field {
+    margin-bottom: 24px;
+  }
+
+  .roi-field label {
+    display: block;
+    font-size: .9rem;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .roi-field input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    outline: none;
+    border-radius: 3px;
+    appearance: none;
+  }
+
+  .roi-field input[type="range"]::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--orange);
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .roi-result {
+    background: var(--surface2);
+    padding: 32px;
+    border-radius: 4px;
+  }
+
+  .roi-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .roi-result-row.prominent {
+    background: rgba(244, 82, 30, 0.06);
+    margin: 8px -16px;
+    padding: 16px;
+    border: none;
+    font-weight: 500;
+  }
+
+  .roi-result-label {
+    font-size: .85rem;
+    color: var(--gray);
+  }
+
+  .roi-result-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .roi-result-summary {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .roi-result-big {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .roi-result-big-label {
+    font-size: .8rem;
+    color: var(--gray);
+  }
+
+  .roi-result-big-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .roi-result-payback {
+    font-size: .85rem;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* Trial Band */
+  .trial-band {
+    background: var(--surface2);
+    padding: 64px 32px;
+    text-align: center;
+  }
+
+  .trial-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: 32px;
+  }
+
+  .trial-title em {
+    color: var(--orange);
+    font-style: normal;
+  }
+
+  .trial-bullets {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .trial-bullet {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .85rem;
+    color: var(--gray);
+  }
+
+  .trial-bullet span {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* Comparison Table */
+  .comp-table {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .comp-header .comp-cell {
+    background: var(--surface2);
+    padding: 16px 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    text-align: center;
+  }
+
+  .comp-cell {
+    background: var(--surface);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    text-align: center;
+  }
+
+  .comp-cell.label {
+    justify-content: flex-start;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .comp-cell.highlight {
+    background: rgba(244, 82, 30, 0.06);
+    border: 1px solid rgba(244, 82, 30, 0.15);
+  }
+
+  .comp-cell .check {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .comp-cell .cross {
+    color: var(--gray2);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .plans-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .comp-table {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    }
+
+    .comp-cell {
+      font-size: .7rem;
+      padding: 8px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .trial-bullets {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .comp-table {
+      display: block;
+    }
+
+    .comp-header,
+    .comp-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1px;
+      margin-bottom: 2px;
+    }
+
+    .comp-cell:not(.label):not(:nth-child(1)):not(:nth-child(2)) {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function calcRoi() {
+    const workers = parseInt((document.getElementById('sl-workers') as HTMLInputElement).value);
+    const abs = parseFloat((document.getElementById('sl-abs') as HTMLInputElement).value);
+    const daily = parseInt((document.getElementById('sl-daily') as HTMLInputElement).value);
+    const lost = parseFloat((document.getElementById('sl-lost') as HTMLInputElement).value);
+
+    document.getElementById('lbl-workers')!.textContent = workers.toString();
+    document.getElementById('lbl-abs')!.textContent = abs.toString();
+    document.getElementById('lbl-daily')!.textContent = daily.toString();
+    document.getElementById('lbl-lost')!.textContent = lost.toString();
+
+    const workingDays = 220;
+    const absences = Math.round(workers * (abs / 100) * workingDays / 5);
+    const perBaja = Math.round(lost * daily);
+    const annual = absences * perBaja;
+    const reelevo = 1788;
+    const roi = annual > 0 ? (annual / reelevo).toFixed(1) : '—';
+    const paybackMonths = annual > 0 ? (reelevo / (annual / 12)).toFixed(1) : '—';
+
+    document.getElementById('res-absences')!.textContent = absences.toString();
+    document.getElementById('res-perbaja')!.textContent = perBaja.toLocaleString('es-ES') + '€';
+    document.getElementById('res-annual')!.textContent = annual.toLocaleString('es-ES') + '€';
+    document.getElementById('res-roi')!.textContent = '×' + roi;
+    document.getElementById('res-payback')!.textContent = parseFloat(paybackMonths) < 1
+      ? 'Recuperas la inversión en menos de 1 mes'
+      : `Recuperas la inversión en aprox. ${paybackMonths} meses`;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    calcRoi();
+
+    ['sl-workers', 'sl-abs', 'sl-daily', 'sl-lost'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', calcRoi);
+    });
+  });
+</script>

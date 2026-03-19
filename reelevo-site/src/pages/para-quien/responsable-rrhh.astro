@@ -1,0 +1,1266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "REELEVO para Responsables de RRHH — Onboarding sin tutores y certificación automática";
+const description = "Onboarding estandarizado en 3 días, certificación por ejecución real e integración con Factorial/Personio. REELEVO elimina los costes de formación manual para RRHH.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO para Responsables de RRHH",
+  "description": "Solución específica para responsables de recursos humanos",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "HR Manager"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav=""
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Para responsables de RRHH</div>
+    <h1 class="fade-up delay-1">Onboarding <em>sin tutores</em><br>y certificación automática.</h1>
+    <p class="fade-up delay-2">Reduce el tiempo de incorporación de 2 semanas a 3 días. Certificación por ejecución real, no por asistencia. Integración directa con tu software de RRHH.</p>
+    <div class="hero-cta-group fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Probar gratis 30 días →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Ver impacto en mi empresa</a>
+    </div>
+    <div class="hero-cta-note fade-up delay-4">Sin tarjeta de crédito · Integración con Factorial y Personio</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROBLEMAS DE RRHH -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:64px;">
+        <div class="eyebrow">Problemas de RRHH</div>
+        <h2 class="section-title">Los costes ocultos de la formación tradicional</h2>
+        <p class="section-sub">
+          Problemas diarios que enfrentan los departamentos de RRHH
+          en empresas industriales con alta rotación.
+        </p>
+      </div>
+
+      <div class="hr-problems fade-up delay-1">
+        <div class="problem-card high-impact">
+          <div class="problem-icon">💰</div>
+          <h3 class="problem-title">Coste de formación descontrolado</h3>
+          <div class="problem-stats">
+            <div class="problem-stat">€680</div>
+            <div class="problem-stat-label">Coste medio por incorporación (tutoren + tiempo perdido)</div>
+          </div>
+          <div class="problem-description">
+            <h4>Situación actual:</h4>
+            <ul>
+              <li>Tus mejores operarios se convierten en tutores a tiempo parcial</li>
+              <li>2 semanas de rendimiento reducido: tutor + aprendiz</li>
+              <li>Inconsistencias según quién forme a quién</li>
+              <li>Sin registro formal de competencias adquiridas</li>
+              <li>Repetir formación si el empleado cambia de puesto</li>
+            </ul>
+          </div>
+          <div class="problem-solution">
+            <h4>Con REELEVO:</h4>
+            <ul>
+              <li>Formación autodidacta guiada por el mejor experto</li>
+              <li>3 días hasta rendimiento completo</li>
+              <li>Consistencia total en todos los procesos</li>
+              <li>Certificación automática registrada</li>
+              <li>Formación escalable a cualquier puesto</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="problem-card medium-impact">
+          <div class="problem-icon">📋</div>
+          <h3 class="problem-title">Cumplimiento y trazabilidad</h3>
+          <div class="problem-stats">
+            <div class="problem-stat">23%</div>
+            <div class="problem-stat-label">Empresas con registro completo de competencias operativas</div>
+          </div>
+          <div class="problem-description">
+            <h4>Situación actual:</h4>
+            <ul>
+              <li>No hay registro de qué sabe hacer cada operario</li>
+              <li>Certificaciones basadas en «asistencia» no en «competencia»</li>
+              <li>Imposible demostrar cumplimiento en auditorías</li>
+              <li>Datos de formación dispersos en Excel, papel, memoria</li>
+              <li>Sin seguimiento de competencias actualizadas</li>
+            </ul>
+          </div>
+          <div class="problem-solution">
+            <h4>Con REELEVO:</h4>
+            <ul>
+              <li>Registro automático de competencias por puesto</li>
+              <li>Certificación por ejecución real demostrada</li>
+              <li>Trazabilidad completa para auditorías</li>
+              <li>Integración directa con tu sistema de RRHH</li>
+              <li>Actualizaciones automáticas de skills matriz</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="problem-card high-impact">
+          <div class="problem-icon">🔄</div>
+          <h3 class="problem-title">Rotación y personal temporal</h3>
+          <div class="problem-stats">
+            <div class="problem-stat">18%</div>
+            <div class="problem-stat-label">Rotación anual media en industria (ETT: 45%)</div>
+          </div>
+          <div class="problem-description">
+            <h4>Situación actual:</h4>
+            <ul>
+              <li>Cada ETT necesita formación desde cero</li>
+              <li>Inversión en formación que «se va» con la persona</li>
+              <li>Imposible rentabilizar formación con alta rotación</li>
+              <li>Dependencia excesiva de personal fijo para formar</li>
+              <li>Sin escalabilidad para picos de demanda</li>
+            </ul>
+          </div>
+          <div class="problem-solution">
+            <h4>Con REELEVO:</h4>
+            <ul>
+              <li>ETT operativo desde el primer turno</li>
+              <li>Formación una vez, escalable infinitamente</li>
+              <li>ROI positivo aunque la persona esté 1 semana</li>
+              <li>Sin dependencia de personal fijo para formar</li>
+              <li>Escalabilidad total para picos estacionales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CERTIFICACIÓN SISTEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Sistema de certificación</div>
+        <h2 class="section-title">Certificación por <em>ejecución real</em></h2>
+        <p class="section-sub">
+          No certificamos por asistencia a cursos. Certificamos por
+          demostración práctica de competencias en condiciones reales.
+        </p>
+      </div>
+
+      <div class="certification-comparison fade-up delay-1">
+        <div class="cert-traditional">
+          <h3>❌ Certificación tradicional</h3>
+          <div class="cert-process">
+            <div class="cert-step">
+              <div class="cert-step-icon">📚</div>
+              <div class="cert-step-text">Asistencia a curso teórico</div>
+            </div>
+            <div class="cert-arrow">→</div>
+            <div class="cert-step">
+              <div class="cert-step-icon">📝</div>
+              <div class="cert-step-text">Test teórico</div>
+            </div>
+            <div class="cert-arrow">→</div>
+            <div class="cert-step">
+              <div class="cert-step-icon">✅</div>
+              <div class="cert-step-text">Certificación</div>
+            </div>
+          </div>
+          <div class="cert-problems">
+            <h4>Problemas:</h4>
+            <ul>
+              <li>No garantiza competencia práctica real</li>
+              <li>Basada en memorización, no en ejecución</li>
+              <li>Sin conexión con el puesto real de trabajo</li>
+              <li>No refleja la capacidad operativa</li>
+              <li>Válida en el momento, no actualizable</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cert-reelevo">
+          <h3>✅ Certificación REELEVO</h3>
+          <div class="cert-process">
+            <div class="cert-step">
+              <div class="cert-step-icon">📱</div>
+              <div class="cert-step-text">Acceso a instrucciones reales</div>
+            </div>
+            <div class="cert-arrow">→</div>
+            <div class="cert-step">
+              <div class="cert-step-icon">⚙️</div>
+              <div class="cert-step-text">Ejecución en máquina real</div>
+            </div>
+            <div class="cert-arrow">→</div>
+            <div class="cert-step">
+              <div class="cert-step-icon">📊</div>
+              <div class="cert-step-text">Certificación automática</div>
+            </div>
+          </div>
+          <div class="cert-benefits">
+            <h4>Ventajas:</h4>
+            <ul>
+              <li>Garantiza competencia práctica demostrada</li>
+              <li>Basada en ejecución real, no en teoría</li>
+              <li>Conectada directamente con el puesto</li>
+              <li>Refleja la capacidad operativa real</li>
+              <li>Actualizable automáticamente</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="certification-data fade-up delay-2">
+        <div class="cert-data-card">
+          <h4>📊 Lo que registra REELEVO automáticamente:</h4>
+          <div class="cert-data-grid">
+            <div class="cert-data-item">
+              <strong>Quién:</strong> Identificación del operario
+            </div>
+            <div class="cert-data-item">
+              <strong>Qué:</strong> Proceso específico ejecutado
+            </div>
+            <div class="cert-data-item">
+              <strong>Cuándo:</strong> Fecha y hora de ejecución
+            </div>
+            <div class="cert-data-item">
+              <strong>Dónde:</strong> Máquina/puesto de trabajo
+            </div>
+            <div class="cert-data-item">
+              <strong>Cómo:</strong> Pasos completados correctamente
+            </div>
+            <div class="cert-data-item">
+              <strong>Resultado:</strong> Éxito/problema/tiempo empleado
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- INTEGRACIÓN CON SISTEMAS HR -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Integración sistemas</div>
+        <h2 class="section-title">Conecta con tu software de RRHH</h2>
+        <p class="section-sub">
+          API directa con Factorial, Personio, SAP SuccessFactors y
+          principales sistemas de gestión de personas.
+        </p>
+      </div>
+
+      <div class="integration-grid fade-up delay-1">
+        <div class="integration-card featured">
+          <div class="integration-logo">📊</div>
+          <h3 class="integration-name">Factorial</h3>
+          <div class="integration-status">✅ Integración nativa</div>
+          <div class="integration-features">
+            <h4>Sincronización automática:</h4>
+            <ul>
+              <li>Competencias adquiridas → Skills del empleado</li>
+              <li>Horas de formación efectivas</li>
+              <li>Certificaciones por puesto</li>
+              <li>Plan de desarrollo individual</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="integration-card featured">
+          <div class="integration-logo">🎯</div>
+          <h3 class="integration-name">Personio</h3>
+          <div class="integration-status">✅ Integración nativa</div>
+          <div class="integration-features">
+            <h4>Sincronización automática:</h4>
+            <ul>
+              <li>Training records actualizados</li>
+              <li>Performance data por competencias</li>
+              <li>Certification tracking</li>
+              <li>Skills matrix actualizada</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="integration-card">
+          <div class="integration-logo">🏢</div>
+          <h3 class="integration-name">SAP SuccessFactors</h3>
+          <div class="integration-status">📡 Vía API</div>
+          <div class="integration-features">
+            <h4>Sincronización automática:</h4>
+            <ul>
+              <li>Learning Management System</li>
+              <li>Goal and Performance Management</li>
+              <li>Talent Management</li>
+              <li>Reporting y Analytics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="integration-card">
+          <div class="integration-logo">⚙️</div>
+          <h3 class="integration-name">Otros sistemas</h3>
+          <div class="integration-status">🔌 API personalizada</div>
+          <div class="integration-features">
+            <h4>API REST completa:</h4>
+            <ul>
+              <li>Webhook en tiempo real</li>
+              <li>Exportación CSV/Excel programada</li>
+              <li>Integración custom con cualquier sistema</li>
+              <li>Documentación API completa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="integration-demo fade-up delay-2">
+        <h3>🔄 Flujo de integración automática</h3>
+        <div class="integration-flow">
+          <div class="flow-step">
+            <div class="flow-number">1</div>
+            <div class="flow-content">
+              <h4>Operario ejecuta proceso</h4>
+              <p>Completa procedimiento siguiendo REELEVO</p>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-number">2</div>
+            <div class="flow-content">
+              <h4>Certificación automática</h4>
+              <p>Sistema registra competencia demostrada</p>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-number">3</div>
+            <div class="flow-content">
+              <h4>Sincronización instantánea</h4>
+              <p>Datos aparecen en tu sistema de RRHH</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </end>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STATS BANDA -->
+  <section class="stat-band">
+    <div class="stat-band-inner fade-up">
+      <div class="stat-item">
+        <div class="stat-num">-67%</div>
+        <div class="stat-label">Tiempo de onboarding nuevas incorporaciones</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">-440€</div>
+        <div class="stat-label">Coste por incorporación (vs formación tradicional)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Trazabilidad de competencias para auditorías</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE ÉXITO -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Caso real</div>
+        <h2 class="section-title">«Redujimos el coste de onboarding un 73%»</h2>
+        <p class="section-sub">
+          Testimonio de Laura M., Responsable de RRHH en empresa alimentaria
+          con 85 empleados y 25% rotación anual.
+        </p>
+      </div>
+
+      <div class="case-study-hr fade-up delay-1">
+        <div class="case-quote">
+          <blockquote>
+            «Con la alta rotación que tenemos (sobre todo ETT en temporada alta), la formación era
+            un auténtico quebradero de cabeza. Cada nueva incorporación necesitaba 2 semanas de tutor.
+            Con REELEVO, <strong>el personal ETT rinde desde el primer turno</strong>.
+            La inversión se amortiza incluso si solo están una semana.»
+          </blockquote>
+          <div class="case-author">
+            <strong>Laura M.</strong><br>
+            Responsable de RRHH, Industria Alimentaria<br>
+            85 empleados • 25% rotación anual • Alta estacionalidad
+          </div>
+        </div>
+
+        <div class="case-metrics-hr">
+          <div class="case-metric">
+            <div class="case-metric-before">Antes</div>
+            <div class="case-metric-number old">2 semanas</div>
+            <div class="case-metric-after">Después</div>
+            <div class="case-metric-number new">3 días</div>
+            <div class="case-metric-label">Tiempo hasta rendimiento completo</div>
+          </div>
+
+          <div class="case-metric">
+            <div class="case-metric-before">Antes</div>
+            <div class="case-metric-number old">€680</div>
+            <div class="case-metric-after">Después</div>
+            <div class="case-metric-number new">€180</div>
+            <div class="case-metric-label">Coste total por incorporación</div>
+          </div>
+
+          <div class="case-metric">
+            <div class="case-metric-before">Antes</div>
+            <div class="case-metric-number old">23%</div>
+            <div class="case-metric-after">Después</div>
+            <div class="case-metric-number new">100%</div>
+            <div class="case-metric-label">Competencias registradas y trazables</div>
+          </div>
+        </div>
+
+        <div class="case-roi">
+          <h3>💰 Cálculo de ROI en 1 año:</h3>
+          <div class="roi-calculation">
+            <div class="roi-item">
+              <strong>Incorporaciones anuales:</strong> 28 (25% de 85 + ETT estacional)
+            </div>
+            <div class="roi-item">
+              <strong>Ahorro por incorporación:</strong> €500 (€680 - €180)
+            </div>
+            <div class="roi-item">
+              <strong>Ahorro total anual:</strong> €14.000
+            </div>
+            <div class="roi-item">
+              <strong>Coste REELEVO Profesional:</strong> €1.788/año
+            </div>
+            <div class="roi-result">
+              <strong>ROI: 783% • Payback: 1,5 meses</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLAN DE IMPLEMENTACIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
+        <div class="eyebrow">Plan de implementación</div>
+        <h2 class="section-title">Implementación asistida para RRHH</h2>
+        <p class="section-sub">
+          Plan específico para departamentos de recursos humanos.
+          Incluye integración con sistemas y formación del equipo.
+        </p>
+      </div>
+
+      <div class="implementation-plan fade-up delay-1">
+        <div class="plan-phase">
+          <div class="phase-header">
+            <div class="phase-number">1</div>
+            <h3>Semana 1: Análisis y configuración</h3>
+          </div>
+          <div class="phase-content">
+            <div class="phase-tasks">
+              <h4>Tareas REELEVO:</h4>
+              <ul>
+                <li>Análisis de puestos críticos y competencias requeridas</li>
+                <li>Configuración de perfiles de usuario (operario/supervisor/RRHH)</li>
+                <li>Setup de integración con vuestro sistema de RRHH</li>
+                <li>Configuración de reporting automático</li>
+              </ul>
+            </div>
+            <div class="phase-hr">
+              <h4>Tu participación:</h4>
+              <ul>
+                <li>2h reunión inicial con el equipo de REELEVO</li>
+                <li>Facilitar acceso API sistema RRHH (si procede)</li>
+                <li>Revisión y aprobación plan de competencias</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-phase">
+          <div class="phase-header">
+            <div class="phase-number">2</div>
+            <h3>Semana 2: Documentación y pruebas</h3>
+          </div>
+          <div class="phase-content">
+            <div class="phase-tasks">
+              <h4>Tareas REELEVO:</h4>
+              <ul>
+                <li>Grabación de procesos con operarios expertos</li>
+                <li>Configuración de certificaciones automáticas</li>
+                <li>Pruebas de integración con sistema RRHH</li>
+                <li>Verificación de flujo completo de datos</li>
+              </ul>
+            </div>
+            <div class="phase-hr">
+              <h4>Tu participación:</h4>
+              <ul>
+                <li>Coordinación con jefe de producción para grabaciones</li>
+                <li>Revisión de datos de prueba en vuestro sistema</li>
+                <li>Validación de certificaciones generadas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-phase">
+          <div class="phase-header">
+            <div class="phase-number">3</div>
+            <h3>Semana 3: Rollout y formación</h3>
+          </div>
+          <div class="phase-content">
+            <div class="phase-tasks">
+              <h4>Tareas REELEVO:</h4>
+              <ul>
+                <li>Instalación de QR en puestos documentados</li>
+                <li>Formación a equipo RRHH en dashboard y reportes</li>
+                <li>Primera incorporación asistida con REELEVO</li>
+                <li>Configuración alertas y notificaciones</li>
+              </ul>
+            </div>
+            <div class="phase-hr">
+              <h4>Tu participación:</h4>
+              <ul>
+                <li>Asistencia a formación (1h sesión)</li>
+                <li>Acompañamiento primera incorporación</li>
+                <li>Validación de proceso completo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-phase ongoing">
+          <div class="phase-header">
+            <div class="phase-number">∞</div>
+            <h3>Soporte continuo</h3>
+          </div>
+          <div class="phase-content">
+            <div class="phase-tasks">
+              <h4>Incluido sin coste adicional:</h4>
+              <ul>
+                <li>Soporte técnico prioritario para RRHH</li>
+                <li>Actualizaciones de integración automáticas</li>
+                <li>Informes mensuales de competencias y uso</li>
+                <li>Consultoría en optimización de procesos RRHH</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Para responsables de RRHH</div>
+    <h2 class="cta-title fade-up delay-1">
+      Reduce los costes de onboarding <em>un 70%</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      30 días para comprobar el impacto real en tus métricas de RRHH.
+      Implementación asistida e integración con tu sistema incluida.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Probar gratis 30 días →
+      </a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+        Calcular mi ahorro
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Integración con Factorial/Personio incluida · Soporte especializado en RRHH
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* HR Problems */
+  .hr-problems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .problem-card {
+    background: var(--surface);
+    padding: 28px 24px;
+    position: relative;
+  }
+
+  .problem-card.high-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #FF4444;
+  }
+
+  .problem-card.medium-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #FF8800;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .problem-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .problem-stats {
+    background: var(--surface2);
+    padding: 16px;
+    border-radius: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .problem-stat {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .problem-stat-label {
+    font-size: .7rem;
+    color: var(--gray);
+    line-height: 1.3;
+  }
+
+  .problem-description,
+  .problem-solution {
+    margin-bottom: 16px;
+  }
+
+  .problem-description h4,
+  .problem-solution h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .problem-description h4 {
+    color: var(--gray2);
+  }
+
+  .problem-solution h4 {
+    color: var(--orange);
+  }
+
+  .problem-description ul,
+  .problem-solution ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .problem-description li {
+    color: var(--gray);
+    margin-bottom: 3px;
+  }
+
+  .problem-description li::before {
+    content: '−';
+    color: var(--gray2);
+    margin-right: 8px;
+  }
+
+  .problem-solution li {
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 3px;
+  }
+
+  .problem-solution li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  /* Certification comparison */
+  .certification-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .cert-traditional,
+  .cert-reelevo {
+    background: var(--surface);
+    padding: 32px 28px;
+  }
+
+  .cert-traditional h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--gray2);
+  }
+
+  .cert-reelevo h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--orange);
+  }
+
+  .cert-process {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    justify-content: center;
+  }
+
+  .cert-step {
+    background: var(--surface2);
+    padding: 16px 12px;
+    border-radius: 2px;
+    text-align: center;
+    flex: 1;
+    max-width: 100px;
+  }
+
+  .cert-step-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .cert-step-text {
+    font-size: .7rem;
+    line-height: 1.3;
+    color: var(--gray);
+  }
+
+  .cert-arrow {
+    color: var(--gray);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .cert-problems,
+  .cert-benefits {
+    margin-top: 20px;
+  }
+
+  .cert-problems h4,
+  .cert-benefits h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .cert-problems h4 {
+    color: var(--gray2);
+  }
+
+  .cert-benefits h4 {
+    color: var(--orange);
+  }
+
+  .cert-problems ul,
+  .cert-benefits ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .cert-problems li {
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .cert-problems li::before {
+    content: '−';
+    color: var(--gray2);
+    margin-right: 8px;
+  }
+
+  .cert-benefits li {
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 4px;
+  }
+
+  .cert-benefits li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  .certification-data {
+    margin-top: 32px;
+  }
+
+  .cert-data-card {
+    background: var(--surface);
+    padding: 28px;
+    border-radius: 4px;
+  }
+
+  .cert-data-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--orange);
+  }
+
+  .cert-data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .cert-data-item {
+    font-size: .8rem;
+    line-height: 1.5;
+    color: var(--gray);
+  }
+
+  .cert-data-item strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Integration grid */
+  .integration-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .integration-card {
+    background: var(--surface);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .integration-card.featured {
+    border: 2px solid var(--orange);
+  }
+
+  .integration-logo {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .integration-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 8px;
+  }
+
+  .integration-status {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  .integration-features h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .integration-features ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .integration-features li {
+    margin-bottom: 4px;
+    color: var(--gray);
+  }
+
+  .integration-features li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  .integration-demo {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .integration-demo h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--orange);
+  }
+
+  .integration-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 200px;
+  }
+
+  .flow-number {
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+  }
+
+  .flow-content h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .flow-content p {
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .flow-arrow {
+    color: var(--orange);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  /* Case study HR */
+  .case-study-hr {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .case-quote {
+    background: var(--surface);
+    padding: 32px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--orange);
+  }
+
+  .case-quote blockquote {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, .9);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .case-quote blockquote strong {
+    color: var(--white);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .case-author {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .case-author strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .case-metrics-hr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+
+  .case-metric {
+    background: var(--surface);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .case-metric-before,
+  .case-metric-after {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 4px;
+  }
+
+  .case-metric-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .case-metric-number.old {
+    color: var(--gray2);
+    text-decoration: line-through;
+  }
+
+  .case-metric-number.new {
+    color: var(--orange);
+  }
+
+  .case-metric-label {
+    font-size: .75rem;
+    color: var(--gray);
+    line-height: 1.3;
+  }
+
+  .case-roi {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 24px;
+    border-radius: 4px;
+  }
+
+  .case-roi h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+
+  .roi-calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .roi-item {
+    font-size: .85rem;
+    color: rgba(255, 255, 255, .8);
+    line-height: 1.5;
+  }
+
+  .roi-item strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .roi-result {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(34, 197, 94, 0.3);
+    font-size: .95rem;
+  }
+
+  .roi-result strong {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* Implementation plan */
+  .implementation-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .plan-phase {
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .plan-phase.ongoing {
+    border: 2px solid var(--orange);
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 28px;
+    background: var(--surface2);
+  }
+
+  .phase-number {
+    width: 40px;
+    height: 40px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .phase-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+
+  .phase-content {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .plan-phase.ongoing .phase-content {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-tasks h4,
+  .phase-hr h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .phase-tasks ul,
+  .phase-hr ul {
+    list-style: none;
+    font-size: .85rem;
+    line-height: 1.6;
+  }
+
+  .phase-tasks li,
+  .phase-hr li {
+    margin-bottom: 6px;
+    color: var(--gray);
+  }
+
+  .phase-tasks li::before,
+  .phase-hr li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hr-problems {
+      grid-template-columns: 1fr;
+    }
+
+    .certification-comparison {
+      grid-template-columns: 1fr;
+    }
+
+    .integration-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cert-data-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .integration-flow {
+      flex-direction: column;
+    }
+
+    .flow-arrow {
+      transform: rotate(90deg);
+    }
+
+    .case-metrics-hr {
+      grid-template-columns: 1fr;
+    }
+
+    .phase-content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cert-process {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cert-arrow {
+      transform: rotate(90deg);
+    }
+
+    .flow-step {
+      max-width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+# GMV Solutions — REELEVO
+
+> Empresa española de soluciones digitales para la industria. Desarrollamos REELEVO, plataforma SaaS B2B de documentación operativa industrial para pymes.
+
+## Producto principal: REELEVO
+
+[REELEVO](https://gmvsolutions.es/) es una plataforma de documentación operativa industrial que captura el conocimiento de los operarios expertos en vídeo y lo distribuye por QR físico en cada máquina. Permite que cualquier sustituto o nueva incorporación opere correctamente desde el primer día, sin cuenta de usuario, sin app que instalar, sin tutor.
+
+**Precio:** desde 49€/mes por empresa (operarios ilimitados). El único del mercado con precio visible en español.
+
+**Diferencial clave:** el operario accede con el código de empresa (4 dígitos) desde el QR físico de la máquina. Sin crear cuenta. Sin descargar ninguna app. Ningún competidor tiene esto.
+
+## Problema que resuelve
+
+Las pymes industriales españolas tienen una dependencia insostenible de perfiles técnicos individuales. Cuando el operario experto falta —por baja, bajas de larga duración, incorporaciones ETT, jubilación o rotación— la línea se para o se cometen errores. El 40% de los responsables de planta llaman directamente al experto cuando alguien falta (Encuesta REELEVO, 2025). La tasa de absentismo en pymes industriales españolas es del 7,2%.
+
+REELEVO saca ese conocimiento de la cabeza del experto y lo pone disponible en segundos para cualquier sustituto, directamente en la máquina, mediante QR.
+
+## Cómo funciona
+
+1. El experto graba cada paso del proceso con el móvil (30-90 segundos por paso, ~30 minutos por proceso completo)
+2. Los vídeos se suben al panel de administración y se organizan por máquina y proceso
+3. Se imprime el QR y se pega físicamente en la máquina
+4. El sustituto escanea el QR, introduce el código de empresa de 4 dígitos, y accede a las instrucciones paso a paso en vídeo
+5. Si hay un problema, hay troubleshooting inline. Si necesita al supervisor, aviso por WhatsApp
+6. Al completar el proceso, REELEVO genera la certificación automática por ejecución real
+
+## Páginas del sitio web
+
+- [Landing principal](https://gmvsolutions.es/): Propuesta de valor, cómo funciona en 3 pasos, beneficios, para quién
+- [Cómo funciona](https://gmvsolutions.es/como-funciona/): Flujo detallado del operario, el experto y el responsable. FAQ técnico
+- [Precios](https://gmvsolutions.es/precios/): Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Comparativa vs competencia. Calculadora ROI
+- [Vs Alternativas](https://gmvsolutions.es/vs-alternativas/): Comparativa completa vs Dozuki, Poka, GembaDocs, Knowby y el papel
+- [Recursos](https://gmvsolutions.es/recursos/): Guías prácticas sobre documentación operativa, absentismo, onboarding y gestión del conocimiento para pymes industriales españolas
+
+### Para quién
+- [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/): Cobertura de bajas en planta, monitoreo en tiempo real, troubleshooting inline
+- [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/): Onboarding estandarizado, certificación automática por ejecución real, integración con Factorial/Personio
+- [Gerente / Propietario](https://gmvsolutions.es/para-quien/gerente-propietario/): ROI, precio por empresa vs por usuario, implementación en 1 día, comparativa vs Dozuki
+
+### Casos de uso
+- [Cobertura de bajas](https://gmvsolutions.es/casos-de-uso/cobertura-bajas/): Cuando el operario experto está de baja. El sustituto opera en 15 segundos desde el QR
+- [Onboarding de operarios](https://gmvsolutions.es/casos-de-uso/onboarding-operarios/): El nuevo aprende solo. Sin tutor. Certificación automática por ejecución
+- [Personal ETT](https://gmvsolutions.es/casos-de-uso/personal-ett/): El temporal accede al proceso sin cuenta ni app. Rinde desde el primer turno
+- [Transferencia de conocimiento](https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/): Captura el conocimiento del experto antes de que se jubile o se vaya
+
+## Comparativa de mercado
+
+| | REELEVO | Dozuki | Poka (IFS) | GembaDocs |
+|---|---|---|---|---|
+| Precio visible | ✓ 49€/mes | ✗ ~$850/mes | ✗ Oculto | ✗ Oculto |
+| Sin cuenta operario | ✓ Total | ✗ | ✗ | ✗ |
+| Sin app operario | ✓ Total | ✗ | ✗ (App obligatoria) | ✗ |
+| Monitor tiempo real | ✓ | ✗ | Parcial | ✗ |
+| Certificación ejecución | ✓ | ✗ | ✗ | ✗ |
+| Implementación | 1 día | Semanas | Meses | Días |
+| En español nativo | ✓ | ✗ | Parcial | ✗ |
+| Para pyme española | ✓ Específico | ✗ Fortune 500 | ✗ Enterprise | Parcial |
+
+## Datos del sector
+
+- 7,2% tasa de absentismo media en pymes industriales españolas
+- 40% de responsables de planta llaman al experto cuando alguien falta (Encuesta REELEVO, 2025)
+- 3-5 días tiempo medio hasta que un nuevo operario alcanza el rendimiento del titular
+- +40% más errores operativos durante los primeros días de cualquier incorporación
+
+## Otros productos y herramientas
+
+- [Diagnóstico de riesgo operativo](https://diagnostico.gmvsolutions.es/): Calculadora que estima el coste del absentismo y la dependencia de perfiles clave. Genera informe personalizado con plan de acción
+- [App REELEVO](https://app.gmvsolutions.es/): Portal de administración y acceso de operarios
+
+## Empresa
+
+GMV Solutions · España · hola@gmvsolutions.es · https://gmvsolutions.es · https://www.linkedin.com/company/reelevo

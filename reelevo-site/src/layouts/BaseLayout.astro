@@ -1,0 +1,92 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  activeNav?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = 'https://reelevo.gmvsolutions.es/og-image.jpg',
+  activeNav,
+  schema,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18000536518"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18000536518');
+  </script>
+
+  <!-- SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="GMV Solutions" />
+  <meta name="theme-color" content="#F4521E" />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="REELEVO by GMV Solutions" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitle} />
+  <meta name="twitter:description" content={ogDescription} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Schema.org -->
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Slot for page-specific head content (extra schema, etc.) -->
+  <slot name="head" />
+</head>
+
+<body>
+  <Header activeNav={activeNav} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+</body>
+</html>

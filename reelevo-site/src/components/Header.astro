@@ -1,0 +1,123 @@
+---
+export interface Props {
+  activeNav?: string; // e.g. 'como-funciona', 'precios', 'recursos'
+}
+const { activeNav } = Astro.props;
+---
+
+<header class="header">
+  <a href="/" class="header-logo">REEL<span>EVO</span></a>
+
+  <nav class="header-nav">
+    <a href="/como-funciona/" class={activeNav === 'como-funciona' ? 'nav-active' : ''}>
+      Cómo funciona
+    </a>
+
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-trigger">
+        Casos de uso
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
+      </span>
+      <div class="nav-dropdown-menu">
+        <a href="/casos-de-uso/cobertura-bajas/">
+          Cobertura de bajas
+          <span class="nav-sub-label">Cuando el experto falta</span>
+        </a>
+        <a href="/casos-de-uso/onboarding-operarios/">
+          Onboarding operarios
+          <span class="nav-sub-label">Incorporaciones sin tutor</span>
+        </a>
+        <a href="/casos-de-uso/personal-ett/">
+          Personal ETT
+          <span class="nav-sub-label">Temporal que rinde desde el día 1</span>
+        </a>
+        <a href="/casos-de-uso/transferencia-conocimiento/">
+          Transferencia de conocimiento
+          <span class="nav-sub-label">Captura antes de que se vayan</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-trigger">
+        Para quién
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
+      </span>
+      <div class="nav-dropdown-menu">
+        <a href="/para-quien/jefe-de-produccion/">
+          Jefe de producción
+          <span class="nav-sub-label">La línea no puede parar</span>
+        </a>
+        <a href="/para-quien/responsable-rrhh/">
+          Responsable de RRHH
+          <span class="nav-sub-label">Onboarding y competencias</span>
+        </a>
+        <a href="/para-quien/gerente-propietario/">
+          Gerente / Propietario
+          <span class="nav-sub-label">ROI y decisión de compra</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="/precios/" class={activeNav === 'precios' ? 'nav-active' : ''}>Precios</a>
+    <a href="/recursos/" class={activeNav === 'recursos' ? 'nav-active' : ''}>Recursos</a>
+  </nav>
+
+  <div class="header-right">
+    <a
+      href="https://diagnostico.gmvsolutions.es"
+      class="header-diag"
+      style="font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:.02em;transition:color .2s;"
+      onmouseover="this.style.color='#fff'"
+      onmouseout="this.style.color='rgba(255,255,255,.55)'"
+    >
+      Ver mi situación
+    </a>
+    <a href="https://app.gmvsolutions.es/registro" class="header-cta">Crear cuenta</a>
+    <button
+      class="hamburger"
+      id="hamburgerBtn"
+      aria-label="Menú"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/como-funciona/" onclick="closeMobile()">Cómo funciona</a>
+  <div class="mobile-section-title">Casos de uso</div>
+  <a href="/casos-de-uso/cobertura-bajas/" onclick="closeMobile()">Cobertura de bajas</a>
+  <a href="/casos-de-uso/onboarding-operarios/" onclick="closeMobile()">Onboarding operarios</a>
+  <a href="/casos-de-uso/personal-ett/" onclick="closeMobile()">Personal ETT</a>
+  <a href="/casos-de-uso/transferencia-conocimiento/" onclick="closeMobile()">Transferencia de conocimiento</a>
+  <div class="mobile-section-title">Para quién</div>
+  <a href="/para-quien/jefe-de-produccion/" onclick="closeMobile()">Jefe de producción</a>
+  <a href="/para-quien/responsable-rrhh/" onclick="closeMobile()">Responsable de RRHH</a>
+  <a href="/para-quien/gerente-propietario/" onclick="closeMobile()">Gerente / Propietario</a>
+  <a href="/precios/" onclick="closeMobile()">Precios</a>
+  <a href="/recursos/" onclick="closeMobile()">Recursos</a>
+  <div class="mobile-cta-group">
+    <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost" style="text-align:center;font-size:.8rem;padding:14px 28px;">
+      Ver mi situación →
+    </a>
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;">
+      Crear cuenta
+    </a>
+  </div>
+</div>
+
+<script>
+  function closeMobile() {
+    document.getElementById('mobileMenu')?.classList.remove('active');
+    document.getElementById('hamburgerBtn')?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('hamburgerBtn')?.addEventListener('click', function () {
+    this.classList.toggle('active');
+    document.getElementById('mobileMenu')?.classList.toggle('active');
+    document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+  });
+</script>

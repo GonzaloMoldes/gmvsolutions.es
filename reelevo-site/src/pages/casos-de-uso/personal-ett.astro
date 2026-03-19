@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO — Personal ETT en planta industrial",
+  "description": "Cómo REELEVO permite que el personal ETT rinda desde el primer turno sin tutor ni cuenta de usuario.",
+  "url": "https://reelevo.gmvsolutions.es/casos-de-uso/personal-ett/",
+  "isPartOf": { "@id": "https://reelevo.gmvsolutions.es/#organization" }
+};
+---
+
+<BaseLayout
+  title="REELEVO — Personal ETT en planta industrial | El temporal rinde desde el día 1"
+  description="El personal de ETT llega sin conocer tus máquinas ni tus procesos. Con REELEVO, escanea el QR del puesto, introduce el código de empresa y sigue las instrucciones. Sin cuenta. Sin app. Sin tutor. Rinde desde el primer turno."
+  canonical="https://reelevo.gmvsolutions.es/casos-de-uso/personal-ett/"
+  ogTitle="REELEVO — Personal ETT en planta | El temporal rinde desde el día 1"
+  ogDescription="El personal de ETT llega sin conocer tus máquinas ni tus procesos. Con REELEVO, escanea el QR del puesto e introduce el código de empresa. Sin cuenta. Sin app. Sin tutor."
+  activeNav="casos-de-uso"
+  schema={schema}
+>
+
+<style>
+  .cost-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; margin-top: 40px; margin-bottom: 2px; position: relative; overflow: hidden; }
+  .cost-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
+  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .cost-line { font-family: 'DM Sans', sans-serif; font-size: .95rem; color: var(--gray); line-height: 2; }
+  .cost-line strong { color: var(--white); font-weight: 500; }
+  .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange); margin-top: 12px; letter-spacing: .02em; }
+  .scenario-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 2px; }
+  .how-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; text-align: left; }
+  @media(max-width:960px) { .scenario-grid-2 { grid-template-columns: 1fr; } .cost-card { padding: 28px 24px; } }
+  @media(max-width:600px) { .how-steps { grid-template-columns: 1fr !important; } }
+</style>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow fade-up">Caso de uso — Personal ETT</div>
+  <h1 class="fade-up delay-1">El temporal de ETT llega el martes.<br><em>El jueves tiene que rendir.</em></h1>
+  <p class="fade-up delay-2">El personal de ETT no conoce tu maquinaria, ni tus procesos, ni las peculiaridades de tu empresa. Necesitan aprender rápido. Tú no puedes perder al experto 3 días haciendo de tutor. Hay una salida.</p>
+  <div class="hero-cta-group fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Empezar piloto gratis</a>
+    <a href="/como-funciona" class="btn-ghost">Ver cómo funciona →</a>
+  </div>
+  <p class="hero-cta-note fade-up delay-3">Piloto gratuito 30 días · Sin tarjeta de crédito · Implementación en 1 día</p>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">5/mes</div>
+      <div class="stat-label">incorporaciones ETT de media en pymes industriales españolas con alta rotación estacional</div>
+    </div>
+    <div class="stat-item fade-up delay-1">
+      <div class="stat-num">2 días</div>
+      <div class="stat-label">de producción reducida del tutor por cada incorporación ETT sin herramienta de onboarding</div>
+    </div>
+    <div class="stat-item fade-up delay-2">
+      <div class="stat-num">0</div>
+      <div class="stat-label">días de tutor necesarios con REELEVO para que el ETT acceda al proceso de la máquina</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-full"></div>
+
+<!-- EL PROBLEMA DEL PERSONAL ETT -->
+<section class="section" id="problema">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">El coste real que nadie mide</div>
+    <h2 class="section-title fade-up delay-1">El ETT no es el problema. <em>La falta de proceso accesible, sí.</em></h2>
+    <p class="section-sub fade-up delay-2">Cada incorporación ETT sin sistema tiene un coste invisible que pocos responsables calculan.</p>
+
+    <div class="cost-card fade-up delay-3">
+      <div class="cost-card-label">Cálculo del coste oculto</div>
+      <div class="cost-line"><strong>5 incorporaciones ETT al mes</strong></div>
+      <div class="cost-line">× <strong>2 días productivos de tutor</strong> por incorporación</div>
+      <div class="cost-line">× <strong>120 €/día</strong> de coste de oportunidad del tutor</div>
+      <div class="cost-line"><span class="cost-total">= 1.200 €/mes · 14.400 €/año en tutorías invisibles</span></div>
+    </div>
+
+    <div class="scenario-grid-2 fade-up delay-3">
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">Sin REELEVO</div>
+        <div class="scenario-card-title">El ciclo que se repite cada temporada</div>
+        <p>La ETT manda a alguien competente pero sin conocimiento de tus máquinas. El experto para 2 días. El ETT aprende "suficiente". Comete errores los primeros días. Al mes siguiente llega otro. El ciclo se repite.</p>
+        <div class="scenario-before"><strong>El coste invisible:</strong> Cada ETT nuevo = el mismo coste de tutor + errores + ramp-up. Multiplicado por 5 al mes.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> Cada ETT accede al proceso desde el QR. <strong>Misma experiencia, primer día.</strong></div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">La barrera que no ves</div>
+        <div class="scenario-card-title">Las otras soluciones requieren cuenta de usuario</div>
+        <p>Dozuki: el ETT necesita una cuenta de usuario. Poka: necesita descargarse la app. GembaDocs: necesita una cuenta. Crear y gestionar cuentas para personal temporal que entra y sale cada semana es inviable.</p>
+        <div class="scenario-before"><strong>El problema:</strong> Gestionar usuarios para personal ETT que rota cada semana es inviable operativamente.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> El ETT accede con el código de empresa de 4 dígitos. <strong>Sin cuenta. Sin app. En 15 segundos.</strong></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LO QUE CAMBIA -->
+<section class="section" id="solucion">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Lo que cambia</div>
+    <h2 class="section-title fade-up delay-1">Sin cuenta. Sin app. <em>Sin tutor.</em></h2>
+    <p class="section-sub fade-up delay-2">El ETT rinde desde el primer turno. El experto sigue produciendo al 100%. Sin coste oculto de tutor.</p>
+
+    <div class="benefit-list fade-up delay-3">
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🔑</div>
+        <div>
+          <div class="benefit-title">El ETT accede con el código de empresa</div>
+          <div class="benefit-desc">No hay que crearle una cuenta. No hay que darle una contraseña. No hay que instalarle una app. El ETT escanea el QR de su puesto, introduce el código de empresa de 4 dígitos que tiene en su hoja de bienvenida, y ya tiene el proceso.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Cero gestión de usuarios para personal temporal. Cero fricción. El ETT opera en 15 segundos.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">👷</div>
+        <div>
+          <div class="benefit-title">El experto no para de producir</div>
+          <div class="benefit-desc">El ETT aprende solo desde el QR. El experto sigue a pleno rendimiento. No tienes dos personas a media velocidad: tienes una aprendiendo a su ritmo y otra produciendo al 100%.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Sin coste oculto de tutor. Sin parones del experto. El ETT aprende. El experto produce.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📋</div>
+        <div>
+          <div class="benefit-title">Todos los ETT aprenden el mismo proceso</div>
+          <div class="benefit-desc">Da igual si llegaron el lunes o el viernes, si el encargado tenía un buen día o uno malo. El proceso que siguen es el del experto. Siempre el mismo. Siempre en el mismo orden.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Menos errores en los primeros días. Menos rechazos. Menos supervisión reactiva del encargado.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📊</div>
+        <div>
+          <div class="benefit-title">Registro de qué ha hecho cada temporal</div>
+          <div class="benefit-desc">REELEVO registra qué procesos ha completado cada ETT y cuándo. Si el mismo temporal vuelve en la próxima campaña, el historial sigue ahí.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Evidencia de competencia para el personal temporal. Útil para RRHH y para repetir incorporaciones conocidas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CÓMO FUNCIONA PARA EL ETT -->
+<section class="section" id="como-funciona">
+  <div class="section-inner" style="max-width:760px;text-align:center;margin:0 auto;">
+    <div class="eyebrow fade-up" style="justify-content:center;">Cómo funciona para el ETT</div>
+    <h2 class="section-title fade-up delay-1" style="text-align:center;">Tres pasos. <em>Primer turno productivo.</em></h2>
+    <p class="section-sub fade-up delay-2" style="max-width:100%;margin:0 auto 56px;">Sin formación previa. Sin que nadie le explique nada. El ETT llega y ya sabe qué hacer.</p>
+
+    <div class="fade-up delay-3 how-steps">
+      <div style="background:var(--surface);padding:32px 28px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--orange);margin-bottom:16px;">01</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;">El ETT llega al puesto</div>
+        <p style="font-size:.84rem;color:var(--gray);line-height:1.6;">Recibe el código de empresa de 4 dígitos en su kit de bienvenida. No hay más. No necesita cuenta, no necesita app, no necesita que nadie le configure nada.</p>
+      </div>
+      <div style="background:var(--surface);padding:32px 28px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--orange);margin-bottom:16px;">02</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;">Escanea el QR de la máquina</div>
+        <p style="font-size:.84rem;color:var(--gray);line-height:1.6;">Abre la cámara del móvil. Escanea el QR pegado en su puesto. Introduce el código. Ve los procesos disponibles para esa máquina.</p>
+      </div>
+      <div style="background:var(--surface);padding:32px 28px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--orange);margin-bottom:16px;">03</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;">Sigue el proceso y rinde desde el primer turno</div>
+        <p style="font-size:.84rem;color:var(--gray);line-height:1.6;">Instrucciones paso a paso con vídeo del experto. Troubleshooting si algo no va. El ETT opera como si llevara semanas en el puesto.</p>
+      </div>
+    </div>
+
+    <div class="fade-up delay-3" style="margin-top:32px;">
+      <a href="/como-funciona" style="color:var(--orange);font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;text-decoration:none;letter-spacing:.02em;">Ver el flujo completo →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-eyebrow fade-up">Sin tarjeta · Sin compromiso</div>
+  <h2 class="cta-title fade-up delay-1">El próximo ETT que llegue<br><em>rinde desde el primer turno</em></h2>
+  <p class="cta-sub fade-up delay-2">30 días gratis. Documenta los procesos de tus puestos ETT antes de la próxima incorporación.</p>
+  <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="font-size:.9rem;padding:18px 40px;">Empezar piloto gratis</a>
+    <a href="/precios#roi" class="btn-ghost" style="font-size:.9rem;padding:18px 40px;">Calcular coste de mis ETT →</a>
+  </div>
+</section>
+
+</BaseLayout>

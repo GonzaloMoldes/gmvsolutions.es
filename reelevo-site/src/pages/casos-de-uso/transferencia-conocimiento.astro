@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO — Transferencia de conocimiento operativo",
+  "description": "Cómo REELEVO captura el conocimiento tácito del experto antes de que se jubile o se vaya.",
+  "url": "https://reelevo.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/",
+  "isPartOf": { "@id": "https://reelevo.gmvsolutions.es/#organization" }
+};
+---
+
+<BaseLayout
+  title="REELEVO — Transferencia de conocimiento operativo | Captura antes de que se vayan"
+  description="Tu mejor técnico se jubila en 6 meses. En su cabeza hay 20 años de saber cómo arrancar esa máquina, qué hacer cuando falla y qué nunca hacer. REELEVO captura ese conocimiento antes de que desaparezca. En 30 minutos por proceso."
+  canonical="https://reelevo.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/"
+  ogTitle="REELEVO — Transferencia de conocimiento operativo | Captura antes de que se vayan"
+  ogDescription="Tu mejor técnico se jubila en 6 meses. REELEVO captura su conocimiento operativo antes de que desaparezca. En 30 minutos por proceso, con el móvil."
+  activeNav="casos-de-uso"
+  schema={schema}
+>
+
+<style>
+  .risk-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 48px; }
+  .risk-card { background: var(--surface); padding: 36px 32px; position: relative; overflow: hidden; }
+  .risk-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); opacity: 0; transition: opacity .2s; }
+  .risk-card:hover::before { opacity: 1; }
+  .risk-card-title { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
+  .risk-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; }
+  .risk-card .scenario-before { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px; margin-top: 20px; font-size: .82rem; color: var(--gray2); font-style: italic; line-height: 1.55; }
+  .risk-card .scenario-before strong { color: var(--white); font-weight: 500; font-style: normal; }
+  .risk-card .scenario-after { background: rgba(244,82,30,.06); border: 1px solid rgba(244,82,30,.2); border-radius: 2px; padding: 14px 16px; margin-top: 8px; font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.55; }
+  .risk-card .scenario-after strong { color: var(--orange); font-weight: 500; }
+  .timeline { margin-top: 56px; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item { display: flex; gap: 32px; padding: 0 0 40px; position: relative; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot { width: 56px; height: 56px; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
+  .timeline-dot-label { font-family: 'DM Mono', monospace; font-size: .56rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); text-align: center; line-height: 1.3; }
+  .timeline-content { padding-top: 12px; }
+  .timeline-heading { font-family: 'Oswald', sans-serif; font-size: .95rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; color: var(--white); }
+  .timeline-desc { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+  @media(max-width:960px) { .risk-grid { grid-template-columns: 1fr; } }
+  @media(max-width:600px) {
+    .risk-card { padding: 28px 24px; }
+    .timeline::before { left: 24px; }
+    .timeline-dot { width: 48px; height: 48px; }
+  }
+</style>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow fade-up">Caso de uso — Transferencia de conocimiento</div>
+  <h1 class="fade-up delay-1">Tu mejor técnico se jubila<br>en 6 meses. <em>¿Qué pasará<br>cuando se vaya?</em></h1>
+  <p class="fade-up delay-2">Lleva 20 años en esa planta. Sabe exactamente cómo arrancar la línea en invierno, qué hacer cuando el sensor de presión da falsos positivos, qué pasos nunca hay que seguir en ese orden. Ese conocimiento no está en ningún manual. Está en su cabeza.</p>
+  <div class="hero-cta-group fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Empezar piloto gratis</a>
+    <a href="/como-funciona" class="btn-ghost">Ver cómo funciona →</a>
+  </div>
+  <p class="hero-cta-note fade-up delay-3">Piloto gratuito 30 días · Sin tarjeta de crédito · Implementación en 1 día</p>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">20 años</div>
+      <div class="stat-label">de conocimiento operativo que puede marcharse en un día cuando el experto se va</div>
+    </div>
+    <div class="stat-item fade-up delay-1">
+      <div class="stat-num">30 min</div>
+      <div class="stat-label">lo que lleva documentar un proceso completo con REELEVO. El experto graba con el móvil.</div>
+    </div>
+    <div class="stat-item fade-up delay-2">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">del conocimiento capturado queda disponible para siempre, independiente de quién esté</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-full"></div>
+
+<!-- EL RIESGO QUE TODOS POSPONEN -->
+<section class="section" id="problema">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">El problema</div>
+    <h2 class="section-title fade-up delay-1">Siempre hay tiempo para documentar.<br><em>Hasta que ya no lo hay.</em></h2>
+    <p class="section-sub fade-up delay-2">Cuatro situaciones en las que el conocimiento que no se capturó se convierte en un problema irreversible.</p>
+
+    <div class="risk-grid fade-up delay-3">
+
+      <div class="risk-card">
+        <div class="risk-card-title">Jubilaciones previstas que nadie prepara</div>
+        <p>Sabes exactamente cuándo se jubila tu técnico más experto. Llevas meses diciéndote que hay que documentar sus procesos. Y los meses pasan.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> Cuando se va, se lleva el conocimiento para siempre.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> 30 minutos por proceso. <strong>Empieza hoy.</strong></div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-card-title">Dimisiones inesperadas</div>
+        <p>El técnico experto decide irse a la competencia con 15 días de preaviso. No hay tiempo para un traspaso ordenado.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> 15 días para documentar lo que tardó 15 años en aprender.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> Si ya está documentado, su salida es un inconveniente, <strong>no una crisis.</strong></div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-card-title">Dependencia de personas clave</div>
+        <p>Hay máquinas que solo sabe arrancar una persona. Procesos que solo conoce un operario. Si esa persona falta, la producción se resiente.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> Un empleado clave de baja = un problema operativo. Un empleado clave de vacaciones = un problema operativo.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> El conocimiento es de la empresa, <strong>no del empleado.</strong></div>
+      </div>
+
+      <div class="risk-card">
+        <div class="risk-card-title">El conocimiento informal que no está en ningún manual</div>
+        <p>No solo los procedimientos formales. El saber cuándo hay que reprocesar, cuándo se puede saltarse un paso, cuándo ese ruido no indica nada y cuándo sí.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> Ese conocimiento tácito no está en ningún manual de calidad ni ISO.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> El experto lo graba en vídeo, con sus propias palabras, <strong>en sus propios pasos.</strong></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LA SOLUCIÓN -->
+<section class="section" id="solucion">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">La solución</div>
+    <h2 class="section-title fade-up delay-1">El conocimiento se graba <em>una vez.</em><br>Está disponible para siempre.</h2>
+    <p class="section-sub fade-up delay-2">Sin sesiones de documentación de dos días. Sin consultores. El experto graba mientras trabaja.</p>
+
+    <div class="benefit-list fade-up delay-3">
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <div class="benefit-title">El experto graba con el móvil, sin parar de trabajar</div>
+          <div class="benefit-desc">No hay consultor. No hay sesión de documentación de dos días. El experto graba vídeos cortos de 30-90 segundos por paso mientras trabaja o al final del turno. En 30 minutos, un proceso documentado.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Documentar el conocimiento de un experto no interrumpe la producción. Encaja en la jornada normal.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🎥</div>
+        <div>
+          <div class="benefit-title">En su voz, en su proceso, con sus trucos</div>
+          <div class="benefit-desc">El experto no sigue un guion corporativo. Graba como hablaría a un colega: explica el razonamiento, advierte de lo que puede salir mal, muestra cómo él lo haría. Ese conocimiento tácito es imposible de capturar en un texto.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>El vídeo captura lo que ningún manual de calidad puede: el porqué detrás de cada paso.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🏢</div>
+        <div>
+          <div class="benefit-title">El conocimiento es de la empresa, no del empleado</div>
+          <div class="benefit-desc">Una vez documentado en REELEVO, el proceso existe independientemente de si el experto está, se va o se jubila. Cualquier sustituto puede acceder desde el QR de la máquina.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Fin de la dependencia de personas clave. El conocimiento operativo es un activo de la empresa.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🔄</div>
+        <div>
+          <div class="benefit-title">Se actualiza cuando el proceso cambia</div>
+          <div class="benefit-desc">Cuando el proceso evoluciona, el experto graba los nuevos pasos. La versión anterior queda archivada. El QR de la máquina siempre tiene el proceso más reciente.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>No hay manuales desactualizados. No hay versiones en papel que nadie actualiza.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE DE URGENCIA -->
+<section class="section" id="momento">
+  <div class="section-inner" style="max-width:680px;margin:0 auto;">
+    <div class="eyebrow fade-up">El momento correcto</div>
+    <h2 class="section-title fade-up delay-1">El mejor momento para capturar<br>el conocimiento es <em>antes de que se vaya</em></h2>
+    <p class="section-sub fade-up delay-2" style="margin-bottom:0;">Cada mes que pasa sin documentar es un mes menos de margen.</p>
+
+    <div class="timeline fade-up delay-3">
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-dot-label">6<br>meses<br>antes</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-heading">Empieza a documentar los procesos críticos</div>
+          <div class="timeline-desc">El experto graba sus procesos más críticos. 30 minutos por proceso. Sin prisa. Sin presión. El conocimiento se captura de forma ordenada mientras todavía hay tiempo.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-dot-label">3<br>meses<br>antes</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-heading">Los procesos críticos están documentados</div>
+          <div class="timeline-desc">El experto puede irse con tranquilidad. Lo importante ya está capturado. El sustituto puede acceder a todo desde el QR de cada máquina desde el primer día.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="border-color:rgba(244,82,30,.3);">
+          <div class="timeline-dot-label" style="color:var(--gray2);">El día<br>que se<br>va</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-heading">Un inconveniente, no una crisis</div>
+          <div class="timeline-desc">El sustituto tiene todo desde el QR. La planta sigue funcionando. Se pierde la persona, pero no el conocimiento.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="border-color:rgba(34,197,94,.2);">
+          <div class="timeline-dot-label" style="color:var(--green);">1 año<br>después</div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-heading">El conocimiento sigue disponible. Para siempre.</div>
+          <div class="timeline-desc">Sin llamadas al jubilado. Sin reconstruir procesos de cero. Sin depender de que alguien recuerde cómo se hacía. El conocimiento es un activo permanente de la empresa.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-eyebrow fade-up">Sin tarjeta · Sin compromiso</div>
+  <h2 class="cta-title fade-up delay-1">Empieza a capturar el conocimiento<br><em>de tu equipo hoy</em></h2>
+  <p class="cta-sub fade-up delay-2">30 días gratis. El experto documenta los primeros procesos críticos antes de que sea tarde.</p>
+  <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="font-size:.9rem;padding:18px 40px;">Empezar piloto gratis</a>
+    <a href="/como-funciona" class="btn-ghost" style="font-size:.9rem;padding:18px 40px;">Ver cómo funciona →</a>
+  </div>
+</section>
+
+</BaseLayout>

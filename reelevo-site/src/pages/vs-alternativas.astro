@@ -1,0 +1,819 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "REELEVO vs Alternativas — Comparación completa con Dozuki, Poka y métodos tradicionales";
+const description = "Comparativa exhaustiva: REELEVO vs Dozuki, Poka (IFS), GembaDocs y métodos tradicionales. El único con precio transparente, sin cuenta de operario y diseñado para pymes españolas.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ComparisonTable",
+  "name": "REELEVO vs Competencia",
+  "description": "Tabla comparativa de REELEVO con principales alternativas del mercado"
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav="vs-alternativas"
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Comparación honesta</div>
+    <h1 class="fade-up delay-1">¿Por qué <em>REELEVO</em><br>y no otra cosa?</h1>
+    <p class="fade-up delay-2">Análisis objetivo de todas las alternativas: software internacional, herramientas tradicionales y no hacer nada. Los datos hablan por sí solos.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMPARACIÓN PRINCIPAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
+        <div class="eyebrow">Software especializado</div>
+        <h2 class="section-title">REELEVO vs competencia internacional</h2>
+        <p class="section-sub">
+          Análisis completo de las principales plataformas de documentación operativa.
+          Precios, funcionalidades y adecuación al mercado español.
+        </p>
+      </div>
+
+      <div class="comparison-table-main fade-up delay-1">
+        <div class="comp-table-wrapper">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="feature-col">Característica</th>
+                <th class="reelevo-col">REELEVO</th>
+                <th class="competitor-col">Dozuki</th>
+                <th class="competitor-col">Poka (IFS)</th>
+                <th class="competitor-col">GembaDocs</th>
+                <th class="competitor-col">Knowby</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feature-name">Precio mensual (público)</td>
+                <td class="reelevo-cell"><span class="check">✓</span> 49€/mes</td>
+                <td class="competitor-cell"><span class="cross">×</span> ~$850/mes*</td>
+                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
+                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
+                <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Sin cuenta de operario</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Acceso por QR + código</td>
+                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
+                <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Sin app para operarios</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Solo navegador web</td>
+                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
+                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
+                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Web + App</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Monitor tiempo real</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Dashboard en vivo</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Limitado</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Certificación automática</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Por ejecución real</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo completado</td>
+                <td class="competitor-cell"><span class="cross">×</span> Manual</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo completado</td>
+                <td class="competitor-cell"><span class="cross">×</span> Manual</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Troubleshooting inline</td>
+                <td class="reelevo-cell"><span class="check">✓</span> En cada paso</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Documentos separados</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Documentos separados</td>
+                <td class="competitor-cell"><span class="cross">×</span> No incluido</td>
+                <td class="competitor-cell"><span class="cross">×</span> No incluido</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Idioma español nativo</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Diseñado en español</td>
+                <td class="competitor-cell"><span class="cross">×</span> Traducción automática</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Parcial</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Enfoque pyme española</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Específico</td>
+                <td class="competitor-cell"><span class="cross">×</span> Fortune 500</td>
+                <td class="competitor-cell"><span class="cross">×</span> Enterprise</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Genérico</td>
+                <td class="competitor-cell"><span class="cross">×</span> Startups tech</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Tiempo de implementación</td>
+                <td class="reelevo-cell"><span class="check">✓</span> 1 día</td>
+                <td class="competitor-cell"><span class="cross">×</span> 2-6 semanas</td>
+                <td class="competitor-cell"><span class="cross">×</span> 3-6 meses</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> 1-2 semanas</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> 3-5 días</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Soporte en español</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Nativo</td>
+                <td class="competitor-cell"><span class="cross">×</span> Partner local</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> Limitado</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
+                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="comp-footnotes">
+          <p><strong>*</strong> Precio estimado basado en configuraciones típicas obtenidas por partners.</p>
+          <p><strong>**</strong> Precio disponible solo bajo petición tras proceso comercial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VS MÉTODOS TRADICIONALES -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Métodos tradicionales</div>
+        <h2 class="section-title">REELEVO vs «lo de siempre»</h2>
+        <p class="section-sub">
+          Comparación con los métodos que utilizan actualmente la mayoría
+          de pymes industriales españolas.
+        </p>
+      </div>
+
+      <div class="traditional-grid fade-up delay-1">
+        <div class="traditional-card">
+          <div class="traditional-icon">📄</div>
+          <h3 class="traditional-title">Documentos en papel</h3>
+          <div class="traditional-before">
+            <h4>Sin REELEVO</h4>
+            <ul>
+              <li>Se pierden o deterioran</li>
+              <li>Difíciles de actualizar</li>
+              <li>No hay trazabilidad de uso</li>
+              <li>Información estática y limitada</li>
+              <li>Depende de la interpretación</li>
+            </ul>
+          </div>
+          <div class="traditional-after">
+            <h4>Con REELEVO</h4>
+            <ul>
+              <li>Accesible desde cualquier móvil</li>
+              <li>Actualización instantánea</li>
+              <li>Trazabilidad completa</li>
+              <li>Vídeo paso a paso del experto</li>
+              <li>Certificación automática</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="traditional-card">
+          <div class="traditional-icon">👨‍🏫</div>
+          <h3 class="traditional-title">Formación con tutor</h3>
+          <div class="traditional-before">
+            <h4>Sin REELEVO</h4>
+            <ul>
+              <li>El experto pierde tiempo productivo</li>
+              <li>Inconsistencias en la enseñanza</li>
+              <li>Depende de disponibilidad del tutor</li>
+              <li>Conocimiento no escalable</li>
+              <li>Sin registro de competencias</li>
+            </ul>
+          </div>
+          <div class="traditional-after">
+            <h4>Con REELEVO</h4>
+            <ul>
+              <li>El experto graba una vez, enseña infinitas</li>
+              <li>Consistencia total del mensaje</li>
+              <li>Disponible 24/7 sin depender de nadie</li>
+              <li>Escalable a toda la empresa</li>
+              <li>Certificación automática registrada</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="traditional-card">
+          <div class="traditional-icon">📞</div>
+          <h3 class="traditional-title">«Llamar al experto»</h3>
+          <div class="traditional-before">
+            <h4>Sin REELEVO</h4>
+            <ul>
+              <li>Interrumpe al operario clave</li>
+              <li>No siempre está disponible</li>
+              <li>Explicación telefónica limitada</li>
+              <li>Errores por mala comunicación</li>
+              <li>Dependencia total del individuo</li>
+            </ul>
+          </div>
+          <div class="traditional-after">
+            <h4>Con REELEVO</h4>
+            <ul>
+              <li>Autonomía total del sustituto</li>
+              <li>Disponible siempre</li>
+              <li>Explicación visual paso a paso</li>
+              <li>Sin errores de comunicación</li>
+              <li>Conocimiento distribuido y accesible</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="traditional-card">
+          <div class="traditional-icon">💻</div>
+          <h3 class="traditional-title">Word + carpetas compartidas</h3>
+          <div class="traditional-before">
+            <h4>Sin REELEVO</h4>
+            <ul>
+              <li>Información desactualizada</li>
+              <li>Difícil acceso desde planta</li>
+              <li>Sin versión móvil</li>
+              <li>No hay seguimiento de consultas</li>
+              <li>Requiere conocimiento de la herramienta</li>
+            </ul>
+          </div>
+          <div class="traditional-after">
+            <h4>Con REELEVO</h4>
+            <ul>
+              <li>Siempre actualizada automáticamente</li>
+              <li>Acceso directo desde la máquina</li>
+              <li>Optimizado para móvil</li>
+              <li>Dashboard de actividad completo</li>
+              <li>Sin conocimiento técnico necesario</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ANÁLISIS DE COSTES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
+        <div class="eyebrow">Análisis económico</div>
+        <h2 class="section-title">¿Cuál es el coste real?</h2>
+        <p class="section-sub">
+          Comparación honesta de costes totales de propiedad:
+          licencias, implementación, mantenimiento y tiempo.
+        </p>
+      </div>
+
+      <div class="cost-comparison fade-up delay-1">
+        <div class="cost-table">
+          <div class="cost-header">
+            <div class="cost-category">Concepto</div>
+            <div class="cost-reelevo">REELEVO</div>
+            <div class="cost-competitor">Dozuki</div>
+            <div class="cost-competitor">Poka (IFS)</div>
+            <div class="cost-traditional">Métodos tradicionales</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-category">Licencia mensual</div>
+            <div class="cost-reelevo">49€ - 149€</div>
+            <div class="cost-competitor">~$850 - $2000+</div>
+            <div class="cost-competitor">Consultar (alto)</div>
+            <div class="cost-traditional">0€ (pero...)</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-category">Implementación</div>
+            <div class="cost-reelevo">Incluida (1 día)</div>
+            <div class="cost-competitor">$5k - $15k</div>
+            <div class="cost-competitor">$10k - $50k</div>
+            <div class="cost-traditional">0€</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-category">Formación usuarios</div>
+            <div class="cost-reelevo">No necesaria</div>
+            <div class="cost-competitor">$2k - $8k</div>
+            <div class="cost-competitor">$3k - $12k</div>
+            <div class="cost-traditional">Tiempo de tutores</div>
+          </div>
+
+          <div class="cost-row">
+            <div class="cost-category">Mantenimiento anual</div>
+            <div class="cost-reelevo">Incluido</div>
+            <div class="cost-competitor">20% de licencia</div>
+            <div class="cost-competitor">15-25% de licencia</div>
+            <div class="cost-traditional">Tiempo gestión</div>
+          </div>
+
+          <div class="cost-row prominent">
+            <div class="cost-category">Coste total primer año (estimado para 50 operarios)</div>
+            <div class="cost-reelevo">588€ - 1.788€</div>
+            <div class="cost-competitor">$15k - $35k (~13k - 31k€)</div>
+            <div class="cost-competitor">$20k - $80k (~18k - 71k€)</div>
+            <div class="cost-traditional">3k - 8k€ en tiempo perdido/mes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cost-insight fade-up delay-2">
+        <div class="cost-insight-content">
+          <h3>💡 La conclusión</h3>
+          <p>
+            <strong>REELEVO cuesta entre 20x y 40x menos que las alternativas internacionales</strong>
+            y se amortiza en menos de 1 mes vs los métodos tradicionales.
+          </p>
+          <p>
+            Mientras que implementar Dozuki o Poka puede costar más de 30.000€ el primer año,
+            REELEVO ofrece mayor funcionalidad específica para pymes por menos de 1.800€ anuales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ¿POR QUÉ REELEVO? -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La diferencia real</div>
+        <h2 class="section-title">¿Por qué elegir <em>REELEVO?</em></h2>
+        <p class="section-sub">
+          Más allá de las funcionalidades y precios, estas son las razones
+          por las que las pymes industriales españolas eligen REELEVO.
+        </p>
+      </div>
+
+      <div class="reasons-grid fade-up delay-1">
+        <div class="reason-card">
+          <div class="reason-number">1</div>
+          <h3 class="reason-title">Diseñado para la realidad española</h3>
+          <p class="reason-desc">
+            Entendemos cómo funcionan las pymes industriales españolas.
+            ETTs, absentismo del 7,2%, dependencia de perfiles clave.
+            No es un producto de Silicon Valley adaptado.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-number">2</div>
+          <h3 class="reason-title">Sin fricción de adopción</h3>
+          <p class="reason-desc">
+            Un operario ETT de 22 años puede usar REELEVO igual que
+            un veterano de 55. Sin apps, sin usuarios, sin formación.
+            La curva de adopción es cero.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-number">3</div>
+          <h3 class="reason-title">Precio honesto y transparente</h3>
+          <p class="reason-desc">
+            Somos los únicos que publicamos precios reales en euros.
+            No hay letra pequeña, no hay sorpresas. El precio que ves
+            es el precio que pagas.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-number">4</div>
+          <h3 class="reason-title">Implementación real de 1 día</h3>
+          <p class="reason-desc">
+            No son promesas de marketing. En 1 día tienes
+            tus primeros procesos documentados y funcionando.
+            Sin consultores, sin proyectos de meses.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-number">5</div>
+          <h3 class="reason-title">Soporte que habla tu idioma</h3>
+          <p class="reason-desc">
+            Soporte técnico y comercial 100% en español.
+            Entendemos las particularidades de la industria española
+            y respondemos en menos de 4 horas.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <div class="reason-number">6</div>
+          <h3 class="reason-title">ROI demostrable</h3>
+          <p class="reason-desc">
+            Se amortiza en menos de 1 mes. Cada baja mal cubierta
+            que evites, cada día sin tutor que ahorres,
+            cada error que prevengas justifica la inversión.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">La decisión es fácil</div>
+    <h2 class="cta-title fade-up delay-1">
+      Prueba <em>REELEVO</em> 30 días gratis
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Comprueba por ti mismo la diferencia. Sin permanencia,
+      sin tarjeta de crédito, sin riesgo.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Empezar prueba gratis →
+      </a>
+      <a href="/precios" class="btn-ghost">
+        Ver precios completos
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Implementación asistida incluida · Soporte en español · Sin letra pequeña
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Main comparison table */
+  .comparison-table-main {
+    overflow-x: auto;
+    margin: 0 -32px;
+    padding: 0 32px;
+  }
+
+  .comp-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    font-size: .85rem;
+  }
+
+  .comp-table th {
+    background: var(--surface2);
+    padding: 16px 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .feature-col {
+    width: 25%;
+    text-align: left !important;
+  }
+
+  .reelevo-col {
+    background: rgba(244, 82, 30, 0.1);
+    border-color: rgba(244, 82, 30, 0.3) !important;
+    width: 15%;
+  }
+
+  .competitor-col {
+    width: 12%;
+  }
+
+  .comp-table td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .feature-name {
+    background: var(--surface);
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .reelevo-cell {
+    background: rgba(244, 82, 30, 0.04);
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .competitor-cell {
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .comp-table .check {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .comp-table .cross {
+    color: var(--gray2);
+  }
+
+  .comp-table .partial {
+    color: #FFA500;
+    font-weight: 600;
+  }
+
+  .comp-footnotes {
+    margin-top: 16px;
+    font-size: .75rem;
+    color: var(--gray2);
+  }
+
+  .comp-footnotes p {
+    margin-bottom: 4px;
+  }
+
+  /* Traditional methods grid */
+  .traditional-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .traditional-card {
+    background: var(--surface);
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+  .traditional-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .traditional-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 24px;
+  }
+
+  .traditional-before,
+  .traditional-after {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .traditional-before h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 8px;
+  }
+
+  .traditional-after h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .traditional-before ul,
+  .traditional-after ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .traditional-before li {
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .traditional-before li::before {
+    content: '−';
+    color: var(--gray2);
+    margin-right: 8px;
+  }
+
+  .traditional-after li {
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 4px;
+  }
+
+  .traditional-after li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  /* Cost comparison */
+  .cost-table {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr 1.5fr;
+    gap: 2px;
+    background: var(--border);
+    margin-top: 48px;
+  }
+
+  .cost-header {
+    display: contents;
+  }
+
+  .cost-header > div {
+    background: var(--surface2);
+    padding: 16px 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    text-align: center;
+  }
+
+  .cost-row {
+    display: contents;
+  }
+
+  .cost-row > div {
+    background: var(--surface);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+  }
+
+  .cost-category {
+    justify-content: flex-start;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .cost-reelevo {
+    justify-content: center;
+    background: rgba(244, 82, 30, 0.06);
+    border: 1px solid rgba(244, 82, 30, 0.15);
+    font-weight: 500;
+  }
+
+  .cost-competitor,
+  .cost-traditional {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cost-row.prominent > div {
+    background: var(--surface2);
+    font-weight: 600;
+    padding: 16px 12px;
+  }
+
+  .cost-row.prominent .cost-reelevo {
+    background: rgba(244, 82, 30, 0.1);
+  }
+
+  .cost-insight {
+    background: var(--surface);
+    padding: 32px;
+    border-radius: 4px;
+    margin-top: 32px;
+  }
+
+  .cost-insight-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--orange);
+  }
+
+  .cost-insight p {
+    font-size: .9rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .cost-insight p strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Reasons grid */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .reason-card {
+    background: var(--surface);
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .reason-number {
+    position: absolute;
+    top: 16px;
+    left: 28px;
+    width: 32px;
+    height: 32px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+  }
+
+  .reason-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin: 40px 0 16px;
+    padding-top: 8px;
+  }
+
+  .reason-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .traditional-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cost-table {
+      grid-template-columns: 1.5fr 1fr;
+    }
+
+    .cost-table > div:nth-child(n+4) {
+      display: none;
+    }
+
+    .comp-table {
+      min-width: 600px;
+    }
+
+    .reasons-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .comparison-table-main {
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+
+    .comp-table {
+      min-width: 500px;
+      font-size: .75rem;
+    }
+
+    .comp-table th,
+    .comp-table td {
+      padding: 8px 6px;
+    }
+
+    .cost-table {
+      display: block;
+    }
+
+    .cost-header {
+      display: none;
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-bottom: 2px;
+    }
+
+    .cost-row > div:nth-child(n+3) {
+      display: none;
+    }
+  }
+</style>

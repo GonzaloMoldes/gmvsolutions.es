@@ -1,0 +1,905 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "REELEVO para Jefes de Producción — La línea no puede parar cuando falta el operario clave";
+const description = "Cobertura inmediata de bajas, monitor en tiempo real de todas las operaciones y troubleshooting inline. REELEVO elimina la dependencia de operarios clave para jefes de producción.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO para Jefes de Producción",
+  "description": "Solución específica para jefes de producción industrial",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Production Manager"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav=""
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Para jefes de producción</div>
+    <h1 class="fade-up delay-1">La línea <em>no puede parar</em><br>cuando falta el operario clave.</h1>
+    <p class="fade-up delay-2">Cobertura inmediata de bajas, monitor en tiempo real de todas las operaciones y troubleshooting inline. Elimina la dependencia de operarios clave para siempre.</p>
+    <div class="hero-cta-group fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Probar gratis 30 días →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Calcular mi riesgo</a>
+    </div>
+    <div class="hero-cta-note fade-up delay-4">Sin tarjeta de crédito · Implementación en 1 día</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PAIN POINTS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:64px;">
+        <div class="eyebrow">Problemas reales</div>
+        <h2 class="section-title">¿Te suena familiar?</h2>
+        <p class="section-sub">
+          Los problemas diarios que enfrenta cualquier jefe de producción
+          cuando depende de operarios clave.
+        </p>
+      </div>
+
+      <div class="scenario-grid fade-up delay-1">
+        <div class="scenario-card crisis">
+          <div class="scenario-card-tag">🚨 Crisis matutina</div>
+          <h3 class="scenario-card-title">8:00h — «Miguel está de baja»</h3>
+          <div class="scenario-before">
+            <strong>Sin REELEVO:</strong>
+            <ul>
+              <li>Paras la línea 2 hasta encontrar sustituto</li>
+              <li>Buscas desesperadamente quién pueda cubrir</li>
+              <li>El sustituto comete errores por falta de conocimiento</li>
+              <li>Llamas a Miguel a las 10h para preguntarle detalles</li>
+              <li>Produces con retraso el resto del turno</li>
+            </ul>
+          </div>
+          <div class="scenario-after">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>El sustituto escanea el QR de la máquina</li>
+              <li>Accede a las instrucciones de Miguel paso a paso</li>
+              <li>Opera correctamente desde el primer momento</li>
+              <li>Si hay problemas, tiene troubleshooting inline</li>
+              <li>Solo te avisa si realmente necesita supervisión</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scenario-card stress">
+          <div class="scenario-card-tag">😰 Presión constante</div>
+          <h3 class="scenario-card-title">Cada incorporación nueva = 2 semanas de tutores</h3>
+          <div class="scenario-before">
+            <strong>Sin REELEVO:</strong>
+            <ul>
+              <li>Tus mejores operarios pierden tiempo haciendo de tutores</li>
+              <li>Baja la productividad en 2 puestos: tutor + aprendiz</li>
+              <li>Inconsistencias en la enseñanza según quién tutoriza</li>
+              <li>Quejas: «siempre me toca enseñar a los nuevos»</li>
+              <li>El conocimiento sigue en las cabezas, no accesible</li>
+            </ul>
+          </div>
+          <div class="scenario-after">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>El nuevo aprende directamente del mejor experto (vídeo)</li>
+              <li>Sin tutores: productividad máxima desde día 1</li>
+              <li>Enseñanza consistente siempre, sin variaciones</li>
+              <li>Tus expertos se dedican a producir, no a enseñar</li>
+              <li>Monitor en tiempo real del progreso de aprendizaje</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scenario-card blindness">
+          <div class="scenario-card-tag">🤷‍♂️ Falta de visibilidad</div>
+          <h3 class="scenario-card-title">«¿Qué está pasando en cada máquina?»</h3>
+          <div class="scenario-before">
+            <strong>Sin REELEVO:</strong>
+            <ul>
+              <li>No sabes quién está operando qué máquina</li>
+              <li>Te enteras de problemas cuando ya han parado la línea</li>
+              <li>Dependes de que te avisen (a veces no lo hacen)</li>
+              <li>No tienes datos de quién domina qué procesos</li>
+              <li>Reacciones siempre, nunca previenes</li>
+            </ul>
+          </div>
+          <div class="scenario-after">
+            <strong>Con REELEVO:</strong>
+            <ul>
+              <li>Dashboard en tiempo real: quién opera dónde</li>
+              <li>Alertas automáticas antes de que paren producción</li>
+              <li>Datos de competencias: quién está certificado en qué</li>
+              <li>Historial de problemas y resoluciones por máquina</li>
+              <li>Anticipas problemas antes de que sucedan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DASHBOARD EN TIEMPO REAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Control total</div>
+        <h2 class="section-title">Monitor en tiempo real</h2>
+        <p class="section-sub">
+          Dashboard específico para jefes de producción. Toda la información
+          operativa centralizada en una pantalla.
+        </p>
+      </div>
+
+      <div class="dashboard-preview fade-up delay-1">
+        <div class="dashboard-mockup">
+          <div class="dashboard-header">
+            <h3>🏭 Dashboard Producción — Turno Mañana</h3>
+            <div class="dashboard-time">09:47h • 8 operarios activos</div>
+          </div>
+          <div class="dashboard-content">
+            <div class="dashboard-alerts">
+              <div class="alert warning">⚠️ Línea 3 — Consulta troubleshooting (5 min)</div>
+              <div class="alert success">✅ Línea 1 — Proceso completado correctamente</div>
+            </div>
+            <div class="dashboard-grid">
+              <div class="machine-status">
+                <div class="machine-name">Prensa 1</div>
+                <div class="machine-operator">👤 Carlos M. (sustituto)</div>
+                <div class="machine-process">🔄 Configuración inicial — 12 min</div>
+                <div class="machine-progress">📊 3/5 pasos completados</div>
+              </div>
+              <div class="machine-status">
+                <div class="machine-name">Línea empaquetado</div>
+                <div class="machine-operator">👤 Ana L. (experta)</div>
+                <div class="machine-process">✅ Producción normal</div>
+                <div class="machine-progress">📈 127% rendimiento</div>
+              </div>
+              <div class="machine-status problem">
+                <div class="machine-name">Torno CNC</div>
+                <div class="machine-operator">👤 Pedro S. (ETT)</div>
+                <div class="machine-process">❓ Troubleshooting — Problema herramienta</div>
+                <div class="machine-progress">⏰ Supervisor notificado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-features">
+          <h4>Vista completa en tiempo real:</h4>
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>🎯 Estado de cada máquina:</strong>
+              Quién opera, qué proceso, progreso actual
+            </div>
+            <div class="feature-item">
+              <strong>🚨 Alertas automáticas:</strong>
+              Problemas detectados antes de parar producción
+            </div>
+            <div class="feature-item">
+              <strong>📊 Métricas de rendimiento:</strong>
+              Comparativa experto vs sustituto en tiempo real
+            </div>
+            <div class="feature-item">
+              <strong>📱 Avisos WhatsApp:</strong>
+              Solo cuando realmente necesitas intervenir
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STATS BANDA -->
+  <section class="stat-band">
+    <div class="stat-band-inner fade-up">
+      <div class="stat-item">
+        <div class="stat-num">-73%</div>
+        <div class="stat-label">Tiempo perdido por bajas no cubiertas correctamente</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">-45%</div>
+        <div class="stat-label">Llamadas de emergencia a operarios expertos durante bajas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+25%</div>
+        <div class="stat-label">Eficiencia en periodos de alta rotación de personal</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFICIOS ESPECÍFICOS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Beneficios específicos</div>
+        <h2 class="section-title">Para jefes de producción</h2>
+        <p class="section-sub">
+          Resultados medibles en las métricas que realmente importan
+          para un responsable de producción.
+        </p>
+      </div>
+
+      <div class="benefit-list fade-up delay-1">
+        <div class="benefit-row">
+          <div class="benefit-icon">⚡</div>
+          <div>
+            <h3 class="benefit-title">Cero tiempo de parada por falta de conocimiento</h3>
+            <p class="benefit-desc">El sustituto opera inmediatamente. Sin formación previa, sin esperas, sin búsqueda de tutores disponibles.</p>
+          </div>
+          <div class="benefit-result">
+            <div class="benefit-result-label">Impacto medible</div>
+            <p>Eliminación de paradas de 2-4 horas por baja no cubierta</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-icon">📊</div>
+          <div>
+            <h3 class="benefit-title">Visibilidad total de la operación</h3>
+            <p class="benefit-desc">Dashboard en tiempo real que muestra qué está pasando en cada máquina, quién opera y qué problemas hay.</p>
+          </div>
+          <div class="benefit-result">
+            <div class="benefit-result-label">Impacto medible</div>
+            <p>Reducción 60% tiempo respuesta a incidencias</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-icon">🎯</div>
+          <div>
+            <h3 class="benefit-title">Productividad de expertos al 100%</h3>
+            <p class="benefit-desc">Tus mejores operarios se dedican exclusivamente a producir, no a formar o resolver dudas de sustitutos.</p>
+          </div>
+          <div class="benefit-result">
+            <div class="benefit-result-label">Impacto medible</div>
+            <p>+15% tiempo productivo operarios expertos</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-icon">🔧</div>
+          <div>
+            <h3 class="benefit-title">Troubleshooting autónomo</h3>
+            <p class="benefit-desc">Los operarios resuelven problemas comunes sin interrumpirte. Solo recibe avisos cuando realmente necesitas intervenir.</p>
+          </div>
+          <div class="benefit-result">
+            <div class="benefit-result-label">Impacto medible</div>
+            <p>-70% interrupciones por consultas rutinarias</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-icon">📈</div>
+          <div>
+            <h3 class="benefit-title">Datos para optimizar asignaciones</h3>
+            <p class="benefit-desc">Métricas de quién domina qué procesos, tiempos de ejecución reales y puntos de mejora identificados.</p>
+          </div>
+          <div class="benefit-result">
+            <div class="benefit-result-label">Impacto medible</div>
+            <p>Datos objetivos para planificación de turnos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE ÉXITO -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Caso real</div>
+        <h2 class="section-title">«Ahora puedo planificar sin depender de individuos»</h2>
+        <p class="section-sub">
+          Testimonio de Carlos R., Jefe de Producción en empresa de componentes
+          automoción con 45 empleados.
+        </p>
+      </div>
+
+      <div class="case-study fade-up delay-1">
+        <div class="case-quote">
+          <blockquote>
+            «Antes de REELEVO, cada baja era un problema. Miguel en línea 1, José en la prensa, Ana en control de calidad...
+            Si faltaba uno, tenía que reorganizar medio turno o parar líneas.
+            <strong>Ahora cualquier operario puede cubrir cualquier puesto en 5 minutos.</strong>
+            La tranquilidad de saber que la producción no depende de personas específicas no tiene precio.»
+          </blockquote>
+          <div class="case-author">
+            <strong>Carlos R.</strong><br>
+            Jefe de Producción, Componentes Automoción<br>
+            45 empleados • 3 líneas de producción
+          </div>
+        </div>
+
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-number">-85%</div>
+            <div class="case-metric-label">Tiempo reorganización por bajas</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-number">-60%</div>
+            <div class="case-metric-label">Llamadas «urgentes» durante bajas</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-number">100%</div>
+            <div class="case-metric-label">Cobertura de puestos críticos</div>
+          </div>
+        </div>
+
+        <div class="case-implementation">
+          <h4>Implementación realizada:</h4>
+          <ul>
+            <li><strong>Semana 1:</strong> Los 3 operarios clave grabaron sus procesos (8 horas total)</li>
+            <li><strong>Semana 2:</strong> QR instalados en las 3 líneas principales</li>
+            <li><strong>Semana 3:</strong> Primer test con baja de Miguel — Éxito total</li>
+            <li><strong>Mes 2:</strong> Dashboard operativo para seguimiento en tiempo real</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IMPLEMENTACIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
+        <div class="eyebrow">Implementación</div>
+        <h2 class="section-title">Funcionando en 1 día</h2>
+        <p class="section-sub">
+          Plan paso a paso para tener REELEVO operativo en tu planta
+          en menos de 24 horas.
+        </p>
+      </div>
+
+      <div class="implementation-timeline fade-up delay-1">
+        <div class="timeline-step">
+          <div class="timeline-time">Día 1 — Mañana</div>
+          <div class="timeline-content">
+            <h3>1. Identificación procesos críticos (1 hora)</h3>
+            <ul>
+              <li>Reunión contigo para identificar máquinas/procesos clave</li>
+              <li>Priorización por impacto en producción si falta el experto</li>
+              <li>Selección de 2-3 procesos para empezar</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-time">Día 1 — Tarde</div>
+          <div class="timeline-content">
+            <h3>2. Grabación con expertos (3 horas)</h3>
+            <ul>
+              <li>Tus operarios clave graban los procesos paso a paso</li>
+              <li>30-90 segundos por paso, sin prisa, explicando detalles</li>
+              <li>Incluye preparación, operación y troubleshooting básico</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-time">Día 1 — Noche</div>
+          <div class="timeline-content">
+            <h3>3. Configuración sistema (automático)</h3>
+            <ul>
+              <li>Subida y organización de vídeos por máquina</li>
+              <li>Generación de QR personalizados con código de empresa</li>
+              <li>Configuración dashboard para tu perfil de jefe de producción</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-time">Día 2 — Primera hora</div>
+          <div class="timeline-content">
+            <h3>4. Instalación QR y pruebas (30 min)</h3>
+            <ul>
+              <li>Pegatinas QR en cada máquina documentada</li>
+              <li>Prueba con operario sustituto en condiciones reales</li>
+              <li>Verificación dashboard y alertas funcionando</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="implementation-guarantee fade-up delay-2">
+        <h3>✅ Garantía de funcionamiento</h3>
+        <p>
+          Si no consigues que un sustituto opere correctamente siguiendo las instrucciones
+          de REELEVO en el primer intento, <strong>te devolvemos el dinero</strong> sin preguntas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Para jefes de producción</div>
+    <h2 class="cta-title fade-up delay-1">
+      Elimina la dependencia operativa <em>para siempre</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      30 días para comprobar que nunca más una baja paraliza tu producción.
+      Sin tarjeta de crédito, sin permanencia, sin riesgo.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Probar gratis 30 días →
+      </a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+        Calcular mi riesgo operativo
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Implementación en 1 día · Dashboard incluido · Soporte directo
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Scenarios */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .scenario-card {
+    background: var(--surface);
+    padding: 28px 24px;
+    position: relative;
+  }
+
+  .scenario-card.crisis::before,
+  .scenario-card.stress::before,
+  .scenario-card.blindness::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .scenario-card.crisis::before {
+    background: #FF4444;
+  }
+
+  .scenario-card.stress::before {
+    background: #FF8800;
+  }
+
+  .scenario-card.blindness::before {
+    background: #6B7280;
+  }
+
+  .scenario-card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .scenario-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .scenario-before,
+  .scenario-after {
+    margin-bottom: 16px;
+  }
+
+  .scenario-before strong,
+  .scenario-after strong {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .scenario-before strong {
+    color: var(--gray2);
+  }
+
+  .scenario-after strong {
+    color: var(--orange);
+  }
+
+  .scenario-before ul,
+  .scenario-after ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .scenario-before li {
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .scenario-before li::before {
+    content: '−';
+    color: var(--gray2);
+    margin-right: 8px;
+  }
+
+  .scenario-after li {
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 4px;
+  }
+
+  .scenario-after li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  /* Dashboard preview */
+  .dashboard-preview {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .dashboard-mockup {
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid var(--border);
+  }
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dashboard-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+
+  .dashboard-time {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--gray);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .dashboard-alerts {
+    margin-bottom: 16px;
+  }
+
+  .alert {
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-size: .75rem;
+    margin-bottom: 4px;
+  }
+
+  .alert.warning {
+    background: rgba(255, 136, 0, 0.1);
+    border-left: 3px solid #FF8800;
+    color: #FFB366;
+  }
+
+  .alert.success {
+    background: rgba(34, 197, 94, 0.1);
+    border-left: 3px solid var(--green);
+    color: #66E8A3;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .machine-status {
+    background: var(--surface);
+    padding: 12px;
+    border-radius: 2px;
+    font-size: .75rem;
+  }
+
+  .machine-status.problem {
+    background: rgba(255, 68, 68, 0.1);
+    border-left: 3px solid #FF4444;
+  }
+
+  .machine-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: .8rem;
+  }
+
+  .machine-operator,
+  .machine-process,
+  .machine-progress {
+    color: var(--gray);
+    margin-bottom: 2px;
+    line-height: 1.4;
+  }
+
+  .dashboard-features h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-item {
+    font-size: .85rem;
+    line-height: 1.6;
+    color: var(--gray);
+  }
+
+  .feature-item strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Case study */
+  .case-study {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .case-quote {
+    background: var(--surface);
+    padding: 32px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--orange);
+  }
+
+  .case-quote blockquote {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, .9);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .case-quote blockquote strong {
+    color: var(--white);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .case-author {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .case-author strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+
+  .case-metric {
+    background: var(--surface);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .case-metric-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .case-metric-label {
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .case-implementation {
+    background: var(--surface);
+    padding: 28px;
+    border-radius: 4px;
+  }
+
+  .case-implementation h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .case-implementation ul {
+    list-style: none;
+    font-size: .85rem;
+    line-height: 1.6;
+  }
+
+  .case-implementation li {
+    margin-bottom: 8px;
+    color: var(--gray);
+  }
+
+  .case-implementation li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  .case-implementation strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Implementation timeline */
+  .implementation-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline-step {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: start;
+  }
+
+  .timeline-time {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: var(--surface);
+    padding: 12px 16px;
+    border-radius: 2px;
+    text-align: center;
+    position: sticky;
+    top: 20px;
+  }
+
+  .timeline-content {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 4px;
+  }
+
+  .timeline-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 12px;
+  }
+
+  .timeline-content ul {
+    list-style: none;
+    font-size: .85rem;
+    line-height: 1.6;
+  }
+
+  .timeline-content li {
+    margin-bottom: 6px;
+    color: var(--gray);
+  }
+
+  .timeline-content li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  .implementation-guarantee {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 24px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .implementation-guarantee h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .implementation-guarantee p {
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .8);
+    line-height: 1.6;
+  }
+
+  .implementation-guarantee strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .scenario-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dashboard-preview {
+      grid-template-columns: 1fr;
+    }
+
+    .case-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-step {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .timeline-time {
+      position: static;
+    }
+  }
+</style>

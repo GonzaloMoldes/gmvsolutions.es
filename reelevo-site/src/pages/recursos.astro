@@ -1,0 +1,950 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Recursos y guías — Documentación operativa industrial para pymes españolas";
+const description = "Guías prácticas, estudios de caso y recursos gratuitos sobre documentación operativa, absentismo industrial, onboarding de operarios y gestión del conocimiento en pymes manufactureras.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Recursos sobre documentación operativa industrial",
+  "description": "Guías y recursos para mejorar la documentación operativa en pymes industriales",
+  "author": {
+    "@type": "Organization",
+    "name": "GMV Solutions"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav="recursos"
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Centro de conocimiento</div>
+    <h1 class="fade-up delay-1">Recursos y <em>guías prácticas</em><br>para tu planta.</h1>
+    <p class="fade-up delay-2">Estudios, guías y herramientas gratuitas sobre documentación operativa, gestión del absentismo y optimización de procesos para pymes industriales españolas.</p>
+    <div class="hero-cta-group fade-up delay-3">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Calcular mi riesgo operativo →</a>
+    </div>
+    <div class="hero-cta-note fade-up delay-4">Evaluación gratuita en 2 minutos</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HERRAMIENTAS GRATUITAS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Herramientas gratuitas</div>
+        <h2 class="section-title">Calcula el impacto real</h2>
+        <p class="section-sub">
+          Herramientas online gratuitas para evaluar tu situación actual
+          y el potencial de mejora en tu empresa.
+        </p>
+      </div>
+
+      <div class="tools-grid fade-up delay-1">
+        <div class="tool-card featured">
+          <div class="tool-tag">Más usada</div>
+          <div class="tool-icon">📊</div>
+          <h3 class="tool-title">Calculadora de riesgo operativo</h3>
+          <p class="tool-desc">
+            Descubre cuánto te está costando realmente la dependencia de operarios clave.
+            Análisis personalizado basado en los datos de tu empresa.
+          </p>
+          <div class="tool-features">
+            <div class="tool-feature">✓ Evaluación en 2 minutos</div>
+            <div class="tool-feature">✓ Informe personalizado con plan de acción</div>
+            <div class="tool-feature">✓ Benchmark con el sector</div>
+            <div class="tool-feature">✓ ROI estimado de soluciones</div>
+          </div>
+          <div class="tool-cta">
+            <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Hacer diagnóstico →</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">💰</div>
+          <h3 class="tool-title">Calculadora de ROI REELEVO</h3>
+          <p class="tool-desc">
+            Calcula el retorno de inversión específico de implementar
+            REELEVO en tu planta.
+          </p>
+          <div class="tool-features">
+            <div class="tool-feature">✓ Personalizada por sector</div>
+            <div class="tool-feature">✓ Tiempo de amortización</div>
+            <div class="tool-feature">✓ Ahorro anual estimado</div>
+          </div>
+          <div class="tool-cta">
+            <a href="/precios#roi" class="btn-ghost">Calcular ROI →</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">📋</div>
+          <h3 class="tool-title">Checklist de implementación</h3>
+          <p class="tool-desc">
+            Lista paso a paso para documentar tus procesos críticos
+            sin herramientas especializadas.
+          </p>
+          <div class="tool-features">
+            <div class="tool-feature">✓ 15 pasos validados</div>
+            <div class="tool-feature">✓ Plantillas incluidas</div>
+            <div class="tool-feature">✓ Casos de éxito</div>
+          </div>
+          <div class="tool-cta">
+            <a href="#guias" class="btn-ghost">Ver checklist →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GUÍAS PRÁCTICAS -->
+  <section class="section" id="guias">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Guías prácticas</div>
+        <h2 class="section-title">Aprende paso a paso</h2>
+        <p class="section-sub">
+          Guías detalladas basadas en casos reales de pymes industriales españolas.
+          Implementación práctica sin teoría innecesaria.
+        </p>
+      </div>
+
+      <div class="guides-grid fade-up delay-1">
+        <div class="guide-card">
+          <div class="guide-category">Documentación operativa</div>
+          <h3 class="guide-title">Cómo documentar procesos críticos en 1 hora</h3>
+          <p class="guide-desc">
+            Metodología práctica para identificar y documentar los procesos
+            que más impacto tienen en tu producción.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 15 min. lectura</span>
+            <span class="guide-difficulty">🟢 Básico</span>
+          </div>
+          <div class="guide-topics">
+            <span>Identificación de procesos críticos</span>
+            <span>Técnicas de grabación</span>
+            <span>Organización por prioridad</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-category">Gestión absentismo</div>
+          <h3 class="guide-title">Plan de contingencia para bajas inesperadas</h3>
+          <p class="guide-desc">
+            Protocolo completo para minimizar el impacto de ausencias no programadas.
+            Basado en casos reales del sector manufacturero.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 12 min. lectura</span>
+            <span class="guide-difficulty">🟡 Intermedio</span>
+          </div>
+          <div class="guide-topics">
+            <span>Matriz de dependencias</span>
+            <span>Plan de sustitutos</span>
+            <span>Comunicación de emergencia</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-category">Onboarding operarios</div>
+          <h3 class="guide-title">Onboarding de operarios en 3 días sin tutor</h3>
+          <p class="guide-desc">
+            Sistema completo para que nuevas incorporaciones alcancen
+            el rendimiento óptimo en el menor tiempo posible.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 18 min. lectura</span>
+            <span class="guide-difficulty">🟡 Intermedio</span>
+          </div>
+          <div class="guide-topics">
+            <span>Plan de 72 horas</span>
+            <span>Certificación progresiva</span>
+            <span>Métricas de seguimiento</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-category">Personal ETT</div>
+          <h3 class="guide-title">Integración express de personal temporal</h3>
+          <p class="guide-desc">
+            Cómo conseguir que el personal ETT rinda desde el primer turno
+            sin comprometer la calidad ni la seguridad.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 10 min. lectura</span>
+            <span class="guide-difficulty">🟢 Básico</span>
+          </div>
+          <div class="guide-topics">
+            <span>Protocolo de acogida</span>
+            <span>Supervisión remota</span>
+            <span>Evaluación express</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-category">Transferencia conocimiento</div>
+          <h3 class="guide-title">Captura el conocimiento antes de que se vaya</h3>
+          <p class="guide-desc">
+            Metodología para extraer y documentar el conocimiento crítico
+            de operarios veteranos antes de su jubilación.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 20 min. lectura</span>
+            <span class="guide-difficulty">🟠 Avanzado</span>
+          </div>
+          <div class="guide-topics">
+            <span>Sesiones de captura</span>
+            <span>Técnicas de entrevista</span>
+            <span>Validación cruzada</span>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-category">ROI y métricas</div>
+          <h3 class="guide-title">Cómo medir el ROI de la documentación operativa</h3>
+          <p class="guide-desc">
+            Métricas clave y metodología para demostrar el retorno de inversión
+            de implementar sistemas de documentación operativa.
+          </p>
+          <div class="guide-meta">
+            <span class="guide-time">⏱️ 16 min. lectura</span>
+            <span class="guide-difficulty">🟡 Intermedio</span>
+          </div>
+          <div class="guide-topics">
+            <span>KPIs fundamentales</span>
+            <span>Antes vs después</span>
+            <span>Presentación a dirección</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="guides-cta fade-up delay-2">
+        <h3>¿Necesitas una guía específica?</h3>
+        <p>Cuéntanos tu situación y crearemos contenido personalizado para tu sector o problema específico.</p>
+        <a href="mailto:hola@gmvsolutions.es?subject=Solicitud de guía personalizada" class="btn-ghost">Solicitar guía personalizada →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ESTUDIOS Y DATOS -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Estudios del sector</div>
+        <h2 class="section-title">Datos y tendencias</h2>
+        <p class="section-sub">
+          Investigaciones propias y análisis del mercado industrial español.
+          Datos actualizados sobre absentismo, rotación y costes operativos.
+        </p>
+      </div>
+
+      <div class="studies-grid fade-up delay-1">
+        <div class="study-card">
+          <div class="study-type">Estudio propio</div>
+          <h3 class="study-title">Encuesta REELEVO 2025: Dependencia operativa en pymes industriales</h3>
+          <div class="study-stats">
+            <div class="study-stat">
+              <div class="study-stat-number">347</div>
+              <div class="study-stat-label">empresas encuestadas</div>
+            </div>
+            <div class="study-stat">
+              <div class="study-stat-number">40%</div>
+              <div class="study-stat-label">llaman al experto cuando falta</div>
+            </div>
+            <div class="study-stat">
+              <div class="study-stat-number">7,2%</div>
+              <div class="study-stat-label">tasa de absentismo media</div>
+            </div>
+          </div>
+          <p class="study-desc">
+            Primer estudio exhaustivo sobre la dependencia de perfiles técnicos clave
+            en pymes manufactureras españolas de 10-200 empleados.
+          </p>
+          <div class="study-highlights">
+            <h4>Conclusiones principales:</h4>
+            <ul>
+              <li>El 87% identifica "dependencia de operarios clave" como riesgo alto</li>
+              <li>Pérdida media de 3,2 horas por baja no cubierta correctamente</li>
+              <li>Solo el 23% tiene procesos documentados actualizados</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="study-card">
+          <div class="study-type">Análisis sectorial</div>
+          <h3 class="study-title">Coste del absentismo en la industria manufacturera española</h3>
+          <div class="study-stats">
+            <div class="study-stat">
+              <div class="study-stat-number">€2.1k</div>
+              <div class="study-stat-label">coste por empleado/año</div>
+            </div>
+            <div class="study-stat">
+              <div class="study-stat-number">14%</div>
+              <div class="study-stat-label">del tiempo se va en tutorizar</div>
+            </div>
+          </div>
+          <p class="study-desc">
+            Análisis del impacto económico real del absentismo laboral
+            en diferentes sectores industriales.
+          </p>
+          <div class="study-highlights">
+            <h4>Por sectores:</h4>
+            <ul>
+              <li><strong>Automoción:</strong> 8,1% tasa absentismo - €2.4k/empleado</li>
+              <li><strong>Alimentario:</strong> 6,8% tasa absentismo - €1.9k/empleado</li>
+              <li><strong>Metal/mecánica:</strong> 7,5% tasa absentismo - €2.2k/empleado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASOS DE ÉXITO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Casos reales</div>
+        <h2 class="section-title">Casos de éxito documentados</h2>
+        <p class="section-sub">
+          Historias reales de pymes industriales que han resuelto su dependencia operativa.
+          Resultados medibles y lecciones aprendidas.
+        </p>
+      </div>
+
+      <div class="cases-grid fade-up delay-1">
+        <div class="case-card">
+          <div class="case-sector">Sector automoción • 45 empleados</div>
+          <h3 class="case-title">«Redujimos el tiempo de incorporación de 2 semanas a 3 días»</h3>
+          <div class="case-challenge">
+            <h4>Situación inicial:</h4>
+            <p>
+              Empresa de componentes de automoción con alta dependencia del jefe de taller.
+              Cada baja suponía parar 2 líneas durante medio día.
+            </p>
+          </div>
+          <div class="case-solution">
+            <h4>Solución implementada:</h4>
+            <p>
+              Documentación de 8 procesos críticos con REELEVO.
+              QR en cada estación de trabajo con acceso directo.
+            </p>
+          </div>
+          <div class="case-results">
+            <h4>Resultados en 6 meses:</h4>
+            <ul>
+              <li>-73% tiempo de incorporación nuevos operarios</li>
+              <li>-45% de llamadas al jefe de taller durante bajas</li>
+              <li>+12% productividad en líneas documentadas</li>
+              <li>ROI: 340% en el primer año</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-sector">Alimentario • 28 empleados</div>
+          <h3 class="case-title">«El personal ETT rinde desde el primer turno»</h3>
+          <div class="case-challenge">
+            <h4>Situación inicial:</h4>
+            <p>
+              Procesadora de alimentos con picos estacionales. El personal temporal
+              necesitaba 1 semana para alcanzar el rendimiento esperado.
+            </p>
+          </div>
+          <div class="case-solution">
+            <h4>Solución implementada:</h4>
+            <p>
+              Procesos de empaquetado y control de calidad documentados paso a paso.
+              Certificación automática por ejecución correcta.
+            </p>
+          </div>
+          <div class="case-results">
+            <h4>Resultados en 4 meses:</h4>
+            <ul>
+              <li>-85% tiempo hasta rendimiento óptimo personal ETT</li>
+              <li>-60% errores de empaquetado primeros días</li>
+              <li>+25% eficiencia en picos estacionales</li>
+              <li>100% cumplimiento protocolos de seguridad alimentaria</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-sector">Metal-mecánica • 67 empleados</div>
+          <h3 class="case-title">«Capturamos 20 años de experiencia antes de la jubilación»</h3>
+          <div class="case-challenge">
+            <h4>Situación inicial:</h4>
+            <p>
+              Taller de mecanizado con operario veterano próximo a jubilarse.
+              Su conocimiento de configuración de máquinas no estaba documentado.
+            </p>
+          </div>
+          <div class="case-solution">
+            <h4>Solución implementada:</h4>
+            <p>
+              Sesiones de grabación intensivas de configuraciones complejas.
+              Troubleshooting inline para problemas habituales.
+            </p>
+          </div>
+          <div class="case-results">
+            <h4>Resultados en 3 meses:</h4>
+            <ul>
+              <li>15 configuraciones complejas documentadas</li>
+              <li>-90% dependencia del operario veterano</li>
+              <li>3 operarios certificados en configuraciones críticas</li>
+              <li>Transición sin impacto en producción</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WEBINARS Y EVENTOS -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Formación</div>
+        <h2 class="section-title">Webinars y eventos</h2>
+        <p class="section-sub">
+          Sesiones formativas online gratuitas sobre documentación operativa,
+          gestión del conocimiento y optimización de procesos.
+        </p>
+      </div>
+
+      <div class="webinars-grid fade-up delay-1">
+        <div class="webinar-card upcoming">
+          <div class="webinar-status">Próximo webinar</div>
+          <div class="webinar-date">Miércoles 2 Abril • 11:00h</div>
+          <h3 class="webinar-title">Cómo reducir la dependencia operativa en 30 días</h3>
+          <p class="webinar-desc">
+            Masterclass práctica: desde la identificación de procesos críticos
+            hasta la implementación de sistemas de documentación.
+          </p>
+          <div class="webinar-agenda">
+            <h4>Agenda (60 min):</h4>
+            <ul>
+              <li>Matriz de dependencias operativas (15 min)</li>
+              <li>Técnicas de captura de conocimiento (20 min)</li>
+              <li>Sistemas de distribución del conocimiento (15 min)</li>
+              <li>Q&A con casos reales (10 min)</li>
+            </ul>
+          </div>
+          <div class="webinar-cta">
+            <a href="mailto:hola@gmvsolutions.es?subject=Registro webinar 2 abril" class="btn-primary">Registrarme gratis →</a>
+          </div>
+        </div>
+
+        <div class="webinar-card past">
+          <div class="webinar-status">Grabación disponible</div>
+          <div class="webinar-date">Febrero 2025 • 156 asistentes</div>
+          <h3 class="webinar-title">El coste real del absentismo industrial</h3>
+          <p class="webinar-desc">
+            Análisis de datos del sector y metodologías para calcular
+            el impacto económico real de las ausencias no programadas.
+          </p>
+          <div class="webinar-highlights">
+            <h4>Puntos clave:</h4>
+            <ul>
+              <li>Cálculo del coste total por ausencia</li>
+              <li>Diferencias por sector industrial</li>
+              <li>ROI de sistemas de contingencia</li>
+            </ul>
+          </div>
+          <div class="webinar-cta">
+            <a href="mailto:hola@gmvsolutions.es?subject=Solicitar grabación absentismo" class="btn-ghost">Ver grabación →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">¿Tienes una pregunta específica?</div>
+    <h2 class="cta-title fade-up delay-1">
+      Hablemos de tu <em>situación</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Cada empresa industrial es diferente. Consulta tu caso específico
+      y te ayudamos a encontrar la mejor solución.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+        Evaluar mi situación →
+      </a>
+      <a href="mailto:hola@gmvsolutions.es" class="btn-ghost">
+        Consulta directa
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Respuesta en menos de 4 horas · Consulta sin compromiso
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Tools grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .tool-card {
+    background: var(--surface);
+    padding: 32px 28px;
+    position: relative;
+  }
+
+  .tool-card.featured {
+    border: 2px solid var(--orange);
+  }
+
+  .tool-tag {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    font-weight: 500;
+  }
+
+  .tool-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .tool-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .tool-desc {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .tool-features {
+    margin-bottom: 24px;
+  }
+
+  .tool-feature {
+    font-size: .8rem;
+    color: rgba(255, 255, 255, .8);
+    margin-bottom: 6px;
+  }
+
+  .tool-cta {
+    margin-top: auto;
+  }
+
+  /* Guides grid */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .guide-card {
+    background: var(--surface);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .guide-category {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .guide-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    flex: 1;
+  }
+
+  .guide-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .guide-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: .75rem;
+    color: var(--gray2);
+  }
+
+  .guide-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .guide-topics span {
+    font-size: .7rem;
+    color: rgba(255, 255, 255, .6);
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, .05);
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .guides-cta {
+    text-align: center;
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 4px;
+  }
+
+  .guides-cta h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .guides-cta p {
+    font-size: .9rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  /* Studies */
+  .studies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .study-card {
+    background: var(--surface);
+    padding: 32px 28px;
+  }
+
+  .study-type {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .study-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .study-stats {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .study-stat {
+    text-align: center;
+  }
+
+  .study-stat-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .study-stat-label {
+    font-size: .7rem;
+    color: var(--gray);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .study-desc {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .study-highlights h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .study-highlights ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.6;
+  }
+
+  .study-highlights li {
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, .8);
+  }
+
+  .study-highlights li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  .study-highlights strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* Cases grid */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .case-card {
+    background: var(--surface);
+    padding: 28px 24px;
+  }
+
+  .case-sector {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .case-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--orange);
+  }
+
+  .case-challenge,
+  .case-solution,
+  .case-results {
+    margin-bottom: 16px;
+  }
+
+  .case-challenge h4,
+  .case-solution h4,
+  .case-results h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 6px;
+  }
+
+  .case-results h4 {
+    color: var(--orange);
+  }
+
+  .case-challenge p,
+  .case-solution p {
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .case-results ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, .8);
+  }
+
+  .case-results li {
+    margin-bottom: 3px;
+  }
+
+  .case-results li::before {
+    content: '✓';
+    color: var(--green);
+    margin-right: 6px;
+    font-weight: 600;
+  }
+
+  /* Webinars */
+  .webinars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .webinar-card {
+    background: var(--surface);
+    padding: 32px 28px;
+    position: relative;
+  }
+
+  .webinar-card.upcoming {
+    border: 2px solid var(--orange);
+  }
+
+  .webinar-status {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    font-weight: 500;
+  }
+
+  .webinar-card.past .webinar-status {
+    background: var(--gray);
+  }
+
+  .webinar-date {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 20px 0 16px;
+  }
+
+  .webinar-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .webinar-desc {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .webinar-agenda h4,
+  .webinar-highlights h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .webinar-agenda ul,
+  .webinar-highlights ul {
+    list-style: none;
+    font-size: .8rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .webinar-agenda li,
+  .webinar-highlights li {
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, .8);
+  }
+
+  .webinar-agenda li::before,
+  .webinar-highlights li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guides-grid,
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .studies-grid,
+    .webinars-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .study-stats {
+      justify-content: center;
+    }
+  }
+</style>

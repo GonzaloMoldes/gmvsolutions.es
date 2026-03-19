@@ -1,0 +1,434 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "REELEVO — Documentación operativa industrial | Cualquier operario, desde el primer día";
+const description = "REELEVO captura el conocimiento de tus operarios expertos en vídeo y lo distribuye por QR físico en cada máquina. Reduce el tiempo hasta rendir de sustitutos y nuevas incorporaciones. Sin usuarios ni contraseñas.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "REELEVO",
+  "url": "https://gmvsolutions.es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://gmvsolutions.es",
+    "logo": "https://gmvsolutions.es/logo.png"
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  activeNav=""
+>
+  <!-- Background for hero -->
+  <div class="hero-bg"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow fade-up">Incorporación operativa · Sustitución sin fricción</div>
+    <h1 class="hero-title fade-up delay-1">
+      Cualquier persona,<br>
+      desde el <em>primer día,</em><br>
+      puede operar como<br>
+      un experto.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Da igual si es una incorporación nueva, un sustituto temporal o alguien de ETT.<br>
+      <strong>El conocimiento de tus mejores empleados está disponible en segundos,</strong> en cada puesto, sin depender de nadie.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Ver mi situación →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Crear cuenta</a>
+    </div>
+    <div class="hero-proof fade-up delay-4">
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">7,2%</div>
+        <div class="hero-proof-label">absentismo en pymes industriales</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">40%</div>
+        <div class="hero-proof-label">responsables llaman al experto cuando alguien falta</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-num">3-5 días</div>
+        <div class="hero-proof-label">hasta que un nuevo rinde como el titular</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DOS CASOS -->
+  <section class="section" id="casos">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:64px;" class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">¿Te suena familiar?</h2>
+        <p class="section-sub">
+          Estos son los dos escenarios más comunes en cualquier empresa industrial.
+          El coste oculto de no tener documentados los procesos operativos.
+        </p>
+      </div>
+
+      <div class="casos fade-up delay-1">
+        <div class="caso caso-baja">
+          <div class="caso-tag">El experto está de baja</div>
+          <h3 class="caso-title">
+            «Javi no ha venido.<br>
+            ¿Quién sabe manejar<br>
+            esta máquina?»
+          </h3>
+          <p class="caso-desc">
+            Es martes por la mañana y el operario clave de la línea 2 está de baja médica.
+            Su sustituto no domina el proceso. La producción se frena hasta encontrar
+            a alguien que pueda enseñarle o hasta que Javi vuelva.
+          </p>
+          <ul class="caso-benefits">
+            <li>La línea se para 2-4 horas hasta encontrar solución</li>
+            <li>Presión sobre otros operarios para cubrir</li>
+            <li>Errores de operación por prisas y falta de conocimiento</li>
+            <li>Llamadas constantes al experto durante su baja</li>
+            <li>Pérdida de producción y retrasos en entregas</li>
+          </ul>
+        </div>
+
+        <div class="caso caso-nuevo">
+          <div class="caso-tag">Nueva incorporación</div>
+          <h3 class="caso-title">
+            «Es su primer día.<br>
+            Alguien tiene que<br>
+            estar con él.»
+          </h3>
+          <p class="caso-desc">
+            Llega personal nuevo (fijo, ETT, sustituto) y necesita aprender
+            el proceso. Uno de tus mejores operarios debe dejar su puesto
+            para hacer de tutor durante días o semanas.
+          </p>
+          <ul class="caso-benefits">
+            <li>El experto pierde tiempo productivo haciendo de tutor</li>
+            <li>Duplicidad de tareas: dos personas para un puesto</li>
+            <li>Aprendizaje lento e inconsistente</li>
+            <li>Mayor riesgo de errores durante la formación</li>
+            <li>Desmotivación: «siempre me toca enseñar a los nuevos»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DOLOR -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El coste real</div>
+        <h2 class="section-title">Tu situación en números</h2>
+        <p class="section-sub">
+          Los datos del sector industrial español revelan el coste oculto
+          de la dependencia operativa. ¿Cuánto te está costando realmente?
+        </p>
+      </div>
+
+      <div class="dolor-grid fade-up delay-1">
+        <div class="dolor-item">
+          <div class="dolor-num">7,2<sup>%</sup></div>
+          <div class="dolor-label">
+            <strong>Tasa de absentismo</strong> media en pymes industriales españolas.
+            1 de cada 14 empleados falta cada día.
+          </div>
+        </div>
+        <div class="dolor-item">
+          <div class="dolor-num">3-5</div>
+          <div class="dolor-label">
+            <strong>Días de aprendizaje</strong> hasta que una nueva incorporación
+            alcanza el rendimiento del operario titular.
+          </div>
+        </div>
+        <div class="dolor-item">
+          <div class="dolor-num">40<sup>%</sup></div>
+          <div class="dolor-label">
+            <strong>Responsables de planta</strong> que llaman directamente al operario
+            experto cuando alguien falta (Encuesta REELEVO, 2025).
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:56px;" class="fade-up delay-2">
+        <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+          Calcular mi coste real →
+        </a>
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);margin-top:16px;">
+          Calculadora gratuita · Resultado en 2 minutos
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La solución</div>
+        <h2 class="section-title">Cómo <em>REELEVO</em> soluciona esto</h2>
+        <p class="section-sub">
+          Capturamos el conocimiento del experto en vídeo y lo ponemos disponible
+          en segundos, directamente en la máquina, para cualquier sustituto.
+        </p>
+      </div>
+
+      <!-- Steps will be added here -->
+      <div class="steps fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px;">
+        <div style="text-align:center;">
+          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
+            <div style="font-size:3rem;margin-bottom:16px;">📹</div>
+            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
+              1. Grabar
+            </h3>
+            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
+              El experto graba cada paso del proceso con su móvil.
+              30-90 segundos por paso.
+            </p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
+            <div style="font-size:3rem;margin-bottom:16px;">📱</div>
+            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
+              2. QR en máquina
+            </h3>
+            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
+              Imprimimos el QR y lo pegamos físicamente en cada máquina.
+            </p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <div style="background:var(--surface);padding:40px;border-radius:4px;margin-bottom:24px;">
+            <div style="font-size:3rem;margin-bottom:16px;">⚡</div>
+            <h3 style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;">
+              3. Acceso instantáneo
+            </h3>
+            <p style="font-size:.9rem;color:var(--gray);line-height:1.6;">
+              El sustituto escanea el QR y accede a las instrucciones
+              paso a paso en vídeo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px;" class="fade-up delay-2">
+        <a href="/como-funciona" class="btn-ghost">Ver flujo completo →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUIÉN -->
+  <section class="section" id="perfiles">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align:center;margin-bottom:64px;">
+        <div class="eyebrow">Para quién</div>
+        <h2 class="section-title">Cada rol ve valor inmediato</h2>
+        <p class="section-sub">
+          REELEVO resuelve problemas específicos de cada perfil en la empresa.
+          Desde operaciones hasta RRHH y dirección.
+        </p>
+      </div>
+
+      <div class="perfiles fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+        <div style="background:var(--surface);padding:40px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:20px;">👷</div>
+          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
+            Jefe de producción
+          </h3>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+            La línea no puede parar cuando falta el operario clave.
+            Cobertura inmediata de bajas y monitoreo en tiempo real.
+          </p>
+          <a href="/para-quien/jefe-de-produccion" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
+            Ver detalles →
+          </a>
+        </div>
+
+        <div style="background:var(--surface);padding:40px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:20px;">👥</div>
+          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
+            Responsable RRHH
+          </h3>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+            Onboarding estandarizado, certificación por ejecución real
+            e integración con tu software de RRHH.
+          </p>
+          <a href="/para-quien/responsable-rrhh" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
+            Ver detalles →
+          </a>
+        </div>
+
+        <div style="background:var(--surface);padding:40px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:20px;">💼</div>
+          <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--orange);margin-bottom:12px;">
+            Gerente / Propietario
+          </h3>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:20px;">
+            ROI claro, precio fijo por empresa e implementación
+            en 1 día. Sin sorpresas ni costes ocultos.
+          </p>
+          <a href="/para-quien/gerente-propietario" style="font-size:.8rem;color:var(--orange);text-decoration:none;">
+            Ver detalles →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFICIOS -->
+  <section class="section section-center" id="beneficios">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Los beneficios</div>
+        <h2 class="section-title">Resultados desde el primer día</h2>
+        <p class="section-sub">
+          Implementación instantánea con impacto inmediato en productividad,
+          costes operativos y autonomía del equipo.
+        </p>
+      </div>
+
+      <div class="benefits-grid fade-up delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;">
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">⚡</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Sin curva de aprendizaje
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            El sustituto opera correctamente desde el momento 1.
+            Sin tutores, sin esperas.
+          </p>
+        </div>
+
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">📱</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Sin usuarios ni apps
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            Acceso directo por QR con código de empresa.
+            Sin crear cuentas, sin instalaciones.
+          </p>
+        </div>
+
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">💰</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Precio fijo por empresa
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            Desde 49€/mes. Da igual que sean 5 o 500 operarios.
+            Sin costes ocultos.
+          </p>
+        </div>
+
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">📊</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Monitor en tiempo real
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            Quién está operando qué máquina, cuándo y con qué resultado.
+            Dashboard en vivo.
+          </p>
+        </div>
+
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">✅</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Certificación automática
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            REELEVO certifica competencias por ejecución real,
+            no por asistencia a formación.
+          </p>
+        </div>
+
+        <div style="background:var(--surface);padding:32px;text-align:center;">
+          <div style="color:var(--orange);font-size:1.8rem;margin-bottom:16px;">🔧</div>
+          <h4 style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;">
+            Troubleshooting inline
+          </h4>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.6;">
+            Problemas comunes resueltos paso a paso.
+            Aviso automático al supervisor si lo necesita.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Empieza hoy</div>
+    <h2 class="cta-title fade-up delay-1">
+      ¿Cuál es tu <em>situación real?</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Descubre cuánto te está costando la dependencia operativa
+      y cómo REELEVO puede solucionarlo desde el primer día.
+    </p>
+    <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
+        Ver mi situación →
+      </a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
+        Crear cuenta gratis
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Calculadora gratuita · Sin compromiso · Resultado en 2 minutos
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .dolor-label {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .dolor-label strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .steps {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+
+    .perfiles {
+      grid-template-columns: 1fr !important;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .benefits-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
