@@ -648,6 +648,8 @@ const schema = {
     const dots = document.querySelectorAll<HTMLButtonElement>('.carousel-dot');
     let current = 0;
     const total = 3;
+    const AUTOPLAY_MS = 10000;
+    let timer: ReturnType<typeof setInterval>;
 
     function goTo(n: number) {
       current = ((n % total) + total) % total;
@@ -655,8 +657,19 @@ const schema = {
       dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
     }
 
-    document.getElementById('carPrev')?.addEventListener('click', () => goTo(current - 1));
-    document.getElementById('carNext')?.addEventListener('click', () => goTo(current + 1));
-    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    function startAutoplay() {
+      timer = setInterval(() => goTo(current + 1), AUTOPLAY_MS);
+    }
+
+    function resetAutoplay() {
+      clearInterval(timer);
+      startAutoplay();
+    }
+
+    document.getElementById('carPrev')?.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+    document.getElementById('carNext')?.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAutoplay(); }));
+
+    startAutoplay();
   })();
 </script>
