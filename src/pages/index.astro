@@ -2,19 +2,49 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "REELEVO — Software SOP de documentación operativa industrial para pymes";
-const description = "Software de procedimientos operativos estándar de fabricación (SOP) para pymes industriales. Captura el conocimiento de tus operarios expertos y ponlo disponible en cada máquina. Reduce el absentismo, el tiempo de onboarding y la dependencia de perfiles técnicos clave.";
+const description = "Software SOP de documentación operativa para pymes industriales. Captura el conocimiento de tus operarios expertos y ponlo disponible en cada máquina. Cubre bajas, incorpora personal de ETT y reduce el tiempo de onboarding sin depender de tutores.";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "REELEVO",
-  "url": "https://gmvsolutions.es",
-  "publisher": {
-    "@type": "Organization",
-    "name": "GMV Solutions",
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "REELEVO",
     "url": "https://gmvsolutions.es"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://gmvsolutions.es/#organization",
+    "name": "GMV Solutions",
+    "alternateName": "REELEVO",
+    "url": "https://gmvsolutions.es",
+    "logo": "https://gmvsolutions.es/logo.svg",
+    "description": "Software SOP de documentación operativa para pymes industriales. REELEVO captura el conocimiento de operarios expertos y lo pone disponible en cada máquina mediante código QR, sin app ni cuenta de usuario.",
+    "email": "hola@gmvsolutions.es",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Marola",
+      "addressLocality": "A Coruña",
+      "postalCode": "15002",
+      "addressCountry": "ES"
+    },
+    "foundingDate": "2025",
+    "areaServed": "ES",
+    "knowsAbout": [
+      "Software SOP industrial",
+      "Procedimientos operativos estándar",
+      "Documentación operativa",
+      "Gestión del conocimiento industrial",
+      "Onboarding de operarios",
+      "Cobertura de bajas en producción",
+      "Personal ETT en fábrica",
+      "Pymes industriales españolas"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/gmvsolutions"
+    ]
   }
-};
+];
 ---
 
 <BaseLayout title={title} description={description} schema={schema} activeNav="">
@@ -96,8 +126,8 @@ const schema = {
               enseñarle.»
             </h3>
             <p class="caso-desc">
-              Llega alguien nuevo — fijo, ETT, lo que sea — y necesita aprender el puesto.
-              Uno de tus mejores operarios deja su máquina para hacer de tutor.
+              Llega alguien nuevo — fijo, personal de ETT, lo que sea — y necesita aprender el puesto.
+              Uno de tus mejores operarios deja su máquina para hacer de tutor durante días.
               Dos personas ocupadas, un solo puesto produciendo.
             </p>
             <ul class="caso-benefits">
@@ -105,7 +135,7 @@ const schema = {
               <li>Dos personas para un solo puesto durante días</li>
               <li>El aprendizaje depende de quién enseña y cómo</li>
               <li>Mayor riesgo de errores mientras dura la formación</li>
-              <li>«Siempre me toca enseñar a los nuevos» — desmotivación</li>
+              <li>En campañas o picos, el problema se multiplica con cada ETT nuevo</li>
             </ul>
           </div>
         </div>
