@@ -255,8 +255,10 @@ const schema = {
       </div>
 
       <div class="faq-grid fade-up delay-1">
+
+        <!-- ARRANQUE Y PRUEBA -->
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-question">
             <span>¿Cuánto tiempo lleva implementar REELEVO?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
@@ -269,79 +271,20 @@ const schema = {
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Qué pasa si no hay cobertura móvil en la planta?</span>
+          <button class="faq-question">
+            <span>¿Puedo probarlo antes de contratar?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>REELEVO funciona con <strong>cualquier conexión a internet</strong>: 4G, 5G o WiFi de empresa. Los contenidos están optimizados para cargar rápidamente incluso con conexiones lentas.</p>
+              <p>Sí. Ofrecemos una <strong>demo personalizada</strong> donde ves la plataforma funcionando con un proceso de tu tipo de empresa. Si después quieres arrancarlo directamente, la configuración inicial es gratuita y asistida. No pedimos tarjeta de crédito para empezar.</p>
             </div>
           </div>
         </div>
 
+        <!-- ACCESO Y USO EN PLANTA -->
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Los operarios tienen que crearse una cuenta?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto opera inmediatamente.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Cómo sabemos quién ha accedido y cuándo?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Aunque no hay cuentas de operario, <strong>REELEVO registra toda la actividad</strong>: qué proceso se ha consultado, cuándo, y si se ha completado correctamente. Trazabilidad total sin comprometer la simplicidad.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Podemos actualizar los procesos fácilmente?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario siempre accede a la versión más actual.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Es compatible con nuestros sistemas de gestión?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>La integración mediante API con ERPs y sistemas de RRHH (Factorial, Personio, SAP...) está en nuestro roadmap. Si tienes una integración específica que necesitas, cuéntanos — lo priorizamos según la demanda real de nuestros clientes.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Puedo exportar mis procesos si dejo de usar REELEVO?</span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros#portabilidad" style="color:var(--orange)">página de Nosotros</a>.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-question">
             <span>¿Cómo accede el operario al proceso en la máquina?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
@@ -354,7 +297,7 @@ const schema = {
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-question">
             <span>¿En qué dispositivos funciona REELEVO? ¿Necesita una app?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
@@ -367,7 +310,32 @@ const schema = {
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>¿Los operarios tienen que crearse una cuenta?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto opera inmediatamente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué pasa si no hay cobertura móvil en la planta?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>REELEVO funciona con <strong>cualquier conexión a internet</strong>: 4G, 5G o WiFi de empresa. Los contenidos están optimizados para cargar rápidamente incluso con conexiones lentas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENIDO Y ORGANIZACIÓN -->
+        <div class="faq-item">
+          <button class="faq-question">
             <span>¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
@@ -379,7 +347,83 @@ const schema = {
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            <span>¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: <strong>Producción › Línea 3 › Torno CNC › Arranque</strong> y el operario llega al proceso correcto en dos toques. Cada proceso tiene su propio QR, así que puedes imprimir uno diferente para cada máquina.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Se puede usar con operarios que no hablan español?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sí. Los procesos se documentan en el <strong>idioma que elija el experto</strong>. Si tienes operarios de distintos orígenes puedes crear el mismo SOP en varios idiomas y asignar uno u otro según el perfil. El uso de vídeo también reduce la dependencia del idioma escrito.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GESTIÓN Y ACTUALIZACIÓN -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Podemos actualizar los procesos fácilmente?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario siempre accede a la versión más actual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué pasa cuando se actualiza un procedimiento operativo?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Cuando un administrador actualiza un SOP, el cambio se refleja <strong>de inmediato</strong>. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.</p>
+              <p>REELEVO mantiene el <strong>historial de versiones</strong> de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo sabemos quién ha accedido y cuándo?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Aunque no hay cuentas de operario, <strong>REELEVO registra toda la actividad</strong>: qué proceso se ha consultado, cuándo, y si se ha completado correctamente. Trazabilidad total sin comprometer la simplicidad.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADOPCIÓN Y EQUIPO -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué pasa si el operario experto no quiere documentar sus procesos?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Es la objeción más habitual. Suele venir del miedo a "que me quiten valor si lo dejo todo escrito". La experiencia con nuestros clientes muestra lo contrario: documentar <strong>refuerza el estatus del experto</strong> dentro de la empresa — su conocimiento se reconoce formalmente.</p>
+              <p>El flujo de captura está diseñado para que el propio operario lo haga con sus palabras, a su ritmo, sin presión.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
             <span>¿Es adecuado para una pyme pequeña o un taller con pocos operarios?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
@@ -391,18 +435,55 @@ const schema = {
           </div>
         </div>
 
+        <!-- SEGURIDAD Y CONFIANZA -->
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>¿Qué pasa cuando se actualiza un procedimiento operativo?</span>
+          <button class="faq-question">
+            <span>¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Cuando un administrador actualiza un SOP, el cambio se refleja <strong>de inmediato</strong>. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.</p>
-              <p>REELEVO mantiene el <strong>historial de versiones</strong> de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo.</p>
+              <p>Los datos se almacenan en <strong>servidores dentro de la Unión Europea</strong>. REELEVO cumple con el Reglamento General de Protección de Datos (RGPD). Los procesos que documentas son de tu propiedad — REELEVO no los usa ni los comparte. Puedes solicitar la Política de Privacidad completa antes de contratar.</p>
             </div>
           </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sí, el soporte es <strong>en español</strong>. Puedes contactarnos por email y chat. Los planes de pago incluyen soporte con tiempo de respuesta garantizado en horario laboral. No te dejamos solo después de la firma.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Es compatible con nuestros sistemas de gestión?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>La integración mediante API con ERPs y sistemas de RRHH (Factorial, Personio, SAP...) está en nuestro roadmap. Si tienes una integración específica que necesitas, cuéntanos — lo priorizamos según la demanda real de nuestros clientes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo exportar mis procesos si dejo de usar REELEVO?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros#portabilidad" style="color:var(--orange)">página de Nosotros</a>.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -491,14 +572,12 @@ const schema = {
 </style>
 
 <script>
-  function toggleFaq(button: HTMLButtonElement) {
-    const item = button.closest('.faq-item');
-    const isOpen = item?.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('open');
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const isOpen = item?.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item?.classList.add('open');
     });
-    if (!isOpen) {
-      item?.classList.add('open');
-    }
-  }
+  });
 </script>
