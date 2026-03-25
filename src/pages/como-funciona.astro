@@ -42,8 +42,8 @@ const schema = {
           <div class="step-role">👨‍🔧 El operario experto</div>
           <h2 class="section-title">Captura los <em>procedimientos operativos</em></h2>
           <p class="section-sub">
-            El operario que sabe documenta cada paso del proceso con sus propias palabras.
-            Sin guión, sin producción, en minutos. 20 años de conocimiento tácito convertidos en SOPs accesibles y siempre actualizables.
+            El operario que sabe documenta las instrucciones de trabajo de cada proceso con sus propias palabras.
+            Sin guión, sin producción, en minutos. 20 años de conocimiento tácito de fábrica convertidos en SOPs accesibles y siempre actualizables.
           </p>
 
           <div class="scenarios-grid">
@@ -138,8 +138,8 @@ const schema = {
           <div class="step-role">👤 El sustituto / nuevo operario</div>
           <h2 class="section-title">Opera <em>desde el primer momento</em></h2>
           <p class="section-sub">
-            El sustituto accede al proceso de la máquina, introduce el código de empresa
-            y sigue las instrucciones paso a paso. Sin cuenta, sin app, sin esperar a nadie.
+            El sustituto escanea el código QR de la máquina, introduce el código de empresa
+            y sigue las instrucciones paso a paso. Sin cuenta, sin app que instalar, sin esperar a nadie.
           </p>
 
           <div class="scenario-grid">
@@ -147,7 +147,7 @@ const schema = {
               <div class="scenario-card-tag">1. Accede al proceso</div>
               <h3 class="scenario-card-title">Desde cualquier móvil</h3>
               <div class="scenario-before">Sin REELEVO: Buscar al supervisor, esperar explicación, preguntar dudas</div>
-              <div class="scenario-after">Con REELEVO: Acceso directo → código empresa → instrucciones al instante</div>
+              <div class="scenario-after">Con REELEVO: Escanea QR → código empresa → instrucciones al instante</div>
             </div>
 
             <div class="scenario-card">
@@ -178,7 +178,7 @@ const schema = {
         <div class="eyebrow">Beneficios del software SOP</div>
         <h2 class="section-title">Procedimientos estándar, <em>resultados reales</em></h2>
         <p class="section-sub">
-          REELEVO está diseñado para funcionar con lo que ya tienes.
+          REELEVO es software de documentación operativa diseñado para funcionar con lo que ya tienes.
           Sin instalaciones, sin infraestructura adicional. Arranca sin necesitar a IT.
         </p>
       </div>
@@ -336,6 +336,70 @@ const schema = {
           <div class="faq-answer">
             <div class="faq-answer-inner">
               <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros#portabilidad" style="color:var(--orange)">página de Nosotros</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Cómo accede el operario al proceso en la máquina?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Cada proceso tiene una <strong>URL única y un código QR</strong> que puedes imprimir y pegar directamente en la máquina. El operario escanea el QR con su móvil, introduce el código de empresa y accede al SOP al instante. <strong>Sin app que instalar, sin cuenta que crear.</strong></p>
+              <p>También puede acceder buscando el proceso por nombre desde el portal, si prefiere eso a escanear el código QR.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿En qué dispositivos funciona REELEVO? ¿Necesita una app?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>REELEVO funciona en el <strong>navegador de cualquier dispositivo</strong>: móvil Android o iPhone, tablet, ordenador. <strong>No hay app que descargar.</strong> El operario abre el navegador, escanea el QR de la máquina y ya tiene las instrucciones.</p>
+              <p>El panel de administración —donde el experto documenta los SOPs y el responsable los gestiona— funciona igualmente en cualquier navegador de escritorio o tablet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p><strong>Sí.</strong> Cada paso de un procedimiento operativo puede incluir texto, <strong>fotos</strong> (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), <strong>vídeos cortos</strong> y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Es adecuado para una pyme pequeña o un taller con pocos operarios?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>REELEVO está diseñado específicamente para <strong>pymes industriales y talleres</strong> de entre 5 y 200 operarios. No es un software corporativo adaptado: está pensado desde el principio para empresas donde no hay equipo de IT, los recursos son ajustados y el conocimiento vive en la cabeza de dos o tres personas clave.</p>
+              <p>El precio es fijo por empresa, no por número de usuarios. Da igual si tienes 10 operarios o 100.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>¿Qué pasa cuando se actualiza un procedimiento operativo?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Cuando un administrador actualiza un SOP, el cambio se refleja <strong>de inmediato</strong>. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.</p>
+              <p>REELEVO mantiene el <strong>historial de versiones</strong> de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo.</p>
             </div>
           </div>
         </div>
