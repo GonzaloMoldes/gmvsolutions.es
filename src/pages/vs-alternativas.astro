@@ -6,9 +6,29 @@ const description = "Comparativa de software SOP industrial: REELEVO vs Dozuki, 
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ComparisonTable",
-  "name": "REELEVO vs Competencia",
-  "description": "Tabla comparativa de REELEVO con principales alternativas del mercado"
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": "https://www.gmvsolutions.es/vs-alternativas/",
+  "about": [
+    "Software SOP industrial",
+    "Connected worker",
+    "Onboarding de operarios",
+    "Cobertura de bajas",
+    "Transferencia de conocimiento",
+    "Matriz de habilidades"
+  ],
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Alternativas comparadas",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "REELEVO" },
+      { "@type": "ListItem", "position": 2, "name": "Dozuki" },
+      { "@type": "ListItem", "position": 3, "name": "Poka (IFS)" },
+      { "@type": "ListItem", "position": 4, "name": "GembaDocs" },
+      { "@type": "ListItem", "position": 5, "name": "Knowby" }
+    ]
+  }
 };
 ---
 
@@ -424,6 +444,54 @@ const schema = {
 
   <div class="divider"></div>
 
+  <!-- ENTRADAS AL CLUSTER -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Compara por intención</div>
+        <h2 class="section-title">Si estás evaluando software, empieza por tu caso real</h2>
+        <p class="section-sub">
+          La comparativa sirve mejor cuando la aterrizas en el problema operativo concreto:
+          SOPs, onboarding, cobertura de bajas, transferencia de conocimiento o skill matrix.
+        </p>
+      </div>
+
+      <div class="intent-grid fade-up delay-1">
+        <a href="/recursos/que-es-un-sop-industrial/" class="intent-card">
+          <div class="intent-kicker">Software SOP industrial</div>
+          <h3 class="intent-title">Ordenar conceptos antes de comparar plataformas</h3>
+          <p class="intent-desc">Empieza por la guía base si quieres definir bien qué debe resolver tu software SOP.</p>
+        </a>
+
+        <a href="/casos-de-uso/onboarding-operarios/" class="intent-card">
+          <div class="intent-kicker">Onboarding de operarios</div>
+          <h3 class="intent-title">Medir si una herramienta reduce de verdad la tutoría</h3>
+          <p class="intent-desc">Ve el caso de uso específico cuando el objetivo es acelerar incorporaciones en planta.</p>
+        </a>
+
+        <a href="/casos-de-uso/cobertura-bajas/" class="intent-card">
+          <div class="intent-kicker">Cobertura de bajas</div>
+          <h3 class="intent-title">Resolver ausencias sin llamar al experto</h3>
+          <p class="intent-desc">Esta página aterriza la comparación en continuidad operativa y cobertura inmediata.</p>
+        </a>
+
+        <a href="/casos-de-uso/transferencia-conocimiento/" class="intent-card">
+          <div class="intent-kicker">Transferencia de conocimiento</div>
+          <h3 class="intent-title">Capturar el saber hacer antes de que se pierda</h3>
+          <p class="intent-desc">Perfecta si estás comparando herramientas por jubilaciones, salidas o dependencia crítica.</p>
+        </a>
+
+        <a href="/para-quien/responsable-rrhh/" class="intent-card">
+          <div class="intent-kicker">Matriz de habilidades</div>
+          <h3 class="intent-title">Entender qué aporta en certificación y skill matrix</h3>
+          <p class="intent-desc">Revisa la cara RRHH del problema cuando la comparación gira sobre competencias y trazabilidad.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">La decisión es fácil</div>
@@ -438,7 +506,7 @@ const schema = {
       <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">
         Solicitar demo →
       </a>
-      <a href="/precios" class="btn-ghost">
+      <a href="/precios/" class="btn-ghost">
         Ver precios completos
       </a>
     </div>
@@ -801,6 +869,55 @@ const schema = {
     line-height: 1.65;
   }
 
+  .intent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .intent-card {
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px;
+    transition: border-color .25s, transform .25s;
+  }
+
+  .intent-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .intent-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .intent-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .intent-desc {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
   /* Responsive */
   @media (max-width: 900px) {
     .traditional-grid {
@@ -820,6 +937,10 @@ const schema = {
     }
 
     .reasons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .intent-grid {
       grid-template-columns: 1fr;
     }
   }

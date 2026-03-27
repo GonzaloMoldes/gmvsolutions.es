@@ -7,10 +7,11 @@ export interface Props {
   date: string;
   category: string;
   readTime: string;
-  schema?: object;
+  canonical?: string;
+  schema?: object | object[];
 }
 
-const { title, description, date, category, readTime, schema } = Astro.props;
+const { title, description, date, category, readTime, canonical, schema } = Astro.props;
 
 const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   day: 'numeric',
@@ -19,7 +20,7 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
 });
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="recursos">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="recursos">
   <article class="article-page">
     <div class="article-container">
 
@@ -245,9 +246,80 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
     border-bottom: none;
   }
 
+  .article-body :global(.related-links) {
+    margin: 48px 0 40px;
+    padding: 28px 32px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .article-body :global(.related-links-label) {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .article-body :global(.related-links-grid) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .article-body :global(.related-link-card) {
+    display: block;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 18px;
+    transition: border-color .2s, transform .2s;
+  }
+
+  .article-body :global(.related-link-card:hover) {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .article-body :global(.related-link-kicker) {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 10px;
+  }
+
+  .article-body :global(.related-link-title) {
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .article-body :global(.related-link-desc) {
+    font-size: .82rem;
+    line-height: 1.55;
+    color: var(--gray);
+    margin-bottom: 0;
+  }
+
   .article-back {
     margin-top: 64px;
     padding-top: 32px;
     border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 900px) {
+    .article-body :global(.related-links-grid) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

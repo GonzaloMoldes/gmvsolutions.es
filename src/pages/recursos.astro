@@ -6,9 +6,18 @@ const description = "Guías prácticas sobre procedimientos operativos estándar
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "CollectionPage",
   "headline": "Recursos sobre documentación operativa industrial",
   "description": description,
+  "url": "https://www.gmvsolutions.es/recursos/",
+  "about": [
+    "Software SOP industrial",
+    "Onboarding de operarios",
+    "Transferencia de conocimiento",
+    "Cobertura de bajas",
+    "Connected worker",
+    "Matriz de habilidades"
+  ],
   "author": {
     "@type": "Organization",
     "name": "GMV Solutions"
@@ -27,6 +36,85 @@ const schema = {
     <div class="eyebrow fade-up">Centro de conocimiento</div>
     <h1 class="fade-up delay-1">Recursos y <em>guías prácticas</em><br>para tu planta.</h1>
     <p class="fade-up delay-2">Herramientas gratuitas y guías sobre documentación operativa, gestión del absentismo y cómo dejar de depender de una sola persona.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CLUSTER TEMÁTICO -->
+  <section class="section" id="temas">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Explora por intención</div>
+        <h2 class="section-title">Empieza por el problema que quieres resolver</h2>
+        <p class="section-sub">
+          Esta es la malla principal de contenidos de REELEVO: guías, casos de uso y páginas de producto
+          conectadas entre sí para SOPs, onboarding, cobertura de bajas, transferencia de conocimiento,
+          connected worker y skill matrix.
+        </p>
+      </div>
+
+      <div class="topics-grid fade-up delay-1">
+        <div class="topic-card">
+          <div class="topic-label">Software SOP industrial</div>
+          <h3 class="topic-title">Qué es, cómo se implanta y cómo comparar herramientas</h3>
+          <p class="topic-desc">Empieza por la guía base y continúa con la comparativa de alternativas para ver encaje, precio y enfoque real para pyme industrial.</p>
+          <div class="topic-links">
+            <a href="/recursos/que-es-un-sop-industrial/">Leer guía SOP →</a>
+            <a href="/vs-alternativas/">Ver comparativa →</a>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-label">Onboarding de operarios</div>
+          <h3 class="topic-title">Reducir tutorías, variabilidad y tiempo hasta producir</h3>
+          <p class="topic-desc">Ve cómo REELEVO estandariza el onboarding en planta y cómo RRHH puede certificar por ejecución real en lugar de por asistencia.</p>
+          <div class="topic-links">
+            <a href="/casos-de-uso/onboarding-operarios/">Ver caso de uso →</a>
+            <a href="/para-quien/responsable-rrhh/">Ver skill matrix y certificación →</a>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-label">Transferencia de conocimiento</div>
+          <h3 class="topic-title">Capturar el saber hacer del experto antes de que se pierda</h3>
+          <p class="topic-desc">Combina la guía metodológica con la página de producto orientada a jubilaciones, salidas y dependencia de personas clave.</p>
+          <div class="topic-links">
+            <a href="/recursos/documentar-conocimiento-operarios-expertos/">Leer metodología →</a>
+            <a href="/casos-de-uso/transferencia-conocimiento/">Ver caso de uso →</a>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-label">Cobertura de bajas</div>
+          <h3 class="topic-title">Evitar llamadas al experto y cubrir ausencias con estándar</h3>
+          <p class="topic-desc">Une el problema económico del absentismo con la solución operativa de tener el proceso disponible en cada máquina.</p>
+          <div class="topic-links">
+            <a href="/recursos/coste-absentismo-pymes-industriales/">Ver análisis de coste →</a>
+            <a href="/casos-de-uso/cobertura-bajas/">Ver solución en planta →</a>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-label">Connected worker</div>
+          <h3 class="topic-title">Entender cómo encaja REELEVO en esa categoría</h3>
+          <p class="topic-desc">Si estás evaluando herramientas connected worker, empieza por el flujo completo y aterrízalo en SOPs, onboarding y transferencia de conocimiento.</p>
+          <div class="topic-links">
+            <a href="/como-funciona/">Ver flujo completo →</a>
+            <a href="/vs-alternativas/">Comparar enfoques →</a>
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-label">Matriz de habilidades</div>
+          <h3 class="topic-title">Ver quién sabe hacer qué y cómo mantenerlo actualizado</h3>
+          <p class="topic-desc">Explora cómo RRHH puede usar la ejecución real para actualizar la skill matrix y reducir el riesgo de dependencia operativa.</p>
+          <div class="topic-links">
+            <a href="/para-quien/responsable-rrhh/">Ver página para RRHH →</a>
+            <a href="/recursos/crisis-perdida-conocimiento-planta-industrial/">Leer análisis de riesgo →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -142,7 +230,7 @@ const schema = {
             <div class="tool-feature">✓ Ahorro anual estimado</div>
           </div>
           <div class="tool-cta">
-            <a href="/precios#roi" class="btn-ghost">Calcular ROI →</a>
+            <a href="/precios/#roi" class="btn-ghost">Calcular ROI →</a>
           </div>
         </div>
       </div>
@@ -177,6 +265,71 @@ const schema = {
 </BaseLayout>
 
 <style>
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .topic-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    transition: border-color .25s, transform .25s;
+  }
+
+  .topic-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .topic-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .topic-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .topic-desc {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .topic-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .topic-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .topic-links a:hover {
+    text-decoration: underline;
+  }
+
   /* Tools grid */
   .tools-grid {
     display: grid;
@@ -556,6 +709,7 @@ const schema = {
 
   /* Responsive */
   @media (max-width: 900px) {
+    .topics-grid,
     .tools-grid,
     .articles-grid,
     .guides-grid,

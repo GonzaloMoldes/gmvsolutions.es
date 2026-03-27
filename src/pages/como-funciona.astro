@@ -2,19 +2,173 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Cómo funciona REELEVO — Software SOP para documentar procesos industriales paso a paso";
-const description = "Así funciona REELEVO: el operario experto captura los procedimientos operativos estándar de cada máquina. El conocimiento queda disponible para cualquier sustituto desde el primer día. Software SOP sin apps, sin usuarios, sin complicaciones.";
+const description = "Descubre cómo REELEVO convierte el conocimiento del operario experto en SOPs accesibles en cada máquina, sin app ni cuentas.";
 
-const schema = {
+const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Cómo usar REELEVO",
   "description": "Guía paso a paso para documentar procesos operativos con REELEVO",
+  "url": "https://www.gmvsolutions.es/como-funciona/",
   "step": [
     { "@type": "HowToStep", "text": "El operario experto captura su conocimiento paso a paso" },
     { "@type": "HowToStep", "text": "El conocimiento queda disponible en cada máquina" },
     { "@type": "HowToStep", "text": "Cualquier sustituto accede y opera desde el primer día" }
   ]
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo lleva implementar REELEVO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La configuración técnica es inmediata y en 1 día la plataforma puede estar lista. El tiempo posterior depende de cuántos procesos documentes: un proceso sencillo puede capturarse en 30 a 60 minutos y uno más complejo en 2 o 3 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo probarlo antes de contratar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. REELEVO ofrece una demo personalizada para ver la plataforma con un proceso similar al de tu empresa y la configuración inicial puede arrancarse sin tarjeta de crédito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo accede el operario al proceso en la máquina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada proceso tiene una URL única y un código QR. El operario escanea el QR con su móvil, introduce el código de empresa y accede al SOP al instante, sin app ni cuenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué dispositivos funciona REELEVO? ¿Necesita una app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO funciona en el navegador de cualquier móvil, tablet u ordenador. No hace falta descargar ninguna app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los operarios tienen que crearse una cuenta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Los operarios acceden con un código de empresa, sin cuentas personales, contraseñas ni gestión de usuarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si no hay cobertura móvil en la planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO puede funcionar con cualquier conexión a internet disponible, ya sea 4G, 5G o WiFi de empresa, y los contenidos están optimizados para cargar rápido incluso con conexiones lentas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cada paso puede incluir texto, fotos, vídeos cortos y archivos adjuntos para que el proceso sea más claro en el puesto de trabajo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo tenga su proceso y su QR específico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede usar con operarios que no hablan español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los procesos se pueden documentar en distintos idiomas y el uso de vídeo reduce además la dependencia del idioma escrito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Podemos actualizar los procesos fácilmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cualquier administrador puede actualizar procesos desde el panel y los cambios quedan disponibles automáticamente para el operario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El operario accede siempre a la versión más reciente y REELEVO mantiene un historial de versiones para saber qué cambió, quién lo cambió y cuándo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sabemos quién ha accedido y cuándo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO registra qué proceso se ha consultado, cuándo y si se ha completado correctamente, ofreciendo trazabilidad operativa sin complicar el acceso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si el operario experto no quiere documentar sus procesos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una objeción habitual, pero cuando el experto documenta con sus propias palabras y a su ritmo, su conocimiento se reconoce formalmente y el proceso de captura resulta mucho más natural."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es adecuado para una pyme pequeña o un taller con pocos operarios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. REELEVO está diseñado específicamente para pymes industriales y talleres de entre 5 y 200 operarios, con precio fijo por empresa y sin necesidad de IT para arrancar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos se almacenan en servidores dentro de la Unión Europea y REELEVO cumple con el RGPD. Los procesos documentados siguen siendo propiedad de la empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El soporte es en español por email y chat, con tiempos de respuesta garantizados en horario laboral según el plan contratado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es compatible con nuestros sistemas de gestión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La integración con ERPs y sistemas de RRHH está en el roadmap y puede priorizarse según la demanda real de los clientes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar mis procesos si dejo de usar REELEVO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Desde el panel se pueden exportar los procesos e instrucciones, y en caso de cierre del servicio se facilitaría la exportación completa con aviso previo."
+      }
+    }
+  ]
+};
+
+const schema = [howToSchema, faqSchema];
 ---
 
 <BaseLayout
@@ -237,6 +391,54 @@ const schema = {
             Aviso automático al supervisor si hace falta.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPLORA POR NECESIDAD -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Explora por necesidad</div>
+        <h2 class="section-title">Empieza por el escenario que más te duele en planta</h2>
+        <p class="section-sub">
+          REELEVO conecta el mismo núcleo de producto con problemas distintos:
+          cobertura de bajas, onboarding, transferencia de conocimiento, skill matrix y evaluación de alternativas.
+        </p>
+      </div>
+
+      <div class="explore-grid fade-up delay-1">
+        <a href="/casos-de-uso/cobertura-bajas/" class="explore-card">
+          <div class="explore-kicker">Cobertura de bajas</div>
+          <h3 class="explore-title">Cuando falta el experto y la línea no puede parar</h3>
+          <p class="explore-desc">Cómo poner el proceso del titular en manos del sustituto en segundos.</p>
+        </a>
+
+        <a href="/casos-de-uso/onboarding-operarios/" class="explore-card">
+          <div class="explore-kicker">Onboarding de operarios</div>
+          <h3 class="explore-title">Cuando el nuevo depende demasiado del tutor</h3>
+          <p class="explore-desc">Estandariza el aprendizaje desde el primer día y reduce variabilidad.</p>
+        </a>
+
+        <a href="/casos-de-uso/transferencia-conocimiento/" class="explore-card">
+          <div class="explore-kicker">Transferencia de conocimiento</div>
+          <h3 class="explore-title">Cuando el saber hacer vive en dos o tres personas</h3>
+          <p class="explore-desc">Captura el conocimiento del experto antes de que se jubile o se marche.</p>
+        </a>
+
+        <a href="/para-quien/responsable-rrhh/" class="explore-card">
+          <div class="explore-kicker">Matriz de habilidades</div>
+          <h3 class="explore-title">Cuando RRHH necesita saber quién domina qué proceso</h3>
+          <p class="explore-desc">Convierte la ejecución real en visibilidad sobre competencias y certificación.</p>
+        </a>
+
+        <a href="/vs-alternativas/" class="explore-card">
+          <div class="explore-kicker">Software SOP industrial</div>
+          <h3 class="explore-title">Cuando estás comparando herramientas y enfoques</h3>
+          <p class="explore-desc">Revisa precios, adopción y diferencias frente a otras plataformas del mercado.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -479,7 +681,7 @@ const schema = {
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros#portabilidad" style="color:var(--orange)">página de Nosotros</a>.</p>
+              <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros/#portabilidad" style="color:var(--orange)">página de Nosotros</a>.</p>
             </div>
           </div>
         </div>
@@ -501,7 +703,7 @@ const schema = {
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
-      <a href="/precios" class="btn-ghost">Ver precios</a>
+      <a href="/precios/" class="btn-ghost">Ver precios</a>
     </div>
     <div class="cta-note fade-up delay-4">
       Sin compromiso · Implementación asistida · Configuración en 1 día
@@ -553,12 +755,62 @@ const schema = {
     margin-top: 40px;
   }
 
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .explore-card {
+    display: block;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px;
+    text-align: left;
+    transition: border-color .25s, transform .25s;
+  }
+
+  .explore-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .explore-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .explore-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .98rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .explore-desc {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
   @media (max-width: 900px) {
     .step-section {
       grid-template-columns: 1fr;
       gap: 20px;
       text-align: center;
     }
+    .explore-grid,
     .scenarios-grid {
       grid-template-columns: 1fr;
     }

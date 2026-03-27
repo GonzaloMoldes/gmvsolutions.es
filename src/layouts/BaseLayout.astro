@@ -11,7 +11,7 @@ export interface Props {
   ogDescription?: string;
   ogImage?: string;
   activeNav?: string;
-  schema?: object;
+  schema?: object | object[];
 }
 
 const {
@@ -20,7 +20,7 @@ const {
   canonical = Astro.url.href,
   ogTitle = title,
   ogDescription = description,
-  ogImage = 'https://gmvsolutions.es/og-image.jpg',
+  ogImage = 'https://www.gmvsolutions.es/factory-bg.jpg',
   activeNav,
   schema,
 } = Astro.props;

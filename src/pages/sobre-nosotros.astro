@@ -4,17 +4,67 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = "Sobre GMV Solutions — El equipo detrás de REELEVO";
 const description = "Conoce al equipo de GMV Solutions, la empresa detrás de REELEVO. Experiencia en industria, valores y compromiso con las pymes industriales españolas.";
 
-const schema = {
+const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "Sobre GMV Solutions",
   "description": description,
+  "url": "https://www.gmvsolutions.es/sobre-nosotros/",
   "publisher": {
     "@type": "Organization",
     "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es"
+    "url": "https://www.gmvsolutions.es"
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Dónde se almacenan mis datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos se almacenan en servidores dentro de la Unión Europea, en infraestructura cloud ubicada en la región EU-West y bajo normativa GDPR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar todos mis procesos documentados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Desde el panel de administración se pueden exportar procesos, pasos e instrucciones en CSV y Excel, y los datos siguen siendo propiedad de la empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si REELEVO deja de operar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En caso de cierre del servicio, se avisaría con un mínimo de 90 días y se facilitaría la exportación completa de todos los datos y procesos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Durante cuánto tiempo se guardan los registros de actividad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los registros de actividad se conservan mientras la empresa esté suscrita y durante 12 meses adicionales tras la baja, con posibilidad de exportar el histórico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesitamos IT para arrancar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para las funciones básicas no hace falta IT. Solo puede ser necesaria una apertura de dominio si la red corporativa tiene restricciones de firewall o proxy."
+      }
+    }
+  ]
+};
+
+const schema = [aboutPageSchema, faqSchema];
 ---
 
 <BaseLayout

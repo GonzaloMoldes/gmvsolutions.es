@@ -1,12 +1,12 @@
-# gmvsolutions.es — REELEVO
+# www.gmvsolutions.es — REELEVO
 # Software SOP de documentación operativa industrial
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gmvsolutions.es/sitemap-index.xml
+Sitemap: https://www.gmvsolutions.es/sitemap-index.xml
 
 # LLMs
 # Información estructurada para modelos de lenguaje
-# https://gmvsolutions.es/llms.txt
+# https://www.gmvsolutions.es/llms.txt

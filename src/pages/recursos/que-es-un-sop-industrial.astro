@@ -6,6 +6,8 @@ const description = "Guía completa sobre procedimientos operativos estándar (S
 const date = "2026-03-18";
 const category = "Procedimientos operativos estándar";
 const readTime = "12 min.";
+const canonical = "https://www.gmvsolutions.es/recursos/que-es-un-sop-industrial/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
 
 const schema = {
   "@context": "https://schema.org",
@@ -13,12 +15,26 @@ const schema = {
   "headline": title,
   "description": description,
   "datePublished": date,
+  "dateModified": date,
+  "articleSection": category,
+  "inLanguage": "es-ES",
+  "url": canonical,
+  "mainEntityOfPage": canonical,
+  "image": image,
   "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": { "@type": "Organization", "name": "GMV Solutions", "url": "https://gmvsolutions.es" }
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://www.gmvsolutions.es",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gmvsolutions.es/favicon.svg"
+    }
+  }
 };
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} schema={schema}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
 
 <h2>Qué es un SOP y por qué debería importarte</h2>
 
@@ -108,6 +124,27 @@ const schema = {
 <div class="highlight-box">
 <p><strong>REELEVO</strong> es un software SOP diseñado específicamente para pymes industriales. Permite capturar los procedimientos operativos del experto, organizarlos por máquina y hacerlos accesibles directamente en cada puesto de trabajo para cualquier operario — sin cuenta de usuario, sin app, sin formación. Desde 49€/mes por empresa con operarios ilimitados.</p>
 <p><a href="https://app.gmvsolutions.es/registro">Solicitar demo →</a></p>
+</div>
+
+<div class="related-links">
+<div class="related-links-label">Sigue explorando</div>
+<div class="related-links-grid">
+<a href="/como-funciona/" class="related-link-card">
+<div class="related-link-kicker">Connected worker</div>
+<div class="related-link-title">Ver cómo REELEVO convierte SOPs en ejecución guiada</div>
+<p class="related-link-desc">Pasa de la teoría del SOP al flujo real en planta: captura, acceso por QR y trazabilidad.</p>
+</a>
+<a href="/casos-de-uso/onboarding-operarios/" class="related-link-card">
+<div class="related-link-kicker">Onboarding de operarios</div>
+<div class="related-link-title">Aplicar SOPs al primer día del nuevo</div>
+<p class="related-link-desc">Descubre cómo estandarizar el aprendizaje sin depender del tutor ni frenar producción.</p>
+</a>
+<a href="/vs-alternativas/" class="related-link-card">
+<div class="related-link-kicker">Comparativa software SOP</div>
+<div class="related-link-title">Comparar REELEVO con Dozuki, Poka y otras alternativas</div>
+<p class="related-link-desc">Evalúa precio, adopción, enfoque pyme y diferencias frente a herramientas más pesadas.</p>
+</a>
+</div>
 </div>
 
 <hr />

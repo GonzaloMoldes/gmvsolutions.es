@@ -6,6 +6,8 @@ const description = "Análisis con datos propios del coste directo e indirecto d
 const date = "2026-03-15";
 const category = "Gestión del absentismo";
 const readTime = "10 min.";
+const canonical = "https://www.gmvsolutions.es/recursos/coste-absentismo-pymes-industriales/";
+const image = "https://www.gmvsolutions.es/factory-bg.jpg";
 
 const schema = {
   "@context": "https://schema.org",
@@ -13,12 +15,26 @@ const schema = {
   "headline": title,
   "description": description,
   "datePublished": date,
+  "dateModified": date,
+  "articleSection": category,
+  "inLanguage": "es-ES",
+  "url": canonical,
+  "mainEntityOfPage": canonical,
+  "image": image,
   "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": { "@type": "Organization", "name": "GMV Solutions", "url": "https://gmvsolutions.es" }
+  "publisher": {
+    "@type": "Organization",
+    "name": "GMV Solutions",
+    "url": "https://www.gmvsolutions.es",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gmvsolutions.es/favicon.svg"
+    }
+  }
 };
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} schema={schema}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
 
 <h2>El absentismo en la industria española: un problema que se mide mal</h2>
 
@@ -98,6 +114,27 @@ const schema = {
 <div class="highlight-box">
 <p><strong>REELEVO</strong> es el software SOP que permite capturar el conocimiento operativo de tus expertos y hacerlo accesible directamente en cada máquina. Cuando el experto falta, el sustituto tiene los procedimientos disponibles en segundos. Sin tutor, sin llamadas al experto, sin paradas de línea.</p>
 <p><a href="https://diagnostico.gmvsolutions.es">Calcula cuánto te cuesta la dependencia operativa en tu planta →</a></p>
+</div>
+
+<div class="related-links">
+<div class="related-links-label">Sigue explorando</div>
+<div class="related-links-grid">
+<a href="/casos-de-uso/cobertura-bajas/" class="related-link-card">
+<div class="related-link-kicker">Cobertura de bajas</div>
+<div class="related-link-title">Ver cómo cubrir ausencias sin llamar al experto</div>
+<p class="related-link-desc">La versión operativa de este problema: el sustituto accede al proceso en la máquina y sigue el estándar.</p>
+</a>
+<a href="/recursos/que-es-un-sop-industrial/" class="related-link-card">
+<div class="related-link-kicker">Software SOP industrial</div>
+<div class="related-link-title">Entender el estándar que reduce el impacto del absentismo</div>
+<p class="related-link-desc">Si primero quieres ordenar el concepto de SOP, esta es la guía base para empezar.</p>
+</a>
+<a href="/para-quien/responsable-rrhh/" class="related-link-card">
+<div class="related-link-kicker">Matriz de habilidades</div>
+<div class="related-link-title">Ver cómo RRHH gana visibilidad sobre competencias reales</div>
+<p class="related-link-desc">Con skill matrix y certificación por ejecución, el absentismo deja de pillarte sin mapa.</p>
+</a>
+</div>
 </div>
 
 <hr />
