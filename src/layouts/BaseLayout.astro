@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
 
 export interface Props {
   title: string;
@@ -32,6 +33,56 @@ const {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script is:inline>
+    (() => {
+      const root = document.documentElement;
+      const splashKey = 'reelevo-entry-splash-seen';
+
+      root.classList.add('entry-splash-booting');
+
+      try {
+        if (window.sessionStorage.getItem(splashKey) !== '1') {
+          root.classList.add('show-entry-splash');
+          window.sessionStorage.setItem(splashKey, '1');
+        }
+      } catch {
+        root.classList.add('show-entry-splash');
+      } finally {
+        root.classList.remove('entry-splash-booting');
+      }
+    })();
+  </script>
+
+  <style is:inline>
+    html,
+    body {
+      background: #000;
+    }
+
+    html.entry-splash-booting body {
+      overflow: hidden;
+    }
+
+    html.entry-splash-booting .site-shell,
+    html.show-entry-splash .site-shell {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    html.entry-splash-booting .entry-splash {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    html.show-entry-splash .entry-splash {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+  </style>
 
   <!-- Cookiebot -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="555982fb-7d04-4596-8a45-fa2d446a3892" data-blockingmode="auto" type="text/javascript"></script>
@@ -94,14 +145,57 @@ const {
 </head>
 
 <body>
-  <div class="hero-bg"></div>
-  <Header activeNav={activeNav} />
+  <div class="entry-splash" aria-hidden="true">
+    <div class="entry-splash__logo-wrap">
+      <img
+        class="entry-splash__logo"
+        src={entryLogo.src}
+        width={entryLogo.width}
+        height={entryLogo.height}
+        alt=""
+        decoding="async"
+      />
+    </div>
+  </div>
 
-  <main>
-    <slot />
-  </main>
+  <div class="site-shell">
+    <div class="hero-bg"></div>
+    <Header activeNav={activeNav} />
 
-  <Footer />
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </div>
+
+  <script is:inline>
+    (() => {
+      const root = document.documentElement;
+      const logoRevealDelay = 220;
+      const pulseDuration = 3000;
+      const zoomDuration = 920;
+      const blackoutHold = 180;
+
+      if (!root.classList.contains('show-entry-splash')) {
+        return;
+      }
+
+      window.setTimeout(() => {
+        root.classList.add('entry-splash-logo-visible');
+      }, logoRevealDelay);
+
+      window.setTimeout(() => {
+        root.classList.add('entry-splash-zoom');
+      }, logoRevealDelay + pulseDuration);
+
+      window.setTimeout(() => {
+        root.classList.remove('entry-splash-zoom');
+        root.classList.remove('entry-splash-logo-visible');
+        root.classList.remove('show-entry-splash');
+      }, logoRevealDelay + pulseDuration + zoomDuration + blackoutHold);
+    })();
+  </script>
 </body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M223Z398"
