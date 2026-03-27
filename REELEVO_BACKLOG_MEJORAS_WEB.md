@@ -68,19 +68,19 @@ Esfuerzo estimado:
 
 | ID | Prioridad | Area | Cambio | Impacto | Estado |
 |---|---|---|---|---|---|
-| WEB-01 | P0 | Posicionamiento | Replantear la narrativa principal de la web | Muy alto | Parcial |
-| WEB-02 | P0 | Mensaje | Reordenar la home segun los 4 pilares reales del producto | Muy alto | Parcial |
-| WEB-03 | P0 | Conversion | Alinear CTAs con el flujo comercial y el flujo real de producto | Muy alto | Parcial |
-| WEB-04 | P0 | Pricing | Reestructurar pricing y comparativas alrededor del core real | Muy alto | Parcial |
-| WEB-05 | P0 | Credibilidad | Limpiar cualquier claim no sostenido por producto o evidencia | Muy alto | Parcial |
-| WEB-06 | P1 | Buyer pages | Reescribir paginas por rol segun valor especifico por comprador | Muy alto | Parcial |
-| WEB-07 | P1 | Proof | Introducir prueba visual y operativa del producto real | Muy alto | Parcial |
-| WEB-08 | P1 | Trust | Crear narrativa de trazabilidad, evidencia y confianza operativa | Alto | Parcial |
-| WEB-09 | P2 | Segmentacion | Crear capa especifica para calidad, compliance y sectores regulados | Alto | Pendiente |
-| WEB-10 | P2 | Producto avanzado | Decidir que modulos vender como core, add-on o roadmap | Alto | Pendiente |
-| WEB-11 | P2 | Empresa | Reforzar autoridad del equipo y la tesis de compania | Medio-alto | Pendiente |
+| WEB-01 | P0 | Posicionamiento | Replantear la narrativa principal de la web | Muy alto | Hecho |
+| WEB-02 | P0 | Mensaje | Reordenar la home segun los 4 pilares reales del producto | Muy alto | Hecho |
+| WEB-03 | P0 | Conversion | Alinear CTAs con el flujo comercial y el flujo real de producto | Muy alto | Hecho |
+| WEB-04 | P0 | Pricing | Reestructurar pricing y comparativas alrededor del core real | Muy alto | Hecho |
+| WEB-05 | P0 | Credibilidad | Limpiar cualquier claim no sostenido por producto o evidencia | Muy alto | Hecho |
+| WEB-06 | P1 | Buyer pages | Reescribir paginas por rol segun valor especifico por comprador | Muy alto | Hecho |
+| WEB-07 | P1 | Proof | Introducir prueba visual y operativa del producto real | Muy alto | Hecho |
+| WEB-08 | P1 | Trust | Crear narrativa de trazabilidad, evidencia y confianza operativa | Alto | Hecho |
+| WEB-09 | P2 | Segmentacion | Crear capa especifica para calidad, compliance y sectores regulados | Alto | Hecho |
+| WEB-10 | P2 | Producto avanzado | Decidir que modulos vender como core, add-on o roadmap | Alto | Hecho |
+| WEB-11 | P2 | Empresa | Reforzar autoridad del equipo y la tesis de compania | Medio-alto | Hecho |
 | WEB-12 | P2 | UX | Mejorar legibilidad y escaneabilidad de paginas clave | Medio | Pendiente |
-| WEB-13 | P2 | SEO tecnico | Corregir dominio, canonicals, assets y schemas | Medio | Parcial |
+| WEB-13 | P2 | SEO tecnico | Corregir dominio, canonicals, assets y schemas | Medio | Hecho |
 | WEB-14 | P3 | Contenido | Reorientar contenidos SEO hacia el nuevo encaje comercial | Medio | Pendiente |
 
 ---
@@ -283,7 +283,7 @@ Hay claims que o bien prometen demasiado o bien destacan cosas que no deberian l
 **Area:** Buyer pages  
 **Owner sugerido:** Marketing + founder  
 **Esfuerzo:** XL
-**Estado actual:** Parcial
+**Estado actual:** Hecho
 
 **Enfoque por buyer**
 
@@ -318,7 +318,7 @@ Hay claims que o bien prometen demasiado o bien destacan cosas que no deberian l
 **Area:** Proof  
 **Owner sugerido:** Founder + ventas + front  
 **Esfuerzo:** L
-**Estado actual:** Parcial
+**Estado actual:** Hecho
 
 **Activos mas valiosos**
 
@@ -347,7 +347,7 @@ Hay claims que o bien prometen demasiado o bien destacan cosas que no deberian l
 **Area:** Trust / mensaje  
 **Owner sugerido:** Founder + producto  
 **Esfuerzo:** M
-**Estado actual:** Parcial
+**Estado actual:** Hecho
 
 **Problema**
 
@@ -379,6 +379,7 @@ La web habla de ahorro y rapidez, pero todavia no explota del todo el valor de e
 **Area:** Segmentacion  
 **Owner sugerido:** Marketing + founder  
 **Esfuerzo:** L
+**Estado actual:** Hecho
 
 **Problema**
 
@@ -388,11 +389,52 @@ La app tiene firma digital y reporte de conformidad, pero la web no lo convierte
 
 - Crear bloque o pagina de `conformidad y evidencia`
 - Explicar sign-off, reporte y exportacion con prudencia legal
-- Orientarlo a alimentacion, pharma, automocion, aero y similares cuando aplique
+- Crear una buyer page para `calidad / compliance`
+- Definir orden sectorial segun `dolor operativo alto + exigencia regulatoria asumible`
+
+**Decision actual de verticalizacion**
+
+Sectores prioritarios inmediatos:
+
+- `Mecanizado / CNC`: fit muy alto con el dolor core de REELEVO. Mucha dependencia del titular, conocimiento tacito por maquina, cambios de turno y necesidad de cobertura rapida.
+- `Metalurgia / caldereria / transformacion metalica`: buen encaje cuando el puesto depende de operarios expertos, hay procesos repetibles y la empresa necesita continuidad sin proyecto pesado.
+- `Plastico`: especialmente inyeccion, extrusion y plantas con cambios de formato o parametros. Hay mucho conocimiento tacito y necesidad de incorporar gente sin romper ritmo.
+- `Packaging industrial no altamente regulado`: buen puente entre operacion y consistencia, sin entrar todavia en el nivel mas duro de exigencia documental sectorial.
+
+Sectores en `hold / fase posterior`:
+
+- `Alimentacion`: el dolor encaja, pero la exigencia de evidencia, datos de proceso y robustez comercial es mayor. Mantener como encaje posible, no como vertical prioritario.
+- `Farmaceutica`: demasiada exigencia para la fase actual del producto y del trust pack comercial.
+- `Automocion Tier 1 / IATF`: puede encajar en continuidad operativa, pero el liston de control, aprobacion y trazabilidad es demasiado alto para abrirlo ahora como mensaje comercial fuerte.
+- `Aeroespacial`: buyer y compliance demasiado exigentes para esta fase.
+
+**Por que este orden**
+
+- Primero sectores con `dolor operativo alto` y `compliance medio`
+- Despues sectores con `dolor operativo alto` pero `compliance duro`
+- La prioridad no debe seguir el TAM teorico, sino la velocidad real de cierre y credibilidad comercial
+
+**Condiciones para sacar un sector de `hold`**
+
+- Captura estructurada de datos por paso (`lote`, `temperatura`, `controles`, `unidades` o equivalentes)
+- Versionado y flujo de aprobacion mas endurecidos
+- Trust pack real de seguridad, backups y continuidad
+- Caso piloto o prueba real en ese vertical
+- Claim comercial revisado con prudencia legal
+
+**Avance realizado**
+
+- Creada una pieza especifica de `calidad y conformidad`
+- Conectada desde el recorrido comercial de `como funciona`
+- Enfoque prudente: revision interna, evidencia util y continuidad operativa sin inflar promesa legal
+- Creada una landing ejecutiva para `responsable de calidad / compliance` dentro de `para quien`
+- Priorizada una primera vertical real en `mecanizado / CNC`, conectada desde calidad y buyer page
+- `Alimentacion` queda como exploracion de mensaje y encaje posible, no como vertical prioritario de salida
 
 **Criterio de cierre**
 
 - Calidad o compliance encuentra un motivo especifico para interesarse
+- Existe un orden claro de verticalizacion para no abrir sectores demasiado exigentes antes de tiempo
 
 ---
 
@@ -402,6 +444,7 @@ La app tiene firma digital y reporte de conformidad, pero la web no lo convierte
 **Area:** Producto / GTM  
 **Owner sugerido:** Founder + producto  
 **Esfuerzo:** M
+**Estado actual:** Hecho
 
 **Decision framework**
 
@@ -441,6 +484,7 @@ La app tiene firma digital y reporte de conformidad, pero la web no lo convierte
 **Area:** Empresa / confianza  
 **Owner sugerido:** Founder  
 **Esfuerzo:** M
+**Estado actual:** Hecho
 
 **Accion**
 
@@ -482,6 +526,7 @@ La app tiene firma digital y reporte de conformidad, pero la web no lo convierte
 **Area:** SEO tecnico / higiene  
 **Owner sugerido:** Dev  
 **Esfuerzo:** S
+**Estado actual:** Hecho
 
 **Problema**
 
@@ -526,12 +571,12 @@ Hay tareas de higiene tecnica que afectan percepcion y orden:
 
 ## 6. Quick wins recomendados ahora
 
-- [ ] Definir la frase madre de posicionamiento
-- [ ] Reordenar la home en torno a `menos improvisacion -> mas visibilidad -> onboarding ordenado -> continuidad`
-- [ ] Unificar el CTA principal del site
-- [ ] Reescribir el bloque principal de pricing segun capas `core / expansion / enterprise`
-- [ ] Crear un bloque explicando diferencia entre `consulta` y `ejecucion identificada`
-- [ ] Preparar capturas del flujo real de trabajo y visibilidad operativa para la home
+- [x] Definir la frase madre de posicionamiento
+- [x] Reordenar la home en torno a `menos improvisacion -> mas visibilidad -> onboarding ordenado -> continuidad`
+- [x] Unificar el CTA principal del site
+- [x] Reescribir el bloque principal de pricing segun capas `core / expansion / enterprise`
+- [x] Crear un bloque explicando diferencia entre `consulta` y `ejecucion identificada`
+- [x] Preparar capturas del flujo real de trabajo y visibilidad operativa para la home
 
 ---
 

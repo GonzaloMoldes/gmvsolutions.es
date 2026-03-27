@@ -1,10 +1,10 @@
 # GMV Solutions — REELEVO
 
-> Software SOP (procedimientos operativos estándar) de documentación operativa industrial para pymes. Desarrollado por GMV Solutions, España.
+> Sistema para planta que reduce improvisación, ordena incorporaciones y da más visibilidad operativa en pymes industriales. Desarrollado por GMV Solutions, España.
 
 ## Qué es REELEVO
 
-REELEVO es una plataforma SaaS B2B de procedimientos operativos estándar (SOP) diseñada para pymes industriales. Captura el conocimiento de los operarios expertos y lo pone disponible directamente en cada máquina para que cualquier sustituto o nueva incorporación opere correctamente desde el primer día. Sin cuenta de usuario, sin app que instalar, sin tutor.
+REELEVO es una plataforma SaaS B2B para continuidad operativa en planta. Ayuda a capturar el conocimiento de los operarios expertos y dejarlo disponible en el puesto para que sustituciones, incorporaciones y cambios de turno no rompan la operación. Sin cuenta de operario y sin fricción innecesaria en el acceso.
 
 **Categoría:** Software SOP · Documentación operativa · Instrucciones de trabajo digitales · Gestión del conocimiento industrial · Connected worker platform
 
@@ -62,7 +62,7 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 | Monitor tiempo real | ✓ | ✗ | Parcial | ✗ |
 | Registro verificable de ejecución | ✓ | ✗ | ✗ | ✗ |
 | Troubleshooting inline | ✓ | Parcial | Parcial | ✗ |
-| Configuración técnica inicial | 1 día | Semanas | Meses | Días |
+| Arranque inicial | Ligero y asistido | Semanas | Meses | Días |
 | En español nativo | ✓ | ✗ | Parcial | ✗ |
 | Enfoque pyme industrial | ✓ | Fortune 500 | Enterprise | Genérico |
 

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "REELEVO — Menos improvisación y más continuidad en planta";
 const description = "REELEVO ayuda a las pymes industriales a reducir la dependencia de personas clave, ordenar incorporaciones y ganar más visibilidad sobre lo que pasa en planta.";
+const canonical = "https://gmvsolutions.es/";
 
 const schema = [
   {
@@ -50,7 +51,7 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
@@ -65,7 +66,7 @@ const schema = [
       <strong>Producción gana contexto para decidir, RRHH ordena mejor el onboarding y la empresa depende menos de las personas clave</strong>.
     </p>
     <div class="hero-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar acceso guiado</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación →</a>
     </div>
     <div class="hero-proof fade-up delay-4">
@@ -293,8 +294,37 @@ const schema = [
           </div>
         </div>
 
-        <div class="screenshots-cta fade-up delay-2">
-          <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Solicitar acceso guiado →</a>
+        <div class="visual-proof-grid fade-up delay-2">
+          <article class="visual-proof-card">
+            <div class="visual-proof-tag">En el puesto</div>
+            <h3 class="visual-proof-title">El sustituto no arranca a ciegas</h3>
+            <p class="visual-proof-desc">
+              La vista de trabajo demuestra que el proceso aparece donde hace falta,
+              con menos búsqueda, menos llamadas y menos dependencia del titular.
+            </p>
+          </article>
+
+          <article class="visual-proof-card">
+            <div class="visual-proof-tag">Para producción</div>
+            <h3 class="visual-proof-title">Hay más contexto para decidir mejor</h3>
+            <p class="visual-proof-desc">
+              La vista de producción convierte la actividad del turno en una lectura
+              más clara para reorganizar, detectar bloqueos y actuar antes.
+            </p>
+          </article>
+
+          <article class="visual-proof-card">
+            <div class="visual-proof-tag">Para seguimiento</div>
+            <h3 class="visual-proof-title">El trabajo deja una base útil</h3>
+            <p class="visual-proof-desc">
+              El panel de empresa demuestra que REELEVO no se queda en consultar:
+              ayuda a sostener formación, continuidad y revisión interna con más hechos.
+            </p>
+          </article>
+        </div>
+
+        <div class="screenshots-cta fade-up delay-3">
+          <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Registrarme en REELEVO →</a>
         </div>
       </div>
     </section>
@@ -309,11 +339,12 @@ const schema = [
           <h2 class="section-title">Cada persona ve un valor distinto</h2>
           <p class="section-sub">
             REELEVO encaja con prioridades distintas dentro de la planta.
-            Producción gana claridad para decidir, RRHH ordena mejor las incorporaciones y gerencia reduce dependencia operativa.
+            Producción gana claridad para decidir, RRHH ordena mejor las incorporaciones,
+            calidad revisa mejor lo que pasa en planta y gerencia reduce dependencia operativa.
           </p>
         </div>
 
-        <div class="perfiles-grid fade-up delay-1">
+        <div class="perfiles-grid perfiles-grid-four fade-up delay-1">
           <div class="perfil-card">
             <div class="perfil-card-icon">👷</div>
             <h3 class="perfil-card-title">Jefe de producción</h3>
@@ -332,6 +363,16 @@ const schema = [
               sobre quién necesita apoyo y quién ya puede rendir con autonomía.
             </p>
             <a href="/para-quien/responsable-rrhh/" class="perfil-card-link">Ver cómo te ayuda →</a>
+          </div>
+
+          <div class="perfil-card">
+            <div class="perfil-card-icon">🧪</div>
+            <h3 class="perfil-card-title">Responsable de calidad</h3>
+            <p class="perfil-card-desc">
+              Más claridad para revisión interna, cambios de proceso y puestos sensibles,
+              sin depender solo de papeles, memoria o versiones cruzadas.
+            </p>
+            <a href="/para-quien/responsable-calidad/" class="perfil-card-link">Ver cómo te ayuda →</a>
           </div>
 
           <div class="perfil-card">
@@ -460,12 +501,12 @@ const schema = [
         Empieza por el puesto<br><em>donde más cuesta improvisar</em>
       </h2>
       <p class="cta-sub fade-up delay-2">
-        Solicita acceso guiado para ver cómo REELEVO encaja en tu operativa:
+        Si quieres entrar en la plataforma, regístrate en REELEVO:
         menos dependencia, incorporaciones más ordenadas y más claridad para decidir en planta.
       </p>
       <div class="cta-actions fade-up delay-3">
         <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-          Solicitar acceso guiado
+          Registrarme en REELEVO
         </a>
         <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
           Evaluar mi situación →
@@ -523,14 +564,34 @@ const schema = [
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .perfiles-grid.perfiles-grid-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   @media (max-width: 1200px) {
     .steps-grid.steps-grid-four {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .perfiles-grid.perfiles-grid-four {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .visual-proof-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 700px) {
     .steps-grid.steps-grid-four {
+      grid-template-columns: 1fr;
+    }
+
+    .perfiles-grid.perfiles-grid-four {
+      grid-template-columns: 1fr;
+    }
+
+    .visual-proof-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -626,6 +687,44 @@ const schema = [
   .screenshots-cta {
     margin-top: 32px;
     text-align: center;
+  }
+
+  .visual-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .visual-proof-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 22px;
+    text-align: left;
+  }
+
+  .visual-proof-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .visual-proof-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    margin-bottom: 10px;
+  }
+
+  .visual-proof-desc {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.65;
   }
 
   /* Pilot section */
@@ -745,3 +844,4 @@ const schema = [
     startAutoplay();
   })();
 </script>
+

@@ -5,7 +5,7 @@ const title = "Precios REELEVO — menos dependencia operativa desde 49€/mes";
 const description = "Precio por empresa para reducir improvisación, ordenar incorporaciones y ganar visibilidad operativa en planta sin pagar por operario.";
 const primaryCtaHref = "https://app.gmvsolutions.es/registro";
 const secondaryCtaHref = "https://diagnostico.gmvsolutions.es";
-const primaryCtaLabel = "Solicitar acceso guiado";
+const primaryCtaLabel = "Registrarme en REELEVO";
 
 const schema = {
   "@context": "https://schema.org",
@@ -41,7 +41,7 @@ const schema = {
   <section class="page-hero">
     <div class="eyebrow fade-up">Precio por empresa</div>
     <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
-    <p class="fade-up delay-2">REELEVO se compra para reducir dependencia operativa, ordenar incorporaciones y dar más claridad a producción. Después amplías visibilidad, aprendizaje interno e integraciones según lo que necesites.</p>
+    <p class="fade-up delay-2">REELEVO se compra en capas claras: primero continuidad operativa y orden en planta, después expansión para producción, formación y calidad, y solo al final requisitos enterprise o despliegues más especiales.</p>
   </section>
 
   <div class="divider"></div>
@@ -79,11 +79,62 @@ const schema = {
 
         <article class="pricing-layer">
           <div class="pricing-layer-label">Enterprise</div>
-          <h3 class="pricing-layer-title">Integración y soporte</h3>
+          <h3 class="pricing-layer-title">Enterprise y requisitos avanzados</h3>
           <p class="pricing-layer-desc">
             Cuando necesitas más escala, seguridad, compliance o integración, se trabaja
             como capa avanzada según alcance y caso de uso.
           </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MAPA COMERCIAL -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo se empaqueta</div>
+        <h2 class="section-title">Qué entra en <em>cada capa comercial</em></h2>
+        <p class="section-sub">
+          La idea no es vender una suite inflada desde el día 1.
+          La idea es que sepas qué compras ahora, qué puedes ampliar después y qué se revisa solo si de verdad hace falta.
+        </p>
+      </div>
+
+      <div class="package-grid fade-up delay-1">
+        <article class="package-card">
+          <div class="package-label">Base incluida</div>
+          <h3 class="package-title">Lo que toda planta compra primero</h3>
+          <ul class="package-list">
+            <li>Menos improvisación en el puesto</li>
+            <li>Arranque más ordenado cuando falta alguien</li>
+            <li>Trabajo accesible sin fricción innecesaria</li>
+            <li>Primer nivel de visibilidad sobre la ejecución</li>
+          </ul>
+        </article>
+
+        <article class="package-card">
+          <div class="package-label">Expansión operativa</div>
+          <h3 class="package-title">Lo que amplía valor dentro de la planta</h3>
+          <ul class="package-list">
+            <li>Más claridad para producción y coordinación del turno</li>
+            <li>Más base útil para formación y polivalencia</li>
+            <li>Más soporte a calidad y seguimiento interno</li>
+            <li>Reporting y visibilidad más completos</li>
+          </ul>
+        </article>
+
+        <article class="package-card">
+          <div class="package-label">Enterprise</div>
+          <h3 class="package-title">Lo que aparece cuando el entorno lo pide</h3>
+          <ul class="package-list">
+            <li>Integraciones, API y requisitos de IT</li>
+            <li>SSO o despliegues corporativos</li>
+            <li>Acuerdos de soporte más dedicados</li>
+            <li>Necesidades avanzadas de reporting o conformidad</li>
+          </ul>
         </article>
       </div>
     </div>
@@ -98,6 +149,7 @@ const schema = {
         <!-- STARTER -->
         <div class="plan-card">
           <div class="plan-name">Starter</div>
+          <div class="plan-scope">Core comercial</div>
           <div class="plan-price">49€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
           <div class="plan-desc">Para una planta o línea que quiere empezar por lo esencial: menos improvisación, mejor arranque en puesto y más orden operativo sin complicarse.</div>
@@ -118,7 +170,7 @@ const schema = {
           </div>
           <div class="plan-cta">
             <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">{primaryCtaLabel}</a>
-            <p class="plan-note">Te pediremos unos datos para preparar el acceso</p>
+            <p class="plan-note">El botón te lleva al registro de la plataforma</p>
           </div>
         </div>
 
@@ -126,6 +178,7 @@ const schema = {
         <div class="plan-card featured">
           <div class="plan-badge">Más popular</div>
           <div class="plan-name">Profesional</div>
+          <div class="plan-scope">Core + expansión</div>
           <div class="plan-price">149€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
           <div class="plan-desc">Para empresas que además quieren más claridad para producción, menos tiempo perdido y mejor coordinación entre operación, formación y seguimiento.</div>
@@ -149,6 +202,7 @@ const schema = {
         <!-- ENTERPRISE -->
         <div class="plan-card">
           <div class="plan-name">Enterprise</div>
+          <div class="plan-scope">Requisitos avanzados</div>
           <div class="plan-price">A medida</div>
           <div class="plan-period">Contacta para presupuesto personalizado</div>
           <div class="plan-desc">Para grupos industriales o despliegues con requisitos avanzados de integración, seguridad, soporte o compliance.</div>
@@ -244,7 +298,7 @@ const schema = {
       <div class="trial-bullet"><span>✓</span>Trabajo accesible en el puesto</div>
       <div class="trial-bullet"><span>✓</span>Sin fricción para el operario</div>
       <div class="trial-bullet"><span>✓</span>Más claridad sobre la ejecución</div>
-      <div class="trial-bullet"><span>✓</span>Configuración técnica inicial en 1 día</div>
+      <div class="trial-bullet"><span>✓</span>Arranque técnico ligero y asistido</div>
       <div class="trial-bullet"><span>✓</span>Soporte en español</div>
     </div>
     <div class="cta-actions fade-up delay-2">
@@ -319,11 +373,11 @@ const schema = {
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <h2 class="cta-title fade-up delay-1">
-      Solicita acceso guiado y vemos <em>si encaja</em>
+      Si quieres verla por dentro,<br><em>regístrate en REELEVO</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Te pediremos unos datos básicos para preparar el acceso y enfocar la conversación
-      en tu planta, tus procesos y el punto donde hoy más cuesta improvisar.
+      El botón te lleva al registro de la plataforma. Después podrás entrar,
+      revisar el producto y valorar si encaja con tu planta y tus procesos.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href={primaryCtaHref} class="btn-primary">
@@ -378,6 +432,57 @@ const schema = {
     color: var(--gray);
   }
 
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .package-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .package-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .package-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    margin-bottom: 12px;
+  }
+
+  .package-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .package-list li {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.65;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .package-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
   /* Plans */
   .plans-grid {
     display: grid;
@@ -421,6 +526,15 @@ const schema = {
     letter-spacing: .05em;
     color: var(--orange);
     margin-bottom: 8px;
+  }
+
+  .plan-scope {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
   }
 
   .plan-price {
@@ -757,6 +871,10 @@ const schema = {
       grid-template-columns: 1fr;
     }
 
+    .package-grid {
+      grid-template-columns: 1fr;
+    }
+
     .plans-grid {
       grid-template-columns: 1fr;
     }
@@ -816,3 +934,4 @@ const schema = {
     });
   });
 </script>
+
