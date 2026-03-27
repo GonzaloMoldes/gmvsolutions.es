@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Gerentes — Software SOP industrial para reducir dependencia operativa";
-const description = "Software SOP para gerentes industriales: documenta procesos críticos, reduce dependencia de perfiles clave y mantiene un precio fijo por empresa.";
+const title = "REELEVO para Gerentes — menos dependencia operativa y más continuidad";
+const description = "REELEVO ayuda a gerencia a reducir dependencia operativa, ganar visibilidad y empezar por puestos críticos sin abrir un proyecto pesado.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -24,14 +24,47 @@ const schema = {
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software SOP para gerentes y propietarios</div>
+    <div class="eyebrow fade-up">Para gerentes y propietarios</div>
     <h1 class="fade-up delay-1"><em>Menos dependencia,</em><br>más continuidad operativa.</h1>
-    <p class="fade-up delay-2">REELEVO ayuda a documentar procesos críticos, acelerar incorporaciones y reducir la dependencia de personas clave sin abrir un proyecto largo. Precio fijo por empresa y configuración técnica ágil.</p>
+    <p class="fade-up delay-2">REELEVO ayuda a reducir dependencia operativa, ganar continuidad y empezar por lo que más duele en planta sin abrir un proyecto pesado. Precio fijo por empresa y activación asumible.</p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary">Solicitar demo →</a>
-      <a href="/precios/" class="btn-ghost">Ver precios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar acceso guiado →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación</a>
     </div>
-    <div class="hero-cta-note fade-up delay-4">Precio publicado · Configuración técnica en 1 día · Soporte en español</div>
+    <div class="hero-cta-note fade-up delay-4">Precio publicado · Configuración técnica inicial en 1 día · Soporte en español</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRUEBA VISUAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Prueba visual</div>
+        <h2 class="section-title">Por qué no parece un proyecto <em>pesado</em></h2>
+        <p class="section-sub">
+          Lo que compra gerencia no es un catálogo infinito de features. Es una forma más simple de
+          dar continuidad a la operación y ganar visibilidad sin pagar por cada operario.
+        </p>
+      </div>
+
+      <div class="proof-grid fade-up delay-1">
+        <div class="proof-card proof-shot">
+          <div class="proof-frame">
+            <img src="/screenshots/sop-operario.png" alt="Acceso al proceso desde el puesto en REELEVO" loading="lazy">
+          </div>
+          <div class="proof-caption">Captura real del producto: el trabajo aparece en el puesto sin añadir fricción al operario.</div>
+        </div>
+
+        <div class="proof-card proof-points">
+          <h3>Lo que hace más fácil la decisión</h3>
+          <div class="proof-point"><strong>Empiezas por lo crítico:</strong> no hace falta desplegar toda la planta de golpe.</div>
+          <div class="proof-point"><strong>Sin coste por operario:</strong> el precio no castiga crecer o incorporar temporal.</div>
+          <div class="proof-point"><strong>Más continuidad:</strong> menos dependencia de llamadas y memoria cuando falta alguien.</div>
+          <div class="proof-point"><strong>Software real:</strong> la propuesta se puede enseñar ya sobre producto visible, no sobre una promesa abstracta.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -90,7 +123,8 @@ const schema = {
           <div class="exec-benefits">
             <h4>Valor para gerencia:</h4>
             <ul>
-              <li>Procesos documentados y accesibles en el puesto</li>
+              <li>Menos dependencia en puestos críticos</li>
+              <li>Más visibilidad sobre lo que pasa en planta</li>
               <li>Menos dependencia de personas clave</li>
               <li>Onboarding más ordenado y repetible</li>
               <li>Precio fijo y visible desde el principio</li>
@@ -267,7 +301,7 @@ const schema = {
         <h2 class="section-title">Tiene sentido si este problema ya se nota</h2>
         <p class="section-sub">
           No hace falta convertirlo en un proyecto estratégico enorme.
-          Tiene sentido cuando el coste de improvisar ya se nota en el día a día.
+          Tiene sentido cuando el coste de improvisar ya se nota en el día a día y quieres empezar por algo concreto.
         </p>
       </div>
 
@@ -307,24 +341,80 @@ const schema = {
       Reduce el riesgo operativo <em>de forma sostenida</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Solicita una demo para ver si tiene sentido en tu planta.
+      Solicita acceso guiado para ver si tiene sentido en tu planta.
       Empezamos por los procesos críticos y aterrizamos el impacto con tu realidad.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Solicitar demo →
+        Solicitar acceso guiado →
       </a>
       <a href="/precios/" class="btn-ghost">
         Ver precios
       </a>
     </div>
-    <div class="cta-note fade-up delay-4">
-      Precio publicado · Implantación ligera · Soporte directo
-    </div>
-  </section>
+      <div class="cta-note fade-up delay-4">
+      Precio publicado · Implantación ligera · Acceso guiado para validar encaje
+      </div>
+    </section>
 </BaseLayout>
 
 <style>
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .proof-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  .proof-caption {
+    padding: 16px 18px;
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+
+  .proof-points {
+    padding: 28px 24px;
+  }
+
+  .proof-points h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .proof-point {
+    font-size: .88rem;
+    line-height: 1.65;
+    color: var(--gray);
+    padding: 0 0 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-point:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .proof-point strong {
+    color: var(--white);
+  }
+
   /* Executive grid */
   .executive-grid {
     display: grid;
@@ -1178,6 +1268,7 @@ const schema = {
 
   /* Responsive */
   @media (max-width: 900px) {
+    .proof-grid,
     .executive-grid {
       grid-template-columns: 1fr;
     }

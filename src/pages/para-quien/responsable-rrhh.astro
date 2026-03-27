@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para RRHH — Software SOP de onboarding industrial y matriz de habilidades";
-const description = "Software SOP para RRHH industrial: onboarding más ordenado, trazabilidad de ejecución y visibilidad sobre competencias en planta.";
+const title = "REELEVO para RRHH — onboarding industrial con evidencia de ejecución";
+const description = "REELEVO ayuda a RRHH a ordenar onboarding, dejar evidencia de ejecución real y ganar más visibilidad sobre competencia operativa en planta.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -24,14 +24,47 @@ const schema = {
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software SOP para responsables de RRHH</div>
-    <h1 class="fade-up delay-1">Onboarding industrial<br><em>más ordenado</em> y trazabilidad.</h1>
-    <p class="fade-up delay-2">REELEVO ayuda a RRHH a ordenar el onboarding, tener visibilidad sobre qué procesos domina cada persona y trabajar con integraciones de software de RRHH disponibles en la app, con Factorial entre las opciones.</p>
+    <div class="eyebrow fade-up">Para responsables de RRHH</div>
+    <h1 class="fade-up delay-1">Onboarding más ordenado.<br><em>Competencia más visible.</em></h1>
+    <p class="fade-up delay-2">REELEVO ayuda a RRHH a ordenar incorporaciones en planta, reducir tutoría repetitiva y tener más claridad sobre qué personas necesitan apoyo y cuáles ya pueden rendir con más autonomía.</p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar acceso guiado →</a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Implementación asistida</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRUEBA VISUAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Prueba visual</div>
+        <h2 class="section-title">Qué deja registrado el producto <em>hoy</em></h2>
+        <p class="section-sub">
+          REELEVO no sustituye una certificación formal. Sí deja una base de evidencia mucho más útil
+          que una lista de asistencia cuando quieres ordenar onboarding y tomar mejores decisiones de formación.
+        </p>
+      </div>
+
+      <div class="proof-grid fade-up delay-1">
+        <div class="proof-card proof-shot">
+          <div class="proof-frame">
+            <img src="/screenshots/admin-dashboard.png" alt="Panel empresa REELEVO para seguimiento operativo y procesos" loading="lazy">
+          </div>
+          <div class="proof-caption">Captura real del producto: panel empresa para procesos, máquinas y operativa.</div>
+        </div>
+
+        <div class="proof-card proof-points">
+          <h3>Qué evidencia te deja</h3>
+          <div class="proof-point"><strong>Quién:</strong> operario o sesión identificada cuando aplica.</div>
+          <div class="proof-point"><strong>Qué:</strong> proceso ejecutado y puesto o máquina asociada.</div>
+          <div class="proof-point"><strong>Cuándo:</strong> fecha, hora y seguimiento de ejecución.</div>
+          <div class="proof-point"><strong>Resultado:</strong> base más útil para onboarding, polivalencia y competencia visible.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -53,8 +86,8 @@ const schema = {
           <div class="problem-icon">💰</div>
           <h3 class="problem-title">Coste de formación descontrolado</h3>
           <div class="problem-stats">
-            <div class="problem-stat">€680</div>
-            <div class="problem-stat-label">Coste medio por incorporación (tutoren + tiempo perdido)</div>
+            <div class="problem-stat">Tutoría</div>
+            <div class="problem-stat-label">Tiempo de tutor y nuevo fuera de ritmo</div>
           </div>
           <div class="problem-description">
             <h4>Situación actual:</h4>
@@ -69,28 +102,28 @@ const schema = {
           <div class="problem-solution">
             <h4>Con REELEVO:</h4>
             <ul>
-              <li>Formación autodidacta guiada por el mejor experto</li>
-              <li>3 días hasta rendimiento completo</li>
-              <li>Consistencia total en todos los procesos</li>
-              <li>Registro verificable de ejecución</li>
-              <li>Formación escalable a cualquier puesto</li>
+              <li>Onboarding guiado desde el proceso correcto</li>
+              <li>Menos tutoría repetitiva</li>
+              <li>Más consistencia entre incorporaciones</li>
+              <li>Evidencia de ejecución, no solo asistencia</li>
+              <li>Base más escalable para distintos puestos</li>
             </ul>
           </div>
         </div>
 
         <div class="problem-card medium-impact">
           <div class="problem-icon">📋</div>
-          <h3 class="problem-title">Cumplimiento y trazabilidad</h3>
+          <h3 class="problem-title">Cumplimiento y claridad operativa</h3>
           <div class="problem-stats">
-            <div class="problem-stat">23%</div>
-            <div class="problem-stat-label">Empresas con registro completo de competencias operativas</div>
+            <div class="problem-stat">Excel</div>
+            <div class="problem-stat-label">Datos dispersos entre papel, hojas y memoria</div>
           </div>
           <div class="problem-description">
             <h4>Situación actual:</h4>
             <ul>
               <li>No hay registro de qué sabe hacer cada operario</li>
               <li>Certificaciones basadas en «asistencia» no en «competencia»</li>
-              <li>Imposible demostrar cumplimiento en auditorías</li>
+              <li>Cuesta demostrar qué formación y ejecución hay detrás de cada operario</li>
               <li>Datos de formación dispersos en Excel, papel, memoria</li>
               <li>Sin seguimiento de competencias actualizadas</li>
             </ul>
@@ -98,10 +131,10 @@ const schema = {
           <div class="problem-solution">
             <h4>Con REELEVO:</h4>
             <ul>
-              <li>Registro automático de competencias por puesto</li>
-              <li>Certificación por ejecución real demostrada</li>
-              <li>Trazabilidad completa para auditorías</li>
-              <li>Integraciones disponibles con software de RRHH</li>
+              <li>Registro de ejecución más cercano al trabajo real</li>
+              <li>Evidencia operativa por persona, proceso y puesto</li>
+              <li>Más claridad para auditorías y seguimiento interno</li>
+              <li>Posible encaje con software de RRHH según el caso</li>
               <li>Visibilidad clara de competencias y evidencias para RRHH</li>
             </ul>
           </div>
@@ -111,8 +144,8 @@ const schema = {
           <div class="problem-icon">🔄</div>
           <h3 class="problem-title">Rotación y personal temporal</h3>
           <div class="problem-stats">
-            <div class="problem-stat">18%</div>
-            <div class="problem-stat-label">Rotación anual media en industria (ETT: 45%)</div>
+            <div class="problem-stat">ETT</div>
+            <div class="problem-stat-label">Cada incorporación vuelve a tensionar el sistema</div>
           </div>
           <div class="problem-description">
             <h4>Situación actual:</h4>
@@ -127,11 +160,11 @@ const schema = {
           <div class="problem-solution">
             <h4>Con REELEVO:</h4>
             <ul>
-              <li>ETT operativo desde el primer turno</li>
-              <li>Formación una vez, escalable infinitamente</li>
-              <li>ROI positivo aunque la persona esté 1 semana</li>
-              <li>Sin dependencia de personal fijo para formar</li>
-              <li>Escalabilidad total para picos estacionales</li>
+              <li>Más facilidad para incorporar ETT con menos tutoría</li>
+              <li>Formación más reutilizable y menos improvisada</li>
+              <li>Mejor aprovechamiento del conocimiento interno</li>
+              <li>Menor dependencia del personal fijo para enseñar siempre lo mismo</li>
+              <li>Más capacidad para absorber picos estacionales</li>
             </ul>
           </div>
         </div>
@@ -145,17 +178,17 @@ const schema = {
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Sistema de certificación</div>
-        <h2 class="section-title">Certificación por <em>ejecución real</em></h2>
+        <div class="eyebrow">Trazabilidad operativa</div>
+        <h2 class="section-title">Registro verificable de <em>ejecución real</em></h2>
         <p class="section-sub">
-          No certificamos por asistencia a cursos. Certificamos por
-          demostración práctica de competencias en condiciones reales.
+          No sustituye una certificación formal de competencias. Aporta evidencia
+          operativa más cercana al trabajo real que una simple asistencia a formación.
         </p>
       </div>
 
       <div class="certification-comparison fade-up delay-1">
         <div class="cert-traditional">
-          <h3>❌ Certificación tradicional</h3>
+          <h3>❌ Registro tradicional</h3>
           <div class="cert-process">
             <div class="cert-step">
               <div class="cert-step-icon">📚</div>
@@ -169,7 +202,7 @@ const schema = {
             <div class="cert-arrow">→</div>
             <div class="cert-step">
               <div class="cert-step-icon">✅</div>
-              <div class="cert-step-text">Certificación</div>
+              <div class="cert-step-text">Firma o validación manual</div>
             </div>
           </div>
           <div class="cert-problems">
@@ -185,7 +218,7 @@ const schema = {
         </div>
 
         <div class="cert-reelevo">
-          <h3>✅ Certificación REELEVO</h3>
+          <h3>✅ Registro REELEVO</h3>
           <div class="cert-process">
             <div class="cert-step">
               <div class="cert-step-icon">📱</div>
@@ -205,10 +238,10 @@ const schema = {
           <div class="cert-benefits">
             <h4>Ventajas:</h4>
             <ul>
-              <li>Aporta evidencia más cercana a la competencia práctica</li>
+              <li>Aporta evidencia operativa más cercana a la competencia práctica</li>
               <li>Basada en ejecución real, no en teoría</li>
               <li>Conectada directamente con el puesto</li>
-              <li>Refleja la capacidad operativa real</li>
+              <li>Refleja mejor la capacidad operativa real</li>
               <li>Actualizable automáticamente</li>
             </ul>
           </div>
@@ -249,11 +282,12 @@ const schema = {
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Integraciones disponibles</div>
-        <h2 class="section-title">Integraciones con software de RRHH</h2>
+        <div class="eyebrow">Encaje e integraciones</div>
+        <h2 class="section-title">Encaje con software de RRHH</h2>
         <p class="section-sub">
-          REELEVO dispone de integraciones con software de RRHH dentro de la app.
-          Factorial es una de las opciones disponibles, y el alcance se revisa según cada caso.
+          REELEVO puede convivir con vuestro software de RRHH. Si necesitáis exportación
+          o integración, el alcance se revisa caso a caso. Factorial es uno de los entornos
+          que podemos analizar, no una integración estándar cerrada para todos los clientes.
         </p>
       </div>
 
@@ -261,7 +295,7 @@ const schema = {
         <div class="integration-card featured">
           <div class="integration-logo">🔗</div>
           <h3 class="integration-name">Software de RRHH</h3>
-          <div class="integration-status">Disponible en la app</div>
+          <div class="integration-status">A revisar según el caso</div>
           <div class="integration-features">
             <h4>Qué significa:</h4>
             <ul>
@@ -276,13 +310,13 @@ const schema = {
         <div class="integration-card featured">
           <div class="integration-logo">📊</div>
           <h3 class="integration-name">Factorial</h3>
-          <div class="integration-status">Opción disponible</div>
+          <div class="integration-status">Entorno evaluable</div>
           <div class="integration-features">
             <h4>Ejemplo de integración:</h4>
             <ul>
               <li>Puede formar parte de vuestro flujo si ya trabajáis con Factorial</li>
               <li>El alcance real se valida antes de activarlo</li>
-              <li>Se adapta al caso de uso de onboarding y trazabilidad</li>
+              <li>Se adapta al caso de uso de onboarding y seguimiento interno</li>
               <li>Se revisa junto con vuestro equipo durante la implantación</li>
             </ul>
           </div>
@@ -304,7 +338,7 @@ const schema = {
             <div class="flow-number">2</div>
             <div class="flow-content">
               <h4>REELEVO registra evidencias</h4>
-              <p>La plataforma deja trazabilidad sobre la ejecución realizada</p>
+              <p>La plataforma deja una base útil de evidencia sobre la ejecución realizada</p>
             </div>
           </div>
           <div class="flow-arrow">→</div>
@@ -400,7 +434,7 @@ const schema = {
               <h4>Tareas REELEVO:</h4>
               <ul>
                 <li>Captura de procesos con operarios expertos</li>
-                <li>Configuración de trazabilidad por ejecución</li>
+                <li>Configuración del seguimiento de ejecución</li>
                 <li>Validación del flujo con software de RRHH, si aplica</li>
                 <li>Verificación de flujo completo de datos</li>
               </ul>
@@ -472,24 +506,80 @@ const schema = {
       Ordena el onboarding y gana<br><em>visibilidad sobre competencias</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Solicita una demo para comprobar el impacto real en tus métricas de RRHH.
+      Solicita acceso guiado para comprobar el impacto real en tus métricas de RRHH.
       Implementación asistida y revisión de integración con tu software de RRHH.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Solicitar demo →
+        Solicitar acceso guiado →
       </a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
         Evaluar mi situación
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Integraciones con software de RRHH disponibles · Factorial entre las opciones
+      Exportaciones e integraciones se revisan caso a caso · Factorial entre los entornos evaluables
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .proof-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  .proof-caption {
+    padding: 16px 18px;
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+
+  .proof-points {
+    padding: 28px 24px;
+  }
+
+  .proof-points h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .proof-point {
+    font-size: .88rem;
+    line-height: 1.65;
+    color: var(--gray);
+    padding: 0 0 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-point:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .proof-point strong {
+    color: var(--white);
+  }
+
   /* HR Problems */
   .hr-problems {
     display: grid;
@@ -1115,6 +1205,7 @@ const schema = {
 
   /* Responsive */
   @media (max-width: 900px) {
+    .proof-grid,
     .hr-problems {
       grid-template-columns: 1fr;
     }

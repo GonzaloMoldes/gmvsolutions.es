@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Jefes de Producción — Software SOP para continuidad operativa en planta";
-const description = "Software SOP para jefes de producción: visibilidad operativa, matriz de habilidades, planificación por máquina y cobertura de bajas.";
+const title = "REELEVO para Jefes de Producción — más visibilidad y menos dependencia";
+const description = "REELEVO ayuda a producción a ganar visibilidad, reducir improvisación y reorganizar mejor el turno cuando cambia el día.";
 
 const schema = {
   "@context": "https://schema.org",
@@ -24,14 +24,47 @@ const schema = {
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software SOP para jefes de producción</div>
-    <h1 class="fade-up delay-1">La línea <em>no puede parar</em><br>cuando falta el operario clave.</h1>
-    <p class="fade-up delay-2">Cobertura de bajas, visibilidad operativa en tiempo real, matriz de habilidades actualizada, planificación de turnos por máquina y acceso a los procesos que debe ejecutar cada operario. Además, REELEVO puede integrarse con MachineMetrics.</p>
+    <div class="eyebrow fade-up">Para jefes de producción</div>
+    <h1 class="fade-up delay-1">Más visibilidad en planta.<br><em>Menos dependencia del titular.</em></h1>
+    <p class="fade-up delay-2">REELEVO ayuda a producción a reaccionar mejor cuando cambia el día: menos dependencia del titular, menos tiempo perdido enseñando y más contexto para reorganizar el turno.</p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar acceso guiado →</a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Implementación asistida</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRUEBA VISUAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Prueba visual</div>
+        <h2 class="section-title">Lo que producción ya puede <em>ver hoy</em></h2>
+        <p class="section-sub">
+          Captura real del panel operativo. La conversación deja de ser "alguien me dijo"
+          y pasa a ser "dónde se está complicando el turno y qué necesita atención".
+        </p>
+      </div>
+
+      <div class="proof-grid fade-up delay-1">
+        <div class="proof-card proof-shot">
+          <div class="proof-frame">
+            <img src="/screenshots/monitor-actividad.png" alt="Monitor de actividad REELEVO para jefes de producción" loading="lazy">
+          </div>
+          <div class="proof-caption">Captura real del producto: más claridad para ver qué está pasando en planta.</div>
+        </div>
+
+        <div class="proof-card proof-points">
+          <h3>Qué aporta a producción</h3>
+          <div class="proof-point"><strong>Más claridad al momento:</strong> detectas antes dónde se está atascando el turno.</div>
+          <div class="proof-point"><strong>Menos dependencia de llamadas:</strong> el contexto no vive solo en la memoria de planta.</div>
+          <div class="proof-point"><strong>Mejor criterio para reorganizar:</strong> base más útil para decidir prioridades y coberturas.</div>
+          <div class="proof-point"><strong>Menos tiempo perdido arrancando:</strong> quien cubre el puesto encuentra antes qué hacer.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -66,10 +99,10 @@ const schema = {
             <strong>Con REELEVO:</strong>
             <ul>
               <li>El sustituto accede al proceso de la máquina</li>
-              <li>Accede a las instrucciones de Miguel paso a paso</li>
-              <li>Opera correctamente desde el primer momento</li>
+              <li>Tiene instrucciones claras paso a paso</li>
+              <li>Empieza con menos improvisación y menos dependencia del titular</li>
               <li>Si hay problemas, tiene guía de incidencias paso a paso</li>
-              <li>Solo te avisa si realmente necesita supervisión</li>
+              <li>Producción gana más contexto para decidir cuándo intervenir</li>
             </ul>
           </div>
         </div>
@@ -90,9 +123,9 @@ const schema = {
           <div class="scenario-after">
             <strong>Con REELEVO:</strong>
             <ul>
-              <li>El nuevo aprende directamente del mejor experto</li>
-              <li>Sin tutores: productividad máxima desde día 1</li>
-              <li>Enseñanza más consistente, sin tantas variaciones</li>
+              <li>El nuevo sigue el proceso correcto desde el puesto</li>
+              <li>Se reduce parte de la tutoría repetitiva</li>
+              <li>Enseñanza más consistente, con menos variaciones</li>
               <li>Tus expertos se dedican a producir, no a enseñar</li>
               <li>Skill matrix y progreso visibles para planificar mejor</li>
             </ul>
@@ -117,11 +150,11 @@ const schema = {
             <strong>Con REELEVO:</strong>
             <ul>
               <li>Dashboard en tiempo real: quién opera dónde y qué proceso sigue</li>
-              <li>Alertas automáticas antes de que paren producción</li>
+              <li>Más visibilidad para detectar antes dónde se complica el turno</li>
               <li>Skill matrix actualizada para cubrir máquina y turno con criterio</li>
               <li>Procesos disponibles en cada puesto y por tipo de trabajo</li>
-              <li>Historial de problemas y resoluciones por máquina</li>
-              <li>Anticipas problemas antes de que sucedan</li>
+              <li>Más contexto sobre incidencias y resoluciones de trabajo</li>
+              <li>Menos reacción ciega y más decisión con datos</li>
             </ul>
           </div>
         </div>
@@ -171,7 +204,7 @@ const schema = {
                 <div class="machine-name">Torno CNC</div>
                 <div class="machine-operator">👤 Pedro S. (ETT) · Turno tarde asignado</div>
                 <div class="machine-process">❓ Ajuste herramienta + troubleshooting</div>
-                <div class="machine-progress">📉 Señal MachineMetrics + supervisor notificado</div>
+                <div class="machine-progress">📉 Señal de máquina + supervisor notificado</div>
               </div>
             </div>
           </div>
@@ -196,8 +229,8 @@ const schema = {
               Cada operario accede a lo que tiene que hacer y a la guía de incidencias asociada
             </div>
             <div class="feature-item">
-              <strong>🔌 Integración con MachineMetrics:</strong>
-              Si ya trabajas con MachineMetrics, REELEVO puede complementar la señal de máquina con contexto operativo y proceso
+              <strong>🔌 Encaje con MachineMetrics, si aplica:</strong>
+              Si ya trabajas con MachineMetrics, podemos revisar el encaje para complementar la señal de máquina con contexto operativo y proceso
             </div>
           </div>
         </div>
@@ -248,7 +281,7 @@ const schema = {
           </div>
           <div class="benefit-result">
             <div class="benefit-result-label">Impacto medible</div>
-            <p>Eliminación de paradas de 2-4 horas por baja no cubierta</p>
+            <p>Menos tiempo perdido cuando falta el titular y hay que cubrir rápido</p>
           </div>
         </div>
 
@@ -260,7 +293,7 @@ const schema = {
           </div>
           <div class="benefit-result">
             <div class="benefit-result-label">Impacto medible</div>
-            <p>Reducción 60% tiempo respuesta a incidencias</p>
+            <p>Más rapidez para decidir dónde intervenir y con qué prioridad</p>
           </div>
         </div>
 
@@ -291,8 +324,8 @@ const schema = {
         <div class="benefit-row">
           <div class="benefit-icon">🔌</div>
           <div>
-            <h3 class="benefit-title">MachineMetrics como capa complementaria</h3>
-            <p class="benefit-desc">Si ya trabajas con MachineMetrics, REELEVO puede integrarse para aportar contexto de operario, proceso y troubleshooting sobre la señal de máquina.</p>
+            <h3 class="benefit-title">Encaje con herramientas ya presentes en planta</h3>
+            <p class="benefit-desc">Si ya trabajas con herramientas como MachineMetrics, el encaje se revisa caso a caso para aportar más contexto de operario, proceso y troubleshooting sobre la señal de máquina.</p>
           </div>
           <div class="benefit-result">
             <div class="benefit-result-label">Impacto medible</div>
@@ -327,10 +360,10 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up" style="text-align:center;margin-bottom:48px;">
         <div class="eyebrow">Implementación</div>
-        <h2 class="section-title">Funcionando en 1 día</h2>
+        <h2 class="section-title">Configuración técnica inicial en 1 día</h2>
         <p class="section-sub">
-          Plan paso a paso para tener REELEVO operativo en tu planta
-          en menos de 24 horas, con máquinas, procesos y panel listos para producción.
+          La base técnica puede quedar lista en el primer día. La documentación de procesos
+          y la validación operativa dependen del número y complejidad de los puestos priorizados.
         </p>
       </div>
 
@@ -351,12 +384,12 @@ const schema = {
         <div class="timeline-step">
           <div class="timeline-time">Día 1 — Tarde</div>
           <div class="timeline-content">
-            <h3>2. Captura de conocimiento con expertos (3 horas)</h3>
+            <h3>2. Captura inicial con expertos (según alcance)</h3>
             <ul>
-              <li>Tus operarios clave capturan los procesos paso a paso</li>
-              <li>30-90 segundos por paso, sin prisa, explicando detalles</li>
-              <li>Incluye preparación, operación y troubleshooting básico</li>
-              <li>Queda la base para matriz de habilidades y cobertura futura</li>
+              <li>Se empieza por los procesos más críticos, no por toda la planta a la vez</li>
+              <li>Tus operarios clave capturan los primeros pasos y criterios relevantes</li>
+              <li>Puede incluir preparación, operación y troubleshooting básico según prioridad</li>
+              <li>Queda la base para cobertura futura y más visibilidad operativa</li>
             </ul>
           </div>
         </div>
@@ -377,7 +410,7 @@ const schema = {
         <div class="timeline-step">
           <div class="timeline-time">Día 2 — Primera hora</div>
           <div class="timeline-content">
-            <h3>4. Activación y pruebas (30 min)</h3>
+            <h3>4. Activación inicial y pruebas</h3>
             <ul>
               <li>Acceso configurado en cada máquina documentada</li>
               <li>Prueba con operario sustituto en condiciones reales</li>
@@ -407,24 +440,80 @@ const schema = {
       Reduce la dependencia operativa <em>de forma sostenida</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Solicita una demo para ver cómo producción puede decidir mejor con tiempo real,
+      Solicita acceso guiado para ver cómo producción puede decidir mejor con tiempo real,
       matriz de habilidades, planificación por máquina y procesos listos en el puesto.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Solicitar demo →
+        Solicitar acceso guiado →
       </a>
       <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
         Evaluar mi situación
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Configuración técnica en 1 día · Matriz de habilidades y panel operativo · Integración con MachineMetrics
+      Configuración técnica inicial en 1 día · Panel operativo y procesos críticos · Encaje con MachineMetrics si aplica
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .proof-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  .proof-caption {
+    padding: 16px 18px;
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+
+  .proof-points {
+    padding: 28px 24px;
+  }
+
+  .proof-points h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .proof-point {
+    font-size: .88rem;
+    line-height: 1.65;
+    color: var(--gray);
+    padding: 0 0 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proof-point:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .proof-point strong {
+    color: var(--white);
+  }
+
   /* Scenarios */
   .scenario-grid {
     display: grid;
@@ -851,6 +940,7 @@ const schema = {
 
   /* Responsive */
   @media (max-width: 900px) {
+    .proof-grid,
     .scenario-grid {
       grid-template-columns: 1fr;
     }

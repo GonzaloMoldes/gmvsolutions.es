@@ -1,28 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Precios REELEVO — Software SOP industrial desde 49€/mes | Operarios ilimitados";
-const description = "Software SOP industrial desde 49 €/mes por empresa. Precio transparente, operarios ilimitados y puesta en marcha asumible.";
+const title = "Precios REELEVO — menos dependencia operativa desde 49€/mes";
+const description = "Precio por empresa para reducir improvisación, ordenar incorporaciones y ganar visibilidad operativa en planta sin pagar por operario.";
+const primaryCtaHref = "https://app.gmvsolutions.es/registro";
+const secondaryCtaHref = "https://diagnostico.gmvsolutions.es";
+const primaryCtaLabel = "Solicitar acceso guiado";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "REELEVO",
-  "description": "Plataforma de documentación operativa industrial",
+  "description": "Software SOP industrial para reducir improvisación, ordenar incorporaciones y ganar visibilidad operativa en planta",
   "offers": [
     {
       "@type": "Offer",
       "name": "Starter",
       "price": "49",
       "priceCurrency": "EUR",
-      "url": "https://diagnostico.gmvsolutions.es"
+      "url": "https://app.gmvsolutions.es/registro"
     },
     {
       "@type": "Offer",
       "name": "Profesional",
       "price": "149",
       "priceCurrency": "EUR",
-      "url": "https://diagnostico.gmvsolutions.es"
+      "url": "https://app.gmvsolutions.es/registro"
     }
   ]
 };
@@ -36,9 +39,54 @@ const schema = {
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Precios transparentes</div>
-    <h1 class="fade-up delay-1">Precio por empresa.<br><em>No por operario.</em></h1>
-    <p class="fade-up delay-2">REELEVO es un software SOP industrial para pymes con precio fijo por empresa. Da igual cuántas personas accedan a los procesos: el modelo es claro, visible y fácil de aprobar.</p>
+    <div class="eyebrow fade-up">Precio por empresa</div>
+    <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
+    <p class="fade-up delay-2">REELEVO se compra para reducir dependencia operativa, ordenar incorporaciones y dar más claridad a producción. Después amplías visibilidad, aprendizaje interno e integraciones según lo que necesites.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CAPAS DE VALOR -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Qué compras realmente</div>
+        <h2 class="section-title">Primero el <em>core operativo</em>, luego el resto</h2>
+        <p class="section-sub">
+          REELEVO no se plantea como una suite gigante desde el día 1. Primero resuelve continuidad,
+          orden y claridad operativa. Después amplías formación, polivalencia e integración.
+        </p>
+      </div>
+
+      <div class="pricing-layers fade-up delay-1">
+        <article class="pricing-layer">
+          <div class="pricing-layer-label">Core operativo</div>
+          <h3 class="pricing-layer-title">Menos improvisación y mejor arranque</h3>
+          <p class="pricing-layer-desc">
+            El trabajo aparece donde hace falta, con una implantación asumible y menos
+            dependencia del tutor o del operario titular.
+          </p>
+        </article>
+
+        <article class="pricing-layer">
+          <div class="pricing-layer-label">Expansión</div>
+          <h3 class="pricing-layer-title">Más claridad y aprendizaje útil</h3>
+          <p class="pricing-layer-desc">
+            Más visibilidad para producción y una base más útil para ordenar
+            formación, polivalencia y seguimiento interno.
+          </p>
+        </article>
+
+        <article class="pricing-layer">
+          <div class="pricing-layer-label">Enterprise</div>
+          <h3 class="pricing-layer-title">Integración y soporte</h3>
+          <p class="pricing-layer-desc">
+            Cuando necesitas más escala, seguridad, compliance o integración, se trabaja
+            como capa avanzada según alcance y caso de uso.
+          </p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -52,24 +100,25 @@ const schema = {
           <div class="plan-name">Starter</div>
           <div class="plan-price">49€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
-          <div class="plan-desc">Para empresas que quieren empezar a documentar sus procesos críticos y cubrir las bajas sin parones.</div>
+          <div class="plan-desc">Para una planta o línea que quiere empezar por lo esencial: menos improvisación, mejor arranque en puesto y más orden operativo sin complicarse.</div>
           <div class="plan-features">
             <div class="plan-feature"><span class="check">✓</span>1 planta / centro de trabajo</div>
             <div class="plan-feature"><span class="check">✓</span>Hasta 20 máquinas o puestos</div>
             <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados por máquina</div>
             <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
-            <div class="plan-feature"><span class="check">✓</span>Acceso directo sin cuenta de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Guía de incidencias paso a paso</div>
-            <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
-            <div class="plan-feature"><span class="check">✓</span>Registro verificable de ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Acceso directo al proceso en el puesto, sin cuenta de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Trabajo guiado paso a paso</div>
+            <div class="plan-feature"><span class="check">✓</span>Más claridad básica sobre la ejecución</div>
+            <div class="plan-feature"><span class="check">✓</span>Apoyo ante incidencias repetitivas</div>
             <div class="plan-feature"><span class="check">✓</span>Estadísticas básicas de uso</div>
             <div class="plan-feature"><span class="check">✓</span>Exportación CSV</div>
             <div class="plan-feature"><span class="cross">×</span>Múltiples plantas</div>
+            <div class="plan-feature"><span class="cross">×</span>Productividad avanzada y reporting</div>
             <div class="plan-feature"><span class="cross">×</span>API de integración</div>
           </div>
           <div class="plan-cta">
-            <a href="https://app.gmvsolutions.es/registro" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Solicitar demo</a>
-            <p class="plan-note">Sin compromiso</p>
+            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">{primaryCtaLabel}</a>
+            <p class="plan-note">Te pediremos unos datos para preparar el acceso</p>
           </div>
         </div>
 
@@ -79,24 +128,21 @@ const schema = {
           <div class="plan-name">Profesional</div>
           <div class="plan-price">149€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
-          <div class="plan-desc">Para empresas con varias plantas o mayor necesidad de coordinación entre procesos, equipos y reporting.</div>
+          <div class="plan-desc">Para empresas que además quieren más claridad para producción, menos tiempo perdido y mejor coordinación entre operación, formación y seguimiento.</div>
           <div class="plan-features">
             <div class="plan-feature"><span class="check">✓</span>Hasta 3 plantas / centros</div>
             <div class="plan-feature"><span class="check">✓</span>Hasta 100 máquinas o puestos</div>
-            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados por máquina</div>
-            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
-            <div class="plan-feature"><span class="check">✓</span>Acceso directo sin cuenta de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Guía de incidencias paso a paso</div>
-            <div class="plan-feature"><span class="check">✓</span>Notificación WhatsApp al supervisor</div>
-            <div class="plan-feature"><span class="check">✓</span>Registro verificable de ejecución</div>
-            <div class="plan-feature"><span class="check">✓</span>Dashboard avanzado y reports</div>
+            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Starter</div>
+            <div class="plan-feature"><span class="check">✓</span>Más claridad para producción y coordinación del turno</div>
+            <div class="plan-feature"><span class="check">✓</span>Seguimiento operativo más útil y reporting</div>
+            <div class="plan-feature"><span class="check">✓</span>Más visibilidad para formación y polivalencia</div>
             <div class="plan-feature"><span class="check">✓</span>Exportación CSV y Excel</div>
-            <div class="plan-feature"><span class="roadmap">○</span>Integraciones con software de RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
+            <div class="plan-feature"><span class="roadmap">○</span>Posibles integraciones con software de RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
             <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
           </div>
           <div class="plan-cta">
-            <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo</a>
-            <p class="plan-note">Sin compromiso</p>
+            <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel}</a>
+            <p class="plan-note">Te ayudamos a validar si este es el plan que encaja</p>
           </div>
         </div>
 
@@ -105,24 +151,21 @@ const schema = {
           <div class="plan-name">Enterprise</div>
           <div class="plan-price">A medida</div>
           <div class="plan-period">Contacta para presupuesto personalizado</div>
-          <div class="plan-desc">Para grandes empresas industriales con necesidades específicas de compliance, seguridad y escalabilidad.</div>
+          <div class="plan-desc">Para grupos industriales o despliegues con requisitos avanzados de integración, seguridad, soporte o compliance.</div>
           <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Plantas ilimitadas</div>
-            <div class="plan-feature"><span class="check">✓</span>Máquinas y puestos ilimitados</div>
-            <div class="plan-feature"><span class="check">✓</span>Usuarios administrativos ilimitados</div>
-            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
             <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Profesional</div>
+            <div class="plan-feature"><span class="check">✓</span>Plantas, máquinas y puestos ilimitados</div>
+            <div class="plan-feature"><span class="check">✓</span>Usuarios administrativos ilimitados</div>
             <div class="plan-feature"><span class="roadmap">○</span>SSO / directorio corporativo <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="check">✓</span>API completa personalizada</div>
-            <div class="plan-feature"><span class="roadmap">○</span>Integraciones ERP a medida <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="check">✓</span>Auditoría y compliance avanzado</div>
+            <div class="plan-feature"><span class="roadmap">○</span>API, webhooks e integraciones <span class="plan-badge-roadmap">Según alcance</span></div>
+            <div class="plan-feature"><span class="roadmap">○</span>Integraciones ERP o RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
+            <div class="plan-feature"><span class="check">✓</span>Necesidades avanzadas de reporting y conformidad</div>
             <div class="plan-feature"><span class="check">✓</span>Acuerdo de soporte dedicado</div>
-            <div class="plan-feature"><span class="check">✓</span>Soporte dedicado</div>
             <div class="plan-feature"><span class="check">✓</span>Implementación asistida</div>
           </div>
           <div class="plan-cta">
-            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Contactar</a>
-            <p class="plan-note">Respuesta en 24h</p>
+            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Hablar con nosotros</a>
+            <p class="plan-note">Cuéntanos el alcance y te orientamos</p>
           </div>
         </div>
       </div>
@@ -135,8 +178,8 @@ const schema = {
   <section class="roi-section" id="roi">
     <div class="roi-inner">
       <div class="eyebrow fade-up">Calculadora de ROI</div>
-      <h2 class="section-title fade-up delay-1">¿Cuánto te cuesta <em>no tener</em> REELEVO?</h2>
-      <p class="section-sub fade-up delay-2">Calcula el impacto real del absentismo en tu empresa y cuánto tiempo tardas en recuperar la inversión.</p>
+      <h2 class="section-title fade-up delay-1">¿Cuánto te cuesta seguir <em>operando con improvisación</em>?</h2>
+      <p class="section-sub fade-up delay-2">Estimación conservadora del impacto de bajas e incorporaciones cuando el proceso no está claro en el puesto y la operación depende demasiado del tutor o del titular.</p>
 
       <div class="roi-grid fade-up delay-3">
         <div class="roi-inputs">
@@ -173,7 +216,7 @@ const schema = {
             <span class="roi-result-value" id="res-annual">22.140€</span>
           </div>
           <div class="roi-result-row prominent">
-            <span class="roi-result-label">Ahorro estimado con REELEVO (~40%)</span>
+            <span class="roi-result-label">Ahorro estimado con REELEVO (~25%)</span>
             <span class="roi-result-value" id="res-savings">8.856€</span>
           </div>
           <div class="roi-result-summary">
@@ -183,9 +226,9 @@ const schema = {
             </div>
             <div class="roi-result-payback" id="res-payback">Recuperas la inversión en aprox. 2.4 meses</div>
           </div>
-          <div class="roi-result-note">* REELEVO reduce el impacto de las bajas —menos errores, menos tiempo de parada— pero no las elimina. El cálculo asume una reducción del 40% del coste directo, que es una estimación conservadora basada en procesos bien documentados.</div>
+          <div class="roi-result-note">* REELEVO reduce parte del impacto de las bajas —menos errores, menos tiempo de parada y menos dependencia del tutor— pero no lo elimina. El cálculo usa una hipótesis conservadora de reducción del 25% del coste directo y toma como referencia el plan Profesional anualizado.</div>
           <div style="margin-top:20px;">
-            <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="font-size:.8rem;padding:12px 24px;">Solicitar demo →</a>
+            <a href={primaryCtaHref} class="btn-primary" style="font-size:.8rem;padding:12px 24px;">{primaryCtaLabel} →</a>
           </div>
         </div>
       </div>
@@ -196,16 +239,17 @@ const schema = {
 
   <!-- BAND -->
   <div class="trial-band">
-    <div class="trial-title fade-up">Empieza a documentar <em>tu planta</em></div>
+    <div class="trial-title fade-up">Todos los planes parten del mismo <em>núcleo</em></div>
     <div class="trial-bullets fade-up delay-1">
-      <div class="trial-bullet"><span>✓</span>Sin compromiso</div>
-      <div class="trial-bullet"><span>✓</span>Te ayudamos a configurar los primeros procesos</div>
-      <div class="trial-bullet"><span>✓</span>Configuración técnica en 1 día</div>
+      <div class="trial-bullet"><span>✓</span>Trabajo accesible en el puesto</div>
+      <div class="trial-bullet"><span>✓</span>Sin fricción para el operario</div>
+      <div class="trial-bullet"><span>✓</span>Más claridad sobre la ejecución</div>
+      <div class="trial-bullet"><span>✓</span>Configuración técnica inicial en 1 día</div>
       <div class="trial-bullet"><span>✓</span>Soporte en español</div>
     </div>
     <div class="cta-actions fade-up delay-2">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">Evaluar mi situación</a>
+      <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel} →</a>
+      <a href={secondaryCtaHref} class="btn-ghost">Evaluar mi situación</a>
     </div>
   </div>
 
@@ -215,10 +259,11 @@ const schema = {
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Comparación del mercado</div>
-        <h2 class="section-title">REELEVO vs competencia internacional</h2>
+        <div class="eyebrow">Cómo se compra</div>
+        <h2 class="section-title">REELEVO vs <em>herramienta enterprise típica</em></h2>
         <p class="section-sub">
-          Publicamos el precio en euros sin letra pequeña y estamos diseñados específicamente para pymes industriales españolas.
+          La diferencia no es meter más catálogo desde el minuto uno.
+          La diferencia es empezar por continuidad operativa y orden en planta con un modelo asumible.
         </p>
       </div>
 
@@ -228,46 +273,39 @@ const schema = {
             <tr>
               <th class="comp-feature-col"></th>
               <th class="comp-highlight">REELEVO</th>
-              <th>Dozuki</th>
-              <th>Poka (IFS)</th>
-              <th>GembaDocs</th>
+              <th>Herramienta enterprise típica</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="comp-label">Precio visible</td>
-              <td class="comp-highlight"><span class="check">✓</span> 49€/mes</td>
-              <td><span class="cross">×</span> ~$850/mes</td>
-              <td><span class="cross">×</span> Oculto</td>
-              <td><span class="cross">×</span> Oculto</td>
+              <td class="comp-label">Modelo de compra</td>
+              <td class="comp-highlight">Precio visible por empresa</td>
+              <td>Presupuesto y alcance más cerrados tras llamada</td>
             </tr>
             <tr>
-              <td class="comp-label">Sin cuenta de operario</td>
-              <td class="comp-highlight"><span class="check">✓</span> Total</td>
-              <td><span class="cross">×</span></td>
-              <td><span class="cross">×</span></td>
-              <td><span class="cross">×</span></td>
+              <td class="comp-label">Arranque en planta</td>
+              <td class="comp-highlight">Trabajo accesible en el puesto, sin fricción para el operario</td>
+              <td>Despliegue y gestión de acceso normalmente más pesados</td>
             </tr>
             <tr>
-              <td class="comp-label">Sin app de operario</td>
-              <td class="comp-highlight"><span class="check">✓</span> Total</td>
-              <td><span class="cross">×</span></td>
-              <td><span class="cross">×</span> App obligatoria</td>
-              <td><span class="cross">×</span></td>
+              <td class="comp-label">Puesta en marcha</td>
+              <td class="comp-highlight">Empiezas por procesos o puestos críticos</td>
+              <td>Suele pedir un proyecto más amplio desde el inicio</td>
             </tr>
             <tr>
-              <td class="comp-label">En español nativo</td>
-              <td class="comp-highlight"><span class="check">✓</span></td>
-              <td><span class="cross">×</span></td>
-              <td>Parcial</td>
-              <td><span class="cross">×</span></td>
+              <td class="comp-label">Valor principal</td>
+              <td class="comp-highlight">Menos dependencia y más visibilidad operativa</td>
+              <td>Más amplitud de suite, normalmente con más complejidad</td>
             </tr>
             <tr>
-              <td class="comp-label">Diseñado para pyme española</td>
-              <td class="comp-highlight"><span class="check">✓</span> Específico</td>
-              <td><span class="cross">×</span> Fortune 500</td>
-              <td><span class="cross">×</span> Enterprise</td>
-              <td>Parcial</td>
+              <td class="comp-label">Encaje natural</td>
+              <td class="comp-highlight">Pyme industrial que quiere empezar rápido y con foco</td>
+              <td>Proyecto corporativo con más presupuesto y más dependencia de despliegue</td>
+            </tr>
+            <tr>
+              <td class="comp-label">Escalado</td>
+              <td class="comp-highlight">Productividad, competencia e integraciones según el plan</td>
+              <td>Normalmente fuerte en enterprise, pero menos ligero para arrancar</td>
             </tr>
           </tbody>
         </table>
@@ -279,29 +317,67 @@ const schema = {
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza hoy</div>
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <h2 class="cta-title fade-up delay-1">
-      Descubre lo que <em>REELEVO</em> puede hacer
+      Solicita acceso guiado y vemos <em>si encaja</em>
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Solicita una demo para documentar tus procesos críticos y ver si encaja en tu operativa.
-      Precio claro, implantación ligera y sin letra pequeña.
+      Te pediremos unos datos básicos para preparar el acceso y enfocar la conversación
+      en tu planta, tus procesos y el punto donde hoy más cuesta improvisar.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Solicitar demo →
+      <a href={primaryCtaHref} class="btn-primary">
+        {primaryCtaLabel} →
       </a>
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost">
+      <a href={secondaryCtaHref} class="btn-ghost">
         Evaluar mi situación
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Configuración técnica en 1 día · Primeros procesos en el arranque · Soporte incluido
+      Precio publicado · Implantación asistida · Arranque ligero en planta
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .pricing-layers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .pricing-layer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+    border-radius: 6px;
+    text-align: left;
+  }
+
+  .pricing-layer-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .pricing-layer-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 12px;
+  }
+
+  .pricing-layer-desc {
+    font-size: .9rem;
+    line-height: 1.65;
+    color: var(--gray);
+  }
+
   /* Plans */
   .plans-grid {
     display: grid;
@@ -677,6 +753,10 @@ const schema = {
   }
 
   @media (max-width: 900px) {
+    .pricing-layers {
+      grid-template-columns: 1fr;
+    }
+
     .plans-grid {
       grid-template-columns: 1fr;
     }
@@ -712,7 +792,7 @@ const schema = {
     const absences = Math.round(workers * (abs / 100) * workingDays / 5);
     const perBaja = Math.round(lost * daily);
     const annual = absences * perBaja;
-    const reductionFactor = 0.4; // REELEVO reduces impact ~40% on average
+    const reductionFactor = 0.25; // Conservative assumption for partial impact reduction
     const savings = Math.round(annual * reductionFactor);
     const reelevo = 1788;
     const roi = savings > 0 ? (savings / reelevo).toFixed(1) : '—';

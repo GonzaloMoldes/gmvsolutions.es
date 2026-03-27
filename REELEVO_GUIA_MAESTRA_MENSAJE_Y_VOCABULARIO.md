@@ -8,12 +8,15 @@
 
 ## 1. La idea central
 
-REELEVO es un **software SOP industrial para pymes** que ayuda a:
+REELEVO es un **software SOP industrial para pymes**, pero comercialmente no debe explicarse solo como documentacion.
 
-- documentar procesos criticos
-- reducir la dependencia de operarios clave
-- acelerar incorporaciones en planta
-- mejorar la continuidad operativa
+La idea central correcta es esta:
+
+- reduce la improvisacion cuando falta alguien
+- ordena incorporaciones y aprendizaje en planta
+- da mas visibilidad para decidir mejor
+- reduce dependencia de personas clave
+- ayuda a sostener la operacion con mas continuidad
 
 La web no debe vender "digitalizacion", "transformacion" o "IA" como concepto abstracto.  
 Debe vender una mejora muy concreta en la operacion diaria de planta.
@@ -24,11 +27,11 @@ Debe vender una mejora muy concreta en la operacion diaria de planta.
 
 Usar esta idea como base en home, demos, pitches, comparativas y respuestas comerciales:
 
-> REELEVO es un software SOP industrial para pymes que documenta procesos criticos, acelera el onboarding y reduce la dependencia de operarios clave.
+> REELEVO es un software SOP industrial para pymes que ayuda a reducir la dependencia de personas clave, ordenar incorporaciones y dar mas visibilidad sobre lo que pasa en planta.
 
 Version alternativa mas operativa:
 
-> REELEVO convierte el conocimiento del experto en procesos accesibles en cada maquina para que la operacion dependa menos de una sola persona.
+> REELEVO lleva el proceso al puesto de trabajo para que la planta opere con menos improvisacion, menos tutorias repetitivas y mas continuidad operativa.
 
 Estas frases deben aparecer, con variaciones minimas, en:
 
@@ -43,7 +46,16 @@ Estas frases deben aparecer, con variaciones minimas, en:
 
 ## 3. Posicionamiento principal
 
-### Categoria principal
+### Posicionamiento comercial principal
+
+La web debe hacer entender que REELEVO es:
+
+- software para reducir dependencia operativa en planta
+- una forma mas ordenada de incorporar y cubrir puestos
+- una ayuda real para que produccion decida con mas contexto
+- una base util para sostener continuidad, formacion y orden operativo
+
+### Categoria principal para SEO
 
 La categoria que debemos dominar es:
 
@@ -53,6 +65,8 @@ La categoria que debemos dominar es:
 
 - `documentacion operativa industrial`
 - `procedimientos operativos estandar`
+- `trazabilidad operativa industrial`
+- `productividad en planta`
 - `onboarding de operarios`
 - `cobertura de bajas en produccion`
 - `transferencia de conocimiento en planta`
@@ -79,13 +93,22 @@ El cliente no compra:
 
 El cliente compra:
 
-- menos dependencia de personas clave
+- el proceso correcto en el puesto de trabajo
 - menos improvisacion cuando falta alguien
+- visibilidad real de la ejecucion
+- tiempos reales por proceso y operario
+- evidencia de competencia basada en ejecucion
+- menos dependencia de personas clave
 - onboarding mas ordenado
-- procesos accesibles en el puesto
 - mas continuidad operativa con menos friccion
 
 Cuando escribamos copy, debemos traducir siempre la funcionalidad a consecuencia empresarial.
+
+Regla editorial:
+
+- no liderar mensajes con palabras como `QR`, `trazabilidad`, `monitor`, `certificacion` o nombres de modulos
+- esos terminos solo deben aparecer en segunda capa, cuando el beneficio ya ha quedado claro
+- la primera frase siempre debe responder `que mejora compra la empresa`
 
 Ejemplo:
 
@@ -98,62 +121,69 @@ Ejemplo:
 
 Toda la web debe apoyarse siempre en estos 4 pilares:
 
-### 1. Continuidad operativa
+### 1. Menos improvisacion en el puesto
 
 Mensaje:
 
-- cuando falta una persona clave, la planta no deberia depender de una llamada o de la memoria de un experto
+- cuando falta alguien o cambia el turno, el puesto no deberia quedarse bloqueado por no saber como arrancar
+
+Palabras asociadas:
+
+- continuidad
+- arranque en puesto
+- menos bloqueo
+- menos llamadas
+- implantacion ligera
+
+### 2. Mas visibilidad para decidir
+
+Mensaje:
+
+- produccion necesita mas contexto para decidir bien, no solo mas documentos o mas pantallas
+
+Palabras asociadas:
+
+- visibilidad
+- contexto operativo
+- menos reaccion ciega
+- mejor coordinacion
+- seguimiento util
+
+### 3. Onboarding mas ordenado
+
+Mensaje:
+
+- incorporar a alguien nuevo no deberia castigar siempre al mejor operario ni depender de como ensene cada persona
+
+Palabras asociadas:
+
+- menos tutoria repetitiva
+- aprendizaje consistente
+- incorporacion ordenada
+- autonomia progresiva
+- polivalencia
+
+### 4. Mas continuidad con menos dependencia
+
+Mensaje:
+
+- la empresa compra continuidad operativa, no una lista de funcionalidades
 
 Palabras asociadas:
 
 - continuidad operativa
-- cobertura de bajas
-- procesos criticos
-- dependencia operativa
-- puesto cubierto
+- menos dependencia
+- menos fragilidad
+- mas orden
+- crecimiento asumible
 
-### 2. Onboarding mas rapido y mas ordenado
+Consecuencias empresariales que se pueden usar como capa superior:
 
-Mensaje:
-
-- el nuevo no deberia aprender solo de quien le toque al lado, sino del proceso correcto
-
-Palabras asociadas:
-
-- onboarding de operarios
-- incorporaciones
-- tutor
-- estandar
-- aprendizaje en el puesto
-
-### 3. Conocimiento que deja de vivir en una persona
-
-Mensaje:
-
-- el saber hacer del experto pasa a ser un activo de la empresa
-
-Palabras asociadas:
-
-- transferencia de conocimiento
-- conocimiento operativo
-- proceso documentado
-- operario experto
-- jubilacion
-- rotacion
-
-### 4. Precio facil de entender y proyecto asumible
-
-Mensaje:
-
-- no es una implantacion pesada ni una licencia que crece por cada operario
-
-Palabras asociadas:
-
+- continuidad operativa
+- onboarding mas ordenado
+- menos dependencia de personas clave
 - precio por empresa
-- sin sorpresas
-- configuracion tecnica en 1 dia
-- empezar por procesos criticos
-- implantacion ligera
+- proyecto asumible
 
 ---
 
@@ -163,62 +193,62 @@ Palabras asociadas:
 
 Lo que mas le duele:
 
-- que falte alguien clave
-- tener que reorganizar turnos a ciegas
-- parar para enseñar
-- enterarse tarde de los problemas
+- no saber quien puede cubrir un puesto
+- parar para explicar
+- enterarse tarde de incidencias o cuellos de botella
+- no tener visibilidad real de tiempos y actividad
 
 Mensajes prioritarios:
 
-- cobertura de bajas
-- skill matrix o matriz de habilidades
-- planificacion por maquina y turno
-- procesos disponibles en el puesto
-- integracion con MachineMetrics si aplica
+- mas visibilidad para decidir
+- menos reaccion improvisada
+- menos dependencia de llamadas y memoria
+- mejor reorganizacion del turno
+- menos dependencia del operario titular
 
 Frase util:
 
-> REELEVO da a produccion mas visibilidad sobre quien puede cubrir cada puesto y que proceso debe ejecutar en cada maquina.
+> REELEVO ayuda a produccion a reorganizar mejor el turno, depender menos del titular y decidir con mas contexto cuando cambia el dia.
 
 ### Responsable de RRHH
 
 Lo que mas le duele:
 
 - onboarding largo e inconsistente
-- falta de trazabilidad real
-- poca visibilidad de competencias
+- poca visibilidad de competencias reales
+- dificultad para saber quien esta listo para trabajar con autonomia
 
 Mensajes prioritarios:
 
-- onboarding industrial
-- registro verificable de ejecucion
-- certificacion por ejecucion real, solo si se explica bien
-- matriz de habilidades
-- integraciones con software de RRHH disponibles en la app
+- onboarding mas ordenado
+- menos tutoria repetitiva
+- mas claridad sobre autonomia real
+- mejor base para polivalencia
+- mas orden en formacion y seguimiento
 
 Frase util:
 
-> REELEVO ayuda a RRHH a ordenar el onboarding y a tener visibilidad sobre que procesos domina cada persona.
+> REELEVO ayuda a RRHH a ordenar el onboarding y a ver que procesos domina cada persona con evidencia de ejecucion, no solo con horas de formacion.
 
 ### Gerente o propietario
 
 Lo que mas le duele:
 
-- dependencia de personas clave
-- complejidad de aprobar una herramienta nueva
-- coste oculto de la improvisacion
+- fragilidad operativa si falta alguien clave
+- coste oculto de improvisar
+- miedo a abrir un proyecto complejo o caro
 
 Mensajes prioritarios:
 
 - continuidad operativa
-- menos fragilidad del negocio
+- visibilidad de la ejecucion
 - precio fijo por empresa
-- implantacion asumible
-- empezar por pocos procesos criticos
+- implantacion ligera
+- empezar por procesos criticos
 
 Frase util:
 
-> REELEVO encaja cuando quieres reducir riesgo operativo sin abrir un proyecto caro, largo o dificil de justificar.
+> REELEVO encaja cuando quieres reducir dependencia operativa y ganar visibilidad sin abrir un proyecto pesado.
 
 ---
 
@@ -310,9 +340,11 @@ Estas solo deben usarse si:
 
 ### Claims permitidos
 
-- `reduce la dependencia de operarios clave`
-- `ayuda a acelerar incorporaciones`
-- `documenta procesos criticos`
+- `reduce la dependencia operativa`
+- `reduce la improvisacion en planta`
+- `ordena las incorporaciones`
+- `da mas visibilidad para decidir`
+- `mejora la continuidad operativa`
 - `hace accesibles los procesos en el puesto`
 - `configuracion tecnica en 1 dia`
 - `precio por empresa`
@@ -427,7 +459,7 @@ Hacer que una IA pueda entender, resumir y citar bien la web.
 
 Usar una apertura de este tipo:
 
-> REELEVO es un software SOP industrial para pymes que documenta procesos criticos y los hace accesibles en el puesto de trabajo para reducir la dependencia de operarios clave.
+> REELEVO es un software SOP industrial para pymes que ayuda a reducir la dependencia de personas clave, ordenar incorporaciones y dar mas visibilidad sobre lo que pasa en planta.
 
 Esta frase ayuda a:
 
@@ -616,4 +648,3 @@ Si solo hubiera que recordar 5 reglas, serian estas:
 3. Evitar claims absolutos, garantias y cifras dudosas.
 4. Usar siempre el espanol claro antes que el anglicismo.
 5. Escribir para que una persona y una IA entiendan lo mismo a la primera.
-

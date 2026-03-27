@@ -8,7 +8,7 @@ REELEVO es una plataforma SaaS B2B de procedimientos operativos estándar (SOP) 
 
 **Categoría:** Software SOP · Documentación operativa · Instrucciones de trabajo digitales · Gestión del conocimiento industrial · Connected worker platform
 
-**Precio:** desde 49€/mes por empresa (operarios ilimitados). Precio fijo, no por usuario. El único del mercado con precio visible en euros.
+**Precio:** desde 49€/mes por empresa (operarios ilimitados). Precio fijo, no por usuario. De los pocos en su categoría con precio visible en euros.
 
 **Diferencial clave:** acceso directo con código de empresa, sin crear cuentas de operario, sin descargar apps. Los procedimientos operativos estándar están disponibles en la máquina para cualquier persona desde el primer momento.
 
@@ -31,7 +31,7 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 3. **Disponible en la máquina:** los procedimientos quedan accesibles directamente en cada puesto de trabajo con código de empresa
 4. **El sustituto opera:** accede al proceso paso a paso. Cada paso tiene instrucciones del experto y validación obligatoria
 5. **Troubleshooting integrado:** si hay un problema, hay solución paso a paso. Si necesita al supervisor, aviso automático
-6. **Certificación por ejecución:** al completar el proceso, REELEVO registra quién lo hizo, cuándo, cuánto tardó y si hubo incidencias
+6. **Registro verificable de ejecución:** al completar el proceso, REELEVO registra quién lo hizo, cuándo, cuánto tardó y si hubo incidencias
 
 ## Páginas del sitio web
 
@@ -43,7 +43,7 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 
 ### Para quién
 - [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
-- [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, certificación de competencias por ejecución
+- [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
 - [Gerente / Propietario](https://gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
 
 ### Casos de uso
@@ -60,9 +60,9 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 | Sin cuenta operario | ✓ | ✗ | ✗ | ✗ |
 | Sin app operario | ✓ | ✗ | ✗ | ✗ |
 | Monitor tiempo real | ✓ | ✗ | Parcial | ✗ |
-| Certificación por ejecución | ✓ | ✗ | ✗ | ✗ |
+| Registro verificable de ejecución | ✓ | ✗ | ✗ | ✗ |
 | Troubleshooting inline | ✓ | Parcial | Parcial | ✗ |
-| Implementación | 1 día | Semanas | Meses | Días |
+| Configuración técnica inicial | 1 día | Semanas | Meses | Días |
 | En español nativo | ✓ | ✗ | Parcial | ✗ |
 | Enfoque pyme industrial | ✓ | Fortune 500 | Enterprise | Genérico |
 

@@ -1,19 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Cómo funciona REELEVO — Software SOP industrial para documentar procesos críticos";
-const description = "Descubre cómo REELEVO convierte el conocimiento del operario experto en procesos accesibles en cada máquina para reducir dependencia operativa.";
+const title = "Cómo funciona REELEVO — menos improvisación y más continuidad en planta";
+const description = "Descubre cómo REELEVO ayuda a que una baja, una incorporación o un cambio de turno no rompan la operación en planta.";
 
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Cómo usar REELEVO",
-  "description": "Guía paso a paso para documentar procesos operativos con REELEVO",
+  "description": "Guía paso a paso para reducir dependencia operativa en planta con REELEVO",
   "url": "https://www.gmvsolutions.es/como-funciona/",
   "step": [
-    { "@type": "HowToStep", "text": "El operario experto captura su conocimiento paso a paso" },
-    { "@type": "HowToStep", "text": "El conocimiento queda disponible en cada máquina" },
-    { "@type": "HowToStep", "text": "El operario accede al proceso en la máquina y sigue el estándar paso a paso" }
+    { "@type": "HowToStep", "text": "El operario experto deja una referencia útil de su trabajo" },
+    { "@type": "HowToStep", "text": "La empresa deja el trabajo listo en el puesto" },
+    { "@type": "HowToStep", "text": "El sustituto o nuevo arranca con más autonomía y menos espera" }
   ]
 };
 
@@ -34,7 +34,7 @@ const faqSchema = {
       "name": "¿Puedo probarlo antes de contratar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. REELEVO ofrece una demo personalizada para ver la plataforma con un proceso similar al de tu empresa y la configuración inicial puede arrancarse sin tarjeta de crédito."
+        "text": "Sí. REELEVO ofrece un acceso guiado para ver la plataforma con un proceso similar al de tu empresa y la configuración inicial puede arrancarse sin tarjeta de crédito."
       }
     },
     {
@@ -42,7 +42,7 @@ const faqSchema = {
       "name": "¿Cómo accede el operario al proceso en la máquina?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cada proceso tiene una URL única y un código QR. El operario escanea el QR con su móvil, introduce el código de empresa y accede al SOP al instante, sin app ni cuenta."
+        "text": "Cada proceso queda disponible en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante, sin app ni cuenta."
       }
     },
     {
@@ -82,7 +82,7 @@ const faqSchema = {
       "name": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo tenga su proceso y su QR específico."
+        "text": "Los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo encuentre el proceso correcto sin depender de búsquedas largas o carpetas."
       }
     },
     {
@@ -114,7 +114,23 @@ const faqSchema = {
       "name": "¿Cómo sabemos quién ha accedido y cuándo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "REELEVO registra qué proceso se ha consultado, cuándo y si se ha completado correctamente, ofreciendo trazabilidad operativa sin complicar el acceso."
+        "text": "REELEVO deja una base de evidencia sobre qué proceso se ha seguido, cuándo y con qué resultado. Si la empresa necesita seguimiento asociado a persona, puede usar un identificador interno en los flujos donde aplique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué queda registrado realmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo. En los modos de seguimiento también puede asociarse a un identificador interno definido por la empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre consulta rápida y seguimiento asociado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción. El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, seguimiento interno o auditorías."
       }
     },
     {
@@ -138,7 +154,7 @@ const faqSchema = {
       "name": "¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Los datos se almacenan en servidores dentro de la Unión Europea y REELEVO cumple con el RGPD. Los procesos documentados siguen siendo propiedad de la empresa."
+        "text": "Los datos operativos del producto se alojan principalmente en infraestructura dentro de la Unión Europea y REELEVO cumple con el RGPD. Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas. Los procesos documentados siguen siendo propiedad de la empresa."
       }
     },
     {
@@ -180,8 +196,8 @@ const schema = [howToSchema, faqSchema];
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Flujo completo</div>
-    <h1 class="fade-up delay-1">Así funciona <em>REELEVO</em><br>paso a paso.</h1>
-    <p class="fade-up delay-2">REELEVO es un software SOP industrial para pymes que documenta procesos críticos, acelera el onboarding y reduce la dependencia de operarios clave. Así es como ese proceso llega al puesto de trabajo.</p>
+    <h1 class="fade-up delay-1">Así pasa tu planta de depender del experto<br>a trabajar con <em>más continuidad</em>.</h1>
+    <p class="fade-up delay-2">REELEVO ayuda a que una baja, una incorporación o un cambio de turno no rompan la operación. Este es el recorrido desde el conocimiento del experto hasta una ejecución más ordenada en planta.</p>
   </section>
 
   <div class="divider"></div>
@@ -194,10 +210,10 @@ const schema = [howToSchema, faqSchema];
         <div class="step-number">1</div>
         <div class="step-content">
           <div class="step-role">👨‍🔧 El operario experto</div>
-          <h2 class="section-title">Captura los <em>procedimientos operativos</em></h2>
+          <h2 class="section-title">Convierte la experiencia del experto en una <em>referencia útil</em></h2>
           <p class="section-sub">
-            El operario que sabe documenta las instrucciones de trabajo de cada proceso con sus propias palabras.
-            Sin guión y sin procesos pesados. El conocimiento tácito de fábrica se convierte en SOPs claros, accesibles y actualizables.
+            El operario que sabe deja el proceso explicado con sus propias palabras.
+            Sin guión y sin procesos pesados. El conocimiento tácito de fábrica deja de vivir solo en su cabeza.
           </p>
 
           <div class="scenarios-grid">
@@ -233,10 +249,10 @@ const schema = [howToSchema, faqSchema];
         <div class="step-number">2</div>
         <div class="step-content">
           <div class="step-role">⚙️ El responsable / supervisor</div>
-          <h2 class="section-title">Organiza y distribuye <em>los SOPs</em></h2>
+          <h2 class="section-title">Deja el trabajo listo para <em>quien lo necesite</em></h2>
           <p class="section-sub">
-            Los procedimientos operativos estándar se organizan por máquina y proceso en el panel.
-            Quedan disponibles directamente en cada puesto de trabajo para cualquier operario.
+            El responsable organiza los procesos en el panel y los deja disponibles donde se necesitan.
+            Así el puesto deja de depender de la memoria del titular o de encontrar a alguien libre para explicarlo.
           </p>
 
           <div class="benefit-list">
@@ -290,10 +306,10 @@ const schema = [howToSchema, faqSchema];
         <div class="step-number">3</div>
         <div class="step-content">
           <div class="step-role">👤 El sustituto / nuevo operario</div>
-          <h2 class="section-title">Accede al proceso <em>en el puesto</em></h2>
+          <h2 class="section-title">El nuevo arranca con <em>menos espera</em></h2>
           <p class="section-sub">
-            El sustituto escanea el código QR de la máquina, introduce el código de empresa
-            y sigue las instrucciones paso a paso. Sin cuenta, sin app que instalar, sin esperar a nadie.
+            El sustituto encuentra qué hacer en el puesto y sigue una referencia clara.
+            Sin frenar al equipo, sin depender de esperar a que alguien tenga un rato para enseñarle.
           </p>
 
           <div class="scenario-grid">
@@ -301,7 +317,7 @@ const schema = [howToSchema, faqSchema];
               <div class="scenario-card-tag">1. Accede al proceso</div>
               <h3 class="scenario-card-title">Desde cualquier móvil</h3>
               <div class="scenario-before">Sin REELEVO: Buscar al supervisor, esperar explicación, preguntar dudas</div>
-              <div class="scenario-after">Con REELEVO: Escanea QR → código empresa → instrucciones al instante</div>
+              <div class="scenario-after">Con REELEVO: Encuentra el proceso del puesto y empieza sin esperar</div>
             </div>
 
             <div class="scenario-card">
@@ -329,11 +345,11 @@ const schema = [howToSchema, faqSchema];
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Beneficios del software SOP</div>
-        <h2 class="section-title">Procedimientos estándar, <em>resultados reales</em></h2>
+        <div class="eyebrow">Lo que cambia</div>
+        <h2 class="section-title">Menos improvisación, <em>resultados reales</em></h2>
         <p class="section-sub">
-          REELEVO es software de documentación operativa diseñado para funcionar con lo que ya tienes.
-          Sin instalaciones, sin infraestructura adicional. Arranca sin necesitar a IT.
+          REELEVO está diseñado para que el cambio se note en la operación, no solo en la documentación.
+          Arranca sin infraestructura adicional y sin convertirlo en un proyecto pesado.
         </p>
       </div>
 
@@ -376,10 +392,10 @@ const schema = [howToSchema, faqSchema];
 
         <div class="benefit-card">
           <div class="benefit-card-icon">✅</div>
-          <h3 class="benefit-card-title">Trazabilidad de ejecución</h3>
+          <h3 class="benefit-card-title">Más claridad sobre lo que ya se ha hecho</h3>
           <p class="benefit-card-desc">
-            REELEVO registra la ejecución verificable
-            para saber qué procesos se han hecho y cuándo.
+            Queda una base útil para saber qué se ha seguido, cuándo
+            y dónde sigue haciendo falta apoyo.
           </p>
         </div>
 
@@ -390,6 +406,90 @@ const schema = [howToSchema, faqSchema];
             Resolución de incidencias paso a paso integrada en cada proceso.
             Aviso automático al supervisor si hace falta.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMO QUEDA REGISTRADO -->
+  <section class="section section-center" id="registro">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo queda registrado</div>
+        <h2 class="section-title">Más que una biblioteca de procesos:<br><em>una base útil de evidencia</em></h2>
+        <p class="section-sub">
+          REELEVO no solo deja el trabajo disponible en el puesto. También puede dejar una base útil
+          para seguimiento interno, formación y revisión operativa sin complicar el acceso en planta.
+        </p>
+      </div>
+
+      <div class="evidence-grid fade-up delay-1">
+        <div class="evidence-card">
+          <div class="evidence-kicker">Qué</div>
+          <h3 class="evidence-title">Proceso y puesto</h3>
+          <p class="evidence-desc">Qué proceso se siguió y en qué puesto, máquina o contexto de trabajo ocurrió.</p>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-kicker">Cuándo</div>
+          <h3 class="evidence-title">Momento y versión</h3>
+          <p class="evidence-desc">Fecha, hora y versión visible del proceso para entender con qué referencia se trabajó.</p>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-kicker">Cómo</div>
+          <h3 class="evidence-title">Resultado y apoyo</h3>
+          <p class="evidence-desc">Si el flujo quedó completado, si hubo incidencias y dónde sigue haciendo falta apoyo.</p>
+        </div>
+        <div class="evidence-card">
+          <div class="evidence-kicker">Quién</div>
+          <h3 class="evidence-title">Cuando aplica</h3>
+          <p class="evidence-desc">En los flujos que lo necesitan, la empresa puede asociar el uso a un identificador interno.</p>
+        </div>
+      </div>
+
+      <div class="mode-grid fade-up delay-2">
+        <article class="mode-card">
+          <div class="mode-label">Consulta rápida</div>
+          <h3 class="mode-title">Cuando lo importante es desbloquear el puesto</h3>
+          <p class="mode-desc">
+            Prioriza que alguien encuentre qué hacer y arranque con la mínima fricción posible.
+            Es útil para cobertura, dudas puntuales y estandarización en el puesto.
+          </p>
+          <ul class="mode-points">
+            <li>Menos espera para empezar</li>
+            <li>Más autonomía en el puesto</li>
+            <li>Señal básica de uso</li>
+          </ul>
+        </article>
+
+        <article class="mode-card featured">
+          <div class="mode-label">Seguimiento asociado</div>
+          <h3 class="mode-title">Cuando necesitas una base más útil de evidencia</h3>
+          <p class="mode-desc">
+            Añade un identificador interno en los flujos donde la empresa necesita acompañar
+            onboarding, seguimiento interno, calidad o auditorías.
+          </p>
+          <ul class="mode-points">
+            <li>Más claridad para formación</li>
+            <li>Seguimiento interno más sólido</li>
+            <li>Base más útil para revisión operativa</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="trust-uses fade-up delay-3">
+        <div class="trust-use">
+          <h3 class="trust-use-title">Formación</h3>
+          <p class="trust-use-desc">Ayuda a ver quién sigue necesitando apoyo y quién ya puede trabajar con más autonomía.</p>
+        </div>
+        <div class="trust-use">
+          <h3 class="trust-use-title">Calidad y auditoría interna</h3>
+          <p class="trust-use-desc">Aporta una base más útil para revisar qué referencia se siguió y cuándo ocurrió.</p>
+        </div>
+        <div class="trust-use">
+          <h3 class="trust-use-title">Operación</h3>
+          <p class="trust-use-desc">Da más contexto para entender repeticiones, incidencias y dependencia de ciertos puestos.</p>
         </div>
       </div>
     </div>
@@ -431,7 +531,7 @@ const schema = [howToSchema, faqSchema];
         <a href="/para-quien/responsable-rrhh/" class="explore-card">
           <div class="explore-kicker">Matriz de habilidades</div>
           <h3 class="explore-title">Cuando RRHH necesita saber quién domina qué proceso</h3>
-          <p class="explore-desc">Convierte la ejecución real en visibilidad sobre competencias y certificación.</p>
+          <p class="explore-desc">Convierte lo que ocurre en planta en más claridad sobre autonomía, aprendizaje y necesidades de apoyo.</p>
         </a>
 
         <a href="/vs-alternativas/" class="explore-card">
@@ -466,7 +566,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>La configuración técnica es <strong>inmediata</strong>. En 1 día tienes la plataforma lista. Después, el tiempo depende de cuántos procesos documentes: un proceso sencillo puede capturarse en 30-60 minutos; uno complejo con múltiples pasos y troubleshooting puede llevar 2-3 horas de trabajo con el experto.</p>
+              <p>La configuración técnica es <strong>inmediata</strong>. En 1 día puedes tener la plataforma lista. Después, el tiempo depende de cuántos procesos priorices: un proceso sencillo puede quedar preparado en 30-60 minutos; uno complejo puede llevar más trabajo con el experto.</p>
               <p>No hay que instalar software, configurar servidores ni formar a los operarios. Acceden directamente y operan.</p>
             </div>
           </div>
@@ -479,7 +579,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Sí. Ofrecemos una <strong>demo personalizada</strong> donde ves la plataforma funcionando con un proceso de tu tipo de empresa. Si después quieres arrancarlo directamente, la configuración inicial es gratuita y asistida. No pedimos tarjeta de crédito para empezar.</p>
+              <p>Sí. Ofrecemos un <strong>acceso guiado</strong> para ver la plataforma funcionando con un proceso de tu tipo de empresa. Si después quieres arrancarlo directamente, la configuración inicial es gratuita y asistida. No pedimos tarjeta de crédito para empezar.</p>
             </div>
           </div>
         </div>
@@ -487,13 +587,13 @@ const schema = [howToSchema, faqSchema];
         <!-- ACCESO Y USO EN PLANTA -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>¿Cómo accede el operario al proceso en la máquina?</span>
+            <span>¿Cómo llega el proceso al puesto de trabajo?</span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Cada proceso tiene una <strong>URL única y un código QR</strong> que puedes imprimir y pegar directamente en la máquina. El operario escanea el QR con su móvil, introduce el código de empresa y accede al SOP al instante. <strong>Sin app que instalar, sin cuenta que crear.</strong></p>
-              <p>También puede acceder buscando el proceso por nombre desde el portal, si prefiere eso a escanear el código QR.</p>
+              <p>Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. <strong>Sin app que instalar, sin cuenta que crear.</strong></p>
+              <p>También puede acceder buscando el proceso por nombre desde el portal si le resulta más cómodo.</p>
             </div>
           </div>
         </div>
@@ -505,7 +605,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>REELEVO funciona en el <strong>navegador de cualquier dispositivo</strong>: móvil Android o iPhone, tablet, ordenador. <strong>No hay app que descargar.</strong> El operario abre el navegador, escanea el QR de la máquina y ya tiene las instrucciones.</p>
+              <p>REELEVO funciona en el <strong>navegador de cualquier dispositivo</strong>: móvil Android o iPhone, tablet, ordenador. <strong>No hay app que descargar.</strong> El operario abre el navegador y accede al trabajo sin fricción adicional.</p>
               <p>El panel de administración —donde el experto documenta los SOPs y el responsable los gestiona— funciona igualmente en cualquier navegador de escritorio o tablet.</p>
             </div>
           </div>
@@ -519,6 +619,7 @@ const schema = [howToSchema, faqSchema];
           <div class="faq-answer">
             <div class="faq-answer-inner">
               <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto llega al proceso correcto sin fricción.</p>
+              <p>Si la empresa necesita seguimiento asociado a persona en ciertos flujos, puede usar un identificador interno de uso operativo. No hace falta convertir ese acceso rápido en una gestión pesada de usuarios.</p>
             </div>
           </div>
         </div>
@@ -555,7 +656,7 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: <strong>Producción › Línea 3 › Torno CNC › Arranque</strong> y el operario llega al proceso correcto en dos toques. Cada proceso tiene su propio QR, así que puedes imprimir uno diferente para cada máquina.</p>
+              <p>El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: <strong>Producción › Línea 3 › Torno CNC › Arranque</strong> y el operario llega al proceso correcto en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas.</p>
             </div>
           </div>
         </div>
@@ -605,7 +706,34 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Aunque no hay cuentas de operario, <strong>REELEVO registra toda la actividad</strong>: qué proceso se ha consultado, cuándo, y si se ha completado correctamente. Trazabilidad total sin comprometer la simplicidad.</p>
+              <p>Aunque no hay cuentas de operario, <strong>REELEVO deja una base útil de actividad</strong>: qué proceso se ha seguido, cuándo y con qué resultado. Así ganas claridad sin comprometer la simplicidad.</p>
+              <p>Cuando la empresa necesita más seguimiento, puede asociar ese flujo a un identificador interno y usarlo para onboarding, seguimiento interno o revisión operativa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué queda registrado realmente?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo.</p>
+              <p>Eso no sustituye por sí solo una certificación formal, pero sí aporta una base mucho más útil para formación, seguimiento interno y revisión operativa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué diferencia hay entre consulta rápida y seguimiento asociado?</span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción posible.</p>
+              <p>El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, calidad, auditorías o seguimiento interno con más detalle.</p>
             </div>
           </div>
         </div>
@@ -645,7 +773,8 @@ const schema = [howToSchema, faqSchema];
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>Los datos se almacenan en <strong>servidores dentro de la Unión Europea</strong>. REELEVO cumple con el Reglamento General de Protección de Datos (RGPD). Los procesos que documentas son de tu propiedad — REELEVO no los usa ni los comparte. Puedes solicitar la Política de Privacidad completa antes de contratar.</p>
+              <p>Los datos operativos del producto se alojan principalmente en <strong>infraestructura dentro de la Unión Europea</strong>. REELEVO cumple con el Reglamento General de Protección de Datos (RGPD). Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas.</p>
+              <p>Los procesos que documentas son de tu propiedad y puedes solicitar la Política de Privacidad completa antes de contratar.</p>
             </div>
           </div>
         </div>
@@ -699,14 +828,14 @@ const schema = [howToSchema, faqSchema];
       Empieza por tus procesos críticos
     </h2>
     <p class="cta-sub fade-up delay-2">
-      Solicita una demo y te lo enseñamos funcionando en tu tipo de empresa.
+      Solicita acceso guiado y te lo enseñamos funcionando en tu tipo de empresa.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar demo →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Solicitar acceso guiado →</a>
       <a href="/precios/" class="btn-ghost">Ver precios</a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Sin compromiso · Implementación asistida · Configuración en 1 día
+      Sin compromiso · Implementación asistida · Configuración técnica inicial en 1 día
     </div>
   </section>
 </BaseLayout>
@@ -778,6 +907,99 @@ const schema = [howToSchema, faqSchema];
     transform: translateY(-2px);
   }
 
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .evidence-card,
+  .mode-card,
+  .trust-use {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .evidence-card {
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .evidence-kicker,
+  .mode-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .evidence-title,
+  .mode-title,
+  .trust-use-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .evidence-desc,
+  .mode-desc,
+  .trust-use-desc {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  .mode-grid,
+  .trust-uses {
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .mode-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mode-card {
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .mode-card.featured {
+    border-color: rgba(244,82,30,.35);
+    box-shadow: inset 0 0 0 1px rgba(244,82,30,.12);
+  }
+
+  .mode-points {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+  }
+
+  .mode-points li {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.6;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .trust-uses {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-use {
+    padding: 24px 22px;
+    text-align: left;
+  }
+
   .explore-kicker {
     font-family: 'DM Mono', monospace;
     font-size: .62rem;
@@ -810,6 +1032,9 @@ const schema = [howToSchema, faqSchema];
       gap: 20px;
       text-align: center;
     }
+    .evidence-grid,
+    .mode-grid,
+    .trust-uses,
     .explore-grid,
     .scenarios-grid {
       grid-template-columns: 1fr;

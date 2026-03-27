@@ -26,7 +26,7 @@ const faqSchema = {
       "name": "¿Dónde se almacenan mis datos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Los datos se almacenan en servidores dentro de la Unión Europea, en infraestructura cloud ubicada en la región EU-West y bajo normativa GDPR."
+        "text": "Los datos operativos del producto se alojan principalmente en infraestructura dentro de la Unión Europea. Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales, siempre bajo las garantías contractuales adecuadas."
       }
     },
     {
@@ -51,6 +51,22 @@ const faqSchema = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Los registros de actividad se conservan mientras la empresa esté suscrita y durante 12 meses adicionales tras la baja, con posibilidad de exportar el histórico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué queda registrado realmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo. Cuando la empresa necesita más seguimiento, puede asociar el flujo a un identificador interno."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre consulta rápida y seguimiento asociado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción. El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, calidad, auditorías o seguimiento interno."
       }
     },
     {
@@ -157,13 +173,65 @@ const schema = [aboutPageSchema, faqSchema];
         <div class="security-card">
           <div class="security-icon">🇪🇺</div>
           <h3 class="security-title">Cumplimiento GDPR</h3>
-          <p class="security-desc">Datos almacenados en servidores dentro de la Unión Europea. Cumplimiento con el Reglamento General de Protección de Datos. Sin transferencias a terceros países.</p>
+          <p class="security-desc">La infraestructura principal del producto se apoya en la Unión Europea y el tratamiento se ajusta al RGPD. Cuando intervienen proveedores internacionales auxiliares, aplicamos las garantías contractuales correspondientes.</p>
         </div>
         <div class="security-card">
           <div class="security-icon">👤</div>
           <h3 class="security-title">Mínimo dato de operario</h3>
-          <p class="security-desc">Los operarios acceden con código de empresa, sin cuenta personal. No capturamos datos personales innecesarios. La trazabilidad es operativa, no nominativa.</p>
+          <p class="security-desc">Los operarios acceden con código de empresa, sin cuenta personal. Buscamos minimizar el dato personal y limitarlo a la identificación operativa básica necesaria para registrar la ejecución cuando aplique.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONFIANZA OPERATIVA -->
+  <section class="section section-center" id="confianza-operativa">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Confianza operativa</div>
+        <h2 class="section-title">Qué deja REELEVO y <em>para qué te sirve</em></h2>
+        <p class="section-sub">
+          REELEVO no es solo una biblioteca de procesos. También puede dejar una base útil
+          para operación, formación, calidad y seguimiento interno.
+        </p>
+      </div>
+
+      <div class="trust-grid fade-up delay-1">
+        <div class="trust-card">
+          <div class="trust-label">Qué queda</div>
+          <h3 class="trust-title">Proceso, momento y resultado</h3>
+          <p class="trust-desc">Qué proceso se siguió, en qué puesto o máquina, cuándo ocurrió y cómo acabó el flujo.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-label">Quién</div>
+          <h3 class="trust-title">Cuando el flujo lo necesita</h3>
+          <p class="trust-desc">Si la empresa necesita más seguimiento, puede asociar el uso a un identificador interno de trabajo.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-label">Para qué sirve</div>
+          <h3 class="trust-title">Formación, calidad y operación</h3>
+          <p class="trust-desc">Aporta una base más útil para onboarding, auditoría interna, revisión de incidencias y seguimiento operativo.</p>
+        </div>
+      </div>
+
+      <div class="trust-compare fade-up delay-2">
+        <article class="trust-compare-card">
+          <div class="trust-label">Consulta rápida</div>
+          <h3 class="trust-title">Cuando lo importante es desbloquear el puesto</h3>
+          <p class="trust-desc">Prioriza velocidad y adopción: alguien encuentra qué hacer y arranca con la mínima fricción posible.</p>
+        </article>
+        <article class="trust-compare-card featured">
+          <div class="trust-label">Seguimiento asociado</div>
+          <h3 class="trust-title">Cuando necesitas una base más útil de evidencia</h3>
+          <p class="trust-desc">Añade seguimiento con identificador interno para flujos donde necesitas más claridad en formación, calidad o auditorías.</p>
+        </article>
+      </div>
+
+      <div class="trust-note fade-up delay-3">
+        REELEVO no sustituye por sí solo una certificación formal ni el criterio del responsable.
+        Sí aporta una base mucho más útil que una simple asistencia o una explicación verbal.
       </div>
     </div>
   </section>
@@ -184,7 +252,7 @@ const schema = [aboutPageSchema, faqSchema];
       <div class="faq-list fade-up delay-1">
         <div class="faq-item-static">
           <h3 class="faq-q">¿Dónde se almacenan mis datos?</h3>
-          <p class="faq-a">En servidores dentro de la Unión Europea. Utilizamos infraestructura cloud con servidores en la región EU-West, bajo normativa GDPR. Nunca almacenamos datos en servidores fuera de la UE sin tu consentimiento explícito.</p>
+          <p class="faq-a">Los datos operativos del producto se alojan principalmente en infraestructura dentro de la Unión Europea. Algunos servicios auxiliares del sitio web o de analítica pueden implicar proveedores internacionales, siempre bajo las garantías contractuales adecuadas y con el alcance limitado a su función.</p>
         </div>
         <div class="faq-item-static">
           <h3 class="faq-q">¿Puedo exportar todos mis procesos documentados?</h3>
@@ -199,8 +267,16 @@ const schema = [aboutPageSchema, faqSchema];
           <p class="faq-a">Los registros de actividad (quién consultó qué proceso y cuándo) se conservan durante el tiempo que estés suscrito, más 12 meses adicionales tras la baja. Puedes exportar el histórico completo en cualquier momento.</p>
         </div>
         <div class="faq-item-static">
+          <h3 class="faq-q">¿Qué queda registrado realmente?</h3>
+          <p class="faq-a">REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo. Cuando la empresa necesita más seguimiento, puede asociar el flujo a un identificador interno.</p>
+        </div>
+        <div class="faq-item-static">
+          <h3 class="faq-q">¿Qué diferencia hay entre consulta rápida y seguimiento asociado?</h3>
+          <p class="faq-a">La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción. El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, calidad, auditorías o seguimiento interno.</p>
+        </div>
+        <div class="faq-item-static">
           <h3 class="faq-q">¿Necesitamos IT para arrancar?</h3>
-          <p class="faq-a">Para las funciones básicas (crear procesos, acceder con QR), no necesitas IT. Si tu red corporativa tiene restricciones de firewall o proxy, puede ser necesaria una apertura de dominio —algo que se resuelve en minutos con cualquier técnico de red. Las integraciones con ERP o sistemas de RRHH sí requieren colaboración de IT.</p>
+          <p class="faq-a">Para las funciones básicas no necesitas IT. Si tu red corporativa tiene restricciones de firewall o proxy, puede ser necesaria una apertura de dominio, algo que se resuelve en minutos con cualquier técnico de red. Las integraciones con ERP o sistemas de RRHH sí requieren colaboración de IT.</p>
         </div>
       </div>
     </div>
@@ -223,7 +299,7 @@ const schema = [aboutPageSchema, faqSchema];
         Escribirnos directamente →
       </a>
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
-        Solicitar demo
+        Solicitar acceso guiado
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
@@ -318,6 +394,73 @@ const schema = [aboutPageSchema, faqSchema];
     line-height: 1.65;
   }
 
+  .trust-grid,
+  .trust-compare {
+    display: grid;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-compare {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 24px;
+  }
+
+  .trust-card,
+  .trust-compare-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .trust-compare-card.featured {
+    border-color: rgba(244,82,30,.35);
+    box-shadow: inset 0 0 0 1px rgba(244,82,30,.12);
+  }
+
+  .trust-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .trust-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .trust-desc {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  .trust-note {
+    max-width: 760px;
+    margin: 24px auto 0;
+    padding: 20px 22px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.7;
+    text-align: left;
+  }
+
   /* FAQ list */
   .faq-list {
     max-width: 760px;
@@ -355,7 +498,9 @@ const schema = [aboutPageSchema, faqSchema];
       gap: 48px;
     }
 
-    .security-grid {
+    .security-grid,
+    .trust-grid,
+    .trust-compare {
       grid-template-columns: 1fr;
     }
   }
