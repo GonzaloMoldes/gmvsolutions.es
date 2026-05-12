@@ -1,0 +1,482 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Integración Microsoft 365: Power BI, Power Automate y Teams | REELEVO";
+const description = "Conecta REELEVO con Power BI, Power Automate y Microsoft Teams. Kit de integración listo para usar: queries Power Query, conector personalizado, plantillas de flujo y alertas en canales Teams. Sin desarrollo.";
+const canonical = "https://gmvsolutions.es/integracion-m365/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Integración Microsoft 365",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Power BI · Power Automate · Microsoft Teams · Sin desarrollo</div>
+    <h1 class="fade-up delay-1">Los datos de tu planta<br><em>directamente en las herramientas que ya usas</em></h1>
+    <p class="fade-up delay-2">Si tu empresa ya trabaja con Microsoft 365, REELEVO se conecta sin fricción. Datos de producción, competencias y calidad en Power BI. Alertas automáticas en Teams. Flujos en Power Automate. Todo con un kit listo para importar.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="/api-integraciones/" class="btn-ghost">Ver API completa →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Los datos de planta no llegan a donde se toman las decisiones</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>La dirección usa Power BI para tomar decisiones — pero los datos de producción llegan en Excel manual los lunes por la mañana, con 3 días de retraso</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Los responsables de turno están en Teams todo el día — pero las alertas de cobertura o las incidencias de planta llegan por WhatsApp o de viva voz</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El responsable de calidad quiere que cuando se complete un proceso crítico se actualice automáticamente el informe de cumplimiento — hoy eso es trabajo manual</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>IT ha estandarizado Microsoft 365 en la empresa — integrar otra herramienta significa "no a menos que tenga conector nativo"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- POWER BI KIT -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Power BI Integration Kit</div>
+        <h2 class="section-title">Cuatro dashboards listos en un día — sin escribir una sola query desde cero</h2>
+        <p class="section-sub">El kit incluye queries Power Query (M) y medidas DAX base. Lo importas en Power BI Desktop, conectas tu API key de REELEVO y tienes los datos.</p>
+      </div>
+
+      <div class="pbi-views fade-up delay-1">
+        <div class="pbi-view">
+          <div class="pbi-icon">📊</div>
+          <h3>Vista Operaciones</h3>
+          <p>Producción diaria y semanal por operario, proceso y máquina. Cumplimiento de objetivos. Paradas y sus causas. Tendencia vs período anterior.</p>
+        </div>
+        <div class="pbi-view">
+          <div class="pbi-icon">✅</div>
+          <h3>Vista Calidad</h3>
+          <p>Tasa de completado de SOPs por proceso. Incidencias registradas. Sesiones con variaciones. Evolución del índice de conformidad operativa.</p>
+        </div>
+        <div class="pbi-view">
+          <div class="pbi-icon">🎓</div>
+          <h3>Vista Formación / Compliance</h3>
+          <p>Estado de certificaciones del equipo. Operarios con certificaciones próximas a caducar. Rutas de aprendizaje activas y su progreso. Tiempo de onboarding por rol.</p>
+        </div>
+        <div class="pbi-view">
+          <div class="pbi-icon">🗂️</div>
+          <h3>Vista Skill Matrix</h3>
+          <p>Distribución de competencias por turno. Procesos con riesgo de cobertura. Evolución del índice de riesgo de conocimiento de la empresa.</p>
+        </div>
+      </div>
+
+      <div class="pbi-features fade-up delay-2">
+        <h3>Cómo funciona el refresh</h3>
+        <div class="refresh-options">
+          <div class="refresh-opt">
+            <span class="refresh-label">Manual</span>
+            <span class="refresh-desc">Actualiza cuando quieras desde Power BI Desktop o Service</span>
+          </div>
+          <div class="refresh-opt">
+            <span class="refresh-label">Programado</span>
+            <span class="refresh-desc">Configura refresh automático cada hora, cada día o antes de cada turno</span>
+          </div>
+          <div class="refresh-opt">
+            <span class="refresh-label">Por evento</span>
+            <span class="refresh-desc">Webhook de REELEVO activa el refresh en Power BI cuando cambia un dato relevante</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- POWER AUTOMATE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Power Automate Custom Connector</div>
+        <h2 class="section-title">Automatiza flujos entre REELEVO y el resto de Microsoft 365 — sin código</h2>
+        <p class="section-sub">Importa el conector personalizado de REELEVO en Power Automate. Desde ahí, crea flujos usando todos los eventos de REELEVO como disparadores o acciones.</p>
+      </div>
+
+      <div class="automate-flows fade-up delay-1">
+        <div class="flow-card">
+          <div class="flow-trigger">Disparador: producción completada</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-action">Publicar resumen en canal Teams de producción</div>
+        </div>
+        <div class="flow-card">
+          <div class="flow-trigger">Disparador: alerta de cobertura de turno</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-action">Notificar al responsable en Teams + actualizar Planning de turnos en SharePoint</div>
+        </div>
+        <div class="flow-card">
+          <div class="flow-trigger">Disparador: certificación emitida</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-action">Actualizar registro de formación en SharePoint + notificar a RRHH</div>
+        </div>
+        <div class="flow-card">
+          <div class="flow-trigger">Disparador: propuesta Kaizen creada</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-action">Crear tarea en Planner + notificar al responsable de mejora continua en Teams</div>
+        </div>
+      </div>
+
+      <div class="connector-note fade-up delay-2">
+        El conector soporta todos los eventos webhook de REELEVO. Las plantillas de flujo son un punto de partida — puedes adaptarlos sin limitación.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TEAMS ALERTS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Microsoft Teams</div>
+        <h2 class="section-title">Las alertas de planta en el canal donde ya está el equipo</h2>
+      </div>
+
+      <div class="teams-grid fade-up delay-1">
+        <div class="teams-alert-card">
+          <div class="ta-icon">🔴</div>
+          <h3>Riesgo de cobertura de turno</h3>
+          <p>El turno de tarde de mañana solo tiene un operario certificado en la fresadora CNC 2. Alerta automática al jefe de producción 4 horas antes del turno.</p>
+        </div>
+        <div class="teams-alert-card">
+          <div class="ta-icon">🟡</div>
+          <h3>Incidencia reportada en planta</h3>
+          <p>Un operario ha reportado un problema en el proceso de inyección. La alerta llega al canal de supervisión con el proceso, la máquina y la descripción.</p>
+        </div>
+        <div class="teams-alert-card">
+          <div class="ta-icon">🟢</div>
+          <h3>Resumen de producción del turno</h3>
+          <p>Al cerrar el turno, REELEVO publica en Teams el resumen: unidades producidas, cumplimiento de objetivo, incidencias y operarios activos.</p>
+        </div>
+        <div class="teams-alert-card">
+          <div class="ta-icon">🎓</div>
+          <h3>Certificación emitida</h3>
+          <p>Cuando un operario obtiene una certificación automática, la notificación llega al canal de RRHH o formación para dar visibilidad al equipo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DISPONIBILIDAD -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Disponibilidad</div>
+        <h2 class="section-title">Qué está incluido en cada plan</h2>
+      </div>
+
+      <div class="plan-table fade-up delay-1">
+        <div class="plan-row plan-header">
+          <div class="plan-feature">Funcionalidad M365</div>
+          <div class="plan-tier">Pro</div>
+          <div class="plan-tier">Enterprise</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">API REST para Power Query</div>
+          <div class="plan-tier plan-yes">✓</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Power BI Integration Kit (queries + DAX)</div>
+          <div class="plan-tier plan-yes">✓</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Webhooks (hasta 5)</div>
+          <div class="plan-tier plan-yes">✓</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Power Automate Custom Connector</div>
+          <div class="plan-tier plan-yes">✓</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Plantillas de flujo (4 incluidas)</div>
+          <div class="plan-tier plan-yes">✓</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Webhooks ilimitados</div>
+          <div class="plan-tier plan-no">—</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-feature">Implementación asistida por el equipo REELEVO</div>
+          <div class="plan-tier plan-no">—</div>
+          <div class="plan-tier plan-yes">✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Los datos de planta en Power BI<br><em>sin trabajo manual de consolidación</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Activa el plan Pro de REELEVO y conecta con tu entorno Microsoft 365 en el mismo día.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/precios/" class="btn-ghost">
+        Ver planes → disponible en Pro
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Kit de integración documentado · Sin desarrollo adicional</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content { max-width: 700px; margin-top: 40px; }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+  .challenge-item span:last-child { color: var(--gray); font-size: 0.95rem; line-height: 1.5; }
+
+  /* POWER BI VIEWS */
+  .pbi-views {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 900px) { .pbi-views { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .pbi-views { grid-template-columns: 1fr; } }
+
+  .pbi-view {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+  }
+
+  .pbi-icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+  .pbi-view h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .pbi-view p { font-size: 0.84rem; color: var(--gray); line-height: 1.55; margin: 0; }
+
+  .pbi-features {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    max-width: 700px;
+  }
+
+  .pbi-features h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+
+  .refresh-options { display: flex; flex-direction: column; gap: 10px; }
+
+  .refresh-opt {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
+
+  .refresh-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--orange);
+    min-width: 90px;
+    flex-shrink: 0;
+  }
+
+  .refresh-desc { font-size: 0.86rem; color: var(--gray); line-height: 1.5; }
+
+  /* AUTOMATE FLOWS */
+  .automate-flows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+    max-width: 800px;
+  }
+
+  .flow-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+  }
+
+  @media (max-width: 600px) { .flow-card { flex-direction: column; align-items: flex-start; gap: 6px; } }
+
+  .flow-trigger, .flow-action {
+    font-size: 0.86rem;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .flow-trigger { color: var(--gray); }
+  .flow-action { color: var(--text); }
+
+  .flow-arrow {
+    font-size: 1.2rem;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .connector-note {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--gray);
+    max-width: 700px;
+    line-height: 1.6;
+    padding: 12px 16px;
+    border-left: 2px solid var(--border);
+  }
+
+  /* TEAMS GRID */
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) { .teams-grid { grid-template-columns: 1fr; } }
+
+  .teams-alert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .ta-icon { font-size: 1.4rem; margin-bottom: 10px; }
+
+  .teams-alert-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .teams-alert-card p { font-size: 0.86rem; color: var(--gray); line-height: 1.55; margin: 0; }
+
+  /* PLAN TABLE */
+  .plan-table {
+    max-width: 600px;
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .plan-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .plan-row:last-child { border-bottom: none; }
+
+  .plan-row.plan-header { background: rgba(255,255,255,.03); }
+
+  .plan-feature, .plan-tier {
+    padding: 12px 16px;
+    font-size: 0.84rem;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .plan-tier {
+    text-align: center;
+    border-left: 1px solid var(--border);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: .04em;
+  }
+
+  .plan-header .plan-feature { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: 0.7rem; }
+  .plan-header .plan-tier { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 0.72rem; color: var(--orange); }
+
+  .plan-yes { color: var(--orange); }
+  .plan-no { color: rgba(255,255,255,.2); }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

@@ -95,6 +95,13 @@ body{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;
 .nav-dropdown-menu a{display:block;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--gray);text-decoration:none;transition:all .15s;}
 .nav-dropdown-menu a:hover{color:var(--white);background:rgba(255,255,255,.04);}
 .nav-dropdown-menu a .nav-sub-label{display:block;font-size:.68rem;color:var(--gray2);margin-top:2px;}
+/* ── MEGA-MENU ── */
+.nav-mega-menu{display:flex;flex-direction:row;gap:0;padding:16px 0;min-width:540px;}
+.mega-col{flex:1;padding:0 20px;border-right:1px solid var(--border);}
+.mega-col:last-child{border-right:none;}
+.mega-col-title{font-family:'Oswald',sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);padding:4px 0 10px;margin-bottom:4px;}
+.nav-mega-menu a{padding:7px 0;border-radius:0;}
+.nav-mega-menu a:hover{background:none;color:var(--white);}
 .header-cta{background:var(--orange);color:#fff;font-family:'Oswald',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 20px;border:none;border-radius:2px;cursor:pointer;text-decoration:none;transition:all .2s;}
 .header-cta:hover{background:var(--orange-hover);}
 .header-right{display:flex;align-items:center;gap:12px;}
@@ -113,6 +120,13 @@ body{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;
 .mobile-menu a:hover{color:var(--white);}
 .mobile-section-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);padding:24px 0 8px;border-bottom:none;}
 .mobile-cta-group{margin-top:32px;display:flex;flex-direction:column;gap:12px;}
+/* ── SCREENSHOTS ── */
+.screenshot-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;}
+.screenshot-single{margin-top:32px;max-width:900px;}
+.screenshot-fig{margin:0;}
+.screenshot-img{width:100%;border-radius:6px;border:1px solid var(--border);display:block;box-shadow:0 4px 24px rgba(0,0,0,.5);}
+.screenshot-caption{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px;display:block;}
+@media(max-width:640px){.screenshot-pair{grid-template-columns:1fr;}}
 .mobile-cta-group a{border-bottom:none !important;padding:0 !important;}
 
 /* ── BUTTONS ── */

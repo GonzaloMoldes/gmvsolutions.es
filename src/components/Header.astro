@@ -12,93 +12,150 @@ const { activeNav } = Astro.props;
     <a href="/como-funciona/" class={activeNav === 'como-funciona' ? 'nav-active' : ''}>
       Cómo funciona
     </a>
-    <a href="/por-que-usar-reelevo/" class={activeNav === 'por-que-usar-reelevo' ? 'nav-active' : ''}>
-      Por qué REELEVO
-    </a>
 
-    <div class="nav-dropdown">
+    <!-- PLATAFORMA — mega-menu 2 columnas -->
+    <div class="nav-dropdown nav-mega">
       <span class="nav-dropdown-trigger">
-        Casos de uso
+        Plataforma
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
       </span>
-      <div class="nav-dropdown-menu">
-        <a href="/casos-de-uso/cobertura-bajas/">
-          Cobertura de bajas
-          <span class="nav-sub-label">Cuando el experto falta</span>
-        </a>
-        <a href="/casos-de-uso/onboarding-operarios/">
-          Onboarding operarios
-          <span class="nav-sub-label">Incorporaciones más ordenadas</span>
-        </a>
-        <a href="/casos-de-uso/personal-ett/">
-          Personal ETT
-          <span class="nav-sub-label">Temporal con proceso accesible</span>
-        </a>
-        <a href="/casos-de-uso/transferencia-conocimiento/">
-          Transferencia de conocimiento
-          <span class="nav-sub-label">Captura antes de que se vayan</span>
-        </a>
+      <div class="nav-dropdown-menu nav-mega-menu">
+        <div class="mega-col">
+          <div class="mega-col-title">Gestión y operaciones</div>
+          <a href="/gestion-competencias/">
+            Gestión de competencias
+            <span class="nav-sub-label">Skill matrix y certificaciones</span>
+          </a>
+          <a href="/documentacion-procesos/">
+            Documentación de procesos
+            <span class="nav-sub-label">SOPs, checklists y versionado</span>
+          </a>
+          <a href="/control-produccion/">
+            Control de producción
+            <span class="nav-sub-label">KPIs en tiempo real, sin papel</span>
+          </a>
+          <a href="/mantenimiento/">
+            Mantenimiento preventivo
+            <span class="nav-sub-label">Planes, órdenes y registro automático</span>
+          </a>
+          <a href="/obras-trazabilidad/">
+            Obras y trazabilidad
+            <span class="nav-sub-label">QR por pieza, historial por proyecto</span>
+          </a>
+          <a href="/kaizen/">
+            Kaizen y mejora continua
+            <span class="nav-sub-label">Del QR al estándar</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <div class="mega-col-title">Herramientas avanzadas</div>
+          <a href="/workflows/">
+            Workflows automatizados
+            <span class="nav-sub-label">Procesos multi-operario con aprobaciones</span>
+          </a>
+          <a href="/portal-operario/">
+            Portal del operario
+            <span class="nav-sub-label">Agenda, progreso y reconocimiento</span>
+          </a>
+          <a href="/firma-digital/">
+            Firma digital
+            <span class="nav-sub-label">Evidencia trazable para auditorías</span>
+          </a>
+          <a href="/modo-offline/">
+            Modo offline y PWA
+            <span class="nav-sub-label">Funciona aunque falle la wifi de planta</span>
+          </a>
+          <a href="/api-integraciones/">
+            API e integraciones
+            <span class="nav-sub-label">ERP, Power BI, Teams y webhooks</span>
+          </a>
+          <a href="/integracion-m365/">
+            Integración Microsoft 365
+            <span class="nav-sub-label">Power BI, Power Automate y Teams</span>
+          </a>
+          <a href="/cobertura-turnos/">
+            Cobertura de turnos
+            <span class="nav-sub-label">Alerta automática antes de que falle el turno</span>
+          </a>
+          <a href="/calidad-y-conformidad/">
+            Calidad y conformidad
+            <span class="nav-sub-label">Lo que sí es y sus límites reales</span>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="nav-dropdown">
+    <!-- SOLUCIONES — casos de uso + para quién fusionados -->
+    <div class="nav-dropdown nav-mega">
       <span class="nav-dropdown-trigger">
-        Para quién
+        Soluciones
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
       </span>
-      <div class="nav-dropdown-menu">
-        <a href="/para-quien/jefe-de-produccion/">
-          Jefe de producción
-          <span class="nav-sub-label">La línea no puede parar</span>
-        </a>
-        <a href="/para-quien/responsable-rrhh/">
-          Responsable de RRHH
-          <span class="nav-sub-label">Onboarding y competencias</span>
-        </a>
-        <a href="/para-quien/responsable-calidad/">
-          Responsable de calidad
-          <span class="nav-sub-label">Revisión interna y conformidad</span>
-        </a>
-        <a href="/para-quien/gerente-propietario/">
-          Gerente / Propietario
-          <span class="nav-sub-label">Continuidad y decisión clara</span>
-        </a>
+      <div class="nav-dropdown-menu nav-mega-menu">
+        <div class="mega-col">
+          <div class="mega-col-title">Por caso de uso</div>
+          <a href="/casos-de-uso/cobertura-bajas/">
+            Cobertura de bajas
+            <span class="nav-sub-label">Cuando el experto falta</span>
+          </a>
+          <a href="/casos-de-uso/onboarding-operarios/">
+            Onboarding operarios
+            <span class="nav-sub-label">Incorporaciones más ordenadas</span>
+          </a>
+          <a href="/casos-de-uso/personal-ett/">
+            Personal ETT
+            <span class="nav-sub-label">Temporal con proceso accesible</span>
+          </a>
+          <a href="/casos-de-uso/transferencia-conocimiento/">
+            Transferencia de conocimiento
+            <span class="nav-sub-label">Captura antes de que se vayan</span>
+          </a>
+        </div>
+        <div class="mega-col">
+          <div class="mega-col-title">Por rol</div>
+          <a href="/para-quien/jefe-de-produccion/">
+            Jefe de producción
+            <span class="nav-sub-label">La línea no puede parar</span>
+          </a>
+          <a href="/para-quien/responsable-rrhh/">
+            Responsable de RRHH
+            <span class="nav-sub-label">Onboarding y competencias</span>
+          </a>
+          <a href="/para-quien/responsable-calidad/">
+            Responsable de calidad
+            <span class="nav-sub-label">Revisión interna y conformidad</span>
+          </a>
+          <a href="/para-quien/gerente-propietario/">
+            Gerente / Propietario
+            <span class="nav-sub-label">Continuidad y decisión clara</span>
+          </a>
+        </div>
       </div>
     </div>
 
     <a href="/precios/" class={activeNav === 'precios' ? 'nav-active' : ''}>Precios</a>
-    <a href="/recursos/" class={activeNav === 'recursos' ? 'nav-active' : ''}>Recursos</a>
 
+    <!-- RECURSOS — dropdown con Blog -->
     <div class="nav-dropdown">
-      <span class="nav-dropdown-trigger">
-        Blog
+      <span class="nav-dropdown-trigger" class={activeNav === 'recursos' || activeNav === 'blog' ? 'nav-active' : ''}>
+        Recursos
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
       </span>
       <div class="nav-dropdown-menu">
-        <a href="/blog/crisis-perdida-conocimiento-planta-industrial/">
-          Crisis de pérdida de conocimiento
-          <span class="nav-sub-label">Estrategias del MIT Sloan</span>
-        </a>
-        <a href="/blog/que-es-un-sop-industrial/">
-          Qué es un SOP industrial
-          <span class="nav-sub-label">Guía completa de implementación</span>
-        </a>
-        <a href="/blog/coste-absentismo-pymes-industriales/">
-          Coste del absentismo
-          <span class="nav-sub-label">Análisis de datos reales</span>
-        </a>
-        <a href="/blog/documentar-conocimiento-operarios-expertos/">
-          Documentar conocimiento operario
-          <span class="nav-sub-label">Metodología paso a paso</span>
+        <a href="/recursos/">
+          Recursos
+          <span class="nav-sub-label">Guías y materiales descargables</span>
         </a>
         <a href="/blog/">
-          Ver todos los artículos
-          <span class="nav-sub-label">Accede a toda la sección blog</span>
+          Blog
+          <span class="nav-sub-label">Artículos sobre operaciones industriales</span>
+        </a>
+        <a href="/faqs/">
+          Preguntas frecuentes
+          <span class="nav-sub-label">Dudas sobre implementación y uso</span>
         </a>
       </div>
     </div>
-
-    <a href="/sobre-nosotros/" class={activeNav === 'nosotros' ? 'nav-active' : ''}>Nosotros</a>
   </nav>
 
   <div class="header-right">
@@ -125,26 +182,37 @@ const { activeNav } = Astro.props;
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="/como-funciona/" onclick="closeMobile()">Cómo funciona</a>
-  <a href="/por-que-usar-reelevo/" onclick="closeMobile()">Por qué REELEVO</a>
-  <div class="mobile-section-title">Casos de uso</div>
+  <div class="mobile-section-title">Plataforma — Gestión y operaciones</div>
+  <a href="/gestion-competencias/" onclick="closeMobile()">Gestión de competencias</a>
+  <a href="/documentacion-procesos/" onclick="closeMobile()">Documentación de procesos</a>
+  <a href="/control-produccion/" onclick="closeMobile()">Control de producción</a>
+  <a href="/mantenimiento/" onclick="closeMobile()">Mantenimiento preventivo</a>
+  <a href="/obras-trazabilidad/" onclick="closeMobile()">Obras y trazabilidad</a>
+  <a href="/kaizen/" onclick="closeMobile()">Kaizen y mejora continua</a>
+  <div class="mobile-section-title">Plataforma — Herramientas avanzadas</div>
+  <a href="/workflows/" onclick="closeMobile()">Workflows automatizados</a>
+  <a href="/portal-operario/" onclick="closeMobile()">Portal del operario</a>
+  <a href="/firma-digital/" onclick="closeMobile()">Firma digital</a>
+  <a href="/modo-offline/" onclick="closeMobile()">Modo offline y PWA</a>
+  <a href="/api-integraciones/" onclick="closeMobile()">API e integraciones</a>
+  <a href="/integracion-m365/" onclick="closeMobile()">Integración Microsoft 365</a>
+  <a href="/cobertura-turnos/" onclick="closeMobile()">Cobertura de turnos</a>
+  <a href="/calidad-y-conformidad/" onclick="closeMobile()">Calidad y conformidad</a>
+  <div class="mobile-section-title">Soluciones — Por caso de uso</div>
   <a href="/casos-de-uso/cobertura-bajas/" onclick="closeMobile()">Cobertura de bajas</a>
   <a href="/casos-de-uso/onboarding-operarios/" onclick="closeMobile()">Onboarding operarios</a>
   <a href="/casos-de-uso/personal-ett/" onclick="closeMobile()">Personal ETT</a>
   <a href="/casos-de-uso/transferencia-conocimiento/" onclick="closeMobile()">Transferencia de conocimiento</a>
-  <div class="mobile-section-title">Para quién</div>
+  <div class="mobile-section-title">Soluciones — Por rol</div>
   <a href="/para-quien/jefe-de-produccion/" onclick="closeMobile()">Jefe de producción</a>
   <a href="/para-quien/responsable-rrhh/" onclick="closeMobile()">Responsable de RRHH</a>
   <a href="/para-quien/responsable-calidad/" onclick="closeMobile()">Responsable de calidad</a>
   <a href="/para-quien/gerente-propietario/" onclick="closeMobile()">Gerente / Propietario</a>
   <a href="/precios/" onclick="closeMobile()">Precios</a>
+  <div class="mobile-section-title">Recursos y Blog</div>
   <a href="/recursos/" onclick="closeMobile()">Recursos</a>
-  <div class="mobile-section-title">Blog</div>
-  <a href="/blog/crisis-perdida-conocimiento-planta-industrial/" onclick="closeMobile()">Crisis de pérdida de conocimiento</a>
-  <a href="/blog/que-es-un-sop-industrial/" onclick="closeMobile()">Qué es un SOP industrial</a>
-  <a href="/blog/coste-absentismo-pymes-industriales/" onclick="closeMobile()">Coste del absentismo</a>
-  <a href="/blog/documentar-conocimiento-operarios-expertos/" onclick="closeMobile()">Documentar conocimiento operario</a>
-  <a href="/blog/" onclick="closeMobile()">Ver todos los artículos</a>
-  <a href="/sobre-nosotros/" onclick="closeMobile()">Nosotros</a>
+  <a href="/blog/" onclick="closeMobile()">Blog</a>
+  <a href="/faqs/" onclick="closeMobile()">Preguntas frecuentes</a>
   <div class="mobile-cta-group">
     <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost" style="text-align:center;font-size:.8rem;padding:14px 28px;">
       Evaluar mi situación →

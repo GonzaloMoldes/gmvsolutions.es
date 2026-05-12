@@ -1,0 +1,686 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Software de mantenimiento preventivo para pymes industriales | REELEVO";
+const description = "Gestiona el mantenimiento preventivo y correctivo de tu maquinaria integrado con la producción. Planes automáticos, órdenes de trabajo y registro de intervenciones. Para pymes industriales.";
+const canonical = "https://gmvsolutions.es/mantenimiento/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Mantenimiento Preventivo y Correctivo",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Mantenimiento Preventivo · Correctivo · Integrado con producción</div>
+    <h1 class="fade-up delay-1">El mantenimiento que no ves<br><em>es el que para la línea</em></h1>
+    <p class="fade-up delay-2">Configura planes de mantenimiento por máquina, genera órdenes de trabajo automáticamente y haz que el operario las vea en su agenda junto a las de producción. Sin hojas de cálculo, sin Post-its en la máquina.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">El mantenimiento se gestiona «de memoria» o no se gestiona</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>En la mayoría de pymes industriales, el mantenimiento funciona así:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Los planes de mantenimiento están en un Excel que actualiza una sola persona — y que nadie más consulta</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario no sabe que toca mantenimiento hasta que alguien se lo dice verbalmente o aparece un Post-it en la máquina</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Cuando la máquina falla, nadie sabe cuándo fue la última intervención ni qué se hizo exactamente</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El mantenimiento preventivo compite con la producción por el tiempo del operario — y siempre pierde</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>No hay evidencia de las intervenciones para auditorías de calidad ni para analizar fallos recurrentes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>Resultado: averías que se podían haber evitado</h3>
+        <p>El mantenimiento reactivo cuesta entre 3 y 10 veces más que el preventivo. La diferencia está en tener un sistema que avise antes de que falle, no después.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona en REELEVO</div>
+        <h2 class="section-title">Planificado, asignado y registrado — sin gestión manual</h2>
+        <p class="section-sub">El mantenimiento de REELEVO no es un módulo separado. Vive junto a la producción: el operario ve sus tareas de mantenimiento en la misma agenda que las de producción.</p>
+      </div>
+
+      <div class="kaizen-flow fade-up delay-1">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>Configuras el plan una vez</h3>
+            <p>Para cada máquina defines los trabajos de mantenimiento preventivo: qué hay que hacer, con qué frecuencia (diaria, semanal, mensual), quién es responsable y qué proceso SOP se debe seguir.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>Las órdenes se generan solas</h3>
+            <p>REELEVO crea automáticamente las órdenes de trabajo cuando corresponde. Sin que nadie tenga que recordarlo, sin que nadie tenga que crearlas a mano cada vez.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>El operario lo ve en su agenda</h3>
+            <p>La tarea de mantenimiento aparece en la agenda del operario asignado junto a sus tareas de producción del día. Sin llamadas, sin Post-its. Solo abre su agenda y sabe qué tiene que hacer.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>La intervención queda registrada</h3>
+            <p>Al completar la tarea, el operario registra qué hizo, cuánto tardó y si hubo alguna incidencia. Queda en el histórico de la máquina con fecha, operario y resultado. Para siempre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Funcionalidades</div>
+        <h2 class="section-title">Preventivo y correctivo en un solo módulo</h2>
+      </div>
+
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <div class="cell-number">1</div>
+          <h3>Planes de mantenimiento preventivo</h3>
+          <p>Define por máquina qué trabajos hay que hacer y con qué frecuencia. Asocia cada trabajo al proceso SOP correspondiente para que el operario sepa exactamente cómo hacerlo.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">2</div>
+          <h3>Generación automática de órdenes</h3>
+          <p>Las órdenes de trabajo se crean solas según los planes configurados. No hace falta que nadie las genere manualmente cada semana o cada mes.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">3</div>
+          <h3>Mantenimiento correctivo</h3>
+          <p>Cuando surge una avería o incidencia, el supervisor crea una orden de trabajo correctivo, la asigna a un operario y queda en seguimiento hasta su resolución.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">4</div>
+          <h3>Agenda unificada producción + mantenimiento</h3>
+          <p>El operario ve en un solo sitio todo lo que tiene que hacer: producción y mantenimiento. Sin tener que consultar dos sistemas ni recibir instrucciones verbales.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">5</div>
+          <h3>Histórico de intervenciones por máquina</h3>
+          <p>Cada máquina tiene su ficha histórica completa: todas las intervenciones, quién las hizo, cuándo, cuánto duró y con qué resultado. Visible en segundos desde el panel.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">6</div>
+          <h3>Alertas de próximos mantenimientos</h3>
+          <p>El sistema avisa con antelación cuando se acerca una tarea de mantenimiento programada. Sin sorpresas, sin parones inesperados por falta de previsión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DIFERENCIADOR: INTEGRACIÓN CON PRODUCCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Lo que nos diferencia</div>
+        <h2 class="section-title">El mantenimiento integrado con la operación, no separado de ella</h2>
+        <p class="section-sub">La mayoría de herramientas de mantenimiento son sistemas aparte que el operario no consulta y el responsable no conecta con la producción. En REELEVO, el mantenimiento y la producción comparten el mismo espacio.</p>
+      </div>
+
+      <div class="comparison-table fade-up delay-1">
+        <div class="comp-row comp-header">
+          <div class="comp-col">Software de mantenimiento tradicional</div>
+          <div class="comp-col">Mantenimiento en REELEVO</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">Sistema separado que solo usa el responsable de mantenimiento</div>
+          <div class="comp-col comp-good">Las tareas llegan directamente a la agenda del operario</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">El operario no sabe que toca mantenimiento hasta que alguien se lo dice</div>
+          <div class="comp-col comp-good">La orden aparece en su agenda junto a las de producción</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">El SOP de la intervención está en otro sistema o en papel</div>
+          <div class="comp-col comp-good">El proceso de mantenimiento es un SOP más, accesible desde el mismo flujo QR</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">El historial de intervenciones no se conecta con los fallos de producción</div>
+          <div class="comp-col comp-good">Historial de mantenimiento visible junto a la actividad productiva de la máquina</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">Implementar requiere formación específica y meses de adopción</div>
+          <div class="comp-col comp-good">El operario ya sabe usarlo: es la misma agenda que usa cada día</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFICIOS POR PERFIL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Por qué importa</div>
+        <h2 class="section-title">Lo que cambia para cada perfil</h2>
+      </div>
+
+      <div class="benefits-grid fade-up delay-1">
+        <div class="benefit-box">
+          <h3>Para el jefe de producción</h3>
+          <p>Ve el calendario de mantenimiento junto al de producción. Puede planificar con antelación quién cubre la máquina mientras se hace el mantenimiento y evitar cuellos de botella.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el responsable de mantenimiento</h3>
+          <p>Los planes configurados se ejecutan solos. Ya no tiene que recordar manualmente qué toca cada semana ni perseguir a los operarios para que lo hagan. El historial se actualiza solo.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el responsable de calidad</h3>
+          <p>Evidencia documental de todas las intervenciones: quién hizo qué, cuándo y con qué resultado. Base útil para auditorías de mantenimiento compatible con ISO 9001.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el operario</h3>
+          <p>No necesita preguntar qué toca hacer hoy. Su agenda se lo dice. Tiene el SOP de la intervención disponible desde el mismo sitio. Ejecuta, registra y listo.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el gerente o propietario</h3>
+          <p>Menos averías imprevistas. Menos parones de producción por falta de mantenimiento. Datos históricos para decidir cuándo amortizar o renovar una máquina.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para la empresa</h3>
+          <p>El mantenimiento deja de ser algo que se olvida o que se hace «cuando hay tiempo». Se convierte en una práctica sistemática que no requiere esfuerzo de gestión adicional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Caso real: de la avería imprevista al mantenimiento controlado</h2>
+      </div>
+
+      <div class="case-story fade-up delay-1">
+        <div class="story-section">
+          <h3>La situación</h3>
+          <p>Empresa de fabricación de piezas metálicas con 6 tornos CNC. El torno principal necesita lubricación del cabezal cada 200 horas de trabajo. Lo sabe el responsable de mantenimiento, pero no está en ningún sistema formal. Cuando él está de vacaciones, nadie lo recuerda.</p>
+        </div>
+
+        <div class="story-section">
+          <h3>Sin REELEVO</h3>
+          <p>El torno lleva 340 horas sin lubricar. Aparece un chirrido en el cabezal. Se para la producción 4 horas para revisar. El técnico externo cobra la visita de urgencia. La pieza que estaba a medias hay que rehacer.</p>
+        </div>
+
+        <div class="story-section highlight">
+          <h3>Con REELEVO</h3>
+          <ul>
+            <li><strong>Setup inicial (20 min):</strong> El responsable configura el plan — "Lubricación cabezal torno CNC-1: cada 200 horas, proceso SOP-lubricación-05, responsable: Turno A".</li>
+            <li><strong>Semana 3:</strong> REELEVO genera automáticamente la orden de trabajo. Aparece en la agenda de Carlos (turno A) junto a sus tareas de producción del martes.</li>
+            <li><strong>Martes 10:30h:</strong> Carlos termina la pieza en curso, ve la tarea de mantenimiento en su agenda, accede al SOP de lubricación desde el QR del torno y la ejecuta. 15 minutos.</li>
+            <li><strong>10:45h:</strong> Carlos registra la intervención. Queda en el histórico del torno con fecha, operario y resultado.</li>
+            <li><strong>Semana 9:</strong> Misma secuencia. El torno nunca llega a las 340 horas sin lubricar.</li>
+          </ul>
+        </div>
+
+        <div class="story-result">
+          <div class="result-num">0</div>
+          <div class="result-label">averías evitables en la máquina · el plan se ejecuta solo, sin intervención del responsable de mantenimiento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NOTA HONESTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Enfoque prudente</div>
+        <h2 class="section-title">Lo que hace REELEVO — y sus límites reales</h2>
+      </div>
+
+      <div class="honest-note fade-up delay-1">
+        <p><strong>Lo que sí hace:</strong> REELEVO gestiona planes de mantenimiento, genera órdenes de trabajo automáticamente, integra el mantenimiento en la agenda del operario y registra cada intervención con trazabilidad completa. Es suficiente para la mayoría de pymes industriales que hoy no tienen ningún sistema formal de mantenimiento.</p>
+      </div>
+
+      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
+        <p><strong>Lo que no hace:</strong> REELEVO no es un GMAO (Sistema de Gestión de Mantenimiento Asistido por Ordenador) especializado. No incluye gestión de repuestos, análisis de vibraciones ni integración con sensores IoT. Si tu empresa tiene un departamento de mantenimiento de 10 personas con necesidades muy específicas, puede que necesites una herramienta dedicada. Si tienes entre 5 y 200 operarios y hoy gestionas el mantenimiento en Excel o de memoria, REELEVO es suficiente — y mucho más fácil de implantar.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      El mantenimiento que no ves<br><em>ya no tiene que sorprenderte</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Configura tus primeros planes de mantenimiento en menos de 30 minutos. Sin migración de datos, sin formación del equipo, sin IT.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Empezar gratis · Sin compromiso
+      </a>
+      <a href="/control-produccion/" class="btn-ghost">
+        Ver control de producción →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Implementación asistida · Sin compromiso</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* FLOW */
+  .kaizen-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+    max-width: 720px;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .flow-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .flow-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .flow-content p {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .flow-arrow {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--orange);
+    padding: 6px 0;
+    margin-left: 22px;
+  }
+
+  /* SOLUTION GRID */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; }
+  }
+
+  .solution-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .cell-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .solution-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .solution-cell p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* COMPARISON */
+  .comparison-table {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .comp-row + .comp-row {
+    border-top: 1px solid var(--border);
+  }
+
+  .comp-header .comp-col {
+    padding: 14px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    background: var(--surface);
+    color: var(--gray);
+  }
+
+  .comp-col {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .comp-col + .comp-col {
+    border-left: 1px solid var(--border);
+  }
+
+  .comp-bad { color: var(--gray); }
+
+  .comp-good {
+    color: var(--text);
+    background: rgba(255, 100, 0, 0.04);
+  }
+
+  @media (max-width: 600px) {
+    .comp-row { grid-template-columns: 1fr; }
+    .comp-col + .comp-col { border-left: none; border-top: 1px solid var(--border); }
+    .comp-header { display: none; }
+  }
+
+  /* BENEFITS */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  .benefit-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .benefit-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .benefit-box p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASE STORY */
+  .case-story {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 760px;
+  }
+
+  .story-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .story-section h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: .8rem;
+    margin-bottom: 10px;
+  }
+
+  .story-section p {
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  .story-section.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 100, 0, 0.05);
+  }
+
+  .story-section.highlight h3 {
+    color: var(--orange);
+  }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .story-section ul li {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .story-result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+  }
+
+  .result-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .result-label {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  /* HONEST NOTE */
+  .honest-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    max-width: 760px;
+  }
+
+  .honest-note p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

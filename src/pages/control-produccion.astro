@@ -1,0 +1,637 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Control de producción para pymes industriales | REELEVO";
+const description = "Registra, supervisa y analiza la producción de tu planta en tiempo real. Sesiones por operario, KPIs diarios, validación de supervisor, paradas con causa y exportación de datos. Sin papel, sin Excel.";
+const canonical = "https://gmvsolutions.es/control-produccion/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Control y Registro de Producción",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Registro de producción · KPIs en tiempo real · Planificación semanal · Sin papel</div>
+    <h1 class="fade-up delay-1">¿Cuánto se produjo hoy?<br><em>Con REELEVO lo sabes en tiempo real</em></h1>
+    <p class="fade-up delay-2">Registra cada sesión de producción vinculada al operario, proceso y máquina. Ve los KPIs del día mientras la planta trabaja. Planifica la semana en minutos. Sin partes en papel, sin esperar al cierre de turno.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">El jefe de producción gestiona de memoria lo que no está registrado en ningún sitio</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>En la mayoría de pymes industriales, el control de producción funciona así:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Las piezas producidas del día se cuentan al final del turno, a veces a ojo, y se apuntan en un parte en papel que nadie consolida bien</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Cuando hay una parada de máquina, la causa queda en la cabeza del operario — no en ningún registro</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El jefe de producción no sabe cuánto se ha producido hoy hasta que pregunta — y a veces la respuesta no es fiable</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>La planificación semanal existe solo en la cabeza del encargado. Si falta un operario, reorganizar el turno es un caos</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>No hay datos históricos de producción por operario, proceso o máquina para detectar tendencias ni mejorar objetivos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>Sin registro no hay mejora</h3>
+        <p>No puedes mejorar lo que no mides. Y no puedes medir algo que solo existe en partes de papel y en la memoria del encargado.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona en REELEVO</div>
+        <h2 class="section-title">Del QR al dato — sin ningún paso manual adicional</h2>
+        <p class="section-sub">El registro de producción en REELEVO ocurre como subproducto de la ejecución. Cuando el operario trabaja con el QR, los datos de producción quedan registrados automáticamente.</p>
+      </div>
+
+      <div class="kaizen-flow fade-up delay-1">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>El supervisor planifica la semana</h3>
+            <p>Desde el panel de planificación, asigna qué operario hace qué proceso en qué máquina y cuándo. Vista de carga por turno con alertas automáticas de cobertura insuficiente. Si hay riesgo de no tener un certificado en un proceso crítico, el sistema avisa antes.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>El operario trabaja desde su agenda</h3>
+            <p>El operario llega a su puesto, escanea el QR de la máquina y ve su agenda del día. Selecciona la tarea asignada, inicia la sesión de producción y sigue el proceso SOP paso a paso. Sin papel, sin instrucciones verbales.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>Las unidades quedan registradas en tiempo real</h3>
+            <p>El operario registra las unidades producidas al completar cada ciclo. Si hay una parada, registra la causa y la duración. Todo queda vinculado al operario, proceso, máquina, turno y hora — sin que nadie más tenga que hacer nada.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>El supervisor ve los KPIs y valida</h3>
+            <p>El jefe de producción tiene visibilidad en tiempo real desde el monitor de actividad: qué se está produciendo, quién está trabajando, cuántas unidades van. Al cierre del turno, valida las sesiones completadas. El histórico queda para siempre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Funcionalidades</div>
+        <h2 class="section-title">Registro, planificación y análisis en un solo módulo</h2>
+      </div>
+
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <div class="cell-number">1</div>
+          <h3>Sesiones de producción con inicio y fin</h3>
+          <p>Cada sesión queda registrada con hora de inicio, hora de fin, operario, proceso, máquina y unidades producidas. Trazabilidad completa de cada bloque de trabajo.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">2</div>
+          <h3>Registro de paradas con causa</h3>
+          <p>Cuando el operario para la producción, registra la causa (avería, falta de material, espera, cambio de utillaje). La causa queda en el historial y es analizable para detectar patrones.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">3</div>
+          <h3>KPIs en tiempo real</h3>
+          <p>Dashboard de producción diaria actualizado en tiempo real: unidades producidas, sesiones activas, operarios en planta, cumplimiento de objetivo. Sin esperar al cierre del turno.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">4</div>
+          <h3>Planificación semanal</h3>
+          <p>Vista de calendario con asignaciones por operario. Carga de trabajo visible por turno con alertas automáticas cuando hay riesgo de cobertura insuficiente en un proceso crítico.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">5</div>
+          <h3>Validación de supervisor</h3>
+          <p>El encargado revisa y valida las sesiones de producción completadas. Puede añadir notas o correcciones. La validación queda registrada junto al dato de producción.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">6</div>
+          <h3>Histórico y exportación de datos</h3>
+          <p>Accede al histórico completo de producción con filtros por fecha, operario, proceso, máquina y producto. Exporta a CSV para análisis externos o para alimentar tu ERP.</p>
+        </div>
+      </div>
+
+      <div class="screenshot-pair fade-up delay-2">
+        <figure class="screenshot-fig">
+          <img src="/screenshots/monitor-actividad.png" alt="Monitor de operarios en tiempo real en REELEVO: quién está en proceso, en qué máquina y cuánto tiempo llevan" class="screenshot-img" loading="lazy" />
+          <figcaption class="screenshot-caption">Monitor en tiempo real — estado de cada operario y máquina activa</figcaption>
+        </figure>
+        <figure class="screenshot-fig">
+          <img src="/screenshots/analitica-productividad.png" alt="Dashboard de analítica de productividad en REELEVO: top operarios, resumen por proceso, unidades y duración media" class="screenshot-img" loading="lazy" />
+          <figcaption class="screenshot-caption">Analítica de productividad — ranking de operarios y rendimiento por proceso</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LO QUE VE CADA ROL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Lo que ve cada persona</div>
+        <h2 class="section-title">Cada rol tiene su vista — sin información de más ni de menos</h2>
+      </div>
+
+      <div class="roles-grid fade-up delay-1">
+        <div class="role-card">
+          <div class="role-title">Operario</div>
+          <ul>
+            <li>Su agenda del día: qué proceso, en qué máquina, a qué hora</li>
+            <li>El SOP del proceso desde el QR</li>
+            <li>Registro de unidades producidas y paradas</li>
+            <li>Su historial de producción personal</li>
+          </ul>
+        </div>
+
+        <div class="role-card">
+          <div class="role-title">Encargado de turno</div>
+          <ul>
+            <li>Monitor de actividad en tiempo real: quién está produciendo qué</li>
+            <li>Bandeja de validaciones pendientes</li>
+            <li>Alertas de paradas o incidencias en planta</li>
+            <li>Notas de turno por máquina</li>
+          </ul>
+        </div>
+
+        <div class="role-card">
+          <div class="role-title">Jefe de producción</div>
+          <ul>
+            <li>Dashboard con KPIs del día y de la semana</li>
+            <li>Planificación semanal de asignaciones</li>
+            <li>Histórico de producción con filtros avanzados</li>
+            <li>Alertas de cobertura de turno y riesgo de objetivo</li>
+          </ul>
+        </div>
+
+        <div class="role-card">
+          <div class="role-title">Gerente / Dirección</div>
+          <ul>
+            <li>Visibilidad del rendimiento productivo en números reales</li>
+            <li>Comparativa real vs planificado por operario y proceso</li>
+            <li>Datos para decisiones de capacidad y recursos</li>
+            <li>Exportable a Power BI o al ERP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Caso real: el lunes por la mañana sin sorpresas</h2>
+      </div>
+
+      <div class="case-story fade-up delay-1">
+        <div class="story-section">
+          <h3>La situación</h3>
+          <p>Empresa de fabricación de plástico técnico. 12 operarios en dos turnos. El jefe de producción organiza el trabajo cada semana y necesita saber si se están cumpliendo los objetivos de producción — sin estar todo el día preguntando en planta.</p>
+        </div>
+
+        <div class="story-section">
+          <h3>Sin REELEVO</h3>
+          <p>El lunes recoge los partes del viernes, algunos incompletos. Los consolida en el Excel de producción. A las 10h tiene los datos de la semana anterior. Mientras tanto, no sabe si el turno de esta mañana va bien o mal hasta que baje a planta.</p>
+        </div>
+
+        <div class="story-section highlight">
+          <h3>Con REELEVO</h3>
+          <ul>
+            <li><strong>Domingo noche:</strong> El jefe de producción revisa la planificación de la semana en 10 minutos desde casa. Ve que el martes hay riesgo de cobertura — solo hay un operario certificado en la inyectora 3 y está de tarde. Reorganiza la asignación.</li>
+            <li><strong>Lunes 7:00h:</strong> Los operarios llegan, escanean el QR de su puesto y ven su agenda. Nadie necesita instrucciones verbales.</li>
+            <li><strong>Lunes 9:30h:</strong> El jefe abre el dashboard desde su despacho. Ve 847 unidades producidas en las últimas 2,5h, un 94% del objetivo horario. Una parada de 12 minutos en la inyectora 2 por cambio de molde — registrada con causa.</li>
+            <li><strong>Lunes 17:00h:</strong> Cierre de turno. El encargado valida las sesiones. El dato del día queda en el histórico. No hay que consolidar nada.</li>
+          </ul>
+        </div>
+
+        <div class="story-result">
+          <div class="result-num">0</div>
+          <div class="result-label">partes manuales · datos del día disponibles en tiempo real, sin esperar al cierre ni al consolidado de Excel</div>
+        </div>
+      </div>
+
+      <div class="screenshot-pair fade-up delay-2">
+        <figure class="screenshot-fig">
+          <img src="/screenshots/planificacion-semanal.png" alt="Vista de planificación semanal en REELEVO: calendario con asignaciones por operario y día" class="screenshot-img" loading="lazy" />
+          <figcaption class="screenshot-caption">Planificación semanal — asignaciones por operario y turno</figcaption>
+        </figure>
+        <figure class="screenshot-fig">
+          <img src="/screenshots/detalle-procesos.png" alt="Registro detallado de ejecuciones en REELEVO: proceso, operario, fecha, duración, pasos y firmas" class="screenshot-img" loading="lazy" />
+          <figcaption class="screenshot-caption">Registro de ejecuciones — trazabilidad completa por proceso y operario</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NOTA HONESTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Enfoque prudente</div>
+        <h2 class="section-title">Control de producción operativo — no un MES ni un ERP</h2>
+      </div>
+
+      <div class="honest-note fade-up delay-1">
+        <p><strong>Lo que sí hace:</strong> REELEVO registra toda la actividad productiva de forma trazable — quién hizo qué, cuándo, cuánto y en qué máquina. Te da visibilidad en tiempo real y un histórico exportable. Para la mayoría de pymes que hoy no tienen ningún sistema formal de control de producción, cubre el 90% de las necesidades.</p>
+      </div>
+
+      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
+        <p><strong>Lo que no hace:</strong> REELEVO no es un MES especializado. No gestiona la planificación de capacidad a largo plazo, ni las listas de materiales (BOM), ni la integración con maquinaria vía SCADA o PLC. Si necesitas esas funcionalidades, REELEVO puede complementar tu MES como capa de digitalización de procesos y formación — pero no reemplazarlo. Si hoy gestionas la producción en partes de papel o en Excel, REELEVO es el siguiente paso natural.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Saber qué pasa en planta<br><em>sin tener que bajar a preguntar</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Empieza con REELEVO y ten visibilidad real de tu producción en los primeros días. Sin migración de datos, sin formación compleja.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/mantenimiento/" class="btn-ghost">
+        Ver módulo de mantenimiento →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Implementación asistida</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
+
+  /* FLOW */
+  .kaizen-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+    max-width: 720px;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .flow-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .flow-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .flow-content p {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .flow-arrow {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--orange);
+    padding: 6px 0;
+    margin-left: 22px;
+  }
+
+  /* SOLUTION GRID */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; }
+  }
+
+  .solution-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .cell-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .solution-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .solution-cell p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ROLES */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .roles-grid { grid-template-columns: 1fr; }
+  }
+
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .role-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    color: var(--orange);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .role-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .role-card ul li {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .role-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+
+  /* CASE STORY */
+  .case-story {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 760px;
+  }
+
+  .story-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .story-section h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: .8rem;
+    margin-bottom: 10px;
+  }
+
+  .story-section p {
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  .story-section.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 100, 0, 0.05);
+  }
+
+  .story-section.highlight h3 { color: var(--orange); }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .story-section ul li {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .story-result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+  }
+
+  .result-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .result-label {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  /* HONEST NOTE */
+  .honest-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    max-width: 760px;
+  }
+
+  .honest-note p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

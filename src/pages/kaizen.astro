@@ -1,0 +1,688 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Software Kaizen para pymes industriales | Mejora continua en planta";
+const description = "Gestiona el ciclo completo de mejora continua desde el puesto de trabajo. Captura ideas de tus operarios, prioriza, implementa y estandariza. Software Kaizen para pymes industriales.";
+const canonical = "https://gmvsolutions.es/kaizen/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Kaizen y Mejora Continua",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Kaizen · Mejora Continua en Planta</div>
+    <h1 class="fade-up delay-1">Las mejoras nacen<br><em>donde ocurre el trabajo</em></h1>
+    <p class="fade-up delay-2">El operario que ejecuta el proceso cada día ve lo que puede mejorar. REELEVO le da un canal para registrarlo en el momento, y a ti un sistema para gestionarlo hasta que se convierte en estándar.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Las ideas de mejora se pierden entre turno y turno</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>En la mayoría de pymes industriales, la mejora continua existe en teoría pero no en práctica:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario detecta una ineficiencia pero no tiene dónde reportarla — la olvida al final del turno</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Las ideas que llegan se apuntan en un cuaderno, en un grupo de WhatsApp o se dicen en una reunión y nadie hace seguimiento</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El responsable no tiene visibilidad de cuántas propuestas hay, en qué estado están ni cuál impacta más</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Las mejoras implementadas no se estandarizan: se hacen una vez y el SOP sigue siendo el antiguo</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario que propuso la mejora nunca sabe si se tuvo en cuenta — deja de proponer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>Resultado: Kaizen que solo vive en los carteles de la pared</h3>
+        <p>Tu equipo sabe cómo mejorar la operación. No tiene un sistema para hacerlo visible. La mejora continua se convierte en una declaración de intenciones, no en una práctica real.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOLUCIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona en REELEVO</div>
+        <h2 class="section-title">Del QR de la máquina al estándar de la empresa</h2>
+        <p class="section-sub">El ciclo Kaizen de REELEVO conecta el punto de trabajo con la gestión de la mejora sin fricción extra para el operario ni para el responsable.</p>
+      </div>
+
+      <div class="kaizen-flow fade-up delay-1">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>El operario lo registra en el momento</h3>
+            <p>Botón <strong>«💡 Proponer mejora»</strong> accesible desde el flujo QR de producción. En segundos: descripción, tipo de impacto y foto opcional. El contexto —proceso, máquina, operario, fecha— se captura automáticamente.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>El responsable la gestiona en el panel Kaizen</h3>
+            <p>Vista Kanban con todas las propuestas por estado: <strong>Capturada → Revisada → En implementación → Estandarizada</strong>. Priorización por impacto, asignación de responsable y registro de acciones.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>Se implementa y se reconoce</h3>
+            <p>La mejora aprobada se asigna para implementación. El operario que la propuso recibe puntos o recompensa económica configurada por la empresa. El equipo ve que proponer funciona.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>La mejora vuelve al proceso como nuevo estándar</h3>
+            <p>Una vez estandarizada, el SOP del proceso se actualiza. La próxima vez que un operario escanee el QR de esa máquina, encontrará la instrucción mejorada. El conocimiento crece solo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Funcionalidades</div>
+        <h2 class="section-title">Todo el ciclo Kaizen en una sola herramienta</h2>
+      </div>
+
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <div class="cell-number">1</div>
+          <h3>Captura desde el QR de planta</h3>
+          <p>El operario propone mejoras sin salir del flujo de producción. Selecciona el tipo de impacto: seguridad, calidad, tiempo, ergonomía, material o mantenimiento.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">2</div>
+          <h3>Panel Kanban de gestión</h3>
+          <p>Vista completa del estado de todas las propuestas. Filtros por tipo de impacto, responsable y período. Sin hojas de cálculo ni cuadernos perdidos.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">3</div>
+          <h3>Automatizaciones de estado</h3>
+          <p>Reglas configurables para cambiar el estado de una propuesta automáticamente según condiciones. El flujo avanza sin intervención manual en cada paso.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">4</div>
+          <h3>Sistema de recompensas</h3>
+          <p>Puntos y recompensa económica opcional por propuesta implementada. Baremo configurable por empresa y tipo de impacto. El operario ve su historial de contribuciones.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">5</div>
+          <h3>Métricas y KPIs Kaizen</h3>
+          <p>Propuestas por mes, tasa de implementación, tiempo medio de ciclo, impacto estimado. Dashboard con evolución temporal y exportación a CSV.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">6</div>
+          <h3>Plantillas reutilizables</h3>
+          <p>Plantillas de acción para tipos de mejora recurrentes. El responsable no empieza de cero cada vez que llega una propuesta del mismo tipo.</p>
+        </div>
+      </div>
+
+      <div class="screenshot-single fade-up delay-2">
+        <figure class="screenshot-fig">
+          <img src="/screenshots/editor-workflows.png" alt="Panel Kaizen Digital en REELEVO con propuestas y detalle de acción correctiva" class="screenshot-img" loading="lazy" />
+          <figcaption class="screenshot-caption">Panel Kaizen Digital — vista Kanban de propuestas con detalle de causa raíz y acciones correctivas</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BENEFICIOS POR PERFIL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Por qué importa a cada perfil</div>
+        <h2 class="section-title">Lo que cambia para cada persona del equipo</h2>
+      </div>
+
+      <div class="benefits-grid fade-up delay-1">
+        <div class="benefit-box">
+          <h3>Para el gerente o director de operaciones</h3>
+          <p>Visibilidad real de la mejora continua: cuántas propuestas genera el equipo, cuántas se implementan, qué impacto tienen. Datos para justificar la cultura de mejora.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el jefe de producción</h3>
+          <p>Bandeja de propuestas priorizada por impacto. Sin reuniones para recoger ideas. Sin perder el hilo de qué propuesta está en qué estado. Todo en un panel.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el responsable de calidad</h3>
+          <p>Las mejoras de proceso quedan trazadas: quién las propuso, cuándo se implementaron, qué SOP actualizaron. Base documental para auditorías de mejora continua.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el operario</h3>
+          <p>Por primera vez, su conocimiento tiene un canal. Propone desde el QR de la máquina, sabe si su propuesta se tuvo en cuenta y recibe reconocimiento cuando se implementa.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para el supervisor de turno</h3>
+          <p>Puede resolver propuestas sencillas directamente desde su portal. Las que requieren más recursos las escala con contexto ya registrado, sin tener que reconstruir la historia.</p>
+        </div>
+
+        <div class="benefit-box">
+          <h3>Para la empresa</h3>
+          <p>El conocimiento de mejora no se queda en la cabeza de los operarios ni en grupos de WhatsApp. Se captura, se gestiona y termina en el SOP. La planta mejora sola.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Caso real: de la idea al estándar en una semana</h2>
+      </div>
+
+      <div class="case-story fade-up delay-1">
+        <div class="story-section">
+          <h3>La situación</h3>
+          <p>Pedro, operario de turno de tarde en una línea de envasado, detecta que el paso de sellado tarda 40 segundos de más porque hay que esperar a que el cabezal baje la temperatura antes de continuar. Lleva 3 meses haciéndolo así sin decir nada porque «no hay dónde decirlo».</p>
+        </div>
+
+        <div class="story-section">
+          <h3>Sin REELEVO</h3>
+          <p>La ineficiencia sigue 3 meses más. Pedro lo comenta en el vestuario. Alguien lo menciona en una reunión mensual. El responsable toma nota en un papel. No pasa nada.</p>
+        </div>
+
+        <div class="story-section highlight">
+          <h3>Con REELEVO</h3>
+          <ul>
+            <li><strong>Lunes 14:20h</strong> — Pedro pulsa «💡 Proponer mejora» al terminar el proceso. Describe la espera, selecciona impacto "tiempo" y adjunta una foto del cabezal.</li>
+            <li><strong>Lunes 15:00h</strong> — El jefe de producción ve la propuesta en el panel Kaizen. La mueve a "Revisada" y asigna a mantenimiento para verificar si hay solución técnica.</li>
+            <li><strong>Miércoles</strong> — Mantenimiento confirma que hay un ajuste de parámetros posible. Se prueba en turno de noche.</li>
+            <li><strong>Jueves</strong> — La mejora funciona: 35 segundos menos por ciclo. La propuesta pasa a "Estandarizada". El SOP se actualiza.</li>
+            <li><strong>Viernes</strong> — Pedro recibe 50 puntos y un aviso de que su propuesta ya está en el proceso. La próxima vez que alguien escanee el QR de esa máquina, verá la instrucción actualizada.</li>
+          </ul>
+        </div>
+
+        <div class="story-result">
+          <div class="result-num">35 seg</div>
+          <div class="result-label">ahorrados por ciclo · capturados y estandarizados en 4 días</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMPARATIVA CON EL ENFOQUE TRADICIONAL -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Enfoque prudente</div>
+        <h2 class="section-title">Lo que REELEVO hace — y lo que no prometemos</h2>
+      </div>
+
+      <div class="comparison-table fade-up delay-1">
+        <div class="comp-row comp-header">
+          <div class="comp-col">Sin REELEVO</div>
+          <div class="comp-col">Con REELEVO</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">Las ideas de mejora se pierden entre turno y turno</div>
+          <div class="comp-col comp-good">Cada idea queda registrada en el momento y vinculada al proceso</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">El responsable no sabe cuántas propuestas hay ni en qué estado</div>
+          <div class="comp-col comp-good">Panel Kanban con visibilidad completa de todo el ciclo</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">Las mejoras implementadas no actualizan el SOP</div>
+          <div class="comp-col comp-good">La mejora estandarizada entra directamente en el proceso</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">El operario no sabe si su propuesta se tuvo en cuenta</div>
+          <div class="comp-col comp-good">Seguimiento visible + reconocimiento cuando se implementa</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-bad">Las métricas de mejora son subjetivas o no existen</div>
+          <div class="comp-col comp-good">KPIs reales: propuestas, implementaciones, impacto, tiempo de ciclo</div>
+        </div>
+      </div>
+
+      <div class="honest-note fade-up delay-2">
+        <p><strong>Lo que no vamos a prometer:</strong> REELEVO no crea por sí solo una cultura de mejora continua. Eso requiere liderazgo. Lo que sí hace es eliminar la fricción para que las ideas lleguen, para que se gestionen y para que las buenas terminen en el proceso. Si el equipo tiene ideas y la empresa quiere escucharlas, REELEVO es el canal que faltaba.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Dale a tu equipo un canal<br><em>para mejorar la planta</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Las ideas están ahí. Solo necesitan un sitio donde aterrizar y un proceso para que lleguen a ser estándares.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Empezar gratis · Sin compromiso
+      </a>
+      <a href="/documentacion-procesos/" class="btn-ghost">
+        Ver cómo funciona la documentación de procesos →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Implementación asistida · Sin compromiso</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* CHALLENGE */
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* KAIZEN FLOW */
+  .kaizen-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+    max-width: 720px;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .flow-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .flow-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .flow-content p {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .flow-arrow {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--orange);
+    padding: 6px 0;
+    margin-left: 22px;
+  }
+
+  /* SOLUTION GRID */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; }
+  }
+
+  .solution-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .cell-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .solution-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .solution-cell p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* BENEFITS GRID */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  .benefit-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .benefit-box h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .benefit-box p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASE STORY */
+  .case-story {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 760px;
+  }
+
+  .story-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .story-section h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: .8rem;
+  }
+
+  .story-section p {
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  .story-section.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 100, 0, 0.05);
+  }
+
+  .story-section.highlight h3 {
+    color: var(--orange);
+  }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .story-section ul li {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.5;
+    padding-left: 0;
+  }
+
+  .story-result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+  }
+
+  .result-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .result-label {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  /* COMPARISON TABLE */
+  .comparison-table {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .comp-row + .comp-row {
+    border-top: 1px solid var(--border);
+  }
+
+  .comp-header .comp-col {
+    padding: 14px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    background: var(--surface);
+    color: var(--gray);
+  }
+
+  .comp-col {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .comp-col + .comp-col {
+    border-left: 1px solid var(--border);
+  }
+
+  .comp-bad {
+    color: var(--gray);
+  }
+
+  .comp-good {
+    color: var(--text);
+    background: rgba(255, 100, 0, 0.04);
+  }
+
+  @media (max-width: 600px) {
+    .comp-row { grid-template-columns: 1fr; }
+    .comp-col + .comp-col { border-left: none; border-top: 1px solid var(--border); }
+    .comp-header { display: none; }
+  }
+
+  /* HONEST NOTE */
+  .honest-note {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .honest-note p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    .kaizen-flow { max-width: 100%; }
+    .case-story { max-width: 100%; }
+  }
+</style>

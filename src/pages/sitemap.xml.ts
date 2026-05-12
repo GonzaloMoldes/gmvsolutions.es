@@ -29,11 +29,36 @@ export async function GET() {
     { url: '/sectores/alimentacion/', lastmod: '2026-04-07', priority: '0.8', changefreq: 'monthly' },
     { url: '/sectores/mecanizado-cnc/', lastmod: '2026-04-07', priority: '0.8', changefreq: 'monthly' },
 
-    // Blog posts (NUEVOS)
+    // Blog posts
     { url: '/blog/onboarding-software-pymes/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
     { url: '/blog/gestion-competencias-industria/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
     { url: '/blog/onboarding-vs-tradicional/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
+    { url: '/blog/crisis-perdida-conocimiento-planta-industrial/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
+    { url: '/blog/que-es-un-sop-industrial/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
+    { url: '/blog/coste-absentismo-pymes-industriales/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
+    { url: '/blog/documentar-conocimiento-operarios-expertos/', lastmod: '2026-04-07', priority: '0.85', changefreq: 'monthly' },
     { url: '/video-demo/', lastmod: '2026-04-07', priority: '0.8', changefreq: 'monthly' },
+
+    // Comparativas individuales
+    { url: '/vs-dozuki/', lastmod: '2026-04-07', priority: '0.7', changefreq: 'monthly' },
+    { url: '/vs-poka/', lastmod: '2026-04-07', priority: '0.7', changefreq: 'monthly' },
+    { url: '/vs-gembadocs/', lastmod: '2026-04-07', priority: '0.7', changefreq: 'monthly' },
+    { url: '/vs-knowby/', lastmod: '2026-04-07', priority: '0.7', changefreq: 'monthly' },
+
+    // Funcionalidades / plataforma
+    { url: '/gestion-competencias/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/documentacion-procesos/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/kaizen/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/mantenimiento/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/obras-trazabilidad/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/api-integraciones/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/control-produccion/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/workflows/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/portal-operario/', lastmod: '2026-05-11', priority: '0.8', changefreq: 'monthly' },
+    { url: '/firma-digital/', lastmod: '2026-05-11', priority: '0.7', changefreq: 'monthly' },
+    { url: '/modo-offline/', lastmod: '2026-05-11', priority: '0.7', changefreq: 'monthly' },
+    { url: '/integracion-m365/', lastmod: '2026-05-11', priority: '0.7', changefreq: 'monthly' },
+    { url: '/cobertura-turnos/', lastmod: '2026-05-11', priority: '0.7', changefreq: 'monthly' },
 
     // Recursos
     { url: '/recursos/', lastmod: '2026-04-07', priority: '0.7', changefreq: 'monthly' },
@@ -41,6 +66,7 @@ export async function GET() {
     { url: '/recursos/crisis-perdida-conocimiento-planta-industrial/', lastmod: '2026-04-07', priority: '0.6', changefreq: 'yearly' },
     { url: '/recursos/documentar-conocimiento-operarios-expertos/', lastmod: '2026-04-07', priority: '0.6', changefreq: 'yearly' },
     { url: '/recursos/que-es-un-sop-industrial/', lastmod: '2026-04-07', priority: '0.6', changefreq: 'yearly' },
+    { url: '/faqs/', lastmod: '2026-05-11', priority: '0.7', changefreq: 'monthly' },
   ];
 
   // Generar XML del sitemap

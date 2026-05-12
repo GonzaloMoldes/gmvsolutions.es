@@ -1,0 +1,656 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "API e integraciones para plataformas industriales | REELEVO";
+const description = "Conecta REELEVO con tu ERP, Power BI, Microsoft Teams y cualquier sistema externo. API REST documentada, webhooks en tiempo real, conector Power Automate y kit de integración para Business Intelligence industrial.";
+const canonical = "https://gmvsolutions.es/api-integraciones/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - API e Integraciones",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">API REST · Webhooks · Power BI · Microsoft Teams · Power Automate</div>
+    <h1 class="fade-up delay-1">REELEVO no es una isla.<br><em>Se conecta con lo que ya tienes</em></h1>
+    <p class="fade-up delay-2">API REST documentada, webhooks en tiempo real y un kit de integración nativo con Microsoft 365. Los datos operativos de tu planta donde los necesitas: en tu ERP, en tu dashboard de BI o en Teams.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Los datos de planta quedan atrapados en el sistema que los genera</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>La mayoría de pymes industriales trabajan con un ecosistema de herramientas que no se hablan entre sí:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El ERP sabe qué se vendió pero no sabe qué se produjo realmente en planta ni qué operario lo hizo</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Los informes de producción se hacen a mano en Excel cada lunes, con datos del viernes pasado</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Cuando hay una incidencia en planta, el responsable se entera horas después o al día siguiente</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El equipo directivo toma decisiones con datos de hace una semana porque nadie tiene tiempo de consolidarlos antes</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Cada herramienta requiere su propio acceso, su propia formación y su propia rutina — el dato operativo nunca fluye solo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>El problema no es falta de datos — es falta de conexión</h3>
+        <p>Los datos están en planta, en los QR, en las ejecuciones de proceso. El problema es que no llegan a donde se necesitan para tomar decisiones.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CAPAS DE INTEGRACIÓN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Tres capas de integración</div>
+        <h2 class="section-title">Desde el webhook en tiempo real hasta el dashboard en Power BI</h2>
+        <p class="section-sub">REELEVO ofrece distintos niveles de integración según lo que necesites: desde notificaciones instantáneas hasta explotación avanzada de datos en tu herramienta de BI.</p>
+      </div>
+
+      <div class="integration-layers fade-up delay-1">
+
+        <div class="layer-card layer-1">
+          <div class="layer-badge">Capa 1</div>
+          <h3>Webhooks — eventos en tiempo real</h3>
+          <p>Configura webhooks para que REELEVO notifique a tus sistemas externos cuando ocurre un evento relevante. Sin polling, sin consultas periódicas.</p>
+          <div class="layer-events">
+            <div class="event-tag">Proceso completado</div>
+            <div class="event-tag">Certificación emitida</div>
+            <div class="event-tag">Propuesta Kaizen creada</div>
+            <div class="event-tag">Producción validada</div>
+            <div class="event-tag">Workflow completado</div>
+          </div>
+          <p class="layer-detail">Cada payload va firmado con HMAC para que puedas verificar la autenticidad. Logs de entregas y reintento automático si tu sistema no responde.</p>
+        </div>
+
+        <div class="layer-card layer-2">
+          <div class="layer-badge">Capa 2</div>
+          <h3>API REST — lectura y escritura programática</h3>
+          <p>Acceso completo a los datos de REELEVO desde cualquier sistema externo. Con contrato OpenAPI documentado para integración sin sorpresas.</p>
+          <div class="api-endpoints">
+            <div class="endpoint-group">
+              <div class="endpoint-label">Lectura</div>
+              <div class="endpoint-list">procesos · operarios · completions · skill matrix · certificaciones · producción · Kaizen · reportes</div>
+            </div>
+            <div class="endpoint-group">
+              <div class="endpoint-label">Escritura</div>
+              <div class="endpoint-list">sesiones QR · registros de producción · propuestas Kaizen · actualizaciones de competencias</div>
+            </div>
+          </div>
+          <p class="layer-detail">Autenticación por API key con permisos de lectura/escritura configurables por clave. Analytics de uso incluidos en el panel.</p>
+        </div>
+
+        <div class="layer-card layer-3">
+          <div class="layer-badge">Capa 3</div>
+          <h3>Microsoft 365 — kit de integración nativo</h3>
+          <p>Pack completo para empresas que ya usan el ecosistema Microsoft. Power BI, Power Automate y Microsoft Teams listos para conectar sin desarrollo a medida.</p>
+          <div class="m365-tools">
+            <div class="m365-tool">
+              <div class="tool-name">Power BI</div>
+              <div class="tool-desc">Queries Power Query listas para usar. 4 vistas preconfiguradas: operaciones, calidad, formación/compliance y Skill Matrix. Medidas DAX incluidas.</div>
+            </div>
+            <div class="m365-tool">
+              <div class="tool-name">Power Automate</div>
+              <div class="tool-desc">Conector personalizado importable directamente. Plantillas para escenarios comunes: alertas en Teams, actualización de informes, notificaciones de cobertura.</div>
+            </div>
+            <div class="m365-tool">
+              <div class="tool-name">Microsoft Teams</div>
+              <div class="tool-desc">Publica alertas y notificaciones en canales de Teams cuando ocurren eventos relevantes en planta. Sin salir de la herramienta que ya usa el equipo.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUÉ SE USA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Casos de uso</div>
+        <h2 class="section-title">Lo que la gente conecta en la práctica</h2>
+      </div>
+
+      <div class="use-cases-grid fade-up delay-1">
+        <div class="use-case">
+          <div class="uc-icon">📊</div>
+          <h3>Dashboard de producción en Power BI</h3>
+          <p>Conecta REELEVO a Power BI con las queries incluidas. Tu dashboard se actualiza automáticamente con datos reales de planta: piezas producidas, tiempos por proceso, productividad por operario y cumplimiento de objetivos.</p>
+        </div>
+
+        <div class="use-case">
+          <div class="uc-icon">🔔</div>
+          <h3>Alertas en Teams cuando algo ocurre en planta</h3>
+          <p>Un operario completa la producción del día. Una propuesta Kaizen espera aprobación. La cobertura de un turno está por debajo del mínimo. Teams lo recibe al instante. Sin que nadie tenga que acordarse de revisar el sistema.</p>
+        </div>
+
+        <div class="use-case">
+          <div class="uc-icon">🔄</div>
+          <h3>Sincronización de órdenes de fabricación con el ERP</h3>
+          <p>Cuando tu ERP genera una orden de fabricación, un webhook de REELEVO puede crear automáticamente la obra correspondiente en planta. Cuando se completa en planta, el ERP se actualiza. Sin doble entrada de datos.</p>
+        </div>
+
+        <div class="use-case">
+          <div class="uc-icon">📋</div>
+          <h3>Reportes de calidad automatizados</h3>
+          <p>Power Automate genera un informe de calidad semanal con datos de certificaciones, incidencias Kaizen y trazabilidad de producción, y lo envía automáticamente al responsable de calidad cada lunes a las 7h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TABLA COMPARATIVA: PLANES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Disponibilidad por plan</div>
+        <h2 class="section-title">Qué nivel de integración incluye cada plan</h2>
+      </div>
+
+      <div class="plan-table fade-up delay-1">
+        <div class="plan-row plan-header">
+          <div class="plan-col">Funcionalidad</div>
+          <div class="plan-col plan-pro">Pro</div>
+          <div class="plan-col plan-enterprise">Enterprise</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">API v1 (lectura básica)</div>
+          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Webhooks (hasta 5 activos)</div>
+          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">API v2 completa (lectura + escritura)</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Webhooks ilimitados</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Kit Power BI (queries + vistas + DAX)</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Conector Power Automate</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Notificaciones Microsoft Teams</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">OpenAPI spec completa documentada</div>
+          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUIÉN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Para quién tiene sentido</div>
+        <h2 class="section-title">No todas las empresas necesitan integración desde el día uno</h2>
+        <p class="section-sub">Las integraciones aportan más valor cuando ya tienes un uso consolidado de REELEVO en planta. Primero digitalizas la operación, luego conectas los datos.</p>
+      </div>
+
+      <div class="audience-grid fade-up delay-1">
+        <div class="audience-card audience-yes">
+          <div class="aud-label">Tiene sentido si...</div>
+          <ul>
+            <li>Ya usas Power BI y quieres meter datos reales de producción en tus dashboards</li>
+            <li>Tu ERP gestiona las órdenes de fabricación y quieres evitar la doble entrada de datos</li>
+            <li>El equipo directivo usa Teams y quiere visibilidad de planta sin entrar a otro sistema</li>
+            <li>Tu responsable de calidad necesita informes automáticos para auditorías</li>
+            <li>Tienes un sistema de alertas o notificaciones propio que quieres alimentar con eventos de planta</li>
+          </ul>
+        </div>
+
+        <div class="audience-card audience-no">
+          <div class="aud-label">Todavía no lo necesitas si...</div>
+          <ul>
+            <li>Estás en las primeras semanas de uso de REELEVO — mejor consolidar primero la operación</li>
+            <li>No tienes Power BI ni ERP activo — con el panel de REELEVO tienes la visibilidad que necesitas</li>
+            <li>Eres una empresa pequeña donde el jefe de producción ve todo directamente en el monitor de actividad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NOTA TÉCNICA HONESTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Transparencia técnica</div>
+        <h2 class="section-title">Lo que sí funciona — y lo que requiere configuración</h2>
+      </div>
+
+      <div class="honest-note fade-up delay-1">
+        <p><strong>Lo que funciona out-of-the-box:</strong> Los webhooks y la API v1 están disponibles desde el plan Pro sin configuración técnica especial. El kit de Power BI incluye queries Power Query listas para importar — no necesitas desarrollo. El conector de Power Automate es importable directamente.</p>
+      </div>
+
+      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
+        <p><strong>Lo que requiere algo de trabajo:</strong> La integración con tu ERP específico necesita configuración a medida. Depende de qué ERP uses y de qué datos quieres sincronizar. No es plug-and-play — pero con la API documentada y los webhooks, cualquier desarrollador puede hacerlo en pocas horas. El equipo de REELEVO puede acompañarte en el proceso.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Los datos de tu planta<br><em>donde los necesitas</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Empieza gratis con REELEVO. Cuando tengas la operación digitalizada, conectar Power BI o tu ERP es el siguiente paso natural.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/integracion-m365/" class="btn-ghost">
+        Ver integración Microsoft 365 →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Plan Enterprise disponible · Implementación asistida</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
+
+  /* LAYERS */
+  .integration-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .layer-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+  }
+
+  .layer-card.layer-3 {
+    border-color: rgba(255, 100, 0, 0.35);
+  }
+
+  .layer-badge {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255, 100, 0, 0.1);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+
+  .layer-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .layer-card > p {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+
+  .layer-events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .event-tag {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--gray);
+  }
+
+  .layer-detail {
+    color: var(--gray) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 4px !important;
+  }
+
+  .api-endpoints {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .endpoint-group {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .endpoint-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--orange);
+    min-width: 60px;
+    margin-top: 2px;
+  }
+
+  .endpoint-list {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .m365-tools {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 700px) {
+    .m365-tools { grid-template-columns: 1fr; }
+  }
+
+  .m365-tool {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .tool-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .tool-desc {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+
+  /* USE CASES */
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .use-cases-grid { grid-template-columns: 1fr; }
+  }
+
+  .use-case {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .uc-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+  .use-case h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .use-case p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* PLAN TABLE */
+  .plan-table {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 760px;
+  }
+
+  .plan-row {
+    display: grid;
+    grid-template-columns: 1fr 120px 120px;
+  }
+
+  .plan-row + .plan-row { border-top: 1px solid var(--border); }
+
+  .plan-header .plan-col {
+    padding: 12px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    background: var(--surface);
+    color: var(--gray);
+  }
+
+  .plan-col {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .plan-col + .plan-col { border-left: 1px solid var(--border); }
+
+  .plan-pro, .plan-enterprise {
+    text-align: center;
+  }
+
+  .plan-yes { color: var(--orange); font-weight: 600; text-align: center; }
+  .plan-no { color: rgba(255,255,255,0.2); text-align: center; }
+
+  @media (max-width: 560px) {
+    .plan-row { grid-template-columns: 1fr 80px 80px; }
+    .plan-col { padding: 12px; font-size: 0.82rem; }
+  }
+
+  /* AUDIENCE */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .audience-grid { grid-template-columns: 1fr; }
+  }
+
+  .audience-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .audience-card.audience-yes { border-color: rgba(255, 100, 0, 0.35); }
+
+  .aud-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .audience-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .audience-card ul li {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .audience-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+  }
+
+  /* HONEST NOTE */
+  .honest-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    max-width: 760px;
+  }
+
+  .honest-note p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

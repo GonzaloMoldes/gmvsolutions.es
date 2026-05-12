@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Presentación Comercial para Gerencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E;
+  --od:#C43A10;
+  --text-soft:rgba(255,255,255,.72);
+  --blue:#3B82F6;
+  --green:#22C55E;
+  --amber:#F59E0B;
+}
+body{
+  font-family:'DM Sans',Helvetica,sans-serif;
+  background:#979797;
+  color:#0F172A;
+}
+h1,h2,h3,h4{font-family:'Oswald','Impact',sans-serif;}
+.page{
+  width:210mm;
+  min-height:297mm;
+  background:#fff;
+  margin:0 auto 24px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+@media print{
+  body{background:#fff;}
+  .page{margin:0;page-break-after:always;break-after:page;width:210mm;height:297mm;min-height:297mm;max-height:297mm;}
+  .page:last-child{page-break-after:avoid;break-after:avoid;}
+  @page{size:A4 portrait;margin:0;}
+}
+
+/* ── PORTADA ─────────────────────────────────── */
+.hero{color:#fff;background:#000;}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('../public/reelevo-wallpaper-4k.png');
+  background-size:cover;background-position:center top;
+  filter:brightness(.52);transform:scale(1.02);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(244,82,30,.32) 0%,transparent 48%),
+    linear-gradient(175deg,rgba(5,8,18,.62) 0%,rgba(5,8,18,.82) 60%,rgba(5,8,18,.94) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  padding:9mm 14mm 9mm;
+  height:100%;display:flex;flex-direction:column;
+}
+.top-brand{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:5mm;margin-bottom:5mm;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.brand-logo{width:52mm;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5));}
+.brand-tag{text-align:right;line-height:1.6;}
+.brand-tag strong{
+  display:block;
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:9.5pt;color:rgba(255,255,255,.75);
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.brand-tag span{font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.42);}
+.kicker{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:.15em;
+  color:var(--o);margin-bottom:3mm;font-weight:700;
+}
+.hero h1{
+  font-size:40pt;line-height:.92;max-width:155mm;
+  letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.5);
+  margin-bottom:4mm;
+}
+.hero h1 em{font-style:normal;color:var(--o);}
+.hero .sub{
+  font-size:11pt;line-height:1.56;color:var(--text-soft);
+  max-width:132mm;margin-bottom:5mm;
+}
+.hero-stat-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin-bottom:5mm;
+}
+.hero-stat{
+  border-radius:10px;border:1px solid rgba(244,82,30,.35);
+  background:rgba(0,0,0,.46);padding:3.5mm;backdrop-filter:blur(6px);
+}
+.hero-stat .big-num{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:26pt;color:var(--o);line-height:1;
+}
+.hero-stat h4{font-size:9pt;color:#fff;line-height:1.2;margin-top:1.5mm;margin-bottom:1mm;}
+.hero-stat p{font-size:7.8pt;color:rgba(255,255,255,.70);line-height:1.34;margin:0;}
+.trio-stage{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:14px;padding:4mm;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;margin-bottom:5mm;
+}
+.role-tile{
+  background:rgba(10,10,10,.45);border:1px solid rgba(255,255,255,.11);
+  border-radius:10px;padding:3.5mm;
+}
+.role-tile h3{font-size:11.5pt;color:#fff;line-height:1;margin-top:1.5mm;}
+.role-tile p{font-size:8pt;color:var(--text-soft);line-height:1.42;margin-top:1.2mm;}
+.avatar{width:100%;height:64px;display:block;}
+.hero-flow{
+  margin-top:auto;border-top:1px solid rgba(255,255,255,.16);padding-top:4mm;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;
+}
+.flow-pill{
+  border-radius:999px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);padding:2.5mm;
+  text-align:center;font-size:7.8pt;color:#fff;line-height:1.3;
+}
+
+/* ── SECTION HEADERS ─────────────────────────── */
+.section-head{
+  padding:7.5mm 14mm 5.5mm;position:relative;overflow:hidden;
+}
+.section-head::after{
+  content:'';position:absolute;
+  width:56mm;height:56mm;border-radius:50%;right:-10mm;top:-10mm;
+}
+.section-head .eyebrow{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:.13em;
+  font-weight:700;margin-bottom:2mm;
+}
+.section-head h2{font-size:24pt;line-height:1.03;margin-bottom:2mm;position:relative;z-index:2;}
+.section-head p{font-size:10.5pt;line-height:1.48;max-width:130mm;position:relative;z-index:2;}
+.head-ops{background:linear-gradient(130deg,#F4521E 0%,#D94818 100%);}
+.head-ops::after{background:rgba(255,255,255,.12);}
+.head-ops .eyebrow,.head-ops h2{color:#fff;}
+.head-ops p{color:rgba(255,255,255,.84);}
+.head-sup{background:linear-gradient(130deg,#0F172A 0%,#1E293B 100%);}
+.head-sup::after{border:1px solid rgba(255,255,255,.22);}
+.head-sup .eyebrow{color:var(--o);}
+.head-sup h2{color:#fff;}
+.head-sup p{color:rgba(255,255,255,.75);}
+.head-admin{background:linear-gradient(130deg,#111827 0%,#18212f 100%);}
+.head-admin::after{background:rgba(34,197,94,.14);}
+.head-admin .eyebrow{color:#86EFAC;}
+.head-admin h2{color:#fff;}
+.head-admin p{color:rgba(255,255,255,.75);}
+
+/* ── BODY LAYOUT ─────────────────────────────── */
+.body{padding:4mm 14mm 4mm;display:flex;flex-direction:column;gap:3.2mm;}
+.role-showcase{
+  border-radius:12px;border:1px solid #DFE6EF;background:#F8FAFC;
+  display:grid;grid-template-columns:54mm 1fr;overflow:hidden;
+}
+.portrait-panel{
+  padding:4mm;border-right:1px solid #DFE6EF;
+  background:linear-gradient(165deg,#EEF2F7 0%,#F8FAFC 100%);
+}
+.portrait-panel h3{font-size:12pt;line-height:1;margin-top:2mm;color:#0F172A;}
+.portrait-panel p{font-size:8.3pt;color:#475569;line-height:1.34;margin-top:1.5mm;}
+.big-avatar{width:100%;height:118px;display:block;}
+.pathline{padding:4mm;display:flex;flex-direction:column;gap:2.6mm;}
+.step{display:grid;grid-template-columns:28px 1fr;gap:2.8mm;}
+.marker{display:flex;flex-direction:column;align-items:center;}
+.dot{
+  width:28px;height:28px;border-radius:50%;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald','Impact',sans-serif;font-size:11pt;flex-shrink:0;
+}
+.dot.ops{background:var(--o);}.dot.sup{background:var(--blue);}.dot.admin{background:var(--green);}
+.track{width:2px;flex:1;margin-top:2px;background:linear-gradient(to bottom,#CBD5E1,rgba(203,213,225,.12));}
+.step:last-child .track{display:none;}
+.card{background:#fff;border:1px solid #DFE6EF;border-radius:10px;padding:3.2mm 3.8mm;}
+.card h4{font-size:11pt;color:#0F172A;margin-bottom:1.2mm;}
+.card p{font-size:8.8pt;color:#334155;line-height:1.44;}
+.chips{display:flex;flex-wrap:wrap;gap:1.8mm;margin-top:1.8mm;}
+.chip{font-size:7.5pt;font-weight:700;border-radius:20px;padding:2px 7px;letter-spacing:.02em;}
+.co{background:#FFF1EC;color:#C43A10;}
+.cb{background:#DBEAFE;color:#1D4ED8;}
+.cg{background:#DCFCE7;color:#166534;}
+.ca{background:#FEF3C7;color:#92400E;}
+.scene-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;}
+.scene{border:1px solid #DFE6EF;border-radius:10px;padding:3mm;background:#fff;}
+.scene svg{width:100%;height:66px;display:block;margin-bottom:1.8mm;}
+.scene h4{font-size:10.5pt;color:#0F172A;margin-bottom:1mm;}
+.scene p{font-size:8.4pt;line-height:1.38;color:#475569;}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;}
+.pain-item{border:1px solid #DFE6EF;border-radius:10px;background:#fff;padding:3mm;}
+.pain-item h4{font-size:9.8pt;color:#0F172A;line-height:1.15;margin-bottom:1.2mm;}
+.pain-item p{font-size:8.2pt;line-height:1.34;color:#475569;}
+.pain-item p+p{margin-top:1mm;}
+.pain-label{font-weight:700;color:#B91C1C;}
+.solve-label{font-weight:700;color:#166534;}
+.impact-label{font-weight:700;color:#1D4ED8;}
+.bridge-note{
+  border-radius:10px;background:#0F172A;color:#fff;padding:3.5mm 5mm;
+}
+.bridge-note h3{font-size:12.5pt;margin-bottom:1.5mm;}
+.bridge-note p{font-size:8.8pt;color:rgba(255,255,255,.78);line-height:1.46;}
+.swim{border:1px solid #DFE6EF;border-radius:12px;overflow:hidden;}
+.lane{display:grid;grid-template-columns:42mm 1fr;}
+.lane+.lane{border-top:1px solid #DFE6EF;}
+.lane-label{padding:3.5mm;border-right:1px solid #DFE6EF;}
+.lane-label h4{font-size:11pt;line-height:1;}
+.lane-label p{font-size:7.8pt;line-height:1.3;color:#475569;margin-top:0.8mm;}
+.lane-track{padding:3mm;display:flex;gap:2mm;align-items:stretch;}
+.ev{border:1px solid #D9E0EA;border-radius:8px;padding:2.4mm;flex:1;background:#fff;}
+.ev strong{display:block;font-size:8pt;color:#0F172A;line-height:1.2;margin-bottom:0.8mm;}
+.ev span{display:block;font-size:7.5pt;color:#475569;line-height:1.3;}
+.lane.ops .lane-label{background:#FFF7ED;}
+.lane.sup .lane-label{background:#EFF6FF;}
+.lane.admin .lane-label{background:#F0FDF4;}
+.page-note{
+  margin-top:auto;padding:2.5mm 14mm 4.5mm;font-size:8.2pt;color:#64748B;
+  border-top:1px solid #E2E8F0;display:flex;justify-content:space-between;align-items:center;
+}
+.pg{font-family:'Oswald','Impact',sans-serif;font-size:8pt;letter-spacing:.06em;color:#CBD5E1;}
+
+/* ── ROI PAGE ────────────────────────────────── */
+.roi-page{background:linear-gradient(158deg,#0A0F1E 0%,#111827 100%);}
+.roi-inner{
+  padding:9mm 14mm;display:flex;flex-direction:column;height:100%;color:#fff;
+}
+.roi-eyebrow{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--o);margin-bottom:2mm;font-weight:700;
+}
+.roi-inner h2{font-size:28pt;line-height:.95;letter-spacing:-.02em;margin-bottom:2.5mm;}
+.roi-inner h2 em{font-style:normal;color:var(--o);}
+.roi-sub{font-size:10pt;color:rgba(255,255,255,.70);line-height:1.5;max-width:145mm;margin-bottom:5mm;}
+.cost-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;margin-bottom:5mm;}
+.cost-card{
+  border-radius:12px;border:1px solid rgba(244,82,30,.25);
+  background:rgba(244,82,30,.07);padding:4mm;
+  border-top:3px solid rgba(244,82,30,.55);
+}
+.cost-card h4{font-family:'Oswald','Impact',sans-serif;font-size:11.5pt;color:#fff;line-height:1.15;margin-bottom:2mm;}
+.cost-card .cost-num{
+  font-family:'Oswald','Impact',sans-serif;font-size:24pt;
+  color:#F87171;line-height:1;margin-bottom:1.5mm;
+}
+.cost-card p{font-size:8pt;color:rgba(255,255,255,.65);line-height:1.42;}
+.cost-card p strong{color:#fff;}
+.vs-banner{
+  border-radius:12px;background:rgba(34,197,94,.09);
+  border:1px solid rgba(34,197,94,.28);padding:4mm 5mm;
+  display:grid;grid-template-columns:1fr auto 1fr;gap:4mm;
+  align-items:center;margin-bottom:5mm;
+}
+.vs-col h4{
+  font-family:'Oswald','Impact',sans-serif;font-size:10pt;
+  color:rgba(255,255,255,.50);margin-bottom:2mm;text-transform:uppercase;letter-spacing:.04em;
+}
+.vs-col.problem .num{font-family:'Oswald','Impact',sans-serif;font-size:26pt;color:#F87171;line-height:1;}
+.vs-col.solution .num{font-family:'Oswald','Impact',sans-serif;font-size:26pt;color:#22C55E;line-height:1;}
+.vs-col p{font-size:8.2pt;color:rgba(255,255,255,.62);line-height:1.42;margin-top:1.2mm;}
+.vs-divider{
+  text-align:center;font-family:'Oswald','Impact',sans-serif;
+  font-size:18pt;color:rgba(255,255,255,.28);
+}
+.tl-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-bottom:4.5mm;
+}
+.tl-label-row{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:.12em;
+  color:rgba(255,255,255,.42);margin-bottom:2.5mm;
+}
+.tl-step{
+  border-radius:10px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);padding:3.5mm;
+  position:relative;
+}
+.tl-step::before{
+  content:'';position:absolute;top:-1px;left:0;right:0;height:2px;
+  background:var(--o);border-radius:10px 10px 0 0;
+}
+.tl-week{
+  font-size:8px;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,255,255,.42);margin-bottom:1.5mm;
+}
+.tl-step h4{font-family:'Oswald','Impact',sans-serif;font-size:11pt;color:var(--o);line-height:1;margin-bottom:1.5mm;}
+.tl-step p{font-size:7.8pt;color:rgba(255,255,255,.68);line-height:1.42;}
+.guarantee-box{
+  border-radius:12px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);padding:4mm 5mm;
+  display:flex;align-items:center;gap:5mm;
+}
+.guarantee-badge{
+  width:52px;height:52px;border-radius:50%;background:var(--o);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Oswald','Impact',sans-serif;font-size:10pt;
+  color:#fff;text-align:center;line-height:1.15;
+}
+.guarantee-box h4{font-family:'Oswald','Impact',sans-serif;font-size:13pt;color:#fff;margin-bottom:1.5mm;}
+.guarantee-box p{font-size:8.8pt;color:rgba(255,255,255,.72);line-height:1.46;}
+
+/* ── CLOSING PAGE ─────────────────────────────── */
+.closing{background:#000;color:#fff;position:relative;}
+.closing::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('../public/reelevo-wallpaper-4k.png');
+  background-size:cover;background-position:center bottom;filter:brightness(.58);
+}
+.closing::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 80%,rgba(244,82,30,.24) 0%,transparent 50%),
+    linear-gradient(165deg,rgba(5,8,18,.74) 0%,rgba(5,8,18,.60) 50%,rgba(5,8,18,.90) 100%);
+}
+.closing-inner{
+  position:relative;z-index:2;padding:9mm 14mm 8mm;
+  height:100%;display:flex;flex-direction:column;
+}
+.closing-top-eyebrow{
+  font-size:8.5px;text-transform:uppercase;letter-spacing:.14em;
+  color:rgba(255,255,255,.48);margin-bottom:2.5mm;
+}
+.closing-inner h2{
+  font-size:36pt;line-height:.90;letter-spacing:-.025em;
+  text-shadow:0 2px 18px rgba(0,0,0,.5);margin-bottom:3mm;
+}
+.closing-inner h2 em{font-style:normal;color:var(--o);}
+.closing-sub{
+  font-size:11pt;color:rgba(255,255,255,.78);line-height:1.54;
+  max-width:135mm;margin-bottom:6mm;
+}
+.cta-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;margin-bottom:4mm;}
+.cta-option{
+  border-radius:12px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);padding:4mm;
+  backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:2mm;
+}
+.cta-option.primary{background:var(--o);border-color:var(--o);}
+.cta-num-badge{
+  font-size:8px;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,255,255,.45);
+}
+.cta-option.primary .cta-num-badge{color:rgba(255,255,255,.75);}
+.cta-option h4{font-family:'Oswald','Impact',sans-serif;font-size:12pt;color:#fff;line-height:1.1;}
+.cta-option p{font-size:8.3pt;color:rgba(255,255,255,.70);line-height:1.38;}
+.cta-option.primary p{color:rgba(255,255,255,.88);}
+.cta-action{
+  font-size:8.8pt;font-weight:700;color:#fff;
+  margin-top:auto;padding-top:2.5mm;border-top:1px solid rgba(255,255,255,.18);
+}
+.cta-option.primary .cta-action{border-top-color:rgba(255,255,255,.3);}
+.guarantee-strip{
+  border-radius:10px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);padding:3.5mm 5mm;
+  display:flex;align-items:center;gap:4mm;margin-bottom:5mm;
+}
+.guarantee-strip-badge{
+  width:40px;height:40px;border-radius:50%;background:var(--o);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Oswald','Impact',sans-serif;font-size:8.5pt;
+  color:#fff;text-align:center;line-height:1.15;
+}
+.guarantee-strip p{font-size:8.8pt;color:rgba(255,255,255,.76);line-height:1.46;margin:0;}
+.guarantee-strip p strong{color:#fff;}
+.footer-bottom{
+  margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;
+  gap:5mm;padding-top:4.5mm;border-top:1px solid rgba(255,255,255,.15);
+}
+.footer-logo{display:block;height:auto;width:50mm;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));}
+.footer-contact{display:flex;flex-direction:column;gap:2.5mm;text-align:right;}
+.footer-contact-row{display:flex;flex-direction:column;gap:0.5mm;}
+.contact-label{font-size:7.5px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.40);}
+.contact-value{font-size:10.5pt;font-weight:600;color:#fff;}
+.contact-value.accent{color:var(--o);}
+.footer-copy{font-size:7.8pt;color:rgba(255,255,255,.36);margin-top:1.5mm;text-align:right;}
+
+@media (max-width:900px){
+  .page{width:100%;margin:0;min-height:auto;}
+  .hero-stat-row,.trio-stage,.hero-flow,.pain-grid,.scene-row,.cost-grid,.vs-banner,.tl-row,.cta-options{grid-template-columns:1fr;}
+  .role-showcase{grid-template-columns:1fr;}
+  .portrait-panel{border-right:none;border-bottom:1px solid #DFE6EF;}
+  .lane{grid-template-columns:1fr;}
+  .lane-label{border-right:none;border-bottom:1px solid #DFE6EF;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 1 · PORTADA
+     ══════════════════════════════════════════════ -->
+<div class="page hero">
+  <div class="hero-inner">
+    <div class="top-brand">
+      <img src="../public/reelevo-brand-logo-transparent-shadow.png" alt="Reelevo" class="brand-logo">
+      <div class="brand-tag">
+        <strong>Presentación para Gerencia</strong>
+        <span>Confidencial · Mayo 2026</span>
+      </div>
+    </div>
+
+    <span class="kicker">plataforma de operaciones industriales para pymes</span>
+    <h1>Su empresa no debería depender de que <em>la persona correcta</em> esté siempre presente</h1>
+    <p class="sub">
+      En la mayoría de pymes industriales el conocimiento operativo vive en la cabeza de dos o tres personas clave.
+      Cuando faltan, la línea se frena. Cuando se van, se llevan años de know-how.
+      <strong style="color:#fff;">REELEVO cambia eso.</strong>
+    </p>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="big-num">7,2%</div>
+        <h4>Tasa media de absentismo</h4>
+        <p>1 de cada 14 trabajadores falta cada día. El operario titular no siempre está disponible.</p>
+      </div>
+      <div class="hero-stat">
+        <div class="big-num">3–5</div>
+        <h4>Días hasta autonomía útil</h4>
+        <p>Cada incorporación nueva bloquea al mejor operario para hacer de tutor durante días.</p>
+      </div>
+      <div class="hero-stat">
+        <div class="big-num">40%</div>
+        <h4>Llaman al experto en su baja</h4>
+        <p>Cuatro de cada diez jefes de planta llaman al titular mientras está de baja para desbloquear la línea.</p>
+      </div>
+    </div>
+
+    <div class="trio-stage">
+      <div class="role-tile">
+        <svg class="avatar" viewBox="0 0 240 72" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="238" height="70" rx="10" fill="#111827" stroke="rgba(255,255,255,.18)"/>
+          <circle cx="54" cy="27" r="11" fill="#F8D0B2"/>
+          <path d="M41 27h26v-8c0-7-6-12-13-12s-13 5-13 12z" fill="#F59E0B"/>
+          <rect x="42" y="38" width="24" height="22" rx="6" fill="#F4521E"/>
+          <rect x="92" y="16" width="54" height="40" rx="5" fill="#1F2937"/>
+          <rect x="98" y="22" width="42" height="24" rx="3" fill="#0F172A"/>
+          <rect x="104" y="28" width="10" height="10" fill="#F8FAFC"/>
+          <rect x="116" y="28" width="5" height="5" fill="#F8FAFC"/>
+          <rect x="124" y="34" width="5" height="5" fill="#F8FAFC"/>
+          <rect x="164" y="26" width="54" height="26" rx="4" fill="#F8FAFC"/>
+          <polygon points="184,32 184,45 195,38.5" fill="#F4521E"/>
+        </svg>
+        <h3>Operario</h3>
+        <p>Arranca sin depender de nadie. Cualquier persona produce con el estándar correcto desde el primer día.</p>
+      </div>
+      <div class="role-tile">
+        <svg class="avatar" viewBox="0 0 240 72" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="238" height="70" rx="10" fill="#111827" stroke="rgba(255,255,255,.18)"/>
+          <circle cx="50" cy="24" r="10" fill="#F8D0B2"/>
+          <rect x="38" y="35" width="24" height="24" rx="6" fill="#3B82F6"/>
+          <rect x="78" y="16" width="56" height="42" rx="6" fill="#E2E8F0"/>
+          <rect x="84" y="22" width="44" height="8" rx="3" fill="#CBD5E1"/>
+          <rect x="84" y="34" width="26" height="8" rx="3" fill="#CBD5E1"/>
+          <path d="M112 42l7 7 12-14" stroke="#22C55E" stroke-width="3" fill="none"/>
+          <rect x="154" y="20" width="68" height="34" rx="6" fill="#0F172A"/>
+          <polyline points="161,44 171,36 180,39 190,29 201,33 214,24" stroke="#3B82F6" stroke-width="2.3" fill="none"/>
+        </svg>
+        <h3>Supervisor</h3>
+        <p>Detecta desviaciones antes de que se conviertan en coste. Actúa con criterio común y evidencia.</p>
+      </div>
+      <div class="role-tile">
+        <svg class="avatar" viewBox="0 0 240 72" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="238" height="70" rx="10" fill="#111827" stroke="rgba(255,255,255,.18)"/>
+          <circle cx="46" cy="24" r="10" fill="#F8D0B2"/>
+          <rect x="34" y="35" width="24" height="24" rx="6" fill="#22C55E"/>
+          <rect x="74" y="16" width="148" height="42" rx="6" fill="#0F172A"/>
+          <rect x="82" y="24" width="38" height="12" rx="2" fill="#1E293B"/>
+          <rect x="82" y="40" width="38" height="10" rx="2" fill="#1E293B"/>
+          <rect x="125" y="24" width="25" height="26" rx="2" fill="#1E293B"/>
+          <rect x="155" y="24" width="59" height="26" rx="2" fill="#1E293B"/>
+          <polyline points="160,44 168,37 176,40 185,29 194,33 205,25" stroke="#22C55E" stroke-width="2.4" fill="none"/>
+        </svg>
+        <h3>Usted</h3>
+        <p>Ve lo que pasa en planta, ajusta el proceso y mide el retorno. Sin intermediarios ni interpretaciones.</p>
+      </div>
+    </div>
+
+    <div class="hero-flow">
+      <div class="flow-pill">Continuidad sin depender de personas clave</div>
+      <div class="flow-pill">Incorporaciones más rápidas y baratas</div>
+      <div class="flow-pill">Calidad trazada y retrabajo reducido</div>
+      <div class="flow-pill">Datos reales para decidir con criterio</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 2 · OPERARIO
+     ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-head head-ops">
+    <span class="eyebrow">lo que ocurre en el puesto de trabajo</span>
+    <h2>Cuando falta el titular, la línea no se para</h2>
+    <p>Hoy su empresa depende de que la persona correcta esté presente. Con REELEVO, el proceso vive en la app, no en la cabeza de nadie.</p>
+  </div>
+
+  <div class="body">
+    <div class="role-showcase">
+      <div class="portrait-panel">
+        <svg class="big-avatar" viewBox="0 0 240 126" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="228" height="114" rx="14" fill="#0F172A"/>
+          <circle cx="66" cy="40" r="18" fill="#F8D0B2"/>
+          <path d="M46 40h40v-11c0-10-9-18-20-18s-20 8-20 18z" fill="#F59E0B"/>
+          <rect x="48" y="58" width="36" height="42" rx="10" fill="#F4521E"/>
+          <rect x="104" y="28" width="56" height="72" rx="8" fill="#1E293B"/>
+          <rect x="111" y="35" width="42" height="40" rx="4" fill="#0A0A0A"/>
+          <polygon points="127,48 127,63 140,55.5" fill="#F4521E"/>
+          <rect x="169" y="44" width="54" height="40" rx="6" fill="#E2E8F0"/>
+          <rect x="176" y="51" width="13" height="13" fill="#0F172A"/>
+          <rect x="191" y="51" width="7" height="7" fill="#0F172A"/>
+          <rect x="200" y="58" width="7" height="7" fill="#0F172A"/>
+        </svg>
+        <h3>Cualquier persona, cualquier turno</h3>
+        <p>El sustituto escanea el QR del puesto y accede al proceso correcto. Sin llamadas, sin buscar a quién preguntar, sin errores de arranque.</p>
+      </div>
+      <div class="pathline">
+        <div class="step">
+          <div class="marker"><div class="dot ops">1</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Escaneo QR en máquina</h4>
+            <p>El QR abre la tarea exacta del puesto: producto, versión y criterios de ese día. Cero ambigüedad, cero dependencia del titular.</p>
+            <div class="chips"><span class="chip co">sin buscar a nadie</span><span class="chip cb">orden correcta</span><span class="chip cg">trazabilidad total</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot ops">2</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Instrucciones en vídeo, paso a paso</h4>
+            <p>Su mejor operario deja de ser tutor de cada alta nueva. El vídeo hace ese trabajo y libera a su gente para producir.</p>
+            <div class="chips"><span class="chip co">su experto no pierde tiempo</span><span class="chip ca">estándar siempre presente</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot ops">3</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Registro automático de lo producido</h4>
+            <p>Cada pieza queda ligada a quién la hizo, en qué máquina y cuándo. Ante una auditoría o reclamación, usted tiene la respuesta en segundos.</p>
+            <div class="chips"><span class="chip cg">trazabilidad sin papel</span><span class="chip cb">respuesta ante clientes</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot ops">4</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Corrección inmediata antes de que el error escale</h4>
+            <p>Si algo no está bien, el aviso llega al puesto en el mismo momento. El problema no avanza en la cadena ni llega al cliente.</p>
+            <div class="chips"><span class="chip ca">coste contenido</span><span class="chip co">error no repetido</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-item">
+        <h4>«Javi está de baja. ¿Quién arranca la llenadora?»</h4>
+        <p><span class="pain-label">Coste real:</span> 2 a 4 horas de línea parada buscando quién sabe arrancarla.</p>
+        <p><span class="solve-label">Con REELEVO:</span> cualquier persona escanea el QR y sigue el proceso correcto.</p>
+        <p><span class="impact-label">Resultado:</span> la línea arranca aunque el titular no esté disponible.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«Es su primer día. Alguien tiene que enseñarle.»</h4>
+        <p><span class="pain-label">Coste real:</span> su mejor operario pierde días de producción haciendo de tutor.</p>
+        <p><span class="solve-label">Con REELEVO:</span> el vídeo guiado hace el trabajo de formación inicial.</p>
+        <p><span class="impact-label">Resultado:</span> incorporación más rápida con menos dependencia interna.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«Cada turno lo hace a su manera.»</h4>
+        <p><span class="pain-label">Coste real:</span> variabilidad entre turnos que se traduce en retrabajo y reclamaciones.</p>
+        <p><span class="solve-label">Con REELEVO:</span> el estándar es único, visible y actualizable al instante.</p>
+        <p><span class="impact-label">Resultado:</span> menos piezas malas, menos coste de corrección.</p>
+      </div>
+    </div>
+
+    <div class="scene-row">
+      <div class="scene">
+        <svg viewBox="0 0 220 74" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="22" width="70" height="44" rx="6" fill="#E2E8F0"/>
+          <rect x="20" y="32" width="16" height="16" fill="#0F172A"/>
+          <rect x="38" y="32" width="8" height="8" fill="#0F172A"/>
+          <rect x="48" y="40" width="8" height="8" fill="#0F172A"/>
+          <circle cx="114" cy="22" r="9" fill="#F8D0B2"/>
+          <path d="M104 22h20v-6c0-5-4-9-10-9s-10 4-10 9z" fill="#F59E0B"/>
+          <rect x="104" y="33" width="20" height="24" rx="5" fill="#F4521E"/>
+          <rect x="146" y="30" width="66" height="34" rx="5" fill="#0F172A"/>
+        </svg>
+        <h4>El sustituto no improvisa</h4>
+        <p>Escanea el QR del puesto y la app le dice exactamente qué hacer. Sin llamadas al titular.</p>
+      </div>
+      <div class="scene">
+        <svg viewBox="0 0 220 74" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="10" width="62" height="54" rx="7" fill="#0F172A"/>
+          <rect x="20" y="16" width="50" height="36" rx="4" fill="#1E293B"/>
+          <polygon points="39,28 39,42 51,35" fill="#F4521E"/>
+          <rect x="88" y="14" width="118" height="11" rx="5" fill="#E2E8F0"/>
+          <rect x="88" y="31" width="94" height="11" rx="5" fill="#E2E8F0"/>
+          <rect x="88" y="48" width="76" height="11" rx="5" fill="#E2E8F0"/>
+        </svg>
+        <h4>El estándar está en la pantalla</h4>
+        <p>El vídeo de proceso reemplaza al tutor humano. Su gente aprende más rápido y con menos errores.</p>
+      </div>
+      <div class="scene">
+        <svg viewBox="0 0 220 74" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="20" width="80" height="44" rx="6" fill="#E2E8F0"/>
+          <rect x="104" y="20" width="104" height="44" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <path d="M124 43l10 10 18-20" stroke="#22C55E" stroke-width="4" fill="none"/>
+          <circle cx="52" cy="17" r="9" fill="#F8D0B2"/>
+          <path d="M42 17h20v-6c0-5-4-9-10-9s-10 4-10 9z" fill="#F59E0B"/>
+        </svg>
+        <h4>Cada pieza deja huella digital</h4>
+        <p>Quién la hizo, cuándo y en qué máquina. Trazabilidad total sin papeleo extra.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <span>Para el gerente: menos llamadas de emergencia, onboarding más corto y coste oculto de ausencias reducido desde el primer mes.</span>
+    <span class="pg">2 / 6</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 3 · SUPERVISOR
+     ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-head head-sup">
+    <span class="eyebrow">lo que ocurre en el control de calidad</span>
+    <h2>Cada pieza rechazada que no se detecta a tiempo cuesta más de lo que parece</h2>
+    <p>El retrabajo, las reclamaciones de cliente y las paradas de línea tienen un origen común: la calidad se gestiona tarde y a ojo. REELEVO la pone en tiempo real.</p>
+  </div>
+
+  <div class="body">
+    <div class="role-showcase">
+      <div class="portrait-panel">
+        <svg class="big-avatar" viewBox="0 0 240 126" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="228" height="114" rx="14" fill="#0F172A"/>
+          <circle cx="64" cy="36" r="17" fill="#F8D0B2"/>
+          <rect x="48" y="54" width="32" height="40" rx="9" fill="#3B82F6"/>
+          <rect x="98" y="20" width="60" height="82" rx="8" fill="#E2E8F0"/>
+          <rect x="106" y="30" width="44" height="9" rx="3" fill="#CBD5E1"/>
+          <rect x="106" y="44" width="30" height="9" rx="3" fill="#CBD5E1"/>
+          <rect x="106" y="58" width="40" height="9" rx="3" fill="#CBD5E1"/>
+          <path d="M132 79l8 8 14-16" stroke="#22C55E" stroke-width="3.6" fill="none"/>
+          <rect x="166" y="34" width="56" height="46" rx="7" fill="#1E293B"/>
+          <polyline points="172,69 180,58 189,63 198,50 208,55 216,44" stroke="#3B82F6" stroke-width="2.6" fill="none"/>
+        </svg>
+        <h3>Control de calidad sin fricciones</h3>
+        <p>El supervisor recibe en pantalla lo que necesita revisar, priorizado por riesgo. No busca, no pregunta: actúa sobre lo que importa.</p>
+      </div>
+      <div class="pathline">
+        <div class="step">
+          <div class="marker"><div class="dot sup">1</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Revisión enfocada en lo que más cuesta fallar</h4>
+            <p>La app prioriza automáticamente: primero las piezas con más riesgo de reclamación o coste. Sin depender del criterio del día.</p>
+            <div class="chips"><span class="chip cb">prioridad por riesgo</span><span class="chip ca">sin revisión a ciegas</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot sup">2</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Decisión con evidencia, no con intuición</h4>
+            <p>Cada aprobación o rechazo queda firmado digitalmente con criterio, foto y responsable. Ante un cliente o auditoría, tiene la respuesta documentada.</p>
+            <div class="chips"><span class="chip cg">calidad auditable</span><span class="chip cb">responsabilidad clara</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot sup">3</div><div class="track"></div></div>
+          <div class="card">
+            <h4>La corrección llega al puesto en el acto</h4>
+            <p>No hay llamadas, no hay WhatsApps, no hay papeles. La instrucción de corrección aparece directamente en el dispositivo del operario.</p>
+            <div class="chips"><span class="chip co">sin ruido de comunicación</span><span class="chip cb">resolución en minutos</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot sup">4</div><div class="track"></div></div>
+          <div class="card">
+            <h4>El mismo error no vuelve a costar dos veces</h4>
+            <p>Se registra la causa raíz y se ajusta el estándar. La próxima persona que haga ese proceso ya tiene la corrección incorporada.</p>
+            <div class="chips"><span class="chip cg">conocimiento que no se pierde</span><span class="chip ca">coste de calidad a la baja</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-item">
+        <h4>«Salió un lote defectuoso y no sabemos quién lo hizo.»</h4>
+        <p><span class="pain-label">Coste real:</span> reclamación de cliente, retrabajo y reputación deteriorada.</p>
+        <p><span class="solve-label">Con REELEVO:</span> cada pieza tiene operario, máquina, hora y evidencia asociados.</p>
+        <p><span class="impact-label">Resultado:</span> responde a cualquier reclamación con datos en segundos.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«Le dijeron cómo corregirlo pero nadie lo escribió.»</h4>
+        <p><span class="pain-label">Coste real:</span> el mismo error vuelve la semana siguiente con el turno de noche.</p>
+        <p><span class="solve-label">Con REELEVO:</span> la corrección queda en la app y llega al siguiente operario automáticamente.</p>
+        <p><span class="impact-label">Resultado:</span> el error no se repite porque el estándar ya está corregido.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«El retrabajo de este mes ha disparado los costes.»</h4>
+        <p><span class="pain-label">Coste real:</span> entre un 5 y un 15% de la producción se va en corrección en muchas pymes.</p>
+        <p><span class="solve-label">Con REELEVO:</span> detección temprana y estándar único reducen la tasa de desvío.</p>
+        <p><span class="impact-label">Resultado:</span> menos coste de no calidad, más margen por unidad producida.</p>
+      </div>
+    </div>
+
+    <div class="bridge-note">
+      <h3>Lo que esto significa para usted como gerente</h3>
+      <p>Cada rechazo evitado es margen recuperado. Cada incidencia cerrada con aprendizaje es un fallo menos que repetir.
+      Y cada decisión de calidad documentada es un respaldo ante clientes, auditores o certificaciones.
+      REELEVO convierte la calidad en un activo gestionable, no en una fuente permanente de fuego que apagar.</p>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <span>Para el gerente: menos reclamaciones de cliente, menos coste de retrabajo y calidad que se puede auditar y certificar.</span>
+    <span class="pg">3 / 6</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 4 · GERENTE
+     ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-head head-admin">
+    <span class="eyebrow">lo que usted como gerente puede ver y decidir</span>
+    <h2>Por primera vez, tendrá una visión real de lo que ocurre en su planta</h2>
+    <p>Sin hojas de cálculo. Sin esperar el parte del turno. Sin llamar al jefe de planta para saber si el día va bien. Los datos están en tiempo real y usted puede actuar.</p>
+  </div>
+
+  <div class="body">
+    <div class="role-showcase">
+      <div class="portrait-panel">
+        <svg class="big-avatar" viewBox="0 0 240 126" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="228" height="114" rx="14" fill="#0F172A"/>
+          <circle cx="60" cy="36" r="17" fill="#F8D0B2"/>
+          <rect x="44" y="54" width="32" height="40" rx="9" fill="#22C55E"/>
+          <rect x="92" y="22" width="132" height="80" rx="10" fill="#111827"/>
+          <rect x="100" y="30" width="36" height="18" rx="3" fill="#1E293B"/>
+          <rect x="100" y="54" width="36" height="16" rx="3" fill="#1E293B"/>
+          <rect x="100" y="74" width="36" height="18" rx="3" fill="#1E293B"/>
+          <rect x="142" y="30" width="30" height="28" rx="3" fill="#1E293B"/>
+          <rect x="176" y="30" width="40" height="28" rx="3" fill="#1E293B"/>
+          <rect x="142" y="64" width="74" height="28" rx="3" fill="#1E293B"/>
+          <polyline points="146,86 156,75 164,79 174,68 183,73 194,61 208,67" stroke="#22C55E" stroke-width="2.6" fill="none"/>
+        </svg>
+        <h3>Su cuadro de mando operativo</h3>
+        <p>Un panel con cumplimiento de estándar, tiempos de ciclo, incidencias abiertas y comparativa entre turnos. Sin intermediarios, sin retrasos.</p>
+      </div>
+      <div class="pathline">
+        <div class="step">
+          <div class="marker"><div class="dot admin">1</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Ve dónde se va el dinero sin que nadie se lo diga</h4>
+            <p>Tiempos de ciclo reales, incidencias por línea, turnos con más retrabajo. Por primera vez, los datos llegan a usted antes que los problemas.</p>
+            <div class="chips"><span class="chip cg">visión de negocio</span><span class="chip cb">datos sin filtros</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot admin">2</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Controla quién puede cambiar qué y cuándo</h4>
+            <p>Usted decide quién aprueba nuevos procesos, quién puede modificar una instrucción y qué cambios necesitan su validación. La gobernanza es suya.</p>
+            <div class="chips"><span class="chip cg">control directivo</span><span class="chip co">sin cambios no autorizados</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot admin">3</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Una decisión suya llega a todos los puestos de inmediato</h4>
+            <p>Cuando aprueba un cambio de proceso, todos los operarios lo ven en su siguiente turno. No hay versiones distintas, no hay desinformación.</p>
+            <div class="chips"><span class="chip co">ejecución de estrategia</span><span class="chip cg">toda la planta alineada</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="marker"><div class="dot admin">4</div><div class="track"></div></div>
+          <div class="card">
+            <h4>Sabe exactamente si la mejora funcionó o no</h4>
+            <p>Antes y después medido. Scrap, retrabajo, tiempos de ciclo. Si la inversión no genera retorno, lo verá antes de que sea tarde para corregir.</p>
+            <div class="chips"><span class="chip cg">ROI medible</span><span class="chip ca">decisión con datos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-item">
+        <h4>«Tomo decisiones pero no tengo datos fiables del día a día.»</h4>
+        <p><span class="pain-label">Coste real:</span> decisiones estratégicas apoyadas en partes de turno subjetivos o memoria del jefe de planta.</p>
+        <p><span class="solve-label">Con REELEVO:</span> KPI de operación y calidad en tiempo real, sin intermediarios.</p>
+        <p><span class="impact-label">Resultado:</span> usted decide con hechos, no con percepciones.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«Cambiamos el proceso pero en planta lo siguen haciendo igual.»</h4>
+        <p><span class="pain-label">Coste real:</span> mejoras aprobadas que no se implementan porque no hay canal fiable para llevarlas al puesto.</p>
+        <p><span class="solve-label">Con REELEVO:</span> usted publica el cambio y llega a todos los puestos en el siguiente turno.</p>
+        <p><span class="impact-label">Resultado:</span> su empresa ejecuta lo que usted decide, no lo que cada uno recuerda.</p>
+      </div>
+      <div class="pain-item">
+        <h4>«Hacemos cosas para mejorar, pero no sabemos si funcionan.»</h4>
+        <p><span class="pain-label">Coste real:</span> inversiones en formación y proceso sin retorno medido ni criterio de éxito.</p>
+        <p><span class="solve-label">Con REELEVO:</span> comparativa de KPI antes y después de cada acción.</p>
+        <p><span class="impact-label">Resultado:</span> sabe qué funciona y dónde poner el siguiente euro.</p>
+      </div>
+    </div>
+
+    <div class="swim">
+      <div class="lane ops">
+        <div class="lane-label"><h4>Operario</h4><p>produce con estándar</p></div>
+        <div class="lane-track">
+          <div class="ev"><strong>QR en puesto</strong><span>Arranca sin depender del titular.</span></div>
+          <div class="ev"><strong>Vídeo SOP</strong><span>Ejecuta con el proceso correcto.</span></div>
+          <div class="ev"><strong>Registro</strong><span>Trazabilidad automática de pieza.</span></div>
+        </div>
+      </div>
+      <div class="lane sup">
+        <div class="lane-label"><h4>Supervisor</h4><p>controla calidad</p></div>
+        <div class="lane-track">
+          <div class="ev"><strong>Alerta prioritaria</strong><span>Detecta desvíos antes de que escalen.</span></div>
+          <div class="ev"><strong>Evidencia digital</strong><span>Aprueba o rechaza con criterio.</span></div>
+          <div class="ev"><strong>Corrección</strong><span>Llega al operario en el acto.</span></div>
+        </div>
+      </div>
+      <div class="lane admin">
+        <div class="lane-label"><h4>Gerente</h4><p>decide con datos</p></div>
+        <div class="lane-track">
+          <div class="ev"><strong>KPI en tiempo real</strong><span>Ve dónde se pierde margen.</span></div>
+          <div class="ev"><strong>Aprueba cambios</strong><span>La mejora llega a todos los puestos.</span></div>
+          <div class="ev"><strong>Mide retorno</strong><span>Confirma que la acción funcionó.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-note">
+    <span>Para el gerente: un circuito cerrado donde cada problema se detecta, corrige y no vuelve a ocurrir. Todo en la misma plataforma, desde 49€/mes.</span>
+    <span class="pg">4 / 6</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 5 · ROI Y DECISIÓN (NUEVA)
+     ══════════════════════════════════════════════ -->
+<div class="page roi-page">
+  <div class="roi-inner">
+    <div class="roi-eyebrow">los números de su decisión</div>
+    <h2>¿Cuánto le está costando el problema <em>cada mes?</em></h2>
+    <p class="roi-sub">Antes de valorar si 49€/mes es mucho o poco, calcule lo que ya está pagando sin saberlo. Estos son costes reales en una pyme industrial media de 15 a 30 operarios.</p>
+
+    <div class="cost-grid">
+      <div class="cost-card">
+        <h4>Absentismo no cubierto</h4>
+        <div class="cost-num">2.400€+</div>
+        <p>Con 7,2% de absentismo y 20 operarios, pierde ~5 jornadas/semana.
+        A 120€/jornada: <strong>más de 2.400€ mensuales</strong> en productividad no recuperada por falta de relevo autónomo.</p>
+      </div>
+      <div class="cost-card">
+        <h4>Onboarding con tutor humano</h4>
+        <div class="cost-num">40 días</div>
+        <p>Cada alta nueva bloquea a su mejor operario 3–5 días.
+        Con 8 incorporaciones al año: hasta <strong>40 días perdidos</strong> de la persona más valiosa de su planta haciendo de profesor.</p>
+      </div>
+      <div class="cost-card">
+        <h4>Retrabajo y no calidad</h4>
+        <div class="cost-num">5–15%</div>
+        <p>De la producción mensual se va en corrección en muchas pymes.
+        En 10.000 piezas a 15€/ud: hasta <strong>22.500€/mes</strong> en coste de no calidad que nadie contabiliza como tal.</p>
+      </div>
+    </div>
+
+    <div class="vs-banner">
+      <div class="vs-col problem">
+        <h4>Sin REELEVO</h4>
+        <div class="num">Miles €/mes</div>
+        <p>en costes ocultos de absentismo, retrabajo, onboarding y errores que se repiten. Difíciles de ver, imposibles de ignorar cuando se suman.</p>
+      </div>
+      <div class="vs-divider">VS</div>
+      <div class="vs-col solution">
+        <h4>Con REELEVO</h4>
+        <div class="num">49€/mes</div>
+        <p>precio fijo por empresa, sin coste por operario ni por número de procesos. Arranque en 1 semana con implantación asistida uno a uno.</p>
+      </div>
+    </div>
+
+    <div class="tl-label-row">Plan de arranque — sin grandes implantaciones</div>
+    <div class="tl-row">
+      <div class="tl-step">
+        <div class="tl-week">Semana 1</div>
+        <h4>Configuración</h4>
+        <p>Instalamos los QR y grabamos los 2–3 procesos más críticos con su equipo.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-week">Semana 2</div>
+        <h4>Primeras operaciones</h4>
+        <p>Los operarios usan la app en producción real. Ajustes en directo con su equipo.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-week">Mes 1</div>
+        <h4>Primeros datos</h4>
+        <p>KPI iniciales, comparativa antes/después y optimización del estándar.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-week">Mes 3</div>
+        <h4>ROI medible</h4>
+        <p>Usted decide si escalar al resto de procesos con datos reales en la mano.</p>
+      </div>
+    </div>
+
+    <div class="guarantee-box">
+      <div class="guarantee-badge">30<br>días</div>
+      <div>
+        <h4>Garantía de resultado o le devolvemos el mes</h4>
+        <p>Si en 30 días no percibe una mejora operativa tangible en los procesos implantados, le devolvemos el primer mes sin preguntas.
+        Porque estamos seguros de que lo verá mucho antes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PÁGINA 6 · CIERRE Y CTA
+     ══════════════════════════════════════════════ -->
+<div class="page closing">
+  <div class="closing-inner">
+    <div style="max-width:152mm;margin-bottom:5mm;">
+      <p class="closing-top-eyebrow">el siguiente paso</p>
+      <h2>Su planta puede funcionar<br>sin depender de <em>nadie concreto.</em></h2>
+      <p class="closing-sub">
+        REELEVO está diseñado para arrancar en una semana, empezando por los dos o tres procesos donde más le duele la dependencia de personas clave.
+        Sin grandes implantaciones. Sin cambiar lo que ya funciona. Sin riesgo.
+      </p>
+    </div>
+
+    <div class="cta-options">
+      <div class="cta-option primary">
+        <span class="cta-num-badge">Opción 01 · Recomendada</span>
+        <h4>Demo en 30 minutos</h4>
+        <p>Le mostramos REELEVO con un proceso real de su sector. Usted pregunta, nosotros respondemos. Sin compromiso.</p>
+        <div class="cta-action">Escríbanos → hola@gmvsolutions.es</div>
+      </div>
+      <div class="cta-option">
+        <span class="cta-num-badge">Opción 02</span>
+        <h4>Piloto gratuito 30 días</h4>
+        <p>Arrancamos en 1 o 2 de sus procesos críticos sin coste. Usted ve el resultado antes de comprometerse a nada.</p>
+        <div class="cta-action">Solicitar → gmvsolutions.es</div>
+      </div>
+      <div class="cta-option">
+        <span class="cta-num-badge">Opción 03</span>
+        <h4>Le llamamos cuando prefiera</h4>
+        <p>Envíenos su nombre y el mejor horario. Nos adaptamos a su agenda para resolver sus dudas sin presión.</p>
+        <div class="cta-action">Contactar → hola@gmvsolutions.es</div>
+      </div>
+    </div>
+
+    <div class="guarantee-strip">
+      <div class="guarantee-strip-badge">30<br>días</div>
+      <p><strong>Sin riesgo: garantía de satisfacción 30 días.</strong>
+      Si en el primer mes no percibe una mejora operativa tangible, le devolvemos el importe íntegro. Punto.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <img src="../public/reelevo-brand-logo-transparent-shadow.png" alt="Reelevo" class="footer-logo">
+      <div class="footer-contact">
+        <div class="footer-contact-row">
+          <span class="contact-label">Email comercial</span>
+          <span class="contact-value accent">hola@gmvsolutions.es</span>
+        </div>
+        <div class="footer-contact-row">
+          <span class="contact-label">Web</span>
+          <span class="contact-value">gmvsolutions.es</span>
+        </div>
+        <span class="footer-copy">REELEVO by GMV Solutions · Presentación Confidencial · Mayo 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

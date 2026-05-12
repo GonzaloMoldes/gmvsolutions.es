@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Presentación de Ventas para Pymes Industriales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ────────────────────────────────────────────────
+   BASE — compartido
+   ──────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E; --od:#C43A10;
+  --navy:#0A0F1E; --warm:#1C1008;
+  --g:#22C55E; --b:#3B82F6;
+  --text:#1A0F07; --muted:#64748B; --line:#E2E8F0;
+}
+body{font-family:'DM Sans',Helvetica,sans-serif;background:#7a7a7a;color:var(--text);}
+h1,h2,h3,h4{font-family:'Oswald','Impact',sans-serif;}
+
+.page{
+  width:210mm;min-height:297mm;
+  margin:0 auto 24px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+@media print{
+  body{background:#fff;}
+  .page{margin:0;page-break-after:always;break-after:page;
+        width:210mm;height:297mm;min-height:297mm;max-height:297mm;}
+  .page:last-child{page-break-after:avoid;break-after:avoid;}
+  @page{size:A4 portrait;margin:0;}
+}
+
+/* Shared text utilities */
+.eyebrow{
+  font-size:8px;text-transform:uppercase;letter-spacing:.18em;
+  font-weight:700;margin-bottom:2.5mm;display:block;
+}
+.pg{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:8pt;letter-spacing:.08em;
+}
+
+
+/* ════════════════════════════════════════════════
+   P1 · PORTADA (fondo oscuro / wallpaper)
+   Instrucción al diseñador: portada impactante. El lector
+   debe detenerse en la pregunta. Nada de adornos. La
+   foto de fondo apenas visible — el texto manda.
+   ════════════════════════════════════════════════ */
+.p1{background:var(--navy);}
+.p1-bg{
+  position:absolute;inset:0;
+  background-image:url('../public/reelevo-wallpaper-4k.png');
+  background-size:cover;background-position:center 40%;
+  filter:brightness(.30);
+}
+.p1-veil{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 90% 0%,rgba(244,82,30,.50) 0%,transparent 52%),
+    linear-gradient(180deg,rgba(10,15,30,.50) 0%,rgba(10,15,30,.97) 100%);
+}
+.p1-in{
+  position:relative;z-index:2;
+  padding:9mm 13mm 9mm;
+  height:100%;display:flex;flex-direction:column;
+}
+.p1-topbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:5mm;margin-bottom:7mm;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.p1-topbar img{width:46mm;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));}
+.p1-topbar-meta{text-align:right;line-height:1.7;}
+.p1-topbar-meta strong{
+  display:block;font-family:'Oswald','Impact',sans-serif;
+  font-size:9pt;color:rgba(255,255,255,.65);
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.p1-topbar-meta span{font-size:7.5px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.32);}
+
+.p1-eyebrow{color:var(--o);}
+.p1 h1{
+  font-size:38pt;line-height:.88;letter-spacing:-.03em;
+  color:#fff;max-width:155mm;
+  text-shadow:0 4px 30px rgba(0,0,0,.7);
+  margin-bottom:5mm;margin-top:3mm;
+}
+.p1 h1 em{font-style:normal;color:var(--o);}
+.p1-hook{
+  font-size:12pt;color:rgba(255,255,255,.72);line-height:1.6;
+  max-width:120mm;margin-bottom:8mm;
+  border-left:3px solid var(--o);padding-left:5mm;
+}
+.p1-proof{
+  display:flex;gap:4mm;margin-top:auto;
+  padding-top:5mm;border-top:1px solid rgba(255,255,255,.10);
+}
+.p1-pill{
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
+  padding:2.5mm 4mm;
+  font-size:8.2pt;color:rgba(255,255,255,.80);
+  line-height:1.3;
+}
+.p1-pill strong{display:block;font-family:'Oswald','Impact',sans-serif;font-size:13pt;color:var(--o);line-height:1;}
+
+
+/* ════════════════════════════════════════════════
+   P2 · LOS 3 DOLORES (fondo oscuro cálido)
+   Instrucción al diseñador: el fondo debe ser oscuro
+   pero cálido — marrón-carbón, como brasas. Nada de
+   azul marino. El lector debe sentir una incomodidad
+   sutil. No agresivo, pero tampoco cómodo.
+   Tres tarjetas de dolor, apiladas, con acento rojo.
+   ════════════════════════════════════════════════ */
+.p2{background:linear-gradient(158deg,#170D06 0%,#2C1A0A 100%);color:#fff;}
+.p2-in{padding:8mm 13mm;display:flex;flex-direction:column;height:100%;}
+.p2-eyebrow{color:var(--o);}
+.p2 h2{
+  font-size:25pt;line-height:.95;letter-spacing:-.02em;
+  color:#fff;margin-bottom:1.5mm;margin-top:2mm;
+}
+.p2 h2 em{font-style:normal;color:rgba(248,113,113,1);}
+.p2-sub{
+  font-size:10pt;color:rgba(255,255,255,.60);line-height:1.5;
+  max-width:140mm;margin-bottom:5mm;
+}
+.dolor-cards{display:flex;flex-direction:column;gap:3.5mm;flex:1;}
+.dolor{
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-left:3px solid rgba(248,113,113,.70);
+  overflow:hidden;
+  display:grid;grid-template-columns:1fr 52mm;
+}
+.dolor-body{padding:3.8mm 4mm;}
+.dolor-tag{
+  font-size:7.5px;text-transform:uppercase;letter-spacing:.13em;
+  color:rgba(248,113,113,.80);font-weight:700;margin-bottom:1.5mm;
+}
+.dolor h3{
+  font-size:12.5pt;color:#fff;line-height:1.05;
+  margin-bottom:2mm;
+}
+.dolor p{font-size:8.5pt;color:rgba(255,255,255,.68);line-height:1.50;}
+.dolor-peor{
+  margin-top:2mm;font-size:8pt;
+  color:rgba(248,113,113,.85);font-style:italic;line-height:1.4;
+}
+.dolor-right{
+  padding:3.8mm 4mm;
+  background:rgba(0,0,0,.25);
+  border-left:1px solid rgba(255,255,255,.07);
+  display:flex;flex-direction:column;justify-content:center;gap:2.5mm;
+}
+.dolor-cost-label{
+  font-size:7.5px;text-transform:uppercase;letter-spacing:.12em;
+  color:rgba(248,113,113,.65);font-weight:700;
+}
+.dolor-cost-num{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:22pt;color:#F87171;line-height:1;
+}
+.dolor-cost-desc{font-size:7.8pt;color:rgba(255,255,255,.52);line-height:1.38;}
+.p2-pgfooter{
+  margin-top:4mm;padding-top:3mm;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.p2-pgfooter span{font-size:8pt;color:rgba(255,255,255,.28);}
+.p2-pgfooter .pg{color:rgba(255,255,255,.28);}
+
+
+/* ════════════════════════════════════════════════
+   P3 · LA TRANSFORMACIÓN (blanco, mucho aire)
+   Instrucción al diseñador: esta es la página más
+   importante emocionalmente. Blanco puro. Aire.
+   Espacio en blanco es el diseño. Las tarjetas son
+   limpias, con borde verde en la parte superior.
+   El lector debe DESEAR lo que ve aquí.
+   ════════════════════════════════════════════════ */
+.p3{background:#fff;}
+.p3-head{
+  background:linear-gradient(132deg,#0A0F1E 0%,#1E293B 100%);
+  padding:7mm 13mm 6mm;position:relative;overflow:hidden;
+}
+.p3-head::before{
+  content:'';position:absolute;right:-15mm;top:-15mm;
+  width:60mm;height:60mm;border-radius:50%;
+  border:1px solid rgba(34,197,94,.22);
+}
+.p3-head::after{
+  content:'';position:absolute;right:-5mm;bottom:-15mm;
+  width:38mm;height:38mm;border-radius:50%;
+  background:rgba(34,197,94,.08);
+}
+.p3-eyebrow{color:var(--g);}
+.p3-head h2{
+  font-size:24pt;color:#fff;line-height:.98;
+  margin-top:2mm;margin-bottom:2mm;position:relative;z-index:2;
+}
+.p3-head p{
+  font-size:10pt;color:rgba(255,255,255,.70);line-height:1.52;
+  max-width:136mm;position:relative;z-index:2;
+}
+.p3-body{padding:5mm 13mm;flex:1;display:flex;flex-direction:column;gap:3.5mm;}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;}
+.vision{
+  border-radius:12px;border:1px solid #E2E8F0;
+  background:#FAFCFF;padding:4mm;
+  border-top:3px solid var(--g);
+}
+.vision-num{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:30pt;color:rgba(34,197,94,.18);line-height:1;
+  margin-bottom:1.5mm;
+}
+.vision h3{font-size:12.5pt;color:#0A0F1E;line-height:1.1;margin-bottom:2mm;}
+.vision h3 em{font-style:normal;color:var(--g);}
+.vision p{font-size:8.8pt;color:#475569;line-height:1.50;}
+.vision-impact{
+  margin-top:2.5mm;font-size:8pt;font-weight:700;
+  color:var(--g);display:flex;align-items:flex-start;gap:2mm;
+}
+.vision-impact::before{content:'✓';flex-shrink:0;}
+.p3-bridge{
+  border-radius:10px;background:#F0FDF4;
+  border:1px solid #BBF7D0;padding:3.5mm 4.5mm;
+  display:flex;align-items:center;gap:4mm;
+}
+.p3-bridge-icon{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--g);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.p3-bridge p{font-size:9pt;color:#14532D;line-height:1.50;}
+.p3-bridge p strong{color:#052E16;}
+.p3-pgfooter{
+  padding:2.5mm 13mm 4.5mm;font-size:8.2pt;color:#CBD5E1;
+  border-top:1px solid #F1F5F9;display:flex;justify-content:space-between;
+}
+
+
+/* ════════════════════════════════════════════════
+   P4 · CÓMO LO RESUELVE (blanco, estructurado)
+   Instrucción al diseñador: aquí le damos al comprador
+   la justificación lógica que necesita para decir sí.
+   Tres pilares claros. Un flujo simple. Nada de jerga
+   técnica. Que se entienda en 60 segundos.
+   ════════════════════════════════════════════════ */
+.p4{background:#fff;}
+.p4-head{
+  background:linear-gradient(132deg,var(--o) 0%,var(--od) 100%);
+  padding:6.5mm 13mm 5.5mm;position:relative;overflow:hidden;
+}
+.p4-head::after{
+  content:'';position:absolute;right:-12mm;top:-12mm;
+  width:52mm;height:52mm;border-radius:50%;
+  background:rgba(255,255,255,.10);
+}
+.p4-eyebrow{color:rgba(255,255,255,.68);}
+.p4-head h2{font-size:23pt;color:#fff;line-height:1.02;margin-top:2mm;margin-bottom:2mm;position:relative;z-index:2;}
+.p4-head p{font-size:10pt;color:rgba(255,255,255,.82);line-height:1.5;max-width:140mm;position:relative;z-index:2;}
+.p4-body{padding:5mm 13mm;display:flex;flex-direction:column;gap:4mm;}
+.p4-pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;}
+.p4-pillar{
+  border-radius:12px;border:1px solid #E2E8F0;
+  background:#F8FAFC;padding:4mm;
+}
+.p4-ico{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:2.5mm;
+}
+.ico-warm{background:#FFF1EC;} .ico-blue{background:#EFF6FF;} .ico-green{background:#F0FDF4;}
+.p4-pillar h3{font-size:13pt;color:#0F172A;margin-bottom:1.8mm;}
+.p4-pillar p{font-size:8.8pt;color:#475569;line-height:1.48;}
+.p4-pillar .tag{
+  display:inline-block;margin-top:2.5mm;
+  font-size:7.5pt;font-weight:700;border-radius:20px;padding:2px 8px;
+}
+.tag-o{background:#FFF1EC;color:#C43A10;}
+.tag-b{background:#DBEAFE;color:#1D4ED8;}
+.tag-g{background:#DCFCE7;color:#166534;}
+
+.p4-flow-label{
+  font-size:8px;text-transform:uppercase;letter-spacing:.14em;
+  color:#94A3B8;font-weight:700;margin-bottom:2.5mm;
+}
+.p4-flow{display:flex;align-items:stretch;}
+.p4-fnode{
+  flex:1;border:1px solid #E2E8F0;background:#fff;
+  padding:2.8mm 3mm;text-align:center;
+}
+.p4-fnode:first-child{border-radius:8px 0 0 8px;}
+.p4-fnode:last-child{border-radius:0 8px 8px 0;}
+.p4-fnode-t{font-family:'Oswald','Impact',sans-serif;font-size:9.5pt;color:#0F172A;margin-bottom:1mm;}
+.p4-fnode p{font-size:7.2pt;color:#64748B;line-height:1.32;}
+.p4-arrow{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--o);color:#fff;font-size:12pt;
+  padding:0 3mm;font-weight:700;
+}
+.p4-diffbar{
+  border-radius:10px;background:#0A0F1E;
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
+  overflow:hidden;margin-top:auto;
+}
+.p4-diff{padding:3mm 3.5mm;border-right:1px solid rgba(255,255,255,.08);}
+.p4-diff:last-child{border-right:none;}
+.p4-diff .fn{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:16pt;color:var(--o);line-height:1;
+}
+.p4-diff p{font-size:7.8pt;color:rgba(255,255,255,.60);line-height:1.36;margin-top:.8mm;}
+.p4-pgfooter{
+  padding:2.5mm 13mm 4.5mm;font-size:8.2pt;color:#CBD5E1;
+  border-top:1px solid #F1F5F9;display:flex;justify-content:space-between;
+}
+
+
+/* ════════════════════════════════════════════════
+   P5 · LOS NÚMEROS (oscuro azul marino)
+   Instrucción al diseñador: cuatro números ENORMES.
+   Que ocupen el espacio. Son la prueba lógica del
+   beneficio emocional que ya se vendió en las páginas
+   anteriores. Abajo, el comparativo de precio.
+   ════════════════════════════════════════════════ */
+.p5{background:linear-gradient(158deg,var(--navy) 0%,#111827 100%);color:#fff;}
+.p5-in{padding:9mm 13mm;display:flex;flex-direction:column;height:100%;}
+.p5-eyebrow{color:var(--o);}
+.p5 h2{font-size:26pt;line-height:.93;letter-spacing:-.025em;margin-top:2mm;margin-bottom:2mm;}
+.p5 h2 em{font-style:normal;color:var(--o);}
+.p5-sub{font-size:10pt;color:rgba(255,255,255,.62);line-height:1.52;max-width:142mm;margin-bottom:5mm;}
+.big-nums{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3mm;margin-bottom:5mm;}
+.bnum{
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-top:3px solid var(--o);
+  padding:4mm;
+}
+.bnum-n{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:32pt;color:var(--o);line-height:1;
+  margin-bottom:1.5mm;
+}
+.bnum h4{font-size:10pt;color:#fff;line-height:1.15;margin-bottom:1.5mm;}
+.bnum p{font-size:7.8pt;color:rgba(255,255,255,.56);line-height:1.42;}
+.vs{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:3.5mm;align-items:center;margin-bottom:5mm;
+}
+.vs-card{border-radius:12px;padding:4mm 5mm;align-self:stretch;}
+.vs-card.no{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.22);border-top:3px solid rgba(248,113,113,.55);}
+.vs-card.si{background:rgba(34,197,94,.09);border:1px solid rgba(34,197,94,.24);border-top:3px solid rgba(34,197,94,.65);}
+.vs-title{font-size:7.5px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:2.5mm;}
+.vs-card.no .vs-title{color:#F87171;} .vs-card.si .vs-title{color:#4ADE80;}
+.vs-big{font-family:'Oswald','Impact',sans-serif;font-size:30pt;line-height:1;margin-bottom:2.5mm;}
+.vs-card.no .vs-big{color:#F87171;} .vs-card.si .vs-big{color:#4ADE80;}
+.vs-items{display:flex;flex-direction:column;gap:1.8mm;}
+.vs-li{font-size:7.8pt;color:rgba(255,255,255,.58);line-height:1.35;padding-left:3mm;position:relative;}
+.vs-li::before{content:'–';position:absolute;left:0;color:rgba(255,255,255,.28);}
+.vs-sep{
+  text-align:center;font-family:'Oswald','Impact',sans-serif;
+  font-size:20pt;color:rgba(255,255,255,.20);
+}
+.p5-pgfooter{
+  margin-top:auto;padding-top:4mm;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:flex;justify-content:space-between;
+}
+.p5-pgfooter span{font-size:8pt;color:rgba(255,255,255,.28);}
+.p5-pgfooter .pg{color:rgba(255,255,255,.28);}
+
+
+/* ════════════════════════════════════════════════
+   P6 · SUS DUDAS RESPONDIDAS (crema cálido)
+   Instrucción al diseñador: fondo crema/beige cálido.
+   Como una conversación sobre papel. El tono es el de
+   un vendedor que dice "sé lo que está pensando" y lo
+   dice con respeto. Cuatro tarjetas Q&A, 2x2.
+   Cada pregunta en naranja. La respuesta, directa.
+   ════════════════════════════════════════════════ */
+.p6{background:#F7F3ED;color:var(--text);}
+.p6-head{
+  background:linear-gradient(132deg,#2D1A08 0%,#1A0F05 100%);
+  padding:6.5mm 13mm 5.5mm;position:relative;overflow:hidden;
+}
+.p6-head::after{
+  content:'';position:absolute;right:-12mm;top:-12mm;
+  width:52mm;height:52mm;border-radius:50%;
+  border:1px solid rgba(244,82,30,.20);
+}
+.p6-eyebrow{color:var(--o);}
+.p6-head h2{font-size:23pt;color:#fff;line-height:1.02;margin-top:2mm;margin-bottom:2mm;position:relative;z-index:2;}
+.p6-head p{font-size:10pt;color:rgba(255,255,255,.72);line-height:1.50;max-width:140mm;position:relative;z-index:2;}
+.p6-body{padding:5mm 13mm;flex:1;display:flex;flex-direction:column;gap:3.5mm;}
+.objection-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;}
+.obj{
+  border-radius:12px;
+  background:#fff;
+  border:1px solid #E8DDD0;
+  padding:4mm;
+}
+.obj-q{
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:12pt;color:var(--od);line-height:1.15;
+  margin-bottom:2.5mm;padding-bottom:2.5mm;
+  border-bottom:1px solid #EDE4D8;
+}
+.obj-q::before{
+  content:'"';font-size:18pt;color:rgba(244,82,30,.20);
+  line-height:0;vertical-align:-.3em;margin-right:1mm;
+}
+.obj p{font-size:8.8pt;color:#4A3728;line-height:1.55;}
+.obj-punch{
+  margin-top:2.5mm;padding:2.5mm 3.5mm;
+  background:#FFF7F3;border-radius:7px;
+  border-left:3px solid var(--o);
+  font-size:8.5pt;font-weight:700;color:var(--od);line-height:1.40;
+}
+.p6-bridge{
+  border-radius:10px;background:#1A0F05;color:#fff;
+  padding:3.5mm 5mm;
+}
+.p6-bridge p{font-size:9pt;color:rgba(255,255,255,.80);line-height:1.55;}
+.p6-bridge p strong{color:#fff;}
+.p6-bridge p em{font-style:italic;color:rgba(255,255,255,.60);}
+.p6-pgfooter{
+  padding:2.5mm 13mm 4.5mm;font-size:8.2pt;color:#B8A99A;
+  border-top:1px solid #E8DDD0;display:flex;justify-content:space-between;
+}
+
+
+/* ════════════════════════════════════════════════
+   P7 · SU SIGUIENTE PASO / CIERRE (wallpaper oscuro)
+   Instrucción al diseñador: misma energía que la
+   portada pero más cercano, más cálido, más íntimo.
+   El glow naranja más fuerte, desde abajo-izquierda.
+   El titular debe sonar a "esto ya está decidido."
+   Tres opciones de CTA claras. Garantía visible.
+   ════════════════════════════════════════════════ */
+.p7{background:var(--navy);color:#fff;position:relative;}
+.p7-bg{
+  position:absolute;inset:0;
+  background-image:url('../public/reelevo-wallpaper-4k.png');
+  background-size:cover;background-position:center bottom;
+  filter:brightness(.30);
+}
+.p7-veil{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 10% 95%,rgba(244,82,30,.40) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 5%,rgba(244,82,30,.15) 0%,transparent 42%),
+    linear-gradient(175deg,rgba(10,15,30,.72) 0%,rgba(10,15,30,.62) 50%,rgba(10,15,30,.96) 100%);
+}
+.p7-in{
+  position:relative;z-index:2;
+  padding:9mm 13mm 8mm;
+  height:100%;display:flex;flex-direction:column;
+}
+.p7-eyebrow{color:rgba(255,255,255,.42);}
+.p7 h2{
+  font-size:30pt;line-height:.90;letter-spacing:-.025em;
+  text-shadow:0 3px 24px rgba(0,0,0,.60);
+  margin-top:2mm;margin-bottom:3mm;
+}
+.p7 h2 em{font-style:normal;color:var(--o);}
+.p7-sub{
+  font-size:11pt;color:rgba(255,255,255,.72);line-height:1.56;
+  max-width:136mm;margin-bottom:6mm;
+}
+.ctas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3.5mm;margin-bottom:4mm;}
+.cta{
+  border-radius:12px;border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.07);
+  padding:4mm;backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;gap:2mm;
+}
+.cta.hot{background:var(--o);border-color:var(--o);}
+.cta-badge{font-size:7.5px;text-transform:uppercase;letter-spacing:.10em;color:rgba(255,255,255,.40);}
+.cta.hot .cta-badge{color:rgba(255,255,255,.72);}
+.cta h4{font-family:'Oswald','Impact',sans-serif;font-size:13pt;color:#fff;line-height:1.1;}
+.cta p{font-size:8.2pt;color:rgba(255,255,255,.66);line-height:1.40;}
+.cta.hot p{color:rgba(255,255,255,.88);}
+.cta-link{
+  font-size:8.8pt;font-weight:700;color:#fff;
+  margin-top:auto;padding-top:2.5mm;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.cta.hot .cta-link{border-top-color:rgba(255,255,255,.30);}
+.guar{
+  border-radius:10px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  padding:3.5mm 5mm;
+  display:flex;align-items:center;gap:4mm;
+  margin-bottom:5mm;
+}
+.guar-badge{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--o);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-family:'Oswald','Impact',sans-serif;
+  font-size:8.5pt;color:#fff;text-align:center;line-height:1.2;
+}
+.guar p{font-size:8.8pt;color:rgba(255,255,255,.72);line-height:1.48;margin:0;}
+.guar p strong{color:#fff;}
+.p7-foot{
+  margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;
+  padding-top:4.5mm;border-top:1px solid rgba(255,255,255,.12);
+}
+.p7-foot img{width:48mm;display:block;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));}
+.p7-contact{text-align:right;display:flex;flex-direction:column;gap:2mm;}
+.p7-crow{display:flex;flex-direction:column;gap:.5mm;}
+.p7-clabel{font-size:7px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.34);}
+.p7-cval{font-size:10.5pt;font-weight:600;color:#fff;}
+.p7-cval.ac{color:var(--o);}
+.p7-copy{font-size:7.5pt;color:rgba(255,255,255,.26);margin-top:1mm;}
+
+@media(max-width:900px){
+  .page{width:100%;margin:0;min-height:auto;}
+  .p1-proof,.big-nums,.p4-pillars,.p4-diffbar,.ctas,.objection-grid,.vision-grid,.vs{grid-template-columns:1fr;}
+  .dolor{grid-template-columns:1fr;}
+  .dolor-right{border-left:none;border-top:1px solid rgba(255,255,255,.07);}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ████████████████████████████████████████████████
+     P1 · PORTADA
+     La pregunta que paraliza. El lector que duda ya
+     está vendido a medias — porque reconoce el dolor.
+     ████████████████████████████████████████████████ -->
+<div class="page p1">
+  <div class="p1-bg"></div>
+  <div class="p1-veil"></div>
+  <div class="p1-in">
+
+    <div class="p1-topbar">
+      <img src="../public/reelevo-brand-logo-transparent-shadow.png" alt="Reelevo">
+      <div class="p1-topbar-meta">
+        <strong>Soluciones para pymes industriales</strong>
+        <span>Confidencial · Mayo 2026</span>
+      </div>
+    </div>
+
+    <span class="eyebrow p1-eyebrow">la pregunta que incomoda</span>
+    <h1>¿Qué pasaría en su planta si mañana fallaran las tres personas <em>más importantes?</em></h1>
+    <p class="p1-hook">
+      Si la respuesta le pone incómodo, este documento es para usted.<br>
+      Lo que va a leer no es un catálogo de funciones — es el análisis honesto de lo que le está costando no resolver este problema hoy.
+    </p>
+
+    <div class="p1-proof">
+      <div class="p1-pill">
+        <strong>7,2%</strong>
+        tasa de absentismo<br>media en industria
+      </div>
+      <div class="p1-pill">
+        <strong>3–5 días</strong>
+        para que una nueva<br>incorporación produzca bien
+      </div>
+      <div class="p1-pill">
+        <strong>40%</strong>
+        de empresas llaman al<br>titular durante su baja
+      </div>
+      <div class="p1-pill">
+        <strong>5–15%</strong>
+        de la producción mensual<br>se va en retrabajo y calidad
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P2 · LOS 3 DOLORES
+     Tres escenas. Presentes. Reales. Con nombre.
+     El comprador debe verse en cada una de ellas.
+     No hablamos de su empresa en abstracto —
+     hablamos de Javi, de Marcos, del viernes pasado.
+     ████████████████████████████████████████████████ -->
+<div class="page p2">
+  <div class="p2-in">
+
+    <span class="eyebrow p2-eyebrow">tres situaciones que ocurren esta semana</span>
+    <h2>Usted conoce estos momentos.<br>Y le cuestan mucho más de lo que aparece<br>en <em>cualquier informe.</em></h2>
+    <p class="p2-sub">No son casos extremos. Son el martes normal de una pyme industrial de 15 a 40 operarios. La suya probablemente también.</p>
+
+    <div class="dolor-cards">
+
+      <div class="dolor">
+        <div class="dolor-body">
+          <div class="dolor-tag">Dolor 01 · Absentismo y cobertura de puesto</div>
+          <h3>El martes a las 7:15, Javi no viene.<br>¿Y ahora quién arranca la llenadora?</h3>
+          <p>Se llama al supervisor. El supervisor llama al encargado. El encargado improvisa — "creo que era así." A las 10:30 la línea arranca. Con errores en el primer lote. Y Javi, que lleva tres días de baja, recibe la cuarta llamada del día desde planta.</p>
+          <p class="dolor-peor">Y lo peor: esto ocurre cada vez que alguien falta. Siempre igual. Siempre el mismo coste. Sin que nadie lo sume.</p>
+        </div>
+        <div class="dolor-right">
+          <div class="dolor-cost-label">Coste por incidencia</div>
+          <div class="dolor-cost-num">360€+</div>
+          <div class="dolor-cost-desc">3 h de línea parada × 120€/h. Sin contar el retrabajo del arranque defectuoso ni las llamadas al titular de baja.</div>
+        </div>
+      </div>
+
+      <div class="dolor">
+        <div class="dolor-body">
+          <div class="dolor-tag">Dolor 02 · Onboarding y formación inicial</div>
+          <h3>El lunes llega Marcos, el nuevo.<br>Y alguien tiene que enseñarle. Siempre el mismo.</h3>
+          <p>Su mejor operario — el que más produce, el que conoce la máquina como nadie — pasa tres días sentado al lado de Marcos explicando lo mismo que explicó la vez anterior. Y la anterior. Marcos aún comete errores la semana siguiente. El experto ha producido un 30% menos durante todo ese proceso.</p>
+          <p class="dolor-peor">Y lo peor: con ocho altas al año, son hasta 40 días perdidos de su persona más valiosa. Año tras año. Sin que nadie lo calcule.</p>
+        </div>
+        <div class="dolor-right">
+          <div class="dolor-cost-label">Coste por incorporación</div>
+          <div class="dolor-cost-num">2.000€+</div>
+          <div class="dolor-cost-desc">4 días × 2 personas bloqueadas. Y aún así el nuevo no produce bien a la primera semana.</div>
+        </div>
+      </div>
+
+      <div class="dolor">
+        <div class="dolor-body">
+          <div class="dolor-tag">Dolor 03 · Calidad y trazabilidad</div>
+          <h3>El viernes llega una reclamación.<br>Nadie sabe quién lo hizo, cuándo, ni en qué turno.</h3>
+          <p>Se revisan papeles. Se miran WhatsApps. Se pregunta a los supervisores. El retrabajo es completo. La reunión de crisis dura dos horas. Se toma la decisión de "tener más cuidado." La semana siguiente, en el turno de noche, el mismo error vuelve a ocurrir. Porque nadie lo registró. Porque no había nada que registrar.</p>
+          <p class="dolor-peor">Y lo peor: sin trazabilidad, cada reclamación es un expediente sin respuesta. El cliente no lo olvida.</p>
+        </div>
+        <div class="dolor-right">
+          <div class="dolor-cost-label">Coste por reclamación</div>
+          <div class="dolor-cost-num">5.000€+</div>
+          <div class="dolor-cost-desc">Retrabajo completo, daño reputacional y el error que se repite porque nadie pudo documentar la causa raíz.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="p2-pgfooter">
+      <span>REELEVO · Presentación comercial · Mayo 2026</span>
+      <span class="pg">2 / 7</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P3 · LA TRANSFORMACIÓN
+     Esta es la página más importante emocionalmente.
+     Aquí el comprador ve lo que quiere tener.
+     Cuatro visiones concretas. No promesas vagas.
+     Que el lector diga: "quiero eso para mi empresa."
+     ████████████████████████████████████████████████ -->
+<div class="page p3">
+  <div class="p3-head">
+    <span class="eyebrow p3-eyebrow">ahora imagine lo contrario</span>
+    <h2>Una empresa que funciona aunque no estén las personas clave.</h2>
+    <p>Esto no es una promesa de tecnología. Es la descripción operativa de lo que tienen las empresas que ya usan REELEVO — empresas como la suya, con los mismos problemas que usted tiene hoy.</p>
+  </div>
+
+  <div class="p3-body">
+    <div class="vision-grid">
+
+      <div class="vision">
+        <div class="vision-num">01</div>
+        <h3>Una planta en la que el absentismo<br><em>no para la línea.</em></h3>
+        <p>El sustituto llega, escanea el QR del puesto y la app le guía paso a paso con el proceso correcto: producto, versión y criterios del día. En 15 minutos está produciendo con el estándar. Sin llamadas. Sin improvisar. Sin depender de nadie.</p>
+        <div class="vision-impact">El titular puede faltar dos semanas. La línea no lo nota.</div>
+      </div>
+
+      <div class="vision">
+        <div class="vision-num">02</div>
+        <h3>Una empresa en la que el nuevo produce bien<br><em>desde el primer día.</em></h3>
+        <p>La app hace el trabajo de formación inicial, paso a paso, con los vídeos grabados por su mejor operario. El experto sigue produciendo. El nuevo lleva trazabilidad desde el minuto uno. En un día tiene autonomía real. No en una semana. En un día.</p>
+        <div class="vision-impact">Su mejor operario no pierde ni una hora de producción.</div>
+      </div>
+
+      <div class="vision">
+        <div class="vision-num">03</div>
+        <h3>Una empresa en la que el error<br><em>no se repite nunca más.</em></h3>
+        <p>El supervisor recibe la alerta antes de que el defecto salga de planta. Se identifica la pieza, el operario, la máquina y el momento en un clic. La causa raíz queda registrada y el estándar se corrige. La próxima persona que haga ese proceso ya tiene la corrección incorporada.</p>
+        <div class="vision-impact">Cero reclamaciones externas. Cada error, solo una vez.</div>
+      </div>
+
+      <div class="vision">
+        <div class="vision-num">04</div>
+        <h3>Un gerente que sabe lo que pasa<br><em>antes de que llegue a su despacho.</em></h3>
+        <p>KPI de producción, calidad e incidencias en tiempo real, sin intermediarios, sin esperar el parte del turno. Usted ve dónde se pierde margen, qué línea está fallando y qué turno necesita atención. Y actúa antes — no después del daño.</p>
+        <div class="vision-impact">Decisiones con datos. No con percepciones ni partes de turno.</div>
+      </div>
+
+    </div>
+
+    <div class="p3-bridge">
+      <div class="p3-bridge-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M4 9.5l4 4 6-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p><strong>Estas cuatro transformaciones ocurren en la primera semana de uso.</strong> No son el objetivo a 12 meses — son el resultado normal de arrancar con REELEVO en dos o tres procesos críticos. El primer mes, usted ya tiene datos que no tenía antes.</p>
+    </div>
+  </div>
+
+  <div class="p3-pgfooter">
+    <span>REELEVO · Presentación comercial · Mayo 2026</span>
+    <span class="pg" style="color:#CBD5E1;">3 / 7</span>
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P4 · CÓMO LO RESUELVE REELEVO
+     Aquí el comprador necesita la justificación lógica.
+     Ya quiere el resultado — ahora necesita entender
+     por qué REELEVO lo hace posible. Sin jerga técnica.
+     Sin demos. Solo lo suficiente para decir: "tiene sentido."
+     ████████████████████████████████████████████████ -->
+<div class="page p4">
+  <div class="p4-head">
+    <span class="eyebrow p4-eyebrow">cómo funciona</span>
+    <h2>Una sola plataforma. Tres problemas resueltos de raíz.</h2>
+    <p>REELEVO digitaliza el conocimiento operativo de su empresa y lo pone disponible para cualquier persona, en cualquier turno, desde el primer día. No es una aplicación de gestión — es el sistema que hace que su planta no dependa de personas concretas.</p>
+  </div>
+
+  <div class="p4-body">
+    <div class="p4-pillars">
+      <div class="p4-pillar">
+        <div class="p4-ico ico-warm">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 3v14M3 10h14" stroke="#F4521E" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="10" cy="10" r="3.5" fill="#F4521E"/>
+          </svg>
+        </div>
+        <h3>Continuidad sin<br>dependencia personal</h3>
+        <p>QR en cada puesto de trabajo. El sustituto escanea y la app le guía con el proceso exacto, en vídeo, paso a paso. El estándar está en la pantalla — no en la cabeza de nadie.</p>
+        <span class="tag tag-o">Cualquier persona, cualquier turno</span>
+      </div>
+      <div class="p4-pillar">
+        <div class="p4-ico ico-blue">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M5 10.5l3.5 3.5 6.5-7.5" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="10" r="7.5" stroke="#3B82F6" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Calidad trazada<br>y errores que no se repiten</h3>
+        <p>El supervisor recibe alertas en tiempo real. Cada pieza queda ligada a quién la hizo, cuándo y en qué máquina. La causa raíz de cada incidencia se registra y se incorpora al estándar automáticamente.</p>
+        <span class="tag tag-b">Trazabilidad total. Sin papel.</span>
+      </div>
+      <div class="p4-pillar">
+        <div class="p4-ico ico-green">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <polyline points="3,14 6.5,10 9.5,12 13,7 17,9" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="2" width="16" height="16" rx="3" stroke="#22C55E" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Visibilidad real<br>para el gerente</h3>
+        <p>KPI de producción, incidencias y calidad en tiempo real, sin intermediarios ni partes de turno. Usted ve dónde se pierde margen y actúa antes — no después del daño.</p>
+        <span class="tag tag-g">Datos sin filtros. Decisiones con criterio.</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="p4-flow-label">El flujo completo — de un extremo al otro de la planta</div>
+      <div class="p4-flow">
+        <div class="p4-fnode">
+          <div class="p4-fnode-t">QR en puesto</div>
+          <p>Escanea. La app abre el proceso exacto del día.</p>
+        </div>
+        <div class="p4-arrow">›</div>
+        <div class="p4-fnode">
+          <div class="p4-fnode-t">Vídeo SOP</div>
+          <p>Instrucciones paso a paso. El estándar en pantalla.</p>
+        </div>
+        <div class="p4-arrow">›</div>
+        <div class="p4-fnode">
+          <div class="p4-fnode-t">Registro</div>
+          <p>Pieza trazada: quién, cuándo, en qué máquina.</p>
+        </div>
+        <div class="p4-arrow">›</div>
+        <div class="p4-fnode">
+          <div class="p4-fnode-t">Alerta QC</div>
+          <p>El supervisor actúa antes de que el defecto salga.</p>
+        </div>
+        <div class="p4-arrow">›</div>
+        <div class="p4-fnode">
+          <div class="p4-fnode-t">Dashboard</div>
+          <p>El gerente ve KPI reales y decide con datos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p4-diffbar">
+      <div class="p4-diff">
+        <div class="fn">49€</div>
+        <p>al mes por empresa.<br>Sin coste por operario.</p>
+      </div>
+      <div class="p4-diff">
+        <div class="fn">1 semana</div>
+        <p>para arrancar en planta.<br>Implantación asistida.</p>
+      </div>
+      <div class="p4-diff">
+        <div class="fn">Sin papel</div>
+        <p>ni WhatsApp ni Excel.<br>Todo en un sitio.</p>
+      </div>
+      <div class="p4-diff">
+        <div class="fn">30 días</div>
+        <p>de garantía de resultado.<br>Sin riesgo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-pgfooter">
+    <span>REELEVO · Presentación comercial · Mayo 2026</span>
+    <span class="pg" style="color:#CBD5E1;">4 / 7</span>
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P5 · LOS NÚMEROS
+     El comprador ya quiere el resultado (P3).
+     Ya entiende cómo funciona (P4). Ahora necesita
+     la prueba racional. Números concretos.
+     Sin rodeos. Sin vaguedades. Solo cifras.
+     ████████████████████████████████████████████████ -->
+<div class="page p5">
+  <div class="p5-in">
+
+    <span class="eyebrow p5-eyebrow">los números que importan</span>
+    <h2>Lo que cambia en los primeros <em>30 días.</em></h2>
+    <p class="p5-sub">Estos son resultados operativos concretos observados en pymes industriales que arrancaron con REELEVO en 2 o 3 procesos críticos. No proyecciones — evidencias.</p>
+
+    <div class="big-nums">
+      <div class="bnum">
+        <div class="bnum-n">15 min</div>
+        <h4>De arranque con sustituto</h4>
+        <p>Antes: 3+ horas buscando a quién sabe, improvisando y arrancando mal. Con REELEVO: el sustituto está produciendo correctamente en menos de 20 minutos.</p>
+      </div>
+      <div class="bnum">
+        <div class="bnum-n">1 día</div>
+        <h4>Autonomía de nueva incorporación</h4>
+        <p>Antes: 3 a 5 días con tutor humano y errores persistentes. Con REELEVO: autonomía productiva en el primer turno. El experto no pierde ni una hora.</p>
+      </div>
+      <div class="bnum">
+        <div class="bnum-n">−60%</div>
+        <h4>Reducción de incidencias de calidad</h4>
+        <p>En el primer trimestre. La detección en tiempo real y el estándar único eliminan la variabilidad entre turnos y los errores que se repiten por falta de registro.</p>
+      </div>
+      <div class="bnum">
+        <div class="bnum-n">49€</div>
+        <h4>Precio mensual fijo por empresa</h4>
+        <p>Sin coste por operario. Sin coste por proceso. Sin instalación de hardware. El precio no cambia cuando crece su equipo o añade nuevas líneas.</p>
+      </div>
+    </div>
+
+    <div class="vs">
+      <div class="vs-card no">
+        <div class="vs-title">Sin REELEVO — costes ocultos mensuales estimados</div>
+        <div class="vs-big">€5.000+</div>
+        <div class="vs-items">
+          <div class="vs-li">Absentismo no cubierto: €2.400+/mes (20 operarios, 7,2%)</div>
+          <div class="vs-li">Onboarding con tutor: €800+ por alta (8 altas/año)</div>
+          <div class="vs-li">Retrabajo y no calidad: 5–15% de la producción mensual</div>
+          <div class="vs-li">Llamadas urgentes a titulares en baja o vacaciones</div>
+          <div class="vs-li">Decisiones de gerencia sin datos fiables del día</div>
+        </div>
+      </div>
+      <div class="vs-sep">VS</div>
+      <div class="vs-card si">
+        <div class="vs-title">Con REELEVO — inversión mensual fija</div>
+        <div class="vs-big">49€</div>
+        <div class="vs-items">
+          <div class="vs-li">Precio fijo. Sin coste por operario ni por proceso.</div>
+          <div class="vs-li">Arranque en 1 semana. Implantación asistida uno a uno.</div>
+          <div class="vs-li">Ilimitado: usuarios, procesos, alertas y trazabilidad.</div>
+          <div class="vs-li">ROI visible desde el primer mes de operación real.</div>
+          <div class="vs-li">Garantía 30 días: resultados o devolución íntegra.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p5-pgfooter">
+      <span>REELEVO · Presentación comercial · Mayo 2026</span>
+      <span class="pg">5 / 7</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P6 · SUS DUDAS RESPONDIDAS
+     Treinta años me han enseñado que en este punto
+     el comprador ya quiere decir sí — pero tiene
+     cuatro preguntas que necesita que alguien responda
+     antes. Aquí están las respuestas honestas.
+     ████████████████████████████████████████████████ -->
+<div class="page p6">
+  <div class="p6-head">
+    <span class="eyebrow p6-eyebrow">sé lo que está pensando ahora mismo</span>
+    <h2>Cuatro preguntas que todos hacen.<br>Aquí están las respuestas honestas.</h2>
+    <p>Después de muchos años en ventas, conozco estas preguntas de memoria. No son objeciones — son señales de que usted ya está considerando actuar. Le debo una respuesta directa.</p>
+  </div>
+
+  <div class="p6-body">
+    <div class="objection-grid">
+
+      <div class="obj">
+        <div class="obj-q">¿No es demasiado caro para una empresa como la nuestra?</div>
+        <p>49€ al mes. Si tiene un solo día de línea parada por absentismo, ya le cuesta más. Si tiene una reclamación de cliente este trimestre, ya le cuesta más. Si su mejor operario pierde tres días haciendo de tutor, ya le cuesta más.</p>
+        <div class="obj-punch">La pregunta no es si puede permitírselo. Es cuánto le cuesta no tenerlo cada mes.</div>
+      </div>
+
+      <div class="obj">
+        <div class="obj-q">¿Mis operarios sabrán usarlo sin formación?</div>
+        <p>Si sus operarios usan WhatsApp, ya saben usar REELEVO. La interfaz está diseñada para personas que trabajan con guantes y mirando una máquina — no para ingenieros de software. Hemos visto operarios sin experiencia digital producir correctamente con la app en menos de 30 minutos. Sin manual. Sin formación previa.</p>
+        <div class="obj-punch">La curva de aprendizaje es una tarde. No un proyecto de tres meses.</div>
+      </div>
+
+      <div class="obj">
+        <div class="obj-q">Ya lo hacemos con WhatsApp, Excel y papel.</div>
+        <p>WhatsApp no avisa cuando un operario produce fuera de estándar. Excel no traza quién hizo cada pieza en tiempo real. El papel no llega al gerente antes de que el problema llegue al cliente. Son herramientas que sirven para comunicar — no para operar y trazar. Esa diferencia es exactamente el problema que usted tiene hoy.</p>
+        <div class="obj-punch">No es lo mismo. Nunca lo fue. Y usted, en el fondo, ya lo sabe.</div>
+      </div>
+
+      <div class="obj">
+        <div class="obj-q">¿Cuánto tiempo tarda en implementarse de verdad?</div>
+        <p>Una semana. En los primeros cinco días configuramos los QR, grabamos los 2 o 3 procesos más críticos junto a su equipo y hacemos la primera prueba en producción real. La segunda semana ya hay operarios usándolo en turno. Sin parar la producción. Sin grandes integraciones. Sin proyectos de tres meses que nunca acaban.</p>
+        <div class="obj-punch">Si en una semana no está funcionando, algo habremos hecho mal nosotros — no usted.</div>
+      </div>
+
+    </div>
+
+    <div class="p6-bridge">
+      <p>Si después de leer esto aún tiene dudas, le invito a que me las haga directamente. <strong>No existe una pregunta que no hayamos escuchado antes.</strong> Y si la suya es nueva, me la aprendo. <em>— El equipo de REELEVO.</em></p>
+    </div>
+  </div>
+
+  <div class="p6-pgfooter">
+    <span>REELEVO · Presentación comercial · Mayo 2026</span>
+    <span class="pg">6 / 7</span>
+  </div>
+</div>
+
+
+<!-- ████████████████████████████████████████████████
+     P7 · SU SIGUIENTE PASO
+     La decisión ya está tomada internamente.
+     Solo hace falta que sea fácil de ejecutar.
+     Tres opciones. Ningún compromiso excesivo.
+     Y la garantía que elimina el último riesgo.
+     ████████████████████████████████████████████████ -->
+<div class="page p7">
+  <div class="p7-bg"></div>
+  <div class="p7-veil"></div>
+  <div class="p7-in">
+
+    <span class="eyebrow p7-eyebrow">el siguiente paso</span>
+    <h2>El único momento incómodo<br>es este: <em>decidir.</em></h2>
+    <p class="p7-sub">
+      Todo lo que necesita para empezar está en esta página.
+      Empezamos por los 2 o 3 procesos donde más le duele la dependencia de personas clave.
+      Una semana después, su planta funciona diferente. Y si en 30 días no lo ve, le devolvemos el mes.
+    </p>
+
+    <div class="ctas">
+      <div class="cta hot">
+        <div class="cta-badge">Opción 01 · La más habitual</div>
+        <h4>Demo en 30 minutos</h4>
+        <p>Le mostramos REELEVO en acción con un proceso real de su sector. Usted pregunta, nosotros respondemos. Sin compromiso. Sin presión. Solo una conversación honesta.</p>
+        <div class="cta-link">→ hola@gmvsolutions.es</div>
+      </div>
+      <div class="cta">
+        <div class="cta-badge">Opción 02 · Sin riesgo</div>
+        <h4>Piloto gratuito 30 días</h4>
+        <p>Arrancamos en 1 o 2 de sus procesos más críticos sin coste. Usted ve los resultados reales en producción antes de comprometerse a absolutamente nada.</p>
+        <div class="cta-link">→ gmvsolutions.es</div>
+      </div>
+      <div class="cta">
+        <div class="cta-badge">Opción 03 · En su tiempo</div>
+        <h4>Le llamamos cuando prefiera</h4>
+        <p>Envíenos su nombre y el mejor horario. Nos adaptamos a su agenda. Respondemos cualquier duda. Sin presión de ningún tipo ni seguimiento agresivo.</p>
+        <div class="cta-link">→ hola@gmvsolutions.es</div>
+      </div>
+    </div>
+
+    <div class="guar">
+      <div class="guar-badge">30<br>días</div>
+      <p><strong>Garantía total: resultado visible o le devolvemos el primer mes íntegro.</strong> Porque estamos completamente seguros de que usted verá los resultados antes de que pasen 30 días. Esta garantía no es un truco de marketing — es nuestra forma de decirle que confiamos en lo que hacemos.</p>
+    </div>
+
+    <div class="p7-foot">
+      <img src="../public/reelevo-brand-logo-transparent-shadow.png" alt="Reelevo">
+      <div class="p7-contact">
+        <div class="p7-crow">
+          <span class="p7-clabel">Email comercial</span>
+          <span class="p7-cval ac">hola@gmvsolutions.es</span>
+        </div>
+        <div class="p7-crow">
+          <span class="p7-clabel">Web</span>
+          <span class="p7-cval">gmvsolutions.es</span>
+        </div>
+        <span class="p7-copy">REELEVO by GMV Solutions · Presentación Comercial · Mayo 2026</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

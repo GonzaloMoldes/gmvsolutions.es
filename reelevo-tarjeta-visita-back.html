@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Tarjeta Trasera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E;
+  --od:#C43A10;
+  --dark:#0A0A0A;
+  --white:#F5F5F5;
+}
+body{
+  font-family:'DM Sans',Helvetica,sans-serif;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:85mm;
+  height:55mm;
+  margin:0;
+  padding:0;
+}
+@page{size:85mm 55mm;margin:0;}
+
+.card{
+  width:85mm;
+  height:55mm;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+  background:var(--dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8mm;
+  padding:5mm 7mm;
+}
+.card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 70% 70% at 15% 50%,rgba(244,82,30,.10),transparent),
+    radial-gradient(ellipse 50% 50% at 85% 50%,rgba(244,82,30,.06),transparent);
+}
+
+.back-left{
+  position:relative;z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:3.5mm;
+}
+.back-logo{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:18pt;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--white);
+  line-height:1;
+}
+.back-logo span{color:var(--o);}
+.back-tagline{
+  font-size:6.5pt;
+  color:rgba(255,255,255,.38);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  line-height:1.5;
+  max-width:42mm;
+}
+.back-url{
+  font-size:7.5pt;
+  font-weight:600;
+  color:var(--o);
+  letter-spacing:.04em;
+}
+.back-divider{
+  width:1px;
+  height:30mm;
+  background:rgba(255,255,255,.10);
+  position:relative;z-index:2;
+}
+.back-right{
+  position:relative;z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2mm;
+}
+#qrcode{
+  background:#fff;
+  padding:2mm;
+  display:inline-block;
+  line-height:0;
+}
+#qrcode img,#qrcode canvas{
+  width:22mm !important;
+  height:22mm !important;
+  display:block;
+}
+.qr-label{
+  font-size:5.8pt;
+  color:rgba(255,255,255,.32);
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="back-left">
+    <div>
+      <div class="back-logo">REEL<span>EVO</span></div>
+    </div>
+    <div class="back-tagline">Software operativo para pymes industriales</div>
+    <div class="back-url">gmvsolutions.es</div>
+  </div>
+
+  <div class="back-divider"></div>
+
+  <div class="back-right">
+    <div id="qrcode"></div>
+    <div class="qr-label">Escanea para<br>conocer REELEVO</div>
+  </div>
+</div>
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://gmvsolutions.es",
+    width: 84,
+    height: 84,
+    colorDark: "#0A0A0A",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+
+</body>
+</html>

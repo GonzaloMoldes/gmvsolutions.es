@@ -1,0 +1,545 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Preguntas frecuentes sobre REELEVO — Implementación, seguridad y funcionamiento";
+const description = "Resolvemos las dudas más habituales sobre cómo funciona REELEVO, cómo se implementa, qué queda registrado, seguridad de datos y compatibilidad.";
+const canonical = "https://gmvsolutions.es/faqs/";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo lleva implementar REELEVO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La base técnica puede quedar lista muy rápido y el arranque se hace de forma asistida. Después, el tiempo depende de cuántos procesos priorices y del nivel de acompañamiento que necesite cada puesto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo probarlo antes de contratar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Puedes registrarte en la plataforma para verla por dentro y comprobar si encaja con tu operativa antes de decidir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo llega el proceso al puesto de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. Sin app que instalar, sin cuenta que crear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué dispositivos funciona REELEVO? ¿Necesita una app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO funciona en el navegador de cualquier dispositivo: móvil Android o iPhone, tablet, ordenador. No hay app que descargar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los operarios tienen que crearse una cuenta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si no hay cobertura móvil en la planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO funciona con cualquier conexión a internet disponible, ya sea 4G, 5G o WiFi de empresa, y los contenidos están optimizados para cargar rápido incluso con conexiones lentas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cada paso puede incluir texto, fotos, vídeos cortos y archivos adjuntos para que el proceso sea más claro en el puesto de trabajo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo encuentre el proceso correcto sin depender de búsquedas largas o carpetas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede usar con operarios que no hablan español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los procesos se pueden documentar en distintos idiomas y el uso de vídeo reduce además la dependencia del idioma escrito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Podemos actualizar los procesos fácilmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cualquier administrador puede actualizar procesos desde el panel y los cambios quedan disponibles automáticamente para el operario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El operario accede siempre a la versión más reciente y REELEVO mantiene un historial de versiones para saber qué cambió, quién lo cambió y cuándo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sabemos quién ha accedido y cuándo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO deja una base de evidencia sobre qué proceso se ha seguido, cuándo y con qué resultado. Si la empresa necesita seguimiento asociado a persona, puede usar un identificador interno en los flujos donde aplique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué queda registrado realmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo. En los modos de seguimiento también puede asociarse a un identificador interno definido por la empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre consulta rápida y seguimiento asociado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción. El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, seguimiento interno o auditorías."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si el operario experto no quiere documentar sus procesos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una objeción habitual, pero cuando el experto documenta con sus propias palabras y a su ritmo, su conocimiento se reconoce formalmente y el proceso de captura resulta mucho más natural."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es adecuado para una pyme pequeña o un taller con pocos operarios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. REELEVO está diseñado específicamente para pymes industriales y talleres de entre 5 y 200 operarios, con precio fijo por empresa y sin necesidad de IT para arrancar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos operativos del producto se alojan principalmente en infraestructura dentro de la Unión Europea y REELEVO cumple con el RGPD. Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas. Los procesos documentados siguen siendo propiedad de la empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El soporte es en español por email y chat, con tiempos de respuesta definidos en horario laboral según el plan contratado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es compatible con nuestros sistemas de gestión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "REELEVO puede encajar con software de RRHH y otros sistemas según el caso. Si ya trabajáis con una herramienta concreta, revisamos el encaje durante la implantación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo exportar mis procesos si dejo de usar REELEVO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Desde el panel se pueden exportar los procesos e instrucciones, y en caso de cierre del servicio se facilitaría la exportación completa con aviso previo."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={faqSchema}
+  canonical={canonical}
+  activeNav="recursos"
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Preguntas frecuentes</div>
+    <h1 class="fade-up delay-1">Resolvemos tus dudas</h1>
+    <p class="fade-up delay-2">Las preguntas más habituales sobre implementación, acceso en planta, seguridad y funcionamiento de REELEVO.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ARRANQUE Y PRUEBA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Arranque y prueba</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cuánto tiempo lleva implementar REELEVO?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>La base técnica puede quedar lista <strong>muy rápido</strong> y el arranque se hace de forma asistida. Después, el tiempo depende de cuántos procesos priorices y del nivel de acompañamiento que necesite cada puesto.</p>
+                <p>No hay que instalar software, configurar servidores ni formar a los operarios. Acceden directamente y operan.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Puedo probarlo antes de contratar?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí. Puedes <strong>registrarte en la plataforma</strong> para verla por dentro y comprobar si encaja con tu operativa antes de decidir.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Es adecuado para una pyme pequeña o un taller con pocos operarios?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>REELEVO está diseñado específicamente para <strong>pymes industriales y talleres</strong> de entre 5 y 200 operarios. No es un software corporativo adaptado: está pensado desde el principio para empresas donde no hay equipo de IT, los recursos son ajustados y el conocimiento vive en la cabeza de dos o tres personas clave.</p>
+                <p>El precio es fijo por empresa, no por número de usuarios. Da igual si tienes 10 operarios o 100.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- ACCESO Y USO EN PLANTA -->
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Acceso y uso en planta</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo llega el proceso al puesto de trabajo?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. <strong>Sin app que instalar, sin cuenta que crear.</strong></p>
+                <p>También puede acceder buscando el proceso por nombre desde el portal si le resulta más cómodo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿En qué dispositivos funciona REELEVO? ¿Necesita una app?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>REELEVO funciona en el <strong>navegador de cualquier dispositivo</strong>: móvil Android o iPhone, tablet, ordenador. <strong>No hay app que descargar.</strong> El operario abre el navegador y accede al trabajo sin fricción adicional.</p>
+                <p>El panel de administración —donde el experto documenta los SOPs y el responsable los gestiona— funciona igualmente en cualquier navegador de escritorio o tablet.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Los operarios tienen que crearse una cuenta?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p><strong>No</strong>. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto llega al proceso correcto sin fricción.</p>
+                <p>Si la empresa necesita seguimiento asociado a persona en ciertos flujos, puede usar un identificador interno de uso operativo. No hace falta convertir ese acceso rápido en una gestión pesada de usuarios.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué pasa si no hay cobertura móvil en la planta?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>REELEVO funciona con <strong>cualquier conexión a internet</strong>: 4G, 5G o WiFi de empresa. Los contenidos están optimizados para cargar rápidamente incluso con conexiones lentas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- CONTENIDO Y ORGANIZACIÓN -->
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Contenido y organización</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p><strong>Sí.</strong> Cada paso de un procedimiento operativo puede incluir texto, <strong>fotos</strong> (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), <strong>vídeos cortos</strong> y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: <strong>Producción › Línea 3 › Torno CNC › Arranque</strong> y el operario llega al proceso correcto en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Se puede usar con operarios que no hablan español?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí. Los procesos se documentan en el <strong>idioma que elija el experto</strong>. Si tienes operarios de distintos orígenes puedes crear el mismo SOP en varios idiomas y asignar uno u otro según el perfil. El uso de vídeo también reduce la dependencia del idioma escrito.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- GESTIÓN Y ACTUALIZACIÓN -->
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Gestión y actualización</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Podemos actualizar los procesos fácilmente?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p><strong>Sí</strong>. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario accede a la versión más actual sin tener que buscar documentos nuevos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué pasa cuando se actualiza un procedimiento operativo?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Cuando un administrador actualiza un SOP, el cambio se refleja <strong>de inmediato</strong>. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.</p>
+                <p>REELEVO mantiene el <strong>historial de versiones</strong> de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué pasa si el operario experto no quiere documentar sus procesos?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Es la objeción más habitual. Suele venir del miedo a "que me quiten valor si lo dejo todo escrito". La experiencia con nuestros clientes muestra lo contrario: documentar <strong>refuerza el estatus del experto</strong> dentro de la empresa — su conocimiento se reconoce formalmente.</p>
+                <p>El flujo de captura está diseñado para que el propio operario lo haga con sus palabras, a su ritmo, sin presión.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- REGISTRO Y TRAZABILIDAD -->
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Registro y trazabilidad</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Cómo sabemos quién ha accedido y cuándo?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Aunque no hay cuentas de operario, <strong>REELEVO deja una base útil de actividad</strong>: qué proceso se ha seguido, cuándo y con qué resultado. Así ganas claridad sin comprometer la simplicidad.</p>
+                <p>Cuando la empresa necesita más seguimiento, puede asociar ese flujo a un identificador interno y usarlo para onboarding, seguimiento interno o revisión operativa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué queda registrado realmente?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo.</p>
+                <p>Eso no sustituye por sí solo una certificación formal, pero sí aporta una base mucho más útil para formación, seguimiento interno y revisión operativa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Qué diferencia hay entre consulta rápida y seguimiento asociado?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción posible.</p>
+                <p>El seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, calidad, auditorías o seguimiento interno con más detalle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- SEGURIDAD Y DATOS -->
+      <div class="faq-category fade-up">
+        <div class="faq-category-label">Seguridad y datos</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Los datos operativos del producto se alojan principalmente en <strong>infraestructura dentro de la Unión Europea</strong>. REELEVO cumple con el Reglamento General de Protección de Datos (RGPD). Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas.</p>
+                <p>Los procesos que documentas son de tu propiedad y puedes solicitar la Política de Privacidad completa antes de contratar.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí, el soporte es <strong>en español</strong>. Puedes contactarnos por email y chat. Los planes de pago incluyen soporte con tiempo de respuesta definido en horario laboral. No te dejamos solo después de la firma.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Es compatible con nuestros sistemas de gestión?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>REELEVO puede encajar con software de RRHH y otros sistemas según el caso. Si ya trabajáis con una herramienta concreta, revisamos el encaje durante la implantación y definimos con claridad el alcance real.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>¿Puedo exportar mis procesos si dejo de usar REELEVO?</span>
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="6,9 12,15 18,9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra <a href="/sobre-nosotros/#portabilidad">página de Nosotros</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">¿Todo claro?</div>
+    <h2 class="cta-title fade-up delay-1">
+      Empieza por tus procesos críticos
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Si quieres verla por dentro, regístrate en REELEVO y entra en la plataforma.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO →</a>
+      <a href="/precios/" class="btn-ghost">Ver precios</a>
+    </div>
+    <div class="cta-note fade-up delay-4">
+      Sin compromiso · Implementación asistida · Arranque ligero en planta
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-category {
+    margin-bottom: 48px;
+  }
+
+  .faq-category-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  .divider-light {
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+    opacity: 0.5;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const isOpen = item?.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item?.classList.add('open');
+    });
+  });
+</script>

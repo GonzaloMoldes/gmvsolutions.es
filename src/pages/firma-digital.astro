@@ -1,0 +1,400 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Firma digital para procesos industriales y validaciones de calidad | REELEVO";
+const description = "Añade firma digital al flujo de operaciones industriales. El operario firma al completar un proceso, el supervisor firma al validar la producción. Evidencia digital para auditorías ISO sin papel adicional.";
+const canonical = "https://gmvsolutions.es/firma-digital/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Firma Digital Industrial",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Firma digital · Validaciones · Evidencia para auditorías · Integrado en el flujo QR</div>
+    <h1 class="fade-up delay-1">La firma del operario<br><em>sin papel, sin burocracia adicional</em></h1>
+    <p class="fade-up delay-2">El operario firma digitalmente al completar un proceso. El supervisor firma al validar la producción. La firma queda vinculada al registro con fecha, hora y contexto. Evidencia inmediata para auditorías ISO — sin ningún paso adicional.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">La validación formal en planta sigue siendo papel — o no existe</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El proceso requiere firma del operario y del supervisor — en papel. Alguien tiene que imprimir, firmar y archivar. Siempre hay alguno incompleto.</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>En una auditoría ISO, buscar los registros firmados de los últimos 3 meses es un trabajo de horas en archivadores físicos</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>La validación de producción por el supervisor se hace de palabra — no queda constancia de quién la aprobó ni cuándo</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Los registros de certificación tienen la firma del responsable de formación en papel — que se pierde o deteriora con el tiempo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>Sin evidencia digital, la trazabilidad es incompleta</h3>
+        <p>El registro existe. El proceso se ejecutó. Pero no hay prueba formal de quién lo aprobó. La firma digital cierra esa brecha sin añadir trabajo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona</div>
+        <h2 class="section-title">La firma ocurre en el mismo momento que la acción</h2>
+        <p class="section-sub">No es un paso adicional. La firma digital se integra en el flujo natural de trabajo — el operario firma al completar, el supervisor firma al validar. Todo dentro del mismo gesto.</p>
+      </div>
+
+      <div class="sign-scenarios fade-up delay-1">
+        <div class="sign-card">
+          <div class="sign-who">Operario</div>
+          <h3>Al completar un proceso</h3>
+          <p>Cuando el operario termina los pasos del SOP y registra la finalización, puede firmar digitalmente en ese mismo momento. La firma queda vinculada a la sesión, con su nombre, fecha y hora exacta.</p>
+        </div>
+
+        <div class="sign-card">
+          <div class="sign-who">Supervisor</div>
+          <h3>Al validar la producción</h3>
+          <p>Cuando el encargado revisa y valida las sesiones de producción del turno, firma digitalmente cada validación. Queda registrado quién aprobó qué y cuándo — sin formularios adicionales.</p>
+        </div>
+
+        <div class="sign-card">
+          <div class="sign-who">Responsable</div>
+          <h3>Al aprobar una certificación</h3>
+          <p>Cuando REELEVO certifica automáticamente a un operario al completar las ejecuciones requeridas, el responsable puede añadir su firma digital de conformidad. Evidencia completa del proceso de certificación.</p>
+        </div>
+      </div>
+
+      <div class="sign-result fade-up delay-2">
+        <h3>Lo que queda registrado en cada firma</h3>
+        <div class="sign-fields">
+          <div class="sign-field">Identidad del firmante (nombre + rol)</div>
+          <div class="sign-field">Fecha y hora exacta</div>
+          <div class="sign-field">Contexto (proceso, sesión, certificación)</div>
+          <div class="sign-field">Dispositivo desde el que se firmó</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA AUDITORÍAS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Para auditorías</div>
+        <h2 class="section-title">Toda la evidencia en segundos — sin buscar en archivadores</h2>
+      </div>
+
+      <div class="audit-content fade-up delay-1">
+        <p>Cuando llega una auditoría ISO 9001 o interna, el responsable de calidad accede al historial de firmas desde el panel de REELEVO. Filtro por proceso, por operario, por rango de fechas. Los registros firmados están todos en el mismo sitio, organizados y exportables.</p>
+
+        <div class="audit-vs">
+          <div class="vs-col vs-bad">
+            <div class="vs-label">Sin firma digital</div>
+            <ul>
+              <li>Buscar en archivadores físicos</li>
+              <li>Registros incompletos o ilegibles</li>
+              <li>No siempre sabes quién firmó qué</li>
+              <li>Horas de preparación para la auditoría</li>
+            </ul>
+          </div>
+          <div class="vs-col vs-good">
+            <div class="vs-label">Con REELEVO</div>
+            <ul>
+              <li>Filtro por proceso y fecha en segundos</li>
+              <li>Todos los registros completos y con fecha</li>
+              <li>Identidad del firmante siempre trazable</li>
+              <li>Exportable al momento para el auditor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NOTA HONESTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Enfoque prudente</div>
+        <h2 class="section-title">Firma digital operativa — no firma electrónica cualificada</h2>
+      </div>
+
+      <div class="honest-note fade-up delay-1">
+        <p><strong>Lo que sí hace:</strong> La firma digital de REELEVO proporciona evidencia operativa trazable — quién firmó, cuándo, qué aprobó y desde qué dispositivo. Es suficiente para la inmensa mayoría de necesidades de auditoría industrial: ISO 9001, BRC, auditorías internas de calidad y revisiones de cliente.</p>
+      </div>
+
+      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
+        <p><strong>Lo que no hace:</strong> La firma de REELEVO no es una firma electrónica cualificada (FEQ) con certificado digital personal acreditado, del tipo requerido para contratos legales o trámites ante la Administración. Si necesitas ese nivel de firma para documentos con efectos jurídicos externos, REELEVO no lo cubre. Para procesos internos de planta — que es el 99% de los casos industriales — la firma operativa de REELEVO es suficiente.</p>
+      </div>
+
+      <div class="availability-note fade-up delay-3">
+        Disponible desde el plan Pro.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Cierra la brecha entre "se hizo"<br><em>y "hay evidencia de que se hizo"</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Activa la firma digital en tus procesos críticos. Sin papel adicional, sin cambiar cómo trabaja el equipo.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/calidad-y-conformidad/" class="btn-ghost">
+        Ver calidad y conformidad →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Implementación asistida · Sin configuración técnica</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content { max-width: 700px; margin-top: 40px; }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 { font-family: 'Oswald', sans-serif; margin-bottom: 12px; color: var(--text); }
+  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
+
+  /* SIGN SCENARIOS */
+  .sign-scenarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .sign-scenarios { grid-template-columns: 1fr; }
+  }
+
+  .sign-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .sign-who {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .sign-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .sign-card p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .sign-result {
+    margin-top: 28px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    max-width: 600px;
+  }
+
+  .sign-result h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+
+  .sign-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sign-field {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 100, 0, 0.2);
+    border-radius: 3px;
+    color: var(--gray);
+  }
+
+  /* AUDIT VS */
+  .audit-content {
+    max-width: 760px;
+    margin-top: 40px;
+  }
+
+  .audit-content > p {
+    color: var(--gray);
+    line-height: 1.65;
+    font-size: 0.93rem;
+    margin: 0 0 28px;
+  }
+
+  .audit-vs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 560px) {
+    .audit-vs { grid-template-columns: 1fr; }
+  }
+
+  .vs-col { padding: 24px; }
+
+  .vs-col + .vs-col { border-left: 1px solid var(--border); }
+
+  @media (max-width: 560px) {
+    .vs-col + .vs-col { border-left: none; border-top: 1px solid var(--border); }
+  }
+
+  .vs-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 14px;
+  }
+
+  .vs-bad .vs-label { color: var(--gray); }
+  .vs-good .vs-label { color: var(--orange); }
+  .vs-good { background: rgba(255, 100, 0, 0.04); }
+
+  .vs-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .vs-col ul li {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .vs-col ul li::before { content: '·'; position: absolute; left: 0; color: var(--orange); }
+
+  /* HONEST NOTE */
+  .honest-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    max-width: 760px;
+  }
+
+  .honest-note p { color: var(--gray); font-size: 0.9rem; line-height: 1.65; margin: 0; }
+
+  .availability-note {
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: var(--orange);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .04em;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

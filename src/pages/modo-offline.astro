@@ -1,0 +1,438 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Modo offline y PWA para planta industrial | REELEVO";
+const description = "REELEVO funciona sin conexión a internet. El operario trabaja desde su móvil aunque la wifi de planta falle. Las acciones se sincronizan automáticamente al recuperar la conexión. Sin app store, sin instalación compleja.";
+const canonical = "https://gmvsolutions.es/modo-offline/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Modo Offline y PWA",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">PWA · Modo offline · Sincronización automática · Sin app store</div>
+    <h1 class="fade-up delay-1">La wifi de planta no siempre funciona.<br><em>REELEVO sí.</em></h1>
+    <p class="fade-up delay-2">REELEVO es una Progressive Web App que el operario instala en su móvil en un toque — sin App Store ni Google Play. Y si la conexión falla, sigue funcionando. Las acciones se sincronizan solas cuando vuelve la red.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Planta industrial y conectividad fiable no siempre van juntas</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>La señal wifi en planta es irregular — hay zonas muertas cerca de la maquinaria pesada o las estanterías metálicas</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario no puede dejar la máquina parada mientras espera que la app cargue — necesita que funcione ahora mismo</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Instalar apps en los dispositivos de los operarios requiere pasar por IT, por tiendas de apps, por gestión de cuentas — demasiada fricción</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Los móviles personales del operario pueden no tener datos — o la empresa no quiere depender de los datos del empleado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>La tecnología tiene que funcionar en las condiciones de planta — no en las condiciones ideales</h3>
+        <p>Si la herramienta depende de conexión estable para funcionar, deja de ser útil en el momento más importante: cuando el operario está en planta produciendo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PWA EXPLICADA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Qué es una PWA</div>
+        <h2 class="section-title">Una app que no requiere la tienda de apps</h2>
+        <p class="section-sub">Una Progressive Web App (PWA) es una web que se comporta como una aplicación nativa. Se instala en la pantalla de inicio del móvil, funciona sin conexión y recibe actualizaciones automáticamente — sin que el usuario haga nada.</p>
+      </div>
+
+      <div class="pwa-compare fade-up delay-1">
+        <div class="pwa-col">
+          <div class="pwa-col-title">App nativa (App Store / Google Play)</div>
+          <ul class="pwa-list pwa-bad">
+            <li>El operario necesita cuenta de tienda</li>
+            <li>IT tiene que gestionar la instalación en cada dispositivo</li>
+            <li>Las actualizaciones requieren acción del usuario</li>
+            <li>Diferentes versiones entre dispositivos</li>
+            <li>Ocupa espacio de almacenamiento significativo</li>
+          </ul>
+        </div>
+        <div class="pwa-col">
+          <div class="pwa-col-title">REELEVO como PWA</div>
+          <ul class="pwa-list pwa-good">
+            <li>El operario toca "Instalar" en el navegador — listo</li>
+            <li>Sin cuenta de tienda, sin gestión de IT</li>
+            <li>Las actualizaciones llegan solas, sin avisar</li>
+            <li>Todos los dispositivos siempre en la misma versión</li>
+            <li>Mínimo espacio — es una web optimizada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MODO OFFLINE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Modo offline</div>
+        <h2 class="section-title">La conexión se corta — el trabajo no se para</h2>
+      </div>
+
+      <div class="offline-flow fade-up delay-1">
+        <div class="offline-step">
+          <div class="os-icon">📶</div>
+          <div class="os-content">
+            <h3>Con conexión: funcionamiento normal</h3>
+            <p>El operario trabaja normalmente. Los datos se sincronizan en tiempo real con el servidor. El supervisor ve la actividad en el monitor en tiempo real.</p>
+          </div>
+        </div>
+
+        <div class="offline-arrow">→</div>
+
+        <div class="offline-step offline-cut">
+          <div class="os-icon">📵</div>
+          <div class="os-content">
+            <h3>Conexión cortada: el operario no se da cuenta</h3>
+            <p>El operario sigue trabajando exactamente igual. El SOP del proceso ya está cacheado en el dispositivo. Las acciones que registra se guardan en cola localmente.</p>
+          </div>
+        </div>
+
+        <div class="offline-arrow">→</div>
+
+        <div class="offline-step">
+          <div class="os-icon">🔄</div>
+          <div class="os-content">
+            <h3>Conexión restaurada: sincronización automática</h3>
+            <p>Cuando la wifi vuelve, REELEVO sincroniza automáticamente todas las acciones guardadas en cola. El supervisor ve los datos actualizados. Sin que el operario haga nada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cache-note fade-up delay-2">
+        <h3>Qué queda cacheado en el dispositivo</h3>
+        <div class="cache-items">
+          <div class="cache-item">SOPs y procesos frecuentes</div>
+          <div class="cache-item">Agenda del día</div>
+          <div class="cache-item">Listas de productos y máquinas</div>
+          <div class="cache-item">Recursos multimedia de procesos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUIÉN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cuándo es especialmente útil</div>
+        <h2 class="section-title">No todas las plantas tienen la misma conectividad</h2>
+      </div>
+
+      <div class="usecase-grid fade-up delay-1">
+        <div class="usecase-card">
+          <h3>Plantas grandes con zonas muertas</h3>
+          <p>Naves industriales amplias con maquinaria pesada que interfiere la señal wifi. El operario se mueve entre puestos y la conexión varía. Con modo offline, el trabajo no depende de dónde esté el router.</p>
+        </div>
+
+        <div class="usecase-card">
+          <h3>Trabajo exterior o en obra</h3>
+          <p>Si el equipo trabaja en instalaciones de cliente, en obra o en zonas sin wifi, el modo offline permite seguir usando REELEVO con los procesos cacheados del día.</p>
+        </div>
+
+        <div class="usecase-card">
+          <h3>Dispositivos sin datos móviles</h3>
+          <p>Si los operarios usan tablets o móviles de empresa sin tarjeta SIM, el modo offline es la red de seguridad cuando la wifi falla — sin depender de los datos del empleado.</p>
+        </div>
+
+        <div class="usecase-card">
+          <h3>Sectores con interferencias</h3>
+          <p>Industria alimentaria, metalúrgica o química donde la maquinaria, las estructuras metálicas o los protocolos de higiene limitan el uso de dispositivos conectados constantemente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Una herramienta que funciona<br><em>en las condiciones reales de tu planta</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Registra tu empresa en REELEVO. El primer operario puede tener la PWA instalada en su móvil en menos de 2 minutos.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/portal-operario/" class="btn-ghost">
+        Ver el portal del operario →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Sin IT · El operario lo instala solo</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content { max-width: 700px; margin-top: 40px; }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 { font-family: 'Oswald', sans-serif; margin-bottom: 12px; color: var(--text); }
+  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
+
+  /* PWA COMPARE */
+  .pwa-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 760px;
+  }
+
+  @media (max-width: 580px) {
+    .pwa-compare { grid-template-columns: 1fr; }
+  }
+
+  .pwa-col { padding: 28px; }
+
+  .pwa-col + .pwa-col {
+    border-left: 1px solid var(--border);
+    background: rgba(255, 100, 0, 0.04);
+  }
+
+  @media (max-width: 580px) {
+    .pwa-col + .pwa-col { border-left: none; border-top: 1px solid var(--border); }
+  }
+
+  .pwa-col-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: 16px;
+    color: var(--gray);
+  }
+
+  .pwa-col:last-child .pwa-col-title { color: var(--orange); }
+
+  .pwa-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pwa-list li {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .pwa-list li::before { content: '·'; position: absolute; left: 0; color: var(--orange); }
+
+  /* OFFLINE FLOW */
+  .offline-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 40px;
+    max-width: 900px;
+  }
+
+  @media (max-width: 700px) {
+    .offline-flow { flex-direction: column; }
+    .offline-arrow { transform: rotate(90deg); text-align: center; padding: 8px 0; }
+  }
+
+  .offline-step {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .offline-step.offline-cut {
+    border-color: rgba(255, 100, 0, 0.4);
+    background: rgba(255, 100, 0, 0.04);
+  }
+
+  .offline-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 1.5rem;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .os-icon { font-size: 1.8rem; }
+
+  .os-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .os-content p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .cache-note {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    max-width: 600px;
+  }
+
+  .cache-note h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--gray);
+    margin-bottom: 14px;
+  }
+
+  .cache-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cache-item {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    background: rgba(255, 100, 0, 0.07);
+    border: 1px solid rgba(255, 100, 0, 0.15);
+    border-radius: 3px;
+    color: var(--gray);
+  }
+
+  /* USE CASES */
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .usecase-grid { grid-template-columns: 1fr; }
+  }
+
+  .usecase-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .usecase-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .usecase-card p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

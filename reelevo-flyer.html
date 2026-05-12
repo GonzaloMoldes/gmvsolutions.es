@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Flyer A5 · Dos caras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--o:#F4521E;--od:#C43A10;--dark:#0A0A0A;--white:#F5F5F5;}
+body{font-family:'DM Sans',Helvetica,sans-serif;background:#888;color:var(--dark);padding:10mm;display:flex;flex-direction:column;gap:16mm;align-items:center;}
+h1,h2,h3,h4{font-family:'Oswald','Impact',sans-serif;}
+.face-label{font-size:8pt;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.12em;margin-bottom:3mm;}
+.face-wrap{display:flex;flex-direction:column;align-items:flex-start;}
+/* A5 = 148x210mm */
+.flyer{width:148mm;min-height:210mm;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+@media print{
+  body{background:#fff;padding:0;gap:0;}
+  .face-label{display:none;}
+  .face-wrap{align-items:center;}
+  .flyer{margin:0;page-break-after:always;break-after:page;width:148mm;height:210mm;min-height:210mm;max-height:210mm;}
+  @page{size:148mm 210mm;margin:0;}
+}
+
+/* ── CARA A ── */
+.ca-header{background:var(--dark);padding:6mm 8mm 5mm;position:relative;overflow:hidden;flex-shrink:0;}
+.ca-header::after{content:'';position:absolute;right:-14mm;top:-14mm;width:52mm;height:52mm;border-radius:50%;background:rgba(244,82,30,.12);}
+.logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:22pt;letter-spacing:.14em;text-transform:uppercase;color:var(--white);position:relative;z-index:2;}
+.logo span{color:var(--o);}
+.logo-sub{font-size:7pt;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.32);margin-top:2mm;position:relative;z-index:2;}
+.ca-hero{background:linear-gradient(155deg,#0A0A0A 0%,#1e0e05 100%);padding:7mm 8mm 6mm;position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;gap:5mm;}
+.ca-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 50% at 98% -5%,rgba(244,82,30,.3),transparent),radial-gradient(ellipse 45% 60% at 0% 105%,rgba(244,82,30,.1),transparent);}
+.eyebrow{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--o);position:relative;z-index:2;}
+.ca-hero h1{font-size:26pt;font-weight:700;color:var(--white);line-height:.95;letter-spacing:-.01em;position:relative;z-index:2;}
+.ca-hero h1 em{font-style:normal;color:var(--o);}
+.ca-hero .pitch{font-size:9.5pt;color:rgba(255,255,255,.72);line-height:1.55;position:relative;z-index:2;}
+.ca-hero .pitch strong{color:var(--white);}
+.ca-illus{position:relative;z-index:2;border-radius:5px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:2mm;}
+.module-grid-ca{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm;position:relative;z-index:2;}
+.module-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:5px;padding:3mm 3.5mm;display:flex;align-items:center;gap:2.5mm;}
+.module-chip .mc-icon{font-size:13pt;line-height:1;flex-shrink:0;}
+.module-chip .mc-label{font-size:8pt;font-weight:500;color:rgba(255,255,255,.88);line-height:1.25;}
+.ca-tagline{font-size:8pt;color:rgba(255,255,255,.38);text-align:center;position:relative;z-index:2;letter-spacing:.04em;}
+.ca-footer{background:var(--dark);padding:4.5mm 8mm;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(244,82,30,.2);flex-shrink:0;}
+.ca-price{font-family:'Oswald',sans-serif;font-size:11pt;color:rgba(255,255,255,.45);}
+.ca-price span{color:var(--o);font-size:15pt;}
+.footer-url{font-family:'Oswald',sans-serif;font-size:13pt;font-weight:600;color:var(--o);letter-spacing:.04em;text-decoration:none;}
+
+/* ── CARA B ── */
+.cb-header{background:var(--dark);padding:5mm 8mm;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.cb-header .logo{font-size:18pt;}
+.cb-tag{font-size:7pt;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.36);text-align:right;line-height:1.6;}
+.pains{padding:6mm 8mm;background:#F8F9FB;border-bottom:1px solid #E8EDF3;flex-shrink:0;}
+.section-label{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--o);margin-bottom:4mm;}
+.pain-list{display:flex;flex-direction:column;gap:3.5mm;}
+.pain-row{display:flex;align-items:flex-start;gap:3.5mm;}
+.pain-num{width:20px;height:20px;border-radius:50%;background:rgba(244,82,30,.12);font-family:'Oswald',sans-serif;font-size:9pt;color:var(--o);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.5mm;}
+.pain-text{font-size:9.5pt;color:#374151;line-height:1.48;}
+.pain-text strong{color:#0A0A0A;}
+.how{padding:5mm 8mm 6mm;background:#fff;flex-shrink:0;}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;}
+.feat-card{background:#F8F9FB;border:1px solid #E8EDF3;border-radius:6px;padding:4mm 4.5mm;display:flex;flex-direction:column;gap:2mm;position:relative;overflow:hidden;}
+.feat-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--o);border-radius:3px 0 0 3px;}
+.feat-icon{font-size:16pt;line-height:1;}
+.feat-title{font-family:'Oswald',sans-serif;font-size:9.5pt;font-weight:600;color:#0A0A0A;line-height:1.15;}
+.feat-desc{font-size:7.5pt;color:#475569;line-height:1.45;}
+.results{background:linear-gradient(135deg,#0D1A26 0%,#0A1018 100%);padding:5mm 8mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;flex-shrink:0;border-top:3px solid var(--o);}
+.rstat{text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:3.5mm 2mm;}
+.rstat .big{font-family:'Oswald',sans-serif;font-size:26pt;font-weight:700;color:var(--o);line-height:1;}
+.rstat .rlabel{font-size:6.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.9);line-height:1.3;margin-top:1.5mm;}
+.rstat .rsub{font-size:6pt;color:rgba(255,255,255,.42);line-height:1.35;margin-top:1mm;}
+.cb-footer{margin-top:auto;background:var(--dark);padding:4.5mm 8mm;display:flex;align-items:center;gap:5mm;flex-shrink:0;border-top:1px solid rgba(244,82,30,.2);}
+.cb-footer-qr{flex-shrink:0;background:#fff;padding:1.5mm;border-radius:3px;}
+.cb-footer-qr img{display:block;width:18mm;height:18mm;}
+.cb-footer-body{flex:1;}
+.cb-footer-body .main{font-family:'Oswald',sans-serif;font-size:13pt;color:#fff;line-height:1.1;}
+.cb-footer-body .main span{color:var(--o);}
+.cb-footer-body .sub{font-size:6.5pt;color:rgba(255,255,255,.38);margin-top:1.5mm;line-height:1.5;}
+.cb-footer-body .url{font-family:'Oswald',sans-serif;font-size:10pt;font-weight:600;color:var(--o);letter-spacing:.04em;text-decoration:none;display:block;margin-top:1.5mm;}
+</style>
+</head>
+<body>
+
+<!-- CARA A: EL GANCHO -->
+<div class="face-wrap">
+  <div class="face-label">Cara A - Delantera</div>
+  <div class="flyer">
+    <div class="ca-header">
+      <div class="logo">REEL<span>EVO</span></div>
+      <div class="logo-sub">La plataforma operativa todo-en-uno para pymes industriales</div>
+    </div>
+    <div class="ca-hero">
+      <div class="eyebrow">¿Qué es REELEVO?</div>
+      <h1>Gestiona personas,<br>procesos y producción<br>desde <em>un solo lugar</em></h1>
+      <p class="pitch">REELEVO es el software que centraliza el control operativo de tu empresa. <strong>Sin papel, sin Excel, sin llamadas de última hora.</strong> Todo conectado y visible en tiempo real.</p>
+      <div class="ca-illus">
+        <svg viewBox="120 30 200 90" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block;">
+
+          <!-- ══ MÁQUINA (flat design) ══ -->
+          <!-- Cuerpo principal -->
+          <rect x="192" y="10" width="96" height="94" rx="6" fill="#1E2C3A"/>
+          <!-- Panel superior oscuro -->
+          <rect x="192" y="10" width="96" height="26" rx="6" fill="#152030"/>
+          <rect x="192" y="26" width="96" height="10" fill="#152030"/>
+          <!-- Pantalla nombre -->
+          <rect x="198" y="13" width="64" height="20" rx="3" fill="#0A1520"/>
+          <text x="230" y="26" font-size="5.5" font-family="monospace" fill="rgba(255,255,255,.45)" text-anchor="middle" letter-spacing="1.5">LÍNEA — 03</text>
+          <!-- Piloto naranja activo -->
+          <circle cx="275" cy="20" r="6" fill="#F4521E"/>
+          <circle cx="275" cy="20" r="10" fill="none" stroke="#F4521E" stroke-width="1.2" opacity=".35"/>
+          <!-- Franja naranja divisoria -->
+          <rect x="192" y="36" width="96" height="4" fill="#F4521E"/>
+
+          <!-- Panel panel QR (izquierda interior) -->
+          <rect x="198" y="44" width="46" height="52" rx="3" fill="#0C1520"/>
+          <text x="221" y="42" font-size="4" font-family="monospace" fill="rgba(244,82,30,.7)" text-anchor="middle" letter-spacing="1.5">ESCANEAR</text>
+          <!-- QR: esquina superior izquierda -->
+          <rect x="202" y="48" width="13" height="13" rx="1.5" fill="none" stroke="white" stroke-width="1.8"/>
+          <rect x="204.5" y="50.5" width="8" height="8" rx=".5" fill="white"/>
+          <!-- QR: esquina superior derecha -->
+          <rect x="228" y="48" width="13" height="13" rx="1.5" fill="none" stroke="white" stroke-width="1.8"/>
+          <rect x="230.5" y="50.5" width="8" height="8" rx=".5" fill="white"/>
+          <!-- QR: esquina inferior izquierda -->
+          <rect x="202" y="73" width="13" height="13" rx="1.5" fill="none" stroke="white" stroke-width="1.8"/>
+          <rect x="204.5" y="75.5" width="8" height="8" rx=".5" fill="white"/>
+          <!-- QR: módulos de datos -->
+          <rect x="220" y="65" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+          <rect x="226" y="65" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+          <rect x="220" y="71" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+          <rect x="232" y="73" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+          <rect x="232" y="65" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+          <rect x="226" y="79" width="4.5" height="4.5" fill="rgba(255,255,255,.9)"/>
+
+          <!-- Panel de controles (derecha interior) -->
+          <!-- Dial grande -->
+          <circle cx="259" cy="54" r="10" fill="#0C1520" stroke="#304055" stroke-width="2"/>
+          <line x1="259" y1="54" x2="259" y2="46" stroke="#F4521E" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Dial pequeño -->
+          <circle cx="276" cy="54" r="7" fill="#0C1520" stroke="#304055" stroke-width="1.5"/>
+          <line x1="276" y1="54" x2="279" y2="49" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Indicadores de estado -->
+          <circle cx="251" cy="70" r="5" fill="#22C55E"/>
+          <circle cx="263" cy="70" r="5" fill="#F4521E"/>
+          <circle cx="275" cy="70" r="5" fill="#304055"/>
+          <!-- Rejillas de ventilación -->
+          <rect x="250" y="82" width="32" height="3" rx="1.5" fill="#304055"/>
+          <rect x="250" y="88" width="32" height="3" rx="1.5" fill="#304055"/>
+          <rect x="250" y="94" width="32" height="3" rx="1.5" fill="#304055"/>
+          <!-- Base/patas -->
+          <rect x="192" y="101" width="96" height="6" rx="0 0 6 6" fill="#0F1820"/>
+          <rect x="200" y="104" width="16" height="8" rx="2" fill="#0A1218"/>
+          <rect x="272" y="104" width="16" height="8" rx="2" fill="#0A1218"/>
+
+          <!-- ══ RAYO DE ESCANEO ══ -->
+          <polygon points="174,69 192,54 192,84" fill="#F4521E" opacity=".12"/>
+          <line x1="174" y1="69" x2="192" y2="69" stroke="#F4521E" stroke-width="2.5" stroke-dasharray="6,3.5" stroke-linecap="round"/>
+          <circle cx="192" cy="69" r="5" fill="#F4521E" opacity=".7"/>
+          <circle cx="192" cy="69" r="11" fill="none" stroke="#F4521E" stroke-width="1.2" opacity=".3"/>
+          <circle cx="192" cy="69" r="17" fill="none" stroke="#F4521E" stroke-width=".6" opacity=".13"/>
+
+          <!-- ══ TABLET ══ -->
+          <!-- Carcasa -->
+          <rect x="148" y="42" width="26" height="44" rx="4" fill="#263A50"/>
+          <!-- Pantalla -->
+          <rect x="151" y="45" width="20" height="35" rx="2.5" fill="#050E1A"/>
+          <rect x="151" y="45" width="20" height="35" rx="2.5" fill="rgba(244,82,30,.22)"/>
+          <!-- Marco de escaneo: esquinas -->
+          <path d="M154,48 L154,53.5 L159.5,53.5" fill="none" stroke="#F4521E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M168,48 L168,53.5 L162.5,53.5" fill="none" stroke="#F4521E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M154,78 L154,72.5 L159.5,72.5" fill="none" stroke="#F4521E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M168,78 L168,72.5 L162.5,72.5" fill="none" stroke="#F4521E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Retícula central -->
+          <circle cx="161" cy="63" r="5" fill="none" stroke="#F4521E" stroke-width="1.5"/>
+          <circle cx="161" cy="63" r="2" fill="#F4521E" opacity=".8"/>
+          <line x1="161" y1="57" x2="161" y2="69" stroke="#F4521E" stroke-width=".8" opacity=".5"/>
+          <line x1="155" y1="63" x2="167" y2="63" stroke="#F4521E" stroke-width=".8" opacity=".5"/>
+          <!-- Botón home -->
+          <circle cx="161" cy="86" r="2.5" fill="none" stroke="#304055" stroke-width="1.5"/>
+
+
+
+        </svg>
+      </div>
+      <div class="module-grid-ca">
+        <div class="module-chip"><div class="mc-icon">🏭</div><div class="mc-label">Control de producción</div></div>
+        <div class="module-chip"><div class="mc-icon">🧠</div><div class="mc-label">Gestión del conocimiento</div></div>
+        <div class="module-chip"><div class="mc-icon">📅</div><div class="mc-label">Disponibilidad y turnos</div></div>
+        <div class="module-chip"><div class="mc-icon">📋</div><div class="mc-label">Planificación de tareas</div></div>
+        <div class="module-chip"><div class="mc-icon">⚙️</div><div class="mc-label">Control de procesos</div></div>
+        <div class="module-chip"><div class="mc-icon">📊</div><div class="mc-label">Monitorización en tiempo real</div></div>
+      </div>
+      <div class="ca-tagline">Disponible desde el móvil &nbsp;·&nbsp; Sin instalación &nbsp;·&nbsp; Implementación asistida</div>
+    </div>
+    <div class="ca-footer">
+      <div class="ca-price">Desde <span>49 €/mes</span></div>
+      <a class="footer-url" href="https://gmvsolutions.es">gmvsolutions.es</a>
+    </div>
+  </div>
+</div>
+
+<!-- CARA B: LA SOLUCION -->
+<div class="face-wrap">
+  <div class="face-label">Cara B - Trasera</div>
+  <div class="flyer">
+    <div class="cb-header">
+      <div class="logo">REEL<span>EVO</span></div>
+      <div class="cb-tag">Los beneficios<br>para tu empresa</div>
+    </div>
+    <div class="pains">
+      <div class="section-label">Los problemas que elimina</div>
+      <div class="pain-list">
+        <div class="pain-row">
+          <div class="pain-num">1</div>
+          <div class="pain-text"><strong>Todo depende de una persona:</strong> si falta o se va, se para la producción y nadie sabe cómo cubrirle.</div>
+        </div>
+        <div class="pain-row">
+          <div class="pain-num">2</div>
+          <div class="pain-text"><strong>Formar a cada nuevo trabajador te roba tiempo:</strong> siempre hay que asignarle a alguien que le enseñe, bajando la productividad de todo el equipo.</div>
+        </div>
+        <div class="pain-row">
+          <div class="pain-num">3</div>
+          <div class="pain-text"><strong>Sin registros, sin control:</strong> no puedes demostrar que los procesos se hacen bien y cada auditoría se convierte en un problema.</div>
+        </div>
+      </div>
+    </div>
+    <div class="how">
+      <div class="section-label">Qué gana tu empresa con REELEVO</div>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🏭</div>
+          <div class="feat-title">Sin parones de producción</div>
+          <div class="feat-desc">Detecta desvíos antes de que paren la línea. Tu producción sigue aunque cambie el equipo.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🧠</div>
+          <div class="feat-title">El saber no se va con nadie</div>
+          <div class="feat-desc">El conocimiento de tus expertos queda en la empresa para siempre, accesible para todos.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📅</div>
+          <div class="feat-title">Turnos siempre cubiertos</div>
+          <div class="feat-desc">Sabes de un vistazo si el turno de mañana está cubierto. Cero sorpresas de última hora.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Planifica sin caos</div>
+          <div class="feat-desc">Asigna el trabajo diario en segundos. Sin Excel, sin WhatsApp, sin confusión.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚙️</div>
+          <div class="feat-title">Procesos que se cumplen</div>
+          <div class="feat-desc">SOPs digitales con firma y trazabilidad. Cada acción registrada: quién, cuándo y cómo.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📊</div>
+          <div class="feat-title">Decisiones con datos reales</div>
+          <div class="feat-desc">Panel de mando en tiempo real. Dejas de gestionar a ciegas y empiezas a dirigir con control.</div>
+        </div>
+      </div>
+    </div>
+    <div class="results">
+      <div class="rstat">
+        <div class="big">-40%</div>
+        <div class="rlabel">Tiempo de onboarding</div>
+        <div class="rsub">De semanas a días desde el primer turno</div>
+      </div>
+      <div class="rstat">
+        <div class="big">×3</div>
+        <div class="rlabel">Velocidad de cobertura</div>
+        <div class="rsub">Bajas y rotaciones sin parones en línea</div>
+      </div>
+      <div class="rstat">
+        <div class="big">100%</div>
+        <div class="rlabel">Trazabilidad digital</div>
+        <div class="rsub">Cero papel. Auditorías sin sorpresas</div>
+      </div>
+    </div>
+    <div class="cb-footer">
+      <div class="cb-footer-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fgmvsolutions.es&margin=4" alt="QR gmvsolutions.es" width="120" height="120">
+      </div>
+      <div class="cb-footer-body">
+        <div class="main">Empieza <span>gratis</span> hoy</div>
+        <div class="sub">Sin permanencia &nbsp;·&nbsp; Implementación asistida<br>Soporte en español &nbsp;·&nbsp; Sin tarjeta de crédito</div>
+        <a class="url" href="https://gmvsolutions.es">gmvsolutions.es</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Trazabilidad por pieza y obra para fabricación a medida | REELEVO";
+const description = "Gestiona proyectos de fabricación con trazabilidad completa por pieza. QR individual por unidad producida, seguimiento de avance de obra, historial de producción por proyecto. Para pymes industriales que fabrican por encargo.";
+const canonical = "https://gmvsolutions.es/obras-trazabilidad/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Obras y Trazabilidad por Proyecto",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Trazabilidad por pieza · Obras y proyectos · QR individual por unidad</div>
+    <h1 class="fade-up delay-1">Cada pieza que sale de tu fábrica<br><em>sabe exactamente quién la hizo</em></h1>
+    <p class="fade-up delay-2">Agrupa toda la producción bajo un proyecto, genera un QR individual por cada pieza terminada y consulta al instante quién la produjo, cuándo, en qué proceso y dentro de qué obra. Trazabilidad real, no papel.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">Fabricas por encargo — pero si algo falla, no sabes qué pasó</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <p>Cuando fabricas por proyecto o por encargo, cada pieza tiene historia. Pero esa historia suele estar en la cabeza del jefe de producción, en un Excel o en ningún sitio:</p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Un cliente reclama por una pieza defectuosa. No puedes demostrar qué operario la hizo, ni cuándo, ni qué proceso siguió</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>La obra tiene 400 piezas en producción en tres turnos. El avance real vs el planificado nadie lo sabe hasta el final</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>En una revisión de calidad ISO, no tienes evidencia documental de quién ejecutó cada operación de la obra</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario no sabe a qué proyecto pertenece la pieza que está fabricando, ni qué proceso debe seguir exactamente para esa obra</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Tienes varias obras activas a la vez. No sabes de un vistazo cuáles van bien, cuáles van retrasadas y cuáles están en riesgo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>La trazabilidad no es solo para certificaciones</h3>
+        <p>Es lo que te permite responder ante un cliente, detectar dónde se originó un problema y mejorar el proceso antes de que vuelva a ocurrir.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona en REELEVO</div>
+        <h2 class="section-title">Del pedido a la entrega — con historial completo de cada pieza</h2>
+        <p class="section-sub">REELEVO convierte cada obra en un contenedor trazable. Sabes qué se planificó, qué se produjo, quién lo hizo y cuándo — pieza a pieza.</p>
+      </div>
+
+      <div class="kaizen-flow fade-up delay-1">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-content">
+            <h3>Creas la obra y defines lo que hay que producir</h3>
+            <p>Abres un proyecto en REELEVO, le asocias los productos que hay que fabricar y el número de unidades planificadas por producto. Desde ese momento, toda la producción de esa obra queda agrupada y trazada.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-content">
+            <h3>Los operarios producen vinculados a la obra</h3>
+            <p>El operario escanea el QR de su puesto, selecciona la obra activa y sigue el proceso SOP correspondiente. Cada ejecución queda registrada automáticamente con su nombre, turno, máquina y hora.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-content">
+            <h3>Se genera un QR individual por cada pieza terminada</h3>
+            <p>Al registrar una pieza como terminada, REELEVO genera automáticamente un código QR individual para esa unidad. El operario puede imprimir la etiqueta y pegarla en la pieza física.</p>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-content">
+            <h3>El QR es la trazabilidad de la pieza para siempre</h3>
+            <p>Cualquiera que escanee ese QR — en planta, en almacén, en el cliente — accede al historial completo de esa pieza: quién la hizo, cuándo, con qué proceso, en qué máquina y dentro de qué obra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Funcionalidades</div>
+        <h2 class="section-title">Gestión de obras y trazabilidad por pieza</h2>
+      </div>
+
+      <div class="solution-grid fade-up delay-1">
+        <div class="solution-cell">
+          <div class="cell-number">1</div>
+          <h3>Gestión de obras y proyectos</h3>
+          <p>Crea proyectos, asocia productos y unidades planificadas. Visibilidad instantánea de obras activas, completadas y en riesgo de no cumplir plazo.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">2</div>
+          <h3>Seguimiento de avance en tiempo real</h3>
+          <p>Para cada obra, ve de un vistazo cuántas unidades de cada producto se han producido vs las planificadas. Sin preguntar al jefe de producción, sin esperar al cierre del turno.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">3</div>
+          <h3>QR individual por pieza terminada</h3>
+          <p>Al terminar una pieza, se genera automáticamente un QR único para esa unidad. Incluye todos los datos de trazabilidad: quién, cuándo, cómo, en qué obra.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">4</div>
+          <h3>Ficha trazable de pieza</h3>
+          <p>Escaneando el QR de cualquier pieza se accede al historial completo. Quién la produjo, qué proceso siguió, en qué máquina, en qué turno y dentro de qué proyecto.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">5</div>
+          <h3>Historial completo de producción por obra</h3>
+          <p>Cada proyecto tiene un registro cronológico de todas las operaciones ejecutadas: qué se produjo, quién lo hizo y cuándo. Exportable para auditorías y reclamaciones de clientes.</p>
+        </div>
+
+        <div class="solution-cell">
+          <div class="cell-number">6</div>
+          <h3>Etiquetas QR con datos de trazabilidad</h3>
+          <p>Imprime etiquetas QR para pegarlas en las piezas físicas antes de almacenarlas o enviarlas al cliente. La información de trazabilidad viaja con la pieza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUIÉN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Para quién es esto</div>
+        <h2 class="section-title">Empresas que fabrican por proyecto, encargo u obra</h2>
+        <p class="section-sub">REELEVO Obras y Trazabilidad está pensado específicamente para pymes industriales donde cada pedido es distinto al anterior.</p>
+      </div>
+
+      <div class="personas-grid fade-up delay-1">
+        <div class="persona-card">
+          <div class="persona-icon">🔩</div>
+          <h3>Fabricación de componentes a medida</h3>
+          <p>Talleres de mecanizado, calderería, carpintería metálica. Cada pedido tiene sus propias especificaciones. Necesitas demostrar que cada pieza se fabricó según el proceso correcto.</p>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-icon">🏭</div>
+          <h3>Fabricación por lotes con referencia de cliente</h3>
+          <p>Fabricas en serie pero por órdenes de cliente. Necesitas saber qué piezas del lote van a qué cliente y quién las fabricó, para responder ante reclamaciones con datos reales.</p>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-icon">🏗️</div>
+          <h3>Empresas con requisitos ISO de trazabilidad</h3>
+          <p>Si ISO 9001 o tu cliente final te exige evidencia documental de quién hizo qué y cuándo, REELEVO genera ese registro automáticamente sin que nadie tenga que rellenar papeles.</p>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-icon">📋</div>
+          <h3>Contratas y empresas de instalación</h3>
+          <p>Obras de montaje o instalación con fases, materiales y personal distintos por proyecto. Trazabilidad de qué se hizo en cada fase, quién lo hizo y qué incidencias surgieron.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CASO DE USO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Caso real: cuando el cliente reclama una pieza defectuosa</h2>
+      </div>
+
+      <div class="case-story fade-up delay-1">
+        <div class="story-section">
+          <h3>La situación</h3>
+          <p>Taller de mecanizado CNC. 200 piezas por semana para 4 clientes distintos. Un cliente llama: una pieza de la última entrega tiene una tolerancia fuera de especificación. Quiere saber qué pasó.</p>
+        </div>
+
+        <div class="story-section">
+          <h3>Sin REELEVO</h3>
+          <p>El jefe de producción pregunta a los operarios. Nadie recuerda exactamente qué lote era ni quién lo mecanizó. Se revisan los partes en papel, algunos incompletos. No hay evidencia clara. El cliente exige una no-conformidad formal y descuentos. La relación comercial se tensiona.</p>
+        </div>
+
+        <div class="story-section highlight">
+          <h3>Con REELEVO</h3>
+          <ul>
+            <li><strong>10 segundos:</strong> El jefe de producción escanea el QR de la pieza reclamada. Aparece la ficha completa: pieza nº 174 de la Obra "Proyecto Martínez-Mayo", producida por Javier G., turno tarde del martes 5, proceso SOP-CNC-tolerancia-12, máquina CNC-3.</li>
+            <li><strong>2 minutos:</strong> Revisa el historial de SOP-CNC-tolerancia-12. Detecta que ese día hubo un cambio de herramienta no registrado en el proceso — incidencia capturada en el registro de Kaizen.</li>
+            <li><strong>Respuesta al cliente:</strong> Informe con datos reales: qué pieza, quién, cuándo, qué proceso y cuál fue la causa raíz. Con plan de acción concreto.</li>
+          </ul>
+        </div>
+
+        <div class="story-result">
+          <div class="result-num">10s</div>
+          <div class="result-label">para tener el historial completo de cualquier pieza · de la reclamación a la causa raíz, sin investigar, sin preguntar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NOTA HONESTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Enfoque prudente</div>
+        <h2 class="section-title">Trazabilidad operativa — no un sistema MES completo</h2>
+      </div>
+
+      <div class="honest-note fade-up delay-1">
+        <p><strong>Lo que sí hace:</strong> REELEVO rastrea la producción por obra y por pieza, genera QR individuales con historial completo y te da visibilidad del avance en tiempo real. Es la diferencia entre "no sé quién hizo esa pieza" y "sé exactamente quién la hizo, cuándo y cómo".</p>
+      </div>
+
+      <div class="honest-note fade-up delay-2" style="margin-top:16px;">
+        <p><strong>Lo que no hace:</strong> REELEVO no es un sistema MES ni un ERP. No gestiona la planificación de la capacidad productiva, ni las órdenes de fabricación integradas con compras, ni la gestión de listas de materiales (BOM). Si necesitas esas funciones, REELEVO puede complementar tu ERP existente, pero no reemplazarlo. Para la mayoría de pymes sin ERP o con un ERP básico, la trazabilidad de REELEVO resuelve el 80% de los problemas reales de control de producción.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Convierte cada pieza en una unidad<br><em>con historia propia</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Empieza creando tu primera obra en REELEVO. En menos de 15 minutos tienes trazabilidad real de toda la producción del proyecto.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/workflows/" class="btn-ghost">
+        Ver workflows para fabricación por proyecto →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Sin configuración compleja</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content {
+    max-width: 700px;
+    margin-top: 40px;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .challenge-item span:last-child {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .risk-box p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* FLOW */
+  .kaizen-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+    max-width: 720px;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .flow-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .flow-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .flow-content p {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .flow-arrow {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--orange);
+    padding: 6px 0;
+    margin-left: 22px;
+  }
+
+  /* SOLUTION GRID */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; }
+  }
+
+  .solution-cell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .cell-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .solution-cell h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .solution-cell p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* PERSONAS */
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) {
+    .personas-grid { grid-template-columns: 1fr; }
+  }
+
+  .persona-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+  }
+
+  .persona-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .persona-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .persona-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASE STORY */
+  .case-story {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    max-width: 760px;
+  }
+
+  .story-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .story-section h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: .8rem;
+    margin-bottom: 10px;
+  }
+
+  .story-section p {
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  .story-section.highlight {
+    border-color: var(--orange);
+    background: rgba(255, 100, 0, 0.05);
+  }
+
+  .story-section.highlight h3 {
+    color: var(--orange);
+  }
+
+  .story-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .story-section ul li {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .story-result {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+  }
+
+  .result-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .result-label {
+    color: var(--gray);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  /* HONEST NOTE */
+  .honest-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--orange);
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    max-width: 760px;
+  }
+
+  .honest-note p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

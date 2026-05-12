@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Cobertura de turnos y gestión de competencias por turno | REELEVO";
+const description = "REELEVO detecta automáticamente cuando un turno no tiene suficientes operarios certificados en los procesos críticos. Alertas antes del inicio del turno, mapa de cobertura en tiempo real y tracking de horas por categoría.";
+const canonical = "https://gmvsolutions.es/cobertura-turnos/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REELEVO - Cobertura de Turnos",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication"
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema} activeNav="">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Cobertura de turnos · Alertas automáticas · Skill matrix por turno · Tracking de horas</div>
+    <h1 class="fade-up delay-1">¿Tiene tu turno de tarde<br><em>quien sepa arrancar la línea 2?</em></h1>
+    <p class="fade-up delay-2">REELEVO cruza automáticamente los turnos asignados con las certificaciones de cada operario. Cuando un turno no tiene cobertura suficiente en un proceso crítico, el responsable recibe la alerta antes de que empiece el problema — no cuando ya ha parado la producción.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL PROBLEMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El problema</div>
+        <h2 class="section-title">El jefe de producción descubre el problema cuando el turno ya ha empezado</h2>
+      </div>
+
+      <div class="challenge-content fade-up delay-1">
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El operario que domina el proceso de mecanizado de precisión está de baja — pero el jefe de producción lo descubre a las 6:00h cuando el turno de mañana ya está comenzando</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>Hay tres operarios asignados al turno de tarde, pero ninguno está certificado en el proceso de configuración de la inyectora — ese proceso crítico queda descubierto</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El responsable de RRHH sabe que la skill matrix tiene lagunas, pero no puede ver fácilmente cuáles afectan a qué turno en qué momento concreto</span>
+          </div>
+          <div class="challenge-item">
+            <span class="icon">❌</span>
+            <span>El tracking de horas se hace en papel o en Excel — no hay visibilidad de cuánto tiempo dedica el equipo a producción vs formación vs resolución de problemas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-box fade-up delay-2">
+        <h3>El riesgo de cobertura es un problema de datos, no de intención</h3>
+        <p>El jefe de producción no puede detectar a tiempo un turno descubierto si la información de competencias y asignaciones vive en Excel o de memoria. REELEVO la cruza automáticamente y lanza la alerta con tiempo suficiente para actuar.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo funciona</div>
+        <h2 class="section-title">Análisis automático antes del inicio de cada turno</h2>
+        <p class="section-sub">REELEVO ejecuta un análisis de cobertura antes del inicio de cada turno (mañana, tarde y noche). Cruza los operarios asignados con sus certificaciones activas y detecta qué procesos críticos quedan sin cobertura suficiente.</p>
+      </div>
+
+      <div class="coverage-flow fade-up delay-1">
+        <div class="cf-step">
+          <div class="cf-num">1</div>
+          <h3>Asignación de turno</h3>
+          <p>El responsable asigna los operarios al turno desde el panel de planificación. La asignación incluye qué máquinas y procesos están activos ese turno.</p>
+        </div>
+        <div class="cf-step">
+          <div class="cf-num">2</div>
+          <h3>Cruce con certificaciones</h3>
+          <p>REELEVO cruza los operarios asignados con la skill matrix. Detecta qué procesos tienen cobertura suficiente (mínimo 2 operarios certificados) y cuáles no.</p>
+        </div>
+        <div class="cf-step">
+          <div class="cf-num">3</div>
+          <h3>Alerta automática</h3>
+          <p>Si hay riesgo de cobertura, el responsable recibe una notificación antes del inicio del turno. Con tiempo para reorganizar asignaciones o llamar a un operario certificado.</p>
+        </div>
+        <div class="cf-step">
+          <div class="cf-num">4</div>
+          <h3>Acción correctora</h3>
+          <p>El responsable ajusta la asignación desde el panel o prioriza la formación del operario en ese proceso. La decisión queda registrada con fecha y contexto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MAPA DE COBERTURA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Mapa de cobertura</div>
+        <h2 class="section-title">Ver de un vistazo qué turno tiene un proceso descubierto</h2>
+      </div>
+
+      <div class="coverage-map-demo fade-up delay-1">
+        <div class="cm-header">
+          <div class="cm-label">Proceso</div>
+          <div class="cm-turn">Mañana</div>
+          <div class="cm-turn">Tarde</div>
+          <div class="cm-turn">Noche</div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-label">Config. inyectora CNC-3</div>
+          <div class="cm-cell cm-ok">✓ 3 ops</div>
+          <div class="cm-cell cm-warn">⚠ 1 op</div>
+          <div class="cm-cell cm-ok">✓ 2 ops</div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-label">Línea envasado — arranque</div>
+          <div class="cm-cell cm-ok">✓ 4 ops</div>
+          <div class="cm-cell cm-ok">✓ 3 ops</div>
+          <div class="cm-cell cm-danger">✗ 0 ops</div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-label">Control calidad BRC paso 4</div>
+          <div class="cm-cell cm-ok">✓ 2 ops</div>
+          <div class="cm-cell cm-ok">✓ 2 ops</div>
+          <div class="cm-cell cm-warn">⚠ 1 op</div>
+        </div>
+        <div class="cm-row">
+          <div class="cm-label">Fresadora Hermle — setup</div>
+          <div class="cm-cell cm-ok">✓ 3 ops</div>
+          <div class="cm-cell cm-ok">✓ 2 ops</div>
+          <div class="cm-cell cm-ok">✓ 2 ops</div>
+        </div>
+        <div class="cm-note">Ejemplo ilustrativo — la vista real en REELEVO usa los datos reales de tu empresa</div>
+      </div>
+
+      <div class="coverage-legend fade-up delay-2">
+        <div class="legend-item"><span class="leg-ok">✓</span> Cobertura suficiente (≥2 operarios certificados)</div>
+        <div class="legend-item"><span class="leg-warn">⚠</span> Cobertura mínima (1 operario — riesgo si falta)</div>
+        <div class="legend-item"><span class="leg-danger">✗</span> Sin cobertura — alerta automática activa</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- TRACKING DE HORAS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Tracking de horas</div>
+        <h2 class="section-title">Saber cómo distribuye el equipo su tiempo — sin formularios</h2>
+        <p class="section-sub">Cada sesión de trabajo en REELEVO se categoriza automáticamente. El responsable puede ver cuánto tiempo dedica el equipo a producción, formación, resolución de problemas y mejoras.</p>
+      </div>
+
+      <div class="hours-grid fade-up delay-1">
+        <div class="hours-cat">
+          <div class="hc-icon">🔩</div>
+          <h3>Producción</h3>
+          <p>Horas en sesiones de producción activas. Por operario, por proceso y por máquina. Comparativa con objetivo semanal configurado.</p>
+        </div>
+        <div class="hours-cat">
+          <div class="hc-icon">🎓</div>
+          <h3>Aprendizaje</h3>
+          <p>Horas en ejecuciones de aprendizaje de procesos. Visibilidad del tiempo real que dedica el equipo a formación práctica.</p>
+        </div>
+        <div class="hours-cat">
+          <div class="hc-icon">🔧</div>
+          <h3>Resolución de problemas</h3>
+          <p>Tiempo empleado en troubleshooting activo. Qué procesos y máquinas generan más tiempo de resolución de incidencias.</p>
+        </div>
+        <div class="hours-cat">
+          <div class="hc-icon">💡</div>
+          <h3>Contribuciones</h3>
+          <p>Tiempo en propuestas de mejora, documentación de soluciones y contribuciones al sistema de conocimiento.</p>
+        </div>
+      </div>
+
+      <div class="hours-insight fade-up delay-2">
+        <h3>Para qué sirven estos datos</h3>
+        <p>Si el 30% del tiempo de un turno va a resolución de problemas, hay un proceso mal documentado o un fallo recurrente que necesita atención. Si el tiempo de aprendizaje es cero, el equipo no está creciendo en competencias. Los datos de distribución de horas revelan problemas estructurales que de otra forma son invisibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h2 class="cta-title fade-up delay-1">
+      Detecta el turno descubierto<br><em>antes de que para la línea</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      La alerta automática de cobertura es una de las primeras cosas que ven los jefes de producción cuando empiezan con REELEVO.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        Registrarse gratis
+      </a>
+      <a href="/gestion-competencias/" class="btn-ghost">
+        Ver Skill Matrix y certificaciones →
+      </a>
+    </div>
+    <div class="cta-trust fade-up delay-4">Sin configuración técnica · Empieza con tus procesos actuales</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .challenge-content { max-width: 700px; margin-top: 40px; }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid rgba(255, 100, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  .challenge-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+  .challenge-item span:last-child { color: var(--gray); font-size: 0.95rem; line-height: 1.5; }
+
+  .risk-box {
+    background: rgba(255, 100, 0, 0.08);
+    border: 1px solid rgba(255, 150, 0, 0.25);
+    border-radius: 6px;
+    padding: 28px;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+
+  .risk-box h3 { font-family: 'Oswald', sans-serif; margin-bottom: 12px; color: var(--text); }
+  .risk-box p { color: var(--gray); line-height: 1.6; margin: 0; }
+
+  /* COVERAGE FLOW */
+  .coverage-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 800px) { .coverage-flow { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .coverage-flow { grid-template-columns: 1fr; } }
+
+  .cf-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+  }
+
+  .cf-num {
+    width: 28px;
+    height: 28px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .cf-step h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .cf-step p { font-size: 0.84rem; color: var(--gray); line-height: 1.55; margin: 0; }
+
+  /* COVERAGE MAP */
+  .coverage-map-demo {
+    margin-top: 40px;
+    max-width: 700px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cm-header, .cm-row {
+    display: grid;
+    grid-template-columns: 1fr 90px 90px 90px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cm-row:last-child { border-bottom: none; }
+
+  .cm-header { background: rgba(255,255,255,.03); }
+
+  .cm-label, .cm-turn, .cm-cell {
+    padding: 11px 14px;
+    font-size: 0.82rem;
+  }
+
+  .cm-turn {
+    text-align: center;
+    border-left: 1px solid var(--border);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--orange);
+  }
+
+  .cm-label { color: var(--gray); }
+
+  .cm-cell {
+    text-align: center;
+    border-left: 1px solid var(--border);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+  }
+
+  .cm-ok { color: rgba(100, 220, 130, .9); }
+  .cm-warn { color: rgba(255, 200, 50, .9); }
+  .cm-danger { color: rgba(255, 80, 60, .9); }
+
+  .cm-note {
+    grid-column: 1 / -1;
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,.3);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    background: rgba(255,255,255,.02);
+  }
+
+  .coverage-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    max-width: 700px;
+  }
+
+  .legend-item {
+    font-size: 0.82rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .leg-ok { color: rgba(100, 220, 130, .9); font-family: 'Oswald', sans-serif; }
+  .leg-warn { color: rgba(255, 200, 50, .9); font-family: 'Oswald', sans-serif; }
+  .leg-danger { color: rgba(255, 80, 60, .9); font-family: 'Oswald', sans-serif; }
+
+  /* HOURS */
+  .hours-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 800px) { .hours-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .hours-grid { grid-template-columns: 1fr; } }
+
+  .hours-cat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+  }
+
+  .hc-icon { font-size: 1.4rem; margin-bottom: 10px; }
+
+  .hours-cat h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .hours-cat p { font-size: 0.84rem; color: var(--gray); line-height: 1.55; margin: 0; }
+
+  .hours-insight {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    max-width: 700px;
+  }
+
+  .hours-insight h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .hours-insight p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; margin: 0; }
+
+  .cta-trust {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: .04em;
+  }
+</style>

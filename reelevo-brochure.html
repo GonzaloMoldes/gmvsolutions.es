@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Brochure Comercial 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E;--od:#C43A10;--ol:#FFF1EC;
+  --navy:#0F172A;--slate:#334155;--gray:#64748B;
+  --gl:#F1F5F9;--border:#E2E8F0;--white:#fff;
+}
+body{font-family:'DM Sans',Helvetica,sans-serif;background:#d4d4d4;color:var(--navy);}
+h1,h2,h3,h4,.stat-num{font-family:'Oswald','Impact',sans-serif;}
+
+/* ---- PAGE SHELL ---- */
+.page{
+  width:210mm;min-height:297mm;background:var(--white);
+  margin:0 auto 24px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+@media print{
+  body{background:white;}
+  .page{margin:0;page-break-after:always;break-after:page;
+    width:210mm;height:297mm;min-height:297mm;max-height:297mm;}
+  .page:last-child{page-break-after:avoid;break-after:avoid;}
+  @page{size:A4 portrait;margin:0;}
+}
+
+/* ---- SHARED ---- */
+.tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+.tag-orange{background:var(--ol);color:var(--od);}
+.tag-white{background:rgba(255,255,255,.15);color:#fff;}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;
+  border-radius:20px;font-size:11px;font-weight:500;}
+
+/* ---- FOOTER ---- */
+.footer{margin-top:auto;padding:8px 20mm;display:flex;align-items:center;
+  justify-content:space-between;border-top:1px solid var(--border);font-size:9px;color:var(--gray);}
+.footer-logo{font-family:'Oswald','Impact',sans-serif;font-size:13px;font-weight:700;color:var(--o);}
+.footer-dark{border-top-color:rgba(255,255,255,.15);color:rgba(255,255,255,.5);}
+.footer-dark .footer-logo{color:#fff;}
+
+/* ---- HEADER STRIPE (pages 2–14) ---- */
+.page-header{height:5px;background:var(--o);}
+
+/* ===========================
+   PAGE 1 — COVER
+   =========================== */
+.cover{background:linear-gradient(145deg,#C43A10 0%,#F4521E 55%,#FF6B3D 100%);}
+.cover-bg{position:absolute;inset:0;overflow:hidden;}
+.cover-bg svg{position:absolute;inset:0;width:100%;height:100%;}
+.cover-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:18mm 16mm 12mm;}
+.cover-eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:8mm;}
+.cover-brand{font-family:'Oswald','Impact',sans-serif;font-size:56pt;font-weight:700;
+  color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:6mm;}
+.cover-tagline{font-family:'Oswald','Impact',sans-serif;font-size:20pt;font-weight:500;
+  color:rgba(255,255,255,.92);line-height:1.25;margin-bottom:5mm;max-width:130mm;}
+.cover-sub{font-size:11pt;color:rgba(255,255,255,.78);line-height:1.5;max-width:120mm;margin-bottom:auto;}
+.cover-divider{width:16mm;height:3px;background:rgba(255,255,255,.5);margin:6mm 0;}
+.cover-meta{display:flex;gap:6mm;align-items:center;}
+.cover-meta-item{font-size:9.5px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;}
+.cover-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  border-radius:6px;padding:8px 14px;font-size:10px;color:#fff;font-weight:600;letter-spacing:.04em;}
+
+/* ===========================
+   PAGE 2 — PAIN POINTS
+   =========================== */
+.pain-hero{background:var(--navy);padding:10mm 16mm 8mm;position:relative;overflow:hidden;}
+.pain-hero h2{font-size:28pt;font-weight:700;color:#fff;line-height:1.1;margin-bottom:3mm;}
+.pain-hero p{font-size:11pt;color:rgba(255,255,255,.7);max-width:130mm;line-height:1.5;}
+.pain-hero-deco{position:absolute;right:-10mm;top:-10mm;width:70mm;height:70mm;
+  border-radius:50%;border:2px solid rgba(255,255,255,.08);}
+.pain-hero-deco2{position:absolute;right:5mm;top:5mm;width:45mm;height:45mm;
+  border-radius:50%;border:2px solid rgba(244,82,30,.3);}
+.pain-cards{padding:6mm 16mm;display:flex;flex-direction:column;gap:4mm;flex:1;}
+.pain-card{background:var(--gl);border-radius:8px;padding:5mm 6mm;display:flex;gap:4mm;align-items:flex-start;}
+.pain-icon{width:40px;height:40px;border-radius:8px;background:var(--ol);display:flex;
+  align-items:center;justify-content:center;flex-shrink:0;}
+.pain-icon svg{width:20px;height:20px;color:var(--o);}
+.pain-card h3{font-size:13pt;font-weight:700;margin-bottom:2mm;color:var(--navy);}
+.pain-card p{font-size:10pt;color:var(--slate);line-height:1.5;}
+.pain-stat{background:var(--o);margin:0 16mm 4mm;border-radius:8px;padding:5mm 6mm;
+  display:flex;align-items:center;gap:4mm;}
+.pain-stat-num{font-family:'Oswald','Impact',sans-serif;font-size:28pt;font-weight:700;
+  color:#fff;white-space:nowrap;}
+.pain-stat-text{font-size:10pt;color:rgba(255,255,255,.9);line-height:1.4;}
+
+/* ===========================
+   PAGE 3 — SOLUTION OVERVIEW
+   =========================== */
+.sol-intro{padding:10mm 16mm 6mm;}
+.sol-intro h2{font-size:26pt;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:3mm;}
+.sol-intro h2 span{color:var(--o);}
+.sol-intro p{font-size:11pt;color:var(--slate);line-height:1.55;max-width:140mm;}
+.sol-pillars{padding:4mm 16mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;}
+.sol-pillar{border-radius:8px;overflow:hidden;}
+.sol-pillar-head{padding:4mm 5mm;display:flex;align-items:center;gap:3mm;}
+.sol-pillar-head svg{width:22px;height:22px;}
+.sol-pillar-head h4{font-size:12pt;font-weight:700;color:#fff;}
+.sol-pillar-body{padding:4mm 5mm;background:var(--gl);}
+.sol-pillar-body ul{padding-left:3.5mm;}
+.sol-pillar-body li{font-size:9.5pt;color:var(--slate);margin-bottom:1.5mm;line-height:1.4;}
+.sol-pillar-body li::marker{color:var(--o);}
+.pillar-orange .sol-pillar-head{background:var(--o);}
+.pillar-navy .sol-pillar-head{background:var(--navy);}
+.pillar-slate .sol-pillar-head{background:#475569;}
+.sol-kpi{margin:4mm 16mm;background:linear-gradient(135deg,var(--navy),#1e293b);
+  border-radius:8px;padding:5mm 6mm;display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;}
+.kpi-item{text-align:center;}
+.kpi-num{font-family:'Oswald','Impact',sans-serif;font-size:24pt;font-weight:700;color:var(--o);}
+.kpi-label{font-size:9px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;margin-top:1mm;}
+.sol-note{margin:0 16mm;padding:4mm 5mm;background:var(--ol);border-left:3px solid var(--o);
+  border-radius:0 6px 6px 0;}
+.sol-note p{font-size:10pt;color:var(--od);line-height:1.4;}
+.sol-note strong{font-weight:700;}
+
+/* ===========================
+   PAGE 4 — HOW IT WORKS
+   =========================== */
+.how-header{background:var(--navy);padding:9mm 16mm 7mm;}
+.how-header h2{font-size:26pt;font-weight:700;color:#fff;margin-bottom:2mm;}
+.how-header p{font-size:11pt;color:rgba(255,255,255,.7);max-width:120mm;}
+.how-steps{padding:6mm 16mm;display:flex;flex-direction:column;gap:5mm;flex:1;}
+.how-step{display:flex;gap:5mm;align-items:flex-start;}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--o);display:flex;
+  align-items:center;justify-content:center;flex-shrink:0;}
+.step-num span{font-family:'Oswald','Impact',sans-serif;font-size:18pt;font-weight:700;color:#fff;}
+.step-connector{width:2px;background:var(--border);margin:2px auto;height:20px;
+  position:relative;left:23px;margin-top:-10px;}
+.step-body h3{font-size:14pt;font-weight:700;color:var(--navy);margin-bottom:2mm;}
+.step-body p{font-size:10.5pt;color:var(--slate);line-height:1.5;margin-bottom:2mm;}
+.step-chips{display:flex;flex-wrap:wrap;gap:2mm;}
+.step-chip{background:var(--gl);border:1px solid var(--border);border-radius:20px;
+  padding:2px 10px;font-size:9pt;color:var(--slate);}
+.how-bottom{margin:0 16mm 4mm;background:var(--ol);border-radius:8px;padding:5mm 6mm;
+  display:flex;gap:6mm;align-items:center;}
+.how-bottom-icon{flex-shrink:0;}
+.how-bottom p{font-size:10.5pt;color:var(--od);line-height:1.45;}
+.how-bottom strong{font-weight:700;}
+
+/* ===========================
+   GENERIC FEATURE PAGE
+   =========================== */
+.feat-header{padding:9mm 16mm 6mm;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:4mm;}
+.feat-header-icon{width:48px;height:48px;border-radius:10px;background:var(--o);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.feat-header-icon svg{width:26px;height:26px;color:#fff;}
+.feat-header-text h2{font-size:22pt;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:2mm;}
+.feat-header-text h2 span{color:var(--o);}
+.feat-header-text p{font-size:10.5pt;color:var(--slate);line-height:1.5;}
+.feat-body{padding:5mm 16mm;flex:1;display:flex;flex-direction:column;gap:4mm;}
+.feat-two-col{display:grid;grid-template-columns:1fr 1fr;gap:5mm;}
+.feat-benefit-list{display:flex;flex-direction:column;gap:3mm;}
+.feat-benefit{display:flex;gap:3mm;align-items:flex-start;}
+.feat-benefit-dot{width:20px;height:20px;border-radius:50%;background:var(--ol);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.feat-benefit-dot svg{width:11px;height:11px;color:var(--o);}
+.feat-benefit p{font-size:10pt;color:var(--slate);line-height:1.45;}
+.feat-benefit strong{color:var(--navy);font-weight:600;}
+.feat-stat-box{background:linear-gradient(135deg,var(--o),var(--od));border-radius:8px;
+  padding:5mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.feat-stat-box .stat-num{font-size:32pt;font-weight:700;color:#fff;line-height:1;}
+.feat-stat-box .stat-label{font-size:9.5pt;color:rgba(255,255,255,.85);margin-top:2mm;line-height:1.3;}
+.feat-quote{background:var(--navy);border-radius:8px;padding:5mm;position:relative;}
+.feat-quote::before{content:'"';font-family:'Oswald',sans-serif;font-size:36pt;color:var(--o);
+  position:absolute;top:2mm;left:4mm;line-height:1;}
+.feat-quote p{font-size:10pt;color:rgba(255,255,255,.85);line-height:1.5;
+  padding-left:8mm;margin-bottom:2mm;font-style:italic;}
+.feat-quote cite{font-size:9px;color:rgba(255,255,255,.5);padding-left:8mm;display:block;}
+.feat-visual-card{background:var(--gl);border-radius:8px;padding:5mm;
+  display:flex;flex-direction:column;gap:3mm;}
+.feat-visual-card h4{font-size:11pt;font-weight:700;color:var(--navy);margin-bottom:1mm;}
+.feat-row{display:flex;gap:2mm;align-items:center;padding:3px 0;border-bottom:1px solid var(--border);}
+.feat-row:last-child{border-bottom:none;}
+.feat-row-label{font-size:9.5pt;color:var(--slate);flex:1;}
+.feat-row-value{font-size:9.5pt;font-weight:600;color:var(--navy);}
+.feat-row-badge{font-size:8px;padding:2px 7px;border-radius:10px;font-weight:600;}
+.badge-green{background:#DCFCE7;color:#15803D;}
+.badge-orange{background:var(--ol);color:var(--od);}
+.badge-blue{background:#EFF6FF;color:#1D4ED8;}
+.feat-bottom-bar{background:var(--gl);margin:0 16mm 5mm;border-radius:8px;
+  padding:4mm 5mm;display:flex;gap:5mm;align-items:center;justify-content:space-around;}
+.feat-bottom-stat{text-align:center;}
+.feat-bottom-stat .num{font-family:'Oswald','Impact',sans-serif;font-size:20pt;
+  font-weight:700;color:var(--o);}
+.feat-bottom-stat .lbl{font-size:8.5px;color:var(--gray);text-transform:uppercase;
+  letter-spacing:.05em;display:block;margin-top:1px;}
+
+/* ===========================
+   PAGE 12 — INTEGRATIONS
+   =========================== */
+.int-header{background:var(--navy);padding:9mm 16mm 7mm;}
+.int-header h2{font-size:26pt;font-weight:700;color:#fff;margin-bottom:2mm;}
+.int-header p{font-size:11pt;color:rgba(255,255,255,.7);}
+.int-grid{padding:5mm 16mm;display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;flex:1;}
+.int-card{border:1px solid var(--border);border-radius:8px;padding:5mm;
+  display:flex;flex-direction:column;gap:2mm;}
+.int-card-icon{width:36px;height:36px;border-radius:8px;display:flex;
+  align-items:center;justify-content:center;margin-bottom:1mm;}
+.int-card h4{font-size:11pt;font-weight:700;color:var(--navy);}
+.int-card p{font-size:9pt;color:var(--slate);line-height:1.4;}
+.int-api{margin:0 16mm 5mm;background:var(--gl);border-radius:8px;
+  padding:5mm 6mm;display:flex;gap:5mm;align-items:center;}
+.int-api-text h4{font-size:12pt;font-weight:700;color:var(--navy);margin-bottom:1mm;}
+.int-api-text p{font-size:10pt;color:var(--slate);line-height:1.4;}
+
+/* ===========================
+   PAGE 13 — PRICING
+   =========================== */
+.price-header{background:linear-gradient(135deg,var(--navy),#1e293b);padding:8mm 16mm 6mm;}
+.price-header h2{font-size:26pt;font-weight:700;color:#fff;margin-bottom:2mm;}
+.price-header p{font-size:11pt;color:rgba(255,255,255,.7);}
+.price-grid{padding:5mm 16mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;flex:1;}
+.price-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);
+  display:flex;flex-direction:column;}
+.price-card.featured{border-color:var(--o);box-shadow:0 0 0 2px var(--o);}
+.price-card-head{padding:4mm 4mm 3mm;}
+.price-card-head h4{font-size:11pt;font-weight:700;color:var(--navy);margin-bottom:1mm;}
+.price-card-head .price{font-family:'Oswald','Impact',sans-serif;font-size:22pt;
+  font-weight:700;color:var(--navy);line-height:1;}
+.price-card-head .price span{font-size:11pt;font-weight:400;color:var(--gray);}
+.price-card-head .price-sub{font-size:8.5pt;color:var(--gray);margin-top:1mm;}
+.featured .price-card-head{background:var(--o);}
+.featured .price-card-head h4,.featured .price-card-head .price,
+.featured .price-card-head .price-sub{color:#fff !important;}
+.featured .price-card-head .price span{color:rgba(255,255,255,.75);}
+.price-card-body{padding:3mm 4mm;flex:1;background:var(--gl);}
+.price-card-body ul{padding-left:0;list-style:none;}
+.price-card-body li{font-size:9pt;color:var(--slate);padding:2px 0;
+  display:flex;align-items:flex-start;gap:2mm;}
+.price-card-body li::before{content:'✓';color:var(--o);font-weight:700;flex-shrink:0;}
+.price-cta{margin:3mm 16mm 5mm;background:var(--o);border-radius:8px;
+  padding:4mm 5mm;text-align:center;}
+.price-cta p{font-size:10.5pt;color:#fff;font-weight:500;line-height:1.4;}
+.price-cta strong{font-weight:700;}
+
+/* ===========================
+   PAGE 14 — ROI
+   =========================== */
+.roi-header{background:var(--o);padding:9mm 16mm 7mm;}
+.roi-header h2{font-size:26pt;font-weight:700;color:#fff;margin-bottom:2mm;}
+.roi-header p{font-size:11pt;color:rgba(255,255,255,.85);}
+.roi-stats{padding:5mm 16mm;display:grid;grid-template-columns:repeat(2,1fr);gap:4mm;}
+.roi-stat-card{background:var(--gl);border-radius:8px;padding:5mm;
+  border-left:4px solid var(--o);}
+.roi-stat-card .num{font-family:'Oswald','Impact',sans-serif;font-size:30pt;
+  font-weight:700;color:var(--o);line-height:1;}
+.roi-stat-card h4{font-size:11pt;font-weight:700;color:var(--navy);margin:2mm 0 1.5mm;}
+.roi-stat-card p{font-size:9.5pt;color:var(--slate);line-height:1.4;}
+.roi-calc{margin:0 16mm 4mm;background:var(--navy);border-radius:8px;padding:5mm 6mm;}
+.roi-calc h4{font-size:12pt;font-weight:700;color:#fff;margin-bottom:3mm;}
+.roi-calc-row{display:flex;justify-content:space-between;align-items:center;
+  padding:2.5mm 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.roi-calc-row:last-child{border-bottom:none;margin-top:2mm;}
+.roi-calc-label{font-size:9.5pt;color:rgba(255,255,255,.7);}
+.roi-calc-value{font-size:9.5pt;font-weight:700;color:#fff;}
+.roi-calc-total{color:var(--o);font-family:'Oswald','Impact',sans-serif;font-size:14pt;}
+
+/* ===========================
+   PAGE 15 — CTA
+   =========================== */
+.cta-page{background:linear-gradient(145deg,#C43A10 0%,#F4521E 55%,#FF6B3D 100%);}
+.cta-content{padding:14mm 16mm;display:flex;flex-direction:column;flex:1;position:relative;z-index:2;}
+.cta-content h2{font-size:30pt;font-weight:700;color:#fff;line-height:1.1;
+  margin-bottom:3mm;max-width:130mm;}
+.cta-content>p{font-size:11.5pt;color:rgba(255,255,255,.85);line-height:1.5;
+  max-width:120mm;margin-bottom:7mm;}
+.cta-steps{display:flex;flex-direction:column;gap:3mm;margin-bottom:8mm;}
+.cta-step{display:flex;gap:3mm;align-items:center;}
+.cta-step-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);
+  border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;}
+.cta-step-num span{font-family:'Oswald','Impact',sans-serif;font-size:13pt;
+  font-weight:700;color:#fff;}
+.cta-step p{font-size:11pt;color:#fff;}
+.cta-step strong{font-weight:700;}
+.cta-contact{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.25);
+  border-radius:10px;padding:6mm 7mm;margin-top:auto;}
+.cta-contact h4{font-size:12pt;font-weight:700;color:#fff;margin-bottom:4mm;}
+.cta-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3mm;}
+.cta-contact-item label{font-size:8.5px;text-transform:uppercase;letter-spacing:.07em;
+  color:rgba(255,255,255,.5);display:block;margin-bottom:1mm;}
+.cta-contact-item p{font-size:10.5pt;color:#fff;font-weight:500;}
+.cta-deco{position:absolute;right:-15mm;bottom:-15mm;width:100mm;height:100mm;
+  border-radius:50%;border:2px solid rgba(255,255,255,.08);}
+.cta-deco2{position:absolute;right:5mm;bottom:5mm;width:60mm;height:60mm;
+  border-radius:50%;border:2px solid rgba(255,255,255,.12);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 1 — COVER
+     ═══════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-bg">
+    <svg viewBox="0 0 595 842" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="520" cy="120" r="180" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+      <circle cx="520" cy="120" r="110" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+      <circle cx="520" cy="120" r="55" fill="rgba(255,255,255,0.06)"/>
+      <circle cx="80" cy="720" r="140" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+      <circle cx="80" cy="720" r="75" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <line x1="0" y1="570" x2="595" y2="570" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <rect x="0" y="750" width="595" height="92" fill="rgba(0,0,0,0.15)"/>
+      <!-- grid dots -->
+      <g fill="rgba(255,255,255,0.12)">
+        <circle cx="200" cy="400" r="2"/><circle cx="220" cy="400" r="2"/><circle cx="240" cy="400" r="2"/>
+        <circle cx="200" cy="420" r="2"/><circle cx="220" cy="420" r="2"/><circle cx="240" cy="420" r="2"/>
+        <circle cx="200" cy="440" r="2"/><circle cx="220" cy="440" r="2"/><circle cx="240" cy="440" r="2"/>
+        <circle cx="200" cy="460" r="2"/><circle cx="220" cy="460" r="2"/><circle cx="240" cy="460" r="2"/>
+      </g>
+    </svg>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Software Operativo Industrial · Brochure 2026</div>
+    <div class="cover-brand">REELEVO</div>
+    <div class="cover-divider"></div>
+    <div class="cover-tagline">El sistema operativo de tu planta industrial</div>
+    <div class="cover-sub">
+      Digitaliza procesos, certifica competencias y elimina el papel en menos de 48 horas. Sin instalaciones. Sin fricción. Sin excusas.
+    </div>
+    <div style="margin-top:auto;"></div>
+    <div class="cover-meta">
+      <div class="cover-badge">Brochure Comercial 2026</div>
+      <div class="cover-meta-item">gmvsolutions.es</div>
+      <div class="cover-meta-item">app.gmvsolutions.es</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 2 — PAIN POINTS
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="pain-hero">
+    <div class="pain-hero-deco"></div>
+    <div class="pain-hero-deco2"></div>
+    <div class="tag tag-white" style="margin-bottom:4mm;">El problema</div>
+    <h2>¿Te suena familiar?</h2>
+    <p>Estas son las tres fricciones que frenan a las PYMEs industriales todos los días — y que se dan por inevitables cuando no tienen por qué serlo.</p>
+  </div>
+  <div class="pain-cards">
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--o)">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div>
+        <h3>El conocimiento se va con las personas</h3>
+        <p>Cuando el operario más experto deja la empresa, se lleva años de know-how. Onboarding de 2–4 semanas por persona nueva, sin garantía de transmitir lo correcto. Si Juan está de baja, el proceso se para.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--o)">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Sin trazabilidad, sin evidencia</h3>
+        <p>No sabes quién ejecutó qué proceso, cuándo y cómo lo hizo. En una auditoría ISO o de cliente, buscas albaranes en papel durante horas. Un incidente y no puedes demostrar qué pasó.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--o)">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Procesos en la cabeza, no en el sistema</h3>
+        <p>Los SOPs están en un Word del 2019 que nadie lee, en papel plastificado que nadie actualiza, o en la memoria de tres personas. Cualquier desviación pasa desapercibida hasta que hay un problema.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pain-stat">
+    <div class="pain-stat-num">67%</div>
+    <div class="pain-stat-text">de las PYMEs industriales no tiene digitalizado ningún proceso operativo. Siguen dependiendo del papel, la memoria y la tradición oral para sostener su producción.</div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>El problema que resolvemos</div>
+    <div>2 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 3 — SOLUTION OVERVIEW
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="sol-intro">
+    <div class="tag tag-orange" style="margin-bottom:4mm;">La solución</div>
+    <h2>REELEVO: El sistema operativo<br>de <span>tu planta industrial</span></h2>
+    <p style="margin-top:3mm;">Una única plataforma que unifica la digitalización de procesos, la gestión de competencias, el mantenimiento y la mejora continua. Accesible desde cualquier móvil mediante QR — sin instalar nada.</p>
+  </div>
+  <div class="sol-pillars">
+    <div class="sol-pillar pillar-orange">
+      <div class="sol-pillar-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:#fff">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <h4>Portal Empresa</h4>
+      </div>
+      <div class="sol-pillar-body">
+        <ul>
+          <li>Dashboard de operaciones en tiempo real</li>
+          <li>Gestión de procesos y versiones</li>
+          <li>Skill matrix y certificaciones</li>
+          <li>Analytics y ROI</li>
+          <li>Configuración de integraciones</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sol-pillar pillar-navy">
+      <div class="sol-pillar-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:#fff">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <h4>Portal Supervisor</h4>
+      </div>
+      <div class="sol-pillar-body">
+        <ul>
+          <li>Bandeja de aprobaciones Kaizen</li>
+          <li>Cobertura de turnos y competencias</li>
+          <li>Validación de ejecuciones</li>
+          <li>Gestión de incidencias</li>
+          <li>Planificación de mantenimiento</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sol-pillar pillar-slate">
+      <div class="sol-pillar-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:#fff">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        <h4>Portal Operario</h4>
+      </div>
+      <div class="sol-pillar-body">
+        <ul>
+          <li>Acceso por QR + PIN de 4 dígitos</li>
+          <li>Ejecución paso a paso guiada</li>
+          <li>Firma digital al completar</li>
+          <li>Reporte de incidencias inline</li>
+          <li>Mis certificaciones y semana</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sol-kpi">
+    <div class="kpi-item">
+      <div class="kpi-num">48h</div>
+      <div class="kpi-label">Tiempo de implementación</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-num">0</div>
+      <div class="kpi-label">Apps que instalar</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-num">100%</div>
+      <div class="kpi-label">Web — cualquier móvil</div>
+    </div>
+  </div>
+  <div class="sol-note" style="margin-top:4mm;">
+    <p><strong>Sin resistencia al cambio:</strong> Los operarios no instalan nada. Escanean un QR con la cámara del móvil y siguen los pasos en pantalla. No necesitan formación técnica. No necesitan recordar contraseñas.</p>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>La solución</div>
+    <div>3 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 4 — HOW IT WORKS
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="how-header">
+    <div class="tag tag-white" style="margin-bottom:4mm;">Flujo de trabajo</div>
+    <h2>De cero a digital en 3 pasos</h2>
+    <p>Sin proyectos de meses, sin consultoras, sin formaciones interminables. Configuras el proceso una vez y el sistema hace el resto.</p>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="step-num"><span>1</span></div>
+        <div style="width:2px;height:28px;background:var(--border);margin-top:2px;"></div>
+      </div>
+      <div class="step-body" style="padding-top:8px;">
+        <h3>Digitaliza tu proceso en el editor</h3>
+        <p>Crea los pasos de tu proceso operativo: añade texto, imágenes, vídeos de referencia y puntos de decisión. Cualquier responsable puede hacerlo sin conocimientos técnicos. Versioning automático incluido.</p>
+        <div class="step-chips">
+          <span class="step-chip">Editor visual drag & drop</span>
+          <span class="step-chip">Imágenes y vídeo por paso</span>
+          <span class="step-chip">Versiones con historial</span>
+          <span class="step-chip">Aprobación de cambios</span>
+        </div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="step-num"><span>2</span></div>
+        <div style="width:2px;height:28px;background:var(--border);margin-top:2px;"></div>
+      </div>
+      <div class="step-body" style="padding-top:8px;">
+        <h3>Imprime el QR y pégalo en la máquina</h3>
+        <p>Cada proceso genera un código QR único. Lo imprimes, lo plastificas y lo pegas en la máquina, estación o punto de trabajo. Un QR por proceso — sin más infraestructura.</p>
+        <div class="step-chips">
+          <span class="step-chip">QR único por proceso</span>
+          <span class="step-chip">Impresión desde el panel</span>
+          <span class="step-chip">Sin tablets ni pantallas adicionales</span>
+        </div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div>
+        <div class="step-num"><span>3</span></div>
+      </div>
+      <div class="step-body" style="padding-top:8px;">
+        <h3>El operario escanea, ejecuta y firma</h3>
+        <p>El operario apunta la cámara al QR, introduce su PIN de 4 dígitos y sigue los pasos en su móvil. Al completar, firma digitalmente. Queda registrado: quién, cuándo, cuánto tardó y si hubo incidencias.</p>
+        <div class="step-chips">
+          <span class="step-chip">PIN de 4 dígitos (sin contraseñas)</span>
+          <span class="step-chip">Firma digital</span>
+          <span class="step-chip">Historial inmutable</span>
+          <span class="step-chip">Adjuntos foto/vídeo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="how-bottom">
+    <div class="how-bottom-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--o)" stroke-width="2">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <p><strong>Sin instalar apps. Sin formación técnica. Sin papel.</strong> El mismo día que configuras el primer proceso ya tienes trazabilidad completa. La curva de adopción es prácticamente plana.</p>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Cómo funciona</div>
+    <div>4 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 5 — FEATURE: QR FLOW
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/>
+        <rect x="3" y="16" width="5" height="5"/><rect x="10" y="3" width="2" height="2"/>
+        <rect x="10" y="8" width="2" height="2"/><rect x="14" y="10" width="2" height="2"/>
+        <rect x="10" y="14" width="2" height="2"/><rect x="16" y="14" width="5" height="5"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 01</div>
+      <h2>QR Industrial: <span>Sin apps, sin fricción</span></h2>
+      <p>El punto de entrada al proceso operativo más rápido del mercado. Sin instalar nada, sin recordar contraseñas, sin necesitar un ordenador en planta.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div>
+        <h4 style="font-size:11pt;font-weight:700;color:var(--navy);margin-bottom:3mm;">¿Por qué importa?</h4>
+        <div class="feat-benefit-list">
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Acceso en &lt;30 segundos</strong> desde que el operario ve el QR hasta que está ejecutando el primer paso. Cero barreras.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Funciona en cualquier móvil</strong> Android o iOS, antiguo o nuevo. La cámara es el único requisito.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>PIN de 4 dígitos</strong> en lugar de email y contraseña. Pensado para el entorno industrial, no para la oficina.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Guía paso a paso visual</strong> con imágenes y vídeos de referencia por cada paso. El proceso siempre disponible, siempre actualizado.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Troubleshooting inline</strong> si el operario se atasca, puede reportar la incidencia sin salir del flujo.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>PWA offline-ready</strong> — funciona aunque haya cortes de WiFi en la planta.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-visual-card">
+          <h4>El flujo en planta</h4>
+          <div class="feat-row">
+            <span class="feat-row-label">Operario ve el QR en la máquina</span>
+            <span class="feat-row-badge badge-blue">0 seg</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Apunta cámara → abre proceso</span>
+            <span class="feat-row-badge badge-blue">5 seg</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Introduce PIN de 4 dígitos</span>
+            <span class="feat-row-badge badge-blue">10 seg</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Ejecuta pasos guiados</span>
+            <span class="feat-row-badge badge-orange">Variable</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Firma digital y cierre</span>
+            <span class="feat-row-badge badge-green">Registrado</span>
+          </div>
+        </div>
+        <div class="feat-stat-box">
+          <span class="stat-num">&lt;30s</span>
+          <div class="stat-label">De ver el QR a ejecutar<br>el primer paso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">0</span><span class="lbl">Apps a instalar</span></div>
+    <div class="feat-bottom-stat"><span class="num">4</span><span class="lbl">Dígitos de acceso</span></div>
+    <div class="feat-bottom-stat"><span class="num">100%</span><span class="lbl">Web — cualquier móvil</span></div>
+    <div class="feat-bottom-stat"><span class="num">∞</span><span class="lbl">Procesos configurables</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>QR Industrial</div>
+    <div>5 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 6 — FEATURE: FIRMA DIGITAL Y TRAZABILIDAD
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 02</div>
+      <h2>Firma Digital y <span>Trazabilidad Total</span></h2>
+      <p>Evidencia irrefutable de cada operación. Quién ejecutó, cuándo, cuánto tardó, qué incidencias reportó y cómo firmó. Todo inmutable, todo exportable.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div class="feat-benefit-list">
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Firma digital con timestamp</strong> al cerrar cada ejecución. Vinculada al operario y al proceso exacto.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Historial inmutable por proceso y máquina.</strong> Cada ejecución queda registrada con la versión del proceso que estaba activa en ese momento.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Adjuntos de evidencia:</strong> el operario puede añadir fotos o vídeo directamente desde el móvil durante la ejecución.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Exportable en segundos.</strong> Filtra por operario, proceso, máquina o rango de fechas y exporta para auditorías ISO, IATF o de cliente.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Trazabilidad multi-tenant</strong> con aislamiento por empresa. Los datos de un cliente nunca son visibles por otro.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-quote">
+          <p>Antes tardábamos 3 horas en preparar la documentación para una auditoría de cliente. Con REELEVO son 10 minutos y un filtro de fecha.</p>
+          <cite>— Director de Operaciones, empresa de fabricación metálica</cite>
+        </div>
+        <div class="feat-visual-card">
+          <h4>Datos capturados por ejecución</h4>
+          <div class="feat-row"><span class="feat-row-label">Operario</span><span class="feat-row-badge badge-blue">Identificado</span></div>
+          <div class="feat-row"><span class="feat-row-label">Proceso y versión</span><span class="feat-row-badge badge-blue">Exacta</span></div>
+          <div class="feat-row"><span class="feat-row-label">Timestamp inicio / fin</span><span class="feat-row-badge badge-green">Inmutable</span></div>
+          <div class="feat-row"><span class="feat-row-label">Tiempo por paso</span><span class="feat-row-badge badge-green">Granular</span></div>
+          <div class="feat-row"><span class="feat-row-label">Incidencias reportadas</span><span class="feat-row-badge badge-orange">Trazadas</span></div>
+          <div class="feat-row"><span class="feat-row-label">Adjuntos foto/vídeo</span><span class="feat-row-badge badge-green">Vinculados</span></div>
+          <div class="feat-row"><span class="feat-row-label">Firma digital</span><span class="feat-row-badge badge-green">Certificada</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">-95%</span><span class="lbl">Tiempo preparación auditorías</span></div>
+    <div class="feat-bottom-stat"><span class="num">100%</span><span class="lbl">Trazabilidad por ejecución</span></div>
+    <div class="feat-bottom-stat"><span class="num">0</span><span class="lbl">Papel necesario</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Firma Digital y Trazabilidad</div>
+    <div>6 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 7 — FEATURE: COMPETENCIAS Y CERTIFICACIONES
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 03</div>
+      <h2>Competencias y <span>Certificaciones Automáticas</span></h2>
+      <p>Sabe exactamente quién puede hacer qué, con qué nivel de competencia y si está al día. Elimina los Excel de formación y la asignación a ciegas.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div class="feat-benefit-list">
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Certificación automática</strong> al completar un proceso por primera vez. Sin papeles, sin trámites, sin retrasos.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Skill matrix visual</strong> en tiempo real: quién está certificado en qué proceso, con fecha de última ejecución y nivel.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Alertas de caducidad (Skill Decay)</strong> — avisa cuando una competencia lleva sin refrescarse más de X días (configurable).</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Planificación basada en competencias:</strong> asigna turnos sabiendo qué operario cubre qué proceso. Elimina el riesgo de asignación incorrecta.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Gap analysis automático:</strong> detecta qué procesos críticos tienen cobertura insuficiente antes de que sea un problema.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-visual-card">
+          <h4>Skill Matrix — ejemplo</h4>
+          <div class="feat-row">
+            <span class="feat-row-label">Soldadura MIG</span>
+            <span class="feat-row-badge badge-green">4 operarios ✓</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Control de calidad visual</span>
+            <span class="feat-row-badge badge-orange">2 operarios ⚡</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Arranque CNC Mazak</span>
+            <span class="feat-row-badge badge-blue">3 operarios ✓</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Mantenimiento preventivo L1</span>
+            <span class="feat-row-badge" style="background:#FEE2E2;color:#991B1B;">1 operario ⚠</span>
+          </div>
+          <div class="feat-row">
+            <span class="feat-row-label">Empaquetado final</span>
+            <span class="feat-row-badge badge-green">6 operarios ✓</span>
+          </div>
+        </div>
+        <div class="feat-stat-box">
+          <span class="stat-num">-85%</span>
+          <div class="stat-label">Riesgo de asignación<br>incorrecta de tareas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">Auto</span><span class="lbl">Certificación al completar</span></div>
+    <div class="feat-bottom-stat"><span class="num">360°</span><span class="lbl">Visibilidad de competencias</span></div>
+    <div class="feat-bottom-stat"><span class="num">0</span><span class="lbl">Excel de formación</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Competencias y Certificaciones</div>
+    <div>7 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 8 — FEATURE: KNOWLEDGE BASE
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 04</div>
+      <h2>Base de Conocimiento: <span>El know-how siempre disponible</span></h2>
+      <p>El conocimiento operativo de tu empresa capturado, curado y disponible para todos. Nunca más en la cabeza de tres personas.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div>
+        <div style="background:var(--ol);border-left:3px solid var(--o);border-radius:0 6px 6px 0;padding:4mm 5mm;margin-bottom:4mm;">
+          <p style="font-size:10.5pt;color:var(--od);line-height:1.45;"><strong>El coste real del conocimiento implícito:</strong> Cuando el operario más experto se jubila, enferma o cambia de empresa, lleva consigo variaciones críticas, trucos para evitar fallos y soluciones a incidencias que nadie documentó.</p>
+        </div>
+        <div class="feat-benefit-list">
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Captura de variaciones inline:</strong> el operario registra cómo hizo algo diferente durante la ejecución. El supervisor revisa y aprueba.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Troubleshooting colaborativo:</strong> las soluciones a incidencias recurrentes se guardan y aparecen como sugerencias la próxima vez.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Tips aprobados por paso:</strong> el conocimiento tribal validado aparece en el flujo QR como guía adicional para todos.</p>
+          </div>
+          <div class="feat-benefit">
+            <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <p><strong>Onboarding acelerado:</strong> el nuevo operario encuentra en el proceso todo lo que el experto sabía — desde el primer día.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-stat-box" style="background:linear-gradient(135deg,var(--navy),#1e293b);">
+          <span class="stat-num">-50%</span>
+          <div class="stat-label">Tiempo de onboarding<br>de nuevos operarios</div>
+        </div>
+        <div class="feat-visual-card">
+          <h4>Flujo de conocimiento</h4>
+          <div class="feat-row"><span class="feat-row-label">Operario captura variación</span><span class="feat-row-badge badge-blue">En ejecución</span></div>
+          <div class="feat-row"><span class="feat-row-label">Supervisor recibe en bandeja</span><span class="feat-row-badge badge-orange">Revisión</span></div>
+          <div class="feat-row"><span class="feat-row-label">Aprueba → se integra al proceso</span><span class="feat-row-badge badge-green">Publicado</span></div>
+          <div class="feat-row"><span class="feat-row-label">Aparece como tip a todos</span><span class="feat-row-badge badge-green">Disponible</span></div>
+        </div>
+        <div style="background:var(--gl);border-radius:8px;padding:4mm;text-align:center;">
+          <p style="font-size:9pt;color:var(--slate);">El conocimiento ya no desaparece con las personas. Se queda en el sistema, disponible para el siguiente turno, el siguiente operario, el siguiente año.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">-50%</span><span class="lbl">Tiempo de onboarding</span></div>
+    <div class="feat-bottom-stat"><span class="num">0</span><span class="lbl">Know-how perdido</span></div>
+    <div class="feat-bottom-stat"><span class="num">24/7</span><span class="lbl">Acceso al conocimiento</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Base de Conocimiento</div>
+    <div>8 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 9 — FEATURE: KAIZEN
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 05</div>
+      <h2>Kaizen: <span>Mejora continua desde el suelo de fábrica</span></h2>
+      <p>El operario que mejor conoce el proceso es quien lo ejecuta todos los días. REELEVO convierte esa experiencia en mejoras estructuradas y trazables.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div class="feat-benefit-list">
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Propuesta inline sin salir del flujo:</strong> el operario toca "Sugerir mejora" durante la ejecución. La propuesta llega directamente al supervisor.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Bandeja del supervisor centralizada:</strong> aprueba, rechaza o solicita aclaración. Las mejoras aprobadas se integran en la nueva versión del proceso.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Versioning automático:</strong> cada mejora aprobada genera una nueva versión del proceso con trazabilidad completa de la evolución.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Gamificación y recompensas:</strong> los operarios acumulan puntos por mejoras aprobadas. El sistema de reconocimiento aumenta la participación.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Trazabilidad de impacto:</strong> de incidencia reportada a mejora implementada. Cierra el ciclo de mejora con evidencia.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-visual-card">
+          <h4>Ciclo Kaizen REELEVO</h4>
+          <div class="feat-row"><span class="feat-row-label">1. Operario detecta mejora</span><span class="feat-row-badge badge-blue">Inline</span></div>
+          <div class="feat-row"><span class="feat-row-label">2. Propone con texto/foto</span><span class="feat-row-badge badge-blue">< 30 seg</span></div>
+          <div class="feat-row"><span class="feat-row-label">3. Supervisor revisa</span><span class="feat-row-badge badge-orange">Bandeja</span></div>
+          <div class="feat-row"><span class="feat-row-label">4. Aprueba → versión nueva</span><span class="feat-row-badge badge-green">Automático</span></div>
+          <div class="feat-row"><span class="feat-row-label">5. Operario recibe puntos</span><span class="feat-row-badge badge-green">Reconocido</span></div>
+        </div>
+        <div class="feat-stat-box">
+          <span class="stat-num">3x</span>
+          <div class="stat-label">Más propuestas de mejora<br>vs. buzón de sugerencias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">3x</span><span class="lbl">Más propuestas vs buzón</span></div>
+    <div class="feat-bottom-stat"><span class="num">100%</span><span class="lbl">Trazabilidad de mejoras</span></div>
+    <div class="feat-bottom-stat"><span class="num">Auto</span><span class="lbl">Versioning del proceso</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Kaizen y Mejora Continua</div>
+    <div>9 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 10 — FEATURE: MANTENIMIENTO
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 06</div>
+      <h2>Mantenimiento: <span>Preventivo, digital e integrado</span></h2>
+      <p>Gestiona el mantenimiento preventivo y correctivo desde la misma plataforma. Cada intervención documentada, cada máquina con su historial.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div class="feat-two-col">
+      <div class="feat-benefit-list">
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Órdenes de trabajo digitales:</strong> creación, asignación y cierre sin papel. El técnico las ve en su portal con las instrucciones paso a paso.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Planes de mantenimiento preventivo:</strong> configura frecuencias por máquina y el sistema genera las órdenes de trabajo automáticamente.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Historial completo por máquina:</strong> todas las intervenciones, piezas cambiadas e incidencias en un solo sitio. Clave para decisiones de reemplazo.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Integrado con competencias:</strong> las órdenes se asignan automáticamente a técnicos certificados y aparecen en su planificación semanal.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Alertas escaladas:</strong> si una orden de mantenimiento crítica no se cierra a tiempo, el supervisor y el responsable reciben notificación automática.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3mm;">
+        <div class="feat-visual-card">
+          <h4>Estado de máquinas — ejemplo</h4>
+          <div class="feat-row"><span class="feat-row-label">Prensa hidráulica P-01</span><span class="feat-row-badge badge-green">Operativa</span></div>
+          <div class="feat-row"><span class="feat-row-label">CNC Mazak M-03</span><span class="feat-row-badge badge-orange">Mantenimiento en 3d</span></div>
+          <div class="feat-row"><span class="feat-row-label">Línea soldadura L-02</span><span class="feat-row-badge badge-green">Operativa</span></div>
+          <div class="feat-row"><span class="feat-row-label">Compresor industrial C-01</span><span class="feat-row-badge" style="background:#FEE2E2;color:#991B1B;">OT abierta ⚠</span></div>
+          <div class="feat-row"><span class="feat-row-label">Puente grúa G-01</span><span class="feat-row-badge badge-blue">Revisión ITV pendiente</span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:5mm;text-align:center;">
+          <div style="font-family:'Oswald',sans-serif;font-size:28pt;font-weight:700;color:var(--o);line-height:1;">-60%</div>
+          <div style="font-size:9.5pt;color:rgba(255,255,255,.8);margin-top:2mm;line-height:1.3;">Reducción de paradas<br>no planificadas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">-60%</span><span class="lbl">Paradas no planificadas</span></div>
+    <div class="feat-bottom-stat"><span class="num">100%</span><span class="lbl">OTs documentadas</span></div>
+    <div class="feat-bottom-stat"><span class="num">Auto</span><span class="lbl">Generación de órdenes</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Gestión de Mantenimiento</div>
+    <div>10 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 11 — FEATURE: ANALYTICS
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="feat-header">
+    <div class="feat-header-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+    </div>
+    <div class="feat-header-text">
+      <div class="tag tag-orange" style="margin-bottom:2mm;">Feature 07</div>
+      <h2>Analytics: <span>Datos que justifican la inversión</span></h2>
+      <p>Visibilidad operativa en tiempo real. Deja de gestionar por intuición y empieza a tomar decisiones con datos de lo que pasa en planta.</p>
+    </div>
+  </div>
+  <div class="feat-body">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:4mm;">
+      <div style="background:var(--gl);border-radius:8px;padding:4mm;border-top:3px solid var(--o);">
+        <div style="font-family:'Oswald',sans-serif;font-size:20pt;font-weight:700;color:var(--navy);">98.3%</div>
+        <div style="font-size:9pt;color:var(--slate);margin-top:1mm;">Tasa de completación<br>procesos críticos</div>
+      </div>
+      <div style="background:var(--gl);border-radius:8px;padding:4mm;border-top:3px solid #3B82F6;">
+        <div style="font-family:'Oswald',sans-serif;font-size:20pt;font-weight:700;color:var(--navy);">4.2min</div>
+        <div style="font-size:9pt;color:var(--slate);margin-top:1mm;">Tiempo medio por<br>proceso (p50)</div>
+      </div>
+      <div style="background:var(--gl);border-radius:8px;padding:4mm;border-top:3px solid #22C55E;">
+        <div style="font-family:'Oswald',sans-serif;font-size:20pt;font-weight:700;color:var(--navy);">-40%</div>
+        <div style="font-size:9pt;color:var(--slate);margin-top:1mm;">Incidencias recurrentes<br>en Q1 vs Q4</div>
+      </div>
+    </div>
+    <div class="feat-two-col">
+      <div class="feat-benefit-list">
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Dashboard en tiempo real:</strong> actividad por línea, máquina y operario. Detecta cuellos de botella antes de que se conviertan en retrasos.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Percentiles de tiempo por paso:</strong> p50/p90 por proceso. Identifica qué paso consume el doble de lo esperado.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Mapa de riesgo de conocimiento:</strong> visualiza qué procesos y máquinas tienen cobertura de competencia insuficiente.</p>
+        </div>
+        <div class="feat-benefit">
+          <div class="feat-benefit-dot"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <p><strong>Exportación a Power BI:</strong> conecta los datos de REELEVO con tus dashboards de negocio existentes via API o Power Automate.</p>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:8px;padding:5mm;display:flex;flex-direction:column;gap:3mm;">
+        <h4 style="font-size:11pt;font-weight:700;color:#fff;margin-bottom:1mm;">KPIs disponibles</h4>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+          <span style="font-size:9pt;color:rgba(255,255,255,.7);">Ejecuciones completadas</span>
+          <span style="font-size:9pt;color:var(--o);font-weight:600;">Tiempo real</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+          <span style="font-size:9pt;color:rgba(255,255,255,.7);">Incidencias abiertas</span>
+          <span style="font-size:9pt;color:var(--o);font-weight:600;">Tiempo real</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+          <span style="font-size:9pt;color:rgba(255,255,255,.7);">Cobertura de competencias</span>
+          <span style="font-size:9pt;color:var(--o);font-weight:600;">Por turno</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+          <span style="font-size:9pt;color:rgba(255,255,255,.7);">Tiempo medio por proceso</span>
+          <span style="font-size:9pt;color:var(--o);font-weight:600;">Histórico</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:2px 0;">
+          <span style="font-size:9pt;color:rgba(255,255,255,.7);">OTs de mantenimiento</span>
+          <span style="font-size:9pt;color:var(--o);font-weight:600;">Por estado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-bottom-bar">
+    <div class="feat-bottom-stat"><span class="num">Tiempo real</span><span class="lbl">Dashboard operativo</span></div>
+    <div class="feat-bottom-stat"><span class="num">API</span><span class="lbl">Exportación a Power BI</span></div>
+    <div class="feat-bottom-stat"><span class="num">-40%</span><span class="lbl">Incidencias recurrentes</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Analytics y Visibilidad</div>
+    <div>11 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 12 — INTEGRACIONES
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="int-header">
+    <div class="tag tag-white" style="margin-bottom:4mm;">Ecosistema</div>
+    <h2>Tu stack, sin fricciones</h2>
+    <p>REELEVO se conecta con las herramientas que ya usas. Sin migraciones masivas, sin romper procesos existentes.</p>
+  </div>
+  <div class="int-grid">
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#0078D4;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg></div>
+      <h4>Microsoft Teams</h4>
+      <p>Alertas de incidencias, certificaciones y mantenimiento directamente en los canales de Teams de tu equipo.</p>
+    </div>
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#185ABD;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+      <h4>Power BI</h4>
+      <p>Conecta los datos operativos de REELEVO con tus dashboards de Power BI. Dataset listo para importar.</p>
+    </div>
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#0066FF;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h4>Power Automate</h4>
+      <p>Crea flujos de automatización basados en eventos de REELEVO: nuevas certificaciones, incidencias, completaciones.</p>
+    </div>
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#00C48C;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+      <h4>Holded</h4>
+      <p>Sincronización con el ERP para vincular operaciones de planta con pedidos, facturas y stock.</p>
+    </div>
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#FF6B35;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h4>Factorial HR</h4>
+      <p>Sincroniza datos de empleados y turnos con las competencias y certificaciones de REELEVO.</p>
+    </div>
+    <div class="int-card">
+      <div class="int-card-icon" style="background:#6B46C1;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <h4>MTConnect / MachineMetrics</h4>
+      <p>Recibe señales de máquina y enriquece el contexto de las ejecuciones con datos de producción en tiempo real.</p>
+    </div>
+  </div>
+  <div class="int-api">
+    <div style="width:44px;height:44px;border-radius:8px;background:var(--o);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    </div>
+    <div class="int-api-text">
+      <h4>API abierta + Webhooks</h4>
+      <p>REELEVO expone una API REST documentada (OpenAPI) y webhooks configurables para integrarte con cualquier sistema de tu stack: ERP propio, MES, SCADA, o sistemas a medida.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Integraciones</div>
+    <div>12 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 13 — PRICING
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="price-header">
+    <div class="tag tag-white" style="margin-bottom:4mm;">Planes y precios</div>
+    <h2>Un plan para cada etapa de tu crecimiento</h2>
+    <p>Empieza gratis, escala cuando estés listo. Sin permanencias. Sin sorpresas.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-card-head">
+        <h4>Free</h4>
+        <div class="price">0€<span>/mes</span></div>
+        <div class="price-sub">Para empezar a validar</div>
+      </div>
+      <div class="price-card-body">
+        <ul>
+          <li>Hasta 3 procesos activos</li>
+          <li>Hasta 5 operarios</li>
+          <li>Flujo QR completo</li>
+          <li>Firma digital básica</li>
+          <li>Dashboard básico</li>
+          <li>Soporte por email</li>
+        </ul>
+      </div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-card-head">
+        <h4>Starter</h4>
+        <div class="price">49€<span>/mes</span></div>
+        <div class="price-sub">Para PYMEs que empiezan</div>
+      </div>
+      <div class="price-card-body">
+        <ul>
+          <li>Procesos ilimitados</li>
+          <li>Hasta 25 operarios</li>
+          <li>Skill matrix y certificaciones</li>
+          <li>Kaizen y mejora continua</li>
+          <li>Gestión de mantenimiento</li>
+          <li>Analytics básico</li>
+          <li>Webhooks</li>
+          <li>Soporte prioritario</li>
+        </ul>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-card-head">
+        <h4>Pro</h4>
+        <div class="price">129€<span>/mes</span></div>
+        <div class="price-sub">Operación industrial completa</div>
+      </div>
+      <div class="price-card-body">
+        <ul>
+          <li>Todo Starter incluido</li>
+          <li>Operarios ilimitados</li>
+          <li>Analytics avanzado + Power BI</li>
+          <li>Integraciones M365</li>
+          <li>API completa</li>
+          <li>Notificaciones Teams/WhatsApp</li>
+          <li>Gamificación y recompensas</li>
+          <li>SLA garantizado</li>
+        </ul>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-card-head">
+        <h4>Enterprise</h4>
+        <div class="price" style="font-size:14pt;">A medida</div>
+        <div class="price-sub">Multi-planta y multinacional</div>
+      </div>
+      <div class="price-card-body">
+        <ul>
+          <li>Todo Pro incluido</li>
+          <li>SSO / SAML</li>
+          <li>Multi-empresa</li>
+          <li>Límites custom</li>
+          <li>Integraciones custom</li>
+          <li>Onboarding dedicado</li>
+          <li>Account Manager</li>
+          <li>DPA y contratos NDA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="price-cta">
+    <p><strong>14 días de prueba gratuita</strong> en cualquier plan de pago. Sin tarjeta de crédito. Configuración inicial incluida en menos de 48 horas.</p>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>Planes y Precios</div>
+    <div>13 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 14 — ROI
+     ═══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header"></div>
+  <div class="roi-header">
+    <div class="tag tag-white" style="margin-bottom:4mm;">Retorno de inversión</div>
+    <h2>ROI demostrable en 90 días</h2>
+    <p>Estas son las métricas que nuestros clientes reportan en el primer trimestre de uso real.</p>
+  </div>
+  <div class="roi-stats">
+    <div class="roi-stat-card">
+      <div class="num">-50%</div>
+      <h4>Tiempo de onboarding</h4>
+      <p>Nuevos operarios productivos en la mitad del tiempo. El proceso digitalizado y la guía paso a paso eliminan las semanas de acompañamiento manual.</p>
+    </div>
+    <div class="roi-stat-card">
+      <div class="num">-60%</div>
+      <h4>Incidencias recurrentes</h4>
+      <p>Las incidencias reportadas alimentan la base de conocimiento. El sistema aprende y los errores no se repiten porque la solución está en el flujo.</p>
+    </div>
+    <div class="roi-stat-card">
+      <div class="num">-95%</div>
+      <h4>Tiempo de preparación de auditorías</h4>
+      <p>De 3 horas buscando papel a 10 minutos filtrando en el panel. La trazabilidad ya está hecha — solo hay que exportarla.</p>
+    </div>
+    <div class="roi-stat-card">
+      <div class="num">3x</div>
+      <h4>ROI en el primer año</h4>
+      <p>Suma el ahorro en onboarding, la reducción de paradas no planificadas y el tiempo recuperado en auditorías. El payback del plan Pro es inferior a 3 meses.</p>
+    </div>
+  </div>
+  <div class="roi-calc">
+    <h4>Calculadora rápida — ejemplo con 20 operarios (Plan Starter)</h4>
+    <div class="roi-calc-row">
+      <span class="roi-calc-label">Ahorro onboarding (2h/mes/operario × 20 × 25€/h)</span>
+      <span class="roi-calc-value">1.000€/mes</span>
+    </div>
+    <div class="roi-calc-row">
+      <span class="roi-calc-label">Reducción paradas no planificadas (estimado conservador)</span>
+      <span class="roi-calc-value">800€/mes</span>
+    </div>
+    <div class="roi-calc-row">
+      <span class="roi-calc-label">Tiempo recuperado en auditorías y reporting</span>
+      <span class="roi-calc-value">300€/mes</span>
+    </div>
+    <div class="roi-calc-row">
+      <span class="roi-calc-label">Coste REELEVO Starter</span>
+      <span class="roi-calc-value" style="color:#EF4444;">-49€/mes</span>
+    </div>
+    <div class="roi-calc-row" style="padding-top:3mm;">
+      <span class="roi-calc-label" style="color:#fff;font-weight:600;">Ahorro neto mensual estimado</span>
+      <span class="roi-calc-value roi-calc-total">2.051€/mes</span>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-logo">REELEVO</div>
+    <div>ROI y Retorno de Inversión</div>
+    <div>14 / 15</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 15 — CTA
+     ═══════════════════════════════════════════════ -->
+<div class="page cta-page">
+  <div class="cta-deco"></div>
+  <div class="cta-deco2"></div>
+  <div class="cta-content">
+    <div class="tag tag-white" style="margin-bottom:6mm;">¿Empezamos?</div>
+    <h2>¿Listo para digitalizar tu planta industrial?</h2>
+    <p>Implementación en menos de 48 horas. Sin consultoras. Sin proyectos interminables. El primer proceso digitalizado te lo ayudamos a configurar nosotros.</p>
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-num"><span>1</span></div>
+        <p><strong>Reserva una demo de 30 minutos</strong> — te enseñamos el flujo completo con datos reales de tu sector.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num"><span>2</span></div>
+        <p><strong>Configura tu primer proceso</strong> — te acompañamos en la primera configuración para que el valor sea inmediato.</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num"><span>3</span></div>
+        <p><strong>Imprime el QR y pégalo en planta</strong> — desde ese momento tienes trazabilidad completa en cada ejecución.</p>
+      </div>
+    </div>
+    <div class="cta-contact">
+      <h4>Contacto directo</h4>
+      <div class="cta-contact-grid">
+        <div class="cta-contact-item">
+          <label>Email</label>
+          <p>gonzalomoldes@gmvsolutions.es</p>
+        </div>
+        <div class="cta-contact-item">
+          <label>Web</label>
+          <p>app.gmvsolutions.es</p>
+        </div>
+        <div class="cta-contact-item">
+          <label>Empresa</label>
+          <p>GMV Solutions</p>
+        </div>
+        <div class="cta-contact-item">
+          <label>Prueba gratuita</label>
+          <p>14 días, sin tarjeta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer footer-dark" style="border-top-color:rgba(255,255,255,0.15);">
+    <div class="footer-logo">REELEVO</div>
+    <div style="color:rgba(255,255,255,0.5);">© 2026 GMV Solutions · Todos los derechos reservados</div>
+    <div style="color:rgba(255,255,255,0.5);">15 / 15</div>
+  </div>
+</div>
+
+</body>
+</html>

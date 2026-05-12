@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Tarjeta Delantera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E;
+  --od:#C43A10;
+  --dark:#0A0A0A;
+  --white:#F5F5F5;
+}
+body{
+  font-family:'DM Sans',Helvetica,sans-serif;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:85mm;
+  height:55mm;
+  margin:0;
+  padding:0;
+}
+@page{size:85mm 55mm;margin:0;}
+
+.card{
+  width:85mm;
+  height:55mm;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+  background:var(--dark);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:6mm 7mm 6.5mm;
+}
+.card::before{
+  content:'';
+  position:absolute;
+  top:-10mm; right:-10mm;
+  width:34mm; height:34mm;
+  border-radius:50%;
+  background:rgba(244,82,30,.14);
+}
+.card::after{
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:2.5px;
+  background:linear-gradient(90deg,var(--o),var(--od));
+}
+
+.front-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  position:relative;z-index:2;
+}
+.brand-block .logo{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:13.5pt;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--white);
+  line-height:1;
+}
+.brand-block .logo span{color:var(--o);}
+.brand-block .logo-sub{
+  font-size:5.5pt;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.32);
+  margin-top:1mm;
+}
+.role-badge{
+  background:rgba(244,82,30,.15);
+  border:1px solid rgba(244,82,30,.3);
+  border-radius:12px;
+  padding:1.2mm 3mm;
+  font-size:6.5pt;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  color:var(--o);
+  white-space:nowrap;
+  align-self:flex-start;
+  margin-top:.5mm;
+}
+
+.front-middle{
+  position:relative;z-index:2;
+}
+.person-name{
+  font-family:'Oswald',sans-serif;
+  font-size:16pt;
+  font-weight:600;
+  color:var(--white);
+  line-height:.96;
+  letter-spacing:-.01em;
+}
+
+.front-bottom{
+  display:flex;
+  flex-direction:column;
+  gap:2mm;
+  position:relative;z-index:2;
+}
+.contact-row{
+  display:flex;
+  align-items:center;
+  gap:2mm;
+}
+.contact-row svg{
+  width:10px;height:10px;
+  color:var(--o);
+  flex-shrink:0;
+}
+.contact-row span{
+  font-size:7.2pt;
+  color:rgba(255,255,255,.68);
+  font-weight:400;
+}
+.contact-row span.accent{
+  color:var(--o);
+  font-weight:500;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="front-top">
+    <div class="brand-block">
+      <div class="logo">REEL<span>EVO</span></div>
+      <div class="logo-sub">by GMV Solutions</div>
+    </div>
+    <div class="role-badge">Comercial</div>
+  </div>
+
+  <div class="front-middle">
+    <div class="person-name">Gonzalo<br>Moldes</div>
+  </div>
+
+  <div class="front-bottom">
+    <div class="contact-row">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="1" y="2.5" width="10" height="7" rx="1.5"/>
+        <path d="M1 4l5 3.5L11 4"/>
+      </svg>
+      <span>gonzalomoldes@gmvsolutions.es</span>
+    </div>
+    <div class="contact-row">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M2 2h2.5l1 2.5-1.5 1a6.5 6.5 0 003 3l1-1.5L10.5 8V10.5A1.5 1.5 0 019 12C4.5 12 0 7.5 0 3A1.5 1.5 0 012 2z"/>
+      </svg>
+      <span class="accent">+34 671 887 372</span>
+    </div>
+    <div class="contact-row">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="6" cy="6" r="5"/>
+        <path d="M6 1v5l3 2"/>
+      </svg>
+      <span class="accent">gmvsolutions.es</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

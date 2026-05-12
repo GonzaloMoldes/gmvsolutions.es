@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>REELEVO — Pitch Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F4521E;--od:#C43A10;--ol:#FFF1EC;
+  --dark:#0A0A0A;--navy:#0F172A;
+  --slate:#334155;--gray:#64748B;
+  --gl:#F8FAFC;--white:#fff;
+  --green:#00C48C;--red:#FF4444;
+}
+body{font-family:'DM Sans',Helvetica,sans-serif;background:#b8b8b8;color:var(--dark);}
+h1,h2,h3,h4,.num{font-family:'Oswald','Impact',sans-serif;}
+
+.page{
+  width:210mm;min-height:297mm;background:var(--white);
+  margin:0 auto 24px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+@media print{
+  body{background:white;}
+  .page{margin:0;page-break-after:always;break-after:page;
+    width:210mm;height:297mm;min-height:297mm;max-height:297mm;}
+  .page:last-child{page-break-after:avoid;break-after:avoid;}
+  @page{size:A4 portrait;margin:0;}
+}
+
+/* ════════════════════════════════════════
+   P1 — PORTADA
+   ════════════════════════════════════════ */
+.p1{background:var(--dark);}
+.p1-deco{position:absolute;inset:0;overflow:hidden;}
+.p1-deco svg{position:absolute;inset:0;width:100%;height:100%;}
+.p1-inner{position:relative;z-index:2;display:flex;flex-direction:column;
+  height:100%;padding:14mm 15mm 11mm;}
+
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--o);}
+
+.p1-hero{margin-top:8mm;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.p1-hero h1{font-size:44pt;font-weight:700;color:#fff;line-height:.95;
+  letter-spacing:-.02em;margin-bottom:6mm;}
+.p1-hero h1 em{color:var(--o);font-style:normal;}
+.p1-hero p{font-size:13pt;color:rgba(255,255,255,.62);line-height:1.55;max-width:118mm;}
+
+.p1-strip{margin-top:auto;border-top:1px solid rgba(255,255,255,.09);
+  padding-top:7mm;display:flex;align-items:center;gap:8mm;}
+.p1-strip-tag{display:flex;flex-direction:column;gap:1mm;}
+.p1-strip-tag span:first-child{font-size:9px;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,255,255,.35);}
+.p1-strip-tag span:last-child{font-size:10.5pt;font-weight:600;color:rgba(255,255,255,.75);}
+.p1-strip-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2);}
+.p1-brand-watermark{margin-left:auto;font-family:'Oswald','Impact',sans-serif;
+  font-size:40pt;font-weight:700;color:rgba(255,255,255,.05);letter-spacing:.08em;}
+
+/* ════════════════════════════════════════
+   P2 — EL PROBLEMA (3 historias reales)
+   ════════════════════════════════════════ */
+.p2-top{background:var(--navy);padding:10mm 15mm 8mm;position:relative;overflow:hidden;}
+.p2-top::after{content:'';position:absolute;right:-8mm;top:-8mm;
+  width:50mm;height:50mm;border-radius:50%;background:rgba(244,82,30,.1);}
+.p2-top h2{font-size:28pt;font-weight:700;color:#fff;line-height:1.05;margin-bottom:3mm;}
+.p2-top p{font-size:11pt;color:rgba(255,255,255,.58);line-height:1.5;max-width:125mm;}
+
+.p2-stories{padding:5mm 15mm;display:flex;flex-direction:column;gap:4mm;flex:1;}
+.story-card{border-radius:10px;padding:5mm 6mm;display:flex;gap:5mm;align-items:flex-start;}
+.sc-a{background:#1a0f0b;border:1px solid rgba(244,82,30,.2);}
+.sc-b{background:#0c111a;border:1px solid rgba(59,130,246,.15);}
+.sc-c{background:#0d1a13;border:1px solid rgba(0,196,140,.15);}
+
+.story-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;}
+.si-a{background:rgba(244,82,30,.15);}
+.si-b{background:rgba(59,130,246,.12);}
+.si-c{background:rgba(0,196,140,.1);}
+
+.story-card h3{font-size:13pt;font-weight:700;margin-bottom:2mm;}
+.sc-a h3{color:#FF8A65;}
+.sc-b h3{color:#7BB3FF;}
+.sc-c h3{color:#4DD9AC;}
+.story-card p{font-size:10pt;line-height:1.55;}
+.sc-a p{color:rgba(255,255,255,.62);}
+.sc-b p{color:rgba(255,255,255,.62);}
+.sc-c p{color:rgba(255,255,255,.62);}
+.story-card p strong{font-weight:600;}
+.sc-a p strong{color:rgba(255,138,101,.9);}
+.sc-b p strong{color:rgba(123,179,255,.9);}
+.sc-c p strong{color:rgba(77,217,172,.9);}
+
+.p2-bottom{margin:0 15mm 5mm;background:var(--o);border-radius:10px;
+  padding:4mm 6mm;text-align:center;}
+.p2-bottom p{font-size:11pt;color:#fff;font-weight:500;line-height:1.4;}
+
+/* ════════════════════════════════════════
+   P3 — EL VIAJE DEL OPERARIO
+   ════════════════════════════════════════ */
+.p3-top{background:var(--o);padding:9mm 15mm 7mm;position:relative;overflow:hidden;}
+.p3-top::before{content:'';position:absolute;right:-12mm;top:-12mm;
+  width:64mm;height:64mm;border-radius:50%;background:rgba(255,255,255,.09);}
+.p3-top::after{content:'';position:absolute;right:8mm;top:8mm;
+  width:36mm;height:36mm;border-radius:50%;background:rgba(255,255,255,.06);}
+.p3-top h2{font-size:26pt;font-weight:700;color:#fff;line-height:1.05;margin-bottom:2mm;position:relative;}
+.p3-top p{font-size:11pt;color:rgba(255,255,255,.82);max-width:120mm;line-height:1.45;position:relative;}
+
+.journey{padding:5mm 15mm;flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;}
+.j-step{display:flex;gap:5mm;align-items:stretch;}
+.j-left{display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;}
+.j-circle{width:40px;height:40px;border-radius:50%;background:var(--o);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.j-circle svg{width:18px;height:18px;color:#fff;}
+.j-line{flex:1;width:2px;background:linear-gradient(to bottom,var(--o),rgba(244,82,30,.15));
+  margin:2px 0;}
+.j-step:last-child .j-line{display:none;}
+.j-body{padding:0 0 6mm;flex:1;padding-top:7px;}
+.j-body h4{font-size:12pt;font-weight:700;color:var(--navy);margin-bottom:1.5mm;}
+.j-body p{font-size:10pt;color:var(--slate);line-height:1.45;}
+.j-chips{display:flex;flex-wrap:wrap;gap:2mm;margin-top:2mm;}
+.jc{background:var(--ol);color:var(--od);padding:2px 9px;border-radius:20px;
+  font-size:8.5pt;font-weight:500;}
+.jc-green{background:#F0FDF4;color:#15803D;}
+.jc-blue{background:#EFF6FF;color:#1D4ED8;}
+
+/* ════════════════════════════════════════
+   P4 — APRENDE Y EL CONOCIMIENTO NO SE PIERDE
+   ════════════════════════════════════════ */
+.p4{background:var(--gl);}
+.p4-header{padding:9mm 15mm 6mm;}
+.p4-header .eyebrow{color:var(--o);margin-bottom:3mm;display:block;}
+.p4-header h2{font-size:26pt;font-weight:700;color:var(--navy);line-height:1.05;margin-bottom:2mm;}
+.p4-header h2 span{color:var(--o);}
+.p4-header p{font-size:11pt;color:var(--slate);line-height:1.5;max-width:125mm;}
+
+.p4-flow{padding:4mm 15mm;display:grid;grid-template-columns:1fr auto 1fr;gap:5mm;
+  align-items:start;flex:1;}
+.flow-col{}
+.flow-col h3{font-size:13pt;font-weight:700;color:var(--navy);margin-bottom:4mm;
+  padding-bottom:2mm;border-bottom:2px solid var(--o);}
+.flow-item{display:flex;gap:3mm;align-items:flex-start;margin-bottom:4mm;}
+.fi-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;margin-top:1px;}
+.fi-dot-o{background:var(--ol);}
+.fi-dot-n{background:#F0FDF4;}
+.fi-dot svg{width:11px;height:11px;}
+.flow-item p{font-size:10pt;color:var(--slate);line-height:1.45;}
+.flow-item strong{color:var(--navy);font-weight:600;}
+
+.flow-arrow-col{display:flex;align-items:center;justify-content:center;padding-top:40px;}
+.flow-arrow{width:36px;height:36px;border-radius:50%;background:var(--o);
+  display:flex;align-items:center;justify-content:center;}
+
+.p4-insight{margin:0 15mm 5mm;background:var(--navy);border-radius:10px;
+  padding:5mm 6mm;display:flex;gap:4mm;align-items:flex-start;}
+.p4-insight-icon{width:36px;height:36px;border-radius:8px;background:rgba(244,82,30,.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p4-insight-text h4{font-size:11pt;font-weight:700;color:#fff;margin-bottom:1.5mm;}
+.p4-insight-text p{font-size:10pt;color:rgba(255,255,255,.65);line-height:1.5;}
+
+/* ════════════════════════════════════════
+   P5 — LA EMPRESA LO VE TODO
+   ════════════════════════════════════════ */
+.p5-header{background:var(--dark);padding:9mm 15mm 7mm;position:relative;overflow:hidden;}
+.p5-header::after{content:'';position:absolute;right:-10mm;bottom:-10mm;
+  width:55mm;height:55mm;border-radius:50%;background:rgba(244,82,30,.08);}
+.p5-header h2{font-size:26pt;font-weight:700;color:#fff;line-height:1.05;margin-bottom:2mm;position:relative;}
+.p5-header h2 em{color:var(--o);font-style:normal;}
+.p5-header p{font-size:11pt;color:rgba(255,255,255,.6);max-width:125mm;line-height:1.5;position:relative;}
+
+.p5-body{padding:5mm 15mm;flex:1;display:flex;flex-direction:column;gap:4mm;}
+.p5-grid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;}
+.vis-card{background:var(--gl);border-radius:10px;padding:5mm;
+  border-left:3px solid var(--o);display:flex;flex-direction:column;gap:2mm;}
+.vis-card.blue-b{border-left-color:#3B82F6;}
+.vis-card.green-b{border-left-color:#22C55E;}
+.vis-card.purple-b{border-left-color:#8B5CF6;}
+.vis-card h4{font-size:11pt;font-weight:700;color:var(--navy);}
+.vis-card p{font-size:9.5pt;color:var(--slate);line-height:1.45;}
+
+.p5-full-card{background:linear-gradient(135deg,var(--o),var(--od));border-radius:10px;
+  padding:5mm 6mm;display:flex;gap:5mm;align-items:center;}
+.p5-full-card h4{font-size:12pt;font-weight:700;color:#fff;margin-bottom:1.5mm;}
+.p5-full-card p{font-size:10pt;color:rgba(255,255,255,.85);line-height:1.45;}
+
+/* ════════════════════════════════════════
+   P6 — QUIÉN SABE HACER QUÉ
+   ════════════════════════════════════════ */
+.p6{background:var(--white);}
+.p6-header{padding:9mm 15mm 6mm;border-bottom:3px solid var(--o);}
+.p6-header .eyebrow{color:var(--o);margin-bottom:3mm;display:block;}
+.p6-header h2{font-size:26pt;font-weight:700;color:var(--navy);line-height:1.05;margin-bottom:2mm;}
+.p6-header p{font-size:11pt;color:var(--slate);line-height:1.5;max-width:130mm;}
+
+.p6-body{padding:5mm 15mm;flex:1;display:flex;flex-direction:column;gap:4mm;}
+
+.skill-matrix{background:var(--gl);border-radius:10px;padding:4mm 5mm;}
+.skill-matrix h4{font-size:11pt;font-weight:700;color:var(--navy);margin-bottom:3mm;}
+.sm-header{display:grid;grid-template-columns:90px repeat(5,1fr);gap:1mm;margin-bottom:2mm;}
+.sm-col-label{font-size:8px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--gray);text-align:center;padding:0 2px;}
+.sm-row{display:grid;grid-template-columns:90px repeat(5,1fr);gap:1mm;margin-bottom:2mm;}
+.sm-row-name{font-size:9pt;font-weight:600;color:var(--navy);display:flex;align-items:center;}
+.sm-cell{border-radius:5px;height:26px;display:flex;align-items:center;justify-content:center;}
+.sm-yes{background:#DCFCE7;}
+.sm-yes svg{color:#16A34A;}
+.sm-learning{background:#FEF9C3;}
+.sm-learning svg{color:#CA8A04;}
+.sm-no{background:var(--gl);border:1px solid var(--border,#E2E8F0);}
+.sm-no svg{color:var(--gray);}
+
+.p6-insights{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;}
+.p6-ins{background:var(--gl);border-radius:8px;padding:4mm;text-align:center;
+  border-top:3px solid var(--o);}
+.p6-ins.blue{border-top-color:#3B82F6;}
+.p6-ins.green{border-top-color:#22C55E;}
+.p6-ins h4{font-size:11pt;font-weight:700;color:var(--navy);margin:2mm 0 1.5mm;}
+.p6-ins p{font-size:9pt;color:var(--slate);line-height:1.4;}
+
+.p6-quote{background:var(--navy);border-radius:10px;padding:5mm 6mm;}
+.p6-quote p{font-size:11pt;color:rgba(255,255,255,.82);line-height:1.55;font-style:italic;}
+.p6-quote p::before{content:'"';color:var(--o);font-family:'Oswald',sans-serif;
+  font-size:28pt;line-height:0;vertical-align:-.3em;margin-right:1mm;}
+
+/* ════════════════════════════════════════
+   P7 — CTA
+   ════════════════════════════════════════ */
+.p7{background:var(--dark);}
+.p7-deco{position:absolute;inset:0;overflow:hidden;}
+.p7-deco svg{position:absolute;inset:0;width:100%;height:100%;}
+.p7-inner{position:relative;z-index:2;display:flex;flex-direction:column;
+  height:100%;padding:14mm 15mm 11mm;}
+
+.p7-inner .eyebrow{color:var(--o);margin-bottom:8mm;}
+.p7-headline{font-size:38pt;font-weight:700;color:#fff;line-height:.95;
+  letter-spacing:-.02em;margin-bottom:6mm;}
+.p7-headline em{color:var(--o);font-style:normal;}
+.p7-sub{font-size:12pt;color:rgba(255,255,255,.62);line-height:1.55;
+  max-width:120mm;margin-bottom:9mm;}
+
+.p7-promises{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:9mm;}
+.prom{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:5mm;border-top:3px solid var(--o);}
+.prom h4{font-size:12pt;font-weight:700;color:#fff;margin-bottom:2mm;}
+.prom p{font-size:9.5pt;color:rgba(255,255,255,.58);line-height:1.45;}
+
+.p7-steps{display:flex;flex-direction:column;gap:3mm;margin-bottom:auto;}
+.p7s{display:flex;gap:4mm;align-items:center;}
+.p7s-num{width:34px;height:34px;border-radius:50%;background:var(--o);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p7s-num span{font-family:'Oswald','Impact',sans-serif;font-size:13pt;font-weight:700;color:#fff;}
+.p7s p{font-size:11pt;color:rgba(255,255,255,.82);}
+.p7s strong{color:#fff;font-weight:700;}
+
+.p7-contact{margin-top:8mm;background:rgba(244,82,30,.12);border:1px solid rgba(244,82,30,.25);
+  border-radius:10px;padding:5mm 6mm;display:grid;grid-template-columns:1fr 1fr;gap:4mm;}
+.p7c-item label{font-size:8px;text-transform:uppercase;letter-spacing:.09em;
+  color:rgba(255,255,255,.35);display:block;margin-bottom:1mm;}
+.p7c-item p{font-size:11pt;color:#fff;font-weight:500;}
+.p7c-url{font-family:'Oswald','Impact',sans-serif;font-size:16pt;font-weight:700;color:var(--o);}
+
+.p7-footer{margin-top:6mm;display:flex;justify-content:space-between;align-items:center;}
+.p7-footer-brand{font-family:'Oswald','Impact',sans-serif;font-size:18pt;
+  font-weight:700;color:rgba(255,255,255,.09);letter-spacing:.06em;}
+.p7-footer-copy{font-size:8.5px;color:rgba(255,255,255,.22);}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 1 — EL GOLPE EMOCIONAL
+     ══════════════════════════════════════════════════════ -->
+<div class="page p1">
+  <div class="p1-deco">
+    <svg viewBox="0 0 595 842" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="360,0 595,0 595,500 130,842 0,842 0,700" fill="rgba(244,82,30,0.06)"/>
+      <circle cx="540" cy="160" r="230" fill="none" stroke="rgba(244,82,30,0.1)" stroke-width="1"/>
+      <circle cx="540" cy="160" r="145" fill="none" stroke="rgba(244,82,30,0.08)" stroke-width="1"/>
+      <circle cx="540" cy="160" r="68"  fill="rgba(244,82,30,0.07)"/>
+      <circle cx="70"  cy="700" r="190" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1.5"/>
+      <circle cx="70"  cy="700" r="110" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <g fill="rgba(255,255,255,0.06)">
+        <circle cx="55"  cy="280" r="2"/><circle cx="75"  cy="280" r="2"/><circle cx="95"  cy="280" r="2"/>
+        <circle cx="55"  cy="300" r="2"/><circle cx="75"  cy="300" r="2"/><circle cx="95"  cy="300" r="2"/>
+        <circle cx="55"  cy="320" r="2"/><circle cx="75"  cy="320" r="2"/><circle cx="95"  cy="320" r="2"/>
+        <circle cx="55"  cy="340" r="2"/><circle cx="75"  cy="340" r="2"/><circle cx="95"  cy="340" r="2"/>
+        <circle cx="55"  cy="360" r="2"/><circle cx="75"  cy="360" r="2"/><circle cx="95"  cy="360" r="2"/>
+      </g>
+      <rect x="0" y="795" width="595" height="3" fill="rgba(244,82,30,0.7)"/>
+    </svg>
+  </div>
+
+  <div class="p1-inner">
+    <div class="eyebrow">REELEVO · Software Operativo Industrial</div>
+
+    <div class="p1-hero">
+      <h1>El conocimiento<br>que mueve tu empresa<br><em>¿dónde está ahora?</em></h1>
+      <p>En papeles que nadie actualiza. En la cabeza de tres personas. En la memoria de alguien que mañana quizás ya no esté. Eso tiene solución.</p>
+    </div>
+
+    <div class="p1-strip">
+      <div class="p1-strip-tag">
+        <span>Para quién</span>
+        <span>Directores de operaciones y gerentes industriales</span>
+      </div>
+      <div class="p1-strip-dot"></div>
+      <div class="p1-strip-tag">
+        <span>Lo que cambia</span>
+        <span>Procesos digitalizados · Operarios certificados · Planta en control</span>
+      </div>
+      <div class="p1-brand-watermark">REELEVO</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 2 — TRES SITUACIONES QUE TE RESULTAN FAMILIARES
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="p2-top">
+    <div class="eyebrow" style="color:rgba(255,255,255,.4);margin-bottom:3mm;">El problema real</div>
+    <h2>¿Te suena alguna de estas situaciones?</h2>
+    <p>No son casos raros. Ocurren cada semana en plantas como la tuya. Y tienen algo en común: se pueden evitar.</p>
+  </div>
+
+  <div class="p2-stories">
+
+    <div class="story-card sc-a">
+      <div class="story-icon si-a">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8A65" stroke-width="1.8">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Cuando el que más sabe se va</h3>
+        <p>Llevan años en la empresa. Conocen el proceso de cabo a rabo, saben qué falla y cómo evitarlo, tienen trucos que nunca están escritos en ningún sitio. <strong>Cuando se jubilan, enferman o se van, ese conocimiento desaparece con ellos.</strong> Y vuelves a empezar desde cero.</p>
+      </div>
+    </div>
+
+    <div class="story-card sc-b">
+      <div class="story-icon si-b">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7BB3FF" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <div>
+        <h3>El primer mes del nuevo operario</h3>
+        <p>Llega con ganas pero sin contexto. Durante semanas depende de que alguien tenga tiempo de enseñarle. Comete errores que no debería cometer. <strong>Necesita de 2 a 4 semanas para ser autónomo</strong> — y aun así no sabes si aprendió lo correcto o lo que le contó el compañero que tenía al lado.</p>
+      </div>
+    </div>
+
+    <div class="story-card sc-c">
+      <div class="story-icon si-c">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4DD9AC" stroke-width="1.8">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div>
+        <h3>La auditoría que nadie esperaba</h3>
+        <p>El cliente llama un lunes. Quiere la documentación de los últimos tres meses. Tienes 24 horas. <strong>Empieza la búsqueda de albaranes, registros en papel, firmas que nadie recuerda dónde están</strong> — y al final presentas un documento que no da confianza ni a ti mismo.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p2-bottom">
+    <p>Ninguno de estos problemas es inevitable. Todos tienen una causa común: <strong>el conocimiento operativo no está en el sistema.</strong> REELEVO lo pone ahí.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 3 — EL VIAJE DEL OPERARIO
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="p3-top">
+    <h2>Lo que vive tu operario<br>con REELEVO</h2>
+    <p>Sin instalar nada. Sin formación técnica. Sin recordar contraseñas. Desde el primer día.</p>
+  </div>
+
+  <div class="journey">
+
+    <div class="j-step">
+      <div class="j-left">
+        <div class="j-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/>
+            <rect x="3" y="16" width="5" height="5"/><rect x="9" y="3" width="2" height="2"/>
+            <rect x="9" y="8" width="2" height="2"/><rect x="14" y="10" width="2" height="2"/>
+            <rect x="16" y="14" width="5" height="5"/>
+          </svg>
+        </div>
+        <div class="j-line"></div>
+      </div>
+      <div class="j-body">
+        <h4>Llega a la máquina. Ve el QR. Apunta la cámara.</h4>
+        <p>No hay que buscar el manual, no hay que preguntarle a nadie. El proceso está ahí, pegado en la máquina. Un segundo para abrirlo.</p>
+        <div class="j-chips"><span class="jc">Sin apps</span><span class="jc">Cualquier móvil</span><span class="jc">Un código QR por proceso</span></div>
+      </div>
+    </div>
+
+    <div class="j-step">
+      <div class="j-left">
+        <div class="j-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <div class="j-line"></div>
+      </div>
+      <div class="j-body">
+        <h4>Introduce su PIN de 4 dígitos. Empieza.</h4>
+        <p>Sin email, sin contraseña, sin gestión de accesos complicada. El operario ya está dentro. Lo que ve en pantalla es su proceso, su siguiente tarea, su guía.</p>
+        <div class="j-chips"><span class="jc">PIN personal de 4 dígitos</span><span class="jc">Acceso en segundos</span></div>
+      </div>
+    </div>
+
+    <div class="j-step">
+      <div class="j-left">
+        <div class="j-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <div class="j-line"></div>
+      </div>
+      <div class="j-body">
+        <h4>Ejecuta los pasos, uno a uno, con imágenes y vídeo de referencia.</h4>
+        <p>Cada paso tiene exactamente lo que necesita saber: texto, imagen o vídeo corto. Si tiene una duda, la respuesta está en pantalla. No necesita preguntarle a nadie.</p>
+        <div class="j-chips"><span class="jc">Guía visual paso a paso</span><span class="jc">Vídeo de referencia</span><span class="jc">Siempre actualizado</span></div>
+      </div>
+    </div>
+
+    <div class="j-step">
+      <div class="j-left">
+        <div class="j-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="j-line"></div>
+      </div>
+      <div class="j-body">
+        <h4>Si algo no funciona o ve una mejora, lo reporta ahí mismo.</h4>
+        <p>Una incidencia, una variación, un truco que ha descubierto. Lo registra sin salir del flujo. Llega al supervisor en segundos. Su conocimiento ya no se pierde.</p>
+        <div class="j-chips"><span class="jc">Reporte de incidencias inline</span><span class="jc-green">Sugerencia de mejora</span><span class="jc-blue">Adjunta foto si hace falta</span></div>
+      </div>
+    </div>
+
+    <div class="j-step">
+      <div class="j-left">
+        <div class="j-circle" style="background:var(--green);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+      </div>
+      <div class="j-body">
+        <h4>Firma digitalmente. Queda registrado.</h4>
+        <p>Al completar, el operario firma. Queda registrado quién lo hizo, cuándo, cuánto tardó en cada paso y si hubo incidencias. Para siempre. Sin papel.</p>
+        <div class="j-chips"><span class="jc-green">Firma digital</span><span class="jc-green">Historial inmutable</span><span class="jc-green">Certificación automática</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 4 — APRENDE, COMPARTE, NO SE PIERDE NADA
+     ══════════════════════════════════════════════════════ -->
+<div class="page p4">
+  <div class="p4-header">
+    <span class="eyebrow">Conocimiento vivo</span>
+    <h2>Lo que tu operario sabe,<br><span>ahora es patrimonio de la empresa</span></h2>
+    <p>Cada ejecución es aprendizaje. Cada variación capturada es conocimiento que se queda. REELEVO convierte la experiencia individual en inteligencia colectiva.</p>
+  </div>
+
+  <div class="p4-flow">
+    <!-- Columna izquierda: El operario -->
+    <div class="flow-col">
+      <h3>Lo que hace el operario</h3>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-o">
+          <svg viewBox="0 0 12 12" fill="none" stroke="var(--o)" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Ejecuta guiado por el sistema.</strong> Los pasos, las imágenes y los vídeos están ahí para que lo haga bien desde la primera vez.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-o">
+          <svg viewBox="0 0 12 12" fill="none" stroke="var(--o)" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Reporta lo que no funciona.</strong> Una incidencia, una anomalía, algo que podría hacerse mejor. Lo registra en el momento, sin interrumpir el flujo.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-o">
+          <svg viewBox="0 0 12 12" fill="none" stroke="var(--o)" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Sugiere mejoras desde su experiencia.</strong> El que mejor conoce el proceso es quien lo hace cada día. Sus ideas llegan directamente al supervisor.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-o">
+          <svg viewBox="0 0 12 12" fill="none" stroke="var(--o)" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Acumula certificaciones.</strong> Cada proceso completado queda registrado en su historial. Sabe exactamente en qué está certificado y en qué puede mejorar.</p>
+      </div>
+    </div>
+
+    <!-- Flecha central -->
+    <div class="flow-arrow-col">
+      <div class="flow-arrow">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Lo que gana la empresa -->
+    <div class="flow-col">
+      <h3>Lo que gana la empresa</h3>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-n">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>El proceso siempre se ejecuta igual.</strong> Sin variaciones no controladas, sin cada operario haciendo las cosas a su manera. Consistencia real.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-n">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Las incidencias llegan al supervisor al instante.</strong> No al día siguiente, no cuando alguien se acuerda de contarlo. En tiempo real, con contexto.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-n">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>Las mejoras aprobadas se integran en el proceso.</strong> Con versionado automático. El proceso de hoy es mejor que el de ayer porque los operarios lo mejoran.</p>
+      </div>
+
+      <div class="flow-item">
+        <div class="fi-dot fi-dot-n">
+          <svg viewBox="0 0 12 12" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+        </div>
+        <p><strong>El conocimiento queda en el sistema para siempre.</strong> El próximo operario hereda todo lo que aprendió el anterior. El onboarding se acorta radicalmente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="p4-insight">
+    <div class="p4-insight-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o)" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3"/>
+      </svg>
+    </div>
+    <div class="p4-insight-text">
+      <h4>El conocimiento tribal, al fin digitalizado</h4>
+      <p>Cuando tu operario más experto se jubile, lo que sabe no se irá con él. Habrá quedado capturado en el sistema, disponible para el siguiente operario, y para siempre.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 5 — LA EMPRESA LO VE TODO, EN TIEMPO REAL
+     ══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="p5-header">
+    <h2>Tu empresa ve todo.<br><em>En tiempo real.</em></h2>
+    <p>El supervisor ya no tiene que bajar a planta para saber qué está pasando. Ya no tiene que preguntar. Ya no tiene que esperar al parte del día siguiente.</p>
+  </div>
+
+  <div class="p5-body">
+    <div class="p5-grid">
+
+      <div class="vis-card">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o)" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
+        <h4>Dashboard operativo en tiempo real</h4>
+        <p>Quién está ejecutando qué proceso en este momento, en qué paso va, cuánto lleva. Sin llamadas, sin interrupciones, sin incertidumbre.</p>
+      </div>
+
+      <div class="vis-card blue-b">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <h4>Cada ejecución, firmada y trazada</h4>
+        <p>Quién lo hizo, cuándo empezó, cuándo terminó, cuánto tardó en cada paso. Un registro inmutable que te da certeza total ante cualquier reclamación o auditoría.</p>
+      </div>
+
+      <div class="vis-card green-b">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.8">
+          <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <h4>Incidencias que llegan al instante</h4>
+        <p>Cuando un operario reporta un problema, el supervisor lo recibe en el momento. No al día siguiente. No cuando alguien se acuerda de mencionarlo. Ahora.</p>
+      </div>
+
+      <div class="vis-card purple-b">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.8">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+          <polyline points="17 6 23 6 23 12"/>
+        </svg>
+        <h4>Procesos que mejoran continuamente</h4>
+        <p>Las propuestas de mejora de los operarios llegan a una bandeja centralizada. El supervisor aprueba, el proceso se versiona. La planta mejora sola, de forma estructurada.</p>
+      </div>
+
+    </div>
+
+    <div class="p5-full-card">
+      <div>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <div>
+        <h4>Mantenimiento que no interrumpe la producción</h4>
+        <p>Las órdenes de mantenimiento llegan al operario o técnico asignado integradas en su día. El historial de cada máquina está siempre disponible. Las revisiones se planifican antes de que fallen.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--gl);border-radius:10px;padding:4mm 5mm;display:flex;gap:4mm;align-items:center;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--o)" stroke-width="1.8" style="flex-shrink:0;">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3"/>
+      </svg>
+      <p style="font-size:10.5pt;color:var(--slate);line-height:1.45;"><strong style="color:var(--navy);">Por primera vez, el gerente tiene visibilidad real de su planta</strong> sin tener que bajar, preguntar o esperar. Toma decisiones con datos, no con intuición.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 6 — QUIÉN SABE HACER QUÉ
+     ══════════════════════════════════════════════════════ -->
+<div class="page p6">
+  <div class="p6-header">
+    <span class="eyebrow">Gestión del talento operativo</span>
+    <h2>Por fin sabes quién puede<br>hacer qué en tu planta</h2>
+    <p>¿Cuántas veces has asignado a alguien una tarea sin saber con certeza si está preparado? ¿Cuántas veces has descubierto un gap de formación cuando ya era tarde? REELEVO lo cambia.</p>
+  </div>
+
+  <div class="p6-body">
+
+    <div class="skill-matrix">
+      <h4>Skill Matrix — quién está certificado en qué</h4>
+      <div class="sm-header">
+        <div></div>
+        <div class="sm-col-label">Soldadura MIG</div>
+        <div class="sm-col-label">Control calidad</div>
+        <div class="sm-col-label">CNC Mazak</div>
+        <div class="sm-col-label">Mantenimiento L1</div>
+        <div class="sm-col-label">Acabado final</div>
+      </div>
+      <!-- Operario 1 -->
+      <div class="sm-row">
+        <span class="sm-row-name" style="font-size:9pt;">Carlos M.</span>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="sm-cell sm-no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+      </div>
+      <!-- Operario 2 -->
+      <div class="sm-row">
+        <span class="sm-row-name" style="font-size:9pt;">Ana R.</span>
+        <div class="sm-cell sm-learning"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="sm-cell sm-no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="sm-cell sm-yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+      </div>
+      <!-- Operario 3 -->
+      <div class="sm-row">
+        <span class="sm-row-name" style="font-size:9pt;">Luis F. <span style="font-size:8px;background:var(--ol);color:var(--od);padding:1px 5px;border-radius:10px;font-weight:600;margin-left:2px;">Nuevo</span></span>
+        <div class="sm-cell sm-no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="sm-cell sm-learning"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="sm-cell sm-no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="sm-cell sm-no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="sm-cell sm-learning"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      </div>
+      <div style="display:flex;gap:5mm;margin-top:3mm;padding-top:2mm;border-top:1px solid var(--border,#E2E8F0);">
+        <div style="display:flex;gap:2mm;align-items:center;font-size:8.5pt;color:var(--slate);">
+          <div style="width:16px;height:16px;background:#DCFCE7;border-radius:4px;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div> Certificado
+        </div>
+        <div style="display:flex;gap:2mm;align-items:center;font-size:8.5pt;color:var(--slate);">
+          <div style="width:16px;height:16px;background:#FEF9C3;border-radius:4px;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#CA8A04" stroke-width="2"><circle cx="6" cy="6" r="5"/><polyline points="6 3 6 6 8 7"/></svg></div> En formación
+        </div>
+        <div style="display:flex;gap:2mm;align-items:center;font-size:8.5pt;color:var(--slate);">
+          <div style="width:16px;height:16px;background:var(--gl);border:1px solid var(--border,#E2E8F0);border-radius:4px;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div> Sin certificar
+        </div>
+      </div>
+    </div>
+
+    <div class="p6-insights">
+      <div class="p6-ins">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--o)" stroke-width="1.8" style="margin:0 auto 2mm;">
+          <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+        </svg>
+        <h4>Quién está listo para qué</h4>
+        <p>Asigna tareas con certeza. Nunca más mandas a alguien a una máquina sin saber si está preparado para operarla.</p>
+      </div>
+      <div class="p6-ins blue">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" style="margin:0 auto 2mm;">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <h4>Gaps que se ven antes de que duelan</h4>
+        <p>Detecta qué procesos críticos tienen poca cobertura antes de que un turno se quede sin persona capaz de ejecutarlos.</p>
+      </div>
+      <div class="p6-ins green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.8" style="margin:0 auto 2mm;">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+          <polyline points="17 6 23 6 23 12"/>
+        </svg>
+        <h4>La formación que tu equipo necesita</h4>
+        <p>Planifica la formación basándote en datos reales. Sabe quién necesita reforzar qué — y quién ya está preparado para más.</p>
+      </div>
+    </div>
+
+    <div class="p6-quote">
+      <p>Con REELEVO por primera vez sé exactamente quién puede sustituir a quién si hay una baja. Ya no improviso. Planifico con datos reales.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINA 7 — EL CIERRE EMOCIONAL
+     ══════════════════════════════════════════════════════ -->
+<div class="page p7">
+  <div class="p7-deco">
+    <svg viewBox="0 0 595 842" xmlns="http://www.w3.org/2000/svg">
+      <rect width="595" height="842" fill="#0A0A0A"/>
+      <polygon points="280,0 595,0 595,842 60,842" fill="rgba(244,82,30,0.05)"/>
+      <circle cx="530" cy="140" r="240" fill="none" stroke="rgba(244,82,30,0.09)" stroke-width="1.5"/>
+      <circle cx="530" cy="140" r="155" fill="none" stroke="rgba(244,82,30,0.07)" stroke-width="1"/>
+      <circle cx="530" cy="140" r="75"  fill="rgba(244,82,30,0.06)"/>
+      <circle cx="65"  cy="730" r="200" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1.5"/>
+      <rect x="0" y="0" width="4" height="842" fill="rgba(244,82,30,0.9)"/>
+      <g fill="rgba(255,255,255,0.04)">
+        <circle cx="490" cy="480" r="2"/><circle cx="515" cy="480" r="2"/><circle cx="540" cy="480" r="2"/>
+        <circle cx="490" cy="505" r="2"/><circle cx="515" cy="505" r="2"/><circle cx="540" cy="505" r="2"/>
+        <circle cx="490" cy="530" r="2"/><circle cx="515" cy="530" r="2"/><circle cx="540" cy="530" r="2"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="p7-inner">
+    <div class="eyebrow">¿Empezamos?</div>
+
+    <div class="p7-headline">
+      Tu planta merece<br>funcionar con lo<br><em>mejor de cada persona.</em>
+    </div>
+
+    <div class="p7-sub">
+      El conocimiento está ahí. En tus operarios, en sus rutinas, en la experiencia acumulada durante años. REELEVO lo captura, lo organiza y lo pone a trabajar para toda la empresa. No mañana. Desde el primer día.
+    </div>
+
+    <div class="p7-promises">
+      <div class="prom">
+        <h4>48 horas</h4>
+        <p>Para tener tu primer proceso digitalizado y en marcha en planta. Nosotros te acompañamos en la configuración inicial.</p>
+      </div>
+      <div class="prom">
+        <h4>Sin instalar nada</h4>
+        <p>Tus operarios abren el QR con la cámara del móvil. Eso es todo. Sin apps, sin formación técnica, sin barreras.</p>
+      </div>
+      <div class="prom">
+        <h4>14 días gratis</h4>
+        <p>Prueba completa. Sin tarjeta de crédito. Sin compromiso. Con todos los datos reales de tu empresa.</p>
+      </div>
+    </div>
+
+    <div class="p7-steps">
+      <div class="p7s">
+        <div class="p7s-num"><span>1</span></div>
+        <p><strong>Demo de 30 minutos</strong> — te enseñamos el flujo completo con un caso real de tu sector.</p>
+      </div>
+      <div class="p7s">
+        <div class="p7s-num"><span>2</span></div>
+        <p><strong>Configuramos tu primer proceso juntos</strong> — en menos de dos horas tienes algo funcionando.</p>
+      </div>
+      <div class="p7s">
+        <div class="p7s-num"><span>3</span></div>
+        <p><strong>QR en planta ese mismo día</strong> — trazabilidad real desde la primera ejecución.</p>
+      </div>
+    </div>
+
+    <div class="p7-contact">
+      <div class="p7c-item">
+        <label>Escríbenos directamente</label>
+        <p>gonzalomoldes@gmvsolutions.es</p>
+      </div>
+      <div class="p7c-item">
+        <label>Empieza gratis ahora</label>
+        <p class="p7c-url">app.gmvsolutions.es</p>
+      </div>
+    </div>
+
+    <div class="p7-footer">
+      <div class="p7-footer-brand">REELEVO</div>
+      <div class="p7-footer-copy">© 2026 GMV Solutions · Software Operativo Industrial</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
