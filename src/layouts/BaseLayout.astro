@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GaliciaSeal from '../components/GaliciaSeal.astro';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
 
@@ -161,6 +162,7 @@ const {
   <div class="site-shell">
     <div class="hero-bg"></div>
     <Header activeNav={activeNav} />
+    <GaliciaSeal />
 
     <main>
       <slot />
