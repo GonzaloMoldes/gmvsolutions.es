@@ -4,6 +4,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://gmvsolutions.es',
   trailingSlash: 'always',
+  build: {
+    // Inlinea el CSS en el HTML para eliminar peticiones bloqueantes de render
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -32,7 +36,7 @@ export default defineConfig({
             item.url.includes('/gestion-competencias/') ||
             item.url.includes('/documentacion-procesos/')) {
           item.priority = 0.9;
-          item.changefreq = 'bi-weekly';
+          item.changefreq = 'daily';
         }
         // Video demo (contiene schema VideoObject)
         if (item.url.includes('/video-demo/')) {
@@ -57,7 +61,7 @@ export default defineConfig({
         // Recursos educativos
         if (item.url.includes('/recursos/')) {
           item.priority = 0.75;
-          item.changefreq = 'bi-weekly';
+          item.changefreq = 'daily';
         }
         // Página principal máxima prioridad
         if (item.url === 'https://gmvsolutions.es/') {

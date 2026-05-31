@@ -109,7 +109,7 @@ const {
   <!-- SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1" />
   <meta name="author" content="GMV Solutions" />
   <meta name="theme-color" content="#F4521E" />
   <link rel="canonical" href={canonical} />
@@ -134,12 +134,21 @@ const {
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (carga asíncrona, fuera de la ruta crítica) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
+    onload="this.onload=null;this.rel='stylesheet'"
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
+    />
+  </noscript>
 
   <!-- Slot for page-specific head content (extra schema, etc.) -->
   <slot name="head" />

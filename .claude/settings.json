@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx astro *)",
-      "Bash(grep -o 'Royal crown.\\\\{0,40\\\\}' dist/index.html)"
+      "Bash(grep -o 'Royal crown.\\\\{0,40\\\\}' dist/index.html)",
+      "PowerShell(npm run build)"
     ]
   }
 }
