@@ -1,0 +1,80 @@
+---
+// CON-2 (cluster onboarding). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 3.2
+// Honestidad: "5 dias a 1" es objetivo/metodo, no metrica garantizada.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Onboarding de operarios: cómo reducir la curva de 5 días a 1";
+const description = "Cómo acortar la curva de autonomía de un operario nuevo con el proceso en el puesto y la matriz de competencias, sin saturar al tutor. Método práctico para pyme industrial.";
+const canonical = "https://gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-06-03",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-06-03" category="Onboarding" readTime="8 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> El onboarding tradicional depende del tutor y es lento. Con el proceso accesible en el puesto y una matriz de competencias clara, el objetivo es acortar la curva de autonomía del operario nuevo sin saturar a tu mejor operario. No es magia: es método.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#tarda">Por qué el onboarding tradicional tarda</a></li>
+    <li><a href="#ralentiza">Qué ralentiza al nuevo</a></li>
+    <li><a href="#puesto">El proceso en el puesto como acelerador</a></li>
+    <li><a href="#matriz">La matriz de competencias para saber cuándo es autónomo</a></li>
+    <li><a href="#plan">Un plan de 90 días</a></li>
+  </ul>
+
+  <h2 id="tarda">Por qué el onboarding tradicional tarda</h2>
+  <p>El onboarding clásico funciona así: un operario veterano deja su puesto para enseñar al nuevo durante días. Dos personas ocupadas, un solo puesto produciendo. El aprendizaje depende de quién enseñe, de su paciencia y de su memoria, y el resultado es desigual. Cuando entra personal temporal o en campaña, el problema se multiplica con cada incorporación.</p>
+  <p><em>Nota: la idea de "de 5 días a 1" es un objetivo de método según el proceso y el punto de partida, no una cifra garantizada. Mide siempre tu propia curva.</em></p>
+
+  <h2 id="ralentiza">Qué ralentiza al nuevo</h2>
+  <p>El operario nuevo no es lento por falta de ganas: es lento porque no tiene contexto. No sabe en qué orden van los pasos, qué es normal y qué no, ni a quién preguntar sin interrumpir. Cada duda es una parada y, a menudo, una llamada al tutor. Reducir la curva consiste en quitarle esas fricciones, no en presionarle.</p>
+
+  <h2 id="puesto">El proceso en el puesto como acelerador</h2>
+  <p>Si el proceso está documentado y accesible en la propia máquina —por ejemplo con un QR—, el nuevo arranca siguiendo una referencia clara en vez de esperar a que alguien tenga un rato. El tutor pasa de enseñar a verificar: comprueba el resultado en vez de explicar cada paso. Eso libera al veterano y da autonomía al nuevo desde el primer día.</p>
+
+  <h2 id="matriz">La matriz de competencias para saber cuándo es autónomo</h2>
+  <p>Acortar la curva sin control es arriesgado. La <a href="/gestion-competencias/">matriz de competencias</a> te dice, por puesto y proceso, quién está "en formación", "apto" o "experto". Así RRHH y producción saben cuándo el nuevo puede trabajar solo y dónde aún necesita apoyo, con datos en vez de intuición. Es lo que convierte "va rápido" en "está realmente listo".</p>
+
+  <h2 id="plan">Un plan de 90 días</h2>
+  <ul>
+    <li><strong>Semanas 1-2:</strong> documenta los procesos de los puestos donde más entra gente y déjalos accesibles en el puesto.</li>
+    <li><strong>Semanas 3-6:</strong> las nuevas incorporaciones arrancan con la referencia delante; el tutor verifica en vez de enseñar.</li>
+    <li><strong>Semanas 7-12:</strong> usa la matriz de competencias para validar la autonomía y detectar dónde reforzar.</li>
+  </ul>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/onboarding-software-pymes/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Onboarding para pymes</div>
+        <div class="related-link-desc">Incorporaciones ordenadas, menos dependencia del tutor.</div>
+      </a>
+      <a class="related-link-card" href="/casos-de-uso/onboarding-operarios/">
+        <div class="related-link-kicker">Caso de uso</div>
+        <div class="related-link-title">Onboarding de operarios</div>
+        <div class="related-link-desc">Incorporación estandarizada en el puesto.</div>
+      </a>
+      <a class="related-link-card" href="/para-quien/responsable-rrhh/">
+        <div class="related-link-kicker">Por rol</div>
+        <div class="related-link-title">Para RRHH</div>
+        <div class="related-link-desc">Curva de autonomía y visibilidad de competencias.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>¿Quieres acortar tu curva de onboarding?</strong> <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar onboarding">Evaluar mi onboarding →</a> · <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+</ArticleLayout>

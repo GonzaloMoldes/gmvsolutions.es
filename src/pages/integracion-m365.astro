@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Integración Microsoft 365: Power BI, Power Automate y Teams | REELEVO";
-const description = "Conecta REELEVO con Power BI, Power Automate y Microsoft Teams. Kit de integración listo para usar: queries Power Query, conector personalizado, plantillas de flujo y alertas en canales Teams. Sin desarrollo.";
+const title = "Integración Power BI en planta industrial | REELEVO";
+const description = "Integración de Power BI con tu planta industrial: explota los datos de operaciones en tu stack Microsoft (Power BI, Power Automate, Teams) sin desarrollo.";
 const canonical = "https://gmvsolutions.es/integracion-m365/";
 
 const schema = {
@@ -15,7 +15,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -250,9 +250,9 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Los datos de planta en Power BI<br><em>sin trabajo manual de consolidación</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Activa el plan Pro de REELEVO y conecta con tu entorno Microsoft 365 en el mismo día.
     </p>

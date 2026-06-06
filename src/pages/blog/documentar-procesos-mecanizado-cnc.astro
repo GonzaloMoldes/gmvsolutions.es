@@ -1,0 +1,92 @@
+---
+// SOP-1 (cluster SOP). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 2.1
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo documentar procesos de mecanizado CNC paso a paso";
+const description = "Guía práctica para documentar SOPs de mecanizado CNC: qué capturar en arranques, cambios de referencia y troubleshooting, y cómo dejarlo accesible en el puesto.";
+const canonical = "https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-05-19",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date="2026-05-19"
+  category="Procedimientos Operativos"
+  readTime="10 min"
+  canonical={canonical}
+  schema={schema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Documentar un proceso de mecanizado CNC no es escribir un manual de 40 páginas: es capturar lo que de verdad importa —arranque, parámetros, cambios de referencia y averías frecuentes— mientras el experto ejecuta, y dejarlo accesible en el puesto para que no dependa de una sola persona.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#problema">Por qué los procesos CNC se quedan en la cabeza del titular</a></li>
+    <li><a href="#que-documentar">Qué documentar en un proceso de mecanizado</a></li>
+    <li><a href="#como-capturar">Cómo capturarlo sin parar la máquina</a></li>
+    <li><a href="#mantener">Cómo mantener el SOP vivo</a></li>
+    <li><a href="#plantilla">Plantilla y siguientes pasos</a></li>
+  </ul>
+
+  <h2 id="problema">Por qué los procesos CNC se quedan en la cabeza del titular</h2>
+  <p>En un taller de mecanizado, el saber hacer crítico casi nunca está escrito. Cómo se compensa el desgaste de una herramienta, qué orden de arranque evita una colisión, qué hacer cuando el acabado sale con marcas o el palpador da una medida rara: todo eso vive en la experiencia del operario que lleva años con esa máquina.</p>
+  <p>Mientras esa persona esté, el taller funciona. El problema aparece el día que falta —una baja, unas vacaciones, una jubilación— y nadie más conoce los detalles. La máquina más rentable se para, no porque esté averiada, sino porque <strong>el conocimiento para operarla no es accesible</strong>. Documentar el proceso es convertir ese saber tácito en algo que otra persona pueda seguir.</p>
+
+  <h2 id="que-documentar">Qué documentar en un proceso de mecanizado</h2>
+  <p>No hace falta documentarlo todo. La regla práctica es empezar por lo que para la producción si se hace mal o si no se sabe hacer. En mecanizado CNC, eso suele concentrarse en cuatro bloques:</p>
+  <ul>
+    <li><strong>Arranque y parada:</strong> secuencia exacta, referencias de cero pieza, comprobaciones previas y qué hay que verificar antes de dar a ciclo.</li>
+    <li><strong>Parámetros por referencia:</strong> programa, herramientas y correctores, velocidades y avances, y las tolerancias que de verdad se controlan en esa pieza.</li>
+    <li><strong>Cambio de referencia o utillaje:</strong> qué se cambia, en qué orden, cómo se amarra y cómo se valida la primera pieza buena.</li>
+    <li><strong>Troubleshooting:</strong> las incidencias que se repiten —ruido en el cabezal, viruta que no evacúa, medida fuera de tolerancia— con la primera acción y cuándo avisar al responsable.</li>
+  </ul>
+  <p>Ese último bloque, el de incidencias, es el que más valor aporta y el que casi nunca está escrito: es justo el conocimiento que evita llamadas y paradas.</p>
+
+  <h2 id="como-capturar">Cómo capturarlo sin parar la máquina</h2>
+  <p>El error clásico es pedirle a alguien de calidad que documente el proceso desde fuera. Sale un documento correcto que nadie usa, porque no recoge los trucos reales del puesto. La alternativa que funciona es <strong>capturar mientras se trabaja</strong>: el operario experto va explicando lo que hace, paso a paso, con una foto o un vídeo corto donde un texto no basta.</p>
+  <p>Una herramienta como REELEVO está pensada para esto: el proceso se documenta desde el móvil, en el propio puesto, sin frenar la producción. El resultado no es un PDF en una carpeta del servidor, sino un proceso que el sustituto abre con un QR en la máquina y sigue paso a paso, también sin conexión.</p>
+
+  <h2 id="mantener">Cómo mantener el SOP vivo</h2>
+  <p>Un SOP que no se actualiza está muerto en tres meses. La clave es que mantenerlo sea barato: cuando cambia un parámetro, se ajusta un amarre o se descubre una forma mejor de hacer algo, la actualización debe poder hacerla quien lo detecta, en el momento, y quedar visible para el siguiente turno con su versión.</p>
+  <p>Cuando documentar y mejorar es fácil, el SOP deja de ser un trámite y se convierte en la memoria operativa de la máquina: cada incidencia resuelta lo hace un poco más completo.</p>
+
+  <h2 id="plantilla">Plantilla y siguientes pasos</h2>
+  <p>Si quieres empezar hoy, descarga una <a href="/blog/plantilla-sop-produccion/">plantilla de SOP de producción</a> y adáptala a tus tres máquinas más críticas. Y si prefieres ver cómo queda accesible en el puesto, pide una demo.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/documentacion-procesos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Documentación de procesos</div>
+        <div class="related-link-desc">SOPs accesibles en el puesto, no manuales que nadie consulta.</div>
+      </a>
+      <a class="related-link-card" href="/sectores/mecanizado-cnc/">
+        <div class="related-link-kicker">Sector</div>
+        <div class="related-link-title">Mecanizado y CNC</div>
+        <div class="related-link-desc">Continuidad en puestos críticos de mecanizado.</div>
+      </a>
+      <a class="related-link-card" href="/casos-de-uso/transferencia-conocimiento/">
+        <div class="related-link-kicker">Caso de uso</div>
+        <div class="related-link-title">Transferencia de conocimiento</div>
+        <div class="related-link-desc">Captura el saber del experto antes de que se vaya.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>¿Lo quieres en tu planta?</strong> <a href="/blog/plantilla-sop-produccion/" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Solicitar una demo →</a></p>
+  </div>
+</ArticleLayout>

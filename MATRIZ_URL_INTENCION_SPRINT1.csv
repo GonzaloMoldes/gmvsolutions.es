@@ -1,0 +1,64 @@
+url,tipo,prioridad,intencion,keyword_primaria,keyword_secundaria,cta_principal,canonical_objetivo,estado
+/,core,P0,conversion,software operaciones planta industrial,continuidad operativa,Registrarme,https://gmvsolutions.es/,implementado_estructura
+/como-funciona/,core,P0,consideracion,como funciona REELEVO,software operaciones industriales,Evaluar mi situacion,https://gmvsolutions.es/como-funciona/,implementado_estructura
+/precios/,core,P0,conversion,precio software SOP industrial,precio software operaciones pyme,Ver planes,https://gmvsolutions.es/precios/,implementado_estructura
+/vs-alternativas/,comparativa,P0,comparativa,alternativas a software SOP industrial,alternativa MES pyme,Comparar ahora,https://gmvsolutions.es/vs-alternativas/,implementado_estructura
+/para-quien/gerente-propietario/,rol,P0,conversion,software operaciones pyme industrial,continuidad negocio industrial,Evaluar mi situacion,https://gmvsolutions.es/para-quien/gerente-propietario/,implementado_estructura
+/para-quien/responsable-rrhh/,rol,P0,conversion,onboarding operarios RRHH industrial,curva autonomia operarios,Evaluar onboarding,https://gmvsolutions.es/para-quien/responsable-rrhh/,implementado_estructura
+/documentacion-procesos/,capacidad,P1,consideracion,documentacion de procesos industriales,SOP operativos planta,Solicitar demo,https://gmvsolutions.es/documentacion-procesos/,implementado_estructura
+/gestion-competencias/,capacidad,P1,consideracion,gestion de competencias industriales,matriz competencias operarios,Solicitar demo,https://gmvsolutions.es/gestion-competencias/,implementado_estructura
+/calidad-y-conformidad/,capacidad,P1,consideracion,trazabilidad operativa calidad industrial,auditoria interna planta,Solicitar demo,https://gmvsolutions.es/calidad-y-conformidad/,implementado_estructura
+/cobertura-turnos/,capacidad,P1,consideracion,cobertura de turnos produccion,huecos de cobertura planta,Solicitar demo,https://gmvsolutions.es/cobertura-turnos/,implementado_estructura
+/control-produccion/,capacidad,P1,consideracion,control de produccion pyme industrial,visibilidad diaria planta,Solicitar demo,https://gmvsolutions.es/control-produccion/,implementado_estructura
+/mantenimiento/,capacidad,P1,consideracion,mantenimiento preventivo y correctivo industrial,mantenimiento operativo integrado,Solicitar demo,https://gmvsolutions.es/mantenimiento/,implementado_estructura
+/kaizen/,capacidad,P1,consideracion,kaizen digital planta industrial,mejora continua operativa,Solicitar demo,https://gmvsolutions.es/kaizen/,implementado_estructura
+/workflows/,capacidad,P1,consideracion,workflows operativos industriales,aprobaciones operativas,Solicitar demo,https://gmvsolutions.es/workflows/,implementado_estructura
+/portal-operario/,capacidad,P1,consideracion,portal del operario industrial,ejecucion en planta,Solicitar demo,https://gmvsolutions.es/portal-operario/,implementado_estructura
+/firma-digital/,capacidad,P1,consideracion,firma digital operativa industrial,trazabilidad de firma,Solicitar demo,https://gmvsolutions.es/firma-digital/,implementado_estructura
+/modo-offline/,capacidad,P1,consideracion,software industrial modo offline,continuidad sin conectividad,Solicitar demo,https://gmvsolutions.es/modo-offline/,implementado_estructura
+/api-integraciones/,capacidad,P1,consideracion,API software industrial,integraciones ecosistema planta,Solicitar demo,https://gmvsolutions.es/api-integraciones/,implementado_estructura
+/integracion-m365/,capacidad,P1,consideracion,integracion Power BI planta industrial,stack Microsoft planta,Solicitar demo,https://gmvsolutions.es/integracion-m365/,implementado_estructura
+/obras-trazabilidad/,capacidad,P1,consideracion,trazabilidad industrial por obra,trazabilidad proyecto pieza,Solicitar demo,https://gmvsolutions.es/obras-trazabilidad/,implementado_estructura
+/vs-dozuki/,comparativa,P1,comparativa,REELEVO vs Dozuki,comparativa software instrucciones,Comparar criterios,https://gmvsolutions.es/vs-dozuki/,implementado_estructura
+/vs-gembadocs/,comparativa,P1,comparativa,REELEVO vs GembaDocs,alternativa pyme espanola,Comparar criterios,https://gmvsolutions.es/vs-gembadocs/,implementado_estructura
+/vs-knowby/,comparativa,P1,comparativa,REELEVO vs Knowby,adopcion operativa real,Comparar criterios,https://gmvsolutions.es/vs-knowby/,implementado_estructura
+/vs-poka/,comparativa,P1,comparativa,REELEVO vs Poka,escalabilidad pyme industrial,Comparar criterios,https://gmvsolutions.es/vs-poka/,implementado_estructura
+/vs-mes-tradicional/,comparativa,P1,comparativa,alternativa ligera a un MES para pymes,cuando no necesitas un MES,Comparar criterios,https://gmvsolutions.es/vs-mes-tradicional/,implementado
+/vs-excel-papel/,comparativa,P1,comparativa,digitalizar planta sin Excel,fabrica sin papel pyme,Comparar criterios,https://gmvsolutions.es/vs-excel-papel/,implementado
+/kit-digital-pyme-industrial/,landing,P1,comercial,Kit Digital digitalizacion planta industrial,ayudas digitalizacion pyme industrial,Evaluar mi situacion,https://gmvsolutions.es/kit-digital-pyme-industrial/,borrador_legal_pendiente
+/blog/documentar-procesos-mecanizado-cnc/,blog,P2,informacional,como documentar procesos de mecanizado CNC,SOP mecanizado CNC,Descargar plantilla,https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/,implementado
+/blog/instrucciones-de-trabajo-vs-sop/,blog,P2,informacional,instrucciones de trabajo vs SOP,diferencia instruccion de trabajo y procedimiento,Descargar plantilla,https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/,implementado
+/blog/software-sop-para-fabricas-comparativa/,blog,P2,informacional,software SOP para fabricas,mejor software SOP industrial,Registrarme,https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/,implementado
+/blog/plantilla-sop-produccion/,blog,P2,informacional,plantilla SOP de produccion,plantilla procedimiento operativo estandar,Descargar plantilla,https://gmvsolutions.es/blog/plantilla-sop-produccion/,implementado
+/blog/sop-mantenimiento-preventivo-guia-plantilla/,blog,P2,informacional,SOP de mantenimiento preventivo,plan de mantenimiento preventivo plantilla,Descargar plantilla,https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/,implementado
+/blog/conocimiento-tacito-taller-industrial/,blog,P2,informacional,conocimiento tacito,dependencia de personas clave,Evaluar mi situacion,https://gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/,implementado
+/blog/reducir-onboarding-operarios-cinco-a-un-dia/,blog,P2,informacional,reducir onboarding de operarios,curva de autonomia operario,Evaluar onboarding,https://gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/,implementado
+/blog/plan-contingencia-bajas-produccion/,blog,P2,informacional,plan de contingencia para bajas,cubrir bajas en produccion,Descargar checklist,https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/,implementado
+/para-quien/jefe-de-produccion/,rol,P1,conversion,herramienta jefe de produccion,visibilidad de turno,Evaluar mi situacion,https://gmvsolutions.es/para-quien/jefe-de-produccion/,implementado_estructura
+/para-quien/responsable-calidad/,rol,P1,conversion,software calidad operativa industrial,evidencia de ejecucion,Evaluar mi situacion,https://gmvsolutions.es/para-quien/responsable-calidad/,implementado_estructura
+/casos-de-uso/cobertura-bajas/,caso_uso,P1,consideracion,cubrir bajas en planta industrial,sustitucion sin caida de ritmo,Ver caso,https://gmvsolutions.es/casos-de-uso/cobertura-bajas/,implementado_estructura
+/casos-de-uso/onboarding-operarios/,caso_uso,P1,consideracion,onboarding operarios planta,incorporacion estandarizada,Ver caso,https://gmvsolutions.es/casos-de-uso/onboarding-operarios/,implementado_estructura
+/casos-de-uso/personal-ett/,caso_uso,P1,consideracion,onboarding personal ETT industrial,productividad temprana ETT,Ver caso,https://gmvsolutions.es/casos-de-uso/personal-ett/,implementado_estructura
+/casos-de-uso/transferencia-conocimiento/,caso_uso,P1,consideracion,transferencia de conocimiento industrial,captura de conocimiento critico,Ver caso,https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/,implementado_estructura
+/sectores/alimentacion/,sector,P1,consideracion,software SOP industria alimentaria,trazabilidad alimentacion,Evaluar mi situacion,https://gmvsolutions.es/sectores/alimentacion/,implementado_estructura
+/sectores/mecanizado-cnc/,sector,P1,consideracion,software operaciones mecanizado CNC,continuidad operativa CNC,Evaluar mi situacion,https://gmvsolutions.es/sectores/mecanizado-cnc/,implementado_estructura
+/blog/,blog,P2,informacional,blog documentacion operativa industrial,recursos onboarding y SOP,Ver recursos,https://gmvsolutions.es/blog/,implementado_estructura
+/blog/coste-absentismo-pymes-industriales/,blog,P2,informacional,coste absentismo pyme industrial,impacto economico absentismo,Descargar plantilla,https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/,implementado_estructura
+/blog/crisis-perdida-conocimiento-planta-industrial/,blog,P2,informacional,perdida de conocimiento en planta,plan 90 dias continuidad,Evaluar mi situacion,https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/,implementado_estructura
+/blog/documentar-conocimiento-operarios-expertos/,blog,P2,informacional,documentar conocimiento operarios expertos,metodo captura en 4 fases,Ver metodologia,https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/,implementado_estructura
+/blog/gestion-competencias-industria/,blog,P2,informacional,gestion de competencias industria,matriz accionable competencias,Descargar plantilla,https://gmvsolutions.es/blog/gestion-competencias-industria/,implementado_estructura
+/blog/onboarding-software-pymes/,blog,P2,informacional,onboarding software pymes,guia de compra y ROI,Ver guia completa,https://gmvsolutions.es/blog/onboarding-software-pymes/,implementado_estructura
+/blog/onboarding-vs-tradicional/,blog,P2,informacional,onboarding software vs tradicional,decision por escenario,Ver comparativa,https://gmvsolutions.es/blog/onboarding-vs-tradicional/,implementado_estructura
+/blog/que-es-un-sop-industrial/,blog,P2,informacional,que es un SOP industrial,plantilla SOP industrial,Descargar plantilla,https://gmvsolutions.es/blog/que-es-un-sop-industrial/,implementado_estructura
+/recursos/,recurso_hub,P2,informacional,recursos documentacion operativa industrial,recursos para pymes industriales,Ver recursos,https://gmvsolutions.es/recursos/,implementado_estructura
+/recursos/gestion-competencias-industria/,recurso_resumen,P2,soporte,gestion de competencias industria resumen,hub de recursos competencias,Ver guia completa,https://gmvsolutions.es/blog/gestion-competencias-industria/,implementado_estructura
+/recursos/onboarding-software-pymes/,recurso_resumen,P2,soporte,onboarding software pymes resumen,hub de recursos onboarding,Ver guia completa,https://gmvsolutions.es/blog/onboarding-software-pymes/,implementado_estructura
+/recursos/onboarding-vs-tradicional/,recurso_resumen,P2,soporte,onboarding vs tradicional resumen,resumen comparativo onboarding,Ver comparativa completa,https://gmvsolutions.es/blog/onboarding-vs-tradicional/,implementado_estructura
+/video-demo/,core,P1,conversion,demo software operaciones industriales,demo guiada REELEVO,Solicitar demo,https://gmvsolutions.es/video-demo/,implementado_estructura
+/faqs/,core,P1,consideracion,FAQ software operaciones industriales,preguntas frecuentes REELEVO,Resolver dudas,https://gmvsolutions.es/faqs/,implementado_estructura
+/sobre-nosotros/,core,P1,autoridad,REELEVO pyme industrial espanola,metodo y credibilidad,Conocer equipo,https://gmvsolutions.es/sobre-nosotros/,implementado_estructura
+/por-que-usar-reelevo/,core,P1,consideracion,por que usar REELEVO,diferencias frente alternativas,Evaluar mi situacion,https://gmvsolutions.es/por-que-usar-reelevo/,implementado_estructura
+/onboarding-software-pymes/,core,P1,conversion,onboarding software pymes industriales,onboarding operarios pyme,Registrarme,https://gmvsolutions.es/onboarding-software-pymes/,implementado_estructura
+/legal/aviso-legal/,legal,P2,legal,aviso legal REELEVO,aviso legal gmvsolutions,No aplica,https://gmvsolutions.es/legal/aviso-legal/,implementado_estructura
+/legal/cookies/,legal,P2,legal,politica de cookies REELEVO,gestion consentimiento cookies,No aplica,https://gmvsolutions.es/legal/cookies/,implementado_estructura
+/legal/privacidad/,legal,P2,legal,politica de privacidad REELEVO,tratamiento de datos REELEVO,No aplica,https://gmvsolutions.es/legal/privacidad/,implementado_estructura

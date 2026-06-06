@@ -1,0 +1,78 @@
+---
+// Breadcrumb visible y coherente con el JSON-LD (gate: "breadcrumbs visibles y coherentes").
+// Reutiliza la misma logica de rutas/etiquetas que el BreadcrumbList (src/lib/seo.ts).
+// Se posiciona en el hueco que el hero ya reserva bajo el header fijo (sin alterar paddings).
+import { breadcrumbItems } from '../lib/seo';
+
+const items = breadcrumbItems(Astro.url.pathname);
+---
+
+{items && (
+  <nav class="breadcrumbs" aria-label="Migas de pan">
+    <ol class="breadcrumbs__list">
+      {items.map((item, index) => (
+        <li class="breadcrumbs__item">
+          {item.url && index < items.length - 1 ? (
+            <a href={item.url}>{item.name}</a>
+          ) : (
+            <span aria-current="page">{item.name}</span>
+          )}
+          {index < items.length - 1 && <span class="breadcrumbs__sep" aria-hidden="true">›</span>}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .breadcrumbs {
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 32px;
+    pointer-events: none;
+  }
+  .breadcrumbs__list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--gray2);
+  }
+  .breadcrumbs__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .breadcrumbs a {
+    color: var(--gray);
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  .breadcrumbs a:hover {
+    color: var(--orange);
+  }
+  .breadcrumbs span[aria-current='page'] {
+    color: var(--gray2);
+  }
+  .breadcrumbs__sep {
+    color: var(--gray2);
+    opacity: 0.6;
+  }
+  @media (max-width: 600px) {
+    .breadcrumbs {
+      top: 70px;
+      padding: 0 20px;
+    }
+    .breadcrumbs__list {
+      font-size: 0.72rem;
+    }
+  }
+</style>

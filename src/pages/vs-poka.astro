@@ -2,24 +2,31 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Poka/IFS vs REELEVO — Comparativa de software industrial para pymes";
-const description = "Comparativa: Poka (IFS) vs REELEVO. Análisis de MES, gemba walks, y software SOP. ¿Cuál necesita tu pyme industrial?";
+const description = "Poka (IFS) vs REELEVO: MES enterprise frente a una plataforma ligera. Comparación por precio, implantación y escalabilidad para la pyme industrial.";
+const canonical = "https://gmvsolutions.es/vs-poka/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "ComparisonChart",
   "headline": title,
   "description": description,
-  "url": "https://gmvsolutions.es/vs-poka/",
+  "url": canonical,
   "inLanguage": "es-ES"
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Comparativa de herramientas</div>
     <h1 class="fade-up delay-1">Poka vs REELEVO<br><em>MES vs SOP operativo</em></h1>
-    <p class="fade-up delay-2">Poka es un sistema MES enterprise. REELEVO es SOP y onboarding para pymes. Comparativa: funcionalidades, enfoque y precio.</p>
+    <p class="fade-up delay-2">Comparación en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -69,149 +76,49 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CARACTERISTICAS -->
-  <section class="section">
+  <section class="section" id="comparativa">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Comparativa de funcionalidades</h2>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
       </div>
 
       <div class="comparison-table fade-up delay-1">
         <table>
           <thead>
             <tr>
-              <th style="width: 35%;">Funcionalidad</th>
-              <th style="width: 32.5%;">Poka (IFS)</th>
-              <th style="width: 32.5%;">REELEVO</th>
+              <th style="width: 30%;">Criterio</th>
+              <th style="width: 35%;">Poka (IFS)</th>
+              <th style="width: 35%;">REELEVO</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Documentación SOP</strong></td>
-              <td>Limitada (enfoque MES)</td>
-              <td class="highlight">✓ Central</td>
+              <td><strong>Idioma nativo</strong></td>
+              <td>Español disponible (MES global)</td>
+              <td class="highlight">✓ Español nativo</td>
             </tr>
             <tr>
-              <td><strong>Acceso en máquina</strong></td>
-              <td>Tablet/pantalla (instalación)</td>
-              <td class="highlight">✓ Simple (app o web)</td>
+              <td><strong>Precio</strong></td>
+              <td>Bajo demanda (contacto)</td>
+              <td class="highlight">✓ Público, desde 49€/mes por empresa</td>
             </tr>
             <tr>
-              <td><strong>Onboarding operarios</strong></td>
-              <td>No incluido</td>
-              <td class="highlight">✓ Sí</td>
+              <td><strong>Implantación / arranque</strong></td>
+              <td>Meses (proyecto MES)</td>
+              <td class="highlight">✓ Ligera y asistida</td>
             </tr>
             <tr>
-              <td><strong>Gestión competencias</strong></td>
-              <td>No incluido</td>
-              <td class="highlight">✓ Matriz de habilidades</td>
+              <td><strong>Adopción del operario</strong></td>
+              <td>Curva alta (software complejo)</td>
+              <td class="highlight">✓ App + acceso por QR, sin cuentas</td>
             </tr>
             <tr>
-              <td><strong>Scheduling producción</strong></td>
-              <td>✓ Sí (core feature)</td>
-              <td>No (no es necesario)</td>
-            </tr>
-            <tr>
-              <td><strong>Integración ERP</strong></td>
-              <td>✓ Sí (architecture MES)</td>
-              <td>Integraciones limitadas</td>
-            </tr>
-            <tr>
-              <td><strong>KPIs tiempo real</strong></td>
-              <td>✓ Sí (OEE, utilización)</td>
-              <td>Reportes simples</td>
-            </tr>
-            <tr>
-              <td><strong>Gemba walk digital</strong></td>
-              <td>✓ Sí (feature premium)</td>
-              <td>No (diferente enfoque)</td>
-            </tr>
-            <tr>
-              <td><strong>Idioma español</strong></td>
-              <td>✓ Sí</td>
-              <td class="highlight">✓ 100% Español</td>
-            </tr>
-            <tr>
-              <td><strong>Precio transparente</strong></td>
-              <td>No (contacto)</td>
-              <td class="highlight">✓ Desde 49€/mes</td>
-            </tr>
-            <tr>
-              <td><strong>Implementación</strong></td>
-              <td>Meses (proyecto)</td>
-              <td class="highlight">✓ Días (simple)</td>
-            </tr>
-            <tr>
-              <td><strong>Curva aprendizaje</strong></td>
-              <td>Alta (software complejo)</td>
-              <td class="highlight">✓ Baja</td>
+              <td><strong>Encaje pyme industrial española</strong></td>
+              <td>MES para industria media-grande</td>
+              <td class="highlight">✓ Pensado para pyme industrial española</td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PRECIO Y ROI -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Inversión y ROI</h2>
-      </div>
-
-      <div class="investment-grid fade-up delay-1">
-        <div class="investment-card">
-          <h3>Poka/IFS</h3>
-          <div class="investment-timeline">
-            <p class="timeline-item">
-              <span class="timeline-label">Setup:</span>
-              <span class="timeline-value">€15,000 - €50,000</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Licencia anual:</span>
-              <span class="timeline-value">€10,000 - €30,000+</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Implementación:</span>
-              <span class="timeline-value">3-6 meses</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">ROI esperado:</span>
-              <span class="timeline-value">1-2 años</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Para:</span>
-              <span class="timeline-value">Manufactura operación compleja</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="investment-card highlight">
-          <h3>REELEVO</h3>
-          <div class="investment-timeline">
-            <p class="timeline-item">
-              <span class="timeline-label">Setup:</span>
-              <span class="timeline-value">Gratis</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Costo mensual:</span>
-              <span class="timeline-value">49€ - 99€/mes</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Implementación:</span>
-              <span class="timeline-value">1-2 días</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">ROI esperado:</span>
-              <span class="timeline-value">1-2 meses</span>
-            </p>
-            <p class="timeline-item">
-              <span class="timeline-label">Para:</span>
-              <span class="timeline-value">Documentación y operarios</span>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -264,18 +171,20 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Tu caso específico</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       ¿Necesitas SOP u <em>MES completo?</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       La mayoría de pymes industriales necesita documentación operativa y onboarding, no un MES. Si ese es tu caso, REELEVO es la solución rápida y asequible.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="/precios/" class="btn-primary">
-        Evaluar mi necesidad
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse en REELEVO">
+        Registrarse en REELEVO
       </a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">
-        Registrarse en REELEVO →
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
+        Evaluar mi situación →
       </a>
     </div>
   </section>

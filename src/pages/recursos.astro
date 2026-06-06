@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Recursos — Guías de documentación operativa, SOPs y gestión del absentismo industrial";
+const title = "Recursos de documentación operativa industrial | REELEVO";
 const description = "Guías prácticas sobre procedimientos operativos estándar (SOP), gestión del absentismo laboral, onboarding de operarios y transferencia de conocimiento en pymes industriales españolas.";
+const canonical = "https://gmvsolutions.es/recursos/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Recursos sobre documentación operativa industrial",
   "description": description,
-  "url": "https://gmvsolutions.es/recursos/",
+  "url": canonical,
   "about": [
     "Software SOP industrial",
     "Onboarding de operarios",
@@ -28,14 +29,21 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="recursos"
+  pageType="recurso_hub"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Centro de conocimiento</div>
     <h1 class="fade-up delay-1">Recursos y <em>guías prácticas</em><br>para tu planta.</h1>
     <p class="fade-up delay-2">Herramientas gratuitas y guías sobre documentación de procesos de producción, documentación operativa, gestión del absentismo y cómo dejar de depender de una sola persona.</p>
+    <nav class="resource-index fade-up delay-3" aria-label="Índice de recursos">
+      <a href="#temas" class="resource-index__link">Explora por intención</a>
+      <a href="#guias" class="resource-index__link">Guías prácticas</a>
+      <a href="#herramientas" class="resource-index__link">Herramientas</a>
+    </nav>
   </section>
 
   <div class="divider"></div>
@@ -135,7 +143,7 @@ const schema = {
         <a href="/recursos/onboarding-software-pymes/" class="article-card">
           <div class="article-card-category">Onboarding Software</div>
           <h3 class="article-card-title">Onboarding software para pymes: Guía completa 2026</h3>
-          <p class="article-card-desc">¿Qué es un onboarding software y cómo reduce costos de incorporación en un 40%? Guía completa sobre onboarding software, gestión de competencias y ROI.</p>
+          <p class="article-card-desc">Qué es un onboarding software, cómo ordena la incorporación de operarios y qué mirar al elegirlo. Guía de compra y ROI realista para pyme industrial.</p>
           <div class="article-card-meta">
             <span>7 abr. 2026</span>
             <span>·</span>
@@ -159,7 +167,7 @@ const schema = {
         <a href="/recursos/onboarding-vs-tradicional/" class="article-card">
           <div class="article-card-category">Comparativa</div>
           <h3 class="article-card-title">Onboarding software vs métodos tradicionales</h3>
-          <p class="article-card-desc">Análisis completo: costo, tiempo, calidad, gestión de competencias. Datos reales de 50+ pymes industriales. ¿Qué funciona realmente?</p>
+          <p class="article-card-desc">Comparativa ejecutiva por escenario: coste, tiempo, calidad y gestión de competencias. Cuándo conviene cada enfoque en una pyme industrial.</p>
           <div class="article-card-meta">
             <span>7 abr. 2026</span>
             <span>·</span>
@@ -201,7 +209,8 @@ const schema = {
             <div class="tool-feature">✓ ROI estimado</div>
           </div>
           <div class="tool-cta">
-            <a href="/precios/" class="btn-primary">Evaluar mi situación →</a>
+            <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+               data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
           </div>
         </div>
 
@@ -230,18 +239,20 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tienes una pregunta?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Hablemos de tu <em>situación</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Cada empresa es diferente. Cuéntanos tu caso
       y te ayudamos a encontrar la mejor solución.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarme en REELEVO
       </a>
-      <a href="/precios/" class="btn-ghost">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
         Evaluar mi situación →
       </a>
     </div>
@@ -253,6 +264,30 @@ const schema = {
 </BaseLayout>
 
 <style>
+  .resource-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .resource-index__link {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    transition: border-color .2s, color .2s;
+  }
+  .resource-index__link:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
   .topics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GaliciaSeal from '../components/GaliciaSeal.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { organizationSchema, buildBreadcrumb } from '../lib/seo';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
 
@@ -14,6 +16,8 @@ export interface Props {
   ogImage?: string;
   activeNav?: string;
   schema?: object | object[];
+  pageType?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -25,7 +29,13 @@ const {
   ogImage = 'https://gmvsolutions.es/factory-bg.jpg',
   activeNav,
   schema,
+  pageType,
+  noindex = false,
 } = Astro.props;
+
+// Schema sitewide (S1-C3): Organization en todas las paginas + BreadcrumbList
+// generado automaticamente desde la ruta. La home omite breadcrumb.
+const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -109,10 +119,13 @@ const {
   <!-- SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1'} />
   <meta name="author" content="GMV Solutions" />
   <meta name="theme-color" content="#F4521E" />
   <link rel="canonical" href={canonical} />
+  <!-- hreflang: arquitectura lista (hoy solo ES). Al abrir EN/PT, anadir sus alternates aqui. -->
+  <link rel="alternate" hreflang="es" href={canonical} />
+  <link rel="alternate" hreflang="x-default" href={canonical} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -129,7 +142,11 @@ const {
   <meta name="twitter:description" content={ogDescription} />
   <meta name="twitter:image" content={ogImage} />
 
-  <!-- Schema.org -->
+  <!-- Schema.org: Organization sitewide + BreadcrumbList auto + schema de pagina -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
@@ -154,7 +171,7 @@ const {
   <slot name="head" />
 </head>
 
-<body>
+<body data-page-type={pageType}>
   <div class="entry-splash" aria-hidden="true">
     <div class="entry-splash__logo-wrap">
       <img
@@ -173,12 +190,39 @@ const {
     <Header activeNav={activeNav} />
     <GaliciaSeal />
 
-    <main>
+    <main style="position:relative;">
+      <Breadcrumbs />
       <slot />
     </main>
 
     <Footer />
   </div>
+
+  <!-- Tracking de CTAs (S1-C7): listener delegado -> dataLayer -> GA4/Ads via GTM -->
+  <script is:inline>
+    (() => {
+      const LEAD_INTENTS = ['registro', 'diagnostico', 'demo', 'contacto'];
+      document.addEventListener('click', (e) => {
+        const cta = e.target.closest('[data-cta]');
+        if (!cta) return;
+        const intent = cta.dataset.ctaIntent || 'otro';
+        const payload = {
+          cta_id: cta.id || null,
+          cta_label: cta.dataset.ctaLabel || (cta.textContent || '').trim(),
+          cta_location: cta.dataset.ctaLocation || 'body',
+          cta_intent: intent,
+          cta_destination: cta.getAttribute('href'),
+          page_path: location.pathname,
+          page_type: document.body.dataset.pageType || null,
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'cta_click', ...payload });
+        if (LEAD_INTENTS.includes(intent)) {
+          window.dataLayer.push({ event: 'generate_lead', lead_type: intent, ...payload });
+        }
+      });
+    })();
+  </script>
 
   <script is:inline>
     (() => {

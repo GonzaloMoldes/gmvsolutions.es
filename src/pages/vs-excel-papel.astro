@@ -1,0 +1,175 @@
+---
+// Comparativa de categoria (S6-B1). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 4.2
+// Ataque al statu quo (doc posicionamiento 5.3): el rival real es el Excel y el papel.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Digitalizar la planta sin Excel ni papel | REELEVO";
+const description = "Fábrica sin papel para la pyme industrial: deja el Excel y el papel y digitaliza procesos, partes y competencias sin un proyecto pesado.";
+const canonical = "https://gmvsolutions.es/vs-excel-papel/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ComparisonChart",
+  "headline": title,
+  "description": description,
+  "url": canonical,
+  "inLanguage": "es-ES",
+  "about": [
+    { "@type": "Thing", "name": "Excel y papel en planta" },
+    { "@type": "SoftwareApplication", "name": "REELEVO" }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Comparativa de categoría</div>
+    <h1 class="fade-up delay-1">Adiós al Excel y al papel<br><em>en planta</em></h1>
+    <p class="fade-up delay-2">El competidor real del día a día no es otro software: es el Excel de producción y el parte en papel. Compara qué cambia al digitalizar procesos, partes y competencias en una pyme industrial, sin un proyecto pesado.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-1: COSTE OCULTO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El statu quo</div>
+        <h2 class="section-title">El coste oculto del Excel y el papel</h2>
+        <p class="section-sub">
+          El Excel y el papel no tienen licencia, pero sí coste. Está en el tiempo que alguien dedica a
+          consolidar partes a mano, en los datos que llegan al día siguiente cuando ya no sirven para decidir,
+          en las versiones que circulan sin que nadie sepa cuál es la buena y en el conocimiento que no queda
+          registrado en ninguna parte. Es un coste real; solo que no aparece en ninguna factura.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-2: DÓNDE FALLAN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Dónde fallan en planta</h2>
+      </div>
+      <ul class="signal-list fade-up delay-1">
+        <li><strong>Acceso:</strong> el operario no consulta un PDF en una carpeta; llama al tutor.</li>
+        <li><strong>Versión:</strong> circulan copias distintas y nadie sabe cuál es la vigente.</li>
+        <li><strong>Trazabilidad:</strong> no queda quién hizo qué, cuándo y con qué resultado.</li>
+        <li><strong>Continuidad:</strong> si falta quien lleva el Excel, se pierde el control del día.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-3: TABLA 5 CRITERIOS -->
+  <section class="section" id="comparativa">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Comparación directa</div>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
+      </div>
+      <div class="comparison-table fade-up delay-1">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Criterio</th>
+              <th style="width: 35%;">Excel y papel</th>
+              <th style="width: 35%;">REELEVO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Acceso en el puesto</strong></td>
+              <td>Requiere PC, carpetas o papel</td>
+              <td class="highlight">✓ En el puesto por QR, también offline</td>
+            </tr>
+            <tr>
+              <td><strong>Versión y actualización</strong></td>
+              <td>Copias dispersas, sin control</td>
+              <td class="highlight">✓ Una versión vigente para todos</td>
+            </tr>
+            <tr>
+              <td><strong>Trazabilidad</strong></td>
+              <td>Manual o inexistente</td>
+              <td class="highlight">✓ Registro de ejecución automático</td>
+            </tr>
+            <tr>
+              <td><strong>Continuidad ante bajas</strong></td>
+              <td>Depende de quien lo lleva</td>
+              <td class="highlight">✓ Proceso disponible para el sustituto</td>
+            </tr>
+            <tr>
+              <td><strong>Implantación</strong></td>
+              <td>"Gratis" pero costoso en tiempo</td>
+              <td class="highlight">✓ Ligera y asistida, desde 49€/mes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-4: QUÉ CAMBIA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Qué cambia en planta</h2>
+        <p class="section-sub">
+          Cuando los procesos y los partes están en el puesto y no en una hoja de cálculo, el dato del día
+          deja de depender de consolidar Excel: está disponible cuando lo necesitas. El operario nuevo arranca
+          con la referencia delante en vez de llamar al tutor, y de cada ejecución queda evidencia de quién
+          hizo qué, cuándo y con qué resultado. Menos improvisación, más control.
+        </p>
+      </div>
+      <div class="hero-cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <a href="/documentacion-procesos/" class="btn-ghost">Documentación de procesos →</a>
+        <a href="/control-produccion/" class="btn-ghost">Control de producción →</a>
+        <a href="/blog/coste-absentismo-pymes-industriales/" class="btn-ghost">Coste del absentismo →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-5 + CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Migración</div>
+    <h3 class="cta-title fade-up delay-1">Migra sin dolor,<br><em>empezando por lo crítico</em></h3>
+    <p class="cta-sub fade-up delay-2">
+      No hay que digitalizar todo de golpe. Empieza por los procesos y partes que más cuestan hoy
+      y deja el Excel donde aún tenga sentido.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .comparison-table { overflow-x: auto; margin-top: 40px; }
+  .comparison-table table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .comparison-table th, .comparison-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+  .comparison-table th { background: var(--surface2); font-weight: 600; font-size: 0.9rem; }
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+  .comparison-table td.highlight { background: rgba(255, 150, 0, 0.05); color: var(--orange); font-weight: 500; }
+  .signal-list { list-style: none; padding: 0; margin-top: 32px; max-width: 760px; }
+  .signal-list li { padding: 12px 0 12px 28px; position: relative; color: var(--gray); line-height: 1.6; border-bottom: 1px solid var(--border); }
+  .signal-list li:before { content: "→"; position: absolute; left: 0; color: var(--orange); font-weight: 600; }
+  @media (max-width: 900px) { .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 12px; } }
+</style>

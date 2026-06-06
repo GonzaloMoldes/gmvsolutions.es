@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Calidad y Compliance — más claridad para revisión interna";
-const description = "REELEVO ayuda a responsables de calidad y compliance a revisar mejor lo que pasa en planta, con una base más útil para cambios de proceso, desviaciones y puestos sensibles.";
+const title = "Software calidad operativa industrial | REELEVO";
+const description = "Software de calidad operativa con evidencia de ejecución: revisa qué se siguió y cuándo, soporta cambios de proceso y vigila puestos sensibles en planta.";
 const canonical = "https://gmvsolutions.es/para-quien/responsable-calidad/";
 
 const schema = {
@@ -24,6 +24,7 @@ const schema = {
   canonical={canonical}
   schema={schema}
   activeNav=""
+  pageType="rol"
 >
   <section class="page-hero">
     <div class="eyebrow fade-up">Para calidad y compliance</div>
@@ -34,8 +35,10 @@ const schema = {
       Sin convertirlo en más burocracia y sin inflar el alcance legal.
     </p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
-      <a href="/calidad-y-conformidad/" class="btn-ghost">Ver enfoque de conformidad →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque práctico · Revisión interna con más criterio</div>
   </section>
@@ -220,14 +223,15 @@ const schema = {
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Vertical prioritario</div>
-        <h2 class="section-title">Si tu planta opera en mecanizado o CNC,<br><em>ya tenemos una lectura sectorial</em></h2>
+        <div class="eyebrow">Sigue explorando</div>
+        <h3 class="section-title">Profundiza por <em>sector o por enfoque de conformidad</em></h3>
         <p class="section-sub">
-          Hemos abierto la primera versión sectorial de este mensaje para un entorno
-          donde arranques, cambios de referencia y dependencia del titular suelen ser especialmente delicados.
+          Si tu planta opera en mecanizado o CNC tenemos una lectura sectorial; y si buscas la
+          visión transversal de conformidad operativa y evidencia, también la tienes desarrollada.
         </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;">
-          <a href="/sectores/mecanizado-cnc/" class="btn-ghost">Ver encaje en mecanizado y CNC →</a>
+        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;gap:14px;flex-wrap:wrap;">
+          <a href="/sectores/mecanizado-cnc/" class="btn-ghost">Encaje en mecanizado y CNC →</a>
+          <a href="/calidad-y-conformidad/" class="btn-ghost">Calidad y conformidad →</a>
         </div>
       </div>
     </div>
@@ -235,18 +239,17 @@ const schema = {
 
   <div class="divider"></div>
 
+  <!-- MICROCASO (escenario ilustrativo, no testimonio real) -->
   <section class="section section-center">
     <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Puente natural</div>
-        <h2 class="section-title">Si además quieres ver el enfoque más amplio de<br><em>conformidad y evidencia</em></h2>
-        <p class="section-sub">
-          Esta página está pensada para tu rol. Si quieres una lectura más transversal
-          sobre conformidad operativa, revisión interna y continuidad del dato, la tienes aquí.
+      <div class="micro-case fade-up">
+        <div class="micro-case-tag">Escenario típico de revisión</div>
+        <p class="micro-case-text">
+          Aparece una no conformidad en un lote. En vez de reconstruir a posteriori qué referencia
+          se usó y quién operó, calidad consulta qué proceso estaba visible en el puesto, cuándo se
+          ejecutó y cómo terminó, y centra la revisión en lo que de verdad cambió.
         </p>
-        <div class="hero-cta-group" style="justify-content:center;margin-top:28px;">
-          <a href="/calidad-y-conformidad/" class="btn-ghost">Ver página de calidad y conformidad →</a>
-        </div>
+        <div class="micro-case-note">Ejemplo ilustrativo del tipo de revisión que facilita REELEVO, no un caso de cliente.</div>
       </div>
     </div>
   </section>
@@ -255,15 +258,16 @@ const schema = {
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tiene sentido para tu operativa?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Si llevas calidad o compliance,<br><em>te enseñamos el encaje real</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Si quieres entrar en la plataforma, regístrate en REELEVO y valora si aporta más claridad a tu revisión interna,
       cambios de proceso y puestos sensibles, sin vender más de lo que el producto puede sostener.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/sobre-nosotros/#portabilidad" class="btn-ghost">Ver datos y continuidad →</a>
     </div>
     <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para calidad y compliance</div>

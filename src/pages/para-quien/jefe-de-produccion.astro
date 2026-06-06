@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Jefes de Producción — Onboarding software y skills management en planta";
-const description = "REELEVO para jefes de producción industrial. Onboarding software que da visibilidad, gestión de competencias clara y menos dependencia cuando cambia el día.";
+const title = "Herramienta para jefe de produccion industrial | REELEVO";
+const description = "Gana visibilidad de turno, cubre bajas con menos improvisacion y mejora decisiones de planta con trazabilidad operativa y matriz de habilidades.";
+const canonical = "https://gmvsolutions.es/para-quien/jefe-de-produccion/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "REELEVO para Jefes de Producción",
   "description": description,
-  "keywords": "onboarding software producción, skills management planta, HR software manufacturing, performance management",
+  "keywords": "herramienta jefe de producción, visibilidad de turno, cobertura de bajas, matriz de habilidades",
   "audience": {
     "@type": "Audience",
-    "audienceType": "Production Manager HR"
+    "audienceType": "Jefe de producción"
   }
 };
 ---
@@ -20,16 +21,21 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav=""
+  pageType="rol"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Onboarding software · Skills management · Producción</div>
-    <h1 class="fade-up delay-1">Onboarding software te da visibilidad.<br><em>Gestión de competencias clara en planta.</em></h1>
-    <p class="fade-up delay-2">REELEVO es un onboarding software que ayuda a producción a reaccionar mejor cuando cambia el día. Menos dependencia del titular, skills management visible y más contexto para reorganizar el turno sin improvisación.</p>
+    <div class="eyebrow fade-up">Para jefes de producción</div>
+    <h1 class="fade-up delay-1">Visibilidad de turno,<br><em>sin reconstruirlo a llamadas</em>.</h1>
+    <p class="fade-up delay-2">Una herramienta para jefes de producción que muestra qué proceso está cubierto, dónde se atasca el turno y qué puestos dependen de una sola persona, para reorganizar antes de que pare la línea.</p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Implementación asistida</div>
   </section>
@@ -347,7 +353,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Caso real</div>
-        <h2 class="section-title">Próximamente</h2>
+        <h3 class="section-title">Proximamente</h3>
       </div>
     </div>
   </section>
@@ -355,78 +361,17 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- IMPLEMENTACIÓN -->
-  <section class="section">
+  <!-- MICROCASO (escenario ilustrativo, no testimonio real) -->
+  <section class="section section-center">
     <div class="section-inner">
-      <div class="fade-up" style="text-align:center;margin-bottom:48px;">
-        <div class="eyebrow">Implementación</div>
-        <h2 class="section-title">Arranque técnico ligero y asistido</h2>
-        <p class="section-sub">
-          La base técnica puede quedar preparada muy rápido. La documentación de procesos
-          y la validación operativa dependen del número y complejidad de los puestos priorizados.
+      <div class="micro-case fade-up">
+        <div class="micro-case-tag">Escenario típico de turno</div>
+        <p class="micro-case-text">
+          Lunes, falta un operario en una célula con tres puestos críticos. En lugar de reconstruir
+          a llamadas quién sabe cubrir qué, producción ve en el panel qué procesos están documentados
+          y qué operarios disponibles los dominan, y reasigna el turno antes del arranque.
         </p>
-      </div>
-
-      <div class="implementation-timeline fade-up delay-1">
-        <div class="timeline-step">
-          <div class="timeline-time">Arranque inicial</div>
-          <div class="timeline-content">
-            <h3>1. Identificación procesos críticos (1 hora)</h3>
-            <ul>
-              <li>Reunión contigo para identificar máquinas/procesos clave</li>
-              <li>Revisión de cobertura por turno y puestos sensibles</li>
-              <li>Priorización por impacto en producción si falta el experto</li>
-              <li>Selección de 2-3 procesos para empezar</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="timeline-time">Primeros días</div>
-          <div class="timeline-content">
-            <h3>2. Captura inicial con expertos (según alcance)</h3>
-            <ul>
-              <li>Se empieza por los procesos más críticos, no por toda la planta a la vez</li>
-              <li>Tus operarios clave capturan los primeros pasos y criterios relevantes</li>
-              <li>Puede incluir preparación, operación y troubleshooting básico según prioridad</li>
-              <li>Queda la base para cobertura futura y más visibilidad operativa</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="timeline-time">Puesta en marcha</div>
-          <div class="timeline-content">
-            <h3>3. Configuración panel operativo (automático)</h3>
-            <ul>
-              <li>Organización de procesos por máquina</li>
-              <li>Configuración de matriz de habilidades y criterios de cobertura</li>
-              <li>Configuración de acceso por máquina con código de empresa</li>
-              <li>Configuración dashboard para tu perfil de jefe de producción</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="timeline-time">Validación inicial</div>
-          <div class="timeline-content">
-            <h3>4. Activación inicial y pruebas</h3>
-            <ul>
-              <li>Acceso configurado en cada máquina documentada</li>
-              <li>Prueba con operario sustituto en condiciones reales</li>
-              <li>Verificación dashboard, matriz de habilidades y alertas funcionando</li>
-              <li>Revisión de integración con telemetría o monitorización de máquina, si aplica</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="implementation-guarantee fade-up delay-2">
-        <h3>✅ Puesta en marcha acompañada</h3>
-        <p>
-          El equipo de REELEVO os acompaña en la activación inicial para dejar
-          máquinas, procesos y panel operativo listos para uso real en planta.
-        </p>
+        <div class="micro-case-note">Ejemplo ilustrativo del tipo de decisión que facilita REELEVO, no un caso de cliente.</div>
       </div>
     </div>
   </section>
@@ -436,18 +381,20 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para jefes de producción</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Reduce la dependencia operativa <em>de forma sostenida</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Si quieres entrar en la plataforma, regístrate en REELEVO y comprueba cómo producción puede decidir mejor con tiempo real,
       matriz de habilidades, planificación por máquina y procesos listos en el puesto.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarme en REELEVO →
       </a>
-      <a href="/precios/" class="btn-ghost">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
         Evaluar mi situación
       </a>
     </div>

@@ -15,15 +15,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Agenda diaria · Procesos · Progreso · Reconocimiento</div>
+    <div class="eyebrow fade-up">Portal del operario industrial</div>
     <h1 class="fade-up delay-1">El operario no necesita<br><em>que nadie le diga qué toca hoy</em></h1>
     <p class="fade-up delay-2">Su agenda está en el móvil. Sus procesos están en el QR. Su progreso de formación es visible. Sus contribuciones tienen reconocimiento. El portal del operario de REELEVO — sin formación previa, sin contraseñas complicadas.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -219,18 +222,19 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Dale al operario su propio espacio<br><em>y verás cómo cambia la dinámica</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Cuando el operario tiene contexto propio, depende menos del encargado y contribuye más. El portal del operario es parte del plan gratuito de REELEVO.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Registrarse gratis
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
       <a href="/gestion-competencias/" class="btn-ghost">
-        Ver skill matrix y certificaciones →
+        Ver gestión de competencias →
       </a>
     </div>
     <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · El portal del operario está incluido en todos los planes</div>

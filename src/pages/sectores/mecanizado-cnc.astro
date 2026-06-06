@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para mecanizado CNC — Onboarding software y gestión de competencias";
-const description = "Onboarding software para mecanizado CNC. REELEVO ordena incorporaciones, gestiona competencias operarias y sostiene puestos críticos con menos improvisación.";
+const title = "Software de operaciones para mecanizado CNC | REELEVO";
+const description = "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES.";
 const canonical = "https://gmvsolutions.es/sectores/mecanizado-cnc/";
 
 const schema = {
@@ -25,18 +25,21 @@ const schema = {
   canonical={canonical}
   schema={schema}
   activeNav=""
+  pageType="sector"
 >
   <section class="page-hero">
-    <div class="eyebrow fade-up">Onboarding software · Skills management · Mecanizado CNC</div>
-    <h1 class="fade-up delay-1">Onboarding software para mecanizado.<br><em>Gestión de competencias en puestos críticos.</em></h1>
+    <div class="eyebrow fade-up">Software de operaciones para mecanizado CNC</div>
+    <h1 class="fade-up delay-1">Continuidad operativa en<br><em>mecanizado y CNC</em></h1>
     <p class="fade-up delay-2">
-      REELEVO es un onboarding software para talleres y plantas CNC donde arranques, cambios de referencia,
-      incorporaciones u absencias en puestos críticos no deberían parar la operación.
-      Con gestión de competencias clara, sostienes continuidad sin depender de una persona.
+      En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos
+      críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia
+      visible, para sostener la continuidad sin depender de una sola persona.
     </p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
-      <a href="/para-quien/jefe-de-produccion/" class="btn-ghost">Ver página para producción →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque prudente · Continuidad operativa para puestos críticos</div>
   </section>
@@ -222,7 +225,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Puente natural</div>
-        <h2 class="section-title">Si llevas producción o calidad,<br><em>también tienes una lectura por rol</em></h2>
+        <h3 class="section-title">Si llevas producción o calidad,<br><em>también tienes una lectura por rol</em></h3>
         <p class="section-sub">
           Esta página aterriza el encaje sectorial. Si quieres ver el enfoque más ejecutivo
           por buyer, puedes entrar desde producción o desde calidad.
@@ -239,15 +242,16 @@ const schema = {
 
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Tiene sentido en tu taller?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Si trabajas en mecanizado o CNC,<br><em>vemos el encaje real contigo</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Si quieres entrar en la plataforma, regístrate en REELEVO y valora si puede aportar más continuidad,
       más claridad y menos dependencia del titular en tu operativa real.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
     </div>
     <div class="cta-note fade-up delay-4">Implementación asistida · Enfoque prudente para mecanizado y CNC</div>

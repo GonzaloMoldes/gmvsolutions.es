@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Cobertura de turnos y gestión de competencias por turno | REELEVO";
-const description = "REELEVO detecta automáticamente cuando un turno no tiene suficientes operarios certificados en los procesos críticos. Alertas antes del inicio del turno, mapa de cobertura en tiempo real y tracking de horas por categoría.";
+const title = "Cobertura de turnos en produccion industrial | REELEVO";
+const description = "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real.";
 const canonical = "https://gmvsolutions.es/cobertura-turnos/";
 
 const schema = {
@@ -15,15 +15,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical="https://gmvsolutions.es/cobertura-turnos/" schema={schema} activeNav="" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Cobertura de turnos · Alertas automáticas · Skill matrix por turno · Tracking de horas</div>
+    <div class="eyebrow fade-up">Cobertura de turnos en producción</div>
     <h1 class="fade-up delay-1">¿Tiene tu turno de tarde<br><em>quien sepa arrancar la línea 2?</em></h1>
     <p class="fade-up delay-2">REELEVO cruza automáticamente los turnos asignados con las certificaciones de cada operario. Cuando un turno no tiene cobertura suficiente en un proceso crítico, el responsable recibe la alerta antes de que empiece el problema — no cuando ya ha parado la producción.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -199,18 +202,19 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Detecta el turno descubierto<br><em>antes de que para la línea</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       La alerta automática de cobertura es una de las primeras cosas que ven los jefes de producción cuando empiezan con REELEVO.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Registrarse gratis
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
       <a href="/gestion-competencias/" class="btn-ghost">
-        Ver Skill Matrix y certificaciones →
+        Ver gestión de competencias →
       </a>
     </div>
     <div class="cta-trust fade-up delay-4">Sin configuración técnica · Empieza con tus procesos actuales</div>

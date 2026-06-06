@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Gestión de competencias en industria | Software para pymes";
-const description = "Software de gestión de competencias para pymes industriales. Matriz de habilidades, análisis de dependencia operativa, diagnóstico de brechas de competencias.";
+const title = "Gestion de competencias industriales para pymes | REELEVO";
+const description = "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.";
+const canonical = "https://gmvsolutions.es/gestion-competencias/";
 
 const schema = {
   "@context": "https://schema.org",
@@ -14,14 +15,17 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Gestión de Competencias Operativas</div>
     <h1 class="fade-up delay-1">Gestión de competencias<br><em>para pymes industriales</em></h1>
     <p class="fade-up delay-2">Visualiza quién sabe hacer qué. Identifica brechas de competencias. Distribuye trabajo sin dependencia de personas clave.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -164,40 +168,6 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- CASO DE USO -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Caso de uso: Pyme de mecanizado CNC</h2>
-      </div>
-
-      <div class="case-story fade-up delay-1">
-        <div class="story-section">
-          <h3>La situación</h3>
-          <p>Empresa de 35 empleados con 8 máquinas CNC. Juan tiene 15 años y es el único que domina la máquina más crítica (50% de ingresos).</p>
-        </div>
-
-        <div class="story-section">
-          <h3>El problema</h3>
-          <p>Cuando Juan entra de baja, la máquina se para porque nadie más sabe los parámetros. Gerente teme que se jubile en 5 años.</p>
-        </div>
-
-        <div class="story-section highlight">
-          <h3>Con REELEVO</h3>
-          <ul>
-            <li>Semana 1: Juan documenta el proceso step-by-step</li>
-            <li>Semana 2: Rosa (operaria menos experimentada) sigue el SOP y opera la máquina al 80%</li>
-            <li>Mes 1: Cuando Juan cae enfermo, Rosa la cubre. Producción 0% parada.</li>
-            <li>Mes 3: Rosa está certificada. La matriz muestra 2 personas competentes.</li>
-            <li>Año 1: Juan sigue siendo el experto pero la empresa no depende de él</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- MATRIZ VISUAL -->
   <section class="section">
     <div class="section-inner">
@@ -276,19 +246,26 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Construye tu matriz de <em>competencias hoy</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Visualiza el riesgo operativo real. Identifica dónde invertir capacitación. Reduce la dependencia de personas clave.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="/precios/" class="btn-primary">
-        Hacer diagnóstico de competencias
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
-      <a href="/cobertura-turnos/" class="btn-ghost">
-        Ver cobertura de turnos por turno →
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
+        Evaluar mi situación →
       </a>
+    </div>
+    <div class="cta-note fade-up delay-4" style="margin-top:18px;">
+      Relacionado:
+      <a href="/cobertura-turnos/">cobertura de turnos</a> ·
+      <a href="/para-quien/responsable-rrhh/">para RRHH</a>
     </div>
   </section>
 

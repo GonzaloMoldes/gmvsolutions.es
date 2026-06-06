@@ -1,40 +1,136 @@
 ---
-// 1. Importamos el cliente que configuramos en src/lib/sanity.ts
-import { client } from "../../lib/sanity";
-import Layout from "../../layouts/Layout.astro"; // Ajusta según tu nombre de layout
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { client } from '../../../lib/sonity';
 
-// 2. getStaticPaths le dice a Astro qué páginas debe generar
+type Recurso = {
+  title?: string;
+  description?: string;
+  excerpt?: string;
+  content?: string;
+  canonical?: string;
+  image?: string;
+  datePublished?: string;
+  noindex?: boolean;
+};
+
 export async function getStaticPaths() {
-  const recursos = await client.fetch(`*[_type == "recurso"]{ "params": { "slug": slug.current } }`);
+  const recursos = await client.fetch(`*[_type == "recurso" && defined(slug.current)]{ "params": { "slug": slug.current } }`);
   return recursos;
 }
 
-// 3. Obtenemos el slug de la URL y pedimos los datos específicos a Sanity
 const { slug } = Astro.params;
-const recurso = await client.fetch(
+const recurso: Recurso | null = await client.fetch(
   `*[_type == "recurso" && slug.current == $slug][0]{
     title,
+    description,
+    excerpt,
     content,
-    "image": image.asset->url
+    canonical,
+    "image": image.asset->url,
+    datePublished,
+    noindex
   }`,
   { slug }
 );
 
-// Si no encuentra el recurso, Astro lanzará un 404
-if (!recurso) return Astro.redirect("/404");
+if (!recurso || !recurso.title) {
+  return Astro.redirect('/404');
+}
+
+const pageUrl = `https://gmvsolutions.es/recursos/${slug}/`;
+const title = recurso.title;
+const description = recurso.description ?? recurso.excerpt ?? 'Recurso operativo para pymes industriales.';
+const canonical = recurso.canonical ?? pageUrl;
+const datePublished = recurso.datePublished ?? '2026-06-05';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: pageUrl,
+  datePublished,
+  author: {
+    '@type': 'Organization',
+    name: 'REELEVO',
+  },
+};
 ---
 
-<Layout title={recurso.title}>
-  <article class="max-w-4xl mx-auto py-10 px-4">
-    {recurso.image && <img src={recurso.image} alt={recurso.title} class="w-full h-64 object-cover rounded-xl mb-8" />}
-    
-    <h1 class="text-4xl font-bold mb-6">{recurso.title}</h1>
-    
-    <div class="prose prose-lg max-w-none">
-      {/* Aquí procesaremos el contenido de Sanity. 
-         Si es texto enriquecido, necesitarás un componente de Portable Text.
-      */}
-      {recurso.content} 
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="recursos">
+  <article class="resource-page">
+    <div class="resource-container">
+      <a href="/recursos/" class="resource-back">← Volver a recursos</a>
+
+      <header class="resource-header">
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </header>
+
+      {recurso.image && (
+        <img src={recurso.image} alt={title} loading="lazy" decoding="async" class="resource-image" />
+      )}
+
+      <section class="resource-body">
+        {recurso.content ? <p>{recurso.content}</p> : <p>Contenido no disponible.</p>}
+      </section>
     </div>
   </article>
-</Layout>
+</BaseLayout>
+
+<style>
+  .resource-page {
+    padding: 120px 24px 80px;
+  }
+
+  .resource-container {
+    max-width: 920px;
+    margin: 0 auto;
+    background: rgba(60, 60, 60, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 40px;
+  }
+
+  .resource-back {
+    display: inline-block;
+    color: var(--orange);
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+  }
+
+  .resource-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .resource-header p {
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 26px;
+    max-width: 75ch;
+  }
+
+  .resource-image {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 26px;
+  }
+
+  .resource-body p {
+    color: rgba(255, 255, 255, 0.84);
+    line-height: 1.75;
+    white-space: pre-wrap;
+  }
+
+  @media (max-width: 720px) {
+    .resource-container {
+      padding: 28px 22px;
+    }
+  }
+</style>

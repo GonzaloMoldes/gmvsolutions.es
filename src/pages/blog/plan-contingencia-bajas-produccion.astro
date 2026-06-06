@@ -1,0 +1,82 @@
+---
+// CON-3 (cluster absentismo / host lead magnet 2 opcion A). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 3.3 + 6.2
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Plan de contingencia para bajas en producción";
+const description = "Cómo montar un plan de contingencia para bajas en planta: detectar puestos sensibles, documentar lo crítico y cubrir sin parar la línea. Checklist descargable incluido.";
+const canonical = "https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-06-04",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-06-04" category="Continuidad operativa" readTime="9 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Un plan de contingencia para bajas se basa en tres cosas: detectar los puestos donde faltar una persona desordena el turno, documentar primero esos procesos y tener lista la cobertura antes de que ocurra. No evita las bajas; evita que cada baja sea una crisis.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#desordena">Por qué una baja desordena el turno</a></li>
+    <li><a href="#riesgo">Detectar los puestos de riesgo</a></li>
+    <li><a href="#documentar">Documentar lo crítico primero</a></li>
+    <li><a href="#activar">Activar la cobertura</a></li>
+    <li><a href="#checklist">Checklist de contingencia</a></li>
+  </ul>
+
+  <h2 id="desordena">Por qué una baja desordena el turno</h2>
+  <p>No todas las bajas duelen igual. Falta alguien en un puesto que dominan varias personas y se reorganiza sin más. Pero falta el único que sabe arrancar una línea o ajustar una máquina concreta, y la producción se tensiona o se para. El problema no es el absentismo en sí: es la <strong>concentración del conocimiento</strong> en pocas personas y la falta de un plan para cuando faltan.</p>
+
+  <h2 id="riesgo">Detectar los puestos de riesgo</h2>
+  <p>El primer paso es identificar los puntos únicos de fallo: procesos críticos que domina una sola persona. Una forma sencilla es cruzar dos preguntas por puesto: <em>¿qué impacto tiene en producción si se para?</em> y <em>¿cuántas personas saben hacerlo bien?</em> Los puestos de alto impacto y baja cobertura son tu prioridad. Una <a href="/gestion-competencias/">matriz de competencias</a> hace este mapa visible de un vistazo.</p>
+
+  <h2 id="documentar">Documentar lo crítico primero</h2>
+  <p>No intentes documentar toda la planta. Empieza por esos puestos de riesgo: captura el proceso con quien lo domina y déjalo accesible en la máquina. Así, el día que esa persona falte, el sustituto tiene una referencia clara en vez de una llamada al experto. Es la diferencia entre improvisar y cubrir con criterio.</p>
+
+  <h2 id="activar">Activar la cobertura</h2>
+  <p>Con el mapa de competencias y los procesos documentados, cubrir una baja se vuelve un procedimiento, no una emergencia: la matriz te dice quién puede cubrir, y el proceso en el puesto le da al sustituto el cómo. El responsable reorganiza el turno antes de que la línea pare, no después. Lo ves aplicado en <a href="/casos-de-uso/cobertura-bajas/">cobertura de bajas</a> y en <a href="/cobertura-turnos/">cobertura de turnos</a>.</p>
+
+  <h2 id="checklist">Checklist de contingencia</h2>
+  <p>Para ponerlo en marcha, sigue estos pasos:</p>
+  <ul>
+    <li>Lista los puestos críticos y su nivel de cobertura actual.</li>
+    <li>Prioriza los de alto impacto y una sola persona.</li>
+    <li>Documenta esos procesos con quien los domina.</li>
+    <li>Define quién puede cubrir cada uno y qué le falta para estar apto.</li>
+    <li>Revisa el plan cuando cambie la plantilla o entren temporales.</li>
+  </ul>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/cobertura-turnos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Cobertura de turnos</div>
+        <div class="related-link-desc">Detecta huecos de cobertura antes del turno.</div>
+      </a>
+      <a class="related-link-card" href="/casos-de-uso/cobertura-bajas/">
+        <div class="related-link-kicker">Caso de uso</div>
+        <div class="related-link-title">Cobertura de bajas</div>
+        <div class="related-link-desc">El sustituto arranca sin parar la línea.</div>
+      </a>
+      <a class="related-link-card" href="/blog/coste-absentismo-pymes-industriales/">
+        <div class="related-link-kicker">Análisis</div>
+        <div class="related-link-title">Coste del absentismo</div>
+        <div class="related-link-desc">Cuánto cuesta cada baja no cubierta.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Prepara tu plan.</strong> <a href="#" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar checklist de contingencia">Descargar el checklist →</a> · <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a></p>
+    <p><em>Checklist descargable en preparación. Mientras tanto, pídenoslo y te lo enviamos.</em></p>
+  </div>
+</ArticleLayout>

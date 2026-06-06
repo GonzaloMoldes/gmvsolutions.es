@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Cómo funciona REELEVO — menos improvisación y más continuidad en planta";
-const description = "Descubre cómo REELEVO ayuda a que una baja, una incorporación o un cambio de turno no rompan la operación en planta.";
+const title = "Como funciona REELEVO para pymes industriales | 3 pasos";
+const description = "Entiende en 3 pasos como REELEVO reduce dependencia operativa, mejora continuidad de turno y deja trazabilidad util en planta industrial.";
+const canonical = "https://gmvsolutions.es/como-funciona/";
 
 const howToSchema = {
   "@context": "https://schema.org",
@@ -190,14 +191,22 @@ const schema = [howToSchema, faqSchema];
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="como-funciona"
+  pageType="core"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Flujo completo</div>
     <h1 class="fade-up delay-1">Así pasa tu planta de depender del experto<br>a trabajar con <em>más continuidad</em>.</h1>
-    <p class="fade-up delay-2">REELEVO ayuda a que una baja, una incorporación o un cambio de turno no rompan la operación. Este es el recorrido desde el conocimiento del experto hasta una ejecución más ordenada en planta.</p>
+    <p class="fade-up delay-2">REELEVO ayuda a que una baja, una incorporación o un cambio de turno no rompan la operación. Este es el recorrido, en 3 pasos, desde el conocimiento del experto hasta una ejecución más ordenada en planta.</p>
+    <div class="fade-up delay-3" style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -389,171 +398,6 @@ const schema = [howToSchema, faqSchema];
             Menos reprocesos, menos riesgo.
           </p>
         </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">✅</div>
-          <h3 class="benefit-card-title">Más claridad sobre lo que ya se ha hecho</h3>
-          <p class="benefit-card-desc">
-            Queda una base útil para saber qué se ha seguido, cuándo
-            y dónde sigue haciendo falta apoyo.
-          </p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-card-icon">🔧</div>
-          <h3 class="benefit-card-title">Guía de incidencias</h3>
-          <p class="benefit-card-desc">
-            Resolución de incidencias paso a paso integrada en cada proceso.
-            Aviso automático al supervisor si hace falta.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- COMO QUEDA REGISTRADO -->
-  <section class="section section-center" id="registro">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Cómo queda registrado</div>
-        <h2 class="section-title">Más que una biblioteca de procesos:<br><em>una base útil de evidencia</em></h2>
-        <p class="section-sub">
-          REELEVO no solo deja el trabajo disponible en el puesto. También puede dejar una base útil
-          para seguimiento interno, formación y revisión operativa sin complicar el acceso en planta.
-        </p>
-      </div>
-
-      <div class="evidence-grid fade-up delay-1">
-        <div class="evidence-card">
-          <div class="evidence-kicker">Qué</div>
-          <h3 class="evidence-title">Proceso y puesto</h3>
-          <p class="evidence-desc">Qué proceso se siguió y en qué puesto, máquina o contexto de trabajo ocurrió.</p>
-        </div>
-        <div class="evidence-card">
-          <div class="evidence-kicker">Cuándo</div>
-          <h3 class="evidence-title">Momento y versión</h3>
-          <p class="evidence-desc">Fecha, hora y versión visible del proceso para entender con qué referencia se trabajó.</p>
-        </div>
-        <div class="evidence-card">
-          <div class="evidence-kicker">Cómo</div>
-          <h3 class="evidence-title">Resultado y apoyo</h3>
-          <p class="evidence-desc">Si el flujo quedó completado, si hubo incidencias y dónde sigue haciendo falta apoyo.</p>
-        </div>
-        <div class="evidence-card">
-          <div class="evidence-kicker">Quién</div>
-          <h3 class="evidence-title">Cuando aplica</h3>
-          <p class="evidence-desc">En los flujos que lo necesitan, la empresa puede asociar el uso a un identificador interno.</p>
-        </div>
-      </div>
-
-      <div class="mode-grid fade-up delay-2">
-        <article class="mode-card">
-          <div class="mode-label">Consulta rápida</div>
-          <h3 class="mode-title">Cuando lo importante es desbloquear el puesto</h3>
-          <p class="mode-desc">
-            Prioriza que alguien encuentre qué hacer y arranque con la mínima fricción posible.
-            Es útil para cobertura, dudas puntuales y estandarización en el puesto.
-          </p>
-          <ul class="mode-points">
-            <li>Menos espera para empezar</li>
-            <li>Más autonomía en el puesto</li>
-            <li>Señal básica de uso</li>
-          </ul>
-        </article>
-
-        <article class="mode-card featured">
-          <div class="mode-label">Seguimiento asociado</div>
-          <h3 class="mode-title">Cuando necesitas una base más útil de evidencia</h3>
-          <p class="mode-desc">
-            Añade un identificador interno en los flujos donde la empresa necesita acompañar
-            onboarding, seguimiento interno, calidad o auditorías.
-          </p>
-          <ul class="mode-points">
-            <li>Más claridad para formación</li>
-            <li>Seguimiento interno más sólido</li>
-            <li>Base más útil para revisión operativa</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="trust-uses fade-up delay-3">
-        <div class="trust-use">
-          <h3 class="trust-use-title">Formación</h3>
-          <p class="trust-use-desc">Ayuda a ver quién sigue necesitando apoyo y quién ya puede trabajar con más autonomía.</p>
-        </div>
-        <div class="trust-use">
-          <h3 class="trust-use-title">Calidad y auditoría interna</h3>
-          <p class="trust-use-desc">Aporta una base más útil para revisar qué referencia se siguió y cuándo ocurrió.</p>
-        </div>
-        <div class="trust-use">
-          <h3 class="trust-use-title">Operación</h3>
-          <p class="trust-use-desc">Da más contexto para entender repeticiones, incidencias y dependencia de ciertos puestos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- USO DIARIO CON QR -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">El uso cotidiano</div>
-        <h2 class="section-title">No solo para bajas e incorporaciones. <em>Para cada turno</em>.</h2>
-        <p class="section-sub">
-          El flujo QR no es solo para sustitutos. Es el modo en que los operarios acceden cada día
-          a sus instrucciones, registran producción y dejan evidencia de lo que ocurre en planta.
-        </p>
-      </div>
-
-      <div class="fade-up delay-1">
-        <div class="scenarios-grid">
-            <div class="scenario-card">
-              <div class="scenario-tag">Inicio de turno</div>
-              <h3 class="scenario-card-title">Escanea el QR de la máquina</h3>
-              <p>En segundos el operario ve el proceso asignado, las notas del turno anterior y los parámetros actualizados. Sin papel, sin app instalada, sin contraseña.</p>
-            </div>
-
-            <div class="scenario-card">
-              <div class="scenario-tag">Durante la producción</div>
-              <h3 class="scenario-card-title">Registra unidades e incidencias</h3>
-              <p>Cada sesión queda trazada automáticamente: tiempo, unidades producidas, paradas y su causa. La dirección lo ve en el dashboard en tiempo real.</p>
-            </div>
-
-            <div class="scenario-card">
-              <div class="scenario-tag">Al terminar</div>
-              <h3 class="scenario-card-title">Propone mejoras o deja notas</h3>
-              <p>Si el operario detecta algo mejorable, lo registra con un toque. Si tiene un aviso para el turno siguiente, lo deja vinculado a la máquina. El conocimiento crece solo.</p>
-            </div>
-          </div>
-
-          <div class="benefit-list" style="margin-top:2rem;">
-            <div class="benefit-row">
-              <div class="benefit-icon">📊</div>
-              <div>
-                <h3 class="benefit-title">Trazabilidad sin esfuerzo extra</h3>
-                <p class="benefit-desc">Cada ejecución genera datos de producción, operario, proceso y máquina sin que nadie tenga que rellenar nada adicional.</p>
-              </div>
-              <div class="benefit-result">
-                <div class="benefit-result-label">Resultado</div>
-                <p>En 30 días tienes datos reales de rendimiento por turno, proceso y operario</p>
-              </div>
-            </div>
-            <div class="benefit-row">
-              <div class="benefit-icon">💡</div>
-              <div>
-                <h3 class="benefit-title">Mejora continua desde planta</h3>
-                <p class="benefit-desc">Las propuestas de mejora nacen en el momento en que el operario las identifica, vinculadas al proceso exacto donde ocurre el problema.</p>
-              </div>
-              <div class="benefit-result">
-                <div class="benefit-result-label">Resultado</div>
-                <p>El ciclo Kaizen arranca en el puesto, no en una reunión mensual</p>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
   </section>
@@ -565,7 +409,7 @@ const schema = [howToSchema, faqSchema];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Explora por necesidad</div>
-        <h2 class="section-title">Empieza por el escenario que más te duele en planta</h2>
+        <h3 class="section-title">Empieza por el escenario que mas te duele en planta</h3>
         <p class="section-sub">
           REELEVO conecta el mismo núcleo de producto con problemas distintos:
           cobertura de bajas, onboarding, transferencia de conocimiento, calidad operativa, matriz de habilidades y evaluación de alternativas.
@@ -619,7 +463,7 @@ const schema = [howToSchema, faqSchema];
     <div class="section-inner">
       <div class="fade-up" style="text-align:center;">
         <div class="eyebrow">Preguntas frecuentes</div>
-        <h2 class="section-title">¿Tienes alguna duda?</h2>
+        <h3 class="section-title">Tienes alguna duda?</h3>
         <p class="section-sub">
           Hemos reunido las preguntas más habituales sobre implementación, acceso en planta y seguridad en una página dedicada.
         </p>
@@ -635,14 +479,15 @@ const schema = [howToSchema, faqSchema];
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Todo claro?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Empieza por tus procesos críticos
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Si quieres verla por dentro, regístrate en REELEVO y entra en la plataforma.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a>
       <a href="/precios/" class="btn-ghost">Ver precios</a>
     </div>
     <div class="cta-note fade-up delay-4">

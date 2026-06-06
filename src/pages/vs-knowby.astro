@@ -2,24 +2,31 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Knowby vs REELEVO — Comparativa de software de procedimientos";
-const description = "Comparativa: Knowby vs REELEVO. Software de documentación de procedimientos y onboarding. Análisis completo para pymes industriales.";
+const description = "Knowby vs REELEVO: comparación por adopción operativa real del operario, idioma, precio e implantación para la pyme industrial española.";
+const canonical = "https://gmvsolutions.es/vs-knowby/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "ComparisonChart",
   "headline": title,
   "description": description,
-  "url": "https://gmvsolutions.es/vs-knowby/",
+  "url": canonical,
   "inLanguage": "es-ES"
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Comparativa de herramientas</div>
     <h1 class="fade-up delay-1">Knowby vs REELEVO<br><em>Procedimientos genéricos vs operativos especializados</em></h1>
-    <p class="fade-up delay-2">Knowby es software genérico de procedimientos. REELEVO es especializado en SOP industrial y onboarding para pymes. Comparativa detallada.</p>
+    <p class="fade-up delay-2">Comparación en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -57,81 +64,46 @@ const schema = {
   <div class="divider"></div>
 
   <!-- COMPARATIVA CARACTERÍSTICAS -->
-  <section class="section">
+  <section class="section" id="comparativa">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Características</h2>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
       </div>
 
       <div class="comparison-table fade-up delay-1">
         <table>
           <thead>
             <tr>
-              <th style="width: 35%;">Funcionalidad</th>
-              <th style="width: 32.5%;">Knowby</th>
-              <th style="width: 32.5%;">REELEVO</th>
+              <th style="width: 30%;">Criterio</th>
+              <th style="width: 35%;">Knowby</th>
+              <th style="width: 35%;">REELEVO</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Tipo mercado</strong></td>
-              <td>B2B general (cualquier sector)</td>
-              <td class="highlight">B2B industrial especializado</td>
+              <td><strong>Idioma nativo</strong></td>
+              <td>Multiidioma, no español nativo</td>
+              <td class="highlight">✓ Español nativo</td>
             </tr>
             <tr>
-              <td><strong>Foco</strong></td>
-              <td>Documentación genérica</td>
-              <td class="highlight">SOP + Onboarding operarios</td>
+              <td><strong>Precio</strong></td>
+              <td>Bajo demanda (contacto)</td>
+              <td class="highlight">✓ Público, desde 49€/mes por empresa</td>
             </tr>
             <tr>
-              <td><strong>SOP industrial</strong></td>
-              <td>Posible pero no optimizado</td>
-              <td class="highlight">✓ Central</td>
-            </tr>
-            <tr>
-              <td><strong>Onboarding operarios</strong></td>
-              <td>Genérico (no especializado)</td>
-              <td class="highlight">✓ Especializado para operarios</td>
-            </tr>
-            <tr>
-              <td><strong>Gestión competencias</strong></td>
-              <td>No</td>
-              <td class="highlight">✓ Matriz de habilidades</td>
-            </tr>
-            <tr>
-              <td><strong>Acceso en máquina</strong></td>
-              <td>Web (requiere navegador)</td>
-              <td class="highlight">✓ App nativa + offline</td>
-            </tr>
-            <tr>
-              <td><strong>Cobertura de bajas</strong></td>
-              <td>No específico</td>
-              <td class="highlight">✓ Problema resuelto</td>
-            </tr>
-            <tr>
-              <td><strong>Precio transparente</strong></td>
-              <td>No publicado (contacto)</td>
-              <td class="highlight">✓ 49€-99€/mes</td>
-            </tr>
-            <tr>
-              <td><strong>Idioma español</strong></td>
-              <td>Multiidioma pero no español nativo</td>
-              <td class="highlight">✓ 100% Español</td>
-            </tr>
-            <tr>
-              <td><strong>Soporte español</strong></td>
-              <td>Soporte general inglés</td>
-              <td class="highlight">✓ Soporte español</td>
-            </tr>
-            <tr>
-              <td><strong>Para pymes</strong></td>
-              <td>Caro y complejo para pyme</td>
-              <td class="highlight">✓ Diseñado para pymes</td>
-            </tr>
-            <tr>
-              <td><strong>Implementación</strong></td>
+              <td><strong>Implantación / arranque</strong></td>
               <td>Media (1-2 semanas)</td>
-              <td class="highlight">✓ Rápida (2 días)</td>
+              <td class="highlight">✓ Ligera y asistida</td>
+            </tr>
+            <tr>
+              <td><strong>Adopción del operario</strong></td>
+              <td>Web, requiere navegador</td>
+              <td class="highlight">✓ App + acceso por QR, sin cuentas</td>
+            </tr>
+            <tr>
+              <td><strong>Encaje pyme industrial española</strong></td>
+              <td>Genérico, no industrial</td>
+              <td class="highlight">✓ Pensado para pyme industrial española</td>
             </tr>
           </tbody>
         </table>
@@ -282,17 +254,19 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Solución especializada</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       REELEVO está hecho para <em>tu pyme industrial</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       No es software genérico. Está especializado en pymes manufactureras españolas. SOP + Onboarding + Competencias integrado, precio transparente, soporte en español.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse gratis">
         Registrarse gratis
       </a>
-      <a href="/precios/" class="btn-ghost">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
         Evaluar mi situación →
       </a>
     </div>

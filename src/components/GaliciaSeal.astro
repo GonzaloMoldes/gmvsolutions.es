@@ -1,7 +1,7 @@
 ---
 // "Orgullosamente creado en Galicia" mark shown on every page.
-// Bottom-right: coat of arms of Galicia (escudo de Galicia) with the
-// caption below the shield. Self-contained SVG — no external assets.
+// Bottom-right: coat of arms of Galicia (escudo de Galicia), shield only.
+// Self-contained SVG — no external assets. The pride caption lives in the aria-label.
 ---
 
 <div class="gal-marks">
@@ -78,7 +78,6 @@
               fill="none" stroke="#e8b923" stroke-width="2.5" />
       </svg>
     </span>
-    <span class="gal-seal__caption">Orgullosamente<br />creado en Galicia</span>
   </div>
 </div>
 
@@ -110,16 +109,6 @@
     height: auto;
     display: block;
   }
-  .gal-seal__caption {
-    font-size: 0.4rem;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-align: center;
-    color: #f4e7b8;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
-  }
 
   @keyframes galSealIn {
     from { opacity: 0; transform: translateY(-10px) scale(0.9); }
@@ -134,9 +123,6 @@
     }
     .gal-seal__shield {
       width: 35px;
-    }
-    .gal-seal__caption {
-      font-size: 0.36rem;
     }
   }
 

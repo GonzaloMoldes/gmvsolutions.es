@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Aviso legal — GMV Solutions";
+const title = "Aviso legal de REELEVO — GMV Solutions";
 const description = "Información legal del sitio web gmvsolutions.es. Datos del titular, condiciones de uso y propiedad intelectual.";
+const canonical = "https://gmvsolutions.es/legal/aviso-legal/";
 ---
 
-<BaseLayout title={title} description={description} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} activeNav="">
   <section class="legal-page">
     <div class="container legal-container">
       <div class="legal-header fade-up">

@@ -1,161 +1,119 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "Blog de REELEVO — Análisis, guías y recursos sobre documentación operativa industrial";
+const title = "Blog de documentación operativa industrial | REELEVO";
 const description = "Artículos y análisis sobre onboarding software, gestión de competencias, procedimientos operativos estándar (SOP), absentismo y transferencia de conocimiento en pymes industriales.";
+const canonical = "https://gmvsolutions.es/blog/";
+
+// Indice por intencion (S6-A2): los articulos se agrupan en clusters tematicos.
+const clusters = [
+  { key: 'sop', label: 'SOP y documentación de procesos' },
+  { key: 'onboarding', label: 'Onboarding de operarios' },
+  { key: 'conocimiento', label: 'Competencias y conocimiento' },
+  { key: 'absentismo', label: 'Absentismo y continuidad' },
+];
+
+const articles = [
+  { cluster: 'sop', href: '/blog/que-es-un-sop-industrial/', category: 'Procedimientos Operativos', title: 'Qué es un SOP industrial y cómo implementarlo en tu planta', desc: 'Guía completa sobre procedimientos operativos estándar para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar.', date: '18 mar. 2026', readTime: '12 min.' },
+  { cluster: 'onboarding', href: '/blog/onboarding-software-pymes/', category: 'Onboarding Software', title: 'Onboarding software para pymes: guía completa 2026', desc: 'Qué es un onboarding software, cómo ordena la incorporación de operarios y qué mirar al elegirlo. Guía de compra y ROI realista para pyme industrial.', date: '7 abr. 2026', readTime: '12 min.' },
+  { cluster: 'onboarding', href: '/blog/onboarding-vs-tradicional/', category: 'Comparativa', title: 'Onboarding software vs métodos tradicionales', desc: 'Comparativa ejecutiva por escenario: coste, tiempo, calidad y gestión de competencias. Cuándo conviene cada enfoque en una pyme industrial.', date: '7 abr. 2026', readTime: '14 min.' },
+  { cluster: 'conocimiento', href: '/blog/gestion-competencias-industria/', category: 'Gestión de Competencias', title: 'Gestión de competencias en industria: guía + plantilla', desc: 'Guía práctica de gestión de competencias para pymes industriales: cómo documentar y medir competencias operativas con una matriz accionable. Incluye plantilla.', date: '7 abr. 2026', readTime: '15 min.' },
+  { cluster: 'conocimiento', href: '/blog/crisis-perdida-conocimiento-planta-industrial/', category: 'Gestión del Conocimiento', title: 'Cómo prevenir una crisis de pérdida de conocimiento en tu planta', desc: 'Cuando un operario clave se jubila, no solo pierdes lo que sabe. Diagnóstico y plan de 90 días para proteger el conocimiento crítico de tu planta.', date: '24 mar. 2026', readTime: '14 min.' },
+  { cluster: 'conocimiento', href: '/blog/documentar-conocimiento-operarios-expertos/', category: 'Transferencia de Conocimiento', title: 'Cómo documentar el conocimiento de tus operarios expertos', desc: 'Guía práctica para capturar el conocimiento tácito de operarios veteranos. Método de transferencia de conocimiento operativo en 4 fases.', date: '10 mar. 2026', readTime: '14 min.' },
+  { cluster: 'absentismo', href: '/blog/coste-absentismo-pymes-industriales/', category: 'Análisis de Costes', title: 'Coste real del absentismo en pymes industriales españolas', desc: 'Análisis del coste directo e indirecto del absentismo en planta y cómo reducir el impacto de cada baja no cubierta. Incluye plantilla de cálculo.', date: '15 mar. 2026', readTime: '10 min.' },
+
+  // Cluster SOP (publicados 2026-05/06)
+  { cluster: 'sop', href: '/blog/documentar-procesos-mecanizado-cnc/', category: 'Procedimientos Operativos', title: 'Cómo documentar procesos de mecanizado CNC paso a paso', desc: 'Qué capturar en arranques, parámetros, cambios de referencia y troubleshooting, y cómo dejarlo accesible en el puesto.', date: '19 may. 2026', readTime: '10 min.' },
+  { cluster: 'sop', href: '/blog/instrucciones-de-trabajo-vs-sop/', category: 'Procedimientos Operativos', title: 'Instrucciones de trabajo vs SOP: qué necesita tu taller', desc: 'Qué significan, en qué se diferencian y cuál necesita tu pyme industrial para reducir errores y dependencia del experto.', date: '21 may. 2026', readTime: '8 min.' },
+  { cluster: 'sop', href: '/blog/software-sop-para-fabricas-comparativa/', category: 'Comparativa', title: 'Software SOP para fábricas: cómo elegir en 2026', desc: 'Cinco criterios para elegir software SOP industrial: idioma, precio, implantación, adopción del operario y encaje real.', date: '26 may. 2026', readTime: '9 min.' },
+  { cluster: 'sop', href: '/blog/plantilla-sop-produccion/', category: 'Plantilla', title: 'Plantilla SOP de producción para descargar', desc: 'Estructura, campos imprescindibles y ejemplo. Descárgala y adáptala a los procesos críticos de tu planta.', date: '28 may. 2026', readTime: '7 min.' },
+  { cluster: 'sop', href: '/blog/sop-mantenimiento-preventivo-guia-plantilla/', category: 'Mantenimiento', title: 'SOP de mantenimiento preventivo: guía y plantilla', desc: 'Qué tareas incluir, cada cuánto y cómo integrarlo en la agenda del operario. Con plantilla.', date: '5 jun. 2026', readTime: '8 min.' },
+
+  // Cluster onboarding / conocimiento / absentismo (publicados 2026-06)
+  { cluster: 'onboarding', href: '/blog/reducir-onboarding-operarios-cinco-a-un-dia/', category: 'Onboarding', title: 'Onboarding de operarios: cómo reducir la curva de 5 días a 1', desc: 'Acorta la curva de autonomía con el proceso en el puesto y la matriz de competencias, sin saturar al tutor.', date: '3 jun. 2026', readTime: '8 min.' },
+  { cluster: 'conocimiento', href: '/blog/conocimiento-tacito-taller-industrial/', category: 'Gestión del Conocimiento', title: 'Qué es el conocimiento tácito y por qué tu taller depende de él', desc: 'Por qué crea dependencia de personas clave y cómo empezar a capturarlo antes de que una baja lo haga visible.', date: '2 jun. 2026', readTime: '9 min.' },
+  { cluster: 'absentismo', href: '/blog/plan-contingencia-bajas-produccion/', category: 'Continuidad operativa', title: 'Plan de contingencia para bajas en producción', desc: 'Detecta puestos sensibles, documenta lo crítico y cubre sin parar la línea. Con checklist.', date: '4 jun. 2026', readTime: '9 min.' },
+];
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "headline": "Blog de REELEVO",
   "description": description,
-  "url": "https://gmvsolutions.es/blog/",
-  "about": [
-    "Onboarding software",
-    "Gestión de competencias",
-    "Procedimientos operativos estándar",
-    "Transferencia de conocimiento",
-    "Documentación operativa"
-  ],
-  "author": {
-    "@type": "Organization",
-    "name": "REELEVO"
-  }
+  "url": canonical,
+  "about": clusters.map((c) => c.label),
+  "author": { "@type": "Organization", "name": "REELEVO" }
 };
 ---
 
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="blog"
+  pageType="blog"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Blog de REELEVO</div>
     <h1 class="fade-up delay-1">Guías, análisis y recursos<br><em>sobre documentación operativa</em></h1>
-    <p class="fade-up delay-2">Artículos especializados para pymes industriales sobre onboarding, gestión de competencias, procedimientos operativos estándar y transferencia de conocimiento.</p>
+    <p class="fade-up delay-2">Artículos especializados para pymes industriales, organizados por intención: SOP, onboarding, competencias y conocimiento, y absentismo.</p>
+    <nav class="blog-index fade-up delay-3" aria-label="Índice por tema">
+      {clusters.map((c) => (
+        <a href={`#${c.key}`} class="blog-index__link">{c.label}</a>
+      ))}
+    </nav>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ARTÍCULOS -->
-  <section class="section" id="articulos">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Últimos artículos</div>
-        <h2 class="section-title">Contenido especializado</h2>
-        <p class="section-sub">
-          Análisis prácticos sobre documentación operativa, gestión del conocimiento
-          y soluciones reales para pymes industriales españolas.
-        </p>
+  <!-- ARTÍCULOS POR INTENCIÓN -->
+  {clusters.map((c) => (
+    <section class="section" id={c.key}>
+      <div class="section-inner">
+        <div class="fade-up">
+          <div class="eyebrow">Tema</div>
+          <h2 class="section-title">{c.label}</h2>
+        </div>
+        <div class="articles-grid fade-up delay-1">
+          {articles.filter((a) => a.cluster === c.key).map((a) => (
+            <a href={a.href} class="article-card">
+              <div class="article-card-category">{a.category}</div>
+              <h3 class="article-card-title">{a.title}</h3>
+              <p class="article-card-desc">{a.desc}</p>
+              <div class="article-card-meta">
+                <span>{a.date}</span>
+                <span>·</span>
+                <span>⏱️ {a.readTime}</span>
+              </div>
+              <div class="article-card-link">Leer artículo →</div>
+            </a>
+          ))}
+        </div>
       </div>
-
-      <div class="articles-grid fade-up delay-1">
-        <a href="/blog/onboarding-software-pymes/" class="article-card">
-          <div class="article-card-category">Onboarding Software</div>
-          <h3 class="article-card-title">Onboarding software para pymes: Guía completa 2026</h3>
-          <p class="article-card-desc">¿Qué es un onboarding software y cómo reduce costos de incorporación en un 40%? Guía completa sobre onboarding software, gestión de competencias y ROI.</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>⏱️ 12 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/gestion-competencias-industria/" class="article-card">
-          <div class="article-card-category">Gestión de Competencias</div>
-          <h3 class="article-card-title">Gestión de competencias en industria: Guía + Plantilla</h3>
-          <p class="article-card-desc">Guía completa de gestión de competencias para pymes industriales. Aprende a documentar y medir competencias operativas reales. Incluye plantilla descargable.</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>⏱️ 15 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/onboarding-vs-tradicional/" class="article-card">
-          <div class="article-card-category">Comparativa</div>
-          <h3 class="article-card-title">Onboarding software vs métodos tradicionales</h3>
-          <p class="article-card-desc">Análisis completo: costo, tiempo, calidad, gestión de competencias. Datos reales de 50+ pymes industriales. ¿Qué funciona realmente?</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>⏱️ 14 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/crisis-perdida-conocimiento-planta-industrial/" class="article-card">
-          <div class="article-card-category">Gestión del Conocimiento</div>
-          <h3 class="article-card-title">Cómo prevenir una crisis de pérdida de conocimiento en tu planta</h3>
-          <p class="article-card-desc">Cuando un operario clave se jubila, no solo pierdes lo que sabe: pierdes su red de relaciones y años de conocimiento tácito. Estrategias validadas por MIT Sloan.</p>
-          <div class="article-card-meta">
-            <span>24 mar. 2026</span>
-            <span>·</span>
-            <span>⏱️ 14 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/que-es-un-sop-industrial/" class="article-card">
-          <div class="article-card-category">Procedimientos Operativos</div>
-          <h3 class="article-card-title">Qué es un SOP industrial y cómo implementarlo en tu planta</h3>
-          <p class="article-card-desc">Guía completa sobre procedimientos operativos estándar para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar.</p>
-          <div class="article-card-meta">
-            <span>18 mar. 2026</span>
-            <span>·</span>
-            <span>⏱️ 12 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/coste-absentismo-pymes-industriales/" class="article-card">
-          <div class="article-card-category">Análisis de Costes</div>
-          <h3 class="article-card-title">Coste real del absentismo en pymes industriales españolas</h3>
-          <p class="article-card-desc">Análisis con datos propios del coste directo e indirecto del absentismo laboral. Cuánto cuesta cada baja no cubierta y cómo reducir el impacto.</p>
-          <div class="article-card-meta">
-            <span>15 mar. 2026</span>
-            <span>·</span>
-            <span>⏱️ 10 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-
-        <a href="/blog/documentar-conocimiento-operarios-expertos/" class="article-card">
-          <div class="article-card-category">Transferencia de Conocimiento</div>
-          <h3 class="article-card-title">Cómo documentar el conocimiento de tus operarios expertos</h3>
-          <p class="article-card-desc">Guía práctica para capturar el conocimiento tácito de operarios veteranos. Metodología de transferencia de conocimiento operativo paso a paso.</p>
-          <div class="article-card-meta">
-            <span>10 mar. 2026</span>
-            <span>·</span>
-            <span>⏱️ 14 min.</span>
-          </div>
-          <div class="article-card-link">Leer artículo →</div>
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
   <div class="divider"></div>
 
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Preguntas?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Hablemos de tu <em>documentación operativa</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Cada empresa tiene sus propios retos. Cuéntanos tu caso
       y te ayudamos a encontrar la mejor solución.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse en REELEVO">
         Registrarse en REELEVO
       </a>
-      <a href="/precios/" class="btn-ghost">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
         Evaluar mi situación →
       </a>
     </div>
@@ -167,12 +125,37 @@ const schema = {
 </BaseLayout>
 
 <style>
+  /* Indice por intencion */
+  .blog-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .blog-index__link {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    transition: border-color .2s, color .2s;
+  }
+  .blog-index__link:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
   /* Articles grid */
   .articles-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin-top: 48px;
+    margin-top: 40px;
   }
 
   .article-card {

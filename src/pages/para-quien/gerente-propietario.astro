@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = "REELEVO para Gerentes — menos dependencia operativa y más continuidad";
-const description = "REELEVO ayuda a gerencia a reducir dependencia operativa, ganar visibilidad y empezar por puestos críticos sin abrir un proyecto pesado.";
+const title = "Software operaciones pyme industrial para gerencia | REELEVO";
+const description = "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa.";
+const canonical = "https://gmvsolutions.es/para-quien/gerente-propietario/";
 
 const schema = {
   "@context": "https://schema.org",
@@ -19,18 +20,23 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav=""
+  pageType="rol"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Para gerentes y propietarios</div>
-    <h1 class="fade-up delay-1"><em>Menos dependencia,</em><br>más continuidad operativa.</h1>
-    <p class="fade-up delay-2">REELEVO ayuda a reducir dependencia operativa, ganar continuidad y empezar por lo que más duele en planta sin abrir un proyecto pesado. Precio fijo por empresa y activación asumible.</p>
+    <h1 class="fade-up delay-1">Control operativo para gerencia,<br><em>sin complejidad MES</em>.</h1>
+    <p class="fade-up delay-2">Identifica riesgos de continuidad, estandariza puestos criticos y gana visibilidad de ejecucion diaria con una implantacion asumible para pyme.</p>
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO →</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
-    <div class="hero-cta-note fade-up delay-4">Precio publicado · Arranque ligero · Soporte en español</div>
+    <div class="hero-cta-note fade-up delay-4">Precio publicado por empresa · Arranque ligero</div>
   </section>
 
   <div class="divider"></div>
@@ -99,8 +105,6 @@ const schema = {
             <ul>
               <li>Procesos críticos que viven en la cabeza de una persona</li>
               <li>Incorporaciones lentas y dependientes del tutor</li>
-              <li>Más improvisación cuando hay rotación o absentismo</li>
-              <li>Dificultad para crecer sin sumar complejidad</li>
               <li>Poca visibilidad de qué proceso está realmente cubierto</li>
             </ul>
           </div>
@@ -122,12 +126,9 @@ const schema = {
           <div class="exec-benefits">
             <h4>Valor para gerencia:</h4>
             <ul>
-              <li>Menos dependencia en puestos críticos</li>
+              <li>Menos dependencia de personas clave en puestos críticos</li>
               <li>Más visibilidad sobre lo que pasa en planta</li>
-              <li>Menos dependencia de personas clave</li>
-              <li>Onboarding más ordenado y repetible</li>
-              <li>Precio fijo y visible desde el principio</li>
-              <li>Implantación ligera para una pyme industrial</li>
+              <li>Onboarding más ordenado con precio fijo y arranque ligero</li>
             </ul>
           </div>
         </div>
@@ -249,49 +250,6 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- ESCALABILIDAD — Simplificado, sin gráfico -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Modelo de precio</div>
-        <h2 class="section-title">Precio fijo. <em>Sin sorpresas.</em></h2>
-        <p class="section-sub">
-          REELEVO tiene precio por empresa, no por usuario.
-          Eso hace más fácil aprobarlo y más sencillo ampliarlo.
-        </p>
-      </div>
-
-      <div class="benefits-grid fade-up delay-1">
-        <div class="benefit-card">
-          <div class="benefit-card-icon">💡</div>
-          <h3 class="benefit-card-title">Presupuesto claro</h3>
-          <p class="benefit-card-desc">Sabes lo que cuesta desde el principio, sin negociación larga ni licencias por cada alta.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card-icon">📈</div>
-          <h3 class="benefit-card-title">Escala sin castigo</h3>
-          <p class="benefit-card-desc">Si mañana incorporas más operarios, el coste no se dispara con la plantilla.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-card-icon">🎯</div>
-          <h3 class="benefit-card-title">Proyecto asumible</h3>
-          <p class="benefit-card-desc">Empiezas por procesos críticos y amplías cuando te compense, sin sobredimensionar la decisión.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!--
-  ═══════════════════════════════════════════
-  CASO CEO — COMENTADO
-  Descomentar cuando tengamos casos reales documentados.
-  ═══════════════════════════════════════════
-  -->
-
-  <div class="divider"></div>
-
   <!-- DECISIÓN -->
   <section class="section section-center">
     <div class="section-inner">
@@ -333,22 +291,41 @@ const schema = {
 
   <div class="divider"></div>
 
+  <!-- MICROCASO (escenario ilustrativo, no testimonio real) -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="micro-case fade-up">
+        <div class="micro-case-tag">Escenario típico en planta</div>
+        <p class="micro-case-text">
+          Un taller de 35 personas con dos operarios que concentran el arranque de las líneas críticas.
+          Cuando uno falta, el turno se desordena. Al documentar esos procesos en el puesto y medir
+          qué queda cubierto, la dirección deja de depender de una llamada para que la línea arranque.
+        </p>
+        <div class="micro-case-note">Ejemplo ilustrativo del tipo de problema que aborda REELEVO, no un caso de cliente.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para decisores</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Reduce el riesgo operativo <em>de forma sostenida</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Si quieres entrar en la plataforma, regístrate en REELEVO y valora si tiene sentido en tu planta.
       Empezamos por los procesos críticos y aterrizamos el impacto con tu realidad.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarme en REELEVO →
       </a>
-      <a href="/precios/" class="btn-ghost">
-        Ver precios
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
+        Evaluar mi situación
       </a>
     </div>
       <div class="cta-note fade-up delay-4">

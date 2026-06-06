@@ -1,0 +1,175 @@
+---
+// Comparativa de categoria (S6-B1). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 4.1
+// Enfoque educativo: el MES no es "malo", es demasiado para una pyme. Sin precios de competidor inventados.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Alternativa ligera a un MES para pymes | REELEVO";
+const description = "¿Buscas un MES y eres pyme industrial? Quizá no lo necesitas. Compara el enfoque MES con una plataforma operativa ligera: precio, implantación y adopción real.";
+const canonical = "https://gmvsolutions.es/vs-mes-tradicional/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ComparisonChart",
+  "headline": title,
+  "description": description,
+  "url": canonical,
+  "inLanguage": "es-ES",
+  "about": [
+    { "@type": "Thing", "name": "Sistema MES tradicional" },
+    { "@type": "SoftwareApplication", "name": "REELEVO" }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Comparativa de categoría</div>
+    <h1 class="fade-up delay-1">¿Buscas un MES pero eres pyme?<br><em>Quizá no lo necesitas.</em></h1>
+    <p class="fade-up delay-2">Un MES resuelve problemas de planta grande y compleja. Si eres una pyme industrial, compara el enfoque MES con una plataforma operativa ligera en 5 criterios: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-1: QUÉ ES UN MES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Punto de partida</div>
+        <h2 class="section-title">Qué es un MES y para quién</h2>
+        <p class="section-sub">
+          Un MES (Manufacturing Execution System) gobierna la ejecución de la producción en tiempo real:
+          planificación fina, captura de señal de máquina, OEE, trazabilidad de lote e integración con el ERP.
+          Bien implantado es transformador para industria mediana o grande con líneas muy automatizadas. Pero
+          implica conectar máquinas, un proyecto de meses y un presupuesto a la altura. No es malo: es grande.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-2: SEÑALES DE QUE TE SOBRA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Señales de que un MES te sobra</h2>
+        <p class="section-sub">Si te reconoces en estos puntos, probablemente buscas continuidad y orden en planta, no un MES completo:</p>
+      </div>
+      <ul class="signal-list fade-up delay-1">
+        <li>Tu problema real es la dependencia de personas clave, no el OEE al segundo.</li>
+        <li>No quieres (ni necesitas) conectar máquinas vía SCADA/PLC para empezar.</li>
+        <li>Necesitas que el operario nuevo arranque sin depender del tutor.</li>
+        <li>Quieres un precio claro y un arranque de semanas, no un proyecto de meses.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-3: TABLA 5 CRITERIOS -->
+  <section class="section" id="comparativa">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Comparación directa</div>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
+      </div>
+      <div class="comparison-table fade-up delay-1">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Criterio</th>
+              <th style="width: 35%;">MES tradicional</th>
+              <th style="width: 35%;">REELEVO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Idioma nativo</strong></td>
+              <td>Variable según fabricante</td>
+              <td class="highlight">✓ Español nativo</td>
+            </tr>
+            <tr>
+              <td><strong>Precio</strong></td>
+              <td>Bajo demanda (proyecto)</td>
+              <td class="highlight">✓ Público, desde 49€/mes por empresa</td>
+            </tr>
+            <tr>
+              <td><strong>Implantación / arranque</strong></td>
+              <td>Proyecto de meses, conectar máquinas</td>
+              <td class="highlight">✓ Ligera y asistida</td>
+            </tr>
+            <tr>
+              <td><strong>Adopción del operario</strong></td>
+              <td>Curva alta (sistema complejo)</td>
+              <td class="highlight">✓ Acceso por QR, sin cuentas por operario</td>
+            </tr>
+            <tr>
+              <td><strong>Encaje pyme industrial española</strong></td>
+              <td>Industria media-grande</td>
+              <td class="highlight">✓ Pensado para pyme industrial española</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-4: QUÉ SÍ NECESITAS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Lo que una pyme sí necesita</h2>
+        <p class="section-sub">
+          En la mayoría de pymes industriales el dolor real no es el OEE al segundo: es que cuando falta una
+          persona clave la línea se resiente, que cada incorporación depende del tutor y que falta visibilidad
+          de lo que pasa en el turno. Eso se resuelve con continuidad ante bajas, onboarding ordenado y
+          visibilidad diaria, sin conectar máquinas ni abrir un proyecto de meses.
+        </p>
+      </div>
+      <div class="hero-cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <a href="/cobertura-turnos/" class="btn-ghost">Continuidad ante bajas →</a>
+        <a href="/control-produccion/" class="btn-ghost">Visibilidad de producción →</a>
+        <a href="/documentacion-procesos/" class="btn-ghost">Procesos en el puesto →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-5 + CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Cómo empezar</div>
+    <h3 class="cta-title fade-up delay-1">Empieza ligero,<br><em>por tus procesos críticos</em></h3>
+    <p class="cta-sub fade-up delay-2">
+      No hace falta un proyecto de meses. Documenta primero los puestos donde más cuesta improvisar
+      y amplía cuando te compense.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="/vs-alternativas/" class="btn-ghost">Ver comparativa de alternativas →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .comparison-table { overflow-x: auto; margin-top: 40px; }
+  .comparison-table table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+  .comparison-table th, .comparison-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+  .comparison-table th { background: var(--surface2); font-weight: 600; font-size: 0.9rem; }
+  .comparison-table tbody tr:last-child td { border-bottom: none; }
+  .comparison-table td.highlight { background: rgba(255, 150, 0, 0.05); color: var(--orange); font-weight: 500; }
+  .signal-list { list-style: none; padding: 0; margin-top: 32px; max-width: 760px; }
+  .signal-list li { padding: 12px 0 12px 28px; position: relative; color: var(--gray); line-height: 1.6; border-bottom: 1px solid var(--border); }
+  .signal-list li:before { content: "→"; position: absolute; left: 0; color: var(--orange); font-weight: 600; }
+  @media (max-width: 900px) { .comparison-table { font-size: 0.85rem; } .comparison-table th, .comparison-table td { padding: 12px; } }
+</style>

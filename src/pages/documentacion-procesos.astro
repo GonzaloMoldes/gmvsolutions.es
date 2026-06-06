@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Documentación de procesos industriales | Software SOP para pymes";
-const description = "Software para documentar procesos industriales. SOPs accesibles en máquina. Reduce errores operativos, acelera onboarding, evita pérdida de conocimiento.";
+const title = "Documentacion de procesos industriales para pymes | REELEVO";
+const description = "Estandariza SOPs en puesto de trabajo para reducir errores, acelerar onboarding y mantener continuidad operativa sin manuales que nadie consulta.";
+const canonical = "https://gmvsolutions.es/documentacion-procesos/";
 
 const schema = {
   "@context": "https://schema.org",
@@ -14,14 +15,17 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Documentación Operativa</div>
     <h1 class="fade-up delay-1">Documentación de procesos<br><em>industriales accesible</em></h1>
     <p class="fade-up delay-2">Procedimientos paso a paso en máquina. SOP que los operarios realmente consultan. Sin manuales de 50 páginas que nadie usa.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -69,49 +73,6 @@ const schema = {
 
       <div class="data-point fade-up delay-2">
         <p><strong>Dato:</strong> 77% de pymes industriales españolas NO tiene procedimientos operativos documentados y actualizados. Del 23% que sí, menos del 10% de sus procedimientos se consultan habitualmente en planta.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- POR QUÉ FALLAN LOS TRADICIONALES -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Por qué fracasan los manuales tradicionales</h2>
-      </div>
-
-      <div class="failure-reasons fade-up delay-1">
-        <div class="reason">
-          <div class="reason-title">1. Inaccesibles en planta</div>
-          <p>Requieren navegador, carpetas, archivos. Un operario de máquina pierde 5-10 minutos antes de encontrar lo que necesita. Más fácil llamar al tutor.</p>
-        </div>
-
-        <div class="reason">
-          <div class="reason-title">2. No reflejan la realidad</div>
-          <p>Están escritos por gente de calidad, no por el operario que realmente lo hace. Se pierden los "trucos" que el experto sabe.</p>
-        </div>
-
-        <div class="reason">
-          <div class="reason-title">3. Se desactualizan rápido</div>
-          <p>Después de 3 meses, nadie los actualiza. ¿Por qué cambiar el manual si podemos seguir improvisando?</p>
-        </div>
-
-        <div class="reason">
-          <div class="reason-title">4. No incluyen troubleshooting</div>
-          <p>"¿Qué hacer si X pasa?" — El manual no lo contempla. El operario improvisa o llama.</p>
-        </div>
-
-        <div class="reason">
-          <div class="reason-title">5. Están en inglés o formato pobre</div>
-          <p>Si el fabricante la máquina es alemán, el manual es alemán. Si es traducido, es incomprensible.</p>
-        </div>
-
-        <div class="reason">
-          <div class="reason-title">6. Generan resistencia</div>
-          <p>Operarios ven la documentación como control, no como herramienta. "Si cometo un error está registrado..."</p>
-        </div>
       </div>
     </div>
   </section>
@@ -222,90 +183,20 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- IMPACTO -->
-  <section class="section">
+  <!-- CROSS-LINKS -->
+  <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Impacto real de buena documentación</h2>
-      </div>
-
-      <div class="impact-metrics fade-up delay-1">
-        <div class="metric">
-          <div class="metric-label">Reducción de errores operarios nuevos</div>
-          <div class="metric-before">Antes: +40% errores vs operario titular</div>
-          <div class="metric-after">Con documentación clara: -60% errores</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Tiempo de setup de máquina</div>
-          <div class="metric-before">Antes: 30-45 min (si no sabe, llama al tutor)</div>
-          <div class="metric-after">Con SOP: 10-15 min (sigue los pasos)</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Dependencia del operario experto</div>
-          <div class="metric-before">Antes: "Llama a Juan para todo"</div>
-          <div class="metric-after">Con documentación: Juan solo revisa resultados</div>
-        </div>
-
-        <div class="metric">
-          <div class="metric-label">Rotación de personal sin caos</div>
-          <div class="metric-before">Antes: Personal ETT pierde 1-2 semanas en aprendizaje</div>
-          <div class="metric-after">Con SOP accesible: productivo desde día 1</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CÓMO EMPEZAR -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Comienza documentando lo crítico</h2>
-      </div>
-
-      <div class="startup-steps fade-up delay-1">
-        <div class="startup-box">
-          <h3>Semana 1: Priorización</h3>
-          <ul>
-            <li>¿Qué máquina produce más dinero?</li>
-            <li>¿Cuántas personas la dominan?</li>
-            <li>¿Qué pasería si falta el operario expert4o?</li>
-            <li>Las 3 máquinas más críticas = prioridad 1</li>
-          </ul>
-        </div>
-
-        <div class="startup-box">
-          <h3>Semana 2: Documentación</h3>
-          <ul>
-            <li>El experto abre REELEVO app</li>
-            <li>Sigue su proceso step-by-step</li>
-            <li>La app lo guía</li>
-            <li>Incluye videos cortos, fotos, checklist</li>
-            <li>Listo en 1-2 horas por máquina</li>
-          </ul>
-        </div>
-
-        <div class="startup-box">
-          <h3>Semana 3: Validación</h3>
-          <ul>
-            <li>Operario menos experimentado sigue el SOP</li>
-            <li>¿Algo no está claro?</li>
-            <li>Experto lo corrige</li>
-            <li>Iteración hasta que funcione</li>
-          </ul>
-        </div>
-
-        <div class="startup-box">
-          <h3>Mes 1: Despliegue</h3>
-          <ul>
-            <li>SOP en QR en cada máquina</li>
-            <li>Operarios pueden consultarlo</li>
-            <li>Mejoras continuas basadas en feedback</li>
-            <li>Línea productiva desde el primer día</li>
-          </ul>
+        <div class="eyebrow">Sigue explorando</div>
+        <h2 class="section-title">Dónde encaja la documentación de procesos</h2>
+        <p class="section-sub">
+          La documentación en puesto es la base de la cobertura de bajas y del onboarding.
+          Mira cómo se aplica en cada caso o por rol.
+        </p>
+        <div class="hero-cta" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+          <a href="/casos-de-uso/cobertura-bajas/" class="btn-ghost">Cobertura de bajas →</a>
+          <a href="/casos-de-uso/onboarding-operarios/" class="btn-ghost">Onboarding de operarios →</a>
+          <a href="/para-quien/responsable-calidad/" class="btn-ghost">Para calidad →</a>
         </div>
       </div>
     </div>
@@ -316,18 +207,20 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Listo para empezar</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Documenta tus procedimientos <em>operativos</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Procedimientos que se consultan porque están accesibles donde se necesitan. Sin manuales de 50 páginas. Sin dependencia del tutor.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Registrarse gratis
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
-      <a href="/kaizen/" class="btn-ghost">
-        Ver cómo funciona el ciclo Kaizen →
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse gratis">
+        Registrarse gratis
       </a>
     </div>
   </section>

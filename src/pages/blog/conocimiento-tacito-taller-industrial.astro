@@ -1,0 +1,81 @@
+---
+// CON-1 (cluster conocimiento). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 3.1
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Qué es el conocimiento tácito y por qué tu taller depende de él";
+const description = "Qué es el conocimiento tácito en planta, por qué crea dependencia de personas clave y cómo empezar a capturarlo antes de que una baja o jubilación lo haga visible.";
+const canonical = "https://gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-06-02",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-06-02" category="Gestión del Conocimiento" readTime="9 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> El conocimiento tácito es el saber hacer que no está escrito: vive en la cabeza del operario veterano. Es la raíz de la dependencia de personas clave y se vuelve visible —tarde— el día que esa persona falta. Capturarlo a tiempo es lo que da continuidad al taller.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es el conocimiento tácito</a></li>
+    <li><a href="#manuales">Por qué no está en los manuales</a></li>
+    <li><a href="#riesgo">El riesgo: bajas, jubilaciones, rotación</a></li>
+    <li><a href="#capturar">Cómo empezar a capturarlo</a></li>
+    <li><a href="#cambia">Qué cambia cuando deja de vivir en una cabeza</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es el conocimiento tácito</h2>
+  <p>El conocimiento tácito es todo lo que un operario sabe hacer pero no sabría explicar del todo si se lo pides en frío. Es reconocer por el sonido que algo va mal, ajustar un parámetro "a ojo" porque el material de hoy viene distinto, saber en qué orden arrancar para que no salte una alarma. No está en ningún procedimiento: está en años de experiencia.</p>
+  <p>Frente a él está el conocimiento explícito, el que sí está documentado. La mayor parte del valor operativo de un taller es tácito, y por eso es tan frágil: <strong>depende de que la persona esté</strong>.</p>
+
+  <h2 id="manuales">Por qué no está en los manuales</h2>
+  <p>Los manuales de máquina vienen del fabricante y describen el caso ideal, no tu pieza, tu material ni tus mañas. Y cuando alguien intenta documentar desde calidad, captura la teoría pero pierde los trucos: precisamente lo que diferencia a un operario experto de uno que sigue las instrucciones al pie de la letra. El conocimiento tácito no está en los manuales porque nunca se le pidió al experto que lo contara mientras trabajaba.</p>
+
+  <h2 id="riesgo">El riesgo: bajas, jubilaciones, rotación</h2>
+  <p>Mientras la persona clave está, no se nota. El problema llega con una baja imprevista, unas vacaciones en plena campaña, una jubilación o una marcha. De golpe, la máquina más rentable se queda sin nadie que sepa operarla bien, y la empresa improvisa: llamadas al que se fue, prueba y error, defectos. Cuanta más rotación o personal temporal, más se repite el patrón. La dependencia de personas clave es un riesgo operativo que casi nadie mide hasta que estalla.</p>
+
+  <h2 id="capturar">Cómo empezar a capturarlo</h2>
+  <p>No se trata de documentar todo, sino de empezar por donde más duele. Un método sencillo:</p>
+  <ul>
+    <li>Identifica los puestos donde, si falta una persona, se desordena el turno (los "puntos únicos de fallo").</li>
+    <li>Siéntate con quien los domina y captura el proceso <strong>mientras lo ejecuta</strong>, con foto o vídeo donde haga falta.</li>
+    <li>Déjalo accesible en el puesto para que otro pueda seguirlo, y mejóralo con cada incidencia.</li>
+  </ul>
+  <p>Lo desarrollamos paso a paso en <a href="/blog/documentar-conocimiento-operarios-expertos/">cómo documentar el conocimiento de tus operarios expertos</a>.</p>
+
+  <h2 id="cambia">Qué cambia cuando deja de vivir en una cabeza</h2>
+  <p>Cuando el saber hacer crítico está capturado y accesible, una baja deja de ser una crisis: el sustituto encuentra la referencia y la línea sigue. La formación se apoya en el sistema y no solo en la memoria del tutor, y el experto deja de ser un cuello de botella. No se trata de sustituir a las personas, sino de que la empresa no sea rehén de ninguna. Esa es la diferencia entre depender de alguien y tener continuidad.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/gestion-competencias/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Gestión de competencias</div>
+        <div class="related-link-desc">Visualiza quién sabe hacer qué.</div>
+      </a>
+      <a class="related-link-card" href="/casos-de-uso/transferencia-conocimiento/">
+        <div class="related-link-kicker">Caso de uso</div>
+        <div class="related-link-title">Transferencia de conocimiento</div>
+        <div class="related-link-desc">Captura el saber del experto antes de que se vaya.</div>
+      </a>
+      <a class="related-link-card" href="/blog/documentar-conocimiento-operarios-expertos/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Documentar a tus expertos</div>
+        <div class="related-link-desc">Método de captura en 4 fases.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>¿Dependes de pocas personas?</strong> <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a> · <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+</ArticleLayout>

@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Sobre GMV Solutions — El equipo detrás de REELEVO";
-const description = "Conoce al equipo de GMV Solutions, la empresa detrás de REELEVO. Experiencia en industria, valores y compromiso con las pymes industriales españolas.";
+const title = "Sobre REELEVO — software para pyme industrial española";
+const description = "Sobre REELEVO: el equipo de GMV Solutions, su método de implementación y la credibilidad detrás del software para la pyme industrial española.";
+const canonical = "https://gmvsolutions.es/sobre-nosotros/";
 
 const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "Sobre GMV Solutions",
   "description": description,
-  "url": "https://gmvsolutions.es/sobre-nosotros/",
+  "url": canonical,
   "publisher": {
     "@type": "Organization",
     "name": "GMV Solutions",
@@ -86,6 +87,7 @@ const schema = [aboutPageSchema, faqSchema];
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="nosotros"
 >
@@ -278,7 +280,7 @@ const schema = [aboutPageSchema, faqSchema];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Soporte y acompañamiento</div>
-        <h2 class="section-title">Qué puedes esperar de REELEVO<br><em>antes y después de arrancar</em></h2>
+        <h3 class="section-title">Qué puedes esperar de REELEVO<br><em>antes y después de arrancar</em></h3>
         <p class="section-sub">
           La confianza no se construye solo con infraestructura. También importa saber cómo se arranca,
           qué soporte vas a tener y dónde ponemos los límites del servicio.
@@ -313,7 +315,7 @@ const schema = [aboutPageSchema, faqSchema];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Portabilidad y continuidad</div>
-        <h2 class="section-title">Preguntas sobre <em>tus datos y continuidad</em></h2>
+        <h3 class="section-title">Preguntas sobre <em>tus datos y continuidad</em></h3>
         <p class="section-sub">
           Las preguntas que se hace cualquier empresa antes de confiar su conocimiento operativo a un proveedor.
         </p>
@@ -357,9 +359,9 @@ const schema = [aboutPageSchema, faqSchema];
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">¿Hablamos?</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Cuéntanos tu situación.<br><em>Sin presión, sin script de ventas.</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Somos un equipo pequeño. Si contactas, hablará contigo alguien que entiende el producto
       y el problema que intentas resolver.

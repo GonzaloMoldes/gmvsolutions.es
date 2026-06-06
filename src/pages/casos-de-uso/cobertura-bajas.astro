@@ -12,22 +12,24 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Software SOP para cobertura de bajas industriales — REELEVO | Continuidad operativa en planta"
-  description="Software SOP para cubrir bajas en planta industrial. El sustituto encuentra qué hacer en el puesto y la línea sigue operando."
+  title="Cubrir bajas en planta industrial | REELEVO"
+  description="Cubrir bajas en planta industrial con sustitución sin caída de ritmo: el sustituto encuentra el proceso en el puesto y la línea sigue operando."
   canonical="https://gmvsolutions.es/casos-de-uso/cobertura-bajas/"
   ogTitle="REELEVO — Cobertura de bajas en producción | Continuidad operativa en planta"
   ogDescription="REELEVO ayuda a cubrir bajas con una referencia clara en el puesto, menos llamadas al experto y más continuidad operativa."
   activeNav="casos-de-uso"
   schema={schema}
+  pageType="caso_uso"
 >
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="eyebrow fade-up">Software SOP · Cobertura de bajas</div>
+  <div class="eyebrow fade-up">Cobertura de bajas en planta</div>
   <h1 class="fade-up delay-1">Cuando Martínez está de baja,<br><em>la línea no puede esperar</em></h1>
   <p class="fade-up delay-2">Martínez lleva 20 años en esa máquina. Sabe exactamente qué hacer cuando falla, en qué orden van los pasos, qué nunca hay que saltarse. Hoy está en urgencias. ¿Qué pasa ahora?</p>
   <div class="hero-cta-group fade-up delay-3">
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Implementación asistida · Sin compromiso</p>
@@ -193,11 +195,18 @@ const schema = {
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Te interesa?</div>
-  <h2 class="cta-title fade-up delay-1">Empieza antes de<br><em>la próxima baja del lunes</em></h2>
+  <h3 class="cta-title fade-up delay-1">Empieza antes de<br><em>la próxima baja del lunes</em></h3>
   <p class="cta-sub fade-up delay-2">Documenta los primeros procesos críticos hoy. Cuando llegue la próxima baja, tu plan de contingencia ante bajas ya está listo.</p>
   <div class="cta-actions fade-up delay-3">
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
-    <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+       data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
+  </div>
+  <div class="cta-note fade-up delay-4" style="margin-top:18px;">
+    Relacionado:
+    <a href="/cobertura-turnos/">cobertura de turnos</a> ·
+    <a href="/para-quien/jefe-de-produccion/">para jefe de producción</a>
   </div>
 </section>
 

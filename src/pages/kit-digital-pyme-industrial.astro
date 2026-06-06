@@ -1,0 +1,160 @@
+---
+// ESQUELETO / BORRADOR (Sprint 4, S4-C1). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 5
+//
+// ⚠️ VERIFICACION LEGAL BLOQUEANTE ANTES DE PUBLICAR:
+//   - NO afirmar que REELEVO es "solucion elegible" ni "agente digitalizador" sin confirmacion oficial.
+//   - Mientras no este confirmado, mantener el lenguaje en condicional ("puede encajar en el marco de...").
+//   - Verificar/actualizar los enlaces oficiales (acelerapyme / red.es) y que el programa siga vigente.
+//   - El owner de negocio debe aprobar los claims antes de quitar el estado noindex.
+//
+// Estado recomendado hasta aprobacion: noindex (no incluir en sitemap todavia).
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Kit Digital: digitalización de planta industrial | REELEVO";
+const description = "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar procesos, onboarding y competencias.";
+const canonical = "https://gmvsolutions.es/kit-digital-pyme-industrial/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": canonical,
+  "inLanguage": "es-ES"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="landing" noindex={true}>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Ayudas a la digitalización</div>
+    <h1 class="fade-up delay-1">Digitaliza tu planta industrial<br><em>con el Kit Digital</em></h1>
+    <p class="fade-up delay-2">
+      <!-- BORRADOR / CONDICIONAL hasta verificacion legal -->
+      Las ayudas a la digitalización de pymes pueden ayudarte a ordenar procesos, onboarding y
+      competencias en planta. Te contamos qué existe, qué puede cubrir y cómo encaja REELEVO.
+    </p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+      <a href="mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital" class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Hablar con nosotros">Hablar con nosotros</a>
+    </div>
+    <div class="hero-cta-note fade-up delay-4">Información orientativa · Consulta siempre las bases oficiales vigentes</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-1: QUÉ AYUDAS EXISTEN -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El mapa de ayudas</div>
+        <h2 class="section-title">Qué ayudas existen para la pyme industrial</h2>
+        <p class="section-sub"><!-- BORRADOR: verificar vigencia y condiciones en fuentes oficiales --></p>
+      </div>
+      <div class="aid-grid fade-up delay-1">
+        <div class="aid-card">
+          <h3>Kit Digital</h3>
+          <p>Programa de ayudas para la adopción de soluciones de digitalización en pymes y autónomos.</p>
+        </div>
+        <div class="aid-card">
+          <h3>Kit Consulting</h3>
+          <p>Ayudas para servicios de asesoramiento en transformación digital.</p>
+        </div>
+        <div class="aid-card">
+          <h3>Activa Industria 4.0</h3>
+          <p>Asesoramiento especializado para la transformación digital de la industria.</p>
+        </div>
+      </div>
+      <p class="aid-sources">
+        Fuentes oficiales: <a href="https://www.acelerapyme.gob.es/kit-digital" rel="nofollow noopener" target="_blank">acelerapyme.gob.es/kit-digital</a>
+        · <a href="https://www.red.es" rel="nofollow noopener" target="_blank">red.es</a>
+        <!-- TODO: confirmar URLs y programas vigentes en el momento de publicar -->
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-2: QUÉ PUEDEN CUBRIR -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Qué pueden cubrir en digitalización de planta</h2>
+        <p class="section-sub">
+          <!-- BORRADOR / CONDICIONAL --> Según la categoría y las bases vigentes, este tipo de ayudas
+          puede orientarse a soluciones de gestión de procesos, documentación operativa y formación interna.
+          El alcance concreto depende de la convocatoria y del perfil de la empresa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-3: CÓMO ENCAJA REELEVO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Cómo encaja REELEVO</h2>
+        <p class="section-sub">
+          <!-- BORRADOR / CONDICIONAL: no afirmar elegibilidad sin confirmacion -->
+          REELEVO digitaliza procesos en el puesto, onboarding y competencias para la pyme industrial.
+          Si estás valorando una ayuda a la digitalización, podemos ayudarte a entender si tu caso encaja
+          en el marco de estos programas.
+        </p>
+      </div>
+      <div class="hero-cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+        <a href="/documentacion-procesos/" class="btn-ghost">Documentación de procesos →</a>
+        <a href="/gestion-competencias/" class="btn-ghost">Gestión de competencias →</a>
+        <a href="/precios/" class="btn-ghost">Ver precios →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- H2-4: PASOS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <h2 class="section-title">Pasos para solicitarlo</h2>
+      </div>
+      <ol class="steps-ol fade-up delay-1">
+        <li>Comprueba si tu empresa cumple los requisitos en las bases oficiales vigentes.</li>
+        <li>Identifica los procesos críticos que quieres digitalizar primero.</li>
+        <li>Escríbenos y valoramos juntos el encaje y el alcance.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Siguiente paso</div>
+    <h3 class="cta-title fade-up delay-1">¿Quieres valorar tu caso?</h3>
+    <p class="cta-sub fade-up delay-2">
+      Cuéntanos tu situación y te orientamos sobre cómo digitalizar tu planta y qué ayudas podrían aplicar.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
+      <a href="mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital" class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Hablar con nosotros">Hablar con nosotros</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .aid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .aid-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; }
+  .aid-card h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 10px; }
+  .aid-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+  .aid-sources { margin-top: 28px; font-size: 0.82rem; color: var(--gray2); }
+  .aid-sources a { color: var(--orange); text-decoration: none; }
+  .steps-ol { max-width: 760px; margin: 32px 0 0; padding-left: 20px; color: var(--gray); line-height: 1.7; }
+  .steps-ol li { margin-bottom: 12px; }
+  @media (max-width: 900px) { .aid-grid { grid-template-columns: 1fr; } }
+</style>

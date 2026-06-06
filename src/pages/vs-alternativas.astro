@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "REELEVO vs alternativas — Comparativa de software SOP industrial para pymes";
-const description = "Comparativa de software SOP industrial: REELEVO frente a Dozuki, Poka, GembaDocs y métodos tradicionales. Precio, adopción y encaje para pymes industriales.";
+const description = "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola.";
+const canonical = "https://gmvsolutions.es/vs-alternativas/";
 
 const schema = {
   "@context": "https://schema.org",
@@ -35,14 +36,21 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="vs-alternativas"
+  pageType="comparativa"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Comparación honesta</div>
-    <h1 class="fade-up delay-1">¿Por qué <em>REELEVO</em><br>y no otra cosa?</h1>
-    <p class="fade-up delay-2">Comparativa clara de herramientas y enfoques para documentar procesos, ordenar el onboarding y reducir la dependencia operativa en planta.</p>
+    <h1 class="fade-up delay-1">Alternativa ligera para pyme:<br><em>REELEVO vs otras opciones</em></h1>
+    <p class="fade-up delay-2">Compara en 5 criterios: precio, arranque, adopcion operativa, idioma y encaje real para pyme industrial espanola.</p>
+    <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="/precios/" class="btn-ghost">Ver precios</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -54,8 +62,7 @@ const schema = {
         <div class="eyebrow">Software especializado</div>
         <h2 class="section-title">REELEVO vs competencia internacional</h2>
         <p class="section-sub">
-          Análisis completo de las principales plataformas de documentación operativa.
-          Precios, funcionalidades y adecuación al mercado español.
+          Esta pagina prioriza una sola pregunta: que opcion encaja mejor en una pyme industrial espanola que necesita arrancar rapido.
         </p>
       </div>
 
@@ -74,7 +81,7 @@ const schema = {
             </thead>
             <tbody>
               <tr>
-                <td class="feature-name">Precio mensual (público)</td>
+                <td class="feature-name">1. Precio y transparencia</td>
                 <td class="reelevo-cell"><span class="check">✓</span> 49€/mes</td>
                 <td class="competitor-cell"><span class="cross">×</span> ~$850/mes*</td>
                 <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
@@ -82,7 +89,15 @@ const schema = {
                 <td class="competitor-cell"><span class="cross">×</span> Oculto**</td>
               </tr>
               <tr>
-                <td class="feature-name">Sin cuenta de operario</td>
+                <td class="feature-name">2. Arranque e implantacion</td>
+                <td class="reelevo-cell"><span class="check">✓</span> Ligero y asistido</td>
+                <td class="competitor-cell"><span class="cross">×</span> 2-6 semanas</td>
+                <td class="competitor-cell"><span class="cross">×</span> 3-6 meses</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> 1-2 semanas</td>
+                <td class="competitor-cell"><span class="partial">⚪</span> 3-5 dias</td>
+              </tr>
+              <tr>
+                <td class="feature-name">3. Adopcion operaria</td>
                 <td class="reelevo-cell"><span class="check">✓</span> Acceso directo sin usuario</td>
                 <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
                 <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
@@ -90,39 +105,7 @@ const schema = {
                 <td class="competitor-cell"><span class="cross">×</span> Usuario obligatorio</td>
               </tr>
               <tr>
-                <td class="feature-name">Sin app para operarios</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Solo navegador web</td>
-                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
-                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
-                <td class="competitor-cell"><span class="cross">×</span> App obligatoria</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Web + App</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Monitor tiempo real</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Dashboard en vivo</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Limitado</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo informes</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Trazabilidad de ejecución</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Registro por ejecución real</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo completado</td>
-                <td class="competitor-cell"><span class="cross">×</span> Manual</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo completado</td>
-                <td class="competitor-cell"><span class="cross">×</span> Manual</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Guía de incidencias integrada</td>
-                <td class="reelevo-cell"><span class="check">✓</span> En cada paso</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Documentos separados</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Documentos separados</td>
-                <td class="competitor-cell"><span class="cross">×</span> No incluido</td>
-                <td class="competitor-cell"><span class="cross">×</span> No incluido</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Idioma español nativo</td>
+                <td class="feature-name">4. Localizacion en espanol</td>
                 <td class="reelevo-cell"><span class="check">✓</span> Diseñado en español</td>
                 <td class="competitor-cell"><span class="cross">×</span> Traducción automática</td>
                 <td class="competitor-cell"><span class="partial">⚪</span> Parcial</td>
@@ -130,28 +113,12 @@ const schema = {
                 <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
               </tr>
               <tr>
-                <td class="feature-name">Enfoque pyme española</td>
+                <td class="feature-name">5. Encaje pyme industrial espanola</td>
                 <td class="reelevo-cell"><span class="check">✓</span> Específico</td>
                 <td class="competitor-cell"><span class="cross">×</span> Fortune 500</td>
                 <td class="competitor-cell"><span class="cross">×</span> Enterprise</td>
                 <td class="competitor-cell"><span class="partial">⚪</span> Genérico</td>
                 <td class="competitor-cell"><span class="cross">×</span> Startups tech</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Arranque inicial</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Ligero y asistido</td>
-                <td class="competitor-cell"><span class="cross">×</span> 2-6 semanas</td>
-                <td class="competitor-cell"><span class="cross">×</span> 3-6 meses</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> 1-2 semanas</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> 3-5 días</td>
-              </tr>
-              <tr>
-                <td class="feature-name">Soporte en español</td>
-                <td class="reelevo-cell"><span class="check">✓</span> Nativo</td>
-                <td class="competitor-cell"><span class="cross">×</span> Partner local</td>
-                <td class="competitor-cell"><span class="partial">⚪</span> Limitado</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
-                <td class="competitor-cell"><span class="cross">×</span> Solo inglés</td>
               </tr>
             </tbody>
           </table>
@@ -366,82 +333,6 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- ¿POR QUÉ REELEVO? -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">La diferencia real</div>
-        <h2 class="section-title">¿Por qué elegir <em>REELEVO?</em></h2>
-        <p class="section-sub">
-          Más allá de las funcionalidades y precios, estas son las razones
-          por las que las pymes industriales españolas eligen REELEVO.
-        </p>
-      </div>
-
-      <div class="reasons-grid fade-up delay-1">
-        <div class="reason-card">
-          <div class="reason-number">1</div>
-          <h3 class="reason-title">Diseñado para la realidad española</h3>
-          <p class="reason-desc">
-            Pensado para pymes industriales que conviven con absentismo,
-            rotación, tutorías y dependencia de perfiles clave.
-            No parte de una lógica enterprise adaptada a posteriori.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <div class="reason-number">2</div>
-          <h3 class="reason-title">Menos fricción de adopción</h3>
-          <p class="reason-desc">
-            Un operario ETT de 22 años puede usar REELEVO igual que
-            un veterano de 55. Sin apps, sin usuarios de operario
-            y con acceso directo en el puesto.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <div class="reason-number">3</div>
-          <h3 class="reason-title">Precio honesto y transparente</h3>
-          <p class="reason-desc">
-            De los pocos que publican precios reales en euros.
-            No hay letra pequeña, no hay sorpresas. El precio que ves
-            es el precio que pagas.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <div class="reason-number">4</div>
-          <h3 class="reason-title">Arranque ligero y asumible</h3>
-          <p class="reason-desc">
-            El arranque puede quedar preparado muy rápido cuando el caso es simple.
-            Los primeros procesos críticos se aterrizan con acompañamiento, sin proyecto pesado.
-            Sin consultores, sin proyectos de meses.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <div class="reason-number">5</div>
-          <h3 class="reason-title">Soporte cercano en español</h3>
-          <p class="reason-desc">
-            Soporte técnico y comercial en español,
-            con un proceso más cercano y entendible para una pyme industrial.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <div class="reason-number">6</div>
-          <h3 class="reason-title">Proyecto asumible</h3>
-          <p class="reason-desc">
-            Puedes empezar por pocos procesos críticos,
-            validar encaje y ampliar después sin sobredimensionar la decisión.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- ENTRADAS AL CLUSTER -->
   <section class="section section-center">
     <div class="section-inner">
@@ -501,7 +392,8 @@ const schema = {
       y compararlo con tus alternativas reales.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarme en REELEVO →
       </a>
       <a href="/precios/" class="btn-ghost">

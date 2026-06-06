@@ -12,13 +12,14 @@ const schema = {
 ---
 
 <BaseLayout
-  title="Software SOP para transferencia de conocimiento operativo — REELEVO | Captura antes de que se vayan"
-  description="Software SOP para capturar el conocimiento de tus expertos antes de que se jubilen o se vayan. Evita perder saber hacer crítico."
+  title="Transferencia de conocimiento industrial | REELEVO"
+  description="Transferencia de conocimiento industrial: captura del conocimiento crítico del experto antes de que se jubile o se vaya, documentado en el puesto."
   canonical="https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/"
   ogTitle="REELEVO — Transferencia de conocimiento operativo | Captura antes de que se vayan"
   ogDescription="Tu mejor técnico se jubila en 6 meses. REELEVO captura su conocimiento operativo antes de que desaparezca. En 30 minutos por proceso, con el móvil."
   activeNav="casos-de-uso"
   schema={schema}
+  pageType="caso_uso"
 >
 
 <style>
@@ -51,11 +52,12 @@ const schema = {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="eyebrow fade-up">Software SOP · Transferencia de conocimiento</div>
+  <div class="eyebrow fade-up">Transferencia de conocimiento industrial</div>
   <h1 class="fade-up delay-1">Tu mejor técnico se jubila<br>en 6 meses. <em>¿Qué pasará<br>cuando se vaya?</em></h1>
-  <p class="fade-up delay-2">Lleva 20 años en esa planta. Sabe exactamente cómo arrancar la línea en invierno, qué hacer cuando el sensor de presión da falsos positivos, qué pasos nunca hay que seguir en ese orden. Ese conocimiento no está en ningún manual. Está en su cabeza. La documentación de procesos de producción es clave para que ese saber hacer no se pierda.</p>
+  <p class="fade-up delay-2">Lleva 20 años en esa planta. Sabe cómo arrancar la línea en invierno, qué hacer cuando el sensor de presión da falsos positivos, qué pasos nunca hay que seguir en ese orden. Ese conocimiento no está en ningún manual: está en su cabeza. Documentar esos procesos es clave para que ese saber hacer no se pierda.</p>
   <div class="hero-cta-group fade-up delay-3">
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Implementación asistida · Sin compromiso</p>
@@ -247,11 +249,18 @@ const schema = {
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Te interesa?</div>
-  <h2 class="cta-title fade-up delay-1">Empieza a capturar el conocimiento<br><em>de tu equipo hoy</em></h2>
+  <h3 class="cta-title fade-up delay-1">Empieza a capturar el conocimiento<br><em>de tu equipo hoy</em></h3>
   <p class="cta-sub fade-up delay-2">El experto documenta los primeros procesos críticos antes de que sea tarde.</p>
   <div class="cta-actions fade-up delay-3">
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
-    <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+       data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a>
+  </div>
+  <div class="cta-note fade-up delay-4" style="margin-top:18px;">
+    Relacionado:
+    <a href="/documentacion-procesos/">documentación de procesos</a> ·
+    <a href="/para-quien/gerente-propietario/">para gerencia</a>
   </div>
 </section>
 

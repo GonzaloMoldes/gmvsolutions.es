@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Workflows automatizados para procesos industriales complejos | REELEVO";
+const title = "Workflows operativos industriales | REELEVO";
 const description = "Diseña y ejecuta flujos de trabajo multi-paso y multi-operario con el editor visual de REELEVO. Aprobaciones, checkpoints, ramas paralelas y seguimiento en tiempo real. Para procesos que van más allá de un SOP simple.";
 const canonical = "https://gmvsolutions.es/workflows/";
 
@@ -15,15 +15,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Workflows multi-operario · Aprobaciones · Ramas paralelas · Seguimiento en tiempo real</div>
+    <div class="eyebrow fade-up">Workflows operativos industriales</div>
     <h1 class="fade-up delay-1">Algunos procesos necesitan<br><em>más de un operario y más de un paso</em></h1>
     <p class="fade-up delay-2">Diseña flujos de trabajo complejos con el editor visual de REELEVO. Asigna cada paso al operario correcto, añade puntos de aprobación, divide en ramas paralelas y haz seguimiento en tiempo real desde el panel de supervisión.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -257,15 +260,16 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Estructura los procesos complejos<br><em>una vez — y que funcionen solos</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Empieza con REELEVO. Cuando tengas los SOPs básicos en marcha, los workflows son el siguiente nivel de digitalización operativa.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Registrarse gratis
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
       <a href="/portal-operario/" class="btn-ghost">
         Ver el portal del operario →

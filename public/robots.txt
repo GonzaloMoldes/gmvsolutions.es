@@ -18,11 +18,8 @@ Allow: /onboarding-software-pymes/
 Allow: /gestion-competencias/
 Allow: /documentacion-procesos/
 
-# Excluir recursos estáticos innecesarios para conservar crawl budget
-Disallow: /*.json$
-Disallow: /*.css$
-Disallow: /*.js$
-Disallow: /_astro/
+# CSS y JS deben ser rastreables: Google los necesita para renderizar la pagina
+# y evaluar contenido, mobile-friendliness y Core Web Vitals. Solo se excluye el panel interno.
 Disallow: /admin/
 
 # Directivas Google-específicas para mejorar indexación
@@ -44,14 +41,15 @@ User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
 
-# Bloquear bots malintencionados comunes
-User-agent: MJ12bot
-Disallow: /
-
+# Herramientas SEO permitidas (auditoria propia + monitorizacion de backlinks)
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
 
 User-agent: SemrushBot
+Allow: /
+
+# Bloquear bots de spam/scraping
+User-agent: MJ12bot
 Disallow: /
 
 User-agent: BLEXBot

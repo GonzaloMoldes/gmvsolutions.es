@@ -9,9 +9,11 @@ export interface Props {
   readTime: string;
   canonical?: string;
   schema?: object | object[];
+  /** Borradores: noindex hasta que el copy este listo. */
+  noindex?: boolean;
 }
 
-const { title, description, date, category, readTime, canonical, schema } = Astro.props;
+const { title, description, date, category, readTime, canonical, schema, noindex = false } = Astro.props;
 
 const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   day: 'numeric',
@@ -19,41 +21,13 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   year: 'numeric',
 });
 
-const breadcrumbSchema = canonical
-  ? {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Recursos",
-          "item": "https://gmvsolutions.es/recursos/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": title,
-          "item": canonical
-        }
-      ]
-    }
-  : null;
-
-const schemaList = Array.isArray(schema)
-  ? (breadcrumbSchema ? [...schema, breadcrumbSchema] : schema)
-  : (schema ? (breadcrumbSchema ? [schema, breadcrumbSchema] : [schema]) : (breadcrumbSchema ? [breadcrumbSchema] : undefined));
+// El BreadcrumbList se genera de forma global y automatica en BaseLayout (src/lib/seo.ts),
+// que ademas produce la ruta correcta (Inicio -> Blog -> articulo). No se duplica aqui.
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={schemaList} activeNav="recursos">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="blog" pageType="blog" noindex={noindex}>
   <article class="article-page">
     <div class="article-container">
-
-      <nav class="article-breadcrumb">
-        <a href="/recursos/">Recursos</a>
-        <span>→</span>
-        <span>{category}</span>
-      </nav>
 
       <header class="article-header">
         <div class="article-category">{category}</div>
@@ -71,7 +45,7 @@ const schemaList = Array.isArray(schema)
       </div>
 
       <div class="article-back">
-        <a href="/recursos/" class="btn-ghost">← Volver a recursos</a>
+        <a href="/blog/" class="btn-ghost">← Volver al blog</a>
       </div>
 
     </div>

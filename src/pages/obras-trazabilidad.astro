@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Trazabilidad por pieza y obra para fabricación a medida | REELEVO";
+const title = "Trazabilidad industrial por obra y pieza | REELEVO";
 const description = "Gestiona proyectos de fabricación con trazabilidad completa por pieza. QR individual por unidad producida, seguimiento de avance de obra, historial de producción por proyecto. Para pymes industriales que fabrican por encargo.";
 const canonical = "https://gmvsolutions.es/obras-trazabilidad/";
 
@@ -15,7 +15,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -218,7 +218,7 @@ const schema = {
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Caso real: cuando el cliente reclama una pieza defectuosa</h2>
+        <h3 class="section-title">Caso real: cuando el cliente reclama una pieza defectuosa</h3>
       </div>
 
       <div class="case-story fade-up delay-1">
@@ -256,7 +256,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Enfoque prudente</div>
-        <h2 class="section-title">Trazabilidad operativa — no un sistema MES completo</h2>
+        <h3 class="section-title">Trazabilidad operativa — no un sistema MES completo</h3>
       </div>
 
       <div class="honest-note fade-up delay-1">
@@ -274,9 +274,9 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Convierte cada pieza en una unidad<br><em>con historia propia</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Empieza creando tu primera obra en REELEVO. En menos de 15 minutos tienes trazabilidad real de toda la producción del proyecto.
     </p>

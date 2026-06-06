@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Por qué usar REELEVO — Onboarding software y gestión de competencias para pymes industriales";
-const description = "REELEVO es un onboarding software y plataforma de gestión de competencias que documenta procesos críticos, ordena incorporaciones y reduce dependencia de operarios clave en planta.";
+const description = "Por qué usar REELEVO: diferencias frente a las alternativas (MES, Excel y plataformas enterprise) para la pyme industrial. Ligero, en español y con precio público.";
+const canonical = "https://gmvsolutions.es/por-que-usar-reelevo/";
 
 const schema = {
   "@context": "https://schema.org",
@@ -19,6 +20,7 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="por-que-usar-reelevo"
 >
@@ -184,9 +186,9 @@ const schema = {
   <!-- FINAL CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por lo crítico</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       Empieza por los procesos<br><em>que más riesgo generan</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Si quieres entrar en la plataforma, regístrate en REELEVO y valora si encaja en tu planta.
       Puedes empezar por pocos procesos críticos y ordenar el proyecto sin hacerlo más grande de lo necesario.

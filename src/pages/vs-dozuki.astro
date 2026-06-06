@@ -2,14 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Dozuki vs REELEVO — Comparativa de software SOP para pymes industriales";
-const description = "Comparativa detallada: Dozuki vs REELEVO. Análisis de funcionalidades, precio, idioma y enfoque. ¿Cuál es mejor para tu pyme industrial española?";
+const description = "Comparativa de software de instrucciones de trabajo: Dozuki vs REELEVO en idioma, precio, implantación y adopción para pyme industrial española.";
+const canonical = "https://gmvsolutions.es/vs-dozuki/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "ComparisonChart",
   "headline": title,
   "description": description,
-  "url": "https://gmvsolutions.es/vs-dozuki/",
+  "url": canonical,
   "inLanguage": "es-ES",
   "about": [
     {
@@ -24,12 +25,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Comparativa de herramientas</div>
     <h1 class="fade-up delay-1">Dozuki vs REELEVO<br><em>¿Cuál es mejor para tu pyme?</em></h1>
-    <p class="fade-up delay-2">Análisis completo de software SOP industrial: funcionalidades, precio, idioma y enfoque de mercado.</p>
+    <p class="fade-up delay-2">Comparación en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -39,68 +46,43 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Comparación directa</div>
-        <h2 class="section-title">Caracteristicas clave</h2>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
       </div>
 
       <div class="comparison-table fade-up delay-1">
         <table>
           <thead>
             <tr>
-              <th style="width: 30%;">Característica</th>
+              <th style="width: 30%;">Criterio</th>
               <th style="width: 35%;">Dozuki</th>
               <th style="width: 35%;">REELEVO</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Idioma interfaz</strong></td>
-              <td>English (multiidioma limitado)</td>
-              <td class="highlight">✓ Spanish (native)</td>
+              <td><strong>Idioma nativo</strong></td>
+              <td>Inglés (español parcial)</td>
+              <td class="highlight">✓ Español nativo</td>
             </tr>
             <tr>
-              <td><strong>Precio publicado</strong></td>
-              <td>No publicado (demo/contacto)</td>
-              <td class="highlight">✓ Transparente (desde 49€/mes)</td>
+              <td><strong>Precio</strong></td>
+              <td>Bajo demanda (demo)</td>
+              <td class="highlight">✓ Público, desde 49€/mes por empresa</td>
             </tr>
             <tr>
-              <td><strong>Especialización</strong></td>
-              <td>Global enterprise</td>
-              <td class="highlight">✓ Pymes industriales españolas</td>
+              <td><strong>Implantación / arranque</strong></td>
+              <td>Proyecto orientado a enterprise</td>
+              <td class="highlight">✓ Ligera y asistida</td>
             </tr>
             <tr>
-              <td><strong>Documentación SOP</strong></td>
-              <td>✓ Sí</td>
-              <td class="highlight">✓ Sí</td>
+              <td><strong>Adopción del operario</strong></td>
+              <td>Curva media-alta</td>
+              <td class="highlight">✓ Acceso por QR, sin cuentas por operario</td>
             </tr>
             <tr>
-              <td><strong>Gestión competencias</strong></td>
-              <td>No incluido</td>
-              <td class="highlight">✓ Matriz de habilidades</td>
-            </tr>
-            <tr>
-              <td><strong>Onboarding operarios</strong></td>
-              <td>No específico</td>
-              <td class="highlight">✓ Diseñado para operarios</td>
-            </tr>
-            <tr>
-              <td><strong>Acceso en planta</strong></td>
-              <td>Web + app</td>
-              <td class="highlight">✓ Web + app + acceso offline</td>
-            </tr>
-            <tr>
-              <td><strong>Soporte atención</strong></td>
-              <td>English principalmente</td>
-              <td class="highlight">✓ Español</td>
-            </tr>
-            <tr>
-              <td><strong>Curva aprendizaje</strong></td>
-              <td>Media-Alta (enterprise)</td>
-              <td class="highlight">✓ Baja (pymes)</td>
-            </tr>
-            <tr>
-              <td><strong>Capacitación inicial</strong></td>
-              <td>Contacto para info</td>
-              <td class="highlight">✓ Incluida</td>
+              <td><strong>Encaje pyme industrial española</strong></td>
+              <td>Global / enterprise</td>
+              <td class="highlight">✓ Pensado para pyme industrial española</td>
             </tr>
           </tbody>
         </table>
@@ -207,61 +189,22 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- ANÁLISIS ECONÓMICO -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Análisis de coste</h2>
-      </div>
-
-      <div class="cost-comparison fade-up delay-1">
-        <div class="cost-card">
-          <h4>DOZUKI</h4>
-          <p class="cost-amount">Precio: No publicado</p>
-          <p class="cost-note">Típicamente: 200-500€/mes (mínimo)</p>
-          <ul>
-            <li>Configuración inicial: $2,000-5,000</li>
-            <li>Capacitación: Adicional</li>
-            <li>Soporte: Según plan</li>
-          </ul>
-        </div>
-
-        <div class="cost-card highlight">
-          <h4>REELEVO</h4>
-          <p class="cost-amount">Desde 49€/mes</p>
-          <p class="cost-note">Transparente y escalable</p>
-          <ul>
-            <li>Setup: Incluido</li>
-            <li>Capacitación: Incluida</li>
-            <li>Soporte: Incluido en español</li>
-            <li>Sin contratos a largo plazo</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="roi-note fade-up delay-2">
-        <p><strong>Nota sobre ROI:</strong> Para una pyme industrial de 50 empleados con 5 operarios en puestos críticos, la documentación de procesos con REELEVO típicamente se paga en 1-2 meses evitando paradas por falta de cobertura.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       ¿Listo para probar <em>REELEVO</em>?
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       REELEVO está diseñado específicamente para pymes industriales españolas. Sin sorpresas de precio, con soporte en español y enfoque operativo.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse gratis">
         Registrarse gratis
       </a>
       <a href="/precios/" class="btn-ghost">
-        Ver caso de tu sector →
+        Ver precios →
       </a>
     </div>
   </section>

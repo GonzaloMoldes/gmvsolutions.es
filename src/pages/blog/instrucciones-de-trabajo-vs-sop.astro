@@ -1,0 +1,80 @@
+---
+// SOP-2 (cluster SOP). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 2.2
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Instrucciones de trabajo vs SOP: qué necesita tu taller";
+const description = "Instrucción de trabajo, SOP, procedimiento: qué significan, en qué se diferencian y cuál necesita una pyme industrial para reducir errores y dependencia del experto.";
+const canonical = "https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-05-21",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-05-21" category="Procedimientos Operativos" readTime="8 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Una instrucción de trabajo resuelve un paso concreto en un puesto; un SOP ordena un procedimiento completo y repetible. La mayoría de talleres necesita empezar por instrucciones claras en el puesto e ir consolidando SOPs solo en lo crítico, sin convertirlo en burocracia.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#definiciones">Definiciones claras</a></li>
+    <li><a href="#instruccion">Cuándo basta una instrucción de trabajo</a></li>
+    <li><a href="#sop">Cuándo necesitas un SOP completo</a></li>
+    <li><a href="#conviven">Cómo conviven en planta</a></li>
+    <li><a href="#empezar">Cómo empezar sin burocratizar</a></li>
+  </ul>
+
+  <h2 id="definiciones">Definiciones claras</h2>
+  <p>Los términos se usan como sinónimos y no lo son del todo. En la práctica industrial:</p>
+  <ul>
+    <li><strong>Instrucción de trabajo:</strong> el cómo se hace una tarea concreta en un puesto. Es específica, corta y operativa: "cómo amarrar esta pieza", "cómo arrancar esta línea".</li>
+    <li><strong>SOP (procedimiento operativo estándar):</strong> el qué, quién, cuándo y cómo de un proceso completo, pensado para que el resultado sea el mismo lo haga quien lo haga. Suele agrupar varias instrucciones y criterios.</li>
+    <li><strong>Procedimiento:</strong> término más amplio, a menudo ligado a un sistema de calidad (ISO), que describe el proceso a nivel de organización.</li>
+  </ul>
+  <p>La diferencia útil no es académica: es de <strong>nivel de detalle y de propósito</strong>. La instrucción está al pie de máquina; el SOP estandariza para que no dependa de la persona.</p>
+
+  <h2 id="instruccion">Cuándo basta una instrucción de trabajo</h2>
+  <p>Si una tarea es puntual, la hace siempre la misma persona y el riesgo de hacerla mal es bajo, una instrucción clara en el puesto es suficiente. No tiene sentido montar un SOP completo para algo que se resuelve con una foto y tres pasos. Empezar por aquí da resultados rápidos y genera el hábito de documentar.</p>
+
+  <h2 id="sop">Cuándo necesitas un SOP completo</h2>
+  <p>El SOP se justifica cuando el proceso es crítico, lo ejecutan varias personas o entra gente nueva, y la variabilidad cuesta dinero: reprocesos, paradas, defectos. Si una baja en ese puesto desordena el turno, ese proceso necesita un SOP. La pregunta de filtro es simple: <em>¿qué pasa si falta quien lo sabe hacer?</em></p>
+
+  <h2 id="conviven">Cómo conviven en planta</h2>
+  <p>No es elegir uno u otro. Un SOP bien hecho se apoya en instrucciones de trabajo concretas para los pasos delicados. El operario nuevo sigue el SOP de principio a fin; el veterano consulta solo la instrucción puntual que necesita. Lo importante es que ambos estén <strong>accesibles en el puesto</strong>, no en una carpeta del servidor.</p>
+
+  <h2 id="empezar">Cómo empezar sin burocratizar</h2>
+  <p>El mayor riesgo es convertir esto en papeleo. Empieza por los 3-5 procesos donde más duele la dependencia, documéntalos con quien los domina y déjalos donde se trabajan. Amplía solo cuando compense. Si quieres una base, mira <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a> y descarga una <a href="/blog/plantilla-sop-produccion/">plantilla de SOP</a>.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/documentacion-procesos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Documentación de procesos</div>
+        <div class="related-link-desc">Instrucciones y SOPs accesibles en el puesto.</div>
+      </a>
+      <a class="related-link-card" href="/workflows/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Workflows</div>
+        <div class="related-link-desc">Cuando un proceso necesita varios pasos y responsables.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">Definición, ejemplos y cómo implementarlo.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>¿Listo para ordenar tus procesos?</strong> <a href="/blog/plantilla-sop-produccion/" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Solicitar una demo →</a></p>
+  </div>
+</ArticleLayout>

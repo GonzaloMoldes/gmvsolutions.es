@@ -1,0 +1,82 @@
+---
+// CON-4 (cluster SOP/mantenimiento). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 3.4
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "SOP de mantenimiento preventivo: guía y plantilla";
+const description = "Cómo documentar un SOP de mantenimiento preventivo: qué tareas incluir, cada cuánto y cómo integrarlo en la agenda del operario. Con plantilla descargable.";
+const canonical = "https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-06-05",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-06-05" category="Mantenimiento" readTime="8 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Un SOP de mantenimiento preventivo define qué tareas hacer, con qué frecuencia y quién. Lo importante no es el documento, sino que se integre en el trabajo diario del operario en vez de vivir en un Excel aparte que nadie mira.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#olvida">Por qué el preventivo se olvida</a></li>
+    <li><a href="#estructura">Estructura de un SOP de mantenimiento</a></li>
+    <li><a href="#frecuencias">Frecuencias y responsables</a></li>
+    <li><a href="#integrar">Integrarlo en el trabajo diario</a></li>
+    <li><a href="#plantilla">Plantilla</a></li>
+  </ul>
+
+  <h2 id="olvida">Por qué el preventivo se olvida</h2>
+  <p>El mantenimiento preventivo es lo primero que se cae cuando hay presión de producción. La tarea no es urgente —hasta que la máquina se para— así que se posterga. Y si el plan vive en la cabeza del responsable o en un Excel que solo él abre, basta con que esté de vacaciones para que nadie lo recuerde. El resultado son averías evitables y paradas que cuestan mucho más que la tarea que se saltó.</p>
+
+  <h2 id="estructura">Estructura de un SOP de mantenimiento</h2>
+  <p>Un SOP de mantenimiento preventivo claro incluye, por cada tarea:</p>
+  <ul>
+    <li><strong>Qué:</strong> la operación concreta (lubricar, inspeccionar, limpiar, sustituir).</li>
+    <li><strong>Dónde:</strong> máquina y punto exacto, con foto si ayuda a localizarlo.</li>
+    <li><strong>Cómo:</strong> los pasos y los criterios de "bien hecho".</li>
+    <li><strong>Cada cuánto:</strong> por tiempo (semanal, mensual) o por uso (horas de máquina).</li>
+    <li><strong>Quién:</strong> el responsable o el turno asignado.</li>
+    <li><strong>Registro:</strong> dejar constancia de que se hizo, cuándo y con qué resultado.</li>
+  </ul>
+
+  <h2 id="frecuencias">Frecuencias y responsables</h2>
+  <p>La frecuencia debe ser realista: mejor una tarea mensual que de verdad se hace que una semanal que nadie cumple. Asigna cada tarea a un responsable o turno concreto; lo que es "de todos" no lo hace nadie. Y registra la intervención, porque sin histórico no sabes si el plan se está cumpliendo ni puedes ajustarlo.</p>
+
+  <h2 id="integrar">Integrarlo en el trabajo diario</h2>
+  <p>El salto de valor está en que la tarea de mantenimiento aparezca en la agenda del operario junto a las de producción, no en un sistema aparte. Así el preventivo deja de competir con la producción por la atención y pasa a formar parte del día. En <a href="/mantenimiento/">mantenimiento</a> puedes ver cómo se genera la orden automáticamente y se integra en el puesto.</p>
+
+  <h2 id="plantilla">Plantilla</h2>
+  <p>Si quieres empezar, parte de la <a href="/blog/plantilla-sop-produccion/">plantilla de SOP de producción</a> y adáptala al mantenimiento: misma estructura, cambiando "pasos del proceso" por "tareas y frecuencias". Empieza por tu máquina más crítica.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/mantenimiento/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Mantenimiento</div>
+        <div class="related-link-desc">Planes y órdenes integrados en la agenda del operario.</div>
+      </a>
+      <a class="related-link-card" href="/control-produccion/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Control de producción</div>
+        <div class="related-link-desc">Visibilidad diaria de lo que pasa en planta.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">Definición, ejemplos e implementación.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Pon en marcha tu preventivo.</strong> <a href="/blog/plantilla-sop-produccion/" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Solicitar una demo →</a></p>
+  </div>
+</ArticleLayout>

@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Precios REELEVO — menos dependencia operativa desde 49€/mes";
-const description = "Precio por empresa para reducir improvisación, ordenar incorporaciones y ganar visibilidad operativa en planta sin pagar por operario.";
+const title = "Precio de software SOP industrial | REELEVO";
+const description = "Precio de software SOP y de operaciones para pyme industrial: desde 49 €/mes por empresa, sin coste por operario. Ordena procesos y gana visibilidad.";
+const canonical = "https://gmvsolutions.es/precios/";
 const primaryCtaHref = "https://app.gmvsolutions.es/registro";
-const secondaryCtaHref = "/como-funciona/";
 const primaryCtaLabel = "Registrarme en REELEVO";
 
 const schema = {
@@ -34,14 +34,21 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
+  canonical={canonical}
   schema={schema}
   activeNav="precios"
+  pageType="core"
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Precio por empresa</div>
     <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
-    <p class="fade-up delay-2">REELEVO se compra en capas claras: primero continuidad operativa, orden en planta y mejor documentación de procesos de producción, después expansión para producción, formación y calidad, y solo al final requisitos enterprise o despliegues más especiales.</p>
+    <p class="fade-up delay-2">Precio público desde 49€/mes por empresa. Sin coste por operario y sin "pide demo": sabes lo que pagas antes de empezar.</p>
+    <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
+      <a href={primaryCtaHref} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
+      <a href="/vs-alternativas/" class="btn-ghost">Comparar alternativas</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -91,56 +98,6 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- MAPA COMERCIAL -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Cómo se empaqueta</div>
-        <h2 class="section-title">Qué entra en <em>cada capa comercial</em></h2>
-        <p class="section-sub">
-          La idea no es vender una suite inflada desde el día 1.
-          La idea es que sepas qué compras ahora, qué puedes ampliar después y qué se revisa solo si de verdad hace falta.
-        </p>
-      </div>
-
-      <div class="package-grid fade-up delay-1">
-        <article class="package-card">
-          <div class="package-label">Base incluida</div>
-          <h3 class="package-title">Lo que toda planta compra primero</h3>
-          <ul class="package-list">
-            <li>Menos improvisación en el puesto</li>
-            <li>Arranque más ordenado cuando falta alguien</li>
-            <li>Trabajo accesible sin fricción innecesaria</li>
-            <li>Primer nivel de visibilidad sobre la ejecución</li>
-          </ul>
-        </article>
-
-        <article class="package-card">
-          <div class="package-label">Expansión operativa</div>
-          <h3 class="package-title">Lo que amplía valor dentro de la planta</h3>
-          <ul class="package-list">
-            <li>Más claridad para producción y coordinación del turno</li>
-            <li>Más base útil para formación y polivalencia</li>
-            <li>Más soporte a calidad y seguimiento interno</li>
-            <li>Reporting y visibilidad más completos</li>
-          </ul>
-        </article>
-
-        <article class="package-card">
-          <div class="package-label">Enterprise</div>
-          <h3 class="package-title">Lo que aparece cuando el entorno lo pide</h3>
-          <ul class="package-list">
-            <li>Integraciones, API y requisitos de IT</li>
-            <li>SSO o despliegues corporativos</li>
-            <li>Acuerdos de soporte más dedicados</li>
-            <li>Necesidades avanzadas de reporting o conformidad</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <!-- PLANES -->
   <section class="section" id="planes">
@@ -169,7 +126,8 @@ const schema = {
             <div class="plan-feature"><span class="cross">×</span>API de integración</div>
           </div>
           <div class="plan-cta">
-            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">{primaryCtaLabel}</a>
+            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
+               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Starter">{primaryCtaLabel}</a>
             <p class="plan-note">El botón te lleva al registro de la plataforma</p>
           </div>
         </div>
@@ -194,7 +152,8 @@ const schema = {
             <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
           </div>
           <div class="plan-cta">
-            <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel}</a>
+            <a href={primaryCtaHref} class="btn-primary"
+               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Profesional">{primaryCtaLabel}</a>
             <p class="plan-note">Te ayudamos a validar si este es el plan que encaja</p>
           </div>
         </div>
@@ -218,7 +177,8 @@ const schema = {
             <div class="plan-feature"><span class="check">✓</span>Implementación asistida</div>
           </div>
           <div class="plan-cta">
-            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;">Hablar con nosotros</a>
+            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
+               data-cta data-cta-intent="contacto" data-cta-location="pricing" data-cta-label="Hablar con nosotros - Enterprise">Hablar con nosotros</a>
             <p class="plan-note">Cuéntanos el alcance y te orientamos</p>
           </div>
         </div>
@@ -282,7 +242,8 @@ const schema = {
           </div>
           <div class="roi-result-note">* REELEVO reduce parte del impacto de las bajas —menos errores, menos tiempo de parada y menos dependencia del tutor— pero no lo elimina. El cálculo usa una hipótesis conservadora de reducción del 25% del coste directo y toma como referencia el plan Profesional anualizado.</div>
           <div style="margin-top:20px;">
-            <a href={primaryCtaHref} class="btn-primary" style="font-size:.8rem;padding:12px 24px;">{primaryCtaLabel} →</a>
+            <a href={primaryCtaHref} class="btn-primary" style="font-size:.8rem;padding:12px 24px;"
+               data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme - ROI">{primaryCtaLabel} →</a>
           </div>
         </div>
       </div>
@@ -291,83 +252,6 @@ const schema = {
 
   <div class="divider" style="max-width:100%;"></div>
 
-  <!-- BAND -->
-  <div class="trial-band">
-    <div class="trial-title fade-up">Todos los planes parten del mismo <em>núcleo</em></div>
-    <div class="trial-bullets fade-up delay-1">
-      <div class="trial-bullet"><span>✓</span>Trabajo accesible en el puesto</div>
-      <div class="trial-bullet"><span>✓</span>Sin fricción para el operario</div>
-      <div class="trial-bullet"><span>✓</span>Más claridad sobre la ejecución</div>
-      <div class="trial-bullet"><span>✓</span>Arranque técnico ligero y asistido</div>
-      <div class="trial-bullet"><span>✓</span>Soporte en español</div>
-    </div>
-    <div class="cta-actions fade-up delay-2">
-      <a href={primaryCtaHref} class="btn-primary">{primaryCtaLabel} →</a>
-      <a href={secondaryCtaHref} class="btn-ghost">Evaluar mi situación</a>
-    </div>
-  </div>
-
-  <div class="divider" style="max-width:100%;"></div>
-
-  <!-- COMPARATIVA -->
-  <section class="section section-center">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Cómo se compra</div>
-        <h2 class="section-title">REELEVO vs <em>herramienta enterprise típica</em></h2>
-        <p class="section-sub">
-          La diferencia no es meter más catálogo desde el minuto uno.
-          La diferencia es empezar por continuidad operativa y orden en planta con un modelo asumible.
-        </p>
-      </div>
-
-      <div class="comp-scroll fade-up delay-1" style="margin-top:48px;">
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th class="comp-feature-col"></th>
-              <th class="comp-highlight">REELEVO</th>
-              <th>Herramienta enterprise típica</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="comp-label">Modelo de compra</td>
-              <td class="comp-highlight">Precio visible por empresa</td>
-              <td>Presupuesto y alcance más cerrados tras llamada</td>
-            </tr>
-            <tr>
-              <td class="comp-label">Arranque en planta</td>
-              <td class="comp-highlight">Trabajo accesible en el puesto, sin fricción para el operario</td>
-              <td>Despliegue y gestión de acceso normalmente más pesados</td>
-            </tr>
-            <tr>
-              <td class="comp-label">Puesta en marcha</td>
-              <td class="comp-highlight">Empiezas por procesos o puestos críticos</td>
-              <td>Suele pedir un proyecto más amplio desde el inicio</td>
-            </tr>
-            <tr>
-              <td class="comp-label">Valor principal</td>
-              <td class="comp-highlight">Menos dependencia y más visibilidad operativa</td>
-              <td>Más amplitud de suite, normalmente con más complejidad</td>
-            </tr>
-            <tr>
-              <td class="comp-label">Encaje natural</td>
-              <td class="comp-highlight">Pyme industrial que quiere empezar rápido y con foco</td>
-              <td>Proyecto corporativo con más presupuesto y más dependencia de despliegue</td>
-            </tr>
-            <tr>
-              <td class="comp-label">Escalado</td>
-              <td class="comp-highlight">Productividad, competencia e integraciones según el plan</td>
-              <td>Normalmente fuerte en enterprise, pero menos ligero para arrancar</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <!-- CTA -->
   <section class="cta-section">
@@ -380,10 +264,12 @@ const schema = {
       revisar el producto y valorar si encaja con tu planta y tus procesos.
     </p>
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href={primaryCtaHref} class="btn-primary">
+      <a href={primaryCtaHref} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         {primaryCtaLabel} →
       </a>
-      <a href={secondaryCtaHref} class="btn-ghost">
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
         Evaluar mi situación
       </a>
     </div>

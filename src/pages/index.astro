@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "REELEVO — Plataforma operativa para pymes industriales | Digitaliza tu planta";
-const description = "REELEVO digitaliza la operación de planta con flujos QR, trazabilidad completa, certificaciones automáticas y mejora continua. Para pymes industriales que quieren control real sin la complejidad de un ERP.";
+const title = "Software operaciones planta industrial | REELEVO para pymes";
+const description = "Controla la operacion de planta sin complejidad MES: procesos en puesto, continuidad ante bajas y visibilidad diaria desde 49 EUR/mes por empresa.";
 const canonical = "https://gmvsolutions.es/";
 
+// La Organization se emite globalmente desde BaseLayout (src/lib/seo.ts).
+// Aqui: WebSite (propio de la home) + SoftwareApplication con oferta (S2-C1).
 const schema = [
   {
     "@context": "https://schema.org",
@@ -14,72 +16,55 @@ const schema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://gmvsolutions.es/#organization",
-    "name": "GMV Solutions",
-    "alternateName": "REELEVO",
-    "url": "https://gmvsolutions.es",
-    "logo": "https://gmvsolutions.es/favicon.svg",
-    "description": "REELEVO ayuda a las pymes industriales a reducir la dependencia de personas clave, ordenar incorporaciones y ganar más visibilidad sobre lo que pasa en planta.",
-    "email": "hola@gmvsolutions.es",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Marola",
-      "addressLocality": "A Coruña",
-      "postalCode": "15002",
-      "addressCountry": "ES"
-    },
-    "foundingDate": "2025",
-    "areaServed": "ES",
-    "knowsAbout": [
-      "Software SOP industrial",
-      "Procedimientos operativos estándar",
-      "Documentación operativa",
-      "Continuidad operativa en planta",
-      "Visibilidad operativa industrial",
-      "Reducción de dependencia operativa",
-      "Aprendizaje operativo en planta",
-      "Onboarding de operarios",
-      "Cobertura de bajas en producción",
-      "Personal ETT en fábrica",
-      "Pymes industriales españolas"
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/company/gmvsolutions"
-    ]
+    "@type": "SoftwareApplication",
+    "name": "REELEVO",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "description": description,
+    "url": "https://gmvsolutions.es/",
+    "publisher": { "@id": "https://gmvsolutions.es/#organization" },
+    "offers": {
+      "@type": "Offer",
+      "price": "49",
+      "priceCurrency": "EUR",
+      "url": "https://app.gmvsolutions.es/registro",
+      "description": "Precio por empresa al mes, sin coste por operario"
+    }
   }
 ];
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="core">
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-eyebrow fade-up">Plataforma operativa industrial · Flujos QR · Trazabilidad · Mejora continua</div>
+    <div class="hero-eyebrow fade-up">Software operaciones planta industrial para pymes</div>
     <h1 class="hero-title fade-up delay-1">
-      La operación de tu fábrica,<br>
-      digitalizada<br>
-      <em>y bajo control</em>.
+      Controla tu planta<br>
+      sin complejidad<br>
+      <em>de un sistema MES</em>.
     </h1>
     <p class="hero-sub fade-up delay-2">
-      REELEVO digitaliza procesos, producción y conocimiento en planta. Con solo escanear un QR, tus operarios siguen instrucciones actualizadas, registran producción y proponen mejoras.<br>
-      <strong>Tú ves todo en tiempo real. El conocimiento se queda en la empresa. El equipo mejora solo</strong>.
+      Estandariza la ejecucion en puesto, reduce dependencia de operarios clave y gana visibilidad diaria de la operacion.
     </p>
     <div class="hero-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarme en REELEVO</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
     </div>
     <div class="hero-proof fade-up delay-4">
       <div class="hero-proof-item">
         <div class="hero-proof-num">Continuidad</div>
-        <div class="hero-proof-label">menos dependencia cuando falta el titular</div>
+        <div class="hero-proof-label">menos dependencia cuando falta alguien</div>
       </div>
       <div class="hero-proof-item">
         <div class="hero-proof-num">Visibilidad</div>
-        <div class="hero-proof-label">más claridad sobre lo que pasa en planta</div>
+        <div class="hero-proof-label">seguimiento diario de la operacion</div>
       </div>
       <div class="hero-proof-item">
         <div class="hero-proof-num">49€</div>
-        <div class="hero-proof-label">desde al mes por empresa</div>
+        <div class="hero-proof-label">al mes por empresa</div>
       </div>
     </div>
   </section>
@@ -92,10 +77,9 @@ const schema = [
       <div class="section-inner">
         <div class="casos-header fade-up">
           <div class="eyebrow">El día a día</div>
-          <h2 class="section-title">¿Te suena esto?</h2>
+          <h2 class="section-title">Que problema resuelve REELEVO</h2>
           <p class="section-sub">
-            Son dos momentos donde más se nota si el proceso vive en la planta
-            o sigue viviendo solo en la cabeza de alguien.
+            Bajas, incorporaciones y turnos sin trazabilidad. Ese es el foco principal.
           </p>
         </div>
 
@@ -113,11 +97,9 @@ const schema = [
               encuentre la solución o hasta que Javi coja el teléfono.
             </p>
             <ul class="caso-benefits">
-              <li>2-4 horas de línea parada buscando quién sabe</li>
-              <li>Presión sobre el resto del equipo para cubrir</li>
+              <li>Horas de línea parada buscando quién sabe arrancarla</li>
               <li>Errores por improvisar sin instrucciones claras</li>
               <li>Llamadas al experto durante su baja para salir del paso</li>
-              <li>Pedidos retrasados y clientes que no esperan</li>
             </ul>
           </div>
 
@@ -135,10 +117,8 @@ const schema = [
             </p>
             <ul class="caso-benefits">
               <li>Tu mejor operario pierde tiempo productivo enseñando</li>
-              <li>Dos personas para un solo puesto durante días</li>
               <li>El aprendizaje depende de quién enseña y cómo</li>
-              <li>Mayor riesgo de errores mientras dura la formación</li>
-              <li>En campañas o picos, el problema se multiplica con cada ETT nuevo</li>
+              <li>En campañas o picos, se multiplica con cada ETT nuevo</li>
             </ul>
           </div>
 
@@ -156,10 +136,8 @@ const schema = [
             </p>
             <ul class="caso-benefits">
               <li>Sin trazabilidad de quién hizo qué ni cuándo</li>
-              <li>Incidencias resueltas sin registro ni aprendizaje</li>
               <li>Decisiones de producción basadas en intuición</li>
-              <li>Sin datos para detectar cuellos de botella o mejorar procesos</li>
-              <li>Dependencia de reuniones y llamadas para saber el estado real</li>
+              <li>Dependes de reuniones y llamadas para saber el estado real</li>
             </ul>
           </div>
         </div>
@@ -205,64 +183,13 @@ const schema = [
         </div>
 
         <div class="dolor-cta fade-up delay-2">
-          <a href="/precios/" class="btn-primary">
+          <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
+             data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">
             Evaluar mi situación →
           </a>
           <div class="dolor-cta-note">
             Calculadora gratuita · Resultado en 2 minutos
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ═══ 4 PILARES ═══ -->
-    <section class="section section-center">
-      <div class="section-inner">
-        <div class="fade-up">
-          <div class="eyebrow">El valor real del producto</div>
-          <h2 class="section-title">Cuatro beneficios que sí se notan <em>en planta</em></h2>
-          <p class="section-sub">
-            REELEVO no se queda en documentar procesos. Ayuda a que el trabajo salga con menos
-            improvisación, más claridad y una transferencia de conocimiento mucho más útil.
-          </p>
-        </div>
-
-        <div class="steps-grid steps-grid-four fade-up delay-1">
-          <div class="step-card">
-            <div class="step-card-icon">📲</div>
-            <h3 class="step-card-title">1. Onboarding ordenado desde el primer día</h3>
-            <p class="step-card-desc">
-              El nuevo operario encuentra instrucciones claras en el puesto. Tu onboarding software reduce tutoría repetitiva y acelera la incorporación con menos dependencia del experto.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-card-icon">🧾</div>
-            <h3 class="step-card-title">2. Más claridad para decidir mejor</h3>
-            <p class="step-card-desc">
-              Producción gana contexto sobre lo que se está haciendo y dónde se atasca el turno,
-              sin depender solo de llamadas, partes o memoria.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-card-icon">📊</div>
-            <h3 class="step-card-title">3. Gestión de competencias y onboarding</h3>
-            <p class="step-card-desc">
-              Visualiza competencias por operario y proceso. El onboarding gana consistencia y dejas de depender de memoria. Cada incorporación queda documentada.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-card-icon">✅</div>
-            <h3 class="step-card-title">4. Onboarding industrial con trazabilidad</h3>
-            <p class="step-card-desc">
-              Lo que ocurre en planta deja evidencia de ejecución. Mejor datos para onboarding, reducción de dependencia de operarios clave y operación más ordenada.
-            </p>
-          </div>
-        </div>
-
-        <div class="steps-cta fade-up delay-2">
-          <a href="/como-funciona/" class="btn-ghost">Ver el flujo completo →</a>
         </div>
       </div>
     </section>
@@ -383,71 +310,14 @@ const schema = [
         </div>
 
         <div class="screenshots-cta fade-up delay-3">
-          <a href="https://app.gmvsolutions.es/registro" class="btn-ghost">Registrarme en REELEVO →</a>
+          <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+             data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a>
         </div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- ═══ PARA QUIÉN ═══ -->
-    <section class="section" id="perfiles">
-      <div class="section-inner">
-        <div class="perfiles-header fade-up">
-          <div class="eyebrow">¿Para quién es esto?</div>
-          <h2 class="section-title">Cada persona ve un valor distinto</h2>
-          <p class="section-sub">
-            REELEVO encaja con prioridades distintas dentro de la planta.
-            Producción gana claridad para decidir, RRHH ordena mejor las incorporaciones,
-            calidad revisa mejor lo que pasa en planta y gerencia reduce dependencia operativa.
-          </p>
-        </div>
-
-        <div class="perfiles-grid perfiles-grid-four fade-up delay-1">
-          <div class="perfil-card">
-            <div class="perfil-card-icon">👷</div>
-            <h3 class="perfil-card-title">Jefe de producción</h3>
-            <p class="perfil-card-desc">
-              Más visibilidad para reorganizar turnos, cubrir cambios y reaccionar antes
-              sin depender tanto del operario titular.
-            </p>
-            <a href="/para-quien/jefe-de-produccion/" class="perfil-card-link">Ver cómo te ayuda →</a>
-          </div>
-
-          <div class="perfil-card">
-            <div class="perfil-card-icon">👥</div>
-            <h3 class="perfil-card-title">Responsable RRHH</h3>
-            <p class="perfil-card-desc">
-              Onboarding más ordenado, menos tutoría repetitiva y más claridad
-              sobre quién necesita apoyo y quién ya puede rendir con autonomía.
-            </p>
-            <a href="/para-quien/responsable-rrhh/" class="perfil-card-link">Ver cómo te ayuda →</a>
-          </div>
-
-          <div class="perfil-card">
-            <div class="perfil-card-icon">🧪</div>
-            <h3 class="perfil-card-title">Responsable de calidad</h3>
-            <p class="perfil-card-desc">
-              Más claridad para revisión interna, cambios de proceso y puestos sensibles,
-              sin depender solo de papeles, memoria o versiones cruzadas.
-            </p>
-            <a href="/para-quien/responsable-calidad/" class="perfil-card-link">Ver cómo te ayuda →</a>
-          </div>
-
-          <div class="perfil-card">
-            <div class="perfil-card-icon">💼</div>
-            <h3 class="perfil-card-title">Gerente / Propietario</h3>
-            <p class="perfil-card-desc">
-              Menos fragilidad operativa, más continuidad y un precio por empresa
-              que hace viable empezar por donde más duele.
-            </p>
-            <a href="/para-quien/gerente-propietario/" class="perfil-card-link">Ver cómo te ayuda →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
 
     <!-- ═══ BENEFICIOS ═══ -->
     <section class="section section-center" id="beneficios">
@@ -466,17 +336,8 @@ const schema = [
             <div class="benefit-card-icon">⚡</div>
             <h3 class="benefit-card-title">El proceso aparece donde hace falta</h3>
             <p class="benefit-card-desc">
-              Cuando alguien cubre un puesto, no pierde tiempo buscando cómo arrancar.
+              Quien cubre un puesto no pierde tiempo buscando cómo arrancar.
               Menos llamadas, menos dudas y menos improvisación.
-            </p>
-          </div>
-
-          <div class="benefit-card">
-            <div class="benefit-card-icon">📱</div>
-            <h3 class="benefit-card-title">Arranca sin fricción innecesaria</h3>
-            <p class="benefit-card-desc">
-              El acceso al trabajo no depende de desplegar una app, crear cuentas
-              o abrir un proyecto pesado para empezar.
             </p>
           </div>
 
@@ -484,8 +345,8 @@ const schema = [
             <div class="benefit-card-icon">🧾</div>
             <h3 class="benefit-card-title">Más claridad para producción</h3>
             <p class="benefit-card-desc">
-              Producción deja de trabajar a ciegas y gana contexto para decidir
-              qué pasa, dónde y cuándo intervenir.
+              Producción gana contexto para decidir qué pasa, dónde y cuándo
+              intervenir, sin depender solo de partes y memoria.
             </p>
           </div>
 
@@ -493,17 +354,8 @@ const schema = [
             <div class="benefit-card-icon">📊</div>
             <h3 class="benefit-card-title">Menos tiempo perdido</h3>
             <p class="benefit-card-desc">
-              Se reduce parte del tiempo que hoy se va en tutoría repetitiva,
+              Se reduce el tiempo que hoy se va en tutoría repetitiva,
               búsqueda de información y reorganización improvisada.
-            </p>
-          </div>
-
-          <div class="benefit-card">
-            <div class="benefit-card-icon">✅</div>
-            <h3 class="benefit-card-title">Onboarding con más criterio</h3>
-            <p class="benefit-card-desc">
-              RRHH y producción ganan una base más útil para ver quién necesita apoyo
-              y quién ya está listo para asumir un puesto.
             </p>
           </div>
 
@@ -516,37 +368,9 @@ const schema = [
             </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <div class="divider"></div>
-
-    <!-- ═══ PRUEBA SOCIAL ═══ -->
-    <section class="section section-center" id="piloto">
-      <div class="section-inner">
-        <div class="fade-up">
-          <div class="eyebrow">Primeros pasos</div>
-          <h2 class="section-title">Primeras implantaciones <em>en marcha</em></h2>
-          <p class="section-sub">
-            REELEVO está trabajando con las primeras implantaciones en plantas industriales españolas.
-            El foco inicial no es "documentar por documentar", sino ordenar ejecución y reducir dependencia operativa.
-          </p>
-        </div>
-
-        <div class="pilot-block fade-up delay-1">
-          <div class="pilot-card">
-            <div class="pilot-card-top">
-              <div class="pilot-icon">🏭</div>
-              <div>
-                <div class="pilot-label">Piloto activo · Q1 2026</div>
-                <div class="pilot-title">Empresa de producción industrial · Galicia</div>
-              </div>
-            </div>
-            <p class="pilot-desc">Primer foco en procesos críticos para cubrir bajas e incorporaciones con menos dependencia del operario titular y más claridad para desbloquear la operación.</p>
-          </div>
-          <div class="pilot-note">
-            <p>Ofrecemos implementación asistida uno a uno. <a href="mailto:hola@gmvsolutions.es">Escríbenos</a> si quieres hablar de tu situación.</p>
-          </div>
+        <div class="steps-cta fade-up delay-2">
+          <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
         </div>
       </div>
     </section>
@@ -556,18 +380,20 @@ const schema = [
     <!-- ═══ CTA FINAL ═══ -->
     <section class="cta-section">
       <div class="cta-eyebrow fade-up">¿Te interesa?</div>
-      <h2 class="cta-title fade-up delay-1">
+      <div class="cta-title fade-up delay-1">
         Empieza por el puesto<br><em>donde más cuesta improvisar</em>
-      </h2>
+      </div>
       <p class="cta-sub fade-up delay-2">
         Si quieres entrar en la plataforma, regístrate en REELEVO:
         menos dependencia, incorporaciones más ordenadas y más claridad para decidir en planta.
       </p>
       <div class="cta-actions fade-up delay-3">
-        <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
           Registrarme en REELEVO
         </a>
-        <a href="/precios/" class="btn-ghost">
+        <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
+           data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
           Evaluar mi situación →
         </a>
       </div>

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Software de mantenimiento preventivo para pymes industriales | REELEVO";
-const description = "Gestiona el mantenimiento preventivo y correctivo de tu maquinaria integrado con la producción. Planes automáticos, órdenes de trabajo y registro de intervenciones. Para pymes industriales.";
+const title = "Mantenimiento preventivo y correctivo industrial | REELEVO";
+const description = "Mantenimiento operativo integrado en el trabajo diario: planes preventivos y correctivos, órdenes automáticas y registro de intervenciones para pyme industrial.";
 const canonical = "https://gmvsolutions.es/mantenimiento/";
 
 const schema = {
@@ -15,15 +15,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Mantenimiento Preventivo · Correctivo · Integrado con producción</div>
+    <div class="eyebrow fade-up">Mantenimiento preventivo y correctivo</div>
     <h1 class="fade-up delay-1">El mantenimiento que no ves<br><em>es el que para la línea</em></h1>
     <p class="fade-up delay-2">Configura planes de mantenimiento por máquina, genera órdenes de trabajo automáticamente y haz que el operario las vea en su agenda junto a las de producción. Sin hojas de cálculo, sin Post-its en la máquina.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -259,51 +262,12 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- CASO DE USO -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <h2 class="section-title">Caso real: de la avería imprevista al mantenimiento controlado</h2>
-      </div>
-
-      <div class="case-story fade-up delay-1">
-        <div class="story-section">
-          <h3>La situación</h3>
-          <p>Empresa de fabricación de piezas metálicas con 6 tornos CNC. El torno principal necesita lubricación del cabezal cada 200 horas de trabajo. Lo sabe el responsable de mantenimiento, pero no está en ningún sistema formal. Cuando él está de vacaciones, nadie lo recuerda.</p>
-        </div>
-
-        <div class="story-section">
-          <h3>Sin REELEVO</h3>
-          <p>El torno lleva 340 horas sin lubricar. Aparece un chirrido en el cabezal. Se para la producción 4 horas para revisar. El técnico externo cobra la visita de urgencia. La pieza que estaba a medias hay que rehacer.</p>
-        </div>
-
-        <div class="story-section highlight">
-          <h3>Con REELEVO</h3>
-          <ul>
-            <li><strong>Setup inicial (20 min):</strong> El responsable configura el plan — "Lubricación cabezal torno CNC-1: cada 200 horas, proceso SOP-lubricación-05, responsable: Turno A".</li>
-            <li><strong>Semana 3:</strong> REELEVO genera automáticamente la orden de trabajo. Aparece en la agenda de Carlos (turno A) junto a sus tareas de producción del martes.</li>
-            <li><strong>Martes 10:30h:</strong> Carlos termina la pieza en curso, ve la tarea de mantenimiento en su agenda, accede al SOP de lubricación desde el QR del torno y la ejecuta. 15 minutos.</li>
-            <li><strong>10:45h:</strong> Carlos registra la intervención. Queda en el histórico del torno con fecha, operario y resultado.</li>
-            <li><strong>Semana 9:</strong> Misma secuencia. El torno nunca llega a las 340 horas sin lubricar.</li>
-          </ul>
-        </div>
-
-        <div class="story-result">
-          <div class="result-num">0</div>
-          <div class="result-label">averías evitables en la máquina · el plan se ejecuta solo, sin intervención del responsable de mantenimiento</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
   <!-- NOTA HONESTA -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Enfoque prudente</div>
-        <h2 class="section-title">Lo que hace REELEVO — y sus límites reales</h2>
+        <h3 class="section-title">Lo que hace REELEVO — y sus límites reales</h3>
       </div>
 
       <div class="honest-note fade-up delay-1">
@@ -321,15 +285,16 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       El mantenimiento que no ves<br><em>ya no tiene que sorprenderte</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Configura tus primeros planes de mantenimiento en menos de 30 minutos. Sin migración de datos, sin formación del equipo, sin IT.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Empezar gratis · Sin compromiso
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
       <a href="/control-produccion/" class="btn-ghost">
         Ver control de producción →

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Control de producción para pymes industriales | REELEVO";
-const description = "Registra, supervisa y analiza la producción de tu planta en tiempo real. Sesiones por operario, KPIs diarios, validación de supervisor, paradas con causa y exportación de datos. Sin papel, sin Excel.";
+const title = "Control de produccion pyme industrial en tiempo real | REELEVO";
+const description = "Registra produccion por operario y maquina, detecta paradas con causa y revisa KPIs diarios sin papel ni Excel para decidir mejor cada turno.";
 const canonical = "https://gmvsolutions.es/control-produccion/";
 
 const schema = {
@@ -15,15 +15,18 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical="https://gmvsolutions.es/control-produccion/" schema={schema} activeNav="" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Registro de producción · KPIs en tiempo real · Planificación semanal · Sin papel</div>
+    <div class="eyebrow fade-up">Control de producción para pyme industrial</div>
     <h1 class="fade-up delay-1">¿Cuánto se produjo hoy?<br><em>Con REELEVO lo sabes en tiempo real</em></h1>
     <p class="fade-up delay-2">Registra cada sesión de producción vinculada al operario, proceso y máquina. Ve los KPIs del día mientras la planta trabaja. Planifica la semana en minutos. Sin partes en papel, sin esperar al cierre de turno.</p>
-    <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -240,38 +243,16 @@ const schema = {
 
   <div class="divider"></div>
 
-  <!-- CASO DE USO -->
+  <!-- PRODUCTO -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Caso real: el lunes por la mañana sin sorpresas</h2>
-      </div>
-
-      <div class="case-story fade-up delay-1">
-        <div class="story-section">
-          <h3>La situación</h3>
-          <p>Empresa de fabricación de plástico técnico. 12 operarios en dos turnos. El jefe de producción organiza el trabajo cada semana y necesita saber si se están cumpliendo los objetivos de producción — sin estar todo el día preguntando en planta.</p>
-        </div>
-
-        <div class="story-section">
-          <h3>Sin REELEVO</h3>
-          <p>El lunes recoge los partes del viernes, algunos incompletos. Los consolida en el Excel de producción. A las 10h tiene los datos de la semana anterior. Mientras tanto, no sabe si el turno de esta mañana va bien o mal hasta que baje a planta.</p>
-        </div>
-
-        <div class="story-section highlight">
-          <h3>Con REELEVO</h3>
-          <ul>
-            <li><strong>Domingo noche:</strong> El jefe de producción revisa la planificación de la semana en 10 minutos desde casa. Ve que el martes hay riesgo de cobertura — solo hay un operario certificado en la inyectora 3 y está de tarde. Reorganiza la asignación.</li>
-            <li><strong>Lunes 7:00h:</strong> Los operarios llegan, escanean el QR de su puesto y ven su agenda. Nadie necesita instrucciones verbales.</li>
-            <li><strong>Lunes 9:30h:</strong> El jefe abre el dashboard desde su despacho. Ve 847 unidades producidas en las últimas 2,5h, un 94% del objetivo horario. Una parada de 12 minutos en la inyectora 2 por cambio de molde — registrada con causa.</li>
-            <li><strong>Lunes 17:00h:</strong> Cierre de turno. El encargado valida las sesiones. El dato del día queda en el histórico. No hay que consolidar nada.</li>
-          </ul>
-        </div>
-
-        <div class="story-result">
-          <div class="result-num">0</div>
-          <div class="result-label">partes manuales · datos del día disponibles en tiempo real, sin esperar al cierre ni al consolidado de Excel</div>
-        </div>
+        <div class="eyebrow">En el producto</div>
+        <h2 class="section-title">Planificación y registro <em>en una sola vista</em></h2>
+        <p class="section-sub">
+          La planificación semanal por operario y el registro de cada ejecución conviven en el mismo
+          módulo, así el dato del día está disponible sin partes manuales ni consolidados de Excel.
+        </p>
       </div>
 
       <div class="screenshot-pair fade-up delay-2">
@@ -294,7 +275,7 @@ const schema = {
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Enfoque prudente</div>
-        <h2 class="section-title">Control de producción operativo — no un MES ni un ERP</h2>
+        <h3 class="section-title">Control de produccion operativo: no un sistema MES ni un ERP</h3>
       </div>
 
       <div class="honest-note fade-up delay-1">
@@ -312,18 +293,19 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h2 class="cta-title fade-up delay-1">
+    <div class="cta-title fade-up delay-1">
       Saber qué pasa en planta<br><em>sin tener que bajar a preguntar</em>
-    </h2>
+    </div>
     <p class="cta-sub fade-up delay-2">
       Empieza con REELEVO y ten visibilidad real de tu producción en los primeros días. Sin migración de datos, sin formación compleja.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
-        Registrarse gratis
+      <a href="/video-demo/" class="btn-primary"
+         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
+        Solicitar demo
       </a>
-      <a href="/mantenimiento/" class="btn-ghost">
-        Ver módulo de mantenimiento →
+      <a href="/para-quien/jefe-de-produccion/" class="btn-ghost">
+        Para jefe de producción →
       </a>
     </div>
     <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Implementación asistida</div>

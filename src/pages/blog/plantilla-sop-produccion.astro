@@ -1,0 +1,85 @@
+---
+// SOP-4 (cluster SOP / host del lead magnet). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 2.4 + 6.1
+// TODO: enlazar el archivo descargable real (Excel/PDF) cuando exista.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Plantilla SOP de producción para descargar";
+const description = "Plantilla de SOP de producción lista para usar: estructura, campos imprescindibles y ejemplo. Descárgala y adáptala a los procesos críticos de tu planta.";
+const canonical = "https://gmvsolutions.es/blog/plantilla-sop-produccion/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "inLanguage": "es-ES",
+  "datePublished": "2026-05-28",
+  "author": { "@type": "Organization", "name": "GMV Solutions" },
+  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-05-28" category="Plantilla" readTime="7 min" canonical={canonical} schema={schema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Una plantilla de SOP de producción lista para rellenar: cabecera, pasos con verificación, parámetros, troubleshooting y firma. Descárgala, empieza por tus procesos críticos y adáptala a tu planta.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#estructura">Qué incluye un buen SOP</a></li>
+    <li><a href="#rellenar">Cómo rellenarla, campo a campo</a></li>
+    <li><a href="#errores">Errores frecuentes</a></li>
+    <li><a href="#vivo">De la plantilla al SOP vivo en planta</a></li>
+  </ul>
+
+  <h2 id="estructura">Qué incluye un buen SOP</h2>
+  <p>Un SOP útil cabe en una página y tiene siempre los mismos bloques. Si te falta alguno, el documento se vuelve ambiguo justo cuando más se necesita:</p>
+  <ul>
+    <li><strong>Cabecera:</strong> proceso, máquina o puesto, versión y fecha. Sin versión no sabes si estás leyendo la buena.</li>
+    <li><strong>Objetivo y alcance:</strong> qué cubre este SOP y qué no, en una frase.</li>
+    <li><strong>Pasos numerados:</strong> cada paso con su acción y un punto de verificación ("comprueba que…").</li>
+    <li><strong>Parámetros clave:</strong> valores, tolerancias y criterios de aceptación.</li>
+    <li><strong>Troubleshooting:</strong> incidencias frecuentes y primera acción.</li>
+    <li><strong>Responsable y firma:</strong> quién lo ejecuta y quién lo valida.</li>
+  </ul>
+
+  <h2 id="rellenar">Cómo rellenarla, campo a campo</h2>
+  <p>La clave es rellenarla <strong>con quien hace el trabajo</strong>, no desde un despacho. Pídele al operario que lo ejecute mientras describe cada paso; tú anotas. Donde una palabra no baste, añade una foto. Marca los pasos críticos (los que, si se saltan, generan defecto o riesgo) para que destaquen. No persigas la perfección en la primera versión: persigue que un compañero pueda seguirla.</p>
+
+  <h2 id="errores">Errores frecuentes</h2>
+  <ul>
+    <li><strong>Demasiado largo:</strong> si nadie lo lee, no sirve. Mejor una página clara que diez exhaustivas.</li>
+    <li><strong>Escrito por quien no lo hace:</strong> pierde los detalles reales del puesto.</li>
+    <li><strong>Sin versión ni fecha:</strong> conviven copias y nadie sabe cuál vale.</li>
+    <li><strong>Guardado donde no se trabaja:</strong> en una carpeta del servidor en vez de en el puesto.</li>
+  </ul>
+
+  <h2 id="vivo">De la plantilla al SOP vivo en planta</h2>
+  <p>La plantilla es el punto de partida. El salto de valor llega cuando ese SOP deja de ser un archivo y pasa a estar accesible en la máquina —por ejemplo, con un QR— para que el operario lo consulte cuando lo necesita y lo mejore cuando descubre algo. Así se mantiene vivo. Puedes ver cómo funciona en <a href="/documentacion-procesos/">documentación de procesos</a>.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/documentacion-procesos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Documentación de procesos</div>
+        <div class="related-link-desc">Del documento al SOP vivo en el puesto.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">Definición, ejemplos e implementación.</div>
+      </a>
+      <a class="related-link-card" href="/blog/documentar-procesos-mecanizado-cnc/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Documentar procesos CNC</div>
+        <div class="related-link-desc">Qué capturar y cómo, paso a paso.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Descarga la plantilla.</strong> <a href="#" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Verla en el puesto (demo) →</a></p>
+    <p><em>Plantilla descargable en preparación. Mientras tanto, pídenosla por la demo y te la enviamos.</em></p>
+  </div>
+</ArticleLayout>

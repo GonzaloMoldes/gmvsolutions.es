@@ -2,24 +2,31 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "GembaDocs vs REELEVO — Software documentación y lean manufacturing";
-const description = "Comparativa: GembaDocs vs REELEVO. Análisis de enfoque lean, visual work instructions, documentación operativa y precio para pymes.";
+const description = "GembaDocs vs REELEVO: la alternativa pensada para la pyme industrial española. Comparación en idioma, precio, implantación y adopción del operario.";
+const canonical = "https://gmvsolutions.es/vs-gembadocs/";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "ComparisonChart",
   "headline": title,
   "description": description,
-  "url": "https://gmvsolutions.es/vs-gembadocs/",
+  "url": canonical,
   "inLanguage": "es-ES"
 };
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Comparativa de herramientas</div>
     <h1 class="fade-up delay-1">GembaDocs vs REELEVO<br><em>Documentación visual vs operativa integral</em></h1>
-    <p class="fade-up delay-2">GembaDocs enfatiza lean manufacturing y visual management. REELEVO enfatiza onboarding y competencias. Comparativa completa.</p>
+    <p class="fade-up delay-2">Comparación en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+      <a href="#comparativa" class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -63,81 +70,46 @@ const schema = {
   <div class="divider"></div>
 
   <!-- COMPARATIVA TÉCNICA -->
-  <section class="section">
+  <section class="section" id="comparativa">
     <div class="section-inner">
       <div class="fade-up">
-        <h2 class="section-title">Características técnicas</h2>
+        <h2 class="section-title">5 criterios clave para pyme industrial</h2>
       </div>
 
       <div class="comparison-table fade-up delay-1">
         <table>
           <thead>
             <tr>
-              <th style="width: 35%;">Característica</th>
-              <th style="width: 32.5%;">GembaDocs</th>
-              <th style="width: 32.5%;">REELEVO</th>
+              <th style="width: 30%;">Criterio</th>
+              <th style="width: 35%;">GembaDocs</th>
+              <th style="width: 35%;">REELEVO</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Tipo de contenido</strong></td>
-              <td>Visual (markdown, imágenes)</td>
-              <td class="highlight">Procedimientos paso-a-paso</td>
+              <td><strong>Idioma nativo</strong></td>
+              <td>Inglés (multiidioma genérico)</td>
+              <td class="highlight">✓ Español nativo</td>
             </tr>
             <tr>
-              <td><strong>Documentación SOP</strong></td>
-              <td>✓ Sí (enfoque visual)</td>
-              <td class="highlight">✓ Sí (enfoque operativo)</td>
+              <td><strong>Precio</strong></td>
+              <td>Bajo demanda (presupuesto)</td>
+              <td class="highlight">✓ Público, desde 49€/mes por empresa</td>
             </tr>
             <tr>
-              <td><strong>Onboarding integrado</strong></td>
-              <td>Limitado (no es focus)</td>
-              <td class="highlight">✓ Central</td>
-            </tr>
-            <tr>
-              <td><strong>Gestión competencias</strong></td>
-              <td>No</td>
-              <td class="highlight">✓ Sí (matriz habilidades)</td>
-            </tr>
-            <tr>
-              <td><strong>Acceso en máquina</strong></td>
-              <td>Browser (requiere navegador)</td>
-              <td class="highlight">✓ App nativa</td>
-            </tr>
-            <tr>
-              <td><strong>Gemba walk digital</strong></td>
-              <td>✓ Feature central</td>
-              <td>Enfoque diferente</td>
-            </tr>
-            <tr>
-              <td><strong>Colaboración equipos</strong></td>
-              <td>✓ Fuerte (comentarios, versiones)</td>
-              <td>Básica</td>
-            </tr>
-            <tr>
-              <td><strong>Idioma español</strong></td>
-              <td>Interfaz en inglés (multiidioma genérico)</td>
-              <td class="highlight">✓ 100% Español</td>
-            </tr>
-            <tr>
-              <td><strong>Soporte español</strong></td>
-              <td>Soporte general en inglés</td>
-              <td class="highlight">✓ Soporte español</td>
-            </tr>
-            <tr>
-              <td><strong>Precio transparente</strong></td>
-              <td>Contacto para presupuesto</td>
-              <td class="highlight">✓ Desde 49€/mes</td>
-            </tr>
-            <tr>
-              <td><strong>Setup inicial</strong></td>
+              <td><strong>Implantación / arranque</strong></td>
               <td>Moderado</td>
-              <td class="highlight">✓ Rápido (1-2 días)</td>
+              <td class="highlight">✓ Ligera y asistida</td>
             </tr>
             <tr>
-              <td><strong>Para pymes</strong></td>
-              <td>Posible pero no foco</td>
-              <td class="highlight">✓ Diseñado para pymes</td>
+              <td><strong>Adopción del operario</strong></td>
+              <td>Requiere navegador</td>
+              <td class="highlight">✓ App + acceso por QR, sin cuentas</td>
+            </tr>
+            <tr>
+              <td><strong>Encaje pyme industrial española</strong></td>
+              <td>Posible, no es su foco</td>
+              <td class="highlight">✓ Pensado para pyme industrial española</td>
             </tr>
           </tbody>
         </table>
@@ -250,18 +222,19 @@ const schema = {
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para tu pyme</div>
-    <h2 class="cta-title fade-up delay-1">
+    <h3 class="cta-title fade-up delay-1">
       ¿Necesitas documentación visual o <em>onboarding operativo?</em>
-    </h2>
+    </h3>
     <p class="cta-sub fade-up delay-2">
       Si tu problema es que los operarios nuevos tardan en aprender y los expertos no documentan procedimientos, REELEVO está hecho para ti. Implementación en 2 días, soporte en español, precio transparente.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse en REELEVO">
         Registrarse en REELEVO
       </a>
       <a href="/precios/" class="btn-ghost">
-        Ver mi situación →
+        Ver precios →
       </a>
     </div>
   </section>
