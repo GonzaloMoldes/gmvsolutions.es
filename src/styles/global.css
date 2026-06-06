@@ -26,6 +26,8 @@
 
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 body{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.65;font-size:16px;}
+a,a:visited{color:var(--orange);}
+a:hover{color:var(--orange-hover);}
 ::selection{background:var(--orange);color:#fff;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--black);}
