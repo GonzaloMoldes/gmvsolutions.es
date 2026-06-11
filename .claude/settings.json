@@ -5,7 +5,12 @@
       "Bash(grep -o 'Royal crown.\\\\{0,40\\\\}' dist/index.html)",
       "PowerShell(npm run build)",
       "PowerShell(npm run build 2>&1)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(python -c \"import openpyxl; print\\('ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c ' *)",
+      "Bash(python -)",
+      "Bash(python _cov.py)"
     ]
   }
 }

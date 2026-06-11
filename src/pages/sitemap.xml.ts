@@ -18,6 +18,7 @@ export async function GET() {
     page('/recursos/', '0.75', 'weekly'),
     page('/faqs/', '0.7', 'monthly'),
     page('/onboarding-software-pymes/', '0.8', 'monthly'),
+    page('/software-gestion-pyme-industrial/', '0.8', 'monthly'),
 
     page('/documentacion-procesos/', '0.85', 'monthly'),
     page('/gestion-competencias/', '0.85', 'monthly'),

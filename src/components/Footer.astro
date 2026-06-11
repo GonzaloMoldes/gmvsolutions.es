@@ -3,6 +3,42 @@ const year = new Date().getFullYear();
 ---
 
 <footer style="border-top: 1px solid var(--border);">
+  <!-- NAV / ENLACES INTERNOS (sitewide) -->
+  <nav class="footer-nav" aria-label="Enlaces del sitio">
+    <div class="footer-col">
+      <div class="footer-col-title">Gestión y producción</div>
+      <a href="/software-gestion-pyme-industrial/">Software de gestión industrial</a>
+      <a href="/control-produccion/">Control de producción</a>
+      <a href="/mantenimiento/">Mantenimiento preventivo</a>
+      <a href="/cobertura-turnos/">Planificación y cobertura de turnos</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Procesos y personas</div>
+      <a href="/documentacion-procesos/">Documentación de procesos</a>
+      <a href="/gestion-competencias/">Gestión de competencias</a>
+      <a href="/kaizen/">Kaizen y mejora continua</a>
+      <a href="/portal-operario/">Portal del operario</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Comparativas</div>
+      <a href="/vs-mes-tradicional/">Alternativa al MES tradicional</a>
+      <a href="/vs-excel-papel/">REELEVO vs Excel y papel</a>
+      <a href="/vs-alternativas/">Comparativa de software SOP</a>
+      <a href="/kit-digital-pyme-industrial/">Kit Digital para industria</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">REELEVO</div>
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="/precios/">Precios</a>
+      <a href="/recursos/">Recursos y guías</a>
+      <a href="/blog/">Blog</a>
+      <a href="/sobre-nosotros/">Sobre nosotros</a>
+    </div>
+  </nav>
+
   <div class="footer">
     <div class="footer-brand">
       REEL<span>EVO</span>
@@ -39,6 +75,44 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  .footer-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 760px) {
+    .footer-nav { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; padding: 36px 24px 4px; }
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+
+  .footer-col a {
+    font-size: .82rem;
+    color: var(--gray);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color .2s;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
   .footer-legal {
     width: 100%;
     display: flex;
