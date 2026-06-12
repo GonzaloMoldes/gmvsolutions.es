@@ -7,34 +7,9 @@ const date = "2026-03-24";
 const category = "Gestión del conocimiento";
 const readTime = "14 min.";
 const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/";
-const image = "https://gmvsolutions.es/factory-bg.jpg";
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "datePublished": date,
-  "dateModified": date,
-  "articleSection": category,
-  "inLanguage": "es-ES",
-  "url": canonical,
-  "mainEntityOfPage": canonical,
-  "image": image,
-  "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://gmvsolutions.es/favicon.svg"
-    }
-  }
-};
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
 
 <p>En 2006, los investigadores Salvatore Parise, Rob Cross y Thomas Davenport publicaron en MIT Sloan Management Review un estudio que sigue siendo la referencia principal sobre este tema: <strong>"Strategies for Preventing a Knowledge-Loss Crisis"</strong>. Su conclusión fue rotunda: cuando un empleado clave se va de una organización, no solo se pierde su conocimiento técnico — se pierde también su red de relaciones, su capacidad de conectar personas y problemas, y su rol como puente entre departamentos.</p>
 

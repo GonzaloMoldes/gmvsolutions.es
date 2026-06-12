@@ -7,34 +7,9 @@ const date = "2026-03-15";
 const category = "Gestión del absentismo";
 const readTime = "10 min.";
 const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/";
-const image = "https://gmvsolutions.es/factory-bg.jpg";
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "datePublished": date,
-  "dateModified": date,
-  "articleSection": category,
-  "inLanguage": "es-ES",
-  "url": canonical,
-  "mainEntityOfPage": canonical,
-  "image": image,
-  "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "GMV Solutions",
-    "url": "https://gmvsolutions.es",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://gmvsolutions.es/favicon.svg"
-    }
-  }
-};
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} schema={schema}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
 
 <h2>El absentismo en la industria española: un problema que se mide mal</h2>
 

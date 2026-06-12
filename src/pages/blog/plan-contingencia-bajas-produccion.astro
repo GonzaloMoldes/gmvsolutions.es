@@ -5,20 +5,9 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Plan de contingencia para bajas en producción";
 const description = "Cómo montar un plan de contingencia para bajas en planta: detectar puestos sensibles, documentar lo crítico y cubrir sin parar la línea. Checklist descargable incluido.";
 const canonical = "https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/";
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "inLanguage": "es-ES",
-  "datePublished": "2026-06-04",
-  "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
-};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-06-04" category="Continuidad operativa" readTime="9 min" canonical={canonical} schema={schema}>
+<ArticleLayout title={title} description={description} date="2026-06-04" category="Continuidad operativa" readTime="9 min" canonical={canonical}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Un plan de contingencia para bajas se basa en tres cosas: detectar los puestos donde faltar una persona desordena el turno, documentar primero esos procesos y tener lista la cobertura antes de que ocurra. No evita las bajas; evita que cada baja sea una crisis.</p>
   </div>

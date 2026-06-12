@@ -8,12 +8,28 @@ export interface Props {
   category: string;
   readTime: string;
   canonical?: string;
+  /** Fecha de ultima revision (ISO). Por defecto = date (no revisado desde publicacion). */
+  dateModified?: string;
+  /** Imagen destacada para el schema. Por defecto, la imagen social del sitio. */
+  image?: string;
+  /** Schema EXTRA de la pagina (FAQPage, HowTo...). Se fusiona con el BlogPosting. */
   schema?: object | object[];
   /** Borradores: noindex hasta que el copy este listo. */
   noindex?: boolean;
 }
 
-const { title, description, date, category, readTime, canonical, schema, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  category,
+  readTime,
+  canonical,
+  dateModified,
+  image = 'https://gmvsolutions.es/factory-bg.jpg',
+  schema,
+  noindex = false,
+} = Astro.props;
 
 const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   day: 'numeric',
@@ -21,11 +37,51 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   year: 'numeric',
 });
 
+const articleUrl = canonical ?? Astro.url.href;
+
+// Autor real del blog (E-E-A-T + humaniza el copy frente a detectores de IA).
+// Person con sameAs a LinkedIn; reutilizado en el byline visible y en el JSON-LD.
+const author = {
+  name: 'Gonzalo Moldes',
+  role: 'Fundador de REELEVO',
+  url: 'https://www.linkedin.com/in/gonzalomoldes/',
+  initials: 'GM',
+  bio: 'Escribo desde lo que veo en planta: cómo se pierde el conocimiento cuando falta la persona clave, y qué hace que un relevo o una incorporación no frenen el turno. Sin teoría de manual.',
+};
+
+// BlogPosting canonico generado en un solo sitio para todo el blog (S2: unificacion
+// de schema). Antes cada articulo emitia su propio Article con autor Organization.
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: date,
+  dateModified: dateModified ?? date,
+  articleSection: category,
+  inLanguage: 'es-ES',
+  url: articleUrl,
+  mainEntityOfPage: articleUrl,
+  image,
+  author: {
+    '@type': 'Person',
+    name: author.name,
+    jobTitle: author.role,
+    url: author.url,
+    sameAs: [author.url],
+  },
+  publisher: { '@id': 'https://gmvsolutions.es/#organization' },
+};
+
+// El schema que pase la pagina se trata como EXTRA (FAQ, HowTo...) y se fusiona.
+const extraSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const mergedSchema = [articleSchema, ...extraSchema];
+
 // El BreadcrumbList se genera de forma global y automatica en BaseLayout (src/lib/seo.ts),
 // que ademas produce la ruta correcta (Inicio -> Blog -> articulo). No se duplica aqui.
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="blog" pageType="blog" noindex={noindex}>
+<BaseLayout title={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex}>
   <article class="article-page">
     <div class="article-container">
 
@@ -37,7 +93,14 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
           <span class="article-sep">·</span>
           <span class="article-time">⏱️ {readTime} lectura</span>
         </div>
-        <div class="article-author">Contenido editorial de GMV Solutions · Documentación operativa industrial para pymes</div>
+        <div class="article-author">
+          <div class="article-author-avatar" aria-hidden="true">{author.initials}</div>
+          <div class="article-author-meta">
+            <a class="article-author-name" href={author.url} target="_blank" rel="author noopener">{author.name}</a>
+            <span class="article-author-role">{author.role}</span>
+            <p class="article-author-bio">{author.bio}</p>
+          </div>
+        </div>
       </header>
 
       <div class="article-body">
@@ -118,10 +181,63 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
   .article-sep { color: var(--gray2); }
 
   .article-author {
-    font-size: .78rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: -32px;
+    margin-bottom: 44px;
+  }
+
+  .article-author-avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    letter-spacing: .04em;
+  }
+
+  .article-author-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .article-author-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: .98rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: var(--white);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .article-author-name:hover {
+    color: var(--orange);
+  }
+
+  .article-author-role {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  .article-author-bio {
+    font-size: .82rem;
     color: var(--gray);
-    margin-top: -36px;
-    margin-bottom: 40px;
+    line-height: 1.6;
+    margin: 6px 0 0;
+    max-width: 60ch;
   }
 
   /* Prose */

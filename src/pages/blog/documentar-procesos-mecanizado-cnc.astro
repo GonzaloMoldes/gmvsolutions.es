@@ -5,17 +5,6 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Cómo documentar procesos de mecanizado CNC paso a paso";
 const description = "Guía práctica para documentar SOPs de mecanizado CNC: qué capturar en arranques, cambios de referencia y troubleshooting, y cómo dejarlo accesible en el puesto.";
 const canonical = "https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/";
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "inLanguage": "es-ES",
-  "datePublished": "2026-05-19",
-  "author": { "@type": "Organization", "name": "GMV Solutions" },
-  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
-};
 ---
 
 <ArticleLayout
@@ -25,7 +14,6 @@ const schema = {
   category="Procedimientos Operativos"
   readTime="10 min"
   canonical={canonical}
-  schema={schema}
 >
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Documentar un proceso de mecanizado CNC no es escribir un manual de 40 páginas: es capturar lo que de verdad importa —arranque, parámetros, cambios de referencia y averías frecuentes— mientras el experto ejecuta, y dejarlo accesible en el puesto para que no dependa de una sola persona.</p>
