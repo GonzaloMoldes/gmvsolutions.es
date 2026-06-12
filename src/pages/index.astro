@@ -17,19 +17,70 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://gmvsolutions.es/#software",
     "name": "REELEVO",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, Android, iOS",
+    "inLanguage": "es-ES",
     "description": description,
     "url": "https://gmvsolutions.es/",
     "publisher": { "@id": "https://gmvsolutions.es/#organization" },
+    "featureList": [
+      "Procedimientos en el puesto sin cuenta de operario",
+      "Registro verificable de ejecución",
+      "Monitor de actividad de turno",
+      "Gestión de competencias",
+      "Modo offline"
+    ],
     "offers": {
-      "@type": "Offer",
-      "price": "49",
+      "@type": "AggregateOffer",
       "priceCurrency": "EUR",
-      "url": "https://app.gmvsolutions.es/registro",
-      "description": "Precio por empresa al mes, sin coste por operario"
-    }
+      "lowPrice": "49",
+      "highPrice": "149",
+      "offerCount": "3",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "49",
+          "priceCurrency": "EUR",
+          "url": "https://app.gmvsolutions.es/registro",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "49",
+            "priceCurrency": "EUR",
+            "billingIncrement": "1",
+            "unitText": "MES / EMPRESA"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Profesional",
+          "price": "149",
+          "priceCurrency": "EUR",
+          "url": "https://app.gmvsolutions.es/registro",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "149",
+            "priceCurrency": "EUR",
+            "billingIncrement": "1",
+            "unitText": "MES / EMPRESA"
+          }
+        }
+      ]
+    },
+    "potentialAction": [
+      {
+        "@type": "RegisterAction",
+        "name": "Registrarse en REELEVO",
+        "target": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "@type": "AssessAction",
+        "name": "Diagnóstico de riesgo operativo",
+        "target": "https://diagnostico.gmvsolutions.es"
+      }
+    ]
   }
 ];
 ---
@@ -45,7 +96,7 @@ const schema = [
       <em>de un sistema MES</em>.
     </h1>
     <p class="hero-sub fade-up delay-2">
-      Estandariza lo que hoy depende de dos o tres personas clave y toma decisiones de turno con una lectura más clara de lo que está pasando en planta.
+      Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO pone lo que saben en el puesto, para que el turno siga sin ellas.
     </p>
     <div class="hero-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -285,8 +336,8 @@ const schema = [
             <div class="visual-proof-tag">En el puesto</div>
             <h3 class="visual-proof-title">El sustituto no arranca a ciegas</h3>
             <p class="visual-proof-desc">
-              La vista de trabajo demuestra que el proceso aparece donde hace falta,
-              con menos búsqueda, menos llamadas y menos dependencia del titular.
+              El sustituto abre el puesto y el proceso ya está ahí. No llama a nadie.
+              No espera a que Javi conteste el móvil desde casa. Arranca.
             </p>
           </article>
 
@@ -294,8 +345,8 @@ const schema = [
             <div class="visual-proof-tag">Para producción</div>
             <h3 class="visual-proof-title">Producción decide con una foto más real del turno</h3>
             <p class="visual-proof-desc">
-              La vista de producción convierte la actividad del turno en una lectura
-              más clara para reorganizar, detectar bloqueos y actuar antes.
+              Producción ve el turno mientras pasa, no en la reunión del día siguiente.
+              Si la línea 3 se atasca, te enteras cuando todavía puedes mover a alguien.
             </p>
           </article>
 
@@ -303,8 +354,8 @@ const schema = [
             <div class="visual-proof-tag">Para seguimiento</div>
             <h3 class="visual-proof-title">El trabajo deja una base útil</h3>
             <p class="visual-proof-desc">
-              El panel de empresa demuestra que REELEVO no se queda en consultar:
-              ayuda a sostener formación, continuidad y revisión interna con más hechos.
+              Cada proceso ejecutado deja rastro: quién lo hizo, cuándo y cuánto tardó.
+              Cuando llega la auditoría de calidad —o se jubila el de toda la vida— no empiezas de cero.
             </p>
           </article>
         </div>
@@ -336,8 +387,8 @@ const schema = [
             <div class="benefit-card-icon">⚡</div>
             <h3 class="benefit-card-title">El proceso aparece donde hace falta</h3>
             <p class="benefit-card-desc">
-              Quien cubre un puesto no pierde tiempo buscando cómo arrancar.
-              Menos llamadas de urgencia y menos "espera un momento que ahora te explico".
+              Quien cubre el puesto no pierde media hora buscando cómo se arranca: lo tiene delante,
+              paso a paso. Y deja de sonar el «espera, que ahora te explico» a mitad de turno.
             </p>
           </div>
 
@@ -345,8 +396,8 @@ const schema = [
             <div class="benefit-card-icon">🧾</div>
             <h3 class="benefit-card-title">Más claridad para producción</h3>
             <p class="benefit-card-desc">
-              Producción gana contexto para decidir qué pasa, dónde y cuándo
-              intervenir, sin depender solo de partes y memoria.
+              Producción deja de decidir de oído. Ve qué está pasando en cada puesto
+              sin bajar a preguntar ni esperar al parte de la tarde.
             </p>
           </div>
 
@@ -354,8 +405,8 @@ const schema = [
             <div class="benefit-card-icon">📊</div>
             <h3 class="benefit-card-title">Menos tiempo perdido</h3>
             <p class="benefit-card-desc">
-              Se reduce el tiempo que hoy se va en tutoría repetitiva,
-              búsqueda de información y reorganización improvisada.
+              Se va un montón de tiempo en explicar lo mismo cada vez que entra alguien.
+              Eso baja. Tu mejor operario vuelve a su máquina antes.
             </p>
           </div>
 
@@ -363,8 +414,8 @@ const schema = [
             <div class="benefit-card-icon">💰</div>
             <h3 class="benefit-card-title">Precio fijo por empresa</h3>
             <p class="benefit-card-desc">
-              Desde 49€/mes por empresa. No crece por operario y permite empezar
-              por pocos procesos críticos sin inflar la decisión.
+              Desde 49€ al mes por empresa. No sube porque metas más operarios, así que
+              puedes empezar por dos o tres procesos críticos y ver si encaja antes de ir a por todo.
             </p>
           </div>
         </div>

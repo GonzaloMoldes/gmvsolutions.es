@@ -40,7 +40,21 @@ export const organizationSchema = {
     'Personal ETT en fábrica',
     'Pymes industriales españolas',
   ],
-  sameAs: ['https://www.linkedin.com/company/gmvsolutions'],
+  sameAs: ['https://www.linkedin.com/company/reelevo'],
+  founder: {
+    '@type': 'Person',
+    name: 'Gonzalo Moldes',
+    jobTitle: 'Fundador',
+    url: 'https://www.linkedin.com/in/gonzalomoldes/',
+    sameAs: ['https://www.linkedin.com/in/gonzalomoldes/'],
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hola@gmvsolutions.es',
+    contactType: 'sales',
+    areaServed: 'ES',
+    availableLanguage: 'es',
+  },
 };
 
 // Etiquetas legibles por segmento de URL. Si un slug no esta aqui se

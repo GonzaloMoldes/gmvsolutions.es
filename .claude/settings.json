@@ -10,7 +10,9 @@
       "Bash(pip install *)",
       "Bash(python -c ' *)",
       "Bash(python -)",
-      "Bash(python _cov.py)"
+      "Bash(python _cov.py)",
+      "WebFetch(domain:builtwith.com)",
+      "Read(//c/Users/gonza/AppData/Local/Temp/**)"
     ]
   }
 }

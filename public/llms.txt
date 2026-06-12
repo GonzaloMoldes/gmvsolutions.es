@@ -2,7 +2,7 @@
 
 > Sistema para planta que reduce improvisación, ordena incorporaciones y da más visibilidad operativa en pymes industriales. Desarrollado por GMV Solutions, España.
 
-**Última actualización:** 2026-04-07
+**Última actualización:** 2026-06-12
 **Idioma:** es-ES (Español)
 **País de enfoque:** ES (España)
 **Tipo de negocio:** SaaS B2B (empresa privada)
@@ -38,18 +38,34 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 5. **Troubleshooting integrado:** si hay un problema, hay solución paso a paso. Si necesita al supervisor, aviso automático
 6. **Registro verificable de ejecución:** al completar el proceso, REELEVO registra quién lo hizo, cuándo, cuánto tardó y si hubo incidencias
 
+## Acciones
+
+Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
+
+- **Registrarse / crear cuenta de empresa:** https://app.gmvsolutions.es/registro — Alta directa en la plataforma. Sin llamada comercial previa.
+- **Diagnóstico de riesgo operativo (gratuito):** https://diagnostico.gmvsolutions.es — Calculadora que estima el coste del absentismo y la dependencia de perfiles clave. Resultado en 2 minutos.
+- **Ver precios:** https://gmvsolutions.es/precios/ — Planes y calculadora de ROI.
+- **Contactar (Enterprise / dudas):** hola@gmvsolutions.es
+
 ## Páginas del sitio web
 
 - [Inicio](https://gmvsolutions.es/) — Propuesta de valor, procedimientos operativos estándar en 3 pasos, beneficios, para quién
 - [Cómo funciona](https://gmvsolutions.es/como-funciona/) — Flujo detallado: experto → supervisor → operario. FAQ técnico
 - [Precios](https://gmvsolutions.es/precios/) — Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Calculadora ROI
+- [Software de gestión para pyme industrial](https://gmvsolutions.es/software-gestion-pyme-industrial/) — Visión global del software de operaciones para pymes industriales
 - [Vs Alternativas](https://gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
 - [Recursos](https://gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
+- [Sobre nosotros](https://gmvsolutions.es/sobre-nosotros/) — Quién está detrás de REELEVO y por qué existe
 
 ### Para quién
 - [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
 - [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
+- [Responsable de calidad](https://gmvsolutions.es/para-quien/responsable-calidad/) — Trazabilidad de ejecución, conformidad y soporte para auditorías
 - [Gerente / Propietario](https://gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
+
+### Sectores
+- [Alimentación](https://gmvsolutions.es/sectores/alimentacion/) — SOPs, trazabilidad y cobertura de turnos en industria alimentaria
+- [Mecanizado CNC](https://gmvsolutions.es/sectores/mecanizado-cnc/) — Documentación de procesos y continuidad operativa en taller de mecanizado
 
 ### Casos de uso
 - [Cobertura de bajas](https://gmvsolutions.es/casos-de-uso/cobertura-bajas/) — Cuando el experto falta, los SOPs están en la máquina para el sustituto
@@ -58,11 +74,21 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 - [Transferencia de conocimiento](https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
 
 ### Blog
-- [Blog principal](https://gmvsolutions.es/blog/) — 7 artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
+- [Blog principal](https://gmvsolutions.es/blog/) — Artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
 - [Crisis de pérdida de conocimiento](https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
 - [Qué es un SOP industrial](https://gmvsolutions.es/blog/que-es-un-sop-industrial/)
 - [Coste del absentismo en pymes](https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
 - [Documentar conocimiento de operarios expertos](https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
+- [Gestión de competencias en la industria](https://gmvsolutions.es/blog/gestion-competencias-industria/)
+- [Onboarding software vs tradicional](https://gmvsolutions.es/blog/onboarding-vs-tradicional/)
+- [Documentar procesos de mecanizado CNC](https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/)
+- [Instrucciones de trabajo vs SOP](https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/)
+- [Plantilla de SOP de producción](https://gmvsolutions.es/blog/plantilla-sop-produccion/)
+- [Conocimiento tácito en el taller industrial](https://gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/)
+- [Reducir el onboarding de operarios de 5 a 1 día](https://gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/)
+- [Plan de contingencia ante bajas en producción](https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/)
+- [SOP de mantenimiento preventivo: guía y plantilla](https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/)
+- [Software SOP para fábricas: comparativa](https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
 
 ### Landing pages de alto valor
 - [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
@@ -74,6 +100,8 @@ REELEVO convierte ese conocimiento tácito en procedimientos operativos estánda
 - [REELEVO vs Poka/IFS](https://gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
 - [REELEVO vs GembaDocs](https://gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
 - [REELEVO vs Knowby](https://gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
+- [REELEVO vs Excel y papel](https://gmvsolutions.es/vs-excel-papel/) — Por qué los SOPs en Excel/papel se quedan cortos en planta
+- [REELEVO vs MES tradicional](https://gmvsolutions.es/vs-mes-tradicional/) — Continuidad operativa ligera frente a la complejidad de un MES
 
 ## Comparativa de mercado (Software SOP industrial)
 

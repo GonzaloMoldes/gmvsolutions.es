@@ -48,11 +48,41 @@ Allow: /
 User-agent: SemrushBot
 Allow: /
 
+# Motores y agentes de IA — acceso permitido
+# Citar/indexar el contenido de REELEVO en respuestas de IA es bienvenido.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 # Bloquear bots de spam/scraping
 User-agent: MJ12bot
 Disallow: /
 
 User-agent: BLEXBot
+Disallow: /
+
+# Scraper de IA abusivo (sin valor de citación) — bloqueado
+User-agent: Bytespider
 Disallow: /
 
 # Sitemaps
