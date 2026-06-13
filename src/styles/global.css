@@ -105,7 +105,7 @@ a:hover{color:var(--orange-hover);}
 .nav-mega-menu a{padding:7px 0;border-radius:0;}
 .nav-mega-menu a:hover{background:none;color:var(--white);}
 .header-cta{background:var(--orange);color:#fff;font-family:'Oswald',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 20px;border:none;border-radius:2px;cursor:pointer;text-decoration:none;transition:all .2s;}
-.header-cta:hover{background:var(--orange-hover);}
+.header-cta:hover{background:var(--orange-hover);color:#fff;}
 .header-right{display:flex;align-items:center;gap:12px;}
 .header-diag{font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:var(--gray);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
 .header-diag:hover{color:var(--white);}
@@ -133,7 +133,7 @@ a:hover{color:var(--orange-hover);}
 
 /* ── BUTTONS ── */
 .btn-primary{background:var(--orange);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 32px;border:none;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .25s;}
-.btn-primary:hover{background:var(--orange-hover);transform:translateY(-1px);box-shadow:0 4px 20px var(--orange-glow);}
+.btn-primary:hover{background:var(--orange-hover);color:#fff;transform:translateY(-1px);box-shadow:0 4px 20px var(--orange-glow);}
 .btn-ghost{background:transparent;color:var(--white);font-family:'Oswald',sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:15px 28px;border:1px solid var(--border-hover);border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .25s;}
 .btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
 
