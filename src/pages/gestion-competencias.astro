@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Gestion de competencias industriales para pymes | REELEVO";
 const description = "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.";
 const canonical = "https://gmvsolutions.es/gestion-competencias/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Gestión de Competencias",
-  "description": description,
-  "url": "https://gmvsolutions.es/gestion-competencias/",
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">

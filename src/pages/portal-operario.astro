@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Portal del operario industrial: agenda, procesos y recompensas | REELEVO";
 const description = "El operario tiene su propio portal en REELEVO: ve su agenda del día, accede a sus procesos, sigue su progreso de formación y recibe reconocimiento por sus contribuciones. Diseñado para móvil, sin formación previa.";
 const canonical = "https://gmvsolutions.es/portal-operario/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Portal del Operario",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">

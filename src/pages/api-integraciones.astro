@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "API de software industrial | REELEVO";
 const description = "Conecta REELEVO con tu ERP, Power BI, Microsoft Teams y cualquier sistema externo. API REST documentada, webhooks en tiempo real, conector Power Automate y kit de integración para Business Intelligence industrial.";
 const canonical = "https://gmvsolutions.es/api-integraciones/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - API e Integraciones",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">

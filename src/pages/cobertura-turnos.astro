@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Cobertura de turnos en produccion industrial | REELEVO";
 const description = "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real.";
 const canonical = "https://gmvsolutions.es/cobertura-turnos/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Cobertura de Turnos",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical="https://gmvsolutions.es/cobertura-turnos/" schema={schema} activeNav="" pageType="capacidad">

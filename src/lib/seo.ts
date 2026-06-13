@@ -57,6 +57,31 @@ export const organizationSchema = {
   },
 };
 
+// SoftwareApplication unico de REELEVO. Anclado por @id para que TODAS las
+// paginas de funcionalidad referencien el MISMO producto (no 14 softwares
+// distintos) y sean elegibles para rich result (incluyen offers). El nodo
+// rico y completo (featureList, potentialAction, oferta detallada) vive en la
+// home (index.astro); aqui basta una referencia consistente con el rango de
+// precio. Trazabilidad: Roadmap IA 2026-06, criterio "Rich Results válido".
+export function softwareApplicationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${BASE_URL}/#software`,
+    name: 'REELEVO',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web, Android, iOS',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'EUR',
+      lowPrice: '49',
+      highPrice: '149',
+      offerCount: '3',
+      url: `${BASE_URL}/precios/`,
+    },
+  };
+}
+
 // Etiquetas legibles por segmento de URL. Si un slug no esta aqui se
 // humaniza automaticamente (guiones -> espacios + mayuscula inicial).
 const SEGMENT_LABELS: Record<string, string> = {

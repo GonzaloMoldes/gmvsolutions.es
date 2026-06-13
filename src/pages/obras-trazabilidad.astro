@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Trazabilidad industrial por obra y pieza | REELEVO";
 const description = "Gestiona proyectos de fabricación con trazabilidad completa por pieza. QR individual por unidad producida, seguimiento de avance de obra, historial de producción por proyecto. Para pymes industriales que fabrican por encargo.";
 const canonical = "https://gmvsolutions.es/obras-trazabilidad/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Obras y Trazabilidad por Proyecto",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">

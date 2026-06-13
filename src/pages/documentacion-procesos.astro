@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Documentación y gestión de procesos industriales para pymes | REELEVO";
 const description = "Gestión de la documentación de procesos: estandariza SOPs en el puesto de trabajo para reducir errores, acelerar onboarding y mantener la continuidad operativa sin manuales que nadie consulta.";
 const canonical = "https://gmvsolutions.es/documentacion-procesos/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Documentación de Procesos",
-  "description": description,
-  "url": "https://gmvsolutions.es/documentacion-procesos/",
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">

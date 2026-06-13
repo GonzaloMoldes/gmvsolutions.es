@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Software industrial en modo offline | REELEVO";
 const description = "REELEVO funciona sin conexión a internet. El operario trabaja desde su móvil aunque la wifi de planta falle. Las acciones se sincronizan automáticamente al recuperar la conexión. Sin app store, sin instalación compleja.";
 const canonical = "https://gmvsolutions.es/modo-offline/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Modo Offline y PWA",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">

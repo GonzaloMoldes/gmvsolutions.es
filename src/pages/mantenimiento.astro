@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Software de mantenimiento preventivo y correctivo industrial | REELEVO";
 const description = "Software de mantenimiento preventivo integrado en el trabajo diario: planes preventivos y correctivos, órdenes automáticas y registro de intervenciones para pyme industrial.";
 const canonical = "https://gmvsolutions.es/mantenimiento/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Mantenimiento Preventivo y Correctivo",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">

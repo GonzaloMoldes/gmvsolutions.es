@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Kaizen y mejora continua en planta industrial | REELEVO";
 const description = "Kaizen digital para la mejora continua operativa: captura ideas de los operarios en el puesto, prioriza, implementa y estandariza en planta industrial.";
 const canonical = "https://gmvsolutions.es/kaizen/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Kaizen y Mejora Continua",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">

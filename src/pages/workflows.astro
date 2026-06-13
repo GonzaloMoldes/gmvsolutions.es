@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Workflows operativos industriales | REELEVO";
 const description = "Diseña y ejecuta flujos de trabajo multi-paso y multi-operario con el editor visual de REELEVO. Aprobaciones, checkpoints, ramas paralelas y seguimiento en tiempo real. Para procesos que van más allá de un SOP simple.";
 const canonical = "https://gmvsolutions.es/workflows/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Workflows Automatizados",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">

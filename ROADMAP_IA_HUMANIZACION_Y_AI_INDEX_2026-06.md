@@ -4,6 +4,8 @@
 **Dominio:** gmvsolutions.es (REELEVO · Astro + Vercel)
 **Autor del análisis:** auditoría asistida sobre código real del repo `en-construccion`
 
+> **Estado (2026-06-13):** La **capa máquina está completa** salvo B4 (aparcado): B1 (schema accionable + Organization), B2 (`llms-full.txt` + rutas `.md` + alternate links), B3 (robots.txt bots IA) y B5 (security.txt + entry-splash verificado) ✅. El copy de la home y el site está humanizado (A3/A4) y el blog tiene autoría real (A5/B1). **Pendiente:** historia de fundador en 1ª persona y testimonios reales (A5, bloqueado por fase inicial) + verificación externa (Sprint 3 #11: Originality/GPTZero, Rich Results, recrawl BuiltWith) + B4 (cuando el site venda).
+
 ---
 
 ## Contexto y objetivos
@@ -177,11 +179,11 @@ En la **Organization** (`seo.ts:10-44`) añadir `founder` (Person), `contactPoin
 - Añadir `author` (Person) y `dateModified` al schema de cada artículo desde `ArticleLayout`.
 - ⚠️ El `AggregateRating` de `onboarding-software-pymes.astro:21` **debe** estar respaldado por reseñas reales o Google puede penalizar. Verificar.
 
-### B2. Capa de contenido para agentes (llms-full + markdown)
+### B2. Capa de contenido para agentes (llms-full + markdown) ✅ HECHO (2026-06-13)
 
-- **Actualizar `llms.txt`**: la fecha dice `2026-04-07` (stale) y faltan páginas nuevas (`software-gestion-pyme-industrial`, sectores, etc.). Añadir sección `## Acciones` con URLs de registro y diagnóstico.
-- **Crear `/llms-full.txt`**: volcado en markdown del contenido completo de las páginas clave (convención emergente para lectura de una sola petición por un agente).
-- **Versiones `.md` de las páginas**: ruta Astro que sirva el texto limpio en markdown (`/blog/x.md`). Los agentes prefieren markdown a HTML. Patrón que más sube "Agent Readiness".
+- [x] **Actualizar `llms.txt`**: fecha a `2026-06-12`, páginas nuevas añadidas y sección `## Acciones` con URLs de registro y diagnóstico. Además, nueva sección `## Formatos para agentes` que anuncia `/llms-full.txt` y la convención `.md`.
+- [x] **Crear `/llms-full.txt`**: endpoint `src/pages/llms-full.txt.ts` — volcado de una sola petición = resumen de `llms.txt` + contenido completo de los 15 posts del blog en markdown (~100 KB).
+- [x] **Versiones `.md` de las páginas**: endpoint `src/pages/blog/[slug].md.ts` sirve cada post como `/blog/<slug>.md` (texto limpio). Conversor propio sin dependencias en `src/lib/htmlToMarkdown.ts` (encabezados, listas, tablas, enlaces absolutos; quita nav/`<style>`/`<script>`/`<svg>`). `ArticleLayout` emite `<link rel="alternate" type="text/markdown">` en cada post. Verificado en build: 15 `.md` sin tags HTML residuales.
 
 ### B3. robots.txt — bienvenida explícita a bots de IA
 
@@ -220,10 +222,10 @@ Cuando se retome (referencia para el futuro):
 - **Búsqueda semántica** sobre blog/recursos (embeddings) en vez de búsqueda por palabra.
 - **Modelo:** para asistente web, **Claude Haiku 4.5** (`claude-haiku-4-5-20251001`) da buen coste/latencia; **Opus 4.8** (`claude-opus-4-8`) si se prioriza calidad. Integración vía API de Anthropic.
 
-### B5. Extras de readiness
+### B5. Extras de readiness ✅ HECHO (2026-06-13)
 
-- `/.well-known/security.txt` (señal de madurez/confianza).
-- Verificar que el **entry-splash** (`BaseLayout.astro:48-96`) no oculte contenido a un agente que renderice sin JS (el contenido está en el DOM; comprobar con "ver como renderizado").
+- [x] **`/.well-known/security.txt`** creado (RFC 9116: `Contact`, `Expires` 2027-06-13, `Preferred-Languages`, `Canonical`). Verificado que se copia a `dist/.well-known/security.txt` en build.
+- [x] **Entry-splash sin JS — verificado, sin cambios.** El HTML estático es `<html lang="es">` sin clases de splash; `entry-splash-booting`/`show-entry-splash` las gestiona solo el JS inline. Por CSS por defecto `.site-shell` está visible y `.entry-splash` oculto. Confirmado en el HTML construido: el contenido está en el DOM **y visible** sin JS. Progressive-enhancement correcto.
 
 ---
 
@@ -247,8 +249,8 @@ Cuando se retome (referencia para el futuro):
 
 ### Sprint 3 (maduración — según recursos)
 9. ~~Asistente IA on-site + búsqueda semántica (B4)~~ → **⛔ aparcado, no ahora** (ver B4). Retomar cuando el site venda.
-10. `llms-full.txt` + rutas `.md` + `.well-known` (B2, B5).
-11. Re-test (Originality/GPTZero en 10 URLs) + revalidar schema + esperar recrawl de BuiltWith.
+10. ✅ **HECHO (2026-06-13)** — `llms-full.txt` + rutas `.md` + `.well-known/security.txt` (B2, B5).
+11. Re-test (Originality/GPTZero en 10 URLs) + revalidar schema + esperar recrawl de BuiltWith. ⬅️ *pendiente (verificación externa)*
 
 ---
 
@@ -256,9 +258,9 @@ Cuando se retome (referencia para el futuro):
 
 - [ ] Copy IA medio **< 10%** en las 10 URLs de más texto (medido con Originality/GPTZero/Copyleaks).
 - [ ] **Rich Results válido** para FAQ / HowTo / Product / Video (Rich Results Test).
-- [ ] `sameAs` y entidad LinkedIn **unificados** (sin la inconsistencia gmvsolutions vs reelevo).
-- [ ] Blog unificado a `BlogPosting` con `author` Person real.
-- [ ] robots.txt permite explícitamente bots de IA reputados.
+- [x] `sameAs` y entidad LinkedIn **unificados** (`seo.ts` → `company/reelevo`; sin la inconsistencia gmvsolutions vs reelevo).
+- [x] Blog unificado a `BlogPosting` con `author` Person real (Gonzalo Moldes, centralizado en `ArticleLayout`).
+- [x] robots.txt permite explícitamente bots de IA reputados (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended…).
 - [ ] **Agent Readiness y Visibility al alza** tras recrawl de BuiltWith. (AI Index ~100 **no es alcanzable** mientras B4 esté aparcado, porque Maturity se queda en ≈25; objetivo realista hoy: **AI Index 75-85**.)
 
 ---

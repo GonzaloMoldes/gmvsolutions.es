@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Software de gestión para pyme industrial | REELEVO";
 const description = "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta en una sola herramienta. No es un ERP de contabilidad: gestiona las operaciones del taller.";
@@ -29,14 +30,7 @@ const faqs = [
 ];
 
 const schema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "REELEVO - Software de gestión para pyme industrial",
-    "description": description,
-    "url": canonical,
-    "applicationCategory": "BusinessApplication",
-  },
+  softwareApplicationSchema(),
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",

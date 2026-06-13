@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Firma digital operativa industrial | REELEVO";
 const description = "Añade firma digital al flujo de operaciones industriales. El operario firma al completar un proceso, el supervisor firma al validar la producción. Evidencia digital para auditorías ISO sin papel adicional.";
 const canonical = "https://gmvsolutions.es/firma-digital/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "REELEVO - Firma Digital Industrial",
-  "description": description,
-  "url": canonical,
-  "applicationCategory": "BusinessApplication"
-};
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
