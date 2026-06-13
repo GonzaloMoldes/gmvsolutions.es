@@ -143,6 +143,13 @@ https://www.linkedin.com/company/reelevo
 - **Casos de éxito:** https://gmvsolutions.es/casos-de-uso/
 - **Comparativas:** https://gmvsolutions.es/vs-alternativas/
 
+## Formatos para agentes (markdown)
+
+Contenido en texto limpio (markdown), preferible al HTML para lectura por máquinas:
+
+- **Volcado completo (una sola petición):** https://gmvsolutions.es/llms-full.txt — este resumen + el contenido íntegro del blog en markdown.
+- **Cada artículo del blog en markdown:** añade `.md` a la URL del post. Ej.: https://gmvsolutions.es/blog/que-es-un-sop-industrial.md
+
 ## Índice de palabras clave principales
 
 **Palabras clave del negocio:**

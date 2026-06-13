@@ -1,0 +1,11 @@
+# Política de divulgación de vulnerabilidades — REELEVO (GMV Solutions)
+# Formato: RFC 9116 (https://www.rfc-editor.org/rfc/rfc9116)
+
+Contact: mailto:hola@gmvsolutions.es
+Expires: 2027-06-13T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://gmvsolutions.es/.well-known/security.txt
+
+# Si detectas un problema de seguridad, escríbenos a hola@gmvsolutions.es
+# con los detalles para reproducirlo. Agradecemos la divulgación responsable
+# y nos comprometemos a responder lo antes posible.
