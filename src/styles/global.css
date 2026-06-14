@@ -59,7 +59,7 @@ a:hover{color:var(--orange-hover);}
 }
 .show-entry-splash body{overflow:hidden;}
 .show-entry-splash .entry-splash{
-  opacity:1;visibility:visible;pointer-events:auto;
+  opacity:1;visibility:visible;pointer-events:none;
   transition:opacity .6s ease;
 }
 .show-entry-splash .site-shell{

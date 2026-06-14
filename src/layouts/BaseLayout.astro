@@ -91,7 +91,7 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
     html.show-entry-splash .entry-splash {
       opacity: 1 !important;
       visibility: visible !important;
-      pointer-events: auto !important;
+      pointer-events: none !important;
     }
   </style>
 
@@ -240,6 +240,28 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
       const pulseDuration = 3000;
       const zoomDuration = 920;
       const blackoutHold = 180;
+      const totalDuration = logoRevealDelay + pulseDuration + zoomDuration + blackoutHold;
+
+      // Retira el splash y, con el, devuelve la interaccion a la pagina.
+      const clearSplash = () => {
+        root.classList.remove('entry-splash-zoom');
+        root.classList.remove('entry-splash-logo-visible');
+        root.classList.remove('show-entry-splash');
+      };
+
+      // Failsafe global: el splash nunca debe bloquear la interaccion mas alla de
+      // su duracion prevista, pase lo que pase con los timers de animacion.
+      // - visibilitychange: si la pestana cargo en segundo plano (timers throttled)
+      //   o se restaura el foco, limpiamos poco despues de volver a verla.
+      // - pageshow persisted: restauracion desde bfcache (atras/adelante).
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && root.classList.contains('show-entry-splash')) {
+          window.setTimeout(clearSplash, 1500);
+        }
+      });
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) clearSplash();
+      });
 
       if (!root.classList.contains('show-entry-splash')) {
         return;
@@ -253,11 +275,10 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
         root.classList.add('entry-splash-zoom');
       }, logoRevealDelay + pulseDuration);
 
-      window.setTimeout(() => {
-        root.classList.remove('entry-splash-zoom');
-        root.classList.remove('entry-splash-logo-visible');
-        root.classList.remove('show-entry-splash');
-      }, logoRevealDelay + pulseDuration + zoomDuration + blackoutHold);
+      window.setTimeout(clearSplash, totalDuration);
+
+      // Backstop absoluto por si algun setTimeout intermedio no se ejecuta.
+      window.setTimeout(clearSplash, totalDuration + 800);
     })();
   </script>
 </body>
