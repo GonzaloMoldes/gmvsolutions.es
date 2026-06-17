@@ -10,7 +10,6 @@
   "dependencies": {
     "@astrojs/sitemap": "3.2.1",
     "@sanity/client": "^7.20.0",
-    "astro": "^4.16.0",
-    "next-sanity": "^12.1.5"
+    "astro": "^4.16.0"
   }
 }
