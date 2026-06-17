@@ -3,12 +3,14 @@
 // markdown. Convencion emergente "llms-full" (Roadmap IA 2026-06, Parte B2).
 import type { APIRoute } from 'astro';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { postToMarkdown, type PostMarkdown } from '../lib/htmlToMarkdown';
 
 // Resumen de producto/empresa ya curado en markdown: reutilizamos llms.txt como
-// intro en lugar de duplicar la informacion.
-const llmsTxt = readFileSync(fileURLToPath(new URL('../../public/llms.txt', import.meta.url)), 'utf-8');
+// intro en lugar de duplicar la informacion. Se resuelve desde la raiz del
+// proyecto (process.cwd()): en build los endpoints se empaquetan fuera de /src,
+// asi que una ruta relativa a import.meta.url ya no apunta a /public (Astro 6).
+const llmsTxt = readFileSync(join(process.cwd(), 'public', 'llms.txt'), 'utf-8');
 
 const sources = import.meta.glob('./blog/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
