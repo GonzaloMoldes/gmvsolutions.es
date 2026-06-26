@@ -1,6 +1,6 @@
 export async function GET() {
   const baseURL = 'https://gmvsolutions.es';
-  const lastmod = '2026-06-05';
+  const lastmod = '2026-06-26';
 
   const page = (
     url: string,
@@ -73,6 +73,7 @@ export async function GET() {
     page('/blog/conocimiento-tacito-taller-industrial/', '0.75', 'monthly'),
     page('/blog/reducir-onboarding-operarios-cinco-a-un-dia/', '0.75', 'monthly'),
     page('/blog/plan-contingencia-bajas-produccion/', '0.75', 'monthly'),
+    page('/blog/trazabilidad-de-un-producto/', '0.75', 'monthly'),
 
     page('/recursos/gestion-competencias-industria/', '0.7', 'monthly'),
     page('/recursos/onboarding-software-pymes/', '0.7', 'monthly'),

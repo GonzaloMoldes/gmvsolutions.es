@@ -1,0 +1,170 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo saber la trazabilidad de un producto en tu fábrica";
+const description = "Cómo saber la trazabilidad de un producto: qué significa, qué datos necesitas para reconstruir su historia y cómo montarla paso a paso en una pyme industrial.";
+const date = "2026-06-26";
+const category = "Trazabilidad";
+const readTime = "9 min";
+const canonical = "https://gmvsolutions.es/blog/trazabilidad-de-un-producto/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es la trazabilidad de un producto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la capacidad de reconstruir la historia completa de un producto: de qué material salió, quién lo fabricó, con qué proceso, en qué máquina, cuándo y qué controles pasó. Saber la trazabilidad significa poder responder a esas preguntas en minutos cuando alguien las plantea —un cliente, un auditor o tú mismo para encontrar la causa de un fallo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué datos hacen falta para trazar un producto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Como mínimo: un identificador único (lote o unidad), el material o lote de origen, el operario que lo fabricó, la máquina o puesto, el proceso o SOP seguido, la fecha y el turno, los controles de calidad realizados y cualquier incidencia. La clave es que esos datos formen una cadena sin eslabones rotos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La trazabilidad es obligatoria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del sector. En alimentación es obligatoria por normativa. En otros sectores la exige la certificación (ISO 9001) o el propio cliente como condición para trabajar. Aunque no sea obligatoria, es lo que te permite responder ante una reclamación y encontrar la causa raíz de un problema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hace falta un MES para tener trazabilidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Un MES da trazabilidad completa pero es caro y largo de implantar. Para la mayoría de pymes, una herramienta de trazabilidad operativa que registre quién hizo cada pieza, cuándo, con qué proceso y dentro de qué pedido resuelve el 80% de los casos reales sin la complejidad de un MES."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Saber la trazabilidad de un producto es poder reconstruir su historia completa —de qué material salió, quién lo hizo, con qué proceso, cuándo y qué controles pasó— y poder hacerlo en minutos, no en días. En la mayoría de pymes esa información está repartida entre cabezas, Excel y partes en papel, así que cuando un cliente reclama, la cadena está rota. La solución no es más papeleo: es capturar el dato en el momento de la ejecución y dejarlo consultable.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué significa saber la trazabilidad de un producto</a></li>
+    <li><a href="#tipos">Los tres tipos de trazabilidad</a></li>
+    <li><a href="#datos">Qué datos necesitas para reconstruir la historia</a></li>
+    <li><a href="#pasos">Cómo montar la trazabilidad paso a paso</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué significa saber la trazabilidad de un producto</h2>
+  <p>La trazabilidad es la capacidad de seguir el rastro de un producto a lo largo de toda su vida: de dónde vino el material, por qué procesos pasó, quién intervino, cuándo y en qué condiciones. La definición es fácil. Lo difícil es lo que viene después: <strong>saber</strong> la trazabilidad significa poder reconstruir esa historia <strong>cuando alguien la pide</strong> —y poder hacerlo en minutos, no revisando partes en papel durante dos días.</p>
+
+  <p>Hay una prueba sencilla para saber si de verdad controlas la trazabilidad de tu planta. Coge una pieza terminada al azar y pregúntate: ¿puedo decir quién la hizo, en qué máquina, qué proceso siguió y qué día, sin llamar a nadie? Si la respuesta tarda más de un minuto o depende de la memoria de una persona, no tienes trazabilidad: tienes suerte de que todavía nadie te lo haya reclamado.</p>
+
+  <p>Un sistema de trazabilidad real responde a dos preguntas opuestas: <em>¿de dónde viene esto?</em> (hacia atrás) y <em>¿a dónde fue?</em> (hacia delante). La primera te sirve cuando aparece un defecto y necesitas la causa. La segunda, cuando detectas un lote malo y necesitas saber a qué clientes llegó para retirarlo sin avisar a todos.</p>
+
+  <h2 id="tipos">Los tres tipos de trazabilidad</h2>
+  <p>No es un solo concepto. Para reconstruir la historia completa de un producto necesitas encadenar tres tramos:</p>
+  <ul>
+    <li><strong>Trazabilidad hacia atrás (de proveedor):</strong> qué lote de materia prima, de qué proveedor y con qué albarán entró en este producto. Es lo que te permite acotar un problema a un origen concreto en vez de a toda la producción.</li>
+    <li><strong>Trazabilidad interna (de proceso):</strong> qué le pasó dentro de tu planta —qué máquinas, qué operarios, qué procedimiento, qué controles y qué incidencias. Es la que más se descuida y, a la vez, la que más rápido te delata cuando algo falla, porque casi nunca está documentada.</li>
+    <li><strong>Trazabilidad hacia delante (de cliente):</strong> a qué pedido, lote y cliente fue cada unidad. Es lo que convierte una retirada en algo selectivo en lugar de una llamada a toda tu cartera.</li>
+  </ul>
+
+  <p>La cadena solo vale si no tiene eslabones rotos. Basta un punto sin registrar —un cambio de turno, una pieza que no se anotó, un control que se dio por hecho— para perder la pista. Por eso el reto no es <em>tener</em> trazabilidad en abstracto, sino capturar cada eslabón sin que sea una carga para el operario.</p>
+
+  <h2 id="datos">Qué datos necesitas para reconstruir la historia</h2>
+  <p>Para que una unidad o un lote sean trazables, su registro tiene que contener, como mínimo, estos datos:</p>
+
+  <div class="data-card">
+    <p><strong>Identificador único</strong> — un lote o, mejor, una unidad con su propio código. Sin un identificador, no hay nada que trazar.</p>
+    <p><strong>Origen</strong> — qué material o lote de materia prima entró, de qué proveedor.</p>
+    <p><strong>Quién</strong> — el operario que ejecutó cada operación. No para señalar culpables, sino para reconstruir y mejorar.</p>
+    <p><strong>Dónde y con qué</strong> — máquina, puesto o línea en la que se fabricó.</p>
+    <p><strong>Cómo</strong> — el proceso o SOP seguido, y en qué versión. Un proceso cambia; saber con cuál se hizo la pieza importa.</p>
+    <p><strong>Cuándo</strong> — fecha y turno.</p>
+    <p><strong>Controles e incidencias</strong> — qué verificaciones de calidad pasó y qué se desvió de lo previsto.</p>
+  </div>
+
+  <p>Mira la lista y compárala con lo que de verdad queda registrado hoy en tu planta. En la mayoría de pymes, varios de estos campos viven solo en la cabeza del jefe de producción o en un parte que se rellena —cuando se rellena— al final del turno. Ahí es donde se rompe la cadena.</p>
+
+  <h2 id="pasos">Cómo montar la trazabilidad paso a paso</h2>
+
+  <h3>1. Define tu unidad de trazabilidad</h3>
+  <p>Decide si vas a trazar por lote o por pieza individual. Por lote es más ligero y suele bastar en producción en serie; por pieza es más potente y casi obligado cuando fabricas por encargo o el valor unitario es alto. Empieza por donde te duele: los productos que generan reclamaciones o los que un cliente te exige certificar.</p>
+
+  <h3>2. Decide qué capturar en cada paso crítico</h3>
+  <p>No documentes todo. Identifica los puntos del proceso donde, si algo sale mal, necesitarás saber qué pasó. En cada uno de esos puntos, define qué dato se registra (de la lista de arriba). Menos campos bien capturados valen más que una ficha enorme que nadie rellena.</p>
+
+  <h3>3. Asigna un identificador único</h3>
+  <p>Cada lote o pieza necesita un código que viaje con el producto físico: una etiqueta, un QR. Ese identificador es la llave que después abre toda la historia. Si el código se queda en un Excel y no en la pieza, la trazabilidad se pierde en cuanto el producto sale de tu vista.</p>
+
+  <h3>4. Captura el dato en el momento de la ejecución</h3>
+  <p>Esta es la diferencia entre trazabilidad real y trazabilidad de papel. Si el operario tiene que anotar al final del turno lo que hizo hace seis horas, los datos serán incompletos y poco fiables. El registro tiene que ocurrir <strong>en el puesto, mientras se ejecuta el proceso</strong>, idealmente de forma automática. Lo que se documenta a posteriori, se inventa a medias.</p>
+
+  <h3>5. Hazlo consultable</h3>
+  <p>Una trazabilidad que para reconstruirse necesita cruzar tres Excel y la memoria de alguien no sirve cuando el cliente está al teléfono. El objetivo es que cualquiera —no solo el experto— pueda escanear un código y ver la historia completa de esa unidad en segundos. La accesibilidad es lo que separa la trazabilidad que usas de la que solo existe en la teoría.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO ataca el punto donde casi siempre se rompe la cadena: la <strong>trazabilidad interna</strong>, la del proceso dentro de tu planta. En vez de pedir partes al final del turno, registra el dato en el momento en que el operario ejecuta el trabajo, sin papeleo extra.</p>
+
+  <p>El flujo es directo. Agrupas la producción bajo una <a href="/obras-trazabilidad/">obra o proyecto</a> y defines qué hay que fabricar. El operario produce vinculado a esa obra siguiendo el proceso correspondiente, y cada ejecución queda registrada automáticamente con su nombre, máquina, turno y hora. Al terminar una pieza, REELEVO genera un <strong>QR individual</strong> para esa unidad. A partir de ahí, ese QR es la trazabilidad de la pieza para siempre: quien lo escanee —en planta, en almacén o en el cliente— ve quién la hizo, cuándo, con qué proceso y dentro de qué pedido.</p>
+
+  <p>El cambio práctico se nota el día de una reclamación. En lugar de preguntar a los operarios y revisar partes incompletos, el responsable escanea el QR de la pieza reclamada y tiene la ficha completa en <strong>diez segundos</strong>: de la reclamación a la causa raíz, sin investigar. Lo ves aplicado paso a paso en <a href="/obras-trazabilidad/">obras y trazabilidad</a>, y cómo se conecta con auditorías y conformidad en <a href="/calidad-y-conformidad/">calidad y conformidad</a>.</p>
+
+  <div class="highlight-box">
+    <p><strong>Trazabilidad operativa, no un MES.</strong> REELEVO rastrea la producción por obra y por pieza, y deja el historial de ejecución consultable. Lo que <em>no</em> hace es gestionar la genealogía completa de lotes de materia prima ni la planificación de capacidad de un MES o un ERP. Para la mayoría de pymes industriales, esa trazabilidad de ejecución resuelve la mayor parte de los problemas reales sin la complejidad de implantar un MES.</p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es la trazabilidad de un producto?</h3>
+  <p>Es la capacidad de reconstruir la historia completa de un producto: de qué material salió, quién lo fabricó, con qué proceso, en qué máquina, cuándo y qué controles pasó. Saberla significa poder responder a esas preguntas en minutos, no en días.</p>
+
+  <h3>¿La trazabilidad es obligatoria?</h3>
+  <p>Depende del sector. En alimentación es obligatoria por normativa. En otros sectores la exige la certificación (ISO 9001) o el propio cliente como condición para trabajar. Aunque no sea obligatoria, es lo que te permite responder ante una reclamación y encontrar la causa raíz de un problema antes de que se repita.</p>
+
+  <h3>¿Hace falta un MES para tener trazabilidad?</h3>
+  <p>No. Un MES da trazabilidad completa, pero es caro y largo de implantar. Para la mayoría de pymes, una herramienta de trazabilidad operativa que registre quién hizo cada pieza, cuándo, con qué proceso y dentro de qué pedido resuelve el grueso de los casos reales sin esa complejidad.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/obras-trazabilidad/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Obras y trazabilidad</div>
+        <div class="related-link-desc">QR individual por pieza con historial completo.</div>
+      </a>
+      <a class="related-link-card" href="/calidad-y-conformidad/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Calidad y conformidad</div>
+        <div class="related-link-desc">Evidencia de ejecución para auditorías y clientes.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">El proceso documentado es el "cómo" de la trazabilidad.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Ponle nombre y apellido a cada pieza.</strong> <a href="/obras-trazabilidad/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver obras y trazabilidad">Ver cómo funciona la trazabilidad por pieza →</a> · <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a></p>
+  </div>
+</ArticleLayout>

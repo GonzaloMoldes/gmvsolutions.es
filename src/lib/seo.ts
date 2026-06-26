@@ -16,7 +16,7 @@ export const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/favicon.svg`,
   description:
-    'REELEVO ayuda a las pymes industriales a reducir la dependencia de personas clave, ordenar incorporaciones y ganar más visibilidad sobre lo que pasa en planta.',
+    'REELEVO es el software español para digitalizar la planta industrial de las pymes: control de producción, continuidad operativa y trazabilidad de ejecución, sin la complejidad de un MES.',
   email: 'hola@gmvsolutions.es',
   address: {
     '@type': 'PostalAddress',
@@ -134,6 +134,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   'gestion-competencias-industria': 'Gestión de competencias en la industria',
   'onboarding-vs-tradicional': 'Onboarding software vs tradicional',
   'que-es-un-sop-industrial': 'Qué es un SOP industrial',
+  'trazabilidad-de-un-producto': 'Cómo saber la trazabilidad de un producto',
   legal: 'Legal',
   'aviso-legal': 'Aviso legal',
   cookies: 'Política de cookies',

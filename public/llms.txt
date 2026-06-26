@@ -1,6 +1,6 @@
 # GMV Solutions — REELEVO
 
-> Sistema para planta que reduce improvisación, ordena incorporaciones y da más visibilidad operativa en pymes industriales. Desarrollado por GMV Solutions, España.
+> Software español para digitalizar la operación de planta en pymes industriales: control de producción, continuidad ante bajas y trazabilidad de ejecución, sin la complejidad de un MES. Desarrollado por GMV Solutions, España.
 
 **Última actualización:** 2026-06-12
 **Idioma:** es-ES (Español)
@@ -9,9 +9,9 @@
 
 ## Qué es REELEVO
 
-REELEVO es una plataforma SaaS B2B para continuidad operativa en planta. Ayuda a capturar el conocimiento de los operarios expertos y dejarlo disponible en el puesto para que sustituciones, incorporaciones y cambios de turno no rompan la operación. Sin cuenta de operario y sin fricción innecesaria en el acceso.
+REELEVO es un software español (SaaS B2B) para digitalizar la operación de planta en pymes industriales. Reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso.
 
-**Categoría:** Software SOP · Documentación operativa · Instrucciones de trabajo digitales · Gestión del conocimiento industrial · Connected worker platform
+**Categoría:** Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
 
 **Precio:** desde 49€/mes por empresa (operarios ilimitados). Precio fijo, no por usuario. De los pocos en su categoría con precio visible en euros.
 
@@ -89,6 +89,7 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Plan de contingencia ante bajas en producción](https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/)
 - [SOP de mantenimiento preventivo: guía y plantilla](https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/)
 - [Software SOP para fábricas: comparativa](https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
+- [Cómo saber la trazabilidad de un producto](https://gmvsolutions.es/blog/trazabilidad-de-un-producto/)
 
 ### Landing pages de alto valor
 - [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
