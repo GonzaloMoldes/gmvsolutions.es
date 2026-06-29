@@ -1,0 +1,215 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Lean Manufacturing: qué es y cómo aplicarlo en una pyme industrial";
+const description = "Qué es el Lean Manufacturing, sus principios, los 8 desperdicios (TIMWOODS) y las herramientas que de verdad usarás. Cómo empezar en tu planta y por qué casi siempre fracasa.";
+const date = "2026-06-29";
+const category = "Lean Manufacturing";
+const readTime = "11 min";
+const canonical = "https://gmvsolutions.es/blog/lean-manufacturing/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el Lean Manufacturing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una forma de producir que busca entregar el máximo valor al cliente con el mínimo desperdicio. Nació en Toyota y se apoya en tres ideales —eliminar desperdicios, mejorar de forma continua y aportar valor a través de las personas— y cinco principios que ordenan cómo lograrlo. No es una certificación ni un taller puntual: es una práctica diaria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son los 8 desperdicios del Lean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se resumen con el acrónimo TIMWOODS: Transporte innecesario, Inventario excesivo, Movimiento ineficiente, Waiting (esperas), Over-processing (sobreprocesamiento), Over-production (sobreproducción), Defectos y Skills (talento no aprovechado). Son las actividades por las que el cliente no pagaría y que el Lean busca eliminar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El Lean Manufacturing solo sirve para grandes fábricas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El Lean nació en una gran industria pero sus principios escalan hacia abajo perfectamente. Una pyme tiene incluso ventaja: menos capas, decisiones más rápidas y más cercanía con el operario. Lo que cambia no es el método, sino la profundidad: empieza por un proceso y un desperdicio, no por reorganizar toda la planta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito un software para aplicar Lean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes empezar con papel y pósters, pero ahí es donde la mayoría de pymes se atasca: el dato que alimenta el Lean vive en Excel y en la cabeza del jefe de producción, las mejoras no se estandarizan y todo regresa al mes. Un software ayuda cuando captura el dato donde ocurre el trabajo y deja la mejora fijada en el proceso, no cuando añade más papeleo."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> El Lean Manufacturing es producir aportando el máximo valor al cliente con el mínimo desperdicio. No es una certificación ni un taller de fin de semana: es una práctica diaria que se sostiene sobre datos reales. En la mayoría de pymes el Lean se queda en pósters en la pared y un Excel que muere al mes, porque el dato que lo alimenta vive en papel y en la cabeza del jefe de producción. El Lean funciona cuando se mide donde ocurre el trabajo y la mejora se fija en el proceso.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es el Lean Manufacturing</a></li>
+    <li><a href="#principios">Los tres ideales y los cinco principios</a></li>
+    <li><a href="#desperdicios">Los ocho desperdicios: TIMWOODS</a></li>
+    <li><a href="#herramientas">Las herramientas Lean que de verdad usarás</a></li>
+    <li><a href="#empezar">Cómo empezar con Lean en tu planta</a></li>
+    <li><a href="#por-que-fracasa">Por qué el Lean fracasa en tantas pymes</a></li>
+    <li><a href="#reelevo">Cómo lo apoya REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es el Lean Manufacturing</h2>
+  <p>El Lean Manufacturing es un conjunto de métodos para organizar la producción de modo que se entregue el <strong>máximo valor al cliente con el mínimo desperdicio</strong> —de tiempo, de material, de movimiento y de esfuerzo. La idea de fondo es sencilla de enunciar y difícil de mantener: todo lo que el cliente no estaría dispuesto a pagar es candidato a eliminarse.</p>
+
+  <p>Nació en Toyota tras la Segunda Guerra Mundial. Con una demanda baja y pocos recursos, ingenieros como Taiichi Ohno construyeron un sistema de producción —el TPS— que no buscaba fabricar más por fabricar, sino fabricar exactamente lo necesario, cuando se necesita y sin defectos. De ahí saltó al resto de la industria mundial en los años 70 y 80, y de ahí viene buena parte del vocabulario que hoy se usa en cualquier planta: <em>kaizen</em>, <em>kanban</em>, <em>just-in-time</em>, <em>jidoka</em>.</p>
+
+  <p>Conviene distinguir dos ámbitos que a menudo se mezclan. El <strong>Lean Manufacturing</strong> se ocupa de la <strong>fabricación</strong>: cómo se ejecuta y estandariza el trabajo en planta. El <em>Lean Logistics</em> aplica los mismos principios al almacén y al transporte —picking, inventario, logística inversa. Este artículo va del primero: lo que ocurre en el puesto, en la máquina y en el proceso.</p>
+
+  <h2 id="principios">Los tres ideales y los cinco principios</h2>
+  <p>El Lean se apoya en <strong>tres ideales</strong> que marcan la dirección:</p>
+  <ul>
+    <li><strong>Eliminación de desperdicios:</strong> descartar todo lo que no añade valor al producto.</li>
+    <li><strong>Mejora continua:</strong> simplificar y perfeccionar los procesos sin parar, en pasos pequeños.</li>
+    <li><strong>Aporte de valor a través de las personas:</strong> el foco está en el cliente, y quien mejor ve el desperdicio es quien hace el trabajo. El Lean cuenta con el operario, no lo deja al margen.</li>
+  </ul>
+
+  <p>Y se aterriza en <strong>cinco principios</strong> que ordenan cómo lograrlo:</p>
+  <ul>
+    <li><strong>1. Identificar el valor.</strong> Definir qué es valor desde la perspectiva del cliente. Todo lo demás es candidato a recortarse.</li>
+    <li><strong>2. Mapear el flujo de valor.</strong> Dibujar todos los pasos por los que pasa un producto —de la materia prima a la entrega— y marcar cuáles aportan valor y cuáles no.</li>
+    <li><strong>3. Crear flujo.</strong> Conseguir que el trabajo avance sin atascos, esperas ni idas y venidas entre etapas.</li>
+    <li><strong>4. Establecer un sistema <em>pull</em>.</strong> Producir al ritmo de la demanda real, no por anticipado. Se fabrica cuando hay tirón del cliente, no para llenar un almacén.</li>
+    <li><strong>5. Buscar la perfección.</strong> Repetir el ciclo de forma constante. El Lean no tiene un punto final: cada mejora abre la siguiente.</li>
+  </ul>
+
+  <h2 id="desperdicios">Los ocho desperdicios: TIMWOODS</h2>
+  <p>El corazón práctico del Lean es aprender a <strong>ver el desperdicio</strong>, porque casi siempre está normalizado. Se clasifica en ocho tipos, que se recuerdan con el acrónimo en inglés <strong>TIMWOODS</strong>:</p>
+
+  <div class="data-card">
+    <p><strong>T — Transporte</strong> — mover materiales o piezas más de lo necesario entre puestos.</p>
+    <p><strong>I — Inventario</strong> — stock parado: materia prima, producto en curso o terminado que ocupa espacio y dinero sin aportar.</p>
+    <p><strong>M — Movimiento</strong> — desplazamientos del operario que no añaden valor: ir a buscar una herramienta, un plano, una pieza.</p>
+    <p><strong>W — Waiting (espera)</strong> — tiempo muerto: una máquina parada, un operario esperando material o la orden del turno anterior.</p>
+    <p><strong>O — Over-processing (sobreprocesamiento)</strong> — hacer más de lo que el cliente pide: un acabado que nadie valora, un control duplicado.</p>
+    <p><strong>O — Over-production (sobreproducción)</strong> — fabricar antes o más de lo necesario. Es el peor, porque esconde y alimenta a todos los demás.</p>
+    <p><strong>D — Defectos</strong> — piezas mal hechas que hay que repasar, reprocesar o tirar. El desperdicio más caro y el más visible para el cliente.</p>
+    <p><strong>S — Skills (talento)</strong> — el conocimiento y las ideas del operario que no se aprovechan. La persona que mejor sabe dónde está el problema, callada.</p>
+  </div>
+
+  <p>Lee la lista mirando tu propia planta. La mayoría de fábricas conviven con varios de estos desperdicios sin verlos, porque "siempre se ha hecho así". El primer paso del Lean no es eliminarlos: es <strong>hacerlos visibles y medibles</strong>. Lo que no se mide, no se reduce.</p>
+
+  <h2 id="herramientas">Las herramientas Lean que de verdad usarás</h2>
+  <p>Alrededor del Lean hay decenas de herramientas. En una pyme industrial, este puñado es el que mueve la aguja:</p>
+
+  <ul>
+    <li><strong>Estandarización del trabajo (SOP).</strong> La base de todo. Si cada operario hace la tarea a su manera, no hay nada que mejorar de forma estable. Estandarizar el "cómo" es lo que convierte una mejora en permanente. Lo desarrollamos en <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a>.</li>
+    <li><strong>Kaizen (mejora continua).</strong> El motor. Cambios pequeños, frecuentes y propuestos por quien hace el trabajo, en vez de grandes proyectos de arriba abajo.</li>
+    <li><strong>5S.</strong> Orden y limpieza con método (Seiri, Seiton, Seiso, Seiketsu, Shitsuke). Un puesto ordenado elimina movimiento y espera, y hace que el problema se vea antes.</li>
+    <li><strong>Gestión visual y kanban.</strong> Que el estado del trabajo se entienda de un vistazo: tableros con columnas, señales que indican qué producir y cuándo.</li>
+    <li><strong>Jidoka y andon.</strong> Parar ante el defecto. En cuanto algo falla, se detiene y se avisa, en lugar de seguir fabricando piezas malas. El <em>andon</em> es la señal que activa esa parada.</li>
+    <li><strong>Takt time y pull.</strong> Calcular el ritmo al que hay que producir para cubrir la demanda y ajustarse a él, evitando tanto la subcapacidad como la sobreproducción.</li>
+    <li><strong>Value Stream Mapping (VSM).</strong> El mapa del flujo de valor que separa el tiempo que aporta valor del que no, y deja ver dónde está el cuello de botella.</li>
+    <li><strong>OEE.</strong> El indicador que mide la eficiencia real de un equipo combinando disponibilidad, rendimiento y calidad. Es el termómetro del Lean.</li>
+  </ul>
+
+  <h2 id="empezar">Cómo empezar con Lean en tu planta</h2>
+  <p>No hace falta un consultor ni reorganizar la fábrica entera. El Lean se empieza por una esquina y se extiende. Un orden que funciona en pyme:</p>
+
+  <h3>1. Mide antes de cambiar</h3>
+  <p>No se mejora lo que no se conoce. Antes de tocar nada, captura los datos reales: cuánto se produce, cuánto se para y por qué, qué piezas salen mal. Sin una línea base, cualquier "mejora" es una opinión.</p>
+
+  <h3>2. Estandariza el trabajo crítico</h3>
+  <p>Elige los procesos donde un error duele —los que generan reclamaciones o dependen de una sola persona— y documenta cómo se hacen bien. Esa norma es el punto de partida desde el que mejorar.</p>
+
+  <h3>3. Haz visible el desperdicio</h3>
+  <p>Pon nombre a lo que ves con la lista TIMWOODS. Una parada repetida es <em>espera</em>; un retrabajo es <em>defecto</em>; un operario buscando herramientas es <em>movimiento</em>. Nombrarlo es el primer paso para atacarlo.</p>
+
+  <h3>4. Crea el hábito de mejora continua</h3>
+  <p>Abre un canal para que el operario proponga mejoras desde el puesto y, sobre todo, cierra el círculo: analiza, implanta y <strong>estandariza</strong> lo que funciona. Una mejora que no se fija en el proceso se pierde en el siguiente turno.</p>
+
+  <h3>5. Para ante el defecto</h3>
+  <p>Instaura la regla de detener y avisar en cuanto algo se desvía, en lugar de seguir y arreglar al final. Cada parada bien gestionada es una oportunidad de encontrar la causa raíz, no una pérdida de tiempo.</p>
+
+  <h2 id="por-que-fracasa">Por qué el Lean fracasa en tantas pymes</h2>
+  <p>Aquí va lo que casi nadie dice: el Lean rara vez fracasa por falta de teoría. Fracasa por el dato. El taller de mejora se hace, se llenan pósters de post-its, y a las tres semanas todo ha vuelto a estar como estaba. ¿Por qué?</p>
+
+  <p>Porque el Lean necesita alimentarse de información real y continua, y en la mayoría de pymes esa información <strong>vive en sitios donde no sirve</strong>: un parte en papel que se rellena —cuando se rellena— al final del turno, un Excel que solo actualiza una persona, la memoria del jefe de producción. Cuando el dato llega tarde y a medias, el OEE engaña, el desperdicio no se ve y las decisiones se toman por intuición.</p>
+
+  <p>Y hay un segundo fallo, igual de común: las mejoras <strong>no se estandarizan</strong>. Se resuelve un problema en una máquina, pero la solución no entra en el proceso, así que el turno siguiente vuelve a tropezar con la misma piedra. El Lean sin estandarización es como llenar un cubo agujereado.</p>
+
+  <div class="highlight-box">
+    <p><strong>La regla que lo cambia todo.</strong> El Lean no se sostiene con buena voluntad ni con carteles en la pared. Se sostiene cuando el dato se captura <em>en el momento en que ocurre el trabajo</em> —no a posteriori— y cuando cada mejora queda <em>fijada en el proceso</em>. Si tu sistema falla en una de esas dos cosas, el Lean se te escurre.</p>
+  </div>
+
+  <h2 id="reelevo">Cómo lo apoya REELEVO</h2>
+  <p>REELEVO no es una metodología: es la capa operativa que hace que el Lean sea <strong>continuo</strong> en una pyme, atacando justo los dos puntos donde se rompe —el dato que llega tarde y la mejora que no se fija.</p>
+
+  <p>El operario trabaja siguiendo el proceso estandarizado desde su puesto, y cada ejecución queda registrada en el momento: quién, qué máquina, qué turno, cuánto se produjo y qué se desvió. Ese dato en tiempo real es el que alimenta el <a href="/control-produccion/">control de producción</a> y el OEE, sin partes en papel ni Excel del día siguiente.</p>
+
+  <p>Sobre esa base se monta el resto del Lean:</p>
+  <ul>
+    <li><strong>Mejora continua de verdad.</strong> El operario propone mejoras desde el puesto y el ciclo se cierra hasta <strong>estandarizar</strong> la solución en el proceso —que es lo que evita que el problema regrese. Lo ves en <a href="/kaizen/">kaizen y mejora continua</a>.</li>
+    <li><strong>Parar ante el defecto (jidoka/andon).</strong> Cuando algo falla, el operario lo marca y salta el aviso al supervisor, en lugar de seguir fabricando piezas malas. La solución puede incorporarse al proceso para que no vuelva a pasar.</li>
+    <li><strong>Trabajo estandarizado y versionado.</strong> Los procesos viven documentados, accesibles en el puesto y con versiones, de modo que cada pieza se hace con el "cómo" correcto. Es la base de la <a href="/documentacion-procesos/">documentación de procesos</a>.</li>
+    <li><strong>El talento, aprovechado.</strong> La matriz de competencias y las contribuciones del operario convierten ese octavo desperdicio —el conocimiento desaprovechado— en algo visible y gestionable. Lo desarrollamos en <a href="/gestion-competencias/">gestión de competencias</a>.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Lean operativo, no un MES.</strong> REELEVO cubre la ejecución y la mejora continua en planta: capturar el dato donde ocurre, medir la eficiencia real y dejar la mejora fijada en el proceso. Lo que <em>no</em> hace es la planificación de capacidad ni la genealogía completa de lotes de un MES o un ERP. Para la mayoría de pymes industriales, esa capa de ejecución es justo la que falta para que el Lean deje de ser un póster y se convierta en un hábito.</p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué diferencia hay entre Lean Manufacturing y Six Sigma?</h3>
+  <p>El Lean se centra en eliminar desperdicio y acelerar el flujo; Six Sigma, en reducir la variabilidad y los defectos con métodos estadísticos. No compiten: muchas plantas los combinan en lo que se llama <em>Lean Six Sigma</em>. Para una pyme que empieza, el Lean suele dar resultados más rápidos y con menos aparato.</p>
+
+  <h3>¿El Lean Manufacturing solo sirve para grandes fábricas?</h3>
+  <p>No. Nació en una gran industria, pero sus principios escalan hacia abajo perfectamente. Una pyme tiene incluso ventaja: menos capas, decisiones más rápidas y más cercanía con el operario. Lo que cambia es la profundidad —empieza por un proceso y un desperdicio, no por reorganizar toda la planta.</p>
+
+  <h3>¿Por dónde empiezo si nunca he hecho Lean?</h3>
+  <p>Por medir y por estandarizar el trabajo crítico. Con una línea base real de producción, paradas y defectos, y con tus procesos clave documentados, ya tienes lo necesario para ver el desperdicio y empezar a atacarlo con kaizen. El resto se construye encima.</p>
+
+  <h3>¿Necesito un software para hacer Lean?</h3>
+  <p>Puedes empezar con papel, pero ahí es donde la mayoría de pymes se atasca: el dato vive en Excel y en la cabeza del jefe de producción, y las mejoras no se estandarizan. Un software ayuda cuando captura el dato donde ocurre el trabajo y fija la mejora en el proceso —no cuando añade más papeleo.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/kaizen/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Kaizen y mejora continua</div>
+        <div class="related-link-desc">El motor del Lean: ideas del operario que se estandarizan.</div>
+      </a>
+      <a class="related-link-card" href="/control-produccion/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Control de producción</div>
+        <div class="related-link-desc">El dato real y el OEE que alimentan el Lean.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">La estandarización que hace permanente cada mejora.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Convierte el Lean en un hábito, no en un póster.</strong> <a href="/kaizen/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver kaizen y mejora continua">Ver cómo funciona la mejora continua →</a> · <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a></p>
+  </div>
+</ArticleLayout>

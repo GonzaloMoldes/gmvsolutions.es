@@ -135,6 +135,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   'onboarding-vs-tradicional': 'Onboarding software vs tradicional',
   'que-es-un-sop-industrial': 'Qué es un SOP industrial',
   'trazabilidad-de-un-producto': 'Cómo saber la trazabilidad de un producto',
+  'lean-manufacturing': 'Lean Manufacturing: qué es y cómo aplicarlo',
   legal: 'Legal',
   'aviso-legal': 'Aviso legal',
   cookies: 'Política de cookies',
