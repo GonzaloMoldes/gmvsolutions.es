@@ -1,0 +1,184 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo digitalizar la producción en una pyme industrial sin un gran proyecto";
+const description = "Digitalizar la producción y los procesos de una pyme industrial no exige IoT, SCADA ni un MES. Qué se puede digitalizar, en qué orden empezar y por dónde se atasca casi todo el mundo.";
+const date = "2026-07-01";
+const category = "Digitalización";
+const readTime = "10 min";
+const canonical = "https://gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué significa digitalizar la producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es pasar a formato digital dos cosas: el proceso (cómo se hace cada trabajo) y la ejecución (qué se produce, quién lo hace, cuándo y con qué resultado), de forma que dejen de vivir en papel, en Excel y en la cabeza del jefe de producción. No es lo mismo que una transformación digital con sensores, SCADA o un MES: eso es un extremo del espectro, válido para gran industria. Para una pyme, digitalizar la producción es algo más concreto y barato que se puede empezar por un solo proceso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito IoT, SCADA o un MES para digitalizar la producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para empezar. Esos sistemas digitalizan la máquina y la planificación, y tienen sentido en industrias grandes o muy automatizadas. La mayor parte del retorno en una pyme está antes: en digitalizar el proceso y capturar el dato de la ejecución donde ocurre el trabajo. Eso no requiere cablear sensores ni un proyecto de meses, y resuelve los problemas que de verdad cuestan dinero —errores, dependencia de personas clave y falta de visibilidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hace falta wifi industrial en toda la planta para digitalizar los procesos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Muchos talleres no tienen cobertura wifi en planta, y eso frena proyectos enteros sin motivo. El proceso puede llevarse al puesto con un QR que el operario escanea desde el móvil con datos, y el registro puede funcionar también sin conexión y sincronizar después. La falta de wifi industrial es una excusa habitual para no empezar, no un impedimento real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay ayudas para digitalizar la producción de una pyme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Programas como el Kit Digital cubren parte del coste de software de digitalización para pymes y autónomos. Conviene elegir una solución que encaje en esos programas y, sobre todo, que ataque un problema operativo concreto —documentar procesos, capturar la ejecución, ordenar el onboarding— en lugar de digitalizar por digitalizar para gastar la subvención."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Digitalizar la producción no es montar una "transformación digital" con sensores, SCADA y un MES. Para una pyme industrial es algo más concreto y mucho más barato: pasar a digital el <strong>proceso</strong> (cómo se hace cada trabajo) y el <strong>dato de la ejecución</strong> (qué se produce, quién, cuándo y con qué resultado), empezando por un proceso crítico y no por toda la fábrica. El error habitual tiene dos caras: creer que hace falta un gran proyecto —y no empezar nunca— o digitalizar el papel tal cual, sin cambiar dónde vive la información. Se empieza llevando el proceso al puesto y capturando el dato donde ocurre el trabajo.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué significa digitalizar la producción (y qué no)</a></li>
+    <li><a href="#por-que">Por qué la pyme industrial se queda fuera</a></li>
+    <li><a href="#que-digitalizar">Qué se puede digitalizar en planta y en qué orden</a></li>
+    <li><a href="#pasos">Cómo digitalizar la producción paso a paso</a></li>
+    <li><a href="#errores">Errores comunes al digitalizar</a></li>
+    <li><a href="#reelevo">Cómo lo apoya REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué significa digitalizar la producción (y qué no)</h2>
+  <p>Conviene empezar separando dos palabras que se usan como sinónimos y no lo son. <strong>Digitalizar procesos</strong> es pasar el "cómo se hace" a un formato digital accesible: que la instrucción de trabajo, el SOP o el checklist dejen de estar en una carpeta, un PDF o la memoria del operario veterano y estén disponibles en el puesto. <strong>Digitalizar la producción</strong> va un paso más allá: además del proceso, captura en digital lo que ocurre al ejecutarlo —qué se fabrica, quién lo hace, en qué máquina, cuándo y con qué resultado.</p>
+
+  <p>Y conviene separar las dos también de la <em>transformación digital</em>, que es la etiqueta grande bajo la que suele venderse todo. Sensores en la máquina (IoT), sistemas de supervisión (SCADA), un MES que orquesta la planificación: eso es un extremo del espectro, perfectamente válido para gran industria o plantas muy automatizadas. Pero no es por donde empieza una pyme, ni es lo que más retorno le da al principio.</p>
+
+  <p>Para una pyme industrial, digitalizar la producción es algo bastante terrenal: que el proceso esté en el puesto y que cada ejecución deje un dato fiable, en lugar de un parte en papel que se rellena —cuando se rellena— al final del turno. Nada de eso necesita un proyecto de meses para arrancar.</p>
+
+  <h2 id="por-que">Por qué la pyme industrial se queda fuera</h2>
+  <p>El relato dominante asocia "digitalizar" con presupuestos altos, integradores y proyectos largos. El resultado es predecible: el gerente de una pyme escucha "digitalización industrial", la traduce mentalmente a "caro, complejo y para fábricas más grandes que la mía", y lo aparca un año más. Mientras tanto, sigue conviviendo con los costes de no haberlo hecho —errores que se repiten, un operario clave del que depende todo, decisiones de turno tomadas a ciegas.</p>
+
+  <p>El malentendido está en confundir <strong>automatizar la máquina</strong> con <strong>digitalizar el trabajo</strong>. Cablear sensores y conectar autómatas es caro y solo merece la pena cuando ya tienes lo básico resuelto. Lo básico —el proceso y el dato de la ejecución— es justo lo barato y lo que más cuesta cuando falta. La mayor parte del retorno de digitalizar una pyme industrial no está en los sensores: está en que el "cómo" y el "qué ha pasado" dejen de vivir en sitios donde no sirven.</p>
+
+  <div class="highlight-box">
+    <p><strong>La regla de oro.</strong> No empieces por la tecnología más vistosa, empieza por el problema más caro. Si lo que te cuesta dinero es que cada baja descoloca la planta, que las incorporaciones tardan semanas o que no sabes por qué se repite un defecto, lo que tienes que digitalizar primero es el proceso y la ejecución —no la máquina.</p>
+  </div>
+
+  <h2 id="que-digitalizar">Qué se puede digitalizar en planta y en qué orden</h2>
+  <p>Digitalizar la producción no es un interruptor: es una lista de cosas que se pueden pasar a digital, y conviene atacarlas por retorno, no por orden de novedad. De más rentable a más sofisticado:</p>
+
+  <div class="data-card">
+    <p><strong>1. El proceso (el "cómo")</strong> — la instrucción de trabajo y el SOP accesibles en el puesto, con su versión correcta. Es lo más barato y lo que más reduce errores y dependencia del experto.</p>
+    <p><strong>2. La ejecución</strong> — quién hizo qué, en qué máquina, cuándo y cuánto. El dato que sustituye al parte en papel y alimenta cualquier decisión posterior.</p>
+    <p><strong>3. El control de calidad</strong> — las verificaciones y los autocontroles registrados en el momento, no firmados en bloque al final del turno.</p>
+    <p><strong>4. La formación y las competencias</strong> — quién está formado en qué proceso y con qué autonomía, en una matriz que se actualiza sola con la ejecución.</p>
+    <p><strong>5. La trazabilidad</strong> — la historia de cada lote o pieza, reconstruible en minutos en lugar de cruzando tres Excel.</p>
+    <p><strong>6. Las incidencias y mejoras</strong> — lo que se desvía y lo que el operario propone, capturado donde ocurre y devuelto al proceso.</p>
+  </div>
+
+  <p>No hace falta hacerlo todo a la vez ni en este orden exacto. La idea es que cada peldaño se apoya en el anterior: sin el proceso digitalizado (1) no hay base para registrar bien la ejecución (2), y sin ejecución no hay datos reales que alimenten calidad, competencias o trazabilidad. Por eso casi siempre se empieza por arriba.</p>
+
+  <h2 id="pasos">Cómo digitalizar la producción paso a paso</h2>
+
+  <h3>1. Empieza por un proceso crítico, no por toda la fábrica</h3>
+  <p>El proyecto que intenta digitalizar la planta entera de golpe casi siempre muere. Elige un proceso donde un error duela —el que genera reclamaciones, el que depende de una sola persona, el que más se atasca cuando falta el titular— y digitalízalo bien. Un proceso resuelto y en uso convence más que un plan de doce meses sobre papel.</p>
+
+  <h3>2. Lleva el proceso al puesto</h3>
+  <p>Digitalizar el "cómo" no es escanear el manual y dejarlo en una carpeta compartida que nadie abre. Es que la instrucción correcta aparezca <strong>en la máquina, en el momento de hacer el trabajo</strong>, con su versión vigente. Si el operario tiene que ir a buscarla, no la usará. Lo desarrollamos en <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a>.</p>
+
+  <h3>3. Captura el dato donde ocurre el trabajo</h3>
+  <p>Aquí está la diferencia entre digitalizar de verdad y digitalizar el papel. Si el dato se anota al final del turno de memoria, será incompleto y poco fiable —da igual que el soporte sea una app. El registro tiene que ocurrir en el puesto, mientras se ejecuta, idealmente con el mínimo esfuerzo para el operario. Lo que se documenta a posteriori, se inventa a medias.</p>
+
+  <h3>4. Hazlo funcionar sin wifi industrial</h3>
+  <p>Muchos talleres no tienen cobertura en planta, y eso frena proyectos enteros sin motivo. El proceso puede llevarse al puesto con un <strong>QR</strong> que el operario escanea desde el móvil, y el registro puede funcionar también <a href="/modo-offline/">sin conexión</a> y sincronizar después. La falta de wifi es una excusa habitual, no un impedimento real.</p>
+
+  <h3>5. Mide y mejora con el dato real</h3>
+  <p>Una vez el dato entra solo y en el momento, deja de ser papeleo y empieza a servir: ves tiempos reales por proceso y operario, dónde se atasca el turno y qué defecto se repite. Ese es el punto donde digitalizar la producción se paga solo —cuando el dato sostiene decisiones en lugar de acumularse en un cajón.</p>
+
+  <h2 id="errores">Errores comunes al digitalizar</h2>
+  <ul>
+    <li><strong>Digitalizar el papel tal cual.</strong> Pasar el parte de papel a un PDF rellenable no cambia nada: la información sigue llegando tarde y a medias. Lo que hay que cambiar es <em>dónde y cuándo</em> se captura el dato, no solo el soporte.</li>
+    <li><strong>Empezar por la herramienta y no por el problema.</strong> Comprar el software primero y buscar después para qué usarlo es el camino corto al "lo tenemos pero no lo usa nadie".</li>
+    <li><strong>Querer abarcarlo todo.</strong> Digitalizar la planta entera en un trimestre garantiza que el operario se sature y el proyecto se abandone. Un proceso a la vez.</li>
+    <li><strong>Confundir digitalizar con automatizar.</strong> No necesitas robotizar la máquina para tener visibilidad de la producción. Son cosas distintas y la segunda es mucho más cara.</li>
+    <li><strong>Olvidar al operario.</strong> Si la herramienta le añade trabajo en vez de quitárselo, la rellenará mal o la esquivará. La adopción en el puesto es lo que decide si la digitalización es real o solo una licencia pagada.</li>
+  </ul>
+
+  <h2 id="reelevo">Cómo lo apoya REELEVO</h2>
+  <p>REELEVO es un software SOP industrial para pymes que cubre justo los dos primeros peldaños —y los que se apoyan en ellos— sin abrir un proyecto pesado. Lleva el <a href="/documentacion-procesos/">proceso documentado</a> al puesto, con su versión vigente, y registra cada ejecución en el momento: quién, qué máquina, qué turno, cuánto se produjo y qué se desvió.</p>
+
+  <p>Sobre esa base se construye el resto de la digitalización de planta, en el orden que importa para una pyme:</p>
+  <ul>
+    <li><strong>El proceso en el puesto.</strong> El operario accede a la instrucción correcta desde su <a href="/portal-operario/">portal</a> con un QR, también sin wifi industrial. Digitalizar el "cómo" deja de depender de la memoria del veterano.</li>
+    <li><strong>La ejecución capturada en el momento.</strong> El dato entra donde ocurre el trabajo y alimenta el <a href="/control-produccion/">control de producción</a> —tiempos reales y visibilidad— sin partes en papel ni Excel del día siguiente.</li>
+    <li><strong>Competencias y trazabilidad.</strong> Esa ejecución actualiza sola la <a href="/gestion-competencias/">matriz de competencias</a> y deja la historia de cada pieza consultable, sin trabajo extra.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Digitalización operativa, no un MES.</strong> REELEVO digitaliza el proceso y la ejecución en planta: el "cómo" en el puesto y el "qué ha pasado" capturado en el momento. Lo que <em>no</em> hace es la automatización de máquina (IoT/SCADA) ni la planificación de capacidad de un MES o un ERP. Para la mayoría de pymes industriales, esa capa operativa es justo el primer paso de la digitalización —el que más retorno da y el más barato de empezar. Si tu objetivo es aprovechar una ayuda como el <a href="/kit-digital-pyme-industrial/">Kit Digital</a>, encaja por aquí.</p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué significa digitalizar la producción?</h3>
+  <p>Es pasar a digital el proceso (cómo se hace cada trabajo) y la ejecución (qué se produce, quién, cuándo y con qué resultado), de forma que dejen de vivir en papel, en Excel y en la cabeza del jefe de producción. No es lo mismo que una transformación digital con sensores o un MES: para una pyme es algo más concreto que se empieza por un solo proceso.</p>
+
+  <h3>¿Necesito IoT, SCADA o un MES para digitalizar la producción?</h3>
+  <p>No para empezar. Esos sistemas digitalizan la máquina y la planificación, y tienen sentido en industrias grandes o muy automatizadas. La mayor parte del retorno en una pyme está antes: en digitalizar el proceso y capturar el dato de la ejecución donde ocurre el trabajo, sin cablear sensores ni un proyecto de meses.</p>
+
+  <h3>¿Hace falta wifi industrial en toda la planta?</h3>
+  <p>No. El proceso puede llevarse al puesto con un QR que el operario escanea desde el móvil, y el registro puede funcionar sin conexión y sincronizar después. La falta de cobertura en planta es una excusa habitual para no empezar, no un impedimento real.</p>
+
+  <h3>¿Hay ayudas para digitalizar la producción de una pyme?</h3>
+  <p>Sí. Programas como el Kit Digital cubren parte del coste del software de digitalización para pymes y autónomos. Lo importante es elegir una solución que ataque un problema operativo concreto —documentar procesos, capturar la ejecución, ordenar el onboarding— en vez de digitalizar por digitalizar para gastar la subvención.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/control-produccion/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Control de producción</div>
+        <div class="related-link-desc">El dato real de la ejecución, capturado en el puesto.</div>
+      </a>
+      <a class="related-link-card" href="/documentacion-procesos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Documentación de procesos</div>
+        <div class="related-link-desc">El "cómo" digitalizado y accesible en la máquina.</div>
+      </a>
+      <a class="related-link-card" href="/blog/lean-manufacturing/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Lean Manufacturing</div>
+        <div class="related-link-desc">El dato digital es lo que sostiene la mejora continua.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por un proceso, no por toda la fábrica.</strong> <a href="/control-produccion/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver control de produccion">Ver cómo se digitaliza la producción →</a> · <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a></p>
+  </div>
+</ArticleLayout>

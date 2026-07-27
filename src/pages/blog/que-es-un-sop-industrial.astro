@@ -7,11 +7,72 @@ const date = "2026-03-18";
 const category = "Procedimientos operativos estándar";
 const readTime = "12 min.";
 const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es un SOP industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SOP son las siglas de Standard Operating Procedure, procedimiento operativo estándar. Es un documento que describe paso a paso cómo ejecutar una tarea concreta: operar una máquina, hacer un cambio de formato, actuar ante una incidencia. Su objetivo es que el resultado sea el mismo lo haga quien lo haga, en lugar de depender de la experiencia de cada persona."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre un SOP y una instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una diferencia de alcance. La instrucción de trabajo resuelve una tarea concreta en un puesto concreto y es corta y operativa. El SOP ordena un proceso completo —qué, quién, cuándo y cómo— y suele agrupar varias instrucciones. El manual de operaciones es el nivel más amplio y describe el funcionamiento a nivel de organización."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos SOPs necesita una pyme industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Muchos menos de los que se suele pensar. Entre tres y cinco procesos bien documentados —los que más dependen de una sola persona o más reprocesos generan— aportan más que cincuenta SOPs que nadie consulta. Documentar de más garantiza que la documentación se desactualice y que el equipo deje de confiar en ella."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es obligatorio tener SOPs para certificarse en ISO 9001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La ISO 9001 exige que los procesos que afectan a la calidad estén controlados y documentados, pero no impone el formato de SOP ni una cantidad concreta. Se pueden documentar procesos sin estar certificado, y de hecho la mayoría de pymes empieza por necesidad operativa y solo después alinea esa documentación con la norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo tiene sentido pasar del papel a un software SOP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuando el problema deja de ser escribir el procedimiento y pasa a ser mantenerlo y hacerlo llegar al puesto. Las señales típicas son que circulen versiones distintas del mismo documento, que el operario prefiera llamar al veterano antes que buscar el archivo, o que nadie sepa decir cuál es la revisión vigente de un proceso."
+      }
+    }
+  ]
+};
+
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} dateModified="2026-07-27" schema={faqSchema}>
 
-<h2>Qué es un SOP y por qué debería importarte</h2>
+<p><strong>En este artículo:</strong></p>
+<ul>
+<li><a href="#que-es">Qué es un SOP industrial</a></li>
+<li><a href="#diferencias">SOP vs instrucción de trabajo vs manual</a></li>
+<li><a href="#por-que">Por qué las pymes necesitan SOPs</a></li>
+<li><a href="#tipos">Los 5 tipos de SOP más comunes</a></li>
+<li><a href="#crear">Cómo crear un SOP en 5 pasos</a></li>
+<li><a href="#errores">Errores comunes al implementarlos</a></li>
+<li><a href="#software">Cuándo tiene sentido un software SOP</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+
+<h2 id="que-es">Qué es un SOP y por qué debería importarte</h2>
 
 <p>Un SOP (Standard Operating Procedure) o procedimiento operativo estándar es un documento que describe paso a paso cómo realizar una tarea concreta dentro de una organización. En el contexto industrial, un SOP define exactamente cómo operar una máquina, ejecutar un proceso de producción, realizar un cambio de formato o actuar ante una incidencia.</p>
 
@@ -19,7 +80,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 
 <p>Esto significa que cuando esa persona falta, se jubila o cambia de empresa, el conocimiento se va con ella.</p>
 
-<h2>SOP vs instrucciones de trabajo vs manual de operaciones</h2>
+<h2 id="diferencias">SOP vs instrucciones de trabajo vs manual de operaciones</h2>
 
 <p>Hay confusión frecuente entre estos tres conceptos. La diferencia es de alcance:</p>
 
@@ -31,7 +92,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 
 <p>Para una pyme industrial, lo más práctico es trabajar a nivel de SOP: procesos completos que un operario pueda seguir de principio a fin. Si dentro de un paso necesitas más detalle, añades la instrucción de trabajo como sub-paso.</p>
 
-<h2>Por qué las pymes industriales necesitan SOPs (con datos)</h2>
+<h2 id="por-que">Por qué las pymes industriales necesitan SOPs (con datos)</h2>
 
 <p>Los datos del sector industrial español son claros sobre el coste de no tener procedimientos documentados:</p>
 
@@ -46,7 +107,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 
 <p>Con SOPs documentados y accesibles, <strong>el conocimiento deja de depender de personas y pasa a ser un activo de la empresa</strong>.</p>
 
-<h2>Los 5 tipos de SOP más comunes en plantas industriales</h2>
+<h2 id="tipos">Los 5 tipos de SOP más comunes en plantas industriales</h2>
 
 <p>No todos los procesos necesitan un SOP. Empieza por los que más impacto tienen:</p>
 
@@ -58,7 +119,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 <li><strong>Protocolos de seguridad:</strong> procedimientos de bloqueo/etiquetado (LOTO), uso de EPIs, actuación en emergencias. Son obligatorios por normativa pero rara vez están actualizados.</li>
 </ol>
 
-<h2>Cómo crear un SOP industrial en 5 pasos</h2>
+<h2 id="crear">Cómo crear un SOP industrial en 5 pasos</h2>
 
 <h3>1. Identifica los procesos críticos</h3>
 
@@ -80,7 +141,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 
 <p>Un SOP que vive en una carpeta compartida del servidor no sirve. El operario necesita acceder a las instrucciones <strong>en el puesto de trabajo, en el momento que las necesita</strong>. Si tiene que ir a un ordenador, buscar la carpeta, encontrar el archivo y abrirlo, no lo va a hacer. La accesibilidad es lo que diferencia un SOP que se usa de uno que se ignora.</p>
 
-<h2>Errores comunes al implementar SOPs en pymes</h2>
+<h2 id="errores">Errores comunes al implementar SOPs en pymes</h2>
 
 <ul>
 <li><strong>Documentar todo de golpe:</strong> genera fatiga y abandono. Empieza por 3-5 procesos críticos y amplía después.</li>
@@ -90,7 +151,7 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 <li><strong>No medir:</strong> si no sabes quién consulta qué SOP, cuándo y con qué resultado, no puedes mejorar ni demostrar el ROI de la documentación.</li>
 </ul>
 
-<h2>Software SOP: cuándo tiene sentido usar una herramienta</h2>
+<h2 id="software">Software SOP: cuándo tiene sentido usar una herramienta</h2>
 
 <p>Si tienes 1-2 máquinas y 5 empleados, un documento PDF puede ser suficiente. Pero cuando la planta crece, los PDFs se pierden, se desactualizan, no sabes quién los ha consultado y no hay forma de garantizar que el operario sigue el proceso correcto.</p>
 
@@ -100,6 +161,23 @@ const canonical = "https://gmvsolutions.es/blog/que-es-un-sop-industrial/";
 <p><strong>REELEVO</strong> es un software SOP industrial para pymes que ayuda a reducir la dependencia de operarios clave, acelerar el onboarding y dar más continuidad a la operación. Hace que el trabajo esté disponible directamente en el puesto, sin fricción para el operario. Desde 49€/mes por empresa con operarios ilimitados.</p>
 <p><a href="https://app.gmvsolutions.es/registro">Registrarme en REELEVO →</a></p>
 </div>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<h3>¿Qué es un SOP industrial?</h3>
+<p>SOP son las siglas de Standard Operating Procedure, procedimiento operativo estándar. Es un documento que describe paso a paso cómo ejecutar una tarea concreta: operar una máquina, hacer un cambio de formato, actuar ante una incidencia. Su objetivo es que el resultado sea el mismo lo haga quien lo haga, en lugar de depender de la experiencia de cada persona.</p>
+
+<h3>¿Qué diferencia hay entre un SOP y una instrucción de trabajo?</h3>
+<p>Es una diferencia de alcance. La instrucción de trabajo resuelve una tarea concreta en un puesto concreto y es corta y operativa. El SOP ordena un proceso completo —qué, quién, cuándo y cómo— y suele agrupar varias instrucciones. El manual de operaciones es el nivel más amplio y describe el funcionamiento a nivel de organización.</p>
+
+<h3>¿Cuántos SOPs necesita una pyme industrial?</h3>
+<p>Muchos menos de los que se suele pensar. Entre tres y cinco procesos bien documentados —los que más dependen de una sola persona o más reprocesos generan— aportan más que cincuenta SOPs que nadie consulta. Documentar de más garantiza que la documentación se desactualice y que el equipo deje de confiar en ella.</p>
+
+<h3>¿Es obligatorio tener SOPs para certificarse en ISO 9001?</h3>
+<p>La ISO 9001 exige que los procesos que afectan a la calidad estén controlados y documentados, pero no impone el formato de SOP ni una cantidad concreta. Se pueden documentar procesos sin estar certificado, y de hecho la mayoría de pymes empieza por necesidad operativa y solo después alinea esa documentación con la norma.</p>
+
+<h3>¿Cuándo tiene sentido pasar del papel a un software SOP?</h3>
+<p>Cuando el problema deja de ser escribir el procedimiento y pasa a ser mantenerlo y hacerlo llegar al puesto. Las señales típicas son que circulen versiones distintas del mismo documento, que el operario prefiera llamar al veterano antes que buscar el archivo, o que nadie sepa decir cuál es la revisión vigente de un proceso.</p>
 
 <div class="related-links">
 <div class="related-links-label">Sigue explorando</div>

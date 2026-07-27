@@ -1,62 +1,97 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// Migrado de BaseLayout a ArticleLayout (auditoria SEO 2026-07-27): asi hereda el
+// BlogPosting canonico, el byline de autor (E-E-A-T) y el <link rel="alternate"
+// type="text/markdown"> que necesitan los agentes de IA.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 const title = "Gestión de competencias en industria: Guía + Plantilla 2026";
 const description = "Gestión de competencias en industria: guía práctica con una matriz de competencias accionable para documentar, medir y reducir la dependencia operativa.";
+const date = "2026-04-07";
+const dateModified = "2026-07-27";
+const category = "Gestión de Competencias";
+const readTime = "15 min";
 const canonical = "https://gmvsolutions.es/blog/gestion-competencias-industria/";
 
-const schema = {
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": title,
-  "description": description,
-  "inLanguage": "es-ES",
-  "url": canonical,
-  "mainEntityOfPage": canonical,
-  "datePublished": "2026-04-07",
-  "dateModified": "2026-04-07",
-  "author": {
-    "@type": "Person",
-    "name": "Gonzalo Moldes",
-    "jobTitle": "Fundador de REELEVO",
-    "url": "https://www.linkedin.com/in/gonzalomoldes/",
-    "sameAs": ["https://www.linkedin.com/in/gonzalomoldes/"]
-  },
-  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es una matriz de competencias en industria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el registro de qué operario está capacitado para qué proceso o máquina y en qué nivel de autonomía. Cruza personas con procesos en una tabla y permite ver de un vistazo dónde hay dependencia de una sola persona, qué puestos quedan descubiertos en un turno y dónde hace falta reforzar la formación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede llevar una matriz de competencias en Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí para empezar, y es mejor un Excel que nada. El problema aparece al mantenerlo: como nadie lo actualiza con cada ejecución, a los pocos meses refleja la foto del día que se creó y deja de servir para decidir. Un Excel sirve para el diagnóstico inicial; para que siga vivo tiene que alimentarse del trabajo real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos niveles de competencia conviene definir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tres o cuatro son suficientes en una pyme: en formación, apto con supervisión, autónomo y, si aporta, formador. Más niveles añaden discusión sobre el matiz y no cambian ninguna decisión. Lo importante no es la escala, sino que el criterio para subir de nivel sea observable y el mismo para todos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuánto hay que revisar la matriz de competencias?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si se actualiza sola con la ejecución, la revisión formal puede ser mensual y consiste en mirar los huecos, no en rellenar casillas. Si se lleva a mano, cuanto más espaciada sea la revisión menos fiable es el dato. La señal de alarma es tener que dedicar una reunión a reconstruir quién sabe hacer qué."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es lo mismo la matriz de competencias que la matriz de habilidades?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En la práctica se usan como sinónimos, igual que el término inglés skill matrix. Competencia suele implicar además el criterio y el juicio para aplicar la habilidad en contexto, no solo la destreza técnica, pero en una planta industrial ambas expresiones designan la misma herramienta."
+      }
+    }
+  ]
 };
 ---
 
-<BaseLayout
+<ArticleLayout
   title={title}
   description={description}
+  date={date}
+  dateModified={dateModified}
+  category={category}
+  readTime={readTime}
   canonical={canonical}
-  schema={schema}
-  activeNav=""
+  schema={faqSchema}
 >
-
-<article class="guide-article">
-  <div class="article-header">
-    <div class="article-eyebrow fade-up">Guía • Gestión de Competencias</div>
-    <h1 class="fade-up delay-1">Gestión de competencias en industria:<br><em>Guía práctica + plantilla</em></h1>
-    <p class="article-subtitle fade-up delay-2">
-      De la invisibilidad al control: cómo documentar competencias reales en planta,
-      medirlas sin burocracia y usarlas para onboarding y retención.
-    </p>
-    <div class="article-meta fade-up delay-3">
-      <span class="meta-author">Por <a href="https://www.linkedin.com/in/gonzalomoldes/" target="_blank" rel="author noopener" style="color:var(--orange);text-decoration:none;">Gonzalo Moldes</a></span>
-      <span class="meta-date">7 de abril de 2026</span>
-      <span class="meta-read">15 minutos de lectura</span>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <section class="guide-content">
     <div class="content-inner">
+
+      <div class="highlight-box">
+        <p><strong>TL;DR.</strong> La gestión de competencias en planta responde a una pregunta operativa: quién puede hacer qué, y con cuánta autonomía. Sin ese dato, la cobertura de turnos y el onboarding se deciden por intuición. Se monta cruzando personas y procesos en una matriz de tres o cuatro niveles, empezando por los procesos críticos. Un Excel sirve para el diagnóstico; para que la matriz siga viva tiene que alimentarse de la ejecución real.</p>
+      </div>
+
+      <p><strong>En este artículo:</strong></p>
+      <ul class="toc-list">
+        <li><a href="#que-es">Qué es la gestión de competencias en industria</a></li>
+        <li><a href="#problema">El problema: competencias invisibles</a></li>
+        <li><a href="#pilares">Los 3 pilares</a></li>
+        <li><a href="#niveles">Los 4 niveles de dominio</a></li>
+        <li><a href="#implementar">Cómo implementarla en 5 pasos</a></li>
+        <li><a href="#herramientas">Herramientas</a></li>
+        <li><a href="#plantilla">Plantilla: matriz de competencias</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
 
       <!-- DEFINICIÓN -->
       <div class="section-definition fade-up">
-        <h2>¿Qué es gestión de competencias en industria?</h2>
+        <h2 id="que-es">¿Qué es gestión de competencias en industria?</h2>
         <p>
           <strong>Gestión de competencias</strong> es el proceso de identificar, documentar y medir qué puede hacer bien cada operario.
           No es "tiene certificado X". Es "ha ejecutado proceso Y correctamente 5 veces, sin supervisión".
@@ -75,15 +110,15 @@ const schema = {
 
       <!-- PROBLEMA ACTUAL -->
       <div class="section-problema fade-up">
-        <h2>El problema: Gestión de competencias invisible</h2>
+        <h2 id="problema">El problema: Gestión de competencias invisible</h2>
         <p>La mayoría de pymes industriales NO tienen gestión de competencias formalizada.</p>
 
         <div class="problema-boxes">
           <div class="problema-box">
             <h3 style="margin-top: 0;">1. En papel / Excel</h3>
             <p>
-              "Manolo sabe hacer el torno". Está en una hoja excelque nadie actualiza.
-              Sin evidencia real, sin dates, sin progresión.
+              "Manolo sabe hacer el torno". Está en una hoja de Excel que nadie actualiza.
+              Sin evidencia real, sin fechas, sin progresión.
             </p>
           </div>
 
@@ -115,7 +150,7 @@ const schema = {
 
       <!-- PILARES -->
       <div class="section-pilares fade-up">
-        <h2>3 pilares de una gestión de competencias efectiva</h2>
+        <h2 id="pilares">3 pilares de una gestión de competencias efectiva</h2>
 
         <div class="pilares-grid">
           <div class="pilar">
@@ -161,7 +196,7 @@ const schema = {
 
       <!-- NIVELES -->
       <div class="section-niveles fade-up">
-        <h2>Los 4 niveles de dominio en gestión de competencias</h2>
+        <h2 id="niveles">Los 4 niveles de dominio en gestión de competencias</h2>
 
         <div class="niveles-tabla">
           <div class="nivel">
@@ -208,7 +243,7 @@ const schema = {
 
       <!-- IMPLEMENTACIÓN -->
       <div class="section-implementacion fade-up">
-        <h2>Cómo implementar gestión de competencias en 5 pasos</h2>
+        <h2 id="implementar">Cómo implementar gestión de competencias en 5 pasos</h2>
 
         <div class="steps">
           <div class="step">
@@ -273,7 +308,7 @@ const schema = {
 
       <!-- HERRAMIENTAS -->
       <div class="section-herramientas fade-up">
-        <h2>Herramientas para gestión de competencias</h2>
+        <h2 id="herramientas">Herramientas para gestión de competencias</h2>
 
         <div class="herramientas-grid">
           <div class="herramienta">
@@ -298,7 +333,7 @@ const schema = {
 
       <!-- PLANTILLA -->
       <div class="section-plantilla fade-up">
-        <h2>Plantilla descargable: Matriz de competencias</h2>
+        <h2 id="plantilla">Plantilla: Matriz de competencias</h2>
         <p>
           Usa esta plantilla para empezar hoy con gestión de competencias manual.
           Cópiala a Excel, rellenala con tus procesos críticos.
@@ -356,7 +391,7 @@ const schema = {
 
       <!-- CASOS -->
       <div class="section-casos fade-up">
-        <h2>Casos reales: Gestión de competencias en acción</h2>
+        <h2 id="casos">Escenarios típicos: la matriz en acción</h2>
 
         <div class="caso">
           <div class="caso-header">
@@ -390,92 +425,69 @@ const schema = {
         </div>
       </div>
 
-      <!-- CTA FINAL -->
-      <div class="section-cta-final fade-up">
-        <div class="cta-box">
-          <h2>¿Listo para implementar gestión de competencias?</h2>
-          <p>
-            Los primeros pasos son simples: mapea competencias + crea una matriz.
-            Si quieres automatizarlo desde ejecución real en planta, REELEVO hace gestión de competencias transparente.
-          </p>
-          <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
-            <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Empezar en REELEVO</a>
-            <a href="/gestion-competencias/" class="btn-ghost">Evaluar competencias en tu empresa</a>
-          </div>
+      <h2 id="faq">Preguntas frecuentes</h2>
 
-          <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border);">
-            <p style="font-size: .95rem; color: var(--gray); margin-bottom: 20px;">
-              <strong>Artículos relacionados:</strong>
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-              <a href="/para-quien/responsable-rrhh/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Onboarding software para RRHH (gestión de competencias)
-              </a>
-              <a href="/blog/onboarding-software-pymes/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Guía: Onboarding software para pymes
-              </a>
-              <a href="/casos-de-uso/onboarding-operarios/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Caso de uso: Onboarding de operarios
-              </a>
-              <a href="/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Conoce REELEVO: Gestión de competencias en planta
-              </a>
-            </div>
-          </div>
+      <h3>¿Qué es una matriz de competencias en industria?</h3>
+      <p>Es el registro de qué operario está capacitado para qué proceso o máquina y en qué nivel de autonomía. Cruza personas con procesos en una tabla y permite ver de un vistazo dónde hay dependencia de una sola persona, qué puestos quedan descubiertos en un turno y dónde hace falta reforzar la formación.</p>
+
+      <h3>¿Se puede llevar una matriz de competencias en Excel?</h3>
+      <p>Sí para empezar, y es mejor un Excel que nada. El problema aparece al mantenerlo: como nadie lo actualiza con cada ejecución, a los pocos meses refleja la foto del día que se creó y deja de servir para decidir. Un Excel sirve para el diagnóstico inicial; para que siga vivo tiene que alimentarse del trabajo real.</p>
+
+      <h3>¿Cuántos niveles de competencia conviene definir?</h3>
+      <p>Tres o cuatro son suficientes en una pyme: en formación, apto con supervisión, autónomo y, si aporta, formador. Más niveles añaden discusión sobre el matiz y no cambian ninguna decisión. Lo importante no es la escala, sino que el criterio para subir de nivel sea observable y el mismo para todos.</p>
+
+      <h3>¿Cada cuánto hay que revisar la matriz de competencias?</h3>
+      <p>Si se actualiza sola con la ejecución, la revisión formal puede ser mensual y consiste en mirar los huecos, no en rellenar casillas. Si se lleva a mano, cuanto más espaciada sea la revisión menos fiable es el dato. La señal de alarma es tener que dedicar una reunión a reconstruir quién sabe hacer qué.</p>
+
+      <h3>¿Es lo mismo la matriz de competencias que la matriz de habilidades?</h3>
+      <p>En la práctica se usan como sinónimos, igual que el término inglés <em>skill matrix</em>. Competencia suele implicar además el criterio y el juicio para aplicar la habilidad en contexto, no solo la destreza técnica, pero en una planta industrial ambas expresiones designan la misma herramienta.</p>
+
+      <div class="related-links">
+        <div class="related-links-label">Relacionado</div>
+        <div class="related-links-grid">
+          <a class="related-link-card" href="/gestion-competencias/">
+            <div class="related-link-kicker">Producto</div>
+            <div class="related-link-title">Gestión de competencias</div>
+            <div class="related-link-desc">La matriz que se actualiza sola con la ejecución.</div>
+          </a>
+          <a class="related-link-card" href="/blog/conocimiento-tacito-taller-industrial/">
+            <div class="related-link-kicker">Guía</div>
+            <div class="related-link-title">Conocimiento tácito</div>
+            <div class="related-link-desc">Por qué tu taller depende de lo que nadie ha escrito.</div>
+          </a>
+          <a class="related-link-card" href="/blog/onboarding-software-pymes/">
+            <div class="related-link-kicker">Guía</div>
+            <div class="related-link-title">Onboarding software para pymes</div>
+            <div class="related-link-desc">Qué es, qué mirar al elegirlo y ROI realista.</div>
+          </a>
         </div>
       </div>
 
+      <div class="highlight-box">
+        <p><strong>Empieza por los procesos críticos, no por toda la plantilla.</strong> <a href="/gestion-competencias/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver gestion de competencias">Ver cómo funciona la matriz →</a> · <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+      </div>
+
     </div>
-  </section>
-</article>
 
 <style>
-  .guide-article {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 64px 32px;
-  }
-
-  .article-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .article-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: .65rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .article-header h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .article-subtitle {
-    font-size: 1.1rem;
-    color: var(--gray);
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 24px;
-  }
-
-  .article-meta {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    font-size: .9rem;
-    color: var(--gray2);
-  }
-
-  .guide-content {
+  .content-inner {
     line-height: 1.8;
+  }
+
+  /* El indice de contenidos usa las vinetas estandar del blog, no las flechas
+     naranjas de las listas de contenido de esta pagina. */
+  .content-inner ul.toc-list {
+    list-style: disc;
+    padding-left: 24px;
+  }
+
+  .content-inner ul.toc-list li {
+    margin-bottom: 8px;
+    padding-left: 0;
+  }
+
+  .content-inner ul.toc-list li:before {
+    content: none;
   }
 
   .content-inner h2 {
@@ -728,15 +740,6 @@ const schema = {
     border-radius: 4px;
   }
 
-  .cta-box {
-    background: var(--surface2);
-    border: 2px solid var(--orange);
-    border-radius: 8px;
-    padding: 40px;
-    text-align: center;
-    margin: 48px 0;
-  }
-
   .btn-secondary {
     display: inline-block;
     background: var(--orange);
@@ -772,4 +775,4 @@ const schema = {
     }
   }
 </style>
-</BaseLayout>
+</ArticleLayout>

@@ -5,9 +5,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "SOP de mantenimiento preventivo: guía y plantilla";
 const description = "Cómo documentar un SOP de mantenimiento preventivo: qué tareas incluir, cada cuánto y cómo integrarlo en la agenda del operario. Con plantilla descargable.";
 const canonical = "https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué debe incluir un SOP de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seis campos por cada tarea: qué operación se hace, dónde exactamente —con foto si el punto es difícil de localizar—, cómo se hace y cuál es el criterio de bien hecho, cada cuánto por tiempo o por horas de máquina, quién es el responsable o turno asignado, y el registro de que se hizo, cuándo y con qué resultado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre mantenimiento preventivo y correctivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El preventivo se planifica antes de que falle nada y busca evitar la avería: lubricar, inspeccionar, sustituir por desgaste previsto. El correctivo actúa cuando la máquina ya ha fallado. El preventivo cuesta tiempo programado; el correctivo cuesta parada no programada, que casi siempre sale más caro y llega en el peor momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuánto hay que hacer las tareas de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La frecuencia la marca el fabricante y el uso real de la máquina, pero el criterio práctico es la realidad: mejor una tarea mensual que se cumple que una semanal que nadie hace. Si al revisar el histórico ves que una frecuencia se incumple sistemáticamente, el problema es la frecuencia, no el operario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué se acaba abandonando el plan de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque compite con la producción por la atención y siempre pierde: la tarea no es urgente hasta que la máquina se para. Y si el plan vive en un Excel que solo abre el responsable, basta con que esté de vacaciones para que nadie lo recuerde. Lo que lo sostiene es que la tarea aparezca en la agenda del operario junto a las de producción, no en un sistema aparte."
+      }
+    }
+  ]
+};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-06-05" category="Mantenimiento" readTime="8 min" canonical={canonical}>
+<ArticleLayout title={title} description={description} date="2026-06-05" dateModified="2026-07-27" category="Mantenimiento" readTime="8 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Un SOP de mantenimiento preventivo define qué tareas hacer, con qué frecuencia y quién. Lo importante no es el documento, sino que se integre en el trabajo diario del operario en vez de vivir en un Excel aparte que nadie mira.</p>
   </div>
@@ -19,6 +59,7 @@ const canonical = "https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-gui
     <li><a href="#frecuencias">Frecuencias y responsables</a></li>
     <li><a href="#integrar">Integrarlo en el trabajo diario</a></li>
     <li><a href="#plantilla">Plantilla</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="olvida">Por qué el preventivo se olvida</h2>
@@ -43,6 +84,20 @@ const canonical = "https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-gui
 
   <h2 id="plantilla">Plantilla</h2>
   <p>Si quieres empezar, parte de la <a href="/blog/plantilla-sop-produccion/">plantilla de SOP de producción</a> y adáptala al mantenimiento: misma estructura, cambiando "pasos del proceso" por "tareas y frecuencias". Empieza por tu máquina más crítica.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué debe incluir un SOP de mantenimiento preventivo?</h3>
+  <p>Seis campos por cada tarea: qué operación se hace, dónde exactamente —con foto si el punto es difícil de localizar—, cómo se hace y cuál es el criterio de "bien hecho", cada cuánto por tiempo o por horas de máquina, quién es el responsable o turno asignado, y el registro de que se hizo, cuándo y con qué resultado.</p>
+
+  <h3>¿Cuál es la diferencia entre mantenimiento preventivo y correctivo?</h3>
+  <p>El preventivo se planifica antes de que falle nada y busca evitar la avería: lubricar, inspeccionar, sustituir por desgaste previsto. El correctivo actúa cuando la máquina ya ha fallado. El preventivo cuesta tiempo programado; el correctivo cuesta parada no programada, que casi siempre sale más caro y llega en el peor momento.</p>
+
+  <h3>¿Cada cuánto hay que hacer las tareas de mantenimiento preventivo?</h3>
+  <p>La frecuencia la marca el fabricante y el uso real de la máquina, pero el criterio práctico es la realidad: mejor una tarea mensual que se cumple que una semanal que nadie hace. Si al revisar el histórico ves que una frecuencia se incumple sistemáticamente, el problema es la frecuencia, no el operario.</p>
+
+  <h3>¿Por qué se acaba abandonando el plan de mantenimiento preventivo?</h3>
+  <p>Porque compite con la producción por la atención y siempre pierde: la tarea no es urgente hasta que la máquina se para. Y si el plan vive en un Excel que solo abre el responsable, basta con que esté de vacaciones para que nadie lo recuerde. Lo que lo sostiene es que la tarea aparezca en la agenda del operario junto a las de producción, no en un sistema aparte.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

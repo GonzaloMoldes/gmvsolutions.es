@@ -5,9 +5,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Qué es el conocimiento tácito y por qué tu taller depende de él";
 const description = "Qué es el conocimiento tácito en planta, por qué crea dependencia de personas clave y cómo empezar a capturarlo antes de que una baja o jubilación lo haga visible.";
 const canonical = "https://gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el conocimiento tácito en una planta industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el saber hacer que un operario aplica pero no sabría explicar del todo si se lo preguntas en frío: reconocer por el sonido que algo va mal, ajustar un parámetro porque el material de hoy viene distinto, saber en qué orden arrancar para que no salte una alarma. No está en ningún procedimiento porque nace de la experiencia, no de la formación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre conocimiento tácito y explícito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El conocimiento explícito está documentado y se puede transmitir leyéndolo: un manual, un SOP, una ficha de parámetros. El tácito vive en la persona y se transmite trabajando al lado de ella. En un taller, la mayor parte del valor operativo es tácito, y por eso la planta es frágil: depende de que la persona esté."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se captura el conocimiento tácito de un operario veterano?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Capturándolo mientras trabaja, no pidiéndole que escriba un manual. Lo que funciona es grabar o fotografiar el proceso durante su ejecución y preguntarle por qué hace cada cosa en ese momento, no después. El porqué es la parte que más valor tiene y la primera que se pierde si se documenta desde un despacho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede documentar todo el conocimiento tácito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, y perseguirlo es la mejor forma de no documentar nada. Parte de la pericia solo se adquiere con horas de máquina. El objetivo realista es capturar lo que evita el error caro y lo que bloquea el turno cuando falta la persona clave, empezando por los puestos donde una ausencia desordena la producción."
+      }
+    }
+  ]
+};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-06-02" category="Gestión del Conocimiento" readTime="9 min" canonical={canonical}>
+<ArticleLayout title={title} description={description} date="2026-06-02" dateModified="2026-07-27" category="Gestión del Conocimiento" readTime="9 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> El conocimiento tácito es el saber hacer que no está escrito: vive en la cabeza del operario veterano. Es la raíz de la dependencia de personas clave y se vuelve visible —tarde— el día que esa persona falta. Capturarlo a tiempo es lo que da continuidad al taller.</p>
   </div>
@@ -19,6 +59,7 @@ const canonical = "https://gmvsolutions.es/blog/conocimiento-tacito-taller-indus
     <li><a href="#riesgo">El riesgo: bajas, jubilaciones, rotación</a></li>
     <li><a href="#capturar">Cómo empezar a capturarlo</a></li>
     <li><a href="#cambia">Qué cambia cuando deja de vivir en una cabeza</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="que-es">Qué es el conocimiento tácito</h2>
@@ -42,6 +83,20 @@ const canonical = "https://gmvsolutions.es/blog/conocimiento-tacito-taller-indus
 
   <h2 id="cambia">Qué cambia cuando deja de vivir en una cabeza</h2>
   <p>Cuando el saber hacer crítico está capturado y accesible, una baja deja de ser una crisis: el sustituto encuentra la referencia y la línea sigue. La formación se apoya en el sistema y no solo en la memoria del tutor, y el experto deja de ser un cuello de botella. No se trata de sustituir a las personas, sino de que la empresa no sea rehén de ninguna. Esa es la diferencia entre depender de alguien y tener continuidad.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es el conocimiento tácito en una planta industrial?</h3>
+  <p>Es el saber hacer que un operario aplica pero no sabría explicar del todo si se lo preguntas en frío: reconocer por el sonido que algo va mal, ajustar un parámetro porque el material de hoy viene distinto, saber en qué orden arrancar para que no salte una alarma. No está en ningún procedimiento porque nace de la experiencia, no de la formación.</p>
+
+  <h3>¿Cuál es la diferencia entre conocimiento tácito y explícito?</h3>
+  <p>El conocimiento explícito está documentado y se puede transmitir leyéndolo: un manual, un SOP, una ficha de parámetros. El tácito vive en la persona y se transmite trabajando al lado de ella. En un taller, la mayor parte del valor operativo es tácito, y por eso la planta es frágil: depende de que la persona esté.</p>
+
+  <h3>¿Cómo se captura el conocimiento tácito de un operario veterano?</h3>
+  <p>Capturándolo mientras trabaja, no pidiéndole que escriba un manual. Lo que funciona es grabar o fotografiar el proceso durante su ejecución y preguntarle por qué hace cada cosa en ese momento, no después. El porqué es la parte que más valor tiene y la primera que se pierde si se documenta desde un despacho.</p>
+
+  <h3>¿Se puede documentar todo el conocimiento tácito?</h3>
+  <p>No, y perseguirlo es la mejor forma de no documentar nada. Parte de la pericia solo se adquiere con horas de máquina. El objetivo realista es capturar lo que evita el error caro y lo que bloquea el turno cuando falta la persona clave, empezando por los puestos donde una ausencia desordena la producción.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

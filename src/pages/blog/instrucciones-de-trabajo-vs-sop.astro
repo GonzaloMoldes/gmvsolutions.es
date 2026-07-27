@@ -5,9 +5,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Instrucciones de trabajo vs SOP: qué necesita tu taller";
 const description = "Instrucción de trabajo, SOP, procedimiento: qué significan, en qué se diferencian y cuál necesita una pyme industrial para reducir errores y dependencia del experto.";
 const canonical = "https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre una instrucción de trabajo y un SOP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La instrucción de trabajo resuelve una tarea concreta en un puesto concreto: cómo amarrar esta pieza, cómo arrancar esta línea. El SOP ordena un proceso completo —qué, quién, cuándo y cómo— para que el resultado sea el mismo lo ejecute quien lo ejecute, y suele agrupar varias instrucciones. La diferencia es de nivel de detalle y de propósito, no de formato."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito los dos o puedo quedarme solo con instrucciones de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes empezar solo con instrucciones, y para la mayoría de talleres es lo sensato. El SOP se justifica cuando el proceso es crítico, lo ejecutan varias personas o entra gente nueva con frecuencia. La pregunta de filtro es qué pasa si falta quien sabe hacerlo: si el turno se desordena, ese proceso pide un SOP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos SOPs debería tener una pyme industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Muchos menos de los que se suele pensar. Entre tres y cinco procesos bien documentados —los que más dependen de una persona o más reprocesos generan— aportan más que cincuenta SOPs que nadie consulta. Documentar de más es la vía rápida a que la documentación se desactualice y el equipo deje de confiar en ella."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Un SOP tiene que cumplir la norma ISO 9001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. La ISO 9001 exige que los procesos que afectan a la calidad estén controlados y documentados, pero no impone un formato de SOP. Puedes documentar procesos sin estar certificado, y de hecho la mayoría de pymes empieza por necesidad operativa —reducir errores y dependencia— y solo después lo alinea con la norma si busca la certificación."
+      }
+    }
+  ]
+};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-05-21" category="Procedimientos Operativos" readTime="8 min" canonical={canonical}>
+<ArticleLayout title={title} description={description} date="2026-05-21" dateModified="2026-07-27" category="Procedimientos Operativos" readTime="8 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Una instrucción de trabajo resuelve un paso concreto en un puesto; un SOP ordena un procedimiento completo y repetible. La mayoría de talleres necesita empezar por instrucciones claras en el puesto e ir consolidando SOPs solo en lo crítico, sin convertirlo en burocracia.</p>
   </div>
@@ -19,6 +59,7 @@ const canonical = "https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/
     <li><a href="#sop">Cuándo necesitas un SOP completo</a></li>
     <li><a href="#conviven">Cómo conviven en planta</a></li>
     <li><a href="#empezar">Cómo empezar sin burocratizar</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="definiciones">Definiciones claras</h2>
@@ -41,6 +82,20 @@ const canonical = "https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/
 
   <h2 id="empezar">Cómo empezar sin burocratizar</h2>
   <p>El mayor riesgo es convertir esto en papeleo. Empieza por los 3-5 procesos donde más duele la dependencia, documéntalos con quien los domina y déjalos donde se trabajan. Amplía solo cuando compense. Si quieres una base, mira <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a> y descarga una <a href="/blog/plantilla-sop-produccion/">plantilla de SOP</a>.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Cuál es la diferencia entre una instrucción de trabajo y un SOP?</h3>
+  <p>La instrucción de trabajo resuelve una tarea concreta en un puesto concreto: cómo amarrar esta pieza, cómo arrancar esta línea. El SOP ordena un proceso completo —qué, quién, cuándo y cómo— para que el resultado sea el mismo lo ejecute quien lo ejecute, y suele agrupar varias instrucciones. La diferencia es de nivel de detalle y de propósito, no de formato.</p>
+
+  <h3>¿Necesito los dos o puedo quedarme solo con instrucciones de trabajo?</h3>
+  <p>Puedes empezar solo con instrucciones, y para la mayoría de talleres es lo sensato. El SOP se justifica cuando el proceso es crítico, lo ejecutan varias personas o entra gente nueva con frecuencia. La pregunta de filtro es qué pasa si falta quien sabe hacerlo: si el turno se desordena, ese proceso pide un SOP.</p>
+
+  <h3>¿Cuántos SOPs debería tener una pyme industrial?</h3>
+  <p>Muchos menos de los que se suele pensar. Entre tres y cinco procesos bien documentados —los que más dependen de una persona o más reprocesos generan— aportan más que cincuenta SOPs que nadie consulta. Documentar de más es la vía rápida a que la documentación se desactualice y el equipo deje de confiar en ella.</p>
+
+  <h3>¿Un SOP tiene que cumplir la norma ISO 9001?</h3>
+  <p>No necesariamente. La ISO 9001 exige que los procesos que afectan a la calidad estén controlados y documentados, pero no impone un formato de SOP. Puedes documentar procesos sin estar certificado, y de hecho la mayoría de pymes empieza por necesidad operativa —reducir errores y dependencia— y solo después lo alinea con la norma si busca la certificación.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

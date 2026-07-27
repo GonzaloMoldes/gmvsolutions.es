@@ -175,8 +175,17 @@ function extractConst(raw: string, name: string): string | undefined {
   return m ? (m[1] ?? m[2] ?? m[3]) : undefined;
 }
 
+// La fecha puede venir de tres sitios, en este orden de preferencia:
+//   1. `const date = "..."` en el frontmatter (convencion mayoritaria);
+//   2. el atributo `date="..."` pasado inline al layout (varios posts cortos);
+//   3. el datePublished de un JSON-LD escrito a mano.
+// Sin el caso 2, esos posts servian su .md sin linea "Publicado:".
 function extractDate(raw: string): string | undefined {
-  return extractConst(raw, 'date') ?? raw.match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1];
+  return (
+    extractConst(raw, 'date') ??
+    raw.match(/\bdate=\s*"(\d{4}-\d{2}-\d{2})"/)?.[1] ??
+    raw.match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1]
+  );
 }
 
 // Contenido entre el layout (ArticleLayout / BaseLayout) y su cierre.

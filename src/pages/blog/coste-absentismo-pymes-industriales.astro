@@ -7,11 +7,63 @@ const date = "2026-03-15";
 const category = "Gestión del absentismo";
 const readTime = "10 min.";
 const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el coste real del absentismo en una pyme industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sumando tres capas, no solo la primera. El coste directo es el salario de la persona ausente más el del sustituto. El coste de cobertura es el tiempo que otros dejan de producir para tapar el hueco. Y el coste oculto es la producción perdida, los reprocesos y los retrasos que genera que alguien haga un trabajo que no domina. La tercera capa suele ser la mayor y casi nunca se contabiliza."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no todas las bajas cuestan lo mismo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque lo que determina el impacto no es la ausencia, sino cuántas personas más saben hacer ese trabajo. Si falta alguien de un puesto que dominan cinco personas, se reorganiza el turno. Si falta el único que sabe arrancar una línea o configurar una máquina concreta, la producción se tensiona o se para. El coste lo marca la concentración de conocimiento, no la tasa de absentismo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la tasa de absentismo normal en la industria española?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos de la Encuesta REELEVO 2025 sobre 347 pymes industriales españolas de 10 a 200 empleados sitúan la media en el 7,2%. Pero comparar tu tasa con una media aporta poco: dos plantas con el mismo 7% pueden tener impactos muy distintos según cuántos puestos dependan de una sola persona."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede reducir el impacto del absentismo sin reducir el absentismo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, y para una pyme suele ser la vía más realista. Sobre las causas de las bajas se puede influir poco a corto plazo; sobre la capacidad de cubrirlas, mucho. Documentar los procesos de los puestos críticos y saber quién está capacitado para cada uno convierte una ausencia en un problema de planificación en lugar de en una emergencia."
+      }
+    }
+  ]
+};
+
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} dateModified="2026-07-27" schema={faqSchema}>
 
-<h2>El absentismo en la industria española: un problema que se mide mal</h2>
+<p><strong>En este artículo:</strong></p>
+<ul>
+<li><a href="#mide-mal">Por qué el absentismo se mide mal</a></li>
+<li><a href="#datos">Los datos de las pymes industriales españolas</a></li>
+<li><a href="#coste-oculto">Coste directo vs coste oculto</a></li>
+<li><a href="#calculo">Cálculo: un año de dependencia operativa</a></li>
+<li><a href="#sectores">Por sectores: dónde duele más</a></li>
+<li><a href="#soluciones">Qué hacen las empresas que lo han resuelto</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+
+<h2 id="mide-mal">El absentismo en la industria española: un problema que se mide mal</h2>
 
 <p>La mayoría de empresas industriales conocen su tasa de absentismo. Lo que casi ninguna mide es <strong>cuánto les cuesta realmente cada ausencia</strong> cuando el operario que falta es el único que domina un proceso crítico.</p>
 
@@ -19,7 +71,7 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 
 <p>En la Encuesta REELEVO 2025 sobre dependencia operativa, realizada a 347 pymes industriales españolas de entre 10 y 200 empleados, los datos son claros.</p>
 
-<h2>Los datos: lo que dicen las pymes industriales españolas</h2>
+<h2 id="datos">Los datos: lo que dicen las pymes industriales españolas</h2>
 
 <div class="data-card">
 <p><strong>7,2%</strong> — tasa de absentismo media. En una empresa de 40 trabajadores, esto supone unas 3 ausencias diarias. En una de 100, casi 8.</p>
@@ -31,7 +83,7 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 
 <p><em>Fuente: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347).</em></p>
 
-<h2>Coste directo vs coste oculto: por qué las cifras oficiales no cuentan la historia completa</h2>
+<h2 id="coste-oculto">Coste directo vs coste oculto: por qué las cifras oficiales no cuentan la historia completa</h2>
 
 <p>Cuando se habla del coste del absentismo, normalmente se mira solo el coste directo: el salario del trabajador ausente y, si procede, el coste del sustituto. Según datos del sector, el coste directo medio por empleado y año ronda los <strong>2.100€</strong> en la industria manufacturera.</p>
 
@@ -49,7 +101,7 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 <h3>Coste de la llamada al experto</h3>
 <p>Interrumpir a un trabajador de baja para preguntarle cómo se hace algo no solo es éticamente cuestionable — también genera riesgo legal y deteriora la relación laboral. Sin embargo, el 40% de los responsables de planta lo hacen.</p>
 
-<h2>Cálculo: cuánto cuesta un año de dependencia operativa</h2>
+<h2 id="calculo">Cálculo: cuánto cuesta un año de dependencia operativa</h2>
 
 <p>Tomemos una pyme industrial típica: 40 empleados, tasa de absentismo del 7,2%, con 5 operarios en puestos clave cuyo conocimiento no está documentado.</p>
 
@@ -62,7 +114,7 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 
 <p>Y esto sin contar las jubilaciones previstas, la rotación voluntaria o las incorporaciones de personal ETT que necesitan formación cada vez que entran.</p>
 
-<h2>Por sectores: dónde duele más</h2>
+<h2 id="sectores">Por sectores: dónde duele más</h2>
 
 <p>No todos los sectores industriales sufren igual. Los datos de la Encuesta REELEVO 2025 muestran diferencias significativas:</p>
 
@@ -73,7 +125,7 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 <li><strong>Plástico y caucho:</strong> 7,0% de absentismo, 2.000€/empleado/año. Procesos de ajuste de parámetros que requieren experiencia específica.</li>
 </ul>
 
-<h2>Qué hacen las empresas que han resuelto este problema</h2>
+<h2 id="soluciones">Qué hacen las empresas que han resuelto este problema</h2>
 
 <p>Las pymes que han reducido el impacto del absentismo en su producción comparten un patrón: <strong>han dejado de depender de personas y han pasado a depender de procedimientos</strong>.</p>
 
@@ -90,6 +142,20 @@ const canonical = "https://gmvsolutions.es/blog/coste-absentismo-pymes-industria
 <p><strong>REELEVO</strong> es un software SOP industrial para pymes que permite capturar el conocimiento operativo de tus expertos y hacerlo accesible directamente en cada máquina. Cuando el experto falta, el sustituto encuentra los procedimientos en el puesto y trabaja con menos dependencia del tutor.</p>
 <p><a href="/precios/">Calcula cuánto te cuesta la dependencia operativa en tu planta →</a></p>
 </div>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<h3>¿Cómo se calcula el coste real del absentismo en una pyme industrial?</h3>
+<p>Sumando tres capas, no solo la primera. El coste directo es el salario de la persona ausente más el del sustituto. El coste de cobertura es el tiempo que otros dejan de producir para tapar el hueco. Y el coste oculto es la producción perdida, los reprocesos y los retrasos que genera que alguien haga un trabajo que no domina. La tercera capa suele ser la mayor y casi nunca se contabiliza.</p>
+
+<h3>¿Por qué no todas las bajas cuestan lo mismo?</h3>
+<p>Porque lo que determina el impacto no es la ausencia, sino cuántas personas más saben hacer ese trabajo. Si falta alguien de un puesto que dominan cinco personas, se reorganiza el turno. Si falta el único que sabe arrancar una línea o configurar una máquina concreta, la producción se tensiona o se para. El coste lo marca la concentración de conocimiento, no la tasa de absentismo.</p>
+
+<h3>¿Cuál es la tasa de absentismo normal en la industria española?</h3>
+<p>Los datos de la Encuesta REELEVO 2025 sobre 347 pymes industriales españolas de 10 a 200 empleados sitúan la media en el 7,2%. Pero comparar tu tasa con una media aporta poco: dos plantas con el mismo 7% pueden tener impactos muy distintos según cuántos puestos dependan de una sola persona.</p>
+
+<h3>¿Se puede reducir el impacto del absentismo sin reducir el absentismo?</h3>
+<p>Sí, y para una pyme suele ser la vía más realista. Sobre las causas de las bajas se puede influir poco a corto plazo; sobre la capacidad de cubrirlas, mucho. Documentar los procesos de los puestos críticos y saber quién está capacitado para cada uno convierte una ausencia en un problema de planificación en lugar de en una emergencia.</p>
 
 <div class="related-links">
 <div class="related-links-label">Sigue explorando</div>

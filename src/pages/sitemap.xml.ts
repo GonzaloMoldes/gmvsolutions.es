@@ -1,12 +1,19 @@
 export async function GET() {
   const baseURL = 'https://gmvsolutions.es';
-  const lastmod = '2026-06-29';
+  const lastmod = '2026-07-01';
+  // Fecha de la revision SEO/GEO del blog.
+  const REVISION = '2026-07-27';
 
+  // `lastmod` global por defecto. Cuando una pagina se publica o revisa en otra
+  // fecha, se pasa la suya: un lastmod uniforme y falso en todo el sitemap resta
+  // credibilidad a la senal (los buscadores la ignoran si no se corresponde con
+  // cambios reales).
   const page = (
     url: string,
     priority: string,
     changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly',
-  ) => ({ url, lastmod, priority, changefreq });
+    pageLastmod: string = lastmod,
+  ) => ({ url, lastmod: pageLastmod, priority, changefreq });
 
   const staticPages = [
     page('/', '1.0', 'weekly'),
@@ -57,28 +64,36 @@ export async function GET() {
     page('/sectores/alimentacion/', '0.75', 'monthly'),
     page('/sectores/mecanizado-cnc/', '0.75', 'monthly'),
 
-    page('/blog/', '0.8', 'weekly'),
-    page('/blog/coste-absentismo-pymes-industriales/', '0.75', 'monthly'),
-    page('/blog/crisis-perdida-conocimiento-planta-industrial/', '0.75', 'monthly'),
-    page('/blog/documentar-conocimiento-operarios-expertos/', '0.75', 'monthly'),
-    page('/blog/gestion-competencias-industria/', '0.8', 'monthly'),
-    page('/blog/onboarding-software-pymes/', '0.8', 'monthly'),
-    page('/blog/onboarding-vs-tradicional/', '0.8', 'monthly'),
-    page('/blog/que-es-un-sop-industrial/', '0.75', 'monthly'),
-    page('/blog/documentar-procesos-mecanizado-cnc/', '0.75', 'monthly'),
-    page('/blog/instrucciones-de-trabajo-vs-sop/', '0.75', 'monthly'),
-    page('/blog/software-sop-para-fabricas-comparativa/', '0.8', 'monthly'),
-    page('/blog/plantilla-sop-produccion/', '0.8', 'monthly'),
-    page('/blog/sop-mantenimiento-preventivo-guia-plantilla/', '0.75', 'monthly'),
-    page('/blog/conocimiento-tacito-taller-industrial/', '0.75', 'monthly'),
-    page('/blog/reducir-onboarding-operarios-cinco-a-un-dia/', '0.75', 'monthly'),
-    page('/blog/plan-contingencia-bajas-produccion/', '0.75', 'monthly'),
-    page('/blog/trazabilidad-de-un-producto/', '0.75', 'monthly'),
-    page('/blog/lean-manufacturing/', '0.8', 'monthly'),
+    page('/blog/', '0.8', 'weekly', REVISION),
 
-    page('/recursos/gestion-competencias-industria/', '0.7', 'monthly'),
-    page('/recursos/onboarding-software-pymes/', '0.7', 'monthly'),
-    page('/recursos/onboarding-vs-tradicional/', '0.7', 'monthly'),
+    // Revisados el 2026-07-27 (auditoria SEO/GEO: FAQ + schema, indice con anclas,
+    // migracion de layout). Su dateModified en el BlogPosting coincide con este lastmod.
+    page('/blog/coste-absentismo-pymes-industriales/', '0.75', 'monthly', REVISION),
+    page('/blog/crisis-perdida-conocimiento-planta-industrial/', '0.75', 'monthly', REVISION),
+    page('/blog/documentar-conocimiento-operarios-expertos/', '0.75', 'monthly', REVISION),
+    page('/blog/gestion-competencias-industria/', '0.8', 'monthly', REVISION),
+    page('/blog/onboarding-software-pymes/', '0.8', 'monthly', REVISION),
+    page('/blog/onboarding-vs-tradicional/', '0.8', 'monthly', REVISION),
+    page('/blog/que-es-un-sop-industrial/', '0.75', 'monthly', REVISION),
+    page('/blog/documentar-procesos-mecanizado-cnc/', '0.75', 'monthly', REVISION),
+    page('/blog/instrucciones-de-trabajo-vs-sop/', '0.75', 'monthly', REVISION),
+    page('/blog/software-sop-para-fabricas-comparativa/', '0.8', 'monthly', REVISION),
+    page('/blog/plantilla-sop-produccion/', '0.8', 'monthly', REVISION),
+    page('/blog/sop-mantenimiento-preventivo-guia-plantilla/', '0.75', 'monthly', REVISION),
+    page('/blog/conocimiento-tacito-taller-industrial/', '0.75', 'monthly', REVISION),
+    page('/blog/reducir-onboarding-operarios-cinco-a-un-dia/', '0.75', 'monthly', REVISION),
+    page('/blog/plan-contingencia-bajas-produccion/', '0.75', 'monthly', REVISION),
+    page('/blog/onboarding-digital-errores-manuales/', '0.8', 'monthly', REVISION),
+
+    // Sin cambios desde su publicacion: conservan su fecha real.
+    page('/blog/trazabilidad-de-un-producto/', '0.75', 'monthly', '2026-06-26'),
+    page('/blog/lean-manufacturing/', '0.8', 'monthly', '2026-06-29'),
+    page('/blog/digitalizar-produccion-pyme-industrial/', '0.8', 'monthly', '2026-07-01'),
+
+    // /recursos/gestion-competencias-industria/, /recursos/onboarding-software-pymes/ y
+    // /recursos/onboarding-vs-tradicional/ NO van en el sitemap: canonicalizan a su
+    // equivalente en /blog/. Un sitemap solo debe listar URLs canonicas; incluir la
+    // version descartada manda una senal contradictoria al rastreador.
 
     page('/legal/aviso-legal/', '0.3', 'yearly'),
     page('/legal/cookies/', '0.3', 'yearly'),

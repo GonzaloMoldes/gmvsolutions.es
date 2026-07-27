@@ -5,15 +5,57 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Cómo documentar procesos de mecanizado CNC paso a paso";
 const description = "Guía práctica para documentar SOPs de mecanizado CNC: qué capturar en arranques, cambios de referencia y troubleshooting, y cómo dejarlo accesible en el puesto.";
 const canonical = "https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué hay que documentar en un proceso de mecanizado CNC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuatro bloques cubren la mayor parte del valor: arranque y parada con su secuencia y comprobaciones previas; parámetros por referencia con programa, herramientas, correctores y tolerancias reales; cambio de referencia o utillaje con el orden de amarre y la validación de la primera pieza; y troubleshooting de las incidencias que se repiten. El cuarto es el que más se echa de menos y el que casi nunca está escrito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién debe documentar el proceso, el operario o calidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El operario que lo domina, acompañado por quien estructure el documento. Cuando lo redacta calidad desde fuera sale un documento formalmente correcto que nadie usa, porque pierde los detalles reales del puesto: las compensaciones, el orden que evita la colisión, la señal de que algo va mal. Esos matices solo aparecen capturando mientras se trabaja."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay que parar la máquina para documentar el proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, y si hay que pararla el proyecto no se hará. La forma práctica es capturar durante una ejecución normal: el operario explica lo que hace mientras lo hace y se graban foto o vídeo corto en los pasos donde el texto no basta. Documentar una máquina crítica así son horas, no semanas de parada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se evita que el SOP de la máquina quede desactualizado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haciendo que actualizarlo sea más barato que ignorarlo. Si cambiar un parámetro exige pedir permiso, editar un Word y reimprimir, nadie lo hará y el documento muere en unos meses. Si quien detecta el cambio puede reflejarlo en el momento y queda visible con su versión para el turno siguiente, el SOP se convierte en la memoria operativa de la máquina."
+      }
+    }
+  ]
+};
 ---
 
 <ArticleLayout
   title={title}
   description={description}
   date="2026-05-19"
+  dateModified="2026-07-27"
   category="Procedimientos Operativos"
   readTime="10 min"
   canonical={canonical}
+  schema={faqSchema}
 >
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Documentar un proceso de mecanizado CNC no es escribir un manual de 40 páginas: es capturar lo que de verdad importa —arranque, parámetros, cambios de referencia y averías frecuentes— mientras el experto ejecuta, y dejarlo accesible en el puesto para que no dependa de una sola persona.</p>
@@ -26,6 +68,7 @@ const canonical = "https://gmvsolutions.es/blog/documentar-procesos-mecanizado-c
     <li><a href="#como-capturar">Cómo capturarlo sin parar la máquina</a></li>
     <li><a href="#mantener">Cómo mantener el SOP vivo</a></li>
     <li><a href="#plantilla">Plantilla y siguientes pasos</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="problema">Por qué los procesos CNC se quedan en la cabeza del titular</h2>
@@ -52,6 +95,20 @@ const canonical = "https://gmvsolutions.es/blog/documentar-procesos-mecanizado-c
 
   <h2 id="plantilla">Plantilla y siguientes pasos</h2>
   <p>Si quieres empezar hoy, descarga una <a href="/blog/plantilla-sop-produccion/">plantilla de SOP de producción</a> y adáptala a tus tres máquinas más críticas. Y si prefieres ver cómo queda accesible en el puesto, pide una demo.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué hay que documentar en un proceso de mecanizado CNC?</h3>
+  <p>Cuatro bloques cubren la mayor parte del valor: arranque y parada con su secuencia y comprobaciones previas; parámetros por referencia con programa, herramientas, correctores y tolerancias reales; cambio de referencia o utillaje con el orden de amarre y la validación de la primera pieza; y troubleshooting de las incidencias que se repiten. El cuarto es el que más se echa de menos y el que casi nunca está escrito.</p>
+
+  <h3>¿Quién debe documentar el proceso, el operario o calidad?</h3>
+  <p>El operario que lo domina, acompañado por quien estructure el documento. Cuando lo redacta calidad desde fuera sale un documento formalmente correcto que nadie usa, porque pierde los detalles reales del puesto: las compensaciones, el orden que evita la colisión, la señal de que algo va mal. Esos matices solo aparecen capturando mientras se trabaja.</p>
+
+  <h3>¿Hay que parar la máquina para documentar el proceso?</h3>
+  <p>No, y si hay que pararla el proyecto no se hará. La forma práctica es capturar durante una ejecución normal: el operario explica lo que hace mientras lo hace y se graban foto o vídeo corto en los pasos donde el texto no basta. Documentar una máquina crítica así son horas, no semanas de parada.</p>
+
+  <h3>¿Cómo se evita que el SOP de la máquina quede desactualizado?</h3>
+  <p>Haciendo que actualizarlo sea más barato que ignorarlo. Si cambiar un parámetro exige pedir permiso, editar un Word y reimprimir, nadie lo hará y el documento muere en unos meses. Si quien detecta el cambio puede reflejarlo en el momento y queda visible con su versión para el turno siguiente, el SOP se convierte en la memoria operativa de la máquina.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

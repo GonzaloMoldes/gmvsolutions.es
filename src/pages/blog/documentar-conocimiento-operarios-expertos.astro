@@ -7,11 +7,62 @@ const date = "2026-03-10";
 const category = "Transferencia de conocimiento";
 const readTime = "14 min.";
 const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se documenta el conocimiento de un operario experto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Capturándolo durante la ejecución, no en una entrevista posterior. El experto ejecuta el proceso mientras explica lo que hace y por qué, y se registra con foto o vídeo corto en los pasos donde el texto se queda corto. Pedirle que escriba un manual produce documentos correctos que omiten justo los detalles que lo hacen experto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué falla el método de que el veterano enseñe al nuevo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque depende de la habilidad pedagógica del experto, que rara vez es su punto fuerte; porque cada vez enseña distinto, así que el resultado es inconsistente; porque no queda registro de lo transmitido; y porque ocupa el tiempo productivo de dos personas durante semanas. Funciona como complemento, no como sistema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué conocimiento hay que capturar primero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El que para la producción si se hace mal o si no se sabe hacer. En la práctica: los arranques, los cambios de referencia, los parámetros críticos y las incidencias que se repiten. Ese último bloque, el troubleshooting, es el que más valor aporta y el que casi nunca está escrito en ningún sitio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo lleva documentar un proceso crítico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Horas por proceso si se captura durante una ejecución normal, frente a las semanas que consume redactar un manual desde cero. La diferencia no está en el esfuerzo total sino en el método: grabar y estructurar después es mucho más rápido que escribir y luego verificar que lo escrito coincide con lo que se hace de verdad."
+      }
+    }
+  ]
+};
+
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} dateModified="2026-07-27" schema={faqSchema}>
 
-<h2>El conocimiento que se va cuando se va la persona</h2>
+<p><strong>En este artículo:</strong></p>
+<ul>
+<li><a href="#que-se-va">El conocimiento que se va con la persona</a></li>
+<li><a href="#falla">Por qué falla la transferencia de conocimiento</a></li>
+<li><a href="#que-capturar">Qué capturar y qué no</a></li>
+<li><a href="#metodologia">Metodología: captura en 4 fases</a></li>
+<li><a href="#cuando">Cuándo empezar</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+
+<h2 id="que-se-va">El conocimiento que se va cuando se va la persona</h2>
 
 <p>En cualquier planta industrial hay personas que llevan 10, 15 o 20 años haciendo lo mismo. Saben cómo suena la máquina cuando algo no va bien. Saben que el tercer paso del manual del fabricante no funciona y hay que hacerlo de otra forma. Saben que los martes por la mañana la presión tarda más en estabilizarse porque el compresor viene frío del fin de semana.</p>
 
@@ -19,7 +70,7 @@ const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operario
 
 <p>Frágil porque <strong>desaparece el día que esa persona se va</strong>. Y según los datos de la Encuesta REELEVO 2025, el 87% de las pymes industriales españolas identifican la dependencia de estos perfiles como un riesgo alto para su producción, pero solo el 23% ha documentado ese conocimiento.</p>
 
-<h2>Por qué la transferencia de conocimiento falla en la mayoría de empresas</h2>
+<h2 id="falla">Por qué la transferencia de conocimiento falla en la mayoría de empresas</h2>
 
 <p>Muchas empresas industriales intentan alguna forma de transferencia de conocimiento y tropiezan en puntos parecidos. Estas son las causas que más se repiten:</p>
 
@@ -35,7 +86,7 @@ const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operario
 <h3>"Es que esto no se puede documentar"</h3>
 <p>El mito más peligroso. Sí se puede documentar. Lo que pasa es que el formato habitual (texto escrito en un Word) no es capaz de capturar el conocimiento tácito. Necesitas un formato que capture <strong>cómo lo hace el experto realmente</strong>, no cómo lo describe alguien que le ha observado.</p>
 
-<h2>Qué tipo de conocimiento tienes que capturar (y cuál no)</h2>
+<h2 id="que-capturar">Qué tipo de conocimiento tienes que capturar (y cuál no)</h2>
 
 <p>No todo el conocimiento del experto tiene el mismo valor ni la misma urgencia. Hay que priorizar:</p>
 
@@ -60,7 +111,7 @@ const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operario
 <li>Tareas que van a desaparecer por cambio de maquinaria o proceso.</li>
 </ul>
 
-<h2>Metodología: cómo capturar el conocimiento en 4 fases</h2>
+<h2 id="metodologia">Metodología: cómo capturar el conocimiento en 4 fases</h2>
 
 <h3>Fase 1: Mapeo de dependencias (1 día)</h3>
 
@@ -116,7 +167,7 @@ const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operario
 
 <p>Este paso es crítico. Si no validas antes de que el experto se vaya, te arriesgas a descubrir los huecos cuando ya es tarde para llenarlos.</p>
 
-<h2>Cuándo empezar (pista: antes de lo que crees)</h2>
+<h2 id="cuando">Cuándo empezar (pista: antes de lo que crees)</h2>
 
 <p>El error más común es empezar demasiado tarde. La ventana ideal para documentar el conocimiento de un operario que se va a jubilar es <strong>6-12 meses antes de su salida</strong>. Esto permite:</p>
 
@@ -135,6 +186,20 @@ const canonical = "https://gmvsolutions.es/blog/documentar-conocimiento-operario
 <p><strong>REELEVO</strong> es un software SOP industrial para pymes que ayuda a capturar procedimientos operativos paso a paso y a dejarlos accesibles directamente en cada máquina para cualquier sustituto. Sin manuales de 40 páginas ni carpetas difíciles de consultar en planta.</p>
 <p><a href="https://app.gmvsolutions.es/registro">Registrarme en REELEVO →</a></p>
 </div>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<h3>¿Cómo se documenta el conocimiento de un operario experto?</h3>
+<p>Capturándolo durante la ejecución, no en una entrevista posterior. El experto ejecuta el proceso mientras explica lo que hace y por qué, y se registra con foto o vídeo corto en los pasos donde el texto se queda corto. Pedirle que escriba un manual produce documentos correctos que omiten justo los detalles que lo hacen experto.</p>
+
+<h3>¿Por qué falla el método de que el veterano enseñe al nuevo?</h3>
+<p>Porque depende de la habilidad pedagógica del experto, que rara vez es su punto fuerte; porque cada vez enseña distinto, así que el resultado es inconsistente; porque no queda registro de lo transmitido; y porque ocupa el tiempo productivo de dos personas durante semanas. Funciona como complemento, no como sistema.</p>
+
+<h3>¿Qué conocimiento hay que capturar primero?</h3>
+<p>El que para la producción si se hace mal o si no se sabe hacer. En la práctica: los arranques, los cambios de referencia, los parámetros críticos y las incidencias que se repiten. Ese último bloque, el troubleshooting, es el que más valor aporta y el que casi nunca está escrito en ningún sitio.</p>
+
+<h3>¿Cuánto tiempo lleva documentar un proceso crítico?</h3>
+<p>Horas por proceso si se captura durante una ejecución normal, frente a las semanas que consume redactar un manual desde cero. La diferencia no está en el esfuerzo total sino en el método: grabar y estructurar después es mucho más rápido que escribir y luego verificar que lo escrito coincide con lo que se hace de verdad.</p>
 
 <div class="related-links">
 <div class="related-links-label">Sigue explorando</div>

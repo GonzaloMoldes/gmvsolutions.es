@@ -6,9 +6,50 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Software SOP para fábricas: cómo elegir en 2026";
 const description = "Comparativa de software de instrucciones de trabajo y SOP: idioma, precio, adopción del operario e implantación. Criterios para pyme industrial española, sin jerga enterprise.";
 const canonical = "https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+// No inventar precios ni funciones de competidores: las respuestas se quedan en criterios.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué criterios importan al elegir un software SOP para una fábrica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cinco: idioma nativo de la interfaz y del soporte, modelo de precio (público y por empresa, o por operario y bajo demanda), esfuerzo de implantación, facilidad de acceso para el operario en el puesto, y encaje con tu tamaño real. La adopción en planta es la que decide si el proyecto sirve o acaba siendo una licencia pagada que nadie abre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si una herramienta es demasiado grande para mi pyme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las señales aparecen en la propia demo: integraciones complejas, módulos que no vas a usar, captura de datos de máquina vía SCADA o un equipo de implantación dedicado. Todo eso tiene sentido en industria grande, pero en una pyme se traduce en coste, lentitud y funciones que nadie tocará."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un software SOP industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El rango del mercado es amplio y muchos proveedores no publican precio, lo que ya es información en sí. Lo que conviene mirar no es solo la cifra sino el modelo: un precio por operario penaliza justo lo que quieres hacer —dar acceso a toda la planta—, mientras que un precio por empresa permite ampliar sin recalcular el presupuesto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se prueba un software SOP con poco riesgo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sin migrar nada. Se eligen los tres procesos más críticos, se documentan con quien los domina y se comprueba una cosa concreta: si un sustituto puede seguirlos sin llamar al experto. Esa prueba se hace en semanas y responde a la única pregunta que importa antes de comprometerse con toda la planta."
+      }
+    }
+  ]
+};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-05-26" category="Comparativa" readTime="9 min" canonical={canonical}>
+<ArticleLayout title={title} description={description} date="2026-05-26" dateModified="2026-07-27" category="Comparativa" readTime="9 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Al elegir software SOP para una pyme industrial, cinco criterios deciden: idioma, precio, implantación, adopción del operario y encaje real con tu tamaño. Lo demasiado enterprise sobra; el Excel y el papel se quedan cortos. El punto medio es lo que buscas.</p>
   </div>
@@ -20,6 +61,7 @@ const canonical = "https://gmvsolutions.es/blog/software-sop-para-fabricas-compa
     <li><a href="#enterprise">Señales de que una herramienta es demasiado</a></li>
     <li><a href="#corto">Señales de que te quedas corto</a></li>
     <li><a href="#probar">Cómo probarlo con bajo riesgo</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="que-resuelve">Qué resuelve un software SOP</h2>
@@ -42,6 +84,20 @@ const canonical = "https://gmvsolutions.es/blog/software-sop-para-fabricas-compa
 
   <h2 id="probar">Cómo probarlo con bajo riesgo</h2>
   <p>No migres todo de golpe. Elige los 3 procesos más críticos, documéntalos con quien los domina y mide si el sustituto puede seguirlos. Si la herramienta tiene precio público y puesta en marcha ágil, la prueba cuesta poco. Puedes comparar enfoques en <a href="/vs-alternativas/">alternativas de software SOP</a> o ver el nuestro en <a href="/precios/">precios</a>.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué criterios importan al elegir un software SOP para una fábrica?</h3>
+  <p>Cinco: idioma nativo de la interfaz y del soporte, modelo de precio (público y por empresa, o por operario y bajo demanda), esfuerzo de implantación, facilidad de acceso para el operario en el puesto, y encaje con tu tamaño real. La adopción en planta es la que decide si el proyecto sirve o acaba siendo una licencia pagada que nadie abre.</p>
+
+  <h3>¿Cómo sé si una herramienta es demasiado grande para mi pyme?</h3>
+  <p>Las señales aparecen en la propia demo: integraciones complejas, módulos que no vas a usar, captura de datos de máquina vía SCADA o un equipo de implantación dedicado. Todo eso tiene sentido en industria grande, pero en una pyme se traduce en coste, lentitud y funciones que nadie tocará.</p>
+
+  <h3>¿Cuánto cuesta un software SOP industrial?</h3>
+  <p>El rango del mercado es amplio y muchos proveedores no publican precio, lo que ya es información en sí. Lo que conviene mirar no es solo la cifra sino el modelo: un precio por operario penaliza justo lo que quieres hacer —dar acceso a toda la planta—, mientras que un precio por empresa permite ampliar sin recalcular el presupuesto.</p>
+
+  <h3>¿Cómo se prueba un software SOP con poco riesgo?</h3>
+  <p>Sin migrar nada. Se eligen los tres procesos más críticos, se documentan con quien los domina y se comprueba una cosa concreta: si un sustituto puede seguirlos sin llamar al experto. Esa prueba se hace en semanas y responde a la única pregunta que importa antes de comprometerse con toda la planta.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

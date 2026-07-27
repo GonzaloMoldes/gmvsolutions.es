@@ -5,9 +5,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 const title = "Plan de contingencia para bajas en producción";
 const description = "Cómo montar un plan de contingencia para bajas en planta: detectar puestos sensibles, documentar lo crítico y cubrir sin parar la línea. Checklist descargable incluido.";
 const canonical = "https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es un plan de contingencia para bajas en producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el conjunto de decisiones tomadas por adelantado para que una ausencia no pare la línea: qué puestos son críticos, qué procesos están documentados, quién puede cubrir cada uno y qué le falta para estar apto. No evita las bajas; evita que cada baja se gestione improvisando en el momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se detectan los puestos críticos de una planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cruzando dos preguntas por puesto: qué impacto tiene en producción si se para, y cuántas personas saben hacerlo bien. Los puestos de alto impacto y una sola persona capacitada son los puntos únicos de fallo y la prioridad del plan. Una matriz de competencias hace ese mapa visible sin necesidad de un análisis formal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas personas deberían saber hacer cada proceso crítico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Como mínimo dos por turno en los procesos que paran la línea, y idealmente una tercera en formación. La regla práctica no es un número absoluto, sino que ningún proceso de alto impacto dependa de una sola persona: si esa persona coincide con vacaciones, baja o cambio de turno, el plan ya ha fallado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve el plan de contingencia si trabajo con personal temporal o ETT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sirve más, porque la rotación multiplica el problema que el plan resuelve. Con personal temporal el proceso documentado en el puesto pasa de ser una comodidad a ser la única vía para que alguien produzca bien desde el primer turno, sin ocupar durante días a un operario veterano en tutorizar."
+      }
+    }
+  ]
+};
 ---
 
-<ArticleLayout title={title} description={description} date="2026-06-04" category="Continuidad operativa" readTime="9 min" canonical={canonical}>
+<ArticleLayout title={title} description={description} date="2026-06-04" dateModified="2026-07-27" category="Continuidad operativa" readTime="9 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Un plan de contingencia para bajas se basa en tres cosas: detectar los puestos donde faltar una persona desordena el turno, documentar primero esos procesos y tener lista la cobertura antes de que ocurra. No evita las bajas; evita que cada baja sea una crisis.</p>
   </div>
@@ -19,6 +59,7 @@ const canonical = "https://gmvsolutions.es/blog/plan-contingencia-bajas-producci
     <li><a href="#documentar">Documentar lo crítico primero</a></li>
     <li><a href="#activar">Activar la cobertura</a></li>
     <li><a href="#checklist">Checklist de contingencia</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
   </ul>
 
   <h2 id="desordena">Por qué una baja desordena el turno</h2>
@@ -42,6 +83,20 @@ const canonical = "https://gmvsolutions.es/blog/plan-contingencia-bajas-producci
     <li>Define quién puede cubrir cada uno y qué le falta para estar apto.</li>
     <li>Revisa el plan cuando cambie la plantilla o entren temporales.</li>
   </ul>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es un plan de contingencia para bajas en producción?</h3>
+  <p>Es el conjunto de decisiones tomadas por adelantado para que una ausencia no pare la línea: qué puestos son críticos, qué procesos están documentados, quién puede cubrir cada uno y qué le falta para estar apto. No evita las bajas; evita que cada baja se gestione improvisando en el momento.</p>
+
+  <h3>¿Cómo se detectan los puestos críticos de una planta?</h3>
+  <p>Cruzando dos preguntas por puesto: qué impacto tiene en producción si se para, y cuántas personas saben hacerlo bien. Los puestos de alto impacto y una sola persona capacitada son los puntos únicos de fallo y la prioridad del plan. Una matriz de competencias hace ese mapa visible sin necesidad de un análisis formal.</p>
+
+  <h3>¿Cuántas personas deberían saber hacer cada proceso crítico?</h3>
+  <p>Como mínimo dos por turno en los procesos que paran la línea, y idealmente una tercera en formación. La regla práctica no es un número absoluto, sino que ningún proceso de alto impacto dependa de una sola persona: si esa persona coincide con vacaciones, baja o cambio de turno, el plan ya ha fallado.</p>
+
+  <h3>¿Sirve el plan de contingencia si trabajo con personal temporal o ETT?</h3>
+  <p>Sirve más, porque la rotación multiplica el problema que el plan resuelve. Con personal temporal el proceso documentado en el puesto pasa de ser una comodidad a ser la única vía para que alguien produzca bien desde el primer turno, sin ocupar durante días a un operario veterano en tutorizar. Lo ves aplicado en <a href="/casos-de-uso/personal-ett/">personal ETT</a>.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>

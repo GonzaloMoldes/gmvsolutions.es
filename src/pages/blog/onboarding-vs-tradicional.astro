@@ -1,62 +1,89 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// Migrado de BaseLayout a ArticleLayout (auditoria SEO 2026-07-27): asi hereda el
+// BlogPosting canonico, el byline de autor (E-E-A-T) y el <link rel="alternate"
+// type="text/markdown"> que necesitan los agentes de IA.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 const title = "Onboarding software vs métodos tradicionales: Comparativa 2026";
 const description = "Onboarding software vs métodos tradicionales: comparativa ejecutiva con la decisión por escenario (coste, tiempo, calidad) para tu pyme industrial.";
+const date = "2026-04-07";
+const dateModified = "2026-07-27";
+const category = "Comparativa";
+const readTime = "14 min";
 const canonical = "https://gmvsolutions.es/blog/onboarding-vs-tradicional/";
 
-const schema = {
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": title,
-  "description": description,
-  "inLanguage": "es-ES",
-  "url": canonical,
-  "mainEntityOfPage": canonical,
-  "datePublished": "2026-04-07",
-  "dateModified": "2026-04-07",
-  "author": {
-    "@type": "Person",
-    "name": "Gonzalo Moldes",
-    "jobTitle": "Fundador de REELEVO",
-    "url": "https://www.linkedin.com/in/gonzalomoldes/",
-    "sameAs": ["https://www.linkedin.com/in/gonzalomoldes/"]
-  },
-  "publisher": { "@id": "https://gmvsolutions.es/#organization" }
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Es siempre mejor un onboarding software que el método tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Si incorporas a una o dos personas al año, tienes plantilla estable y los procesos son sencillos, el acompañamiento de un veterano funciona y es más barato. El software gana cuando hay rotación, personal temporal, varios turnos o procesos donde un error sale caro. La decisión depende del escenario, no de la tecnología."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El onboarding software sustituye al operario que tutoriza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No lo sustituye: le cambia el papel. En lugar de explicar cada paso desde cero en cada incorporación, el tutor verifica el resultado y resuelve lo que la documentación no cubre. El objetivo es que el veterano deje de ser el único canal por el que pasa el conocimiento, no que deje de participar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa con los procesos que nadie ha documentado nunca?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ese es el trabajo real del proyecto, y conviene no subestimarlo. La forma rápida es grabar en vídeo al operario experto ejecutando el proceso y convertir esa grabación en pasos, en lugar de pedirle que escriba un manual. Se empieza por los dos o tres puestos con más rotación o más reprocesos, no por toda la planta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se mide si el cambio ha funcionado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con tres datos que puedes tomar antes de empezar: cuántos días tarda una persona nueva en trabajar sin supervisión, cuántas horas del tutor consume cada incorporación y cuántos errores o reprocesos aparecen en las primeras semanas. Si no mides el punto de partida, cualquier mejora posterior es una impresión, no un dato."
+      }
+    }
+  ]
 };
 ---
 
-<BaseLayout
+<ArticleLayout
   title={title}
   description={description}
+  date={date}
+  dateModified={dateModified}
+  category={category}
+  readTime={readTime}
   canonical={canonical}
-  schema={schema}
-  activeNav=""
+  schema={faqSchema}
 >
-
-<article class="comparison-article">
-  <div class="article-header">
-    <div class="article-eyebrow fade-up">Comparativa • Onboarding</div>
-    <h1 class="fade-up delay-1">Onboarding software vs métodos tradicionales:<br><em>¿Cuál es mejor para tu pyme?</em></h1>
-    <p class="article-subtitle fade-up delay-2">
-      Análisis completo: coste, tiempo, calidad y gestión de competencias.
-      La decisión por escenario para una pyme industrial, sin humo.
-    </p>
-    <div class="article-meta fade-up delay-3">
-      <span class="meta-author">Por <a href="https://www.linkedin.com/in/gonzalomoldes/" target="_blank" rel="author noopener" style="color:var(--orange);text-decoration:none;">Gonzalo Moldes</a></span>
-      <span class="meta-date">7 de abril de 2026</span>
-      <span class="meta-read">14 minutos de lectura</span>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <section class="comparison-content">
     <div class="content-inner">
+
+      <div class="highlight-box">
+        <p><strong>TL;DR.</strong> No hay un ganador absoluto. El acompañamiento tradicional funciona con plantilla estable, pocas incorporaciones y procesos sencillos. El onboarding software gana cuando hay rotación, personal temporal, varios turnos o procesos donde el error sale caro. Lo que cambia no es quién enseña, sino que el conocimiento deje de pasar por una sola persona.</p>
+      </div>
+
+      <p><strong>En este artículo:</strong></p>
+      <ul class="toc-list">
+        <li><a href="#que-es">Qué es cada uno</a></li>
+        <li><a href="#comparativa">Comparativa: 6 dimensiones clave</a></li>
+        <li><a href="#tabla">Tabla comparativa detallada</a></li>
+        <li><a href="#cuando">Cuándo elegir cada uno</a></li>
+        <li><a href="#casos">Escenarios: antes vs después</a></li>
+        <li><a href="#costes">Desglose de costes</a></li>
+        <li><a href="#conclusion">Conclusión</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
 
       <!-- INTRO -->
       <div class="section-intro fade-up">
-        <h2>¿Qué es onboarding: software vs tradicional?</h2>
+        <h2 id="que-es">¿Qué es onboarding: software vs tradicional?</h2>
         <p>
           <strong>Onboarding software:</strong> Plataforma digital que guía el onboarding desde el puesto.
           Pasos claros en la máquina, registro automático de competencias, progresión medible.
@@ -69,7 +96,7 @@ const schema = {
 
       <!-- COMPARATIVA GLOBAL -->
       <div class="section-comparacion-global fade-up">
-        <h2>Comparativa global: 6 dimensiones clave</h2>
+        <h2 id="comparativa">Comparativa global: 6 dimensiones clave</h2>
 
         <div class="dimension-grid">
           <div class="dimension">
@@ -172,7 +199,7 @@ const schema = {
 
       <!-- TABLA DETALLADA -->
       <div class="section-tabla-detallada fade-up">
-        <h2>Tabla comparativa detallada</h2>
+        <h2 id="tabla">Tabla comparativa detallada</h2>
 
         <div class="tabla-comparacion">
           <div class="tabla-row tabla-header">
@@ -249,7 +276,7 @@ const schema = {
 
       <!-- CUÁNDO ELEGIR CADA UNO -->
       <div class="section-cuando-elegir fade-up">
-        <h2>¿Cuándo elegir cada uno?</h2>
+        <h2 id="cuando">¿Cuándo elegir cada uno?</h2>
 
         <div class="eleccion-grid">
           <div class="eleccion">
@@ -283,7 +310,7 @@ const schema = {
 
       <!-- CASOS REALES -->
       <div class="section-casos-reales fade-up">
-        <h2>Casos reales: Antes vs Después</h2>
+        <h2 id="casos">Escenarios típicos: antes vs después</h2>
 
         <div class="caso-real">
           <div class="caso-header">
@@ -358,7 +385,7 @@ const schema = {
 
       <!-- COSTOS DESGLOSADOS -->
       <div class="section-costos fade-up">
-        <h2>Desglose de costos real (caso pyme 20 operarios)</h2>
+        <h2 id="costes">Desglose de costes (pyme de 20 operarios)</h2>
 
         <div class="costos-tabla">
           <div class="costs-section">
@@ -420,7 +447,7 @@ const schema = {
 
       <!-- CONCLUSIÓN -->
       <div class="section-conclusion fade-up">
-        <h2>Conclusión: ¿Onboarding software o tradicional?</h2>
+        <h2 id="conclusion">Conclusión: ¿Onboarding software o tradicional?</h2>
 
         <div class="conclusion-box">
           <p>
@@ -430,7 +457,7 @@ const schema = {
           <ul>
             <li>Más de 10 operarios</li>
             <li>Más de 1 incorporación al mes</li>
-            <li>Procesoscríticos que requieren coherencia</li>
+            <li>Procesos críticos que requieren coherencia</li>
             <li>Interés en gestión de competencias documentada</li>
           </ul>
 
@@ -447,90 +474,48 @@ const schema = {
         </div>
       </div>
 
-      <!-- CTA FINAL -->
-      <div class="section-cta-final fade-up">
-        <div class="cta-box">
-          <h2>¿Listo para cambiar?</h2>
-          <p>
-            REELEVO es onboarding software + gestión de competencias especializado para pymes industriales.
-            Desde 49€/mes. Implementación: 2 semanas. ROI positivo en mes 2.
-          </p>
-          <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
-            <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrate en REELEVO</a>
-            <a href="/precios/" class="btn-ghost">Calcula tu ahorro potencial</a>
-          </div>
+      <h2 id="faq">Preguntas frecuentes</h2>
 
-          <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border);">
-            <p style="font-size: .95rem; color: var(--gray); margin-bottom: 20px;">
-              <strong>Más información sobre onboarding software:</strong>
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-              <a href="/blog/onboarding-software-pymes/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Guía: Onboarding software para pymes
-              </a>
-              <a href="/blog/gestion-competencias-industria/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Guía: Gestión de competencias en industria
-              </a>
-              <a href="/casos-de-uso/onboarding-operarios/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Caso de uso: Onboarding de operarios
-              </a>
-              <a href="/para-quien/responsable-rrhh/" style="color: var(--orange); text-decoration: none; font-weight: 500;">
-                → Para RRHH: Onboarding software con competencias
-              </a>
-            </div>
-          </div>
+      <h3>¿Es siempre mejor un onboarding software que el método tradicional?</h3>
+      <p>No. Si incorporas a una o dos personas al año, tienes plantilla estable y los procesos son sencillos, el acompañamiento de un veterano funciona y es más barato. El software gana cuando hay rotación, personal temporal, varios turnos o procesos donde un error sale caro. La decisión depende del escenario, no de la tecnología.</p>
+
+      <h3>¿El onboarding software sustituye al operario que tutoriza?</h3>
+      <p>No lo sustituye: le cambia el papel. En lugar de explicar cada paso desde cero en cada incorporación, el tutor verifica el resultado y resuelve lo que la documentación no cubre. El objetivo es que el veterano deje de ser el único canal por el que pasa el conocimiento, no que deje de participar.</p>
+
+      <h3>¿Qué pasa con los procesos que nadie ha documentado nunca?</h3>
+      <p>Ese es el trabajo real del proyecto, y conviene no subestimarlo. La forma rápida es grabar en vídeo al operario experto ejecutando el proceso y convertir esa grabación en pasos, en lugar de pedirle que escriba un manual. Se empieza por los dos o tres puestos con más rotación o más reprocesos, no por toda la planta.</p>
+
+      <h3>¿Cómo se mide si el cambio ha funcionado?</h3>
+      <p>Con tres datos que puedes tomar antes de empezar: cuántos días tarda una persona nueva en trabajar sin supervisión, cuántas horas del tutor consume cada incorporación y cuántos errores o reprocesos aparecen en las primeras semanas. Si no mides el punto de partida, cualquier mejora posterior es una impresión, no un dato.</p>
+
+      <div class="related-links">
+        <div class="related-links-label">Relacionado</div>
+        <div class="related-links-grid">
+          <a class="related-link-card" href="/blog/onboarding-software-pymes/">
+            <div class="related-link-kicker">Guía</div>
+            <div class="related-link-title">Onboarding software para pymes</div>
+            <div class="related-link-desc">Qué es, qué mirar al elegirlo y ROI realista.</div>
+          </a>
+          <a class="related-link-card" href="/blog/gestion-competencias-industria/">
+            <div class="related-link-kicker">Guía</div>
+            <div class="related-link-title">Gestión de competencias</div>
+            <div class="related-link-desc">La matriz que dice quién puede hacer qué, y en qué nivel.</div>
+          </a>
+          <a class="related-link-card" href="/casos-de-uso/onboarding-operarios/">
+            <div class="related-link-kicker">Caso de uso</div>
+            <div class="related-link-title">Onboarding de operarios</div>
+            <div class="related-link-desc">Incorporación estandarizada, con el proceso en el puesto.</div>
+          </a>
         </div>
       </div>
 
+      <div class="highlight-box">
+        <p><strong>¿Quieres saber cuál encaja en tu planta?</strong> <a href="https://diagnostico.gmvsolutions.es" data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">Evaluar mi situación →</a> · <a href="/precios/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver precios">Ver precios →</a></p>
+      </div>
+
     </div>
-  </section>
-</article>
 
 <style>
-  .comparison-article {
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 64px 32px;
-  }
-
-  .article-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .article-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: .65rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .article-header h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .article-subtitle {
-    font-size: 1.1rem;
-    color: var(--gray);
-    line-height: 1.6;
-    max-width: 750px;
-    margin: 0 auto 24px;
-  }
-
-  .article-meta {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    font-size: .9rem;
-    color: var(--gray2);
-  }
-
   .content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
@@ -905,17 +890,20 @@ const schema = {
     font-weight: 600;
   }
 
-  .cta-box {
-    background: var(--surface2);
-    border: 2px solid var(--orange);
-    border-radius: 8px;
-    padding: 40px;
-    text-align: center;
-    margin: 48px 0;
+  /* El indice de contenidos usa las vinetas estandar del blog, no las flechas
+     naranjas de las listas de contenido de esta pagina. */
+  .content-inner ul.toc-list {
+    list-style: disc;
+    padding-left: 24px;
   }
 
-  .cta-box h2 {
-    margin-top: 0;
+  .content-inner ul.toc-list li {
+    margin-bottom: 8px;
+    padding-left: 0;
+  }
+
+  .content-inner ul.toc-list li:before {
+    content: none;
   }
 </style>
-</BaseLayout>
+</ArticleLayout>

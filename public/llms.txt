@@ -91,6 +91,8 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Software SOP para fábricas: comparativa](https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
 - [Cómo saber la trazabilidad de un producto](https://gmvsolutions.es/blog/trazabilidad-de-un-producto/)
 - [Lean Manufacturing: qué es y cómo aplicarlo en una pyme](https://gmvsolutions.es/blog/lean-manufacturing/)
+- [Cómo digitalizar la producción en una pyme industrial](https://gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/)
+- [Onboarding digital en planta: cómo reducir los errores manuales](https://gmvsolutions.es/blog/onboarding-digital-errores-manuales/)
 
 ### Landing pages de alto valor
 - [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales

@@ -7,9 +7,50 @@ const date = "2026-03-24";
 const category = "Gestión del conocimiento";
 const readTime = "14 min.";
 const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es una crisis de pérdida de conocimiento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la situación en la que la salida de una o pocas personas deja a la organización sin capacidad de ejecutar procesos que antes daba por resueltos. No se limita al conocimiento técnico: se pierde también la red de relaciones de esa persona y su papel de puente entre áreas, que suele ser invisible hasta que falta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué perfiles son los más críticos de retener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tres, según la investigación de Parise, Cross y Davenport: los conectores centrales, a quienes todo el mundo acude cuando hay un problema; los brokers, que conectan grupos que de otro modo no se hablarían; y los periféricos con conocimiento de nicho, que no están en el centro de la red pero dominan algo que nadie más sabe hacer. El tercero es el más fácil de pasar por alto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con cuánta antelación hay que preparar una jubilación clave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con meses, no con semanas. El error habitual es dejar la documentación para el último mes, cuando la persona ya tiene la cabeza fuera y el proceso se hace con prisas. Trabajar sobre una jubilación previsible con seis meses o más por delante permite capturar el conocimiento durante la ejecución normal del trabajo, que es cuando aflora."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué la pyme industrial es más vulnerable que una gran empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por concentración y por falta de redundancia. En una planta de 30 personas es habitual que dos o tres acumulen la mayor parte del conocimiento operativo crítico, sin nadie que las sustituya de forma natural. A eso se suma que el conocimiento es predominantemente tácito y que la pirámide de edad del sector industrial español acumula veteranos cerca de la jubilación."
+      }
+    }
+  ]
+};
+
 ---
 
-<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical}>
+<ArticleLayout title={title} description={description} date={date} category={category} readTime={readTime} canonical={canonical} dateModified="2026-07-27" schema={faqSchema}>
 
 <p>En 2006, los investigadores Salvatore Parise, Rob Cross y Thomas Davenport publicaron en MIT Sloan Management Review un estudio que sigue siendo la referencia principal sobre este tema: <strong>"Strategies for Preventing a Knowledge-Loss Crisis"</strong>. Su conclusión fue rotunda: cuando un empleado clave se va de una organización, no solo se pierde su conocimiento técnico — se pierde también su red de relaciones, su capacidad de conectar personas y problemas, y su rol como puente entre departamentos.</p>
 
@@ -17,7 +58,17 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
 
 <p>Eso fue en una aerolínea. <strong>En tu taller o fábrica, el efecto es el mismo pero más concentrado</strong>: cuando el operario que lleva 20 años con la plegadora se jubila, no hay un equipo de 50 personas que absorba su conocimiento. Hay uno o dos sustitutos que nunca han tocado esa máquina solos.</p>
 
-<h2>Los tres roles que no puedes perder</h2>
+<p><strong>En este artículo:</strong></p>
+<ul>
+<li><a href="#roles">Los tres roles que no puedes perder</a></li>
+<li><a href="#pymes">El problema en la pyme industrial española</a></li>
+<li><a href="#investigacion">Lo que la investigación dice que funciona</a></li>
+<li><a href="#fases">Las 5 fases de la retención de conocimiento</a></li>
+<li><a href="#fuentes">Fuentes</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+
+<h2 id="roles">Los tres roles que no puedes perder</h2>
 
 <p>La investigación de Parise, Cross y Davenport, basada en análisis de redes organizacionales en más de 80 empresas, identificó tres tipos de empleados cuya marcha genera las crisis más graves:</p>
 
@@ -27,7 +78,7 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
 
 <p><strong>Los periféricos con conocimiento de nicho</strong> son personas que no están en el centro de la red pero poseen un conocimiento muy específico y difícil de reemplazar. El técnico que sabe calibrar la máquina vieja que nadie más toca. El operario que conoce el truco para que la línea no se atasca con cierto material. Son fáciles de ignorar en un análisis superficial, pero su pérdida puede paralizar operaciones enteras.</p>
 
-<h2>El problema específico de las pymes industriales españolas</h2>
+<h2 id="pymes">El problema específico de las pymes industriales españolas</h2>
 
 <p>La investigación original se centra en grandes corporaciones. Pero el problema es aún más agudo en pymes industriales por varias razones:</p>
 
@@ -51,7 +102,7 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
   <p><strong>2,1 millones de puestos industriales</strong> quedarán sin cubrir en 2030 por el déficit de habilidades.</p>
 </div>
 
-<h2>Lo que la investigación dice que funciona (y lo que no)</h2>
+<h2 id="investigacion">Lo que la investigación dice que funciona (y lo que no)</h2>
 
 <p>El estudio de MIT Sloan y la investigación posterior han destilado qué estrategias funcionan y cuáles son una pérdida de tiempo:</p>
 
@@ -73,7 +124,7 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
 
 <p><strong>Análisis de redes de conocimiento.</strong> Saber quién sabe qué — y quién depende de quién — permite identificar los puntos de mayor riesgo antes de que la pérdida ocurra. Una matriz de habilidades (skill matrix) que muestre qué procesos domina cada operario revela inmediatamente dónde hay dependencia de una sola persona.</p>
 
-<h2>De la teoría a la práctica: las 5 fases de la retención de conocimiento</h2>
+<h2 id="fases">De la teoría a la práctica: las 5 fases de la retención de conocimiento</h2>
 
 <h3>Fase 1: Mapear el riesgo</h3>
 
@@ -110,6 +161,20 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
   <p><a href="https://app.gmvsolutions.es/registro">Registrarme en REELEVO →</a></p>
 </div>
 
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<h3>¿Qué es una crisis de pérdida de conocimiento?</h3>
+<p>Es la situación en la que la salida de una o pocas personas deja a la organización sin capacidad de ejecutar procesos que antes daba por resueltos. No se limita al conocimiento técnico: se pierde también la red de relaciones de esa persona y su papel de puente entre áreas, que suele ser invisible hasta que falta.</p>
+
+<h3>¿Qué perfiles son los más críticos de retener?</h3>
+<p>Tres, según la investigación de Parise, Cross y Davenport: los conectores centrales, a quienes todo el mundo acude cuando hay un problema; los brokers, que conectan grupos que de otro modo no se hablarían; y los periféricos con conocimiento de nicho, que no están en el centro de la red pero dominan algo que nadie más sabe hacer. El tercero es el más fácil de pasar por alto.</p>
+
+<h3>¿Con cuánta antelación hay que preparar una jubilación clave?</h3>
+<p>Con meses, no con semanas. El error habitual es dejar la documentación para el último mes, cuando la persona ya tiene la cabeza fuera y el proceso se hace con prisas. Trabajar sobre una jubilación previsible con seis meses o más por delante permite capturar el conocimiento durante la ejecución normal del trabajo, que es cuando aflora.</p>
+
+<h3>¿Por qué la pyme industrial es más vulnerable que una gran empresa?</h3>
+<p>Por concentración y por falta de redundancia. En una planta de 30 personas es habitual que dos o tres acumulen la mayor parte del conocimiento operativo crítico, sin nadie que las sustituya de forma natural. A eso se suma que el conocimiento es predominantemente tácito y que la pirámide de edad del sector industrial español acumula veteranos cerca de la jubilación.</p>
+
 <div class="related-links">
 <div class="related-links-label">Sigue explorando</div>
 <div class="related-links-grid">
@@ -133,7 +198,7 @@ const canonical = "https://gmvsolutions.es/blog/crisis-perdida-conocimiento-plan
 
 <hr />
 
-<h2>Fuentes</h2>
+<h2 id="fuentes">Fuentes</h2>
 
 <ul>
   <li>Parise, S., Cross, R. y Davenport, T.H. (2006). "Strategies for Preventing a Knowledge-Loss Crisis". <em>MIT Sloan Management Review</em>, Vol. 47, No. 4, pp. 31–38.</li>
