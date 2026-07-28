@@ -5,9 +5,12 @@ const title = "GembaDocs vs REELEVO — Software documentación y lean manufactu
 const description = "GembaDocs vs REELEVO: la alternativa pensada para la pyme industrial española. Comparación en idioma, precio, implantación y adopción del operario.";
 const canonical = "https://gmvsolutions.es/vs-gembadocs/";
 
+// Era ComparisonChart, un @type que no existe en schema.org: el buscador
+// descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
+// WebPage + about es el equivalente valido para una comparativa.
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ComparisonChart",
+  "@type": "WebPage",
   "headline": title,
   "description": description,
   "url": canonical,

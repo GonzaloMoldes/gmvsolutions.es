@@ -7,9 +7,12 @@ const title = "Alternativa ligera a un MES para pymes | REELEVO";
 const description = "¿Buscas un MES y eres pyme industrial? Quizá no lo necesitas. Compara el enfoque MES con una plataforma operativa ligera: precio, implantación y adopción real.";
 const canonical = "https://gmvsolutions.es/vs-mes-tradicional/";
 
+// Era ComparisonChart, un @type que no existe en schema.org: el buscador
+// descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
+// WebPage + about es el equivalente valido para una comparativa.
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ComparisonChart",
+  "@type": "WebPage",
   "headline": title,
   "description": description,
   "url": canonical,

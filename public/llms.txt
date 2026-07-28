@@ -56,6 +56,25 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Vs Alternativas](https://gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
 - [Recursos](https://gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
 - [Sobre nosotros](https://gmvsolutions.es/sobre-nosotros/) — Quién está detrás de REELEVO y por qué existe
+- [Por qué usar REELEVO](https://gmvsolutions.es/por-que-usar-reelevo/) — Diferencias frente a MES, Excel y plataformas enterprise para la pyme industrial
+- [Demo interactivo](https://gmvsolutions.es/video-demo/) — Recorrido por el producto a tu ritmo, sin registro
+- [FAQs](https://gmvsolutions.es/faqs/) — Preguntas frecuentes sobre producto, implantación, precio y soporte
+
+### Funcionalidades
+- [Documentación de procesos](https://gmvsolutions.es/documentacion-procesos/) — SOPs e instrucciones de trabajo accesibles en el puesto, con versión vigente
+- [Control de producción](https://gmvsolutions.es/control-produccion/) — Registro por operario y máquina, paradas con causa y KPIs diarios sin papel
+- [Gestión de competencias](https://gmvsolutions.es/gestion-competencias/) — Matriz de competencias (skill matrix) que se actualiza con la ejecución real
+- [Portal del operario](https://gmvsolutions.es/portal-operario/) — Agenda del día, procesos y progreso de formación desde el móvil, sin instalación
+- [Cobertura de turnos](https://gmvsolutions.es/cobertura-turnos/) — Detecta huecos de cobertura antes del turno y quién puede cubrir cada puesto
+- [Mantenimiento](https://gmvsolutions.es/mantenimiento/) — Planes preventivos y correctivos, órdenes automáticas y registro de intervenciones
+- [Calidad y conformidad](https://gmvsolutions.es/calidad-y-conformidad/) — Autocontroles, no conformidades y evidencia de ejecución para auditorías
+- [Workflows](https://gmvsolutions.es/workflows/) — Flujos multi-paso y multi-operario: aprobaciones, checkpoints y ramas paralelas
+- [Kaizen](https://gmvsolutions.es/kaizen/) — Propuestas de mejora capturadas en el puesto y devueltas al proceso
+- [Obras y trazabilidad](https://gmvsolutions.es/obras-trazabilidad/) — Trazabilidad por pieza y avance de obra para fabricación por encargo
+- [Firma digital](https://gmvsolutions.es/firma-digital/) — El operario firma al completar y el supervisor al validar, sin papel
+- [Modo offline](https://gmvsolutions.es/modo-offline/) — Funciona sin conexión y sincroniza al recuperar cobertura; sin wifi industrial
+- [API e integraciones](https://gmvsolutions.es/api-integraciones/) — API REST, webhooks, Power Automate y conexión con ERP o Power BI
+- [Integración Microsoft 365](https://gmvsolutions.es/integracion-m365/) — Conexión con Teams y el entorno Microsoft 365
 
 ### Para quién
 - [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
@@ -93,6 +112,7 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Lean Manufacturing: qué es y cómo aplicarlo en una pyme](https://gmvsolutions.es/blog/lean-manufacturing/)
 - [Cómo digitalizar la producción en una pyme industrial](https://gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/)
 - [Onboarding digital en planta: cómo reducir los errores manuales](https://gmvsolutions.es/blog/onboarding-digital-errores-manuales/)
+- [Onboarding software para pymes: guía completa](https://gmvsolutions.es/blog/onboarding-software-pymes/)
 
 ### Landing pages de alto valor
 - [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales

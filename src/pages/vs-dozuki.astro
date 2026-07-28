@@ -1,13 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Dozuki vs REELEVO — Comparativa de software SOP para pymes industriales";
+const title = "REELEVO vs Dozuki: comparativa para pyme industrial";
 const description = "Comparativa de software de instrucciones de trabajo: Dozuki vs REELEVO en idioma, precio, implantación y adopción para pyme industrial española.";
 const canonical = "https://gmvsolutions.es/vs-dozuki/";
 
+// Era ComparisonChart, un @type que no existe en schema.org: el buscador
+// descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
+// WebPage + about es el equivalente valido para una comparativa.
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ComparisonChart",
+  "@type": "WebPage",
   "headline": title,
   "description": description,
   "url": canonical,

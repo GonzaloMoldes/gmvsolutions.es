@@ -5,9 +5,12 @@ const title = "Poka/IFS vs REELEVO — Comparativa de software industrial para p
 const description = "Poka (IFS) vs REELEVO: MES enterprise frente a una plataforma ligera. Comparación por precio, implantación y escalabilidad para la pyme industrial.";
 const canonical = "https://gmvsolutions.es/vs-poka/";
 
+// Era ComparisonChart, un @type que no existe en schema.org: el buscador
+// descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
+// WebPage + about es el equivalente valido para una comparativa.
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ComparisonChart",
+  "@type": "WebPage",
   "headline": title,
   "description": description,
   "url": canonical,

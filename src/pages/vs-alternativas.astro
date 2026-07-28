@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "REELEVO vs alternativas — Comparativa de software SOP industrial para pymes";
+const title = "Comparativa de software SOP para pymes industriales | REELEVO";
 const description = "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola.";
 const canonical = "https://gmvsolutions.es/vs-alternativas/";
 
@@ -73,10 +73,10 @@ const schema = {
               <tr>
                 <th class="feature-col">Característica</th>
                 <th class="reelevo-col">REELEVO</th>
-                <th class="competitor-col">Dozuki</th>
-                <th class="competitor-col">Poka (IFS)</th>
-                <th class="competitor-col">GembaDocs</th>
-                <th class="competitor-col">Knowby</th>
+                <th class="competitor-col"><a href="/vs-dozuki/">Dozuki</a></th>
+                <th class="competitor-col"><a href="/vs-poka/">Poka (IFS)</a></th>
+                <th class="competitor-col"><a href="/vs-gembadocs/">GembaDocs</a></th>
+                <th class="competitor-col"><a href="/vs-knowby/">Knowby</a></th>
               </tr>
             </thead>
             <tbody>
@@ -127,6 +127,41 @@ const schema = {
           <p><strong>*</strong> Precio estimado basado en configuraciones típicas obtenidas por partners.</p>
           <p><strong>**</strong> Precio disponible solo bajo petición tras proceso comercial.</p>
         </div>
+      </div>
+
+      <!-- Comparativas una a una. Sin estas tarjetas las paginas /vs-*/ quedaban
+           sin ningun enlace interno entrante en todo el site (auditoria P1). -->
+      <div class="vs-cards fade-up delay-2">
+        <a class="vs-card" href="/vs-dozuki/">
+          <div class="vs-card-kicker">Comparativa</div>
+          <div class="vs-card-title">REELEVO vs Dozuki</div>
+          <div class="vs-card-desc">La opción enterprise americana frente a una pyme española: precio, idioma y arranque.</div>
+        </a>
+        <a class="vs-card" href="/vs-poka/">
+          <div class="vs-card-kicker">Comparativa</div>
+          <div class="vs-card-title">REELEVO vs Poka (IFS)</div>
+          <div class="vs-card-desc">Connected worker de gran industria frente a implantación ligera.</div>
+        </a>
+        <a class="vs-card" href="/vs-gembadocs/">
+          <div class="vs-card-kicker">Comparativa</div>
+          <div class="vs-card-title">REELEVO vs GembaDocs</div>
+          <div class="vs-card-desc">Captura rápida de SOPs frente a documentación con ejecución y competencias.</div>
+        </a>
+        <a class="vs-card" href="/vs-knowby/">
+          <div class="vs-card-kicker">Comparativa</div>
+          <div class="vs-card-title">REELEVO vs Knowby</div>
+          <div class="vs-card-desc">Herramienta de instrucciones genérica frente a una pensada para planta.</div>
+        </a>
+        <a class="vs-card" href="/vs-mes-tradicional/">
+          <div class="vs-card-kicker">Categoría</div>
+          <div class="vs-card-title">REELEVO vs un MES</div>
+          <div class="vs-card-desc">Cuándo un MES te sobra y qué capa operativa necesitas antes.</div>
+        </a>
+        <a class="vs-card" href="/vs-excel-papel/">
+          <div class="vs-card-kicker">Categoría</div>
+          <div class="vs-card-title">REELEVO vs Excel y papel</div>
+          <div class="vs-card-desc">El coste oculto del statu quo: versiones sueltas y cero trazabilidad.</div>
+        </a>
       </div>
     </div>
   </section>
@@ -417,6 +452,72 @@ const schema = {
 
   .comp-table-wrapper {
     min-width: 0;
+  }
+
+  /* Enlaces a las comparativas individuales desde la cabecera de la tabla. */
+  .comp-table th.competitor-col a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,.35);
+  }
+
+  .comp-table th.competitor-col a:hover {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+  }
+
+  .vs-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .vs-card {
+    display: block;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 18px;
+    transition: border-color .2s, transform .2s;
+  }
+
+  .vs-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .vs-card-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gray2);
+    margin-bottom: 10px;
+  }
+
+  .vs-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .vs-card-desc {
+    font-size: .82rem;
+    line-height: 1.55;
+    color: var(--gray);
+  }
+
+  @media (max-width: 900px) {
+    .vs-cards {
+      grid-template-columns: 1fr;
+    }
   }
 
   .comp-table {

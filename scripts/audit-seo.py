@@ -137,15 +137,21 @@ def main():
     no_faq = sorted(u for u in indexable if is_commercial(u) and '"FAQPage"' not in pages[u])
     results.append(("P6", "Paginas comerciales sin FAQPage", no_faq, no_faq[:8]))
 
-    # P7 — ausentes de llms.txt
+    # P7 — ausentes de llms.txt.
+    # Es un indice CURADO para agentes, no un sitemap: se excluyen a proposito las
+    # paginas legales (ruido para un agente) y las /recursos/* (duplicados que
+    # canonicalizan a /blog/, ver P3).
     llms_path = os.path.join(ROOT, "llms.txt")
     absent = []
     if os.path.isfile(llms_path):
         llms = io.open(llms_path, encoding="utf-8", errors="replace").read()
         listed = set(re.findall(r"https://gmvsolutions\.es(/[^)\s]*)", llms))
         listed = set(u if u.endswith("/") else u + "/" for u in listed)
-        absent = sorted(set(indexable) - listed)
-    results.append(("P7", "Indexables ausentes de llms.txt", absent, absent[:8]))
+        curated = {u for u in indexable
+                   if not u.startswith(("/legal/", "/recursos/gestion-",
+                                        "/recursos/onboarding-"))}
+        absent = sorted(curated - listed)
+    results.append(("P7", "Indexables ausentes de llms.txt (curado)", absent, absent[:8]))
 
     # P8 — sin version markdown
     no_md = sorted(u for u in indexable if 'type="text/markdown"' not in pages[u])
