@@ -26,7 +26,7 @@ const {
   readTime,
   canonical,
   dateModified,
-  image = 'https://gmvsolutions.es/factory-bg.jpg',
+  image = 'https://gmvsolutions.es/og-default.jpg',
   schema,
   noindex = false,
 } = Astro.props;
@@ -39,10 +39,8 @@ const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
 
 const articleUrl = canonical ?? Astro.url.href;
 
-// Version markdown del articulo (/blog/<slug>.md). Se anuncia con un <link
-// rel="alternate" type="text/markdown"> para que los agentes prefieran el texto
-// limpio al HTML (Roadmap IA 2026-06, Parte B2 - Agent Readiness).
-const markdownUrl = `${articleUrl.replace(/\/$/, '')}.md`;
+// El <link rel="alternate" type="text/markdown"> lo emite ahora BaseLayout para
+// TODO el sitio (auditoria P8). Antes se generaba aqui y solo cubria el blog.
 
 // Autor real del blog (E-E-A-T + humaniza el copy frente a detectores de IA).
 // Person con sameAs a LinkedIn; reutilizado en el byline visible y en el JSON-LD.
@@ -87,7 +85,6 @@ const mergedSchema = [articleSchema, ...extraSchema];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex}>
-  <link slot="head" rel="alternate" type="text/markdown" href={markdownUrl} title="Versión en markdown" />
   <article class="article-page">
     <div class="article-container">
 

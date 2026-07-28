@@ -3,7 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GaliciaSeal from '../components/GaliciaSeal.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { organizationSchema, buildBreadcrumb } from '../lib/seo';
+import NewsletterModal from '../components/NewsletterModal.astro';
+import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
 
@@ -26,7 +27,10 @@ const {
   canonical = Astro.url.href,
   ogTitle = title,
   ogDescription = description,
-  ogImage = 'https://gmvsolutions.es/factory-bg.jpg',
+  // og-default.jpg es la misma foto recortada a 1200x630, el tamano que piden
+  // Open Graph y Twitter. factory-bg.jpg sigue existiendo a 2000px porque
+  // global.css lo usa como fondo de .hero-bg.
+  ogImage = 'https://gmvsolutions.es/og-default.jpg',
   activeNav,
   schema,
   pageType,
@@ -36,6 +40,19 @@ const {
 // Schema sitewide (S1-C3): Organization en todas las paginas + BreadcrumbList
 // generado automaticamente desde la ruta. La home omite breadcrumb.
 const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
+
+// Version markdown de la pagina. Se anuncia con <link rel="alternate"
+// type="text/markdown"> para que los agentes prefieran el texto limpio al HTML.
+// Se genera aqui para TODO el sitio (auditoria P8); antes solo lo emitia
+// ArticleLayout, asi que 45 paginas no ofrecian version markdown.
+// La home va a /index.md porque /.md no es una URL valida.
+const trimmed = canonical.replace(/\/$/, '');
+const markdownUrl = trimmed === BASE_URL ? `${BASE_URL}/index.md` : `${trimmed}.md`;
+
+// Modal de alta (newsletter + cuenta). Apagado por defecto: solo se renderiza
+// cuando PUBLIC_NEWSLETTER_MODAL === 'on'. Asi el codigo puede desplegarse sin
+// exponer el formulario hasta tener configuradas las credenciales en Vercel.
+const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
 ---
 
 <!doctype html>
@@ -151,6 +168,7 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
   <meta name="author" content="GMV Solutions" />
   <meta name="theme-color" content="#F4521E" />
   <link rel="canonical" href={canonical} />
+  {!noindex && <link rel="alternate" type="text/markdown" href={markdownUrl} title="Versión en markdown" />}
   <!-- hreflang: arquitectura lista (hoy solo ES). Al abrir EN/PT, anadir sus alternates aqui. -->
   <link rel="alternate" hreflang="es" href={canonical} />
   <link rel="alternate" hreflang="x-default" href={canonical} />
@@ -225,6 +243,8 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
 
     <Footer />
   </div>
+
+  {showNewsletterModal && <NewsletterModal />}
 
   <!-- Tracking de CTAs (S1-C7): listener delegado -> dataLayer -> GA4/Ads via GTM -->
   <script is:inline>

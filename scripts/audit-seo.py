@@ -98,13 +98,16 @@ def main():
     bad = ["%s (%d pags.)" % (t, len(us)) for t, us in sorted(bad_types.items())]
     results.append(("P2", "Tipos de schema no validos", bad, bad))
 
-    # P3 — canonical apuntando a otra URL (duplicados que siguen renderizando)
+    # P3 — duplicados: canonical a otra URL SIN noindex.
+    # Decision 2026-07-28: las /recursos/* se quedan vivas pero con noindex, en vez
+    # de redirigir con 301. Un duplicado canonicalizado Y fuera del indice ya no
+    # compite, asi que solo se reportan los que siguen siendo indexables.
     dupes = []
-    for u, s in pages.items():
+    for u, s in indexable.items():
         c = re.search(r'<link rel="canonical" href="([^"]*)"', s)
         if c and c.group(1).rstrip("/") != (BASE + u).rstrip("/"):
             dupes.append("%s -> %s" % (u, c.group(1)))
-    results.append(("P3", "Duplicados canonicalizados que aun renderizan", dupes, dupes))
+    results.append(("P3", "Duplicados indexables con canonical cruzado", dupes, dupes))
 
     # P4 — meta descriptions y titles largos
     long_meta = []
@@ -157,13 +160,22 @@ def main():
     no_md = sorted(u for u in indexable if 'type="text/markdown"' not in pages[u])
     results.append(("P8", "Paginas sin .md alternate", no_md, no_md[:8]))
 
-    # P10 — imagen OG unica
-    ogs = collections.Counter(
-        (re.search(r'<meta property="og:image" content="([^"]*)"', s) or
-         type("", (), {"group": lambda self, n: None})()).group(1)
-        for s in pages.values())
-    shared = [i for i, c in ogs.items() if i and c > 20]
-    results.append(("P10", "Imagen OG compartida por >20 paginas", shared, shared))
+    # P10 — peso de las imagenes OG.
+    # Decision 2026-07-28: se descarta tener una imagen distinta por seccion; se
+    # mantiene una unica imagen social. Lo que si se mide es que no sea pesada
+    # (limite 150 KB) y que exista, porque una OG que tarda no se llega a mostrar.
+    heavy = []
+    for og in {(re.search(r'<meta property="og:image" content="([^"]*)"', s) or
+                type("", (), {"group": lambda self, n: None})()).group(1)
+               for s in pages.values()}:
+        if not og:
+            continue
+        local = os.path.join(ROOT, og.replace(BASE + "/", ""))
+        if not os.path.isfile(local):
+            heavy.append("%s (no existe en el build)" % og)
+        elif os.path.getsize(local) > 150 * 1024:
+            heavy.append("%s (%.0f KB > 150 KB)" % (og, os.path.getsize(local) / 1024))
+    results.append(("P10", "Imagenes OG inexistentes o >150 KB", heavy, heavy))
 
     # ── Informe ─────────────────────────────────────────────────────────────
     print("Auditoria SEO/GEO — %d paginas (%d indexables)\n" % (len(pages), len(indexable)))

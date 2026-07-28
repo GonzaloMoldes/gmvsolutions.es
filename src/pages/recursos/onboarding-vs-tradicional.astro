@@ -22,11 +22,15 @@ const schema = {
 };
 ---
 
+  <!-- noindex (auditoria P3, 2026-07-28): version recortada del post en /blog/,
+       al que ya canonicaliza. Se mantiene viva la URL pero fuera del indice para
+       no gastar rastreo en un duplicado. -->
 <BaseLayout
   title={title}
   description={description}
   canonical={canonical}
   schema={schema}
+  noindex
   activeNav=""
 >
 
