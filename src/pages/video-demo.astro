@@ -1,21 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StorylaneDemo from '../components/StorylaneDemo.astro';
+import { softwareApplicationSchema } from '../lib/seo';
 
 const title = "Demo de software de operaciones industriales | REELEVO";
 const description = "Demo guiada de REELEVO: ve el software de operaciones industriales en planta —onboarding y gestión de competencias— para pymes en pocos minutos.";
 const canonical = "https://gmvsolutions.es/video-demo/";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": title,
-  "description": description,
-  "url": canonical,
-  "uploadDate": "2026-04-07",
-  "thumbnailUrl": "https://gmvsolutions.es/video-thumbnail.jpg",
-  "duration": "PT6M",
-  "contentUrl": "https://video.gmvsolutions.es/demo"
-};
+// Antes esta pagina emitia un VideoObject con duration PT6M, un contentUrl a
+// video.gmvsolutions.es/demo y un thumbnail (/video-thumbnail.jpg) que no existe.
+// No habia ningun video en la pagina: solo un placeholder decorativo. Google exige
+// que un VideoObject corresponda a un video reproducible en esa URL, asi que era
+// structured data incorrecto. Lo que hay ahora es un demo interactivo de Storylane,
+// que no es un video; se referencia el producto en su lugar.
+// Pendiente relacionado: retirar o rehacer sitemap-video.xml (P5 de la auditoria).
+const schema = softwareApplicationSchema();
 ---
 
 <BaseLayout
@@ -28,23 +27,19 @@ const schema = {
 
 <section class="demo-hero">
   <div class="demo-header fade-up">
-    <div class="header-eyebrow">Video Demo • 6 minutos</div>
+    <div class="header-eyebrow">Demo interactivo • Sin registro</div>
     <h1 class="fade-up delay-1">
       REELEVO en acción:<br>
       <em>Onboarding software + gestión de competencias</em>
     </h1>
     <p class="header-subtitle fade-up delay-2">
-      Mira cómo un operario nuevo ejecuta su primer día con REELEVO.
-      Cómo el sistema registra competencias. Cómo RRHH ve todo en tiempo real.
+      Recorre el producto a tu ritmo, haciendo clic tú mismo: planificación,
+      matriz de competencias, análisis de producción y trazabilidad.
     </p>
   </div>
 
   <div class="demo-video-wrap fade-up delay-3">
-    <div class="video-placeholder">
-      <div class="play-button">▶</div>
-      <p>Video Demo REELEVO - 6 minutos</p>
-      <p style="font-size: .9rem; color: var(--gray);">Haz clic para ver cómo funciona onboarding software + gestión de competencias en vivo</p>
-    </div>
+    <StorylaneDemo />
   </div>
 
   <div class="demo-features fade-up delay-4">
@@ -61,53 +56,53 @@ const schema = {
 <section class="section section-center">
   <div class="section-inner">
     <div class="fade-up">
-      <div class="eyebrow">Lo που verás en el video</div>
-      <h2 class="section-title">Recorrido de 6 minutos por REELEVO</h2>
+      <div class="eyebrow">Lo que verás en el demo</div>
+      <h2 class="section-title">Qué recorre el demo</h2>
       <p class="section-sub">
-        Desde el primer día del operario nuevo hasta cómo RRHH visualiza su progresión.
-        Onboarding software + gestión de competencias en acción.
+        Cuatro bloques, en el orden en que los verás al hacer clic.
+        Puedes saltarte los que no te interesen.
       </p>
     </div>
 
     <div class="what-you-see fade-up delay-1">
       <div class="see-item see-item-1">
         <div class="see-num">1</div>
-        <h3>El operario nuevo llega</h3>
+        <h3>Planificación de la producción</h3>
         <p>
-          Acceso a REELEVO. El sistema le muestra los procesos críticos para su puesto.
-          Onboarding software guía cada paso.
+          Crear una tarea desde cero: producto, cantidad objetivo, turno, obra y fecha.
+          El punto donde se decide qué se fabrica y quién lo hace.
         </p>
-        <span class="see-time">0:00 - 1:00</span>
+        <span class="see-time">Operaciones</span>
       </div>
 
       <div class="see-item see-item-2">
         <div class="see-num">2</div>
-        <h3>Ejecución supervisa en el puesto</h3>
+        <h3>Equipo y matriz de competencias</h3>
         <p>
-          El tutor acompaña. El sistema registra cada paso completado.
-          Gestión de competencias: Level 1 → Level 2.
+          Quién está capacitado para qué, con su actividad, horas trabajadas y perfil.
+          Incluye la skill matrix completa de la planta.
         </p>
-        <span class="see-time">1:00 - 3:00</span>
+        <span class="see-time">Equipo</span>
       </div>
 
       <div class="see-item see-item-3">
         <div class="see-num">3</div>
-        <h3>Dashboard RRHH en tiempo real</h3>
+        <h3>Análisis de producción</h3>
         <p>
-          Responsable de RRHH ve el progreso. Qué procesos domina, cuáles necesita refuerzo.
-          Gestión de competencias clara para toda la operación.
+          Estadísticas de rendimiento, indicadores de calidad, seguimiento por supervisor
+          y tiempos de parada. El dato real de lo que pasó en el turno.
         </p>
-        <span class="see-time">3:00 - 4:30</span>
+        <span class="see-time">Análisis</span>
       </div>
 
       <div class="see-item see-item-4">
         <div class="see-num">4</div>
-        <h3>Panel de gestión de competencias</h3>
+        <h3>Trazabilidad y mejora continua</h3>
         <p>
-          Toda la planta en un dashboard. Quién domina qué. Niveles de competencia.
-          Identificar gaps de formación automáticamente.
+          QRs de seguimiento, equipamientos y las propuestas de mejora que aporta
+          el propio equipo desde el puesto.
         </p>
-        <span class="see-time">4:30 - 6:00</span>
+        <span class="see-time">Producción y contenido</span>
       </div>
     </div>
   </div>
@@ -292,65 +287,9 @@ const schema = {
     line-height: 1.6;
   }
 
+  /* El embed y sus estilos viven en components/StorylaneDemo.astro. */
   .demo-video-wrap {
-    max-width: 800px;
     margin: 48px auto 32px;
-  }
-
-  .video-placeholder {
-    background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    aspect-ratio: 16 / 9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform .3s, border-color .3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .video-placeholder:hover {
-    border-color: var(--orange);
-    transform: scale(1.02);
-  }
-
-  .video-placeholder:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 140, 0, 0.05);
-    opacity: 0;
-    transition: opacity .3s;
-  }
-
-  .video-placeholder:hover:before {
-    opacity: 1;
-  }
-
-  .play-button {
-    font-size: 64px;
-    color: var(--orange);
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .7; }
-  }
-
-  .video-placeholder p {
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 8px;
   }
 
   .demo-features {

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StorylaneDemo from '../components/StorylaneDemo.astro';
 
 const title = "Como funciona REELEVO para pymes industriales | 3 pasos";
 const description = "Entiende en 3 pasos como REELEVO reduce dependencia operativa, mejora continuidad de turno y deja trazabilidad util en planta industrial.";
@@ -206,6 +207,24 @@ const schema = [howToSchema, faqSchema];
          data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DEMO INTERACTIVO -->
+  <section class="section section-center">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Pruébalo tú</div>
+        <h2 class="section-title">Míralo por dentro <em>antes de seguir leyendo</em></h2>
+        <p class="section-sub">
+          Recorre el producto a tu ritmo, haciendo clic tú mismo. Sin registro y sin instalar nada.
+        </p>
+      </div>
+      <div class="demo-slot fade-up delay-1">
+        <StorylaneDemo />
+      </div>
     </div>
   </section>
 
@@ -497,6 +516,10 @@ const schema = [howToSchema, faqSchema];
 </BaseLayout>
 
 <style>
+  .demo-slot {
+    margin-top: 48px;
+  }
+
   .step-section {
     display: grid;
     grid-template-columns: 80px 1fr;

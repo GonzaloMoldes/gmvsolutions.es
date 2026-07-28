@@ -1,0 +1,95 @@
+---
+// Demo interactivo de Storylane (embed inline). Se usa en /video-demo/ y en
+// /como-funciona/; el mismo demo puede incrustarse en varias paginas.
+//
+// Consentimiento: Cookiebot corre en data-blockingmode="auto" (ver BaseLayout) y
+// bloquea por defecto todo script de terceros. Sin declarar la categoria, el demo
+// no llega a cargarse y el hueco queda en blanco SIN dar error en consola. De ahi
+// el data-cookieconsent y el enlace de salida de mas abajo.
+export interface Props {
+  /** ID del demo en Storylane. */
+  demoId?: string;
+  /** Ancho maximo del embed. */
+  maxWidth?: string;
+  /** Texto accesible del iframe. */
+  title?: string;
+}
+
+const {
+  demoId = 'e6e5xzudqhbb',
+  maxWidth = '1000px',
+  title = 'Demo interactivo de REELEVO: producción, competencias y trazabilidad',
+} = Astro.props;
+
+const demoUrl = `https://app.storylane.io/demo/${demoId}`;
+---
+
+<div class="storylane-wrap" style={`max-width:${maxWidth}`}>
+  <script
+    is:inline
+    async
+    src="https://js.storylane.io/js/v2/storylane.js"
+    data-verify-origin=""
+    data-cookieconsent="marketing"></script>
+
+  <div class="sl-embed">
+    <iframe
+      loading="lazy"
+      class="sl-demo"
+      src={`${demoUrl}?embed=inline`}
+      name="sl-embed"
+      title={title}
+      allow="fullscreen"
+      allowfullscreen></iframe>
+  </div>
+
+  <!-- Salida si el demo no carga: consentimiento denegado, bloqueador o JS off. -->
+  <p class="demo-fallback">
+    ¿No ves el demo? <a href={demoUrl} target="_blank" rel="noopener" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Abrir demo Storylane">Ábrelo en una pestaña nueva →</a>
+  </p>
+</div>
+
+<style>
+  .storylane-wrap {
+    margin: 0 auto;
+  }
+
+  /* El ratio lo fija el proveedor (51.02% + 25px de barra de control).
+     Cambiarlo recorta el demo. */
+  .sl-embed {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(51.02% + 25px);
+  }
+
+  .sl-embed .sl-demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* El borde azul por defecto de Storylane desentona sobre el fondo oscuro. */
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  .demo-fallback {
+    margin-top: 16px;
+    font-size: .85rem;
+    color: var(--gray2);
+    text-align: center;
+  }
+
+  .demo-fallback a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .demo-fallback a:hover {
+    text-decoration: underline;
+  }
+</style>
