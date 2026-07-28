@@ -177,6 +177,51 @@ def main():
             heavy.append("%s (%.0f KB > 150 KB)" % (og, os.path.getsize(local) / 1024))
     results.append(("P10", "Imagenes OG inexistentes o >150 KB", heavy, heavy))
 
+    # P11 — coherencia entre lo que carga el HTML y lo que permite la CSP.
+    # Un dominio ausente de la CSP se bloquea en produccion SIN error visible en la
+    # pagina (solo en consola), asi que es el tipo de fallo que pasa desapercibido:
+    # el script de E-goi llevaba desde su despliegue sin ejecutarse por esto.
+    csp_missing = []
+    vercel_json = os.path.join(os.path.dirname(ROOT), "..", "vercel.json")
+    vercel_json = os.path.abspath(os.path.join(os.getcwd(), "vercel.json"))
+    if os.path.isfile(vercel_json):
+        csp = ""
+        try:
+            cfg = json.loads(io.open(vercel_json, encoding="utf-8").read())
+            for block in cfg.get("headers", []):
+                for h in block.get("headers", []):
+                    if h.get("key", "").lower() == "content-security-policy":
+                        csp = h.get("value", "")
+        except ValueError:
+            csp_missing.append("vercel.json no es JSON valido")
+
+        def allowed(directive, host):
+            m = re.search(r"%s ([^;]*)" % directive, csp)
+            if not m:
+                return False
+            for src in m.group(1).split():
+                if src == host or src == "'self'":
+                    continue
+                if src.startswith("https://*.") and host.endswith(src[len("https://*."):]):
+                    return True
+                if src == "https://" + host:
+                    return True
+            return False
+
+        if csp:
+            hosts = set()
+            frames = set()
+            for s in pages.values():
+                hosts |= set(re.findall(r'<script[^>]+src="https://([^"/]+)', s))
+                frames |= set(re.findall(r'<iframe[^>]+src="https://([^"/]+)', s))
+            for h in sorted(hosts):
+                if not allowed("script-src", h):
+                    csp_missing.append("script-src no permite %s" % h)
+            for h in sorted(frames):
+                if not allowed("frame-src", h):
+                    csp_missing.append("frame-src no permite %s" % h)
+    results.append(("P11", "Dominios cargados que la CSP bloquea", csp_missing, csp_missing))
+
     # ── Informe ─────────────────────────────────────────────────────────────
     print("Auditoria SEO/GEO — %d paginas (%d indexables)\n" % (len(pages), len(indexable)))
     print("  %-5s %-46s %s" % ("ID", "INDICADOR", "PENDIENTE"))
