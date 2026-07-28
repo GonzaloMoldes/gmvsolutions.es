@@ -1,11 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Trazabilidad operativa de calidad industrial | REELEVO";
 const description = "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de papeles ni memoria.";
 const canonical = "https://gmvsolutions.es/calidad-y-conformidad/";
 
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Sirve REELEVO para una auditoría ISO 9001?',
+    a: 'Sirve como evidencia operativa: qué proceso se siguió, en qué versión, quién lo ejecutó y con qué resultado. Eso cubre la parte que suele costar más en auditoría, que es demostrar que lo que está documentado es lo que de verdad se hace. No sustituye al sistema de gestión de calidad ni certifica por sí mismo.',
+  },
+  {
+    q: '¿Qué evidencia queda registrada de cada ejecución?',
+    a: 'El proceso y su versión vigente en ese momento, el operario que lo ejecutó, la máquina o puesto, la fecha y hora, el resultado y las verificaciones o firmas asociadas. La diferencia con un parte en papel es que el registro ocurre durante el trabajo, no reconstruido después de memoria.',
+  },
+  {
+    q: '¿Es lo mismo que un software de gestión de calidad (QMS)?',
+    a: 'No. Un QMS cubre el sistema completo: política, auditorías, acciones correctivas, gestión documental normativa. REELEVO aporta la capa de abajo, la trazabilidad de la ejecución real en planta, que es la que alimenta a cualquier QMS y la que suele faltar cuando llega una no conformidad.',
+  },
+  {
+    q: '¿Se puede exportar el histórico?',
+    a: 'Sí. Los registros se pueden exportar para adjuntarlos a un informe de auditoría o cruzarlos con otros sistemas, y también consultarse vía API. La idea es que la evidencia no quede atrapada dentro de la herramienta el día que alguien de fuera la pida.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": title,
@@ -16,6 +38,8 @@ const schema = {
     "audienceType": "Quality Manager"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -192,6 +216,10 @@ const schema = {
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <FaqSection items={faqs} />
 
   <div class="divider"></div>
 

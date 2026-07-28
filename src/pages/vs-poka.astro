@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Poka/IFS vs REELEVO — Comparativa de software industrial para pymes";
 const description = "Poka (IFS) vs REELEVO: MES enterprise frente a una plataforma ligera. Comparación por precio, implantación y escalabilidad para la pyme industrial.";
@@ -8,7 +10,27 @@ const canonical = "https://gmvsolutions.es/vs-poka/";
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es Poka y en qué se diferencia de REELEVO?',
+    a: 'Poka, hoy parte de IFS, es una plataforma connected worker orientada a gran industria, con formación, comunicación y soporte al operario integrados. REELEVO cubre la capa operativa —proceso en el puesto, ejecución y competencias— con implantación ligera y precio por empresa, pensado para pymes.',
+  },
+  {
+    q: '¿Necesito una plataforma connected worker completa?',
+    a: 'Depende del punto de partida. Si aún no tienes los procesos documentados ni registro de la ejecución, una plataforma completa añade capas sobre unos cimientos que no existen. Lo barato y lo que más retorno da al principio es el proceso y el dato de ejecución.',
+  },
+  {
+    q: '¿Cuánto cuesta Poka?',
+    a: 'No publica tarifa: su contratación es de tipo enterprise, con configuración a medida. REELEVO publica precio desde 49 € al mes por empresa. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo.',
+  },
+  {
+    q: '¿Cuándo encaja mejor Poka?',
+    a: 'En plantas grandes o multiplanta, con equipo de mejora continua dedicado y capacidad para sostener un despliegue de meses. Ahí el alcance mayor se aprovecha; en una pyme con tres puestos críticos por documentar, suele sobrar.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": title,
@@ -16,6 +38,8 @@ const schema = {
   "url": canonical,
   "inLanguage": "es-ES"
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
@@ -172,6 +196,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Tu caso concreto</div>
     <h3 class="cta-title fade-up delay-1">

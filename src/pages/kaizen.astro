@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Kaizen y mejora continua en planta industrial | REELEVO";
 const description = "Kaizen digital para la mejora continua operativa: captura ideas de los operarios en el puesto, prioriza, implementa y estandariza en planta industrial.";
 const canonical = "https://gmvsolutions.es/kaizen/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es el Kaizen aplicado a una planta industrial?',
+    a: 'Es la mejora continua hecha por quien ejecuta el trabajo: pequeños cambios propuestos desde el puesto, evaluados y, si funcionan, incorporados al estándar. No es un proyecto de consultoría ni una campaña puntual, sino un ciclo que se repite y que va afinando el proceso.',
+  },
+  {
+    q: '¿Cómo propone una mejora el operario?',
+    a: 'Desde el puesto, escaneando el QR de la máquina y dejando la propuesta en el momento en que detecta el problema. Es lo que evita el fallo clásico: la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla.',
+  },
+  {
+    q: '¿Quién decide qué mejoras se implementan?',
+    a: 'El responsable, con las propuestas priorizadas delante en lugar de sueltas en una libreta o en una conversación de pasillo. Lo relevante no es solo decidir, sino que quien propuso vea qué pasó con su idea, porque si nunca hay respuesta las propuestas dejan de llegar.',
+  },
+  {
+    q: '¿Cómo se evita que las ideas se pierdan entre turnos?',
+    a: 'Porque quedan registradas donde se generan y no dependen de que alguien se acuerde de trasladarlas al turno siguiente. El ciclo completo —propuesta, evaluación, implantación y estandarización— vive en el mismo sitio que el proceso al que afecta.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
@@ -303,6 +326,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Mejora continua</div>
     <h3 class="cta-title fade-up delay-1">

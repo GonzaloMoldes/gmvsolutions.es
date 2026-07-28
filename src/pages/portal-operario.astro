@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Portal del operario: procesos y agenda en el móvil | REELEVO";
 const description = "El operario ve su agenda del día, accede a sus procesos y sigue su progreso de formación desde el móvil. Sin instalación ni formación previa.";
 const canonical = "https://gmvsolutions.es/portal-operario/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué ve el operario en su portal?',
+    a: 'Su agenda del día, los procesos que le tocan con sus instrucciones, su progreso de formación y el estado de las mejoras que haya propuesto. La idea es que llegue al puesto sabiendo qué hacer sin tener que preguntar ni esperar a que alguien tenga un rato.',
+  },
+  {
+    q: '¿El operario necesita una cuenta y una contraseña?',
+    a: 'No para acceder al proceso en el puesto: basta con escanear el QR de la máquina desde el móvil. Evitar cuentas y contraseñas es deliberado, porque es donde se cae la adopción con personal temporal o con plantilla poco habituada a herramientas digitales.',
+  },
+  {
+    q: '¿Funciona en el móvil personal del operario?',
+    a: 'Sí, se accede desde el navegador sin instalar nada. También funciona en tablets compartidas por puesto, que es lo que prefieren algunas plantas cuando no quieren depender del móvil personal de nadie.',
+  },
+  {
+    q: '¿Y si el operario no tiene soltura con la tecnología?',
+    a: 'Por eso el acceso es escanear un código y ver fotos y vídeo del paso, no navegar por menús. La prueba de si una herramienta de planta está bien diseñada es si alguien puede usarla en su primer turno sin que nadie le enseñe.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
@@ -214,6 +237,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">El operario gana contexto</div>
     <h3 class="cta-title fade-up delay-1">

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "GembaDocs vs REELEVO — Software documentación y lean manufacturing";
 const description = "GembaDocs vs REELEVO: la alternativa pensada para la pyme industrial española. Comparación en idioma, precio, implantación y adopción del operario.";
@@ -8,7 +10,27 @@ const canonical = "https://gmvsolutions.es/vs-gembadocs/";
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿En qué se parecen REELEVO y GembaDocs?',
+    a: 'En la idea de capturar el procedimiento rápido desde el móvil, en el propio puesto, en lugar de redactarlo en un despacho. Es el enfoque correcto y en eso coinciden.',
+  },
+  {
+    q: '¿En qué se diferencian?',
+    a: 'En el alcance. GembaDocs se centra en crear y distribuir la documentación; REELEVO además registra la ejecución, mantiene la matriz de competencias y da trazabilidad de qué se hizo. Si solo necesitas documentar, esa diferencia no te aporta; si necesitas saber qué pasó en el turno, sí.',
+  },
+  {
+    q: '¿GembaDocs está en español?',
+    a: 'Su producto es de origen anglosajón y su soporte funciona en inglés. Para una plantilla hispanohablante, el idioma de la interfaz y de quien te atiende cuando algo falla es un factor de adopción real, no un detalle.',
+  },
+  {
+    q: '¿Cuándo elegiría GembaDocs?',
+    a: 'Si tu único objetivo es documentar procedimientos rápido y no necesitas registro de ejecución, competencias ni trazabilidad, una herramienta más acotada es una elección razonable. La pregunta es si dentro de un año seguirás queriendo solo eso.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": title,
@@ -16,6 +38,8 @@ const schema = {
   "url": canonical,
   "inLanguage": "es-ES"
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
@@ -223,6 +247,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Para tu pyme</div>
     <h3 class="cta-title fade-up delay-1">

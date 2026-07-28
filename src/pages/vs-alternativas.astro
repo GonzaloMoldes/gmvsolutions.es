@@ -1,11 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Comparativa de software SOP para pymes industriales | REELEVO";
 const description = "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola.";
 const canonical = "https://gmvsolutions.es/vs-alternativas/";
 
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué criterios importan de verdad al comparar software SOP?',
+    a: 'Cinco: idioma nativo de interfaz y soporte, modelo de precio (público y por empresa frente a por operario y bajo petición), esfuerzo de implantación, facilidad de acceso para el operario en el puesto y encaje con tu tamaño real. La adopción en planta es la que decide si el proyecto sirve o queda en una licencia pagada.',
+  },
+  {
+    q: '¿Cómo sé si una herramienta se me queda grande?',
+    a: 'Las señales aparecen en la propia demo: integraciones complejas, módulos que no vas a usar, captura de datos de máquina vía SCADA o un equipo de implantación dedicado. Todo eso tiene sentido en gran industria, pero en una pyme se traduce en coste, lentitud y funciones que nadie tocará.',
+  },
+  {
+    q: '¿Por qué muchos competidores no publican precio?',
+    a: 'Porque su venta pasa por un proceso comercial con configuración a medida, algo habitual en producto enterprise. No es necesariamente malo, pero sí es información: si necesitas varias llamadas solo para saber cuánto cuesta, el proyecto tampoco va a ser ligero. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo.',
+  },
+  {
+    q: '¿Cómo se prueba una alternativa con poco riesgo?',
+    a: 'Sin migrar nada: eliges los tres procesos más críticos, los documentas con quien los domina y compruebas una cosa concreta, si un sustituto puede seguirlos sin llamar al experto. Esa prueba se hace en semanas y responde a la única pregunta que importa antes de comprometerse.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": title,
@@ -31,6 +53,8 @@ const schema = {
     ]
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -382,7 +406,7 @@ const schema = {
       </div>
 
       <div class="intent-grid fade-up delay-1">
-        <a href="/recursos/que-es-un-sop-industrial/" class="intent-card">
+        <a href="/blog/que-es-un-sop-industrial/" class="intent-card">
           <div class="intent-kicker">Software SOP industrial</div>
           <h3 class="intent-title">Ordenar conceptos antes de comparar plataformas</h3>
           <p class="intent-desc">Empieza por la guía base si quieres definir bien qué debe resolver tu software SOP.</p>
@@ -418,6 +442,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Si ya lo has comparado</div>
     <h2 class="cta-title fade-up delay-1">

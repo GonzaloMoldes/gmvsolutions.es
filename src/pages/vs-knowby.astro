@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Knowby vs REELEVO — Comparativa de software de procedimientos";
 const description = "Knowby vs REELEVO: comparación por adopción operativa real del operario, idioma, precio e implantación para la pyme industrial española.";
@@ -8,7 +10,27 @@ const canonical = "https://gmvsolutions.es/vs-knowby/";
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es Knowby?',
+    a: 'Una herramienta para crear instrucciones paso a paso en vídeo y compartirlas mediante enlace o QR, de propósito bastante general y usada en varios sectores, no específicamente industriales.',
+  },
+  {
+    q: '¿Qué aporta REELEVO frente a una herramienta de instrucciones genérica?',
+    a: 'El contexto de planta: versión vigente por proceso, matriz de competencias que se actualiza con la ejecución, registro de producción y trazabilidad. Una herramienta genérica resuelve el \'cómo se hace\'; en planta hace falta además saber quién puede hacerlo y qué se hizo realmente.',
+  },
+  {
+    q: '¿Knowby está pensado para industria?',
+    a: 'Es una herramienta de instrucciones de propósito general, válida en muchos contextos. Eso la hace flexible y fácil de empezar, pero significa que no trae de serie los conceptos de planta —turno, máquina, competencia, no conformidad— sobre los que se apoya la operativa industrial.',
+  },
+  {
+    q: '¿Cuál elijo si solo quiero grabar instrucciones?',
+    a: 'Si de verdad solo necesitas grabar y compartir instrucciones, una herramienta acotada te vale y será más rápida de arrancar. REELEVO tiene sentido cuando el problema es la dependencia de personas y la falta de visibilidad, no solo la falta de manuales.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": title,
@@ -16,6 +38,8 @@ const schema = {
   "url": canonical,
   "inLanguage": "es-ES"
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
@@ -255,6 +279,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Solución especializada</div>
     <h3 class="cta-title fade-up delay-1">

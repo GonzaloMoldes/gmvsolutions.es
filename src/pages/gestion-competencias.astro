@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Gestion de competencias industriales para pymes | REELEVO";
 const description = "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.";
 const canonical = "https://gmvsolutions.es/gestion-competencias/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es una matriz de competencias o skill matrix?',
+    a: 'Es el registro de qué operario está capacitado para qué proceso o máquina y en qué nivel de autonomía. Cruza personas con procesos y permite ver de un vistazo dónde depende todo de una sola persona, qué puesto queda descubierto en un turno y dónde hace falta reforzar formación.',
+  },
+  {
+    q: '¿Cómo se mantiene actualizada?',
+    a: 'Se alimenta de la ejecución real: cada vez que un operario completa un proceso, ese dato entra solo. Es la diferencia con un Excel, que refleja la foto del día que se creó porque nadie lo actualiza, y a los pocos meses deja de servir para decidir nada.',
+  },
+  {
+    q: '¿Cuántos niveles de competencia conviene definir?',
+    a: 'Tres o cuatro bastan en una pyme: en formación, apto con supervisión, autónomo y, si aporta, formador. Más niveles generan discusión sobre el matiz sin cambiar ninguna decisión. Lo que importa es que el criterio para subir de nivel sea observable y el mismo para todos.',
+  },
+  {
+    q: '¿Sirve para planificar la formación?',
+    a: 'Sí, y es de sus usos más directos. Al ver los huecos de la matriz sabes qué proceso tiene poca cobertura y a quién conviene formar antes de que una baja lo convierta en un problema, en lugar de planificar formación por intuición o por lo que se hizo el año pasado.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
@@ -238,6 +261,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <div class="cta-title fade-up delay-1">

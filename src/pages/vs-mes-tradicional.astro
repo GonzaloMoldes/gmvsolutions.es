@@ -2,6 +2,8 @@
 // Comparativa de categoria (S6-B1). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 4.1
 // Enfoque educativo: el MES no es "malo", es demasiado para una pyme. Sin precios de competidor inventados.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Alternativa ligera a un MES para pymes | REELEVO";
 const description = "¿Buscas un MES y eres pyme industrial? Quizá no lo necesitas. Compara el enfoque MES con una plataforma operativa ligera: precio, implantación y adopción real.";
@@ -10,7 +12,27 @@ const canonical = "https://gmvsolutions.es/vs-mes-tradicional/";
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué hace un MES que no haga REELEVO?',
+    a: 'Planificación de capacidad, integración profunda con el ERP, gestión de materiales y, en muchos casos, captura de datos directamente de máquina vía SCADA o autómatas. Es un alcance mayor, con la inversión y el tiempo de implantación que eso conlleva.',
+  },
+  {
+    q: '¿Necesita una pyme industrial un MES?',
+    a: 'Casi nunca como primer paso. La mayor parte del retorno inicial está antes: en digitalizar el proceso y capturar el dato de la ejecución donde ocurre el trabajo. Un MES resuelve problemas de planificación que solo aparecen cuando lo básico ya está resuelto.',
+  },
+  {
+    q: '¿REELEVO es un MES ligero?',
+    a: 'No, y no conviene venderlo así. Es la capa operativa: el proceso en el puesto y la ejecución registrada. Si lo que necesitas es planificación de capacidad o integración de materiales con el ERP, eso es territorio de un MES y REELEVO no lo cubre.',
+  },
+  {
+    q: '¿Puedo empezar por REELEVO y poner un MES más adelante?',
+    a: 'Sí, y es el orden que suele funcionar. Tener los procesos documentados y el dato de ejecución capturado hace que cualquier proyecto posterior parta de una base real en lugar de intentar automatizar algo que nadie ha ordenado antes.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": title,
@@ -22,6 +44,8 @@ const schema = {
     { "@type": "SoftwareApplication", "name": "REELEVO" }
   ]
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
@@ -149,6 +173,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- H2-5 + CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza sin sobredimensionar</div>
     <h3 class="cta-title fade-up delay-1">Empieza ligero,<br><em>por los procesos que más te frenan</em></h3>

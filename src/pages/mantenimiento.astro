@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Software de mantenimiento preventivo y correctivo industrial | REELEVO";
 const description = "Mantenimiento preventivo integrado en el trabajo diario: planes preventivos y correctivos, órdenes automáticas y registro de intervenciones.";
 const canonical = "https://gmvsolutions.es/mantenimiento/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Es un GMAO o CMMS?',
+    a: 'Cubre lo que una pyme industrial suele necesitar de un GMAO —planes preventivos, órdenes, registro de intervenciones e histórico por equipo— sin la complejidad de una herramienta dedicada. Si necesitas gestión de repuestos, almacén técnico o costes de mantenimiento detallados, ahí un GMAO específico va más lejos.',
+  },
+  {
+    q: '¿Cubre mantenimiento preventivo y correctivo?',
+    a: 'Los dos, en el mismo módulo. El preventivo se programa por tiempo o por horas de máquina y genera la orden sola; el correctivo entra cuando alguien reporta una avería desde el puesto. Tenerlos juntos evita el clásico de que el correctivo se gestione por WhatsApp.',
+  },
+  {
+    q: '¿Cómo se generan las órdenes de trabajo?',
+    a: 'Automáticamente a partir del plan, con su responsable o turno asignado. La tarea aparece en la agenda del operario junto a las de producción, no en un sistema aparte que hay que acordarse de abrir.',
+  },
+  {
+    q: '¿Por qué integrar el mantenimiento con la operación y no llevarlo aparte?',
+    a: 'Porque cuando el preventivo vive en un Excel que solo abre el responsable, basta con que esté de vacaciones para que nadie lo recuerde, y siempre pierde la competición por la atención frente a la producción. Integrado en la misma agenda, deja de ser una tarea opcional.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
@@ -277,6 +300,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Mantenimiento en marcha</div>
     <h3 class="cta-title fade-up delay-1">

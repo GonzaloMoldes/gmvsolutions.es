@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Workflows operativos industriales | REELEVO";
 const description = "Flujos de trabajo multi-paso y multi-operario con editor visual: aprobaciones, checkpoints y ramas paralelas para lo que supera un SOP simple.";
 const canonical = "https://gmvsolutions.es/workflows/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué diferencia hay entre un workflow y un SOP?',
+    a: 'Un SOP describe cómo ejecuta una persona una tarea. Un workflow encadena varios pasos con distintos responsables, condiciones y validaciones entre ellos. Si tu proceso lo hace una sola persona de principio a fin, un SOP basta y añadir un workflow solo mete complejidad.',
+  },
+  {
+    q: '¿Qué procesos merecen un workflow?',
+    a: 'Los que pasan por varias manos y se atascan en las transiciones: liberación de producto con validación de calidad, altas de referencia, gestión de una no conformidad, aprobaciones antes de expedir. Es decir, donde el problema no es ejecutar sino coordinar.',
+  },
+  {
+    q: '¿Hace falta saber programar para diseñarlos?',
+    a: 'No. Se montan en un editor visual encadenando pasos, responsables y condiciones. La parte difícil no suele ser la herramienta, sino ponerse de acuerdo en cómo debería funcionar realmente el proceso, que es una conversación que conviene tener igualmente.',
+  },
+  {
+    q: '¿Se puede ver por dónde va cada proceso en curso?',
+    a: 'Sí, con el estado de cada instancia y en qué paso está parada. Es lo que responde a la pregunta habitual de qué falta para poder expedir, sin ir preguntando de departamento en departamento.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
@@ -252,6 +275,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <h3 class="cta-title fade-up delay-1">

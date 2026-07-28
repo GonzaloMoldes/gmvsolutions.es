@@ -1,11 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Cobertura de turnos en produccion industrial | REELEVO";
 const description = "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real.";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es un hueco de cobertura?',
+    a: 'Es un proceso o puesto que en un turno concreto no tiene a nadie capacitado para ejecutarlo. No es lo mismo que faltar personal: puedes tener el turno completo y aun así descubrir a media mañana que nadie de los presentes sabe arrancar una línea concreta.',
+  },
+  {
+    q: '¿Cómo sabe REELEVO quién puede cubrir un puesto?',
+    a: 'Cruza la asignación del turno con la matriz de competencias, que registra qué operario está capacitado para qué proceso y en qué nivel. Como esa matriz se alimenta de la ejecución real y no de una hoja que alguien actualiza a mano, refleja quién sabe hacer qué hoy, no hace seis meses.',
+  },
+  {
+    q: '¿Sustituye a mi sistema de planificación de turnos?',
+    a: 'No. REELEVO no decide horarios ni gestiona nóminas ni vacaciones. Lo que aporta es la capa de capacidad: dado el turno que ya has planificado, qué procesos quedan sin cubrir y quién podría cubrirlos. Conviven con el sistema que uses para planificar.',
+  },
+  {
+    q: '¿Con cuánta antelación avisa de un hueco?',
+    a: 'El análisis se hace antes del inicio de cada turno, que es cuando aún se puede reorganizar sin parar nada. El objetivo es justo ese: que el responsable vea el problema mientras todavía es una decisión de asignación, y no cuando la línea ya se ha detenido.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical="https://gmvsolutions.es/cobertura-turnos/" schema={schema} activeNav="" pageType="capacidad">
@@ -193,6 +216,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Siguiente paso</div>
     <div class="cta-title fade-up delay-1">

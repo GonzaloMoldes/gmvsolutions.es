@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "API de software industrial | REELEVO";
 const description = "Conecta REELEVO con tu ERP, Power BI y Teams: API REST documentada, webhooks en tiempo real y conector Power Automate para industria.";
 const canonical = "https://gmvsolutions.es/api-integraciones/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿REELEVO tiene API?',
+    a: 'Sí, una API REST documentada con webhooks en tiempo real. Permite leer los datos de ejecución de planta —producción, competencias, incidencias— desde cualquier sistema externo, y recibir avisos en el momento en que ocurre algo en lugar de consultar cada cierto tiempo.',
+  },
+  {
+    q: '¿Se puede conectar con mi ERP?',
+    a: 'Sí. La vía habitual es la API REST o el conector de Power Automate, según lo que admita tu ERP. Lo más frecuente no es una integración bidireccional completa sino llevar el dato de ejecución al ERP para cerrar órdenes o alimentar costes, que es donde está la mayor parte del valor.',
+  },
+  {
+    q: '¿Necesito un desarrollador para integrarlo?',
+    a: 'Para la API sí conviene alguien técnico, aunque sea puntualmente. Para lo más común no: el conector de Power Automate y los dashboards de Power BI se configuran sin escribir código. La recomendación es empezar por ahí y dejar la API para cuando haya un caso concreto que la exija.',
+  },
+  {
+    q: '¿Y si no quiero integrar nada al principio?',
+    a: 'Es lo normal y no pasa nada. REELEVO funciona de forma autónoma sin conectarse a ningún otro sistema; la integración tiene sentido cuando ya tienes dato de planta que merece la pena llevar a otro sitio. Integrar el primer día suele añadir complejidad antes de que haya nada que integrar.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
@@ -288,6 +311,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Conexión real</div>
     <h3 class="cta-title fade-up delay-1">

@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Firma digital operativa industrial | REELEVO";
 const description = "Firma digital en el flujo de planta: el operario firma al completar y el supervisor al validar. Evidencia para auditorías ISO sin papel.";
 const canonical = "https://gmvsolutions.es/firma-digital/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Es firma electrónica cualificada?',
+    a: 'No, y conviene decirlo claro. No es una firma cualificada con certificado reconocido en el sentido del reglamento eIDAS, así que no está pensada para contratos ni para efectos jurídicos frente a terceros. Es firma operativa: evidencia interna de quién ejecutó y quién validó.',
+  },
+  {
+    q: '¿Para qué sirve entonces?',
+    a: 'Para cerrar el círculo de responsabilidad dentro de la planta: el operario firma al completar un proceso y el supervisor al validar la producción. Sustituye al papel firmado que se archiva en una carpeta, con la ventaja de que la firma queda unida al registro de la ejecución concreta.',
+  },
+  {
+    q: '¿Vale como evidencia en una auditoría?',
+    a: 'Como evidencia operativa interna, sí: demuestra que hubo una validación, de quién y cuándo, ligada al proceso y su versión. Si tu auditoría exige firma cualificada para un documento concreto, ese documento necesita otra herramienta; para el día a día de planta esto es lo que suele pedirse.',
+  },
+  {
+    q: '¿Cómo firma el operario?',
+    a: 'En el mismo momento y en el mismo sitio donde termina el trabajo, desde su móvil. Lo importante no es el gesto sino el cuándo: una firma que se recoge en bloque al final del turno certifica un recuerdo, no una ejecución.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
@@ -166,6 +189,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Firma con contexto</div>
     <h3 class="cta-title fade-up delay-1">

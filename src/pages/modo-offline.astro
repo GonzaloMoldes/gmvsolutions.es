@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Software industrial en modo offline | REELEVO";
 const description = "REELEVO funciona sin conexión: el operario trabaja desde el móvil aunque falle la wifi de planta y todo se sincroniza al volver la cobertura.";
 const canonical = "https://gmvsolutions.es/modo-offline/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Funciona REELEVO sin wifi en planta?',
+    a: 'Sí. El operario trabaja desde su móvil aunque la cobertura de planta falle o directamente no exista, y las acciones se sincronizan solas al recuperar conexión. La falta de wifi industrial es una de las excusas más habituales para no empezar, y no es un impedimento real.',
+  },
+  {
+    q: '¿Hay que instalar una app desde la tienda?',
+    a: 'No. Se accede desde el navegador del móvil, normalmente escaneando un QR en la máquina. Evitar la tienda de aplicaciones importa más de lo que parece: con personal temporal, cualquier paso previo de instalación o registro tumba la adopción.',
+  },
+  {
+    q: '¿Qué pasa con los datos mientras no hay conexión?',
+    a: 'Quedan guardados en el propio dispositivo y se envían cuando vuelve la cobertura. El operario no tiene que hacer nada ni recordar sincronizar, que es la condición para que el sistema aguante un turno entero en una zona sin señal.',
+  },
+  {
+    q: '¿Cuánto tiempo puede estar un dispositivo sin conexión?',
+    a: 'El modo offline está pensado para huecos de cobertura de una jornada, que es el caso real en un taller: zonas muertas, sótanos, naves con estructura metálica. No está pensado para trabajar semanas completamente desconectado, porque entonces nadie en oficina ve lo que pasa en planta.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
@@ -184,6 +207,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Sigue aunque falle la red</div>
     <h3 class="cta-title fade-up delay-1">

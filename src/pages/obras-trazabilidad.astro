@@ -1,12 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Trazabilidad industrial por obra y pieza | REELEVO";
 const description = "Trazabilidad por pieza en fabricación por encargo: QR individual por unidad, avance de obra e historial por proyecto. Para pymes industriales.";
 const canonical = "https://gmvsolutions.es/obras-trazabilidad/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es la trazabilidad por pieza?',
+    a: 'Es poder reconstruir la historia completa de una unidad concreta: qué procesos pasó, quién los ejecutó, en qué máquina, cuándo y con qué resultado. En fabricación por encargo importa más que en serie, porque cada pieza puede tener su propia configuración y su propio historial.',
+  },
+  {
+    q: '¿Cómo se identifica cada pieza?',
+    a: 'Con un QR individual por unidad producida, que acompaña a la pieza y da acceso a su historial. Escanearlo devuelve lo que se hizo con ella, sin tener que cruzar tres Excel ni preguntar a quien estaba ese día.',
+  },
+  {
+    q: '¿Sirve si fabricamos por proyecto u obra en vez de por lotes?',
+    a: 'Es justo el caso para el que está pensado. Además de la pieza, se sigue el avance de la obra o el proyecto completo, de modo que puedes ver a la vez el detalle de una unidad y cómo va el encargo del cliente.',
+  },
+  {
+    q: '¿Cuánto tarda en reconstruirse el historial de una pieza?',
+    a: 'Minutos, porque el dato se captura durante la ejecución y no se reconstruye a posteriori. Ese es el cambio real frente al papel: la diferencia entre responder a un cliente en la misma llamada o pedirle un par de días para investigarlo.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
@@ -266,6 +289,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por una obra</div>
     <h3 class="cta-title fade-up delay-1">

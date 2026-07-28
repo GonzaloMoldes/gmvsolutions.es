@@ -1,12 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Documentación y gestión de procesos industriales para pymes | REELEVO";
 const description = "Documentación de procesos: SOPs estandarizados en el puesto para reducir errores, acelerar el onboarding y sostener la continuidad operativa.";
 const canonical = "https://gmvsolutions.es/documentacion-procesos/";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué diferencia hay entre esto y tener los SOPs en PDF?',
+    a: 'Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí el proceso aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta.',
+  },
+  {
+    q: '¿Cómo accede el operario al proceso en el puesto?',
+    a: 'Escaneando un QR colocado en la máquina desde su móvil. No necesita instalar nada, ni crear una cuenta, ni recordar una contraseña, que es justo lo que hace fracasar la adopción con personal temporal o con plantilla poco habituada a herramientas digitales.',
+  },
+  {
+    q: '¿Cuántos procesos hay que documentar para empezar?',
+    a: 'Entre dos y cinco. Los que más rotación tienen o más reprocesos generan. Documentar la planta entera antes de empezar a usar nada es el camino corto a que el proyecto se abandone; un proceso resuelto y en uso convence más que un plan de doce meses.',
+  },
+  {
+    q: '¿Quién debe redactar la documentación?',
+    a: 'El operario que domina el proceso, acompañado de alguien que le dé estructura. Cuando lo redacta calidad desde un despacho sale un documento formalmente correcto que pierde los detalles reales del puesto, que son precisamente los que evitan el error.',
+  },
+  {
+    q: '¿Qué pasa cuando cambia un proceso?',
+    a: 'Se actualiza una vez y el cambio llega a todos los puestos a la vez, con su versión. Desaparece la situación de tener tres revisiones distintas conviviendo en tres líneas, y no hay que reimprimir ni recoger copias antiguas.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
@@ -199,6 +226,10 @@ const schema = softwareApplicationSchema();
   <div class="divider"></div>
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por uno</div>
     <div class="cta-title fade-up delay-1">

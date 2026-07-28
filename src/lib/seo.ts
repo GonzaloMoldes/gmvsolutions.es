@@ -82,6 +82,31 @@ export function softwareApplicationSchema() {
   };
 }
 
+export interface FaqItem {
+  /** Pregunta, tal cual se muestra. */
+  q: string;
+  /** Respuesta en texto plano, autocontenida (40-60 palabras es lo que mejor se extrae). */
+  a: string;
+}
+
+/**
+ * Construye el FAQPage a partir de la MISMA lista que renderiza <FaqSection>.
+ * Que las dos salgan de una unica fuente es deliberado: un FAQPage cuyo texto no
+ * coincide con lo visible en la pagina incumple las directrices de Google y puede
+ * costar la elegibilidad para resultados enriquecidos.
+ */
+export function faqPageSchema(items: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+}
+
 // Etiquetas legibles por segmento de URL. Si un slug no esta aqui se
 // humaniza automaticamente (guiones -> espacios + mayuscula inicial).
 const SEGMENT_LABELS: Record<string, string> = {

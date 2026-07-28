@@ -1,0 +1,382 @@
+---
+// Modal de alta: suscribe a la newsletter (E-goi) y crea la cuenta de empresa en
+// la app, en un solo paso. El formulario hace POST a /api/suscribir (mismo
+// origen -> cumple la CSP). Se monta desde BaseLayout SOLO si
+// PUBLIC_NEWSLETTER_MODAL === 'on', para poder desplegar el codigo sin exponer el
+// formulario hasta tener configuradas las credenciales (E-goi + endpoint de alta).
+const privacyHref = '/legal/privacidad/';
+---
+
+<div
+  class="nl-modal"
+  id="nl-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="nl-modal-title"
+  aria-describedby="nl-modal-sub"
+  hidden
+>
+  <div class="nl-modal__backdrop" data-nl-dismiss></div>
+
+  <div class="nl-modal__card" role="document">
+    <button type="button" class="nl-modal__close" aria-label="Cerrar" data-nl-dismiss>&times;</button>
+
+    <div class="nl-modal__body" data-nl-view="form">
+      <div class="nl-modal__eyebrow">Empieza gratis</div>
+      <h2 class="nl-modal__title" id="nl-modal-title">Crea tu cuenta y recibe la newsletter</h2>
+      <p class="nl-modal__sub" id="nl-modal-sub">
+        Da de alta tu empresa en REELEVO y recibe guías prácticas sobre documentación
+        operativa, onboarding y continuidad en planta. Sin compromiso.
+      </p>
+
+      <form class="nl-modal__form" id="nl-form" novalidate>
+        <div class="nl-field">
+          <label for="nl-nombre">Nombre</label>
+          <input id="nl-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" />
+        </div>
+        <div class="nl-field">
+          <label for="nl-empresa">Empresa</label>
+          <input id="nl-empresa" name="empresa" type="text" autocomplete="organization" required maxlength="120" />
+        </div>
+        <div class="nl-field">
+          <label for="nl-email">Email de trabajo</label>
+          <input id="nl-email" name="email" type="email" autocomplete="email" required maxlength="160" />
+        </div>
+
+        {/* Honeypot anti-bots: oculto a humanos, lo rellenan los bots. */}
+        <div class="nl-hp" aria-hidden="true">
+          <label for="nl-website">No rellenar</label>
+          <input id="nl-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <label class="nl-consent">
+          <input type="checkbox" name="consent" id="nl-consent" required />
+          <span>
+            Acepto recibir comunicaciones de REELEVO y la
+            <a href={privacyHref} target="_blank" rel="noopener">política de privacidad</a>.
+          </span>
+        </label>
+
+        <button type="submit" class="nl-submit" id="nl-submit">Crear cuenta gratis</button>
+        <p class="nl-error" id="nl-error" hidden></p>
+        <p class="nl-legal">Te enviaremos un correo para confirmar tu suscripción y activar la cuenta.</p>
+      </form>
+    </div>
+
+    <div class="nl-modal__body nl-modal__success" data-nl-view="success" hidden>
+      <div class="nl-modal__eyebrow">Casi listo</div>
+      <h2 class="nl-modal__title">Revisa tu correo</h2>
+      <p class="nl-modal__sub">
+        Te hemos enviado un email para <strong>confirmar la suscripción</strong> y
+        <strong>activar tu cuenta</strong>. Si no lo ves, mira en spam.
+      </p>
+      <button type="button" class="nl-submit nl-submit--ghost" data-nl-dismiss>Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const modal = document.getElementById('nl-modal');
+    if (!modal) return;
+
+    const STORE_KEY = 'reelevo-nl-modal';
+    const DISMISS_DAYS = 14; // no volver a mostrar en N dias tras cerrar
+    const SHOW_DELAY_MS = 12000;
+    const SCROLL_TRIGGER = 0.55;
+
+    const form = document.getElementById('nl-form');
+    const submitBtn = document.getElementById('nl-submit');
+    const errorEl = document.getElementById('nl-error');
+    let lastFocused = null;
+    let opened = false;
+
+    const readState = () => {
+      try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch { return {}; }
+    };
+    const writeState = (s) => {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch {}
+    };
+
+    const shouldSuppress = () => {
+      const s = readState();
+      if (s.status === 'subscribed') return true;
+      if (s.dismissedAt && Date.now() - s.dismissedAt < DISMISS_DAYS * 864e5) return true;
+      // No competir con el splash de entrada.
+      if (document.documentElement.classList.contains('show-entry-splash')) return true;
+      return false;
+    };
+
+    const focusables = () =>
+      modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])');
+
+    const open = () => {
+      if (opened || shouldSuppress()) return;
+      opened = true;
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      const first = modal.querySelector('input[name="nombre"]');
+      if (first) setTimeout(() => first.focus(), 50);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'newsletter_modal_view', page_path: location.pathname });
+    };
+
+    const close = (persistDismiss = true) => {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (persistDismiss) {
+        const s = readState();
+        if (s.status !== 'subscribed') writeState({ ...s, dismissedAt: Date.now() });
+      }
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    };
+
+    // Disparadores: retardo, scroll y exit-intent (lo que ocurra primero).
+    if (!shouldSuppress()) {
+      const timer = setTimeout(open, SHOW_DELAY_MS);
+      const onScroll = () => {
+        const scrolled = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+        if (scrolled >= SCROLL_TRIGGER) { clearTimeout(timer); open(); cleanup(); }
+      };
+      const onExit = (e) => {
+        if (e.clientY <= 0) { clearTimeout(timer); open(); cleanup(); }
+      };
+      const cleanup = () => {
+        window.removeEventListener('scroll', onScroll);
+        document.removeEventListener('mouseout', onExit);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      document.addEventListener('mouseout', onExit);
+    }
+
+    // Cierre: backdrop, boton X, ESC.
+    modal.addEventListener('click', (e) => {
+      if (e.target.closest('[data-nl-dismiss]')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const f = Array.from(focusables());
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    const showError = (msg) => {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.hidden = true;
+
+      const data = {
+        nombre: form.nombre.value.trim(),
+        empresa: form.empresa.value.trim(),
+        email: form.email.value.trim(),
+        consent: form.consent.checked,
+        website: form.website.value, // honeypot
+      };
+
+      if (!data.nombre || !data.empresa || !data.email) return showError('Completa todos los campos.');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) return showError('Revisa el email.');
+      if (!data.consent) return showError('Debes aceptar la política de privacidad.');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+
+      try {
+        const res = await fetch('/api/suscribir/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) throw new Error(json.error || 'error');
+
+        writeState({ status: 'subscribed' });
+        modal.querySelector('[data-nl-view="form"]').hidden = true;
+        modal.querySelector('[data-nl-view="success"]').hidden = false;
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
+          lead_type: 'registro',
+          cta_location: 'newsletter_modal',
+          page_path: location.pathname,
+        });
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Crear cuenta gratis';
+        showError('No se ha podido completar. Inténtalo de nuevo en un momento.');
+      }
+    });
+  })();
+</script>
+
+<style>
+  .nl-modal[hidden] { display: none; }
+  .nl-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .nl-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .72);
+    backdrop-filter: blur(3px);
+  }
+  .nl-modal__card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: var(--surface, #2b2b2b);
+    border: 1px solid var(--border, #444);
+    border-radius: 8px;
+    padding: 36px 34px 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
+    animation: nl-in .28s ease;
+  }
+  @keyframes nl-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nl-modal__card { animation: none; }
+  }
+  .nl-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--gray, #aaa);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nl-modal__close:hover { color: var(--orange, #F4521E); }
+
+  .nl-modal__eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange, #F4521E);
+    margin-bottom: 12px;
+  }
+  .nl-modal__title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: var(--white, #fff);
+  }
+  .nl-modal__sub {
+    font-size: .9rem;
+    color: var(--gray, #b3b3b3);
+    line-height: 1.6;
+    margin: 0 0 22px;
+  }
+
+  .nl-field { margin-bottom: 14px; }
+  .nl-field label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray, #b3b3b3);
+    margin-bottom: 6px;
+  }
+  .nl-field input {
+    width: 100%;
+    background: rgba(0, 0, 0, .25);
+    border: 1px solid var(--border, #444);
+    border-radius: 4px;
+    padding: 11px 12px;
+    color: var(--white, #fff);
+    font-size: .95rem;
+    font-family: inherit;
+  }
+  .nl-field input:focus {
+    outline: none;
+    border-color: var(--orange, #F4521E);
+  }
+
+  .nl-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .nl-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 16px 0 20px;
+    font-size: .78rem;
+    color: var(--gray, #b3b3b3);
+    line-height: 1.5;
+  }
+  .nl-consent input { margin-top: 2px; accent-color: var(--orange, #F4521E); }
+  .nl-consent a { color: var(--orange, #F4521E); }
+
+  .nl-submit {
+    width: 100%;
+    background: var(--orange, #F4521E);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 13px 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  .nl-submit:hover { opacity: .9; }
+  .nl-submit:disabled { opacity: .6; cursor: default; }
+  .nl-submit--ghost {
+    background: transparent;
+    border: 1px solid var(--border, #444);
+    color: var(--white, #fff);
+    margin-top: 8px;
+  }
+
+  .nl-error {
+    color: #ff6b4a;
+    font-size: .8rem;
+    margin: 12px 0 0;
+  }
+  .nl-legal {
+    font-size: .72rem;
+    color: var(--gray2, #888);
+    line-height: 1.5;
+    margin: 14px 0 0;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .nl-modal { padding: 14px; }
+    .nl-modal__card { padding: 30px 22px 24px; }
+  }
+</style>

@@ -1,10 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Onboarding software para pymes industriales | REELEVO";
 const description = "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días.";
 
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es un onboarding software para planta?',
+    a: 'Es la herramienta que ordena la incorporación de un operario: le da el proceso documentado en el puesto desde el primer día y registra qué ha ejecutado y con qué autonomía. Se diferencia de un software de RRHH en que no se queda en el papeleo del alta, sino que llega a la máquina.',
+  },
+  {
+    q: '¿Sustituye al operario que tutoriza?',
+    a: 'No, le cambia el papel. En lugar de explicar cada paso desde cero en cada incorporación, el tutor verifica el resultado y resuelve lo que la documentación no cubre. El objetivo es que el conocimiento deje de pasar por una sola persona, no prescindir de ella.',
+  },
+  {
+    q: '¿A partir de qué tamaño de plantilla compensa?',
+    a: 'Más que el tamaño, decide la rotación. Una planta de 15 personas que incorpora a alguien cada mes o trabaja con ETT lo aprovecha más que una de 60 con plantilla estable. La pregunta útil es cuántas horas de tu mejor operario se van en tutorizar cada alta.',
+  },
+  {
+    q: '¿Cuánto se tarda en ponerlo en marcha?',
+    a: 'La configuración técnica es de un día al ser SaaS. El plazo real lo marca documentar los procesos de los puestos por los que más gente pasa: empezando por dos o tres, la primera incorporación puede arrancar con el proceso en el puesto en un par de semanas.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "REELEVO - Onboarding Software",
@@ -18,6 +40,8 @@ const schema = {
     "priceValidUntil": "2026-12-31"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} schema={schema} activeNav="">
@@ -319,6 +343,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- CTA FINAL -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por el primer día</div>
     <h2 class="cta-title fade-up delay-1">

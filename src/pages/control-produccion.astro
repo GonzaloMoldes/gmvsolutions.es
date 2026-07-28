@@ -1,11 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Control y gestión de producción en pyme industrial | REELEVO";
 const description = "Control de producción: registra por operario y máquina, detecta paradas con causa y revisa KPIs diarios sin papel ni Excel.";
 
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es un software de control de producción?',
+    a: 'Es la herramienta que registra qué se fabrica, quién lo hace, en qué máquina y con qué resultado, en el momento en que ocurre. Sustituye al parte en papel que se rellena de memoria al cerrar el turno, y convierte esa información en tiempos reales y KPIs que se pueden mirar mientras la planta sigue trabajando.',
+  },
+  {
+    q: '¿En qué se diferencia de un MES?',
+    a: 'Un MES cubre además planificación de capacidad, integración con el ERP y a menudo captura de datos de máquina, con la inversión e implantación que eso supone. El control de producción de REELEVO se queda en la capa operativa: la ejecución registrada en el puesto. Para una pyme suele ser el primer paso, y el que más retorno da.',
+  },
+  {
+    q: '¿Hace falta conectar las máquinas o poner sensores?',
+    a: 'No. El dato lo introduce el operario desde el puesto al iniciar y cerrar cada sesión de trabajo, lo que no requiere cablear autómatas ni instalar sensores. Conectar máquina aporta precisión adicional, pero es un proyecto mucho más caro y rara vez es por donde conviene empezar en una pyme.',
+  },
+  {
+    q: '¿Cuánto tiempo le quita al operario registrar la producción?',
+    a: 'Segundos por sesión: iniciar el trabajo y cerrarlo indicando cantidad y, si la hubo, la causa de parada. La regla que seguimos es que registrar no puede costar más que el papel al que sustituye, porque en cuanto añade carga el operario lo rellena mal o lo esquiva, y entonces el dato deja de servir.',
+  },
+  {
+    q: '¿Sirve si trabajamos con órdenes pequeñas o fabricación por encargo?',
+    a: 'Sí. El registro va por sesión de trabajo asociada a proceso, operario y máquina, así que funciona igual en series largas que en lotes pequeños o piezas únicas. Para fabricación por encargo, además, cada unidad puede llevar su trazabilidad individual y su avance de obra.',
+  },
+];
+
+const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 ---
 
 <BaseLayout title={title} description={description} canonical="https://gmvsolutions.es/control-produccion/" schema={schema} activeNav="" pageType="capacidad">
@@ -281,6 +306,10 @@ const schema = softwareApplicationSchema();
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <FaqSection items={faqs} />
 
   <div class="divider"></div>
 

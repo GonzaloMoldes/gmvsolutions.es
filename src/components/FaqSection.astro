@@ -1,0 +1,83 @@
+---
+// Bloque visible de preguntas frecuentes. Se alimenta de la MISMA lista que
+// faqPageSchema() usa para el JSON-LD, para que el texto renderizado y el schema
+// no puedan divergir (auditoria P6).
+//
+// Uso tipico en una pagina:
+//   const faqs = [{ q: '...', a: '...' }];
+//   const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
+//   ...
+//   <FaqSection items={faqs} />
+import type { FaqItem } from '../lib/seo';
+
+export interface Props {
+  items: FaqItem[];
+  /** Titulo de la seccion. */
+  heading?: string;
+  /** Kicker sobre el titulo. */
+  eyebrow?: string;
+}
+
+const { items, heading = 'Preguntas frecuentes', eyebrow = 'Dudas habituales' } = Astro.props;
+---
+
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">{eyebrow}</div>
+      <h2 class="section-title">{heading}</h2>
+    </div>
+
+    <div class="faq-list fade-up delay-1">
+      {items.map((item) => (
+        <div class="faq-item">
+          <h3 class="faq-q">{item.q}</h3>
+          <p class="faq-a">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    text-align: left;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--orange);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+
+  .faq-q {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    color: var(--white);
+  }
+
+  .faq-a {
+    font-size: .95rem;
+    line-height: 1.7;
+    color: var(--gray);
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .faq-item {
+      padding: 20px;
+    }
+  }
+</style>

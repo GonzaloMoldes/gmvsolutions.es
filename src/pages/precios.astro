@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Precio de software SOP industrial | REELEVO";
 const description = "Precio de software SOP y de operaciones para pyme industrial: desde 49 €/mes por empresa, sin coste por operario. Ordena procesos y gana visibilidad.";
@@ -7,7 +9,27 @@ const canonical = "https://gmvsolutions.es/precios/";
 const primaryCtaHref = "https://app.gmvsolutions.es/registro";
 const primaryCtaLabel = "Registrarme en REELEVO";
 
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Cuánto cuesta REELEVO?',
+    a: 'Desde 49 € al mes por empresa, con el precio publicado y sin tener que pasar por una llamada comercial para conocerlo. Los planes suben según las capacidades que necesites, no según cuánta gente lo use.',
+  },
+  {
+    q: '¿Se paga por operario?',
+    a: 'No, se paga por empresa, y los operarios son ilimitados. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo, y acaba llevando a compartir cuentas.',
+  },
+  {
+    q: '¿Hay permanencia o coste de implantación?',
+    a: 'El precio publicado es la suscripción; no hay un proyecto de implantación obligatorio con coste aparte, porque la configuración técnica es de un día al ser SaaS sin instalación local. Lo que sí lleva tiempo es documentar tus procesos, y ese trabajo es tuyo.',
+  },
+  {
+    q: '¿Encaja con el Kit Digital?',
+    a: 'Programas como el Kit Digital cubren parte del coste de software de digitalización para pymes y autónomos. Lo importante es elegir la solución por el problema operativo que resuelve y no por gastar la subvención, porque una herramienta que nadie usa sigue costando dinero aunque esté subvencionada.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "REELEVO",
@@ -29,6 +51,8 @@ const schema = {
     }
   ]
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -254,6 +278,10 @@ const schema = {
 
 
   <!-- CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Decisión final</div>
     <h2 class="cta-title fade-up delay-1">

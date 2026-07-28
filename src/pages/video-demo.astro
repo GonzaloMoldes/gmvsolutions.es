@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
 import StorylaneDemo from '../components/StorylaneDemo.astro';
-import { softwareApplicationSchema } from '../lib/seo';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Demo de software de operaciones industriales | REELEVO";
 const description = "Demo guiada de REELEVO: ve el software de operaciones industriales en planta —onboarding y gestión de competencias— para pymes en pocos minutos.";
@@ -14,7 +15,29 @@ const canonical = "https://gmvsolutions.es/video-demo/";
 // structured data incorrecto. Lo que hay ahora es un demo interactivo de Storylane,
 // que no es un video; se referencia el producto en su lugar.
 // Por lo mismo se retiro sitemap-video.xml y su linea en robots.txt (P5).
-const schema = softwareApplicationSchema();
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿El demo es una grabación o puedo interactuar?',
+    a: 'Es interactivo: haces clic tú mismo y avanzas a tu ritmo por las pantallas reales del producto. Puedes saltarte las partes que no te interesen en lugar de esperar a que un vídeo llegue al minuto que te importa.',
+  },
+  {
+    q: '¿Hace falta registrarse para verlo?',
+    a: 'No. Se abre directamente en la página, sin formulario ni cuenta previa. Si prefieres verlo en pantalla completa, hay un enlace para abrirlo en una pestaña nueva.',
+  },
+  {
+    q: '¿Qué partes del producto recorre?',
+    a: 'Planificación de la producción, el equipo con su matriz de competencias, el análisis de producción con calidad y paradas, y la trazabilidad con QRs y equipamientos. Es decir, el ciclo completo, no solo una pantalla de muestra.',
+  },
+  {
+    q: '¿Puedo ver el producto con mis propios datos?',
+    a: 'El demo usa datos de ejemplo para que se entienda el flujo. Para verlo con tus procesos, lo práctico es registrarse y documentar un proceso real: es el momento en el que se ve de verdad si encaja en tu planta.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -193,7 +216,11 @@ const schema = softwareApplicationSchema();
 <div class="divider"></div>
 
 <!-- CTA FINAL -->
-<section class="cta-section">
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
+  <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Listo para ver REELEVO?</div>
   <h3 class="cta-title fade-up delay-1">
     Empieza con onboarding software.<br>

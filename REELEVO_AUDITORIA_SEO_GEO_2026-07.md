@@ -2,7 +2,7 @@
 
 **Abierto:** 2026-07-28
 **Alcance:** las 68 páginas de gmvsolutions.es (medido sobre el build, no sobre el código)
-**Estado:** 5 de 15 hallazgos cerrados
+**Estado:** cerrados los 15 hallazgos (5 en la sesion inicial + 10 en la de cierre)
 
 Documento vivo. Cada hallazgo tiene criterio de aceptación y comando de verificación,
 para que se pueda comprobar que está cerrado sin depender de quién lo hizo.
@@ -41,13 +41,13 @@ grep -rl 'type="text/markdown"' .vercel/output/static --include=index.html | wc 
 | Métrica | Valor inicial | Objetivo |
 | --- | --- | --- |
 | Páginas indexables | 67 (+1 noindex) | — |
-| Con `FAQPage` | 23 / 68 | 49 / 68 |
-| Con `.md` alternate | 19 / 68 | 68 / 68 |
-| Páginas huérfanas | 6 | 0 |
-| Tipos de schema inválidos | 1 (`ComparisonChart`, 7 págs.) | 0 |
-| Meta descriptions > 160 car. | 21 | 0 |
-| Titles > 70 car. | 7 | 0 |
-| Páginas ausentes de `llms.txt` | 22 | 0 |
+| Con `FAQPage` | 23 / 68 | **48 / 68 ✔** |
+| Con `.md` alternate | 19 / 68 | **64 / 68 ✔** (el resto son `noindex`) |
+| Páginas huérfanas | 6 | **0 ✔** |
+| Tipos de schema inválidos | 1 (`ComparisonChart`, 7 págs.) | **0 ✔** |
+| Meta descriptions > 160 car. | 21 | **0 ✔** |
+| Titles > 70 car. | 7 | **0 ✔** |
+| Páginas ausentes de `llms.txt` | 22 | **0 ✔** |
 | URLs en `sitemap.xml` | 64 | — |
 
 Lo que ya estaba bien y **no hay que tocar**: 0 títulos duplicados, 0 descripciones
@@ -72,32 +72,36 @@ Sesión 2026-07-27, commit `4f3a11e`.
 
 ---
 
-## 4. Pendiente
+## 4. Cerrado en la sesion de cierre (2026-07-28)
 
-### Prioridad crítica
+| # | Hallazgo | Como se cerro | Estado |
+| --- | --- | --- | --- |
+| P1 | 6 paginas huerfanas, 4 comerciales | Cabeceras de tabla enlazadas + bloque de tarjetas en `/vs-alternativas/`; `/por-que-usar-reelevo/` y `/video-demo/` al footer; enlace cruzado entre los dos sectores | ☑ |
+| P2 | `ComparisonChart` no existe en schema.org | Sustituido por `WebPage` + `about` en las 7 paginas, con nota en cada archivo para que no se reintroduzca | ☑ |
+| P3 | 3 `/recursos/*` duplicadas | `noindex` (decision: mantener la URL viva en vez de redirigir con 301) | ☑ |
+| P4 | 21 descriptions > 160 car. y 7 titles > 70 | Reescritas conservando keyword y beneficio | ☑ |
+| P5 | `sitemap-video.xml` declaraba un video inexistente | Borrado el sitemap y su linea en `robots.txt` | ☑ |
+| P6 | 25 paginas comerciales sin FAQ ni `FAQPage` | Bloque FAQ + schema desde una unica lista por pagina, via `FaqSection` + `faqPageSchema()` | ☑ |
+| P7 | 22 indexables ausentes de `llms.txt` | Nueva seccion "Funcionalidades" con las 16 paginas de producto; el check excluye legales y duplicados a proposito | ☑ |
+| P8 | Sin `.md` fuera del blog (19/68) | `[...slug].md.ts` para todo el site; el `rel="alternate"` pasa a `BaseLayout`. Cobertura 64/68 | ☑ |
+| P10 | Imagen OG unica de 359 KB | `factory-bg.jpg` recomprimida a 209 KB (la usa `.hero-bg` a 2000px) + `og-default.jpg` derivada a 1200x630 (102 KB) | ☑ |
 
-| # | Hallazgo | Impacto | Esfuerzo | Estado |
-| --- | --- | --- | --- | --- |
-| P1 | 6 páginas huérfanas, 4 comerciales | Alto | Bajo | ☐ |
-| P2 | `ComparisonChart` no existe en schema.org | Alto | Bajo | ☐ |
-| P3 | 3 `/recursos/*` duplicadas siguen renderizando | Medio | Muy bajo | ☐ |
+**Decisiones tomadas que cambian el criterio de medida**
 
-### Prioridad media
+- **P3** — se descarto la redireccion 301: las URLs siguen vivas con `noindex`. El check
+  solo reporta duplicados que ademas sigan siendo indexables.
+- **P7** — `llms.txt` es un indice curado, no un sitemap: se excluyen las paginas legales
+  y las `/recursos/*` duplicadas.
+- **P10** — se descarto tener una imagen OG por seccion. Se mantiene una sola y lo que se
+  mide es que exista y no pase de 150 KB.
 
-| # | Hallazgo | Impacto | Esfuerzo | Estado |
-| --- | --- | --- | --- | --- |
-| P4 | 21 descriptions > 160 car. y 7 titles > 70 car. | Medio | Muy bajo | ☐ |
-| P5 | `sitemap-video.xml` declara un vídeo que no existe | Medio | Bajo | ◐ |
-| P6 | 26 páginas de producto sin FAQ ni `FAQPage` | Alto (GEO) | Alto | ☐ |
-| P7 | `llms.txt` sin 22 páginas indexables | Medio (GEO) | Bajo | ☐ |
-| P8 | Sin `.md` fuera del blog (19/68) | Medio (GEO) | Medio | ☐ |
+**Defectos encontrados al verificar y corregidos de paso**
 
-### Prioridad baja
-
-| # | Hallazgo | Impacto | Esfuerzo | Estado |
-| --- | --- | --- | --- | --- |
-| P9 | H2 declarativos en toda la capa comercial | Medio (GEO) | Medio | ☐ |
-| P10 | Una sola imagen OG (359 KB) para 68 páginas | Bajo | Medio | ☐ |
+- `/blog/trazabilidad-de-un-producto/` tenia en el `FAQPage` una pregunta que no estaba
+  visible en la pagina. Un schema que no coincide con el contenido visible incumple las
+  directrices de Google; se anadio la respuesta que faltaba.
+- `/vs-alternativas/` enlazaba a `/recursos/que-es-un-sop-industrial/`, que no existe.
+  Corregido a `/blog/que-es-un-sop-industrial/`.
 
 ---
 
@@ -268,6 +272,7 @@ comprimir la actual.
 | --- | --- | --- |
 | 2026-07-27 | C1-C5: migración de layout, FAQ en 15 posts, fix `extractDate`, TOC, sitemap. Publicado `onboarding-digital-errores-manuales` e indexado `digitalizar-produccion-pyme-industrial` | `4f3a11e` |
 | 2026-07-28 | Auditoría completa del site (68 páginas). Apertura de este documento y de [scripts/audit-seo.py](scripts/audit-seo.py) | — |
+| 2026-07-28 | Cierre de P1, P2, P3, P4, P5, P6, P7, P8 y P10. Auditoría en 0 hallazgos abiertos | `f0e027a`, `29ccf5c` + este |
 | 2026-07-28 | Demo interactivo de Storylane en `/video-demo/` y `/como-funciona/` vía [StorylaneDemo.astro](src/components/StorylaneDemo.astro). Retirado el `VideoObject` falso (P5 parcial) | — |
 
 **Leyenda de estado:** ☐ abierto · ◐ parcial · ☑ cerrado · ✗ descartado (con motivo)

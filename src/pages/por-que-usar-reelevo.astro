@@ -1,11 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Por qué usar REELEVO en tu pyme industrial | REELEVO";
 const description = "Por qué usar REELEVO frente a un MES, Excel o plataformas enterprise: ligero, en español y con precio público. Para pyme industrial.";
 const canonical = "https://gmvsolutions.es/por-que-usar-reelevo/";
 
-const schema = {
+// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué problema resuelve REELEVO exactamente?',
+    a: 'La dependencia de personas concretas. Cuando el conocimiento de cómo se hace cada trabajo vive solo en la cabeza de unos pocos, cada baja, jubilación o incorporación desordena el turno. REELEVO lleva ese conocimiento al puesto y registra la ejecución para que deje de depender de quién esté.',
+  },
+  {
+    q: '¿En qué se diferencia de un MES?',
+    a: 'Un MES cubre planificación de capacidad, integración con el ERP y a menudo captura de datos de máquina, con la inversión que eso implica. REELEVO se queda en la capa operativa: el proceso en el puesto y la ejecución registrada. Para una pyme suele ser el primer paso y el que más retorno da.',
+  },
+  {
+    q: '¿Por qué no basta con Excel y carpetas compartidas?',
+    a: 'Porque no tienen coste de licencia pero sí coste oculto: el operario no abre un PDF del servidor, llama al veterano; circulan varias versiones del mismo documento y nadie sabe cuál vale; y no queda rastro de qué se hizo. El problema no es el formato, es dónde vive la información.',
+  },
+  {
+    q: '¿Qué hace falta por nuestra parte para empezar?',
+    a: 'Elegir dos o tres procesos críticos y documentarlos con quien los domina, idealmente grabando mientras se ejecutan. La configuración técnica es de un día; el trabajo real es ese, y es el que no puede hacer el proveedor por ti.',
+  },
+];
+
+const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": "Por qué usar REELEVO",
@@ -15,6 +37,8 @@ const schema = {
     "name": "GMV Solutions"
   }
 };
+
+const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
 <BaseLayout
@@ -184,6 +208,10 @@ const schema = {
   <div class="divider"></div>
 
   <!-- FINAL CTA -->
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">Empieza por lo crítico</div>
     <h3 class="cta-title fade-up delay-1">
