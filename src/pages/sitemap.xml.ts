@@ -1,5 +1,5 @@
 export async function GET() {
-  const baseURL = 'https://gmvsolutions.es';
+  const baseURL = 'https://www.gmvsolutions.es';
   const lastmod = '2026-07-01';
   // Fecha de la revision SEO/GEO del blog.
   const REVISION = '2026-07-27';

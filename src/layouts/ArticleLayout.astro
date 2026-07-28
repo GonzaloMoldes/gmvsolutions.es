@@ -26,7 +26,7 @@ const {
   readTime,
   canonical,
   dateModified,
-  image = 'https://gmvsolutions.es/og-default.jpg',
+  image = 'https://www.gmvsolutions.es/og-default.jpg',
   schema,
   noindex = false,
 } = Astro.props;
@@ -73,7 +73,7 @@ const articleSchema = {
     url: author.url,
     sameAs: [author.url],
   },
-  publisher: { '@id': 'https://gmvsolutions.es/#organization' },
+  publisher: { '@id': 'https://www.gmvsolutions.es/#organization' },
 };
 
 // El schema que pase la pagina se trata como EXTRA (FAQ, HowTo...) y se fusiona.

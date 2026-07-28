@@ -86,11 +86,11 @@ User-agent: Bytespider
 Disallow: /
 
 # Sitemaps
-Sitemap: https://gmvsolutions.es/sitemap.xml
+Sitemap: https://www.gmvsolutions.es/sitemap.xml
 # sitemap-video.xml retirado (2026-07-28): declaraba un video de 6 min en
 # /video-demo/ que no existe, con thumbnail 404. Esa pagina lleva un demo
 # interactivo, que no es un VideoObject. Restaurar solo si se publica un video real.
 
 # LLMs
 # Información estructurada para modelos de lenguaje
-# https://gmvsolutions.es/llms.txt
+# https://www.gmvsolutions.es/llms.txt

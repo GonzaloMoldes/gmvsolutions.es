@@ -4,7 +4,7 @@
 Contact: mailto:hola@gmvsolutions.es
 Expires: 2027-06-13T00:00:00.000Z
 Preferred-Languages: es, en
-Canonical: https://gmvsolutions.es/.well-known/security.txt
+Canonical: https://www.gmvsolutions.es/.well-known/security.txt
 
 # Si detectas un problema de seguridad, escríbenos a hola@gmvsolutions.es
 # con los detalles para reproducirlo. Agradecemos la divulgación responsable

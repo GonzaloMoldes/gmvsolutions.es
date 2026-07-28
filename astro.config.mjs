@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // robots.txt. Se retiro la integracion @astrojs/sitemap porque generaba un segundo
 // sitemap redundante que incluia paginas noindex (p. ej. /kit-digital-pyme-industrial/).
 export default defineConfig({
-  site: 'https://gmvsolutions.es',
+  site: 'https://www.gmvsolutions.es',
   trailingSlash: 'always',
   build: {
     // Inlinea el CSS en el HTML para eliminar peticiones bloqueantes de render

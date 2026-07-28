@@ -95,6 +95,29 @@ Sesión 2026-07-27, commit `4f3a11e`.
 - **P10** — se descarto tener una imagen OG por seccion. Se mantiene una sola y lo que se
   mide es que exista y no pase de 150 KB.
 
+**P11 — La CSP bloqueaba dominios que el sitio carga (2026-07-28)**
+
+`vercel.json` no permitia `js.storylane.io` en `script-src` ni `app.storylane.io` en
+`frame-src`, asi que el demo interactivo nunca podia cargar. Al revisar la politica
+completa aparecieron dos bloqueos previos: `egoi.site` (el tag de Connected Sites
+nunca se ejecuto) y `consentcdn.cookiebot.com` en `style-src`. Anadido el check P11,
+que compara cada dominio externo del HTML contra lo que la CSP permite.
+
+**Dominio canonico: www (2026-07-29)**
+
+El sitio sirve en `www.gmvsolutions.es` y el apex redirige a el, pero todo el codigo
+declaraba el apex: canonicals, `hreflang`, `og:url`, sitemap, `llms.txt` y los `@id`
+del schema. Es decir, el canonical apuntaba a una URL que redirige. Decision: **www es
+el dominio bueno**, y se han migrado las 170 referencias, incluido `site` en
+`astro.config.mjs`. `/onboarding-software-pymes/` era la unica pagina sin canonical
+explicito —lo heredaba de `site`— y ahora lo declara.
+
+**Pendiente fuera del repositorio:** anadir `www.gmvsolutions.es` al grupo de dominios
+en el panel de Cookiebot. Hoy `consentcdn.cookiebot.com/consentconfig/<cbid>/www.gmvsolutions.es/configuration.js`
+devuelve **404**, y por eso no aparece el banner de cookies. Sin banner nadie puede
+aceptar, y con `blockingmode="auto"` todo lo que dependa del consentimiento queda
+bloqueado. Conviene ademas cambiar la redireccion apex -> www de 307 a 308 en Vercel.
+
 **Defectos encontrados al verificar y corregidos de paso**
 
 - `/blog/trazabilidad-de-un-producto/` tenia en el `FAQPage` una pregunta que no estaba

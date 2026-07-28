@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.join(".vercel", "output", "static")
-BASE = "https://gmvsolutions.es"
+BASE = "https://www.gmvsolutions.es"
 
 # Tipos schema.org validos que emite el site. Lo que aparezca fuera de esta lista
 # se reporta: un @type inventado hace que el buscador descarte el bloque entero.
@@ -127,7 +127,8 @@ def main():
         if not os.path.isfile(p):
             continue
         content = io.open(p, encoding="utf-8", errors="replace").read()
-        for url in set(re.findall(r"https://gmvsolutions\.es(/[^<\s]+\.(?:jpg|png|webp))", content)):
+        pat = re.escape(BASE) + r"(/[^<\s]+\.(?:jpg|png|webp))"
+        for url in set(re.findall(pat, content)):
             if not os.path.isfile(os.path.join(ROOT, url.lstrip("/"))):
                 missing_assets.append("%s -> %s (404)" % (smap, url))
     results.append(("P5", "Assets referenciados en sitemaps que no existen",
@@ -148,7 +149,7 @@ def main():
     absent = []
     if os.path.isfile(llms_path):
         llms = io.open(llms_path, encoding="utf-8", errors="replace").read()
-        listed = set(re.findall(r"https://gmvsolutions\.es(/[^)\s]*)", llms))
+        listed = set(re.findall(re.escape(BASE) + r"(/[^)\s]*)", llms))
         listed = set(u if u.endswith("/") else u + "/" for u in listed)
         curated = {u for u in indexable
                    if not u.startswith(("/legal/", "/recursos/gestion-",

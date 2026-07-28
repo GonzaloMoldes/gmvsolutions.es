@@ -44,88 +44,88 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 
 - **Registrarse / crear cuenta de empresa:** https://app.gmvsolutions.es/registro — Alta directa en la plataforma. Sin llamada comercial previa.
 - **Diagnóstico de riesgo operativo (gratuito):** https://diagnostico.gmvsolutions.es — Calculadora que estima el coste del absentismo y la dependencia de perfiles clave. Resultado en 2 minutos.
-- **Ver precios:** https://gmvsolutions.es/precios/ — Planes y calculadora de ROI.
+- **Ver precios:** https://www.gmvsolutions.es/precios/ — Planes y calculadora de ROI.
 - **Contactar (Enterprise / dudas):** hola@gmvsolutions.es
 
 ## Páginas del sitio web
 
-- [Inicio](https://gmvsolutions.es/) — Propuesta de valor, procedimientos operativos estándar en 3 pasos, beneficios, para quién
-- [Cómo funciona](https://gmvsolutions.es/como-funciona/) — Flujo detallado: experto → supervisor → operario. FAQ técnico
-- [Precios](https://gmvsolutions.es/precios/) — Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Calculadora ROI
-- [Software de gestión para pyme industrial](https://gmvsolutions.es/software-gestion-pyme-industrial/) — Visión global del software de operaciones para pymes industriales
-- [Vs Alternativas](https://gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
-- [Recursos](https://gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
-- [Sobre nosotros](https://gmvsolutions.es/sobre-nosotros/) — Quién está detrás de REELEVO y por qué existe
-- [Por qué usar REELEVO](https://gmvsolutions.es/por-que-usar-reelevo/) — Diferencias frente a MES, Excel y plataformas enterprise para la pyme industrial
-- [Demo interactivo](https://gmvsolutions.es/video-demo/) — Recorrido por el producto a tu ritmo, sin registro
-- [FAQs](https://gmvsolutions.es/faqs/) — Preguntas frecuentes sobre producto, implantación, precio y soporte
+- [Inicio](https://www.gmvsolutions.es/) — Propuesta de valor, procedimientos operativos estándar en 3 pasos, beneficios, para quién
+- [Cómo funciona](https://www.gmvsolutions.es/como-funciona/) — Flujo detallado: experto → supervisor → operario. FAQ técnico
+- [Precios](https://www.gmvsolutions.es/precios/) — Plan Starter (49€/mes), Profesional (149€/mes), Enterprise. Calculadora ROI
+- [Software de gestión para pyme industrial](https://www.gmvsolutions.es/software-gestion-pyme-industrial/) — Visión global del software de operaciones para pymes industriales
+- [Vs Alternativas](https://www.gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
+- [Recursos](https://www.gmvsolutions.es/recursos/) — Guías sobre SOPs industriales, gestión del absentismo, onboarding y transferencia de conocimiento
+- [Sobre nosotros](https://www.gmvsolutions.es/sobre-nosotros/) — Quién está detrás de REELEVO y por qué existe
+- [Por qué usar REELEVO](https://www.gmvsolutions.es/por-que-usar-reelevo/) — Diferencias frente a MES, Excel y plataformas enterprise para la pyme industrial
+- [Demo interactivo](https://www.gmvsolutions.es/video-demo/) — Recorrido por el producto a tu ritmo, sin registro
+- [FAQs](https://www.gmvsolutions.es/faqs/) — Preguntas frecuentes sobre producto, implantación, precio y soporte
 
 ### Funcionalidades
-- [Documentación de procesos](https://gmvsolutions.es/documentacion-procesos/) — SOPs e instrucciones de trabajo accesibles en el puesto, con versión vigente
-- [Control de producción](https://gmvsolutions.es/control-produccion/) — Registro por operario y máquina, paradas con causa y KPIs diarios sin papel
-- [Gestión de competencias](https://gmvsolutions.es/gestion-competencias/) — Matriz de competencias (skill matrix) que se actualiza con la ejecución real
-- [Portal del operario](https://gmvsolutions.es/portal-operario/) — Agenda del día, procesos y progreso de formación desde el móvil, sin instalación
-- [Cobertura de turnos](https://gmvsolutions.es/cobertura-turnos/) — Detecta huecos de cobertura antes del turno y quién puede cubrir cada puesto
-- [Mantenimiento](https://gmvsolutions.es/mantenimiento/) — Planes preventivos y correctivos, órdenes automáticas y registro de intervenciones
-- [Calidad y conformidad](https://gmvsolutions.es/calidad-y-conformidad/) — Autocontroles, no conformidades y evidencia de ejecución para auditorías
-- [Workflows](https://gmvsolutions.es/workflows/) — Flujos multi-paso y multi-operario: aprobaciones, checkpoints y ramas paralelas
-- [Kaizen](https://gmvsolutions.es/kaizen/) — Propuestas de mejora capturadas en el puesto y devueltas al proceso
-- [Obras y trazabilidad](https://gmvsolutions.es/obras-trazabilidad/) — Trazabilidad por pieza y avance de obra para fabricación por encargo
-- [Firma digital](https://gmvsolutions.es/firma-digital/) — El operario firma al completar y el supervisor al validar, sin papel
-- [Modo offline](https://gmvsolutions.es/modo-offline/) — Funciona sin conexión y sincroniza al recuperar cobertura; sin wifi industrial
-- [API e integraciones](https://gmvsolutions.es/api-integraciones/) — API REST, webhooks, Power Automate y conexión con ERP o Power BI
-- [Integración Microsoft 365](https://gmvsolutions.es/integracion-m365/) — Conexión con Teams y el entorno Microsoft 365
+- [Documentación de procesos](https://www.gmvsolutions.es/documentacion-procesos/) — SOPs e instrucciones de trabajo accesibles en el puesto, con versión vigente
+- [Control de producción](https://www.gmvsolutions.es/control-produccion/) — Registro por operario y máquina, paradas con causa y KPIs diarios sin papel
+- [Gestión de competencias](https://www.gmvsolutions.es/gestion-competencias/) — Matriz de competencias (skill matrix) que se actualiza con la ejecución real
+- [Portal del operario](https://www.gmvsolutions.es/portal-operario/) — Agenda del día, procesos y progreso de formación desde el móvil, sin instalación
+- [Cobertura de turnos](https://www.gmvsolutions.es/cobertura-turnos/) — Detecta huecos de cobertura antes del turno y quién puede cubrir cada puesto
+- [Mantenimiento](https://www.gmvsolutions.es/mantenimiento/) — Planes preventivos y correctivos, órdenes automáticas y registro de intervenciones
+- [Calidad y conformidad](https://www.gmvsolutions.es/calidad-y-conformidad/) — Autocontroles, no conformidades y evidencia de ejecución para auditorías
+- [Workflows](https://www.gmvsolutions.es/workflows/) — Flujos multi-paso y multi-operario: aprobaciones, checkpoints y ramas paralelas
+- [Kaizen](https://www.gmvsolutions.es/kaizen/) — Propuestas de mejora capturadas en el puesto y devueltas al proceso
+- [Obras y trazabilidad](https://www.gmvsolutions.es/obras-trazabilidad/) — Trazabilidad por pieza y avance de obra para fabricación por encargo
+- [Firma digital](https://www.gmvsolutions.es/firma-digital/) — El operario firma al completar y el supervisor al validar, sin papel
+- [Modo offline](https://www.gmvsolutions.es/modo-offline/) — Funciona sin conexión y sincroniza al recuperar cobertura; sin wifi industrial
+- [API e integraciones](https://www.gmvsolutions.es/api-integraciones/) — API REST, webhooks, Power Automate y conexión con ERP o Power BI
+- [Integración Microsoft 365](https://www.gmvsolutions.es/integracion-m365/) — Conexión con Teams y el entorno Microsoft 365
 
 ### Para quién
-- [Jefe de producción](https://gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
-- [Responsable de RRHH](https://gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
-- [Responsable de calidad](https://gmvsolutions.es/para-quien/responsable-calidad/) — Trazabilidad de ejecución, conformidad y soporte para auditorías
-- [Gerente / Propietario](https://gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
+- [Jefe de producción](https://www.gmvsolutions.es/para-quien/jefe-de-produccion/) — Eliminar paradas por absentismo, SOPs en cada máquina, monitor en tiempo real
+- [Responsable de RRHH](https://www.gmvsolutions.es/para-quien/responsable-rrhh/) — Onboarding estandarizado con SOPs, trazabilidad operativa y visibilidad sobre competencias
+- [Responsable de calidad](https://www.gmvsolutions.es/para-quien/responsable-calidad/) — Trazabilidad de ejecución, conformidad y soporte para auditorías
+- [Gerente / Propietario](https://www.gmvsolutions.es/para-quien/gerente-propietario/) — ROI demostrable, precio fijo por empresa, eliminación de dependencia operativa
 
 ### Sectores
-- [Alimentación](https://gmvsolutions.es/sectores/alimentacion/) — SOPs, trazabilidad y cobertura de turnos en industria alimentaria
-- [Mecanizado CNC](https://gmvsolutions.es/sectores/mecanizado-cnc/) — Documentación de procesos y continuidad operativa en taller de mecanizado
+- [Alimentación](https://www.gmvsolutions.es/sectores/alimentacion/) — SOPs, trazabilidad y cobertura de turnos en industria alimentaria
+- [Mecanizado CNC](https://www.gmvsolutions.es/sectores/mecanizado-cnc/) — Documentación de procesos y continuidad operativa en taller de mecanizado
 
 ### Casos de uso
-- [Cobertura de bajas](https://gmvsolutions.es/casos-de-uso/cobertura-bajas/) — Cuando el experto falta, los SOPs están en la máquina para el sustituto
-- [Onboarding de operarios](https://gmvsolutions.es/casos-de-uso/onboarding-operarios/) — El nuevo sigue los procedimientos paso a paso desde el primer día
-- [Personal ETT](https://gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
-- [Transferencia de conocimiento](https://gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
+- [Cobertura de bajas](https://www.gmvsolutions.es/casos-de-uso/cobertura-bajas/) — Cuando el experto falta, los SOPs están en la máquina para el sustituto
+- [Onboarding de operarios](https://www.gmvsolutions.es/casos-de-uso/onboarding-operarios/) — El nuevo sigue los procedimientos paso a paso desde el primer día
+- [Personal ETT](https://www.gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
+- [Transferencia de conocimiento](https://www.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
 
 ### Blog
-- [Blog principal](https://gmvsolutions.es/blog/) — Artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
-- [Crisis de pérdida de conocimiento](https://gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
-- [Qué es un SOP industrial](https://gmvsolutions.es/blog/que-es-un-sop-industrial/)
-- [Coste del absentismo en pymes](https://gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
-- [Documentar conocimiento de operarios expertos](https://gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
-- [Gestión de competencias en la industria](https://gmvsolutions.es/blog/gestion-competencias-industria/)
-- [Onboarding software vs tradicional](https://gmvsolutions.es/blog/onboarding-vs-tradicional/)
-- [Documentar procesos de mecanizado CNC](https://gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/)
-- [Instrucciones de trabajo vs SOP](https://gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/)
-- [Plantilla de SOP de producción](https://gmvsolutions.es/blog/plantilla-sop-produccion/)
-- [Conocimiento tácito en el taller industrial](https://gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/)
-- [Reducir el onboarding de operarios de 5 a 1 día](https://gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/)
-- [Plan de contingencia ante bajas en producción](https://gmvsolutions.es/blog/plan-contingencia-bajas-produccion/)
-- [SOP de mantenimiento preventivo: guía y plantilla](https://gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/)
-- [Software SOP para fábricas: comparativa](https://gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
-- [Cómo saber la trazabilidad de un producto](https://gmvsolutions.es/blog/trazabilidad-de-un-producto/)
-- [Lean Manufacturing: qué es y cómo aplicarlo en una pyme](https://gmvsolutions.es/blog/lean-manufacturing/)
-- [Cómo digitalizar la producción en una pyme industrial](https://gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/)
-- [Onboarding digital en planta: cómo reducir los errores manuales](https://gmvsolutions.es/blog/onboarding-digital-errores-manuales/)
-- [Onboarding software para pymes: guía completa](https://gmvsolutions.es/blog/onboarding-software-pymes/)
+- [Blog principal](https://www.gmvsolutions.es/blog/) — Artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
+- [Crisis de pérdida de conocimiento](https://www.gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
+- [Qué es un SOP industrial](https://www.gmvsolutions.es/blog/que-es-un-sop-industrial/)
+- [Coste del absentismo en pymes](https://www.gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
+- [Documentar conocimiento de operarios expertos](https://www.gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
+- [Gestión de competencias en la industria](https://www.gmvsolutions.es/blog/gestion-competencias-industria/)
+- [Onboarding software vs tradicional](https://www.gmvsolutions.es/blog/onboarding-vs-tradicional/)
+- [Documentar procesos de mecanizado CNC](https://www.gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/)
+- [Instrucciones de trabajo vs SOP](https://www.gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/)
+- [Plantilla de SOP de producción](https://www.gmvsolutions.es/blog/plantilla-sop-produccion/)
+- [Conocimiento tácito en el taller industrial](https://www.gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/)
+- [Reducir el onboarding de operarios de 5 a 1 día](https://www.gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/)
+- [Plan de contingencia ante bajas en producción](https://www.gmvsolutions.es/blog/plan-contingencia-bajas-produccion/)
+- [SOP de mantenimiento preventivo: guía y plantilla](https://www.gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/)
+- [Software SOP para fábricas: comparativa](https://www.gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
+- [Cómo saber la trazabilidad de un producto](https://www.gmvsolutions.es/blog/trazabilidad-de-un-producto/)
+- [Lean Manufacturing: qué es y cómo aplicarlo en una pyme](https://www.gmvsolutions.es/blog/lean-manufacturing/)
+- [Cómo digitalizar la producción en una pyme industrial](https://www.gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/)
+- [Onboarding digital en planta: cómo reducir los errores manuales](https://www.gmvsolutions.es/blog/onboarding-digital-errores-manuales/)
+- [Onboarding software para pymes: guía completa](https://www.gmvsolutions.es/blog/onboarding-software-pymes/)
 
 ### Landing pages de alto valor
-- [Onboarding software para pymes](https://gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
-- [Gestión de competencias](https://gmvsolutions.es/gestion-competencias/) — Cómo documentar, medir y mejorar competencias operativas
-- [Documentación de procesos industriales](https://gmvsolutions.es/documentacion-procesos/) — Por qué la documentación operativa es crítica en manufactura
+- [Onboarding software para pymes](https://www.gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales
+- [Gestión de competencias](https://www.gmvsolutions.es/gestion-competencias/) — Cómo documentar, medir y mejorar competencias operativas
+- [Documentación de procesos industriales](https://www.gmvsolutions.es/documentacion-procesos/) — Por qué la documentación operativa es crítica en manufactura
 
 ### Comparativas con competidores
-- [REELEVO vs Dozuki](https://gmvsolutions.es/vs-dozuki/) — Alternativa española a Dozuki para pymes industriales, sin cuentas de operario
-- [REELEVO vs Poka/IFS](https://gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
-- [REELEVO vs GembaDocs](https://gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
-- [REELEVO vs Knowby](https://gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
-- [REELEVO vs Excel y papel](https://gmvsolutions.es/vs-excel-papel/) — Por qué los SOPs en Excel/papel se quedan cortos en planta
-- [REELEVO vs MES tradicional](https://gmvsolutions.es/vs-mes-tradicional/) — Continuidad operativa ligera frente a la complejidad de un MES
+- [REELEVO vs Dozuki](https://www.gmvsolutions.es/vs-dozuki/) — Alternativa española a Dozuki para pymes industriales, sin cuentas de operario
+- [REELEVO vs Poka/IFS](https://www.gmvsolutions.es/vs-poka/) — SOP vs MES: cuándo elegir cada uno
+- [REELEVO vs GembaDocs](https://www.gmvsolutions.es/vs-gembadocs/) — Documentación operativa + gestión de competencias vs lean visual
+- [REELEVO vs Knowby](https://www.gmvsolutions.es/vs-knowby/) — SOP español especializado en industria vs sistema genérico
+- [REELEVO vs Excel y papel](https://www.gmvsolutions.es/vs-excel-papel/) — Por qué los SOPs en Excel/papel se quedan cortos en planta
+- [REELEVO vs MES tradicional](https://www.gmvsolutions.es/vs-mes-tradicional/) — Continuidad operativa ligera frente a la complejidad de un MES
 
 ## Comparativa de mercado (Software SOP industrial)
 
@@ -150,7 +150,7 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 
 GMV Solutions · España
 hola@gmvsolutions.es
-https://gmvsolutions.es
+https://www.gmvsolutions.es
 https://www.linkedin.com/company/reelevo
 
 ## Canales de contacto
@@ -162,17 +162,17 @@ https://www.linkedin.com/company/reelevo
 
 ## Recursos técnicos
 
-- **Documentación:** https://gmvsolutions.es/blog/
-- **Centro de ayuda:** https://gmvsolutions.es/recursos/
-- **Casos de éxito:** https://gmvsolutions.es/casos-de-uso/
-- **Comparativas:** https://gmvsolutions.es/vs-alternativas/
+- **Documentación:** https://www.gmvsolutions.es/blog/
+- **Centro de ayuda:** https://www.gmvsolutions.es/recursos/
+- **Casos de éxito:** https://www.gmvsolutions.es/casos-de-uso/
+- **Comparativas:** https://www.gmvsolutions.es/vs-alternativas/
 
 ## Formatos para agentes (markdown)
 
 Contenido en texto limpio (markdown), preferible al HTML para lectura por máquinas:
 
-- **Volcado completo (una sola petición):** https://gmvsolutions.es/llms-full.txt — este resumen + el contenido íntegro del blog en markdown.
-- **Cada artículo del blog en markdown:** añade `.md` a la URL del post. Ej.: https://gmvsolutions.es/blog/que-es-un-sop-industrial.md
+- **Volcado completo (una sola petición):** https://www.gmvsolutions.es/llms-full.txt — este resumen + el contenido íntegro del blog en markdown.
+- **Cada artículo del blog en markdown:** añade `.md` a la URL del post. Ej.: https://www.gmvsolutions.es/blog/que-es-un-sop-industrial.md
 
 ## Índice de palabras clave principales
 

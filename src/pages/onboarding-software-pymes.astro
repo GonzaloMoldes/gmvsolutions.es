@@ -5,6 +5,9 @@ import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Onboarding software para pymes industriales | REELEVO";
 const description = "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días.";
+// Era la unica pagina sin canonical explicito: heredaba el dominio del `site` de
+// astro.config, asi que al pasar el sitio a www se quedo apuntando al apex.
+const canonical = "https://www.gmvsolutions.es/onboarding-software-pymes/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
 const faqs: FaqItem[] = [
@@ -31,7 +34,7 @@ const pageSchema = {
   "@type": "SoftwareApplication",
   "name": "REELEVO - Onboarding Software",
   "description": description,
-  "url": "https://gmvsolutions.es/onboarding-software-pymes/",
+  "url": "https://www.gmvsolutions.es/onboarding-software-pymes/",
   "applicationCategory": "BusinessApplication",
   "offers": {
     "@type": "Offer",
@@ -44,7 +47,7 @@ const pageSchema = {
 const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
-<BaseLayout title={title} description={description} schema={schema} activeNav="">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Onboarding Software Especializado</div>

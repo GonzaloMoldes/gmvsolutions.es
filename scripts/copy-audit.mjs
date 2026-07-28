@@ -37,7 +37,7 @@ const ranked = walk(DIST, '.html')
   .sort((a, b) => b.words - a.words);
 
 console.log('\n=== 10 URLs con más texto visible (candidatas a detector IA) ===');
-ranked.slice(0, 10).forEach((r, i) => console.log(`  ${String(i + 1).padStart(2)}. ${String(r.words).padStart(5)} palabras  https://gmvsolutions.es${r.url}`));
+ranked.slice(0, 10).forEach((r, i) => console.log(`  ${String(i + 1).padStart(2)}. ${String(r.words).padStart(5)} palabras  https://www.gmvsolutions.es${r.url}`));
 
 // ── 2. Escaneo de tells sobre el codigo fuente ──
 const TELLS = [

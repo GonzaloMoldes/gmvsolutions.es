@@ -37,7 +37,7 @@ if (!recurso || !recurso.title) {
   return Astro.redirect('/404');
 }
 
-const pageUrl = `https://gmvsolutions.es/recursos/${slug}/`;
+const pageUrl = `https://www.gmvsolutions.es/recursos/${slug}/`;
 const title = recurso.title;
 const description = recurso.description ?? recurso.excerpt ?? 'Recurso operativo para pymes industriales.';
 const canonical = recurso.canonical ?? pageUrl;

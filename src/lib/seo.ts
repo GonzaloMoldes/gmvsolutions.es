@@ -3,7 +3,7 @@
 // Organization y BreadcrumbList sin duplicar JSON-LD en cada pagina.
 // Trazabilidad: Calendario Sprint 1, S1-C3 (schema base).
 
-export const BASE_URL = 'https://gmvsolutions.es';
+export const BASE_URL = 'https://www.gmvsolutions.es';
 
 // Organization unica del sitio (anclada por @id para que el resto de
 // nodos schema puedan referenciarla). Antes vivia solo en index.astro.
