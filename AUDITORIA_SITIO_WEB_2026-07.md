@@ -37,7 +37,7 @@ Los problemas serios no están en el SEO: están en **rendimiento percibido, med
 | 6. Confianza y credibilidad | 6/10 | Legales bien, pero sin contacto visible ni prueba social |
 | 7. Conversión y analítica | 4/10 | La instrumentación existe pero cubre el 41% de los CTAs |
 | 8. Accesibilidad | 4/10 | Fallos de nivel A: teclado, contraste, carrusel |
-| 9. Seguridad | 8/10 | Cabeceras ejemplares; falta *rate limiting* en el endpoint |
+| 9. Seguridad | 6/10 | Cabeceras ejemplares; 9 CVEs altos en dependencias de build y sin *rate limiting* |
 | 10. Cumplimiento legal | 6/10 | Textos correctos, inventario de cookies desactualizado |
 
 ---
@@ -289,7 +289,25 @@ Los enlaces de **aviso legal, privacidad y cookies** están entre lo peor contra
 | Certificado SSL válido y renovado automáticamente | ✅ OK | Gestionado por Vercel, renovación automática. HSTS con `preload`. |
 | Cabeceras de seguridad activas (CSP, HSTS, X-Frame-Options) | ✅ OK | Conjunto completo y bien afinado en [vercel.json](vercel.json): CSP con `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, más HSTS 2 años con `includeSubDomains; preload`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy` y `Permissions-Policy`. Por encima de la media del sector. Única observación: `script-src` incluye `'unsafe-inline'`, inevitable con GTM y Cookiebot pero conviene tenerlo presente. |
 | Backups periódicos y plan de recuperación | ✅ OK | Sitio estático versionado en Git y desplegado en Vercel: cada commit es un punto de restauración con *rollback* inmediato. Adecuado para un sitio sin base de datos. |
-| Plugins, librerías y dependencias actualizados | ✅ OK | Superficie mínima: 3 dependencias (`astro ^6.4.8`, `@astrojs/vercel 10.0.8`, `@sanity/client ^7.20.0`), todas al día. Build sin avisos. |
+| Plugins, librerías y dependencias actualizados | ❌ **Falla** | Las 3 dependencias directas están al día (`astro ^6.4.8`, `@astrojs/vercel 10.0.8`, `@sanity/client ^7.20.0`) y el build no da avisos, pero **el árbol transitivo acumula 11 vulnerabilidades, 9 de ellas altas**. Ver detalle. |
+
+### Vulnerabilidades en dependencias transitivas
+
+`npm audit` reporta **11 vulnerabilidades (9 altas, 1 moderada, 1 baja)**, todas heredadas — ninguna en las 3 dependencias directas:
+
+| Paquete | Severidad | Problema |
+|---|---|---|
+| `sharp` <0.35.0 | Alta | CVEs heredados de libvips (CVE-2026-33327/33328/35590/35591) |
+| `postcss` ≤8.5.17 | Alta | *Path traversal* al autocargar *source maps* → lectura arbitraria de `.map` |
+| `svgo` 4.0.0-4.0.1 | Alta | El plugin `removeScripts` deja scripts ejecutables intactos |
+| `path-to-regexp` (vía `@vercel/routing-utils`) | Alta | — |
+| `tar` ≤7.5.20 | Moderada | Desbordamiento de pila no capturable con rutas largas |
+
+**Matiz importante sobre el riesgo real:** todas son dependencias de **tiempo de compilación**, no de servicio. El sitio se genera estáticamente, así que este código **no se ejecuta atendiendo tráfico**: la exposición es el entorno de build, no la web publicada. No es «la web es vulnerable», es «la cadena de herramientas tiene CVEs conocidos».
+
+Dicho eso, no es descartable: `svgo` y `sharp` procesan imágenes y SVG durante el build, y ganan relevancia justo cuando se aborde el paso de las capturas a WebP/AVIF (Lote A), que es precisamente cuando `sharp` empezará a hacer trabajo real.
+
+`npm audit fix` resuelve `postcss`, `svgo`, `tar` y `path-to-regexp` sin romper nada. `sharp` requiere `astro@7.1.6`, que es un cambio mayor y merece su propia ventana.
 
 ### Puntos a reforzar
 
@@ -364,6 +382,7 @@ Ordenado como pide la guía: primero confianza y conversión, después SEO y ren
 | 14 | Citar la fuente de los tres datos de la home | 1 h | 5 |
 | 15 | `aria-expanded` + `aria-controls` en los 20 acordeones de `/faqs/` | 1 h | 8 |
 | 16 | Verificar en GTM que no hay doble `page_view` con gtag directo | 30 min | 7 |
+| 16b | `npm audit fix` (resuelve 4 de las 5 vulnerabilidades sin romper nada) | 15 min | 9 |
 
 ### P2 — Próximo trimestre
 
