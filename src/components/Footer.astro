@@ -39,6 +39,19 @@ const year = new Date().getFullYear();
       <a href="/blog/">Blog</a>
       <a href="/sobre-nosotros/">Sobre nosotros</a>
     </div>
+
+    <div class="footer-col footer-col--contacto">
+      <div class="footer-col-title">Contacto</div>
+      <a
+        href="mailto:hola@gmvsolutions.es"
+        data-cta data-cta-intent="contacto" data-cta-location="footer_contacto" data-cta-label="hola@gmvsolutions.es"
+      >hola@gmvsolutions.es</a>
+      <address class="footer-address">
+        GMV Solutions<br />
+        Rua Marola, 15002<br />
+        A Coruña, España
+      </address>
+    </div>
   </nav>
 
   <div class="footer">
@@ -82,8 +95,12 @@ const year = new Date().getFullYear();
     margin: 0 auto;
     padding: 48px 32px 8px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 32px 24px;
+  }
+
+  @media (max-width: 1000px) {
+    .footer-nav { grid-template-columns: repeat(3, 1fr); }
   }
 
   @media (max-width: 760px) {
@@ -114,6 +131,14 @@ const year = new Date().getFullYear();
   }
 
   .footer-col a:hover { color: var(--white); }
+
+  /* <address> viene en cursiva por defecto en el navegador. */
+  .footer-address {
+    font-style: normal;
+    font-size: .82rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
 
   .footer-legal {
     width: 100%;

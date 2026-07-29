@@ -82,12 +82,14 @@ a:hover{color:var(--orange-hover);}
 
 /* ── HEADER ── */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.header-logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-decoration:none;}
-.header-logo span{color:var(--orange);}
+.header-logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);text-decoration:none;}
+.header-logo span{color:var(--white);}
 .header-nav{display:flex;align-items:center;gap:28px;}
 .header-nav > a,.header-nav .nav-dropdown > .nav-dropdown-trigger{font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:var(--gray);text-decoration:none;letter-spacing:.02em;transition:color .2s;cursor:pointer;background:none;border:none;padding:0;display:inline-flex;align-items:center;gap:5px;}
 .header-nav > a:hover,.header-nav .nav-dropdown:hover > .nav-dropdown-trigger{color:var(--white);}
-.header-nav > a.nav-active{color:var(--orange);}
+/* El resaltado aplica tanto a los enlaces sueltos como al disparador de un
+   desplegable (un <span>), que es como se marca "Recursos"/"Blog". */
+.header-nav > a.nav-active,.header-nav .nav-dropdown > .nav-dropdown-trigger.nav-active{color:var(--orange);}
 .nav-dropdown{position:relative;}
 .nav-dropdown-trigger svg{width:10px;height:10px;fill:currentColor;transition:transform .2s;}
 .nav-dropdown:hover .nav-dropdown-trigger svg{transform:rotate(180deg);}
