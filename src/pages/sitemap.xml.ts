@@ -89,6 +89,7 @@ export async function GET() {
     page('/blog/trazabilidad-de-un-producto/', '0.75', 'monthly', '2026-06-26'),
     page('/blog/lean-manufacturing/', '0.8', 'monthly', '2026-06-29'),
     page('/blog/digitalizar-produccion-pyme-industrial/', '0.8', 'monthly', '2026-07-01'),
+    page('/blog/errores-humanos-produccion/', '0.8', 'monthly', '2026-07-30'),
 
     // /recursos/gestion-competencias-industria/, /recursos/onboarding-software-pymes/ y
     // /recursos/onboarding-vs-tradicional/ NO van en el sitemap: canonicalizan a su
