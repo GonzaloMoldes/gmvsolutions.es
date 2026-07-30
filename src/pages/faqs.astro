@@ -534,12 +534,32 @@ const faqSchema = {
 </style>
 
 <script>
-  document.querySelectorAll('.faq-question').forEach(button => {
+  // Las relaciones ARIA se cablean aqui y no en el marcado para no repetir
+  // ids a mano en 20 bloques. Sin aria-expanded, un lector de pantalla anuncia
+  // los 20 botones igual esten abiertos o cerrados (fallo WCAG 4.1.2).
+  const questions = document.querySelectorAll<HTMLButtonElement>('.faq-question');
+
+  questions.forEach((button, index) => {
+    const item = button.closest('.faq-item');
+    const answer = item?.querySelector('.faq-answer');
+    if (answer) {
+      answer.id = answer.id || `faq-answer-${index + 1}`;
+      button.setAttribute('aria-controls', answer.id);
+    }
+    button.setAttribute('aria-expanded', 'false');
+
     button.addEventListener('click', () => {
-      const item = button.closest('.faq-item');
-      const isOpen = item?.classList.contains('open');
+      const wasOpen = item?.classList.contains('open');
+      // Es un acordeon de uno en uno: al abrir cualquiera se cierran los demas,
+      // asi que hay que devolver TODOS los aria-expanded a false, no solo el
+      // del que se pulsa.
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item?.classList.add('open');
+      questions.forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      if (!wasOpen) {
+        item?.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 </script>

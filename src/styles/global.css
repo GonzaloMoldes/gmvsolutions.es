@@ -17,7 +17,12 @@
   --border-hover: rgba(255,255,255,0.12);
   --white:   #F5F5F5;
   --gray:    rgba(255,255,255,0.55);
-  --gray2:   rgba(255,255,255,0.30);
+  /* 0.30 daba 2,7:1 sobre --surface, por debajo del 4,5:1 que pide WCAG AA para
+     texto normal, y se usa en sitio delicado: enlaces legales del footer, notas
+     de CTA, subetiquetas del menu y migas de pan, casi todo a 11-12px. A 0.48
+     queda en ~5,0:1 sobre --surface y ~4,7:1 sobre el fondo mas claro que
+     usamos (--surface3), asi que cumple en todos los fondos del sistema. */
+  --gray2:   rgba(255,255,255,0.48);
   --green:   #22C55E;
   --red:     #EF4444;
   --entry-logo-zoom: 4.8;
@@ -86,15 +91,27 @@ a:hover{color:var(--orange-hover);}
 .header-logo span{color:var(--white);}
 .header-nav{display:flex;align-items:center;gap:28px;}
 .header-nav > a,.header-nav .nav-dropdown > .nav-dropdown-trigger{font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:var(--gray);text-decoration:none;letter-spacing:.02em;transition:color .2s;cursor:pointer;background:none;border:none;padding:0;display:inline-flex;align-items:center;gap:5px;}
-.header-nav > a:hover,.header-nav .nav-dropdown:hover > .nav-dropdown-trigger{color:var(--white);}
+.header-nav > a:hover,.header-nav .nav-dropdown:hover > .nav-dropdown-trigger,.header-nav .nav-dropdown:focus-within > .nav-dropdown-trigger{color:var(--white);}
+/* Indicador de foco propio para la navegacion: el anillo por defecto del
+   navegador se pierde sobre un fondo casi negro, y sin foco visible poder
+   tabular por el menu no sirve de mucho. */
+.header-nav a:focus-visible,.nav-dropdown-trigger:focus-visible,.nav-dropdown-menu a:focus-visible,.header-cta:focus-visible,.header-diag:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:2px;}
 /* El resaltado aplica tanto a los enlaces sueltos como al disparador de un
    desplegable (un <span>), que es como se marca "Recursos"/"Blog". */
 .header-nav > a.nav-active,.header-nav .nav-dropdown > .nav-dropdown-trigger.nav-active{color:var(--orange);}
 .nav-dropdown{position:relative;}
 .nav-dropdown-trigger svg{width:10px;height:10px;fill:currentColor;transition:transform .2s;}
-.nav-dropdown:hover .nav-dropdown-trigger svg{transform:rotate(180deg);}
+.nav-dropdown:hover .nav-dropdown-trigger svg,.nav-dropdown:focus-within .nav-dropdown-trigger svg{transform:rotate(180deg);}
 .nav-dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(19,19,19,1);border:1px solid var(--border);border-radius:4px;padding:8px 0;min-width:240px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s;transform:translateX(-50%) translateY(-4px);pointer-events:none;box-shadow:0 12px 40px rgba(0,0,0,.5);}
-.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto;}
+/* :focus-within ademas de :hover. El menu cerrado lleva visibility:hidden, que
+   saca sus enlaces del orden de tabulacion: con solo :hover, los 24 enlaces de
+   Plataforma y Soluciones eran inalcanzables con teclado en escritorio (fallo
+   WCAG 2.1.1, nivel A). Al enfocar el boton disparador se abre el menu y sus
+   enlaces vuelven a ser tabulables. */
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto;}
+/* Escape cierra el desplegable. Va DESPUES de la regla de :focus-within y con
+   la misma especificidad (tres clases), para poder ganarle por orden. */
+.nav-dropdown.is-dismissed .nav-dropdown-menu{opacity:0;visibility:hidden;pointer-events:none;}
 .nav-dropdown-menu::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px;}
 .nav-dropdown-menu a{display:block;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:400;color:var(--gray);text-decoration:none;transition:all .15s;}
 .nav-dropdown-menu a:hover{color:var(--white);background:rgba(255,255,255,.04);}
@@ -141,7 +158,9 @@ a:hover{color:var(--orange-hover);}
    el atributo height actua como hint de presentacion: sin el auto, la imagen
    se estira a esa altura fija. */
 .screenshot-frame img,.proof-frame img,.screenshot-fig img{width:100%;height:auto;display:block;}
-.screenshot-caption{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px;display:block;}
+/* .55 y no .35: a 10px el pie de una captura es texto normal a efectos de WCAG,
+   y .35 se quedaba en 3,2:1. */
+.screenshot-caption{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px;display:block;}
 @media(max-width:640px){.screenshot-pair{grid-template-columns:1fr;}}
 .mobile-cta-group a{border-bottom:none !important;padding:0 !important;}
 

@@ -1,0 +1,136 @@
+---
+// Pagina 404 con marca y salidas utiles. Antes no existia ninguna, asi que
+// cualquier enlace roto, URL antigua o error de tecleo caia en la pagina
+// generica de Vercel: sin cabecera, sin navegacion y sin forma de volver.
+// noindex porque una pagina de error no debe aparecer en resultados; el codigo
+// 404 lo emite el propio Vercel al servir este archivo.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Página no encontrada (404) — REELEVO";
+const description = "La página que buscas no existe o ha cambiado de dirección. Encuentra aquí las secciones principales de REELEVO.";
+---
+
+<BaseLayout title={title} description={description} noindex={true} activeNav="">
+  <section class="page-hero">
+    <div class="eyebrow">Error 404</div>
+    <h1>Esta página <em>no existe</em></h1>
+    <p>
+      O la dirección ha cambiado, o el enlace que has seguido está roto. No es culpa tuya.
+      Te dejamos por dónde seguir.
+    </p>
+    <div class="hero-cta-group">
+      <a href="/" class="btn-primary" data-cta data-cta-intent="navegacion" data-cta-location="404" data-cta-label="Volver al inicio">Volver al inicio</a>
+      <a href="/como-funciona/" class="btn-ghost" data-cta data-cta-intent="producto" data-cta-location="404" data-cta-label="Como funciona">Cómo funciona REELEVO</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="notfound-grid">
+        <a class="notfound-card" href="/documentacion-procesos/">
+          <div class="notfound-kicker">Plataforma</div>
+          <div class="notfound-title">Documentación de procesos</div>
+          <div class="notfound-desc">SOPs y checklists con una sola versión vigente, accesibles en el puesto.</div>
+        </a>
+        <a class="notfound-card" href="/gestion-competencias/">
+          <div class="notfound-kicker">Plataforma</div>
+          <div class="notfound-title">Gestión de competencias</div>
+          <div class="notfound-desc">Quién está capacitado para qué, y dónde falta refuerzo.</div>
+        </a>
+        <a class="notfound-card" href="/precios/">
+          <div class="notfound-kicker">Precios</div>
+          <div class="notfound-title">Planes y precios</div>
+          <div class="notfound-desc">Precio publicado por empresa, sin llamada comercial previa.</div>
+        </a>
+        <a class="notfound-card" href="/blog/">
+          <div class="notfound-kicker">Blog</div>
+          <div class="notfound-title">Guías y análisis</div>
+          <div class="notfound-desc">Documentación operativa, onboarding y continuidad en planta.</div>
+        </a>
+        <a class="notfound-card" href="/casos-de-uso/onboarding-operarios/">
+          <div class="notfound-kicker">Caso de uso</div>
+          <div class="notfound-title">Onboarding de operarios</div>
+          <div class="notfound-desc">Incorporaciones con el proceso delante, sin saturar al tutor.</div>
+        </a>
+        <a class="notfound-card" href="/faqs/">
+          <div class="notfound-kicker">Dudas</div>
+          <div class="notfound-title">Preguntas frecuentes</div>
+          <div class="notfound-desc">Implantación, precios, integraciones y límites reales.</div>
+        </a>
+      </div>
+
+      <p class="notfound-help">
+        ¿Buscabas algo que no está aquí? Escríbenos a
+        <a href="mailto:hola@gmvsolutions.es" data-cta data-cta-intent="contacto" data-cta-location="404" data-cta-label="hola@gmvsolutions.es">hola@gmvsolutions.es</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .notfound-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 26px;
+    text-decoration: none;
+    display: block;
+    transition: border-color .25s, transform .25s;
+  }
+
+  .notfound-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .notfound-card:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+  }
+
+  .notfound-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .notfound-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .notfound-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .notfound-help {
+    margin-top: 40px;
+    text-align: center;
+    font-size: .9rem;
+    color: var(--gray);
+  }
+
+  @media (max-width: 900px) {
+    .notfound-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .notfound-grid { grid-template-columns: 1fr; }
+  }
+</style>

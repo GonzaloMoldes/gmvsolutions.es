@@ -15,10 +15,10 @@ const { activeNav } = Astro.props;
 
     <!-- PLATAFORMA — mega-menu 2 columnas -->
     <div class="nav-dropdown nav-mega">
-      <span class="nav-dropdown-trigger">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
         Plataforma
-        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
-      </span>
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+      </button>
       <div class="nav-dropdown-menu nav-mega-menu">
         <div class="mega-col">
           <div class="mega-col-title">Gestión y operaciones</div>
@@ -91,10 +91,10 @@ const { activeNav } = Astro.props;
 
     <!-- SOLUCIONES — casos de uso + para quién fusionados -->
     <div class="nav-dropdown nav-mega">
-      <span class="nav-dropdown-trigger">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
         Soluciones
-        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
-      </span>
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+      </button>
       <div class="nav-dropdown-menu nav-mega-menu">
         <div class="mega-col">
           <div class="mega-col-title">Por caso de uso</div>
@@ -141,10 +141,15 @@ const { activeNav } = Astro.props;
 
     <!-- RECURSOS — dropdown con Blog -->
     <div class="nav-dropdown">
-      <span class={`nav-dropdown-trigger${activeNav === 'recursos' || activeNav === 'blog' ? ' nav-active' : ''}`}>
+      <button
+        type="button"
+        class={`nav-dropdown-trigger${activeNav === 'recursos' || activeNav === 'blog' ? ' nav-active' : ''}`}
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
         Recursos
-        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4"/></svg>
-      </span>
+        <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+      </button>
       <div class="nav-dropdown-menu">
         <a href="/recursos/">
           Recursos
@@ -260,6 +265,42 @@ const { activeNav } = Astro.props;
   // dentro de la misma pagina, donde no hay recarga que lo cierre por si sola).
   menu?.addEventListener('click', (e) => {
     if ((e.target as HTMLElement).closest('a')) setMobileMenu(false);
+  });
+
+  // ── Desplegables de escritorio ──
+  // Abrir y cerrar los gestiona el CSS (:hover y :focus-within); aqui solo
+  // mantenemos aria-expanded en sintonia con lo que se ve, y anadimos Escape,
+  // que es lo que espera cualquiera que navegue con teclado.
+  document.querySelectorAll<HTMLElement>('.nav-dropdown').forEach((dropdown) => {
+    const trigger = dropdown.querySelector<HTMLButtonElement>('.nav-dropdown-trigger');
+    if (!trigger) return;
+
+    const sync = (open: boolean) => trigger.setAttribute('aria-expanded', String(open));
+
+    dropdown.addEventListener('mouseenter', () => sync(true));
+    dropdown.addEventListener('mouseleave', () => sync(false));
+    dropdown.addEventListener('focusin', () => {
+      dropdown.classList.remove('is-dismissed');
+      sync(true);
+    });
+    dropdown.addEventListener('focusout', (e) => {
+      // Solo se cierra si el foco sale del desplegable entero, no al saltar
+      // de un enlace a otro dentro del propio menu.
+      if (!dropdown.contains(e.relatedTarget as Node)) {
+        dropdown.classList.remove('is-dismissed');
+        sync(false);
+      }
+    });
+
+    dropdown.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      // Hace falta la clase: al devolver el foco al disparador seguiriamos
+      // dentro del :focus-within que abre el menu, asi que sin desarmarlo
+      // Escape no cerraria nada. Se rearma en cuanto el foco vuelve a entrar.
+      dropdown.classList.add('is-dismissed');
+      sync(false);
+      trigger.focus();
+    });
   });
 </script>
 
