@@ -130,12 +130,17 @@ a:hover{color:var(--orange-hover);}
 .screenshot-single{margin-top:32px;max-width:900px;}
 .screenshot-fig{margin:0;}
 .screenshot-img{width:100%;height:auto;border-radius:6px;border:1px solid var(--border);display:block;box-shadow:0 4px 24px rgba(0,0,0,.5);}
-/* <Screenshot> emite width/height intrinsecos (necesarios para que el navegador
-   reserve el hueco y no haya CLS). El atributo height actua como hint de
-   presentacion, asi que sin un height:auto explicito la imagen se estira a esa
-   altura fija y sale deformada. Red de seguridad para los contenedores que
-   declaran width:100% en su CSS de pagina. */
-.proof-frame img,.screenshot-fig img,.screenshot-frame img{height:auto;}
+/* Dimensionado de las capturas, OBLIGATORIAMENTE aqui y no en el <style> de
+   cada pagina. El <img> lo genera <Picture> (astro:assets), asi que no recibe
+   el data-astro-cid de la pagina que lo invoca: una regla scoped como
+   `.screenshot-frame img` se compila a `img[data-astro-cid-xxx]` y deja de
+   casar, con lo que la imagen sale a su tamano intrinseco (1869px) y desborda
+   el frame.
+   height:auto es imprescindible ademas porque <Picture> emite width/height
+   intrinsecos (los necesita el navegador para reservar hueco y evitar CLS) y
+   el atributo height actua como hint de presentacion: sin el auto, la imagen
+   se estira a esa altura fija. */
+.screenshot-frame img,.proof-frame img,.screenshot-fig img{width:100%;height:auto;display:block;}
 .screenshot-caption{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px;display:block;}
 @media(max-width:640px){.screenshot-pair{grid-template-columns:1fr;}}
 .mobile-cta-group a{border-bottom:none !important;padding:0 !important;}
@@ -375,14 +380,20 @@ a:hover{color:var(--orange-hover);}
 /* ── E-goi: formulario embebido ──
    El script de Connected Sites inyecta el formulario en un <iframe> al que le
    pone width:100% en estilo inline, asi que ocupaba todo el ancho de la pagina.
-   max-width gana sobre width, y atacamos el iframe por su src en lugar de por
-   el contenedor .eg-embed-<hash> porque ese hash cambia con cada formulario.
+   Ancho FIJO y centrado: 480px, que es lo que pide un formulario de una sola
+   linea de email. Va con !important porque hay que ganarle al width:100% que
+   el script escribe en el estilo inline del iframe (una regla de autor con
+   !important si prevalece sobre un estilo inline sin el).
+   El selector busca 'egoi' a secas, y no 'egoi.page', para que siga valiendo
+   si E-goi sirve el formulario desde otro de sus dominios; y ataca al iframe
+   en vez de al contenedor .eg-embed-<hash> porque ese hash cambia con cada
+   formulario que se cree en el panel.
    Nota: el script pasa egParentWidth=window.innerWidth al iframe, asi que el
    formulario maqueta su interior segun el ancho de VENTANA, no el del hueco.
-   Si el contenido interior queda apretado, el ancho hay que ajustarlo tambien
+   Si el contenido interior queda descuadrado, el ancho hay que fijarlo tambien
    en el panel de E-goi. */
-iframe[src*='egoi.page']{max-width:50%;margin-left:auto;margin-right:auto;display:block;}
-@media(max-width:768px){iframe[src*='egoi.page']{max-width:100%;}}
+iframe[src*='egoi']{width:min(480px,92vw)!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;display:block!important;}
+[class*='eg-embed-']{max-width:min(480px,92vw)!important;margin-left:auto!important;margin-right:auto!important;}
 
 /* Microcaso ilustrativo por rol (Sprint 3) */
 .micro-case{max-width:720px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:6px;padding:28px 32px;text-align:left;}
