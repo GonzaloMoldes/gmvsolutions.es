@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Gestion de competencias industriales para pymes | REELEVO";
 const description = "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.";
@@ -247,11 +248,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="screenshot-pair fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/equipo-operaciones.png" alt="Panel de equipo de operaciones en REELEVO: procesos completados, minutos acumulados y última actividad por operario" class="screenshot-img" loading="lazy" />
+          <Screenshot name="equipo-operaciones" alt="Panel de equipo de operaciones en REELEVO: procesos completados, minutos acumulados y última actividad por operario" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Panel de equipo — actividad y procesos completados por operario</figcaption>
         </figure>
         <figure class="screenshot-fig">
-          <img src="/screenshots/competencias-operario.png" alt="Detalle de competencias de un operario en REELEVO: certificaciones activas, en proceso y caducadas" class="screenshot-img" loading="lazy" />
+          <Screenshot name="competencias-operario" alt="Detalle de competencias de un operario en REELEVO: certificaciones activas, en proceso y caducadas" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Detalle de competencias — certificaciones activas con fecha de expiración</figcaption>
         </figure>
       </div>

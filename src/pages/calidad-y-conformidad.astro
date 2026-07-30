@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Trazabilidad operativa de calidad industrial | REELEVO";
 const description = "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de papeles ni memoria.";
@@ -82,7 +83,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="proof-grid fade-up delay-1">
         <div class="proof-card proof-shot">
           <div class="proof-frame">
-            <img src="/screenshots/admin-dashboard.png" alt="Panel empresa REELEVO para seguimiento operativo" loading="lazy">
+            <Screenshot name="admin-dashboard" alt="Panel empresa REELEVO para seguimiento operativo" layout="pair" />
           </div>
           <div class="proof-caption">Panel empresa: procesos, puestos y seguimiento interno en un solo lugar.</div>
         </div>

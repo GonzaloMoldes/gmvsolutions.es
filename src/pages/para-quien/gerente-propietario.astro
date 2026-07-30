@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Screenshot from '../../components/Screenshot.astro';
 
 const title = "Software operaciones pyme industrial para gerencia | REELEVO";
 const description = "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa.";
@@ -56,7 +57,7 @@ const schema = {
       <div class="proof-grid fade-up delay-1">
         <div class="proof-card proof-shot">
           <div class="proof-frame">
-            <img src="/screenshots/sop-operario.png" alt="Acceso al proceso desde el puesto en REELEVO" loading="lazy">
+            <Screenshot name="sop-operario" alt="Acceso al proceso desde el puesto en REELEVO" layout="pair" />
           </div>
           <div class="proof-caption">Captura real del producto: el trabajo aparece en el puesto sin añadir fricción al operario.</div>
         </div>

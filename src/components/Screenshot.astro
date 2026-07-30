@@ -1,0 +1,74 @@
+---
+// Capturas del producto servidas por el pipeline de imagen de Astro.
+//
+// Antes vivian en public/screenshots/ y se referenciaban con <img src="/...">,
+// asi que se entregaban tal cual: PNG de ~1865px de ancho (hasta 829 KB) para
+// mostrarse a 530-1040px, sin width/height y sin formatos modernos. Solo el
+// carrusel de la home sumaba ~3,0 MB.
+//
+// Al importarlas desde src/assets, <Picture> genera AVIF + WebP en varios
+// anchos y emite width/height, que ademas elimina el CLS de la carga.
+//
+// El glob es eager a proposito: resuelve en build, no en cliente, y permite
+// que las paginas pidan una captura por nombre sin importarla una a una.
+import { Picture } from 'astro:assets';
+
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/screenshots/*.png',
+  { eager: true },
+);
+
+// Mapa nombre -> metadatos, para poder pedir <Screenshot name="admin-dashboard" />
+const byName = new Map<string, ImageMetadata>(
+  Object.entries(files).map(([path, mod]) => [
+    path.split('/').pop()!.replace(/\.png$/, ''),
+    mod.default,
+  ]),
+);
+
+export interface Props {
+  /** Nombre del archivo sin extension, p. ej. "admin-dashboard". */
+  name: string;
+  /** Texto alternativo. Obligatorio: estas capturas son informativas. */
+  alt: string;
+  /** Clase del <img> resultante (p. ej. "screenshot-img"). */
+  class?: string;
+  /**
+   * Contexto de maquetacion, para calcular `sizes`:
+   *   full  — carrusel de la home, ancho del contenedor (~1040px)
+   *   pair  — dos columnas (~530px)
+   *   single— bloque unico (max 900px)
+   */
+  layout?: 'full' | 'pair' | 'single';
+  /** Por defecto lazy; usar "eager" solo si la captura esta sobre el pliegue. */
+  loading?: 'lazy' | 'eager';
+}
+
+const { name, alt, class: className, layout = 'single', loading = 'lazy' } = Astro.props;
+
+const image = byName.get(name);
+if (!image) {
+  throw new Error(
+    `<Screenshot name="${name}"> no existe en src/assets/screenshots/. ` +
+      `Disponibles: ${[...byName.keys()].join(', ')}`,
+  );
+}
+
+const SIZES = {
+  full: '(max-width: 1100px) 100vw, 1040px',
+  pair: '(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 530px',
+  single: '(max-width: 940px) 100vw, 900px',
+} as const;
+---
+
+<Picture
+  src={image}
+  alt={alt}
+  class={className}
+  loading={loading}
+  decoding="async"
+  widths={[480, 960, 1440]}
+  sizes={SIZES[layout]}
+  formats={['avif', 'webp']}
+  fallbackFormat="png"
+/>

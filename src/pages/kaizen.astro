@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Kaizen y mejora continua en planta industrial | REELEVO";
 const description = "Kaizen digital para la mejora continua operativa: captura ideas de los operarios en el puesto, prioriza, implementa y estandariza en planta industrial.";
@@ -190,7 +191,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="screenshot-single fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/editor-workflows.png" alt="Panel Kaizen Digital en REELEVO con propuestas y detalle de acción correctiva" class="screenshot-img" loading="lazy" />
+          <Screenshot name="editor-workflows" alt="Panel Kaizen Digital en REELEVO con propuestas y detalle de acción correctiva" class="screenshot-img" layout="single" />
           <figcaption class="screenshot-caption">Panel Kaizen Digital — vista Kanban de propuestas con detalle de causa raíz y acciones correctivas</figcaption>
         </figure>
       </div>

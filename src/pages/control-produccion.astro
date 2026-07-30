@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Control y gestión de producción en pyme industrial | REELEVO";
 const description = "Control de producción: registra por operario y máquina, detecta paradas con causa y revisa KPIs diarios sin papel ni Excel.";
@@ -194,11 +195,11 @@ const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 
       <div class="screenshot-pair fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/monitor-actividad.png" alt="Monitor de operarios en tiempo real en REELEVO: quién está en proceso, en qué máquina y cuánto tiempo llevan" class="screenshot-img" loading="lazy" />
+          <Screenshot name="monitor-actividad" alt="Monitor de operarios en tiempo real en REELEVO: quién está en proceso, en qué máquina y cuánto tiempo llevan" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Monitor en tiempo real — estado de cada operario y máquina activa</figcaption>
         </figure>
         <figure class="screenshot-fig">
-          <img src="/screenshots/analitica-productividad.png" alt="Dashboard de analítica de productividad en REELEVO: top operarios, resumen por proceso, unidades y duración media" class="screenshot-img" loading="lazy" />
+          <Screenshot name="analitica-productividad" alt="Dashboard de analítica de productividad en REELEVO: top operarios, resumen por proceso, unidades y duración media" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Analítica de productividad — ranking de operarios y rendimiento por proceso</figcaption>
         </figure>
       </div>
@@ -276,11 +277,11 @@ const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 
       <div class="screenshot-pair fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/planificacion-semanal.png" alt="Vista de planificación semanal en REELEVO: calendario con asignaciones por operario y día" class="screenshot-img" loading="lazy" />
+          <Screenshot name="planificacion-semanal" alt="Vista de planificación semanal en REELEVO: calendario con asignaciones por operario y día" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Planificación semanal — asignaciones por operario y turno</figcaption>
         </figure>
         <figure class="screenshot-fig">
-          <img src="/screenshots/detalle-procesos.png" alt="Registro detallado de ejecuciones en REELEVO: proceso, operario, fecha, duración, pasos y firmas" class="screenshot-img" loading="lazy" />
+          <Screenshot name="detalle-procesos" alt="Registro detallado de ejecuciones en REELEVO: proceso, operario, fecha, duración, pasos y firmas" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Registro de ejecuciones — trazabilidad completa por proceso y operario</figcaption>
         </figure>
       </div>

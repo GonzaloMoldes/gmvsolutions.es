@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Workflows operativos industriales | REELEVO";
 const description = "Flujos de trabajo multi-paso y multi-operario con editor visual: aprobaciones, checkpoints y ramas paralelas para lo que supera un SOP simple.";
@@ -149,7 +150,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="screenshot-single fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/kaizen-panel.png" alt="Editor visual de workflows en REELEVO con paleta de nodos" class="screenshot-img" loading="lazy" />
+          <Screenshot name="kaizen-panel" alt="Editor visual de workflows en REELEVO con paleta de nodos" class="screenshot-img" layout="single" />
           <figcaption class="screenshot-caption">Editor visual de workflows — paleta de nodos: operación, decisión, aprobación, bifurcación, demora, validación</figcaption>
         </figure>
       </div>

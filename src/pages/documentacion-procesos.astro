@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Screenshot from '../components/Screenshot.astro';
 
 const title = "Documentación y gestión de procesos industriales para pymes | REELEVO";
 const description = "Documentación de procesos: SOPs estandarizados en el puesto para reducir errores, acelerar el onboarding y sostener la continuidad operativa.";
@@ -148,11 +149,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="screenshot-pair fade-up delay-2">
         <figure class="screenshot-fig">
-          <img src="/screenshots/sop-operario.png" alt="Vista del operario ejecutando un SOP en REELEVO: paso a paso con vídeo, confirmación y botón de incidencia" class="screenshot-img" loading="lazy" />
+          <Screenshot name="sop-operario" alt="Vista del operario ejecutando un SOP en REELEVO: paso a paso con vídeo, confirmación y botón de incidencia" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Vista del operario — SOP paso a paso con vídeo integrado y confirmación de cada paso</figcaption>
         </figure>
         <figure class="screenshot-fig">
-          <img src="/screenshots/gestion-productos-procesos.png" alt="Gestión de productos y procesos en REELEVO: lista de productos con secuencias de procesos por máquina" class="screenshot-img" loading="lazy" />
+          <Screenshot name="gestion-productos-procesos" alt="Gestión de productos y procesos en REELEVO: lista de productos con secuencias de procesos por máquina" class="screenshot-img" layout="pair" />
           <figcaption class="screenshot-caption">Gestión de productos — secuencias de procesos por máquina y producto</figcaption>
         </figure>
       </div>
