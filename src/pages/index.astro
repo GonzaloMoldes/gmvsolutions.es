@@ -76,11 +76,6 @@ const schema = [
         "@type": "RegisterAction",
         "name": "Registrarse en REELEVO",
         "target": "https://app.gmvsolutions.es/registro"
-      },
-      {
-        "@type": "AssessAction",
-        "name": "Diagnóstico de riesgo operativo",
-        "target": "https://diagnostico.gmvsolutions.es"
       }
     ]
   }
@@ -103,8 +98,6 @@ const schema = [
     <div class="hero-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
-         data-cta data-cta-intent="diagnostico" data-cta-location="hero" data-cta-label="Evaluar mi situacion">Evaluar mi situación</a>
     </div>
     <div class="hero-proof fade-up delay-4">
       <div class="hero-proof-item">
@@ -244,16 +237,6 @@ const schema = [
             </div>
           </div>
         </div>
-
-        <div class="dolor-cta fade-up delay-2">
-          <a href="https://diagnostico.gmvsolutions.es" class="btn-primary"
-             data-cta data-cta-intent="diagnostico" data-cta-location="body" data-cta-label="Evaluar mi situacion">
-            Evaluar mi situación →
-          </a>
-          <div class="dolor-cta-note">
-            Calculadora gratuita · Resultado en 2 minutos
-          </div>
-        </div>
       </div>
     </section>
 
@@ -317,10 +300,6 @@ const schema = [
            data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
           Registrarme en REELEVO
         </a>
-        <a href="https://diagnostico.gmvsolutions.es" class="btn-ghost"
-           data-cta data-cta-intent="diagnostico" data-cta-location="footer" data-cta-label="Evaluar mi situacion">
-          Evaluar mi situación →
-        </a>
       </div>
       <div class="cta-note fade-up delay-4">
         Precio claro · Arranque guiado · Decisión basada en tu operativa real
@@ -352,18 +331,6 @@ const schema = [
     margin: 0 auto;
   }
 
-  .dolor-cta {
-    text-align: center;
-    margin-top: 48px;
-  }
-  .dolor-cta-note {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--gray2);
-    margin-top: 16px;
-  }
 
   .steps-cta {
     text-align: center;

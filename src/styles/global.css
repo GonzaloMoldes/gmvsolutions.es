@@ -95,7 +95,7 @@ a:hover{color:var(--orange-hover);}
 /* Indicador de foco propio para la navegacion: el anillo por defecto del
    navegador se pierde sobre un fondo casi negro, y sin foco visible poder
    tabular por el menu no sirve de mucho. */
-.header-nav a:focus-visible,.nav-dropdown-trigger:focus-visible,.nav-dropdown-menu a:focus-visible,.header-cta:focus-visible,.header-diag:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:2px;}
+.header-nav a:focus-visible,.nav-dropdown-trigger:focus-visible,.nav-dropdown-menu a:focus-visible,.header-cta:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:2px;}
 /* El resaltado aplica tanto a los enlaces sueltos como al disparador de un
    desplegable (un <span>), que es como se marca "Recursos"/"Blog". */
 .header-nav > a.nav-active,.header-nav .nav-dropdown > .nav-dropdown-trigger.nav-active{color:var(--orange);}
@@ -127,8 +127,6 @@ a:hover{color:var(--orange-hover);}
 .header-cta:hover{background:var(--orange-hover);color:#fff;}
 .header-cta:visited{color:#fff;}
 .header-right{display:flex;align-items:center;gap:12px;}
-.header-diag{font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:400;color:var(--gray);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
-.header-diag:hover{color:var(--white);}
 
 /* ── HAMBURGER + MOBILE ── */
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px;align-items:center;justify-content:center;width:32px;height:32px;}
@@ -379,7 +377,7 @@ a:hover{color:var(--orange-hover);}
   .caso{padding:36px 32px;}
 }
 @media(max-width:900px){
-  .header-nav{display:none;}.header-right .header-diag{display:none;}.hamburger{display:flex;}
+  .header-nav{display:none;}.hamburger{display:flex;}
   .casos,.steps-grid,.perfiles-grid{grid-template-columns:1fr;}
   .benefits-grid{grid-template-columns:1fr 1fr;}
 }
