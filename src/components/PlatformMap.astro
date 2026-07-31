@@ -1,0 +1,730 @@
+---
+// Mapa interactivo de la plataforma: el ciclo operativo en cuatro fases, con
+// los 14 modulos de producto enlazados y recorrible por caso de uso real.
+//
+// Sustituye al carrusel de capturas de la home. Se hace con HTML y CSS, no con
+// un SVG ni una imagen, por tres motivos: son 14 enlaces internos reales hacia
+// paginas que en la auditoria salian con cero enlaces contextuales, es
+// navegable con teclado y legible por lector de pantalla, y se adapta a movil
+// sin necesitar una version aparte del grafico.
+//
+// Los colores salen de los tokens de global.css; aqui no se define paleta.
+
+export interface Props {
+  /** Etiqueta sobre el titulo. */
+  eyebrow?: string;
+  /** Titulo de la seccion. Va como h2: la pagina ya tiene su h1. */
+  heading?: string;
+}
+
+const {
+  eyebrow = 'La plataforma',
+  heading = 'Cómo encaja todo junto',
+} = Astro.props;
+
+// Texto del visor segun el caso seleccionado. Se emite tambien como JSON para
+// que el script no tenga que duplicarlo.
+const READOUTS = {
+  all: 'Las cuatro fases y los 14 módulos que las componen.',
+  monitor: 'Ver quién está en qué máquina y cómo va el turno mientras pasa, no al día siguiente.',
+  formacion: 'Formar a alguien nuevo o subir de nivel a quien ya está, y medir el aprendizaje con datos.',
+  tiempos: 'Cuánto cuesta de verdad producir cada referencia y qué operarios rinden mejor en cada proceso.',
+  errores: 'Guías paso a paso que no dejan saltarse lo crítico, para que el fallo no llegue al cliente.',
+  obras: 'Planificar una obra con sus trabajos, procesos y tiempos, y después seguirla pieza a pieza.',
+};
+---
+
+<div class="pmap" id="pmap" data-view="all">
+  <div class="pmap-grid" aria-hidden="true"></div>
+
+  <div class="pmap-head">
+    <div class="eyebrow">{eyebrow}</div>
+    <h2 class="section-title">{heading}</h2>
+    <p class="pmap-lede">
+      REELEVO no es una suite que se implanta entera el primer día. Es un ciclo de cuatro
+      fases: defines el estándar, se ejecuta en el puesto, queda registro y decides con ese
+      registro delante. Lo que aprendes en la cuarta vuelve a la primera.
+    </p>
+  </div>
+
+  <nav class="pmap-panel" aria-label="Elige un caso de uso">
+    <div class="pmap-panel-head">
+      <span class="pmap-panel-label">Sigue un caso real</span>
+      <span class="pmap-panel-ref">ESQ-01 · CICLO OPERATIVO</span>
+    </div>
+    <div class="pmap-switch">
+      <button type="button" class="pmap-chip is-active" data-scenario="all" aria-pressed="true">Todo el mapa</button>
+      <button type="button" class="pmap-chip" data-scenario="monitor" aria-pressed="false">Monitorizar la planta</button>
+      <button type="button" class="pmap-chip" data-scenario="formacion" aria-pressed="false">Formar y medir</button>
+      <button type="button" class="pmap-chip" data-scenario="tiempos" aria-pressed="false">Tiempos y habilidad</button>
+      <button type="button" class="pmap-chip" data-scenario="errores" aria-pressed="false">Menos errores</button>
+      <button type="button" class="pmap-chip" data-scenario="obras" aria-pressed="false">Obras y proyectos</button>
+    </div>
+    <p class="pmap-readout" id="pmapReadout" data-readouts={JSON.stringify(READOUTS)}>{READOUTS.all}</p>
+  </nav>
+
+  <div class="pmap-flow">
+    <span class="pmap-tick tl" aria-hidden="true"></span>
+    <span class="pmap-tick tr" aria-hidden="true"></span>
+    <span class="pmap-tick bl" aria-hidden="true"></span>
+    <span class="pmap-tick br" aria-hidden="true"></span>
+    <div class="pmap-ruler" aria-hidden="true"></div>
+
+    <ol class="pmap-stages">
+
+      <li class="pmap-stage">
+        <div class="pmap-node-row">
+          <span class="pmap-conn" aria-hidden="true"></span>
+          <div class="pmap-node">
+            <svg class="pmap-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" />
+            </svg>
+            <svg class="pmap-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M8 4h11l5 5v19H8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M19 4v5h5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+              <path d="M12 14h8M12 18h8M12 22h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="pmap-num">01</span>
+        </div>
+        <h3 class="pmap-stage-title">Defines el estándar</h3>
+        <p class="pmap-stage-q">¿Qué hay que hacer, y quién puede hacerlo?</p>
+
+        <div class="pmap-view" data-for="all">
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/">
+              <span class="pmap-mod-name">Documentación de procesos</span>
+              <span class="pmap-mod-desc">SOPs con foto y vídeo. Una sola versión vigente.</span>
+            </a>
+            <a class="pmap-mod" href="/workflows/">
+              <span class="pmap-mod-name">Workflows</span>
+              <span class="pmap-mod-desc">Secuencia obligada y validaciones donde importan.</span>
+            </a>
+            <a class="pmap-mod" href="/gestion-competencias/">
+              <span class="pmap-mod-name">Gestión de competencias</span>
+              <span class="pmap-mod-desc">Quién está capacitado para qué máquina y a qué nivel.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="monitor">
+          <p class="pmap-note">Defines qué procesos existen, en qué máquina va cada uno y quién está capacitado. Sin eso, un monitor en tiempo real solo enseña nombres sueltos.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/"><span class="pmap-mod-name">Documentación de procesos</span></a>
+            <a class="pmap-mod" href="/gestion-competencias/"><span class="pmap-mod-name">Gestión de competencias</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="formacion">
+          <p class="pmap-note">La guía lleva foto, vídeo del gesto exacto y el «por qué» de cada paso. La matriz define los niveles: en formación, apto, experto.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/"><span class="pmap-mod-name">Documentación de procesos</span></a>
+            <a class="pmap-mod" href="/gestion-competencias/"><span class="pmap-mod-name">Gestión de competencias</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="tiempos">
+          <p class="pmap-note">Cada proceso se define con sus pasos y su tiempo objetivo. Ese objetivo es contra lo que después comparas el tiempo real.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/"><span class="pmap-mod-name">Documentación de procesos</span></a>
+            <a class="pmap-mod" href="/workflows/"><span class="pmap-mod-name">Workflows</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="errores">
+          <p class="pmap-note">La guía se monta paso a paso, con el defecto que evita cada uno, y los pasos críticos se marcan como validación obligatoria.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/"><span class="pmap-mod-name">Documentación de procesos</span></a>
+            <a class="pmap-mod" href="/workflows/"><span class="pmap-mod-name">Workflows</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="obras">
+          <p class="pmap-note">Defines la obra con los trabajos que incluye, el proceso de cada uno y el tiempo previsto. La planificación deja de vivir en un Excel.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/documentacion-procesos/"><span class="pmap-mod-name">Documentación de procesos</span></a>
+            <a class="pmap-mod" href="/workflows/"><span class="pmap-mod-name">Workflows</span></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pmap-stage">
+        <div class="pmap-node-row">
+          <span class="pmap-conn" aria-hidden="true"></span>
+          <div class="pmap-node">
+            <svg class="pmap-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" />
+            </svg>
+            <svg class="pmap-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="5" y="6" width="22" height="15" rx="1.5" stroke="currentColor" stroke-width="1.5" />
+              <path d="M13 26h6M16 21v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M10 11h4v4h-4zM18 11h4M18 15h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="pmap-num">02</span>
+        </div>
+        <h3 class="pmap-stage-title">Se ejecuta en el puesto</h3>
+        <p class="pmap-stage-q">¿Cómo llega al operario si falla la wifi?</p>
+
+        <div class="pmap-view" data-for="all">
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/">
+              <span class="pmap-mod-name">Portal del operario</span>
+              <span class="pmap-mod-desc">Acceso por QR desde la máquina, sin cuenta que recordar.</span>
+            </a>
+            <a class="pmap-mod" href="/modo-offline/">
+              <span class="pmap-mod-name">Modo offline y PWA</span>
+              <span class="pmap-mod-desc">Sigue funcionando aunque la nave no tenga cobertura.</span>
+            </a>
+            <a class="pmap-mod" href="/firma-digital/">
+              <span class="pmap-mod-name">Firma digital</span>
+              <span class="pmap-mod-desc">Evidencia trazable en los pasos que la exigen.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="monitor">
+          <p class="pmap-note">El operario abre el proceso con un QR y su ejecución empieza a contar en ese momento. El monitor se alimenta de trabajo real, no de partes rellenados luego.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/"><span class="pmap-mod-name">Portal del operario</span></a>
+            <a class="pmap-mod" href="/modo-offline/"><span class="pmap-mod-name">Modo offline y PWA</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="formacion">
+          <p class="pmap-note">Quien aprende ejecuta con la guía delante en lugar de memorizar antes. El tutor pasa de explicar cada paso a verificar el resultado.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/"><span class="pmap-mod-name">Portal del operario</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="tiempos">
+          <p class="pmap-note">Cada ejecución se abre y se cierra en el puesto. El tiempo sale del propio trabajo, no de una estimación a final de mes.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/"><span class="pmap-mod-name">Portal del operario</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="errores">
+          <p class="pmap-note">La guía avanza paso a paso en la pantalla del puesto y no deja saltarse lo crítico. Sin cobertura también, que es cuando más se improvisa.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/"><span class="pmap-mod-name">Portal del operario</span></a>
+            <a class="pmap-mod" href="/modo-offline/"><span class="pmap-mod-name">Modo offline y PWA</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="obras">
+          <p class="pmap-note">Cada operario abre el trabajo que le toca de esa obra y lo cierra al terminar, con firma si el cliente la exige.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/portal-operario/"><span class="pmap-mod-name">Portal del operario</span></a>
+            <a class="pmap-mod" href="/firma-digital/"><span class="pmap-mod-name">Firma digital</span></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pmap-stage">
+        <div class="pmap-node-row">
+          <span class="pmap-conn" aria-hidden="true"></span>
+          <div class="pmap-node">
+            <svg class="pmap-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" />
+            </svg>
+            <svg class="pmap-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M5 26h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <rect x="8" y="16" width="4" height="8" stroke="currentColor" stroke-width="1.5" />
+              <rect x="14" y="11" width="4" height="13" stroke="currentColor" stroke-width="1.5" />
+              <rect x="20" y="19" width="4" height="5" stroke="currentColor" stroke-width="1.5" />
+              <path d="M6 8l4-3 5 3 6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="pmap-num">03</span>
+        </div>
+        <h3 class="pmap-stage-title">Queda registro</h3>
+        <p class="pmap-stage-q">¿Qué ha pasado de verdad en el turno?</p>
+
+        <div class="pmap-view" data-for="all">
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/control-produccion/">
+              <span class="pmap-mod-name">Control de producción</span>
+              <span class="pmap-mod-desc">Quién hizo qué, cuándo y cuánto tardó. Sin partes en papel.</span>
+            </a>
+            <a class="pmap-mod" href="/obras-trazabilidad/">
+              <span class="pmap-mod-name">Obras y trazabilidad</span>
+              <span class="pmap-mod-desc">Historial por pieza y por proyecto, con QR.</span>
+            </a>
+            <a class="pmap-mod" href="/calidad-y-conformidad/">
+              <span class="pmap-mod-name">Calidad y conformidad</span>
+              <span class="pmap-mod-desc">Base para la causa raíz, con sus límites declarados.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="monitor">
+          <p class="pmap-note">Monitor de actividad: qué operario está en qué máquina, en qué proceso y cuánto lleva. El estado del turno mientras pasa, no en la reunión del día siguiente.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/control-produccion/"><span class="pmap-mod-name">Control de producción</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="formacion">
+          <p class="pmap-note">Cuántas veces ha ejecutado cada proceso, con qué tiempos y cuántas consultas ha necesitado. Ahí es donde se mide el aprendizaje de verdad.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/control-produccion/"><span class="pmap-mod-name">Control de producción</span></a>
+            <a class="pmap-mod" href="/gestion-competencias/"><span class="pmap-mod-name">Gestión de competencias</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="tiempos">
+          <p class="pmap-note">Duración real por proceso, por producto y por operario. Ves cuánto cuesta cada referencia y quién rinde mejor en cada máquina.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/control-produccion/"><span class="pmap-mod-name">Control de producción</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="errores">
+          <p class="pmap-note">Qué guía se siguió, en qué versión, quién la ejecutó y en qué paso se paró. La investigación deja de acabar en «fue un despiste».</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/calidad-y-conformidad/"><span class="pmap-mod-name">Calidad y conformidad</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="obras">
+          <p class="pmap-note">Historial por pieza y por proyecto: qué trabajos se han cerrado, cuáles faltan y cuánto ha llevado cada uno frente a lo previsto.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/obras-trazabilidad/"><span class="pmap-mod-name">Obras y trazabilidad</span></a>
+            <a class="pmap-mod" href="/control-produccion/"><span class="pmap-mod-name">Control de producción</span></a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pmap-stage">
+        <div class="pmap-node-row">
+          <div class="pmap-node">
+            <svg class="pmap-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 9" stroke-linecap="round" />
+            </svg>
+            <svg class="pmap-ico" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 6a10 10 0 1 1-9.5 6.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M6 6v7h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 16.5l3 3 5.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="pmap-num">04</span>
+        </div>
+        <h3 class="pmap-stage-title">Decides y mejoras</h3>
+        <p class="pmap-stage-q">¿Qué haces con lo que ahora sabes?</p>
+
+        <div class="pmap-view" data-for="all">
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/cobertura-turnos/">
+              <span class="pmap-mod-name">Cobertura de turnos</span>
+              <span class="pmap-mod-desc">Alerta antes de que el turno se quede corto, no después.</span>
+            </a>
+            <a class="pmap-mod" href="/mantenimiento/">
+              <span class="pmap-mod-name">Mantenimiento preventivo</span>
+              <span class="pmap-mod-desc">Planes por máquina y órdenes en la agenda del operario.</span>
+            </a>
+            <a class="pmap-mod" href="/kaizen/">
+              <span class="pmap-mod-name">Kaizen y mejora continua</span>
+              <span class="pmap-mod-desc">Lo que se repite en planta acaba cambiando el estándar.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="monitor">
+          <p class="pmap-note">Si la línea 3 se atasca te enteras cuando todavía puedes mover a alguien. Y la alerta de cobertura salta antes de que el turno se quede corto.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/cobertura-turnos/"><span class="pmap-mod-name">Cobertura de turnos</span></a>
+            <a class="pmap-mod" href="/control-produccion/"><span class="pmap-mod-name">Control de producción</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="formacion">
+          <p class="pmap-note">La matriz sube de nivel con la ejecución real, no con intuición. Ves quién puede cubrir qué y dónde falta refuerzo antes de que aparezca el error.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/gestion-competencias/"><span class="pmap-mod-name">Gestión de competencias</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="tiempos">
+          <p class="pmap-note">Detectas quién hace ese proceso mejor y en menos tiempo, y conviertes su método en el estándar del resto. La habilidad deja de ser una anécdota.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/kaizen/"><span class="pmap-mod-name">Kaizen y mejora continua</span></a>
+            <a class="pmap-mod" href="/gestion-competencias/"><span class="pmap-mod-name">Gestión de competencias</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="errores">
+          <p class="pmap-note">El fallo que se repite no se archiva: reescribe la guía, y el cambio llega a todos los puestos a la vez sin reimprimir nada.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/kaizen/"><span class="pmap-mod-name">Kaizen y mejora continua</span></a>
+          </div>
+        </div>
+
+        <div class="pmap-view" data-for="obras">
+          <p class="pmap-note">Comparas lo planificado con lo real y replanificas con datos. La siguiente obra parte de lo que costó la anterior, no de una estimación.</p>
+          <div class="pmap-mods">
+            <a class="pmap-mod" href="/cobertura-turnos/"><span class="pmap-mod-name">Cobertura de turnos</span></a>
+            <a class="pmap-mod" href="/kaizen/"><span class="pmap-mod-name">Kaizen y mejora continua</span></a>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <!-- Arco de retorno: lo aprendido en 04 reescribe el estandar de 01 -->
+    <div class="pmap-loop" aria-hidden="true">
+      <svg viewBox="0 0 1000 96" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="pmapLoopGrad" x1="1" y1="0" x2="0" y2="0">
+            <stop offset="0%" stop-color="#F4521E" stop-opacity=".85" />
+            <stop offset="50%" stop-color="#F4521E" stop-opacity=".45" />
+            <stop offset="100%" stop-color="#F4521E" stop-opacity=".85" />
+          </linearGradient>
+        </defs>
+        <path d="M 962 2 C 962 66, 900 80, 700 80 L 300 80 C 100 80, 38 66, 38 2" fill="none" stroke="url(#pmapLoopGrad)" stroke-width="2.4" stroke-linecap="round" />
+        <path class="pmap-loop-flow" d="M 962 2 C 962 66, 900 80, 700 80 L 300 80 C 100 80, 38 66, 38 2" fill="none" stroke="#F4521E" stroke-width="3" stroke-linecap="round" />
+        <path d="M 28 20 L 38 2 L 48 20" fill="none" stroke="#F4521E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="pmap-loop-label">El estándar se reescribe con lo aprendido</span>
+    </div>
+  </div>
+
+  <section class="pmap-across">
+    <p class="pmap-across-label">Atraviesa las cuatro fases</p>
+    <div class="pmap-mods pmap-across-mods">
+      <a class="pmap-mod" href="/api-integraciones/">
+        <span class="pmap-mod-name">API e integraciones</span>
+        <span class="pmap-mod-desc">El dato de planta llega a tu ERP, a Power BI o a un webhook.</span>
+      </a>
+      <a class="pmap-mod" href="/integracion-m365/">
+        <span class="pmap-mod-name">Integración Microsoft 365</span>
+        <span class="pmap-mod-desc">Power BI, Power Automate y Teams, si ya trabajas ahí.</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* Todos los colores salen de los tokens de global.css. */
+  .pmap {
+    --pm-gap: 26px;
+    --pm-node: 82px;
+    position: relative;
+    text-align: left;
+    padding: 34px 0 8px;
+  }
+
+  /* Reticula de plano tecnico: es el mundo visual del cliente, no un adorno. */
+  .pmap-grid {
+    position: absolute;
+    inset: -20px -12px;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(ellipse 78% 60% at 50% 34%, #000 26%, transparent 78%);
+    pointer-events: none;
+  }
+
+  .pmap-head,
+  .pmap-panel,
+  .pmap-flow,
+  .pmap-across { position: relative; z-index: 1; }
+
+  .pmap-head { max-width: 64ch; }
+  .pmap-head .eyebrow { justify-content: flex-start; }
+  .pmap-lede { font-size: 1rem; color: var(--gray); margin: 14px 0 0; max-width: 62ch; line-height: 1.7; }
+
+  /* ── Panel de control ── */
+  .pmap-panel {
+    margin: 34px 0 32px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(26, 26, 26, .8), rgba(19, 19, 19, .5));
+    padding: 18px 20px 20px;
+  }
+
+  .pmap-panel-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+
+  .pmap-panel-label,
+  .pmap-panel-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
+  }
+  .pmap-panel-label { color: var(--gray2); }
+  .pmap-panel-ref { color: rgba(244, 82, 30, .6); font-variant-numeric: tabular-nums; }
+
+  .pmap-switch { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .pmap-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: .67rem; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--gray);
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .pmap-chip::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255, 255, 255, .18);
+    display: inline-block; margin-right: 9px; vertical-align: 1px;
+    transition: background .2s, box-shadow .2s;
+  }
+  .pmap-chip:hover { color: var(--white); border-color: var(--border-hover); }
+  .pmap-chip.is-active {
+    color: var(--white);
+    background: var(--surface2);
+    border-color: rgba(244, 82, 30, .6);
+  }
+  .pmap-chip.is-active::before {
+    background: var(--orange);
+    box-shadow: 0 0 0 3px rgba(244, 82, 30, .2), 0 0 10px rgba(244, 82, 30, .8);
+  }
+  .pmap-chip:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+
+  .pmap-readout {
+    margin: 14px 0 0; font-size: .84rem; color: var(--gray);
+    border-left: 2px solid rgba(244, 82, 30, .5); padding-left: 12px; max-width: 72ch;
+  }
+
+  /* ── Marco tecnico ── */
+  .pmap-flow { position: relative; padding-top: 26px; }
+
+  .pmap-tick { position: absolute; width: 12px; height: 12px; border-color: rgba(244, 82, 30, .45); pointer-events: none; }
+  .pmap-tick.tl { top: 0; left: -8px; border-top: 1px solid; border-left: 1px solid; }
+  .pmap-tick.tr { top: 0; right: -8px; border-top: 1px solid; border-right: 1px solid; }
+  .pmap-tick.bl { bottom: 0; left: -8px; border-bottom: 1px solid; border-left: 1px solid; }
+  .pmap-tick.br { bottom: 0; right: -8px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .pmap-ruler {
+    position: absolute; top: 0; left: 10px; right: 10px; height: 6px;
+    background-image: repeating-linear-gradient(to right, rgba(244, 82, 30, .3) 0 1px, transparent 1px 22px);
+    pointer-events: none;
+  }
+
+  /* ── Diagrama ── */
+  .pmap-stages {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--pm-gap); align-items: start;
+  }
+  .pmap-stage { min-width: 0; }
+
+  .pmap-node-row { position: relative; height: var(--pm-node); margin-bottom: 20px; }
+
+  .pmap-node {
+    width: var(--pm-node); height: var(--pm-node);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(244, 82, 30, .18), transparent 68%),
+      var(--surface);
+    box-shadow: inset 0 0 0 1px rgba(244, 82, 30, .28), 0 0 24px rgba(244, 82, 30, .07);
+    position: relative; z-index: 2;
+    transition: box-shadow .25s;
+  }
+  .pmap-stage:hover .pmap-node { box-shadow: inset 0 0 0 1px var(--orange), 0 0 34px rgba(244, 82, 30, .22); }
+
+  .pmap-ring {
+    position: absolute; inset: -7px;
+    width: calc(100% + 14px); height: calc(100% + 14px);
+    color: rgba(244, 82, 30, .38);
+    animation: pmapSpin 34s linear infinite;
+  }
+  @keyframes pmapSpin { to { transform: rotate(360deg); } }
+
+  .pmap-ico { width: 32px; height: 32px; color: var(--orange); position: relative; z-index: 1; }
+
+  .pmap-num {
+    position: absolute; left: calc(var(--pm-node) - 16px); top: -4px;
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem; font-weight: 500; letter-spacing: .05em;
+    color: var(--black); background: var(--orange);
+    border-radius: 2px; padding: 2px 6px;
+    font-variant-numeric: tabular-nums; z-index: 3;
+    box-shadow: 0 0 14px rgba(244, 82, 30, .45);
+  }
+
+  /* ── Conectores ── */
+  .pmap-conn {
+    position: absolute;
+    top: calc(var(--pm-node) / 2 - 2px);
+    left: calc(50% + var(--pm-node) / 2 + 12px);
+    width: calc(100% + var(--pm-gap) - var(--pm-node) - 34px);
+    height: 4px; border-radius: 2px;
+    background: linear-gradient(90deg, rgba(244, 82, 30, .28), rgba(244, 82, 30, .5));
+    box-shadow: 0 0 12px rgba(244, 82, 30, .3);
+    z-index: 1;
+  }
+  .pmap-conn::before {
+    content: '';
+    position: absolute; top: -1px; left: 0;
+    width: 42%; height: 6px; border-radius: 3px;
+    background: linear-gradient(90deg, transparent, #F4521E 65%, #fff);
+    box-shadow: 0 0 16px rgba(244, 82, 30, .9);
+    animation: pmapComet 2.1s cubic-bezier(.45, 0, .55, 1) infinite;
+  }
+  @keyframes pmapComet {
+    0% { left: -42%; opacity: 0; }
+    12% { opacity: 1; }
+    82% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+  .pmap-conn::after {
+    content: '';
+    position: absolute; right: -13px; top: 50%;
+    transform: translateY(-50%);
+    border-left: 14px solid var(--orange);
+    border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+    filter: drop-shadow(0 0 8px rgba(244, 82, 30, .75));
+  }
+
+  .pmap-stage-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .035em; line-height: 1.15; margin: 0 0 7px;
+    text-wrap: balance; color: var(--white);
+  }
+  .pmap-stage-q { font-size: .82rem; color: var(--gray2); margin: 0 0 18px; line-height: 1.5; }
+
+  .pmap-note {
+    font-size: .86rem; color: var(--gray); margin: 0 0 16px;
+    border-left: 2px solid var(--orange); padding-left: 14px; line-height: 1.6;
+  }
+
+  /* ── Modulos ── */
+  .pmap-mods { display: flex; flex-direction: column; gap: 10px; }
+
+  .pmap-mod {
+    display: block; position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 15px 16px 15px 18px;
+    text-decoration: none; overflow: hidden;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .pmap-mod::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--orange);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform .25s ease;
+  }
+  .pmap-mod:hover,
+  .pmap-mod:focus-visible {
+    border-color: var(--border-hover); background: var(--surface2); transform: translateY(-2px);
+  }
+  .pmap-mod:hover::before,
+  .pmap-mod:focus-visible::before { transform: scaleY(1); }
+  .pmap-mod:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+
+  .pmap-mod-name {
+    display: block; font-family: 'Oswald', sans-serif;
+    font-size: .87rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--white); line-height: 1.25;
+  }
+  .pmap-mod-desc { display: block; font-size: .76rem; color: var(--gray); line-height: 1.5; margin-top: 5px; }
+
+  /* ── Vistas conmutables ── */
+  .pmap-view { display: none; }
+  .pmap[data-view='all'] .pmap-view[data-for='all'],
+  .pmap[data-view='monitor'] .pmap-view[data-for='monitor'],
+  .pmap[data-view='formacion'] .pmap-view[data-for='formacion'],
+  .pmap[data-view='tiempos'] .pmap-view[data-for='tiempos'],
+  .pmap[data-view='errores'] .pmap-view[data-for='errores'],
+  .pmap[data-view='obras'] .pmap-view[data-for='obras'] { display: block; }
+
+  /* ── Arco de retorno ── */
+  .pmap-loop { position: relative; margin-top: 34px; }
+  .pmap-loop svg { display: block; width: 100%; height: 84px; overflow: visible; }
+  .pmap-loop-flow {
+    stroke-dasharray: 90 1180;
+    filter: drop-shadow(0 0 7px rgba(244, 82, 30, .9));
+    animation: pmapLoopFlow 5.5s linear infinite;
+  }
+  @keyframes pmapLoopFlow { from { stroke-dashoffset: 1270; } to { stroke-dashoffset: 0; } }
+
+  .pmap-loop-label {
+    position: absolute; left: 50%; bottom: 2px; transform: translateX(-50%);
+    background: var(--black); padding: 0 14px;
+    font-family: 'DM Mono', monospace; font-size: .6rem;
+    letter-spacing: .13em; text-transform: uppercase;
+    color: var(--orange); white-space: nowrap;
+  }
+
+  /* ── Transversal ── */
+  .pmap-across {
+    margin-top: 30px; padding: 24px 26px;
+    background: rgba(244, 82, 30, .045);
+    border: 1px solid rgba(244, 82, 30, .18);
+    border-radius: 4px;
+  }
+  .pmap-across-label {
+    font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--orange); margin: 0 0 14px;
+  }
+  .pmap-across-mods { flex-direction: row; flex-wrap: wrap; }
+  .pmap-across-mods .pmap-mod { flex: 1 1 250px; background: rgba(10, 10, 10, .5); }
+
+  /* ── Responsive ── */
+  @media (max-width: 1040px) {
+    .pmap-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 46px; }
+    /* Con dos columnas el conector cruzaria de fila y mentiria sobre el flujo. */
+    .pmap-stage:nth-child(2n) .pmap-conn { display: none; }
+    .pmap-loop, .pmap-ruler { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .pmap { --pm-node: 66px; }
+    .pmap-stages { grid-template-columns: 1fr; row-gap: 40px; }
+    .pmap-conn { display: none; }
+    .pmap-ico { width: 27px; height: 27px; }
+    .pmap-num { left: calc(var(--pm-node) - 14px); }
+    .pmap-across-mods { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pmap-conn::before { display: none; }
+    .pmap-loop-flow, .pmap-ring { animation: none; }
+    .pmap-mod, .pmap-chip, .pmap-node { transition: none; }
+    .pmap-mod:hover { transform: none; }
+  }
+</style>
+
+<script>
+  (() => {
+    const root = document.getElementById('pmap');
+    const out = document.getElementById('pmapReadout');
+    if (!root || !out) return;
+
+    // El texto del visor viaja en un data-attribute para no duplicarlo aqui.
+    let texts: Record<string, string> = {};
+    try {
+      texts = JSON.parse(out.dataset.readouts || '{}');
+    } catch {
+      texts = {};
+    }
+
+    const chips = root.querySelectorAll<HTMLButtonElement>('.pmap-chip');
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const key = chip.dataset.scenario || 'all';
+        root.setAttribute('data-view', key);
+        if (texts[key]) out.textContent = texts[key];
+        chips.forEach((c) => {
+          const on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-pressed', String(on));
+        });
+      });
+    });
+  })();
+</script>
