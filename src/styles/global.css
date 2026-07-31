@@ -235,8 +235,10 @@ a:hover{color:var(--orange-hover);}
 .card:hover{border-color:var(--border-hover);}
 
 /* ── CASOS (index dual) ── */
-.casos{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.caso{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:40px 36px;transition:border-color .25s;}
+/* Tres columnas porque son tres casos: a dos, el tercero se quedaba huerfano
+   en una segunda fila. minmax(0,1fr) evita que un titulo largo desborde. */
+.casos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.caso{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:34px 28px;transition:border-color .25s;}
 .caso:hover{border-color:var(--border-hover);}
 .caso-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
 .caso-title{font-family:'Oswald',sans-serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.15;margin-bottom:16px;}
@@ -369,6 +371,12 @@ a:hover{color:var(--orange-hover);}
   .benefit-result{grid-column:2;}
   .stat-band-inner{grid-template-columns:1fr;gap:12px;}
   .hero-proof{grid-template-columns:1fr;max-width:320px;}
+}
+/* Los casos pasan de 3 a 1: en 2 columnas el tercero volveria a quedarse solo.
+   Por debajo de 1000px las tres columnas dejan los titulos demasiado estrechos. */
+@media(max-width:1000px){
+  .casos{grid-template-columns:1fr;}
+  .caso{padding:36px 32px;}
 }
 @media(max-width:900px){
   .header-nav{display:none;}.header-right .header-diag{display:none;}.hamburger{display:flex;}
