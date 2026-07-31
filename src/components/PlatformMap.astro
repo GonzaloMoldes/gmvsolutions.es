@@ -410,9 +410,15 @@ const READOUTS = {
     --pm-gap: 26px;
     --pm-node: 82px;
     position: relative;
-    text-align: left;
     padding: 34px 0 8px;
   }
+
+  /* La cabecera hereda el centrado de .section-center, como el resto de la
+     home. El diagrama, en cambio, se alinea a la izquierda: centrar notas y
+     tarjetas rompe la lectura de columnas. */
+  .pmap-panel,
+  .pmap-flow,
+  .pmap-across { text-align: left; }
 
   /* Reticula de plano tecnico: es el mundo visual del cliente, no un adorno. */
   .pmap-grid {
@@ -431,9 +437,14 @@ const READOUTS = {
   .pmap-flow,
   .pmap-across { position: relative; z-index: 1; }
 
-  .pmap-head { max-width: 64ch; }
-  .pmap-head .eyebrow { justify-content: flex-start; }
-  .pmap-lede { font-size: 1rem; color: var(--gray); margin: 14px 0 0; max-width: 62ch; line-height: 1.7; }
+  .pmap-head { max-width: 64ch; margin-left: auto; margin-right: auto; }
+  .pmap-lede {
+    font-size: 1rem;
+    color: var(--gray);
+    margin: 14px auto 0;
+    max-width: 62ch;
+    line-height: 1.7;
+  }
 
   /* ── Panel de control ── */
   .pmap-panel {
