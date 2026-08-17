@@ -1,0 +1,193 @@
+---
+// Cluster trazabilidad/calidad. Origen: informe de terminos de busqueda Google
+// Ads (1 jun - 5 jul 2026): "control de calidad excel" aparecio como termino
+// propio, y el statu quo real de la pyme (Excel/papel) es el rival de la
+// categoria segun el doc de posicionamiento (5.3).
+//
+// Anticanibalizacion: /vs-excel-papel/ es la comparativa comercial (tabla de 5
+// criterios, CTA dominante); esta pieza es el analisis editorial y NO repite la
+// tabla: se enfoca en la separacion captura/analisis y remite a la comparativa.
+//
+// Tono: deliberadamente no denigra Excel (misma regla que /vs-mes-tradicional/:
+// "demasiado/insuficiente para tu caso", no "malo").
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Control de calidad en Excel: hasta dónde llega de verdad";
+const description = "Qué hace bien Excel en el control de calidad de una pyme industrial, dónde se rompe y cómo separar la captura del dato del análisis sin tirarlo.";
+const date = "2026-08-17";
+const category = "Calidad";
+const readTime = "9 min.";
+const canonical = "https://www.gmvsolutions.es/blog/control-de-calidad-en-excel/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se puede llevar el control de calidad de una fábrica en Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, y es lo que hace la mayoría de pymes industriales españolas. Excel funciona bien mientras el volumen sea manejable, lo mantenga una persona y no necesites demostrar ante nadie quién registró qué y cuándo. Los tres límites aparecen a la vez y suelen notarse el día que llega una reclamación o una auditoría."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué falla Excel como registro de calidad en planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por dónde está más que por lo que hace: el fichero vive en la oficina y el defecto se detecta en la máquina. Entre uno y otro hay una persona que apunta en un papel y transcribe luego, y en esa transcripción se pierden el momento, el detalle y a veces el registro entero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Vale un Excel como evidencia en una auditoría ISO 9001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de si puedes garantizar que no se ha modificado y de si consta quién lo rellenó y cuándo. Una celda de una hoja compartida se puede reescribir sin dejar rastro, y esa es justamente la debilidad: la norma pide que la información documentada que se conserva esté protegida frente a modificaciones no intencionadas y sea recuperable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo saber si me he quedado corto con Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con tres preguntas. ¿Podrías reconstruir hoy qué se verificó en un lote de hace ocho meses, quién lo hizo y con qué versión del procedimiento? ¿Quien detecta el defecto lo registra en el momento y en el puesto? ¿Si mañana falta la persona que mantiene la hoja, sigue funcionando? Dos noes bastan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay que dejar de usar Excel en control de calidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, hay que dejar de usarlo para capturar. Excel es una herramienta excelente para analizar un problema concreto, cruzar datos y montar un gráfico en diez minutos, y ahí no tiene sustituto razonable en una pyme. Lo que conviene sacar de la hoja es el registro del dato en planta, que es donde falla."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Excel no es el problema, y este artículo no va de que sea una mala herramienta: es probablemente la mejor herramienta de análisis que tiene una pyme industrial y no hay motivo para tirarla. El problema es que se le está pidiendo algo para lo que no está hecha, que es <strong>capturar el dato en planta</strong>. La distinción que resuelve casi todo el debate es esa: <strong>capturar no es analizar</strong>. Excel es malísimo en lo primero y muy bueno en lo segundo. La decisión útil no es cambiar de herramienta, es sacar la captura al puesto y dejar el análisis donde está.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#justo">Empecemos por lo justo: qué hace bien</a></li>
+    <li><a href="#rompe">Los seis puntos donde se rompe</a></li>
+    <li><a href="#auditoria">El problema serio: Excel como evidencia</a></li>
+    <li><a href="#test">Tres preguntas para saber si te has quedado corto</a></li>
+    <li><a href="#separacion">Capturar no es analizar</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="justo">Empecemos por lo justo: qué hace bien</h2>
+  <p>Conviene decirlo antes de nada, porque el contenido de proveedores sobre este tema suele empezar ridiculizando la hoja de cálculo y eso es a la vez injusto y poco creíble para quien lleva ocho años llevando su calidad así.</p>
+
+  <p>Excel gana en cuatro cosas y no por poco. <strong>Cálculo y análisis</strong>: cruzar dos columnas, sacar una tendencia o montar un gráfico lleva diez minutos y no requiere pedirle nada a nadie. <strong>Flexibilidad</strong>: cuando aparece una necesidad nueva, se añade una columna; en un sistema cerrado eso puede ser un ticket y tres semanas. <strong>Coste</strong>: ya está pagado. <strong>Adopción</strong>: todo el mundo sabe usarlo, incluida la persona que se incorporó ayer.</p>
+
+  <p>Para analizar un problema concreto —por qué esta referencia da más rechazo desde marzo— Excel sigue siendo la herramienta correcta, y lo va a seguir siendo tengas el sistema que tengas. Nada de lo que viene a continuación contradice esto.</p>
+
+  <h2 id="rompe">Los seis puntos donde se rompe</h2>
+  <div class="data-card">
+    <p><strong>1. Está en la oficina y el defecto está en la máquina.</strong> El más importante y el que menos se menciona. Entre quien detecta la no conformidad y el fichero hay una persona, un papel y un rato. En ese trayecto se pierden el momento exacto, el detalle de qué se vio y, con más frecuencia de la que nadie reconoce, el registro entero, porque entró un pedido urgente.</p>
+    <p><strong>2. Concurrencia.</strong> Dos personas, dos copias. El fichero acaba llamándose <em>control_calidad_2026_v3_BUENO.xlsx</em> y conviviendo con otras dos versiones en carpetas distintas. Cuando alguien pregunta cuál es la buena, la respuesta es un nombre de persona.</p>
+    <p><strong>3. No consta quién ni cuándo.</strong> Una celda se sobrescribe sin dejar rastro. Para el día a día no molesta; para demostrar algo, es descalificante.</p>
+    <p><strong>4. No hay vínculo con el procedimiento.</strong> La hoja dice "cota verificada: OK". No dice con qué versión de la instrucción se verificó, ni con qué criterio, ni si esa versión era la vigente ese día. Si la tolerancia cambió en abril, no hay forma de saber contra qué se comparó en marzo.</p>
+    <p><strong>5. Se degrada en silencio.</strong> La hoja la construyó alguien que entendía de fórmulas. Esa persona cambia de puesto o se va, y el fichero sigue funcionando hasta que un día una referencia relativa se rompe y nadie lo detecta durante meses.</p>
+    <p><strong>6. No avisa de nada.</strong> Es un archivo pasivo. Nadie lo mira hasta que hay un problema, así que nunca sirve para anticiparlo. La tendencia que se veía venir desde hace seis semanas se descubre el día de la reclamación.</p>
+  </div>
+
+  <p>Ninguno de los seis es un defecto de Excel: son el resultado de pedirle a una herramienta de escritorio monousuario que haga de sistema de registro multiusuario en planta. Es como usar una llave inglesa de martillo — funciona, hasta que no.</p>
+
+  <h2 id="auditoria">El problema serio: Excel como evidencia</h2>
+  <p>Los seis puntos anteriores cuestan dinero y tiempo. Este cuesta un hallazgo.</p>
+
+  <p>La información documentada que hay que <em>conservar</em> —los registros, la evidencia de que la verificación se hizo— tiene requisitos concretos: debe ser legible, identificable, recuperable y estar protegida frente a modificaciones no intencionadas. Una hoja de cálculo en una carpeta compartida cumple regular los dos últimos, y es difícil defender lo contrario delante de un auditor que acaba de ver que cualquiera puede reescribir una celda de hace ocho meses sin que quede rastro.</p>
+
+  <p>A eso se suma el patrón que todo auditor reconoce: la hoja completada en bloque, todas las filas del mes con el mismo formato y sin una sola anomalía. No prueba mala fe, pero sí que el registro no forma parte del trabajo. Lo tratamos con detalle en <a href="/blog/preparar-auditoria-iso-9001-produccion/">cómo preparar una auditoría ISO 9001 en producción</a>.</p>
+
+  <h2 id="test">Tres preguntas para saber si te has quedado corto</h2>
+  <p>Sin comparativas ni tablas de proveedor. Estas tres se responden en cinco minutos y son bastante concluyentes:</p>
+
+  <div class="highlight-box">
+    <p><strong>1.</strong> ¿Podrías reconstruir hoy qué se verificó en un lote de hace ocho meses, quién lo hizo y con qué versión del procedimiento?</p>
+    <p><strong>2.</strong> ¿Quien detecta el defecto lo registra él mismo, en el puesto y en el momento?</p>
+    <p><strong>3.</strong> Si mañana falta la persona que mantiene la hoja, ¿el control de calidad sigue funcionando igual?</p>
+    <p>Un "no" es normal. Dos son una señal. Tres significa que el sistema depende de una persona y de su memoria, que es exactamente el riesgo que aparece el día que esa persona no está.</p>
+  </div>
+
+  <h2 id="separacion">Capturar no es analizar</h2>
+  <p>La conclusión práctica de todo lo anterior no es "cambia Excel por un software". Es una separación:</p>
+
+  <ul>
+    <li><strong>La captura</strong> tiene que ocurrir donde ocurre el hecho, en el momento, hecha por la persona que lo ve, ligada al proceso y a su versión, y dejando constancia de quién y cuándo. Esto Excel no lo hace y no va a hacerlo.</li>
+    <li><strong>El análisis</strong> puede seguir haciéndose en una hoja de cálculo, y probablemente deba. Exportas, cruzas, montas el gráfico y lo llevas a la reunión.</li>
+  </ul>
+
+  <p>Con esa separación, la migración deja de ser un proyecto y se convierte en un cambio en un punto: dónde se apunta el dato. Y a diferencia de una migración completa, se puede probar en un solo puesto sin comprometer nada. Si además estás valorando el salto a una herramienta, la comparativa por criterios está en <a href="/vs-excel-papel/">Excel y papel frente a REELEVO</a>, y conviene mirarla junto a <a href="/blog/kpis-de-produccion-pyme-industrial/">qué indicadores vas a querer sacar después</a>: no tiene sentido cambiar la captura sin saber qué preguntas quieres poder responder.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no sustituye a Excel para analizar, ni lo pretende. Sustituye la parte de captura, que es donde la hoja de cálculo hace aguas.</p>
+
+  <ul>
+    <li><strong>El registro se hace en el puesto.</strong> El operario abre el proceso con un QR desde el <a href="/portal-operario/">portal del operario</a> y registra la verificación o la incidencia ahí mismo, también <a href="/modo-offline/">sin wifi en planta</a>. Desaparece el papel intermedio y la transcripción posterior.</li>
+    <li><strong>Queda quién, cuándo y qué versión.</strong> Cada registro va ligado a la versión del procedimiento vigente en ese momento, que es la columna que a Excel le falta y la que hace posible responder preguntas de hace ocho meses.</li>
+    <li><strong>Una sola verdad.</strong> No hay tres copias del fichero: hay un dato. Se acaba la conversación sobre cuál era el bueno.</li>
+    <li><strong>Verificaciones donde importan.</strong> Los <a href="/workflows/">workflows</a> permiten exigir el registro en los pasos críticos sin convertir el proceso entero en un formulario, y la <a href="/firma-digital/">firma digital</a> cubre los casos que necesitan constancia formal de quién autorizó.</li>
+    <li><strong>De la incidencia a la causa.</strong> Lo registrado alimenta <a href="/calidad-y-conformidad/">calidad y conformidad</a> y permite reconstruir la <a href="/blog/trazabilidad-de-un-producto/">trazabilidad de una pieza</a> sin reunir a tres personas a recordar.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Prueba a mover la captura de un solo puesto y quédate con tu Excel para analizar.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Se puede llevar el control de calidad de una fábrica en Excel?</h3>
+  <p>Sí, y es lo que hace la mayoría de pymes industriales españolas. Excel funciona bien mientras el volumen sea manejable, lo mantenga una persona y no necesites demostrar ante nadie quién registró qué y cuándo. Los tres límites aparecen a la vez y suelen notarse el día que llega una reclamación o una auditoría.</p>
+
+  <h3>¿Por qué falla Excel como registro de calidad en planta?</h3>
+  <p>Por dónde está más que por lo que hace: el fichero vive en la oficina y el defecto se detecta en la máquina. Entre uno y otro hay una persona que apunta en un papel y transcribe luego, y en esa transcripción se pierden el momento, el detalle y a veces el registro entero.</p>
+
+  <h3>¿Vale un Excel como evidencia en una auditoría ISO 9001?</h3>
+  <p>Depende de si puedes garantizar que no se ha modificado y de si consta quién lo rellenó y cuándo. Una celda de una hoja compartida se puede reescribir sin dejar rastro, y esa es justamente la debilidad: la norma pide que la información documentada que se conserva esté protegida frente a modificaciones no intencionadas y sea recuperable.</p>
+
+  <h3>¿Cómo saber si me he quedado corto con Excel?</h3>
+  <p>Con tres preguntas. ¿Podrías reconstruir hoy qué se verificó en un lote de hace ocho meses, quién lo hizo y con qué versión del procedimiento? ¿Quien detecta el defecto lo registra en el momento y en el puesto? ¿Si mañana falta la persona que mantiene la hoja, sigue funcionando? Dos noes bastan.</p>
+
+  <h3>¿Hay que dejar de usar Excel en control de calidad?</h3>
+  <p>No, hay que dejar de usarlo para capturar. Excel es una herramienta excelente para analizar un problema concreto, cruzar datos y montar un gráfico en diez minutos, y ahí no tiene sustituto razonable en una pyme. Lo que conviene sacar de la hoja es el registro del dato en planta, que es donde falla.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/preparar-auditoria-iso-9001-produccion/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Preparar una auditoría ISO 9001</div>
+        <div class="related-link-desc">Dónde se convierte en hallazgo lo que aquí es incomodidad.</div>
+      </a>
+      <a class="related-link-card" href="/blog/kpis-de-produccion-pyme-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">KPIs de producción</div>
+        <div class="related-link-desc">Qué preguntas quieres poder responder con el dato capturado.</div>
+      </a>
+      <a class="related-link-card" href="/vs-excel-papel/">
+        <div class="related-link-kicker">Comparativa</div>
+        <div class="related-link-title">Excel y papel vs REELEVO</div>
+        <div class="related-link-desc">La comparación por criterios, sin rodeos.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

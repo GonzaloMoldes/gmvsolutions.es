@@ -1,0 +1,237 @@
+---
+// Cluster medicion (nuevo). Origen: analisis del informe de terminos de busqueda
+// de Google Ads (1 jun - 5 jul 2026): "indicadores/KPI" fue el mayor grupo de
+// intencion en diana sin cobertura editorial (29 terminos distintos: "kpi",
+// "como calcular kpi", "indicadores de produccion", "indicadores para taller
+// mecanico", "kpi mantenimiento", "kpi dashboard"). En el sitio, "indicadores"
+// solo aparecia en /video-demo/.
+//
+// Anticanibalizacion: /control-produccion/ es la landing de producto (que hace
+// REELEVO); esta pieza es el "que medir" educativo y enlaza a ella. El OEE se
+// trata pero se remite a /vs-mes-tradicional/ para no abrir frente MES.
+//
+// Honestidad: formulas estandar del sector, sin cifras de resultado ni
+// benchmarks de industria (no hay fuente propia que los sostenga).
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "KPIs de producción: cuáles medir en una pyme industrial";
+const description = "Qué indicadores de producción medir en una pyme industrial, cómo se calculan y cuáles puedes obtener hoy sin sensores ni integración con máquina.";
+const date = "2026-08-17";
+const category = "Medición y control";
+const readTime = "12 min.";
+const canonical = "https://www.gmvsolutions.es/blog/kpis-de-produccion-pyme-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué KPIs de producción debería medir una pyme industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entre tres y cinco para empezar, no quince. Los que más rendimiento dan en una pyme son la tasa de rechazo, el retrabajo, el cumplimiento del plan, el tiempo de cambio de referencia y la cobertura de competencias por puesto. Son los que se pueden medir sin sensores y los que apuntan a decisiones concretas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el OEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiplicando tres factores: disponibilidad (tiempo operativo entre tiempo planificado), rendimiento (producción real entre la que correspondería al tiempo de ciclo ideal) y calidad (piezas buenas entre piezas totales). El problema en una pyme no es la fórmula, es el dato: sin un tiempo de ciclo ideal fiable y sin registro de paradas, el OEE que salga es una cifra con decimales pero sin base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué indicadores puedo medir sin un MES ni sensores en máquina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Casi todos los que sirven para decidir en una pyme: rechazo, retrabajo, cumplimiento del plan, tiempo de preparación y cambio de referencia, y los indicadores de personas como el número de puestos que solo sabe cubrir una persona. Lo que sí necesita captura automática es el OEE con microparadas y el detalle de rendimiento minuto a minuto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué fracasan los cuadros de mando de producción en una pyme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque se mide lo que es fácil de sacar en lugar de lo que explica el problema, y porque el indicador no tiene dueño, frecuencia ni decisión asociada. Un KPI que nadie mira un día concreto para hacer algo concreto es un adorno. El segundo motivo es más incómodo: cuando el dato se usa para señalar personas, la gente deja de registrar y el indicador se corrompe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos KPIs de producción hay que tener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uno por problema que quieras resolver, y pocos problemas a la vez. Tres bien medidos y revisados en una reunión semanal valen más que un cuadro de mando de veinte casillas que se actualiza cuando alguien se acuerda. Si no puedes decir qué harías distinto según lo que marque un indicador, ese indicador no debería existir todavía."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> La mayoría de pymes industriales miden los indicadores que el ERP regala —facturación, entregas, horas fichadas— y ninguno que explique por qué la línea no cumple. Antes de elegir fórmulas, pasa cada candidato por tres preguntas: <strong>quién lo mira, cada cuánto y qué haría distinto según el resultado</strong>. Si falla una, no es un KPI. Después, empieza por los cinco que se pueden medir sin sensores: <strong>rechazo, retrabajo, cumplimiento del plan, tiempo de cambio y cobertura de competencias</strong>. El OEE es el indicador estrella del sector y el que peor se implanta en pyme, porque exige un dato de partida que casi nadie tiene.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#filtro">El filtro de tres preguntas</a></li>
+    <li><a href="#cuales">Los indicadores que sí sirven en planta</a></li>
+    <li><a href="#oee">El OEE: la fórmula es lo fácil</a></li>
+    <li><a href="#personas">Los indicadores de personas que casi nadie mide</a></li>
+    <li><a href="#sin-sensores">Qué puedes medir hoy sin tocar la máquina</a></li>
+    <li><a href="#errores">Cinco formas de estropear un cuadro de mando</a></li>
+    <li><a href="#empezar">Cómo empezar sin montar un proyecto</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="filtro">El filtro de tres preguntas</h2>
+  <p>El error de partida no es elegir mal la fórmula: es elegir el indicador por lo fácil que resulta sacarlo. Como el ERP da facturación, unidades entregadas y horas imputadas sin esfuerzo, esos acaban siendo los indicadores de producción de la casa. Ninguno de los tres te dice por qué el martes se fueron cuatro horas.</p>
+
+  <p>Antes de escribir una sola fórmula, pasa cada candidato por tres preguntas. Son incómodas a propósito:</p>
+
+  <div class="data-card">
+    <p><strong>1. ¿Quién lo mira?</strong> Con nombre y apellidos, no "producción". Un indicador sin dueño no se actualiza y nadie lo echa de menos.</p>
+    <p><strong>2. ¿Cada cuánto?</strong> Diario, semanal o mensual, pero decidido. Un indicador que se mira "cuando hay problemas" llega siempre tarde, que es justo cuando ya no sirve para decidir.</p>
+    <p><strong>3. ¿Qué harías distinto según el resultado?</strong> La definitiva. Si la respuesta es "pues... saberlo", todavía no es un KPI: es una curiosidad. Guárdala para más adelante.</p>
+  </div>
+
+  <p>Esta prueba elimina, en la mayoría de talleres, entre la mitad y dos tercios de la lista inicial. Es exactamente lo que buscas. Un cuadro de mando de veinte casillas que nadie actualiza es peor que tres números escritos en una pizarra, porque el primero además da la sensación de que se está midiendo.</p>
+
+  <h2 id="cuales">Los indicadores que sí sirven en planta</h2>
+  <p>Estos son los que, en una pyme industrial de series cortas y mezcla de máquina y trabajo manual, más veces apuntan a algo accionable. Con su fórmula, que en casi todos los casos es más simple de lo que el sector aparenta.</p>
+
+  <div class="data-card">
+    <p><strong>Tasa de rechazo (scrap).</strong> Piezas no conformes ÷ piezas producidas × 100. El más fácil de arrancar y el que más dinero mueve, porque cada punto es material, hora de máquina y hora de persona ya gastados. Mídelo por proceso y por referencia, nunca solo global: el número agregado esconde justo el puesto que tienes que mirar.</p>
+    <p><strong>Retrabajo.</strong> Piezas recuperadas ÷ piezas producidas × 100. El hermano pobre del anterior y, en muchos talleres, el más caro de los dos. Tiene una particularidad: si no se registra, no existe. Una pieza que se corrige sobre la marcha y sigue adelante no deja rastro en ningún sitio, así que el problema se resuelve catorce veces y no aparece en ningún dato.</p>
+    <p><strong>Cumplimiento del plan (adherencia).</strong> Órdenes completadas en fecha ÷ órdenes planificadas × 100. Es el indicador que traduce la producción al idioma del comercial y del gerente. Si solo puedes tener uno para la reunión de dirección, es este.</p>
+    <p><strong>Tiempo de cambio de referencia.</strong> Minutos desde la última pieza buena de la serie anterior hasta la primera pieza buena de la siguiente. Ojo a la definición: si cuentas hasta "la primera pieza", te estás engañando, porque los ajustes hasta que sale buena son parte del cambio. En series cortas, este indicador suele esconder más horas perdidas que las averías.</p>
+    <p><strong>Plazo interno (lead time).</strong> Desde que la orden entra en planta hasta que sale terminada. Incluye las esperas, y por eso duele: normalmente descubres que el tiempo de trabajo real es una fracción pequeña del total.</p>
+  </div>
+
+  <p>Fíjate en lo que tienen en común: ninguno necesita un sensor. Todos salen de registrar bien lo que ya ocurre.</p>
+
+  <h2 id="oee">El OEE: la fórmula es lo fácil</h2>
+  <p>El OEE (<em>Overall Equipment Effectiveness</em>, eficiencia general de los equipos) es el indicador estrella de cualquier conversación sobre productividad industrial. Se calcula multiplicando tres factores:</p>
+
+  <ul>
+    <li><strong>Disponibilidad</strong> = tiempo operativo ÷ tiempo planificado de producción.</li>
+    <li><strong>Rendimiento</strong> = (piezas totales × tiempo de ciclo ideal) ÷ tiempo operativo.</li>
+    <li><strong>Calidad</strong> = piezas buenas ÷ piezas totales.</li>
+  </ul>
+
+  <p>OEE = Disponibilidad × Rendimiento × Calidad. Hasta aquí, aritmética de secundaria.</p>
+
+  <p>El problema en una pyme no está en la fórmula, está en dos datos de entrada que casi nadie tiene fiables. El primero es el <strong>tiempo de ciclo ideal</strong>: si tu estándar viene de un presupuesto de hace seis años o de lo que dijo el comercial de la máquina, tu factor de rendimiento es ficción. El segundo es el <strong>registro de paradas</strong>: sin él, la disponibilidad se calcula restando lo que alguien recuerda, y las microparadas —las de tres minutos, que son las que más suman— no aparecen jamás.</p>
+
+  <div class="highlight-box">
+    <p><strong>La prueba del OEE honesto.</strong> Pregunta de dónde sale el tiempo de ciclo ideal que estás usando. Si nadie sabe responderlo o la respuesta es "estaba en un Excel", tu OEE es un número con decimales y sin base. No es un motivo para no medirlo: es un motivo para arreglar primero el tiempo de ciclo, que es un trabajo mucho más útil que el propio indicador. Lo tratamos en <a href="/blog/medir-tiempos-de-produccion/">cómo medir tiempos de producción</a>.</p>
+  </div>
+
+  <p>Nuestra recomendación práctica: el OEE es una buena meta a medio plazo y una mala forma de empezar. Si tu planta tiene un cuello de botella claro y una máquina que marca el ritmo, tiene sentido atacarlo ahí y solo ahí. Si tu realidad son series cortas y mucho trabajo manual, hay bastante más recorrido en el rechazo y en el tiempo de cambio. Y si estás valorando comprar captura automática para conseguirlo, merece la pena leer antes <a href="/vs-mes-tradicional/">cuándo un MES te sobra</a>.</p>
+
+  <h2 id="personas">Los indicadores de personas que casi nadie mide</h2>
+  <p>Todos los indicadores anteriores miden máquina y material. En una pyme industrial, sin embargo, la variable que más veces explica un mal mes es quién estaba en el puesto. Estos dos no aparecen en los cuadros de mando al uso y suelen ser los más reveladores:</p>
+
+  <ul>
+    <li><strong>Puestos con un solo operario capaz.</strong> El recuento de procesos críticos que sabe cubrir una única persona. No es un porcentaje elegante, es una lista de nombres, y es la mejor medida de riesgo operativo que puedes tener. Cada línea de esa lista es un día en el que una gripe te para un proceso. Va de la mano del <a href="/blog/plan-contingencia-bajas-produccion/">plan de contingencia para bajas</a>.</li>
+    <li><strong>Tiempo hasta autonomía.</strong> Días desde que alguien se incorpora a un puesto hasta que lo ejecuta solo con la calidad esperada. Es el indicador que convierte el coste de la rotación en un número discutible en una reunión. Lo desarrollamos en <a href="/blog/reducir-onboarding-operarios-cinco-a-un-dia/">la curva de autonomía del operario</a>.</li>
+  </ul>
+
+  <p>Hay una razón por la que estos dos no se miden: no salen de la máquina, salen de saber quién está capacitado para qué. Sin una <a href="/gestion-competencias/">matriz de competencias</a> mantenida, no hay forma de calcularlos.</p>
+
+  <h2 id="sin-sensores">Qué puedes medir hoy sin tocar la máquina</h2>
+  <p>Conviene tener clara la frontera antes de que un proveedor te la dibuje a su favor:</p>
+
+  <div class="data-card">
+    <p><strong>Se puede medir registrando bien lo que ya pasa:</strong> rechazo, retrabajo, cumplimiento del plan, tiempo de preparación y cambio, plazo interno, tiempo por operación, cobertura de competencias y puestos de riesgo. Es decir, prácticamente todo lo que sirve para decidir en una pyme.</p>
+    <p><strong>Necesita captura automática desde máquina:</strong> el OEE con detalle de microparadas, el rendimiento minuto a minuto, el consumo energético por pieza y la parametrización real del equipo. Son datos valiosos, pero de un orden de inversión y de mantenimiento distinto.</p>
+  </div>
+
+  <p>La confusión entre ambas listas es lo que lleva a una pyme a plantearse un proyecto de sensorización para acabar descubriendo que su problema era que nadie apuntaba los reprocesos. Antes de automatizar la captura, conviene asegurarse de que existe algo que capturar.</p>
+
+  <h2 id="errores">Cinco formas de estropear un cuadro de mando</h2>
+  <ul>
+    <li><strong>Medir lo fácil.</strong> Ya está comentado, pero es el error dominante y merece repetirse: la disponibilidad del dato no es un criterio de selección.</li>
+    <li><strong>Sin línea base.</strong> Un indicador sin punto de partida no permite decir si algo ha mejorado. Antes de cambiar nada, mide dos o tres semanas tal como está hoy. Es aburrido y es lo que después te defiende la decisión.</li>
+    <li><strong>Un Excel que mantiene una persona.</strong> Funciona hasta que esa persona se va de vacaciones. Si el cuadro de mando depende de que alguien consolide hojas los viernes, tiene fecha de caducidad. Lo desarrollamos en <a href="/blog/control-de-calidad-en-excel/">hasta dónde llega Excel</a>.</li>
+    <li><strong>Indicadores agregados.</strong> Un rechazo global del 3% no es accionable. El mismo dato abierto por proceso, referencia y turno señala el puesto donde hay que ir el lunes.</li>
+    <li><strong>Usar el dato para señalar personas.</strong> El más grave y el más silencioso. En cuanto el registro sirve para comparar operarios en una reunión, la gente deja de registrar lo que la deja mal. Seguirás teniendo datos: limpios, puntuales y falsos. La regla que protege el sistema es sencilla: <strong>los indicadores se miran por proceso, no por persona</strong>.</li>
+  </ul>
+
+  <h2 id="empezar">Cómo empezar sin montar un proyecto</h2>
+  <p>Un plan realista para una planta de entre veinte y cien personas, sin comprar nada todavía:</p>
+
+  <ul>
+    <li><strong>Semana 1.</strong> Elige un problema, no un indicador. "Se nos van demasiadas horas en los cambios de referencia" es un problema; "queremos medir el OEE" no lo es.</li>
+    <li><strong>Semana 2.</strong> Define un único indicador para ese problema y pásale el filtro de las tres preguntas. Escribe su fórmula y su definición exacta en una línea, incluidos los bordes: qué cuenta y qué no cuenta.</li>
+    <li><strong>Semanas 3 y 4.</strong> Mide la línea base sin cambiar nada. Resiste la tentación de mejorar mientras mides.</li>
+    <li><strong>Semana 5.</strong> Llévalo a una reunión corta y semanal, con su dueño. Si en tres semanas nadie ha tomado una decisión mirando ese número, el indicador estaba mal elegido: cámbialo sin pena.</li>
+  </ul>
+
+  <p>Cuando el primero funcione, añade el segundo. No antes. Los cuadros de mando que sobreviven se construyeron de uno en uno.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no es un sistema de captura de datos de máquina y no calcula un OEE con microparadas: para eso hace falta otra categoría de producto. Lo que aporta es la parte que en una pyme suele faltar antes, que es que el dato de la ejecución exista y sea comparable.</p>
+
+  <ul>
+    <li><strong>Registro de lo ejecutado.</strong> Quién hizo qué proceso, cuándo, en qué versión y cuánto tardó. De ahí salen tiempos por operación y por referencia sin que nadie rellene un parte aparte, desde el <a href="/portal-operario/">portal del operario</a>.</li>
+    <li><strong>Rechazo y retrabajo en el momento.</strong> El operario registra la incidencia en el puesto, no al final del turno de memoria, y queda ligada al proceso y a su versión. Es la base de <a href="/calidad-y-conformidad/">la gestión de no conformidades</a>.</li>
+    <li><strong>Indicadores de personas.</strong> La <a href="/gestion-competencias/">matriz de competencias</a> da directamente los puestos que solo sabe cubrir una persona, que es el dato de riesgo que ningún MES te va a dar.</li>
+    <li><strong>Visibilidad para el jefe de producción.</strong> Lo que se está ejecutando y dónde se atasca, sin pedir el parte, en <a href="/control-produccion/">control de producción</a>.</li>
+    <li><strong>Del indicador a la acción.</strong> Lo que aparece repetido se convierte en cambio del estándar desde el <a href="/kaizen/">panel de mejora continua</a>, en lugar de quedarse en el gráfico.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Un problema, un indicador, tres semanas de línea base.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué KPIs de producción debería medir una pyme industrial?</h3>
+  <p>Entre tres y cinco para empezar, no quince. Los que más rendimiento dan en una pyme son la tasa de rechazo, el retrabajo, el cumplimiento del plan, el tiempo de cambio de referencia y la cobertura de competencias por puesto. Son los que se pueden medir sin sensores y los que apuntan a decisiones concretas.</p>
+
+  <h3>¿Cómo se calcula el OEE?</h3>
+  <p>Multiplicando tres factores: disponibilidad (tiempo operativo entre tiempo planificado), rendimiento (producción real entre la que correspondería al tiempo de ciclo ideal) y calidad (piezas buenas entre piezas totales). El problema en una pyme no es la fórmula, es el dato: sin un tiempo de ciclo ideal fiable y sin registro de paradas, el OEE que salga es una cifra con decimales pero sin base.</p>
+
+  <h3>¿Qué indicadores puedo medir sin un MES ni sensores en máquina?</h3>
+  <p>Casi todos los que sirven para decidir en una pyme: rechazo, retrabajo, cumplimiento del plan, tiempo de preparación y cambio de referencia, y los indicadores de personas como el número de puestos que solo sabe cubrir una persona. Lo que sí necesita captura automática es el OEE con microparadas y el detalle de rendimiento minuto a minuto.</p>
+
+  <h3>¿Por qué fracasan los cuadros de mando de producción en una pyme?</h3>
+  <p>Porque se mide lo que es fácil de sacar en lugar de lo que explica el problema, y porque el indicador no tiene dueño, frecuencia ni decisión asociada. Un KPI que nadie mira un día concreto para hacer algo concreto es un adorno. El segundo motivo es más incómodo: cuando el dato se usa para señalar personas, la gente deja de registrar y el indicador se corrompe.</p>
+
+  <h3>¿Cuántos KPIs de producción hay que tener?</h3>
+  <p>Uno por problema que quieras resolver, y pocos problemas a la vez. Tres bien medidos y revisados en una reunión semanal valen más que un cuadro de mando de veinte casillas que se actualiza cuando alguien se acuerda. Si no puedes decir qué harías distinto según lo que marque un indicador, ese indicador no debería existir todavía.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/medir-tiempos-de-produccion/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Medir tiempos de producción</div>
+        <div class="related-link-desc">De dónde sale el dato que sostiene la mitad de estos indicadores.</div>
+      </a>
+      <a class="related-link-card" href="/blog/lean-manufacturing/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Lean Manufacturing en una pyme</div>
+        <div class="related-link-desc">Los ocho desperdicios que los indicadores acaban señalando.</div>
+      </a>
+      <a class="related-link-card" href="/control-produccion/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Control de producción</div>
+        <div class="related-link-desc">Qué registra REELEVO de cada ejecución, y qué no.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

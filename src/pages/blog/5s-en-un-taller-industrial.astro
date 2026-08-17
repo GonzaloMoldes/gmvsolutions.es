@@ -1,0 +1,221 @@
+---
+// Cluster lean. Origen: informe de terminos de busqueda Google Ads
+// (1 jun - 5 jul 2026): las 5S aparecieron en cinco formulaciones distintas
+// ("las 5 s", "sistema de las 5 s", "5s", "5 s", "tecnica de las 5 s",
+// "las 5 s en el trabajo"). En el sitio solo estaban mencionadas dentro de
+// /blog/lean-manufacturing/, sin pieza propia.
+//
+// Anticanibalizacion: /blog/lean-manufacturing/ es el paraguas (principios y
+// las 8 herramientas); esta es la profundizacion de una sola herramienta.
+// Enlace bidireccional y foco distinto: alli "que es el lean", aqui "por que
+// se caen las 5S".
+//
+// Honestidad: sin porcentajes de mejora (el contenido del sector esta lleno de
+// ellos y ninguno trae metodologia).
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Las 5S en un taller: cómo implantarlas sin que se caigan";
+const description = "Qué son las 5S, cómo implantarlas en un taller industrial y por qué casi todas las plantas se quedan en las tres primeras. Con checklist de puesto.";
+const date = "2026-08-17";
+const category = "Lean Manufacturing";
+const readTime = "11 min.";
+const canonical = "https://www.gmvsolutions.es/blog/5s-en-un-taller-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué son las 5S y para qué sirven?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Son cinco etapas de origen japonés —clasificar, ordenar, limpiar, estandarizar y mantener— para organizar un puesto de trabajo. Su objetivo real no es que la planta esté limpia: es que el puesto delate por sí solo cuando algo está fuera de su sitio, para que el problema se vea antes de convertirse en un fallo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son las cinco S en español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seiri (clasificar: separar lo que sirve de lo que sobra), Seiton (ordenar: un sitio para cada cosa), Seiso (limpiar e inspeccionar mientras se limpia), Seiketsu (estandarizar: definir el estado correcto de forma comprobable) y Shitsuke (mantener: auditar con dueño y frecuencia). Las tres primeras son una acción; las dos últimas son un sistema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué fracasan las 5S en la mayoría de talleres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque se ejecutan las tres primeras como una campaña de un sábado, con fotos de antes y después, y no se implanta ninguna de las dos últimas. Sin un estado correcto definido de forma comprobable y sin una auditoría corta con dueño y fecha, el puesto vuelve a su estado anterior en cuestión de meses y nadie sabe decir cuándo pasó."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por dónde se empieza a implantar las 5S en una pyme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por un solo puesto, con el operario que trabaja en él delante y decidiendo. Nunca por la planta entera y nunca sin él: la forma más rápida de perder la credibilidad del taller es que alguien de oficina tire cosas de un puesto que no usa. Del primer puesto salen la foto del estado objetivo y el checklist que después se replica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué relación tienen las 5S con las instrucciones de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una instrucción de trabajo solo es ejecutable si el puesto está en orden. Si el paso 3 dice usar un calibre concreto y ese calibre no está donde debería, el procedimiento se rompe y el operario improvisa. Las 5S son la condición física que hace que el estándar escrito se pueda cumplir."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Las 5S no son una campaña de limpieza: son un método para que el puesto <strong>delate</strong> cuando algo está fuera de sitio. El patrón de fracaso es siempre el mismo y es fácil de reconocer: las tres primeras eses son una acción que se hace un sábado con fotos de antes y después, y las dos últimas son un sistema que casi nadie monta. Seis meses después el taller está como estaba y nadie sabe cuándo volvió. Lo que separa un caso del otro son dos cosas nada glamurosas: un <strong>estado objetivo comprobable</strong> (una foto, no un cartel) y una <strong>auditoría corta con dueño y fecha</strong>.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-son">Qué son las 5S, sin la parte de folleto</a></li>
+    <li><a href="#cinco">Las cinco, una por una</a></li>
+    <li><a href="#frontera">La frontera donde se cae todo</a></li>
+    <li><a href="#fracaso">Cinco motivos reales de fracaso en pyme</a></li>
+    <li><a href="#checklist">Un checklist de puesto que sí se usa</a></li>
+    <li><a href="#sop">5S e instrucciones de trabajo</a></li>
+    <li><a href="#empezar">Plan de arranque en un puesto</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-son">Qué son las 5S, sin la parte de folleto</h2>
+  <p>Las 5S son cinco etapas de organización del puesto de trabajo nacidas en la industria japonesa de posguerra y popularizadas como parte del sistema de producción de Toyota. Es una de las herramientas del <a href="/blog/lean-manufacturing/">lean manufacturing</a>, probablemente la más conocida y con seguridad la peor entendida.</p>
+
+  <p>La lectura equivocada, que es la mayoritaria, es que las 5S van de tener el taller limpio y ordenado. Con esa lectura, el resultado es un taller limpio durante tres meses.</p>
+
+  <p>La lectura útil es otra: las 5S sirven para que <strong>el puesto delate por sí solo cuando algo está fuera de lo normal</strong>. Si el panel tiene la silueta de cada herramienta dibujada, la que falta se ve desde la puerta sin abrir un cajón. Si el suelo está limpio, una mancha de aceite es una fuga que acabas de detectar semanas antes de la avería. Si solo está el material de la orden en curso, la referencia equivocada no puede montarse por error. Todo lo demás —el orden, la limpieza— es el medio, no el fin.</p>
+
+  <div class="highlight-box">
+    <p><strong>La pregunta que distingue las dos lecturas.</strong> Ante un puesto ya ordenado: ¿cuánto tarda alguien que no trabaja aquí en darse cuenta de que falta una herramienta o de que hay material de otra orden? Si la respuesta es "habría que preguntar", tienes un puesto limpio pero no tienes 5S.</p>
+  </div>
+
+  <h2 id="cinco">Las cinco, una por una</h2>
+  <div class="data-card">
+    <p><strong>1. Seiri — Clasificar.</strong> Separar lo que se usa de lo que no. La prueba operativa es la frecuencia: lo que no se ha tocado en el último mes probablemente no vive en ese puesto. Aquí aparece el primer conflicto real, porque "por si acaso" es la respuesta más común en un taller y a veces tiene razón. Se resuelve con una zona de cuarentena y una fecha, no discutiendo.</p>
+    <p><strong>2. Seiton — Ordenar.</strong> Un sitio para cada cosa, y el sitio decidido por frecuencia de uso y por distancia a la mano, no por estética. Lo que se usa en cada pieza, al alcance; lo que se usa una vez al día, a un paso. Marcar las ubicaciones es lo que convierte el orden en algo comprobable.</p>
+    <p><strong>3. Seiso — Limpiar.</strong> La parte que todo el mundo entiende y casi nadie ejecuta bien, porque limpiar en 5S es sobre todo <em>inspeccionar mientras se limpia</em>. El que limpia una máquina detecta la fuga, el tornillo flojo y el ruido nuevo. Por eso lo hace el operario del puesto y no una empresa externa a las once de la noche.</p>
+    <p><strong>4. Seiketsu — Estandarizar.</strong> Definir cuál es el estado correcto del puesto de forma que cualquiera pueda comprobarlo sin preguntar. No es un cartel con las cinco eses: es una foto del estado objetivo colgada en el puesto, las ubicaciones marcadas y un checklist corto.</p>
+    <p><strong>5. Shitsuke — Mantener.</strong> La disciplina, que en la práctica significa una auditoría breve, periódica, con dueño y con fecha. Si depende de que alguien se acuerde, no existe.</p>
+  </div>
+
+  <h2 id="frontera">La frontera donde se cae todo</h2>
+  <p>Entre la tercera y la cuarta ese hay un cambio de naturaleza que casi ningún material sobre 5S señala, y que explica la mayoría de los fracasos.</p>
+
+  <p><strong>Las tres primeras son una acción.</strong> Tienen principio y final, se hacen en una jornada o en un fin de semana, dan un resultado espectacular y muy fotografiable, y generan entusiasmo. Salen bien casi siempre.</p>
+
+  <p><strong>Las dos últimas son un sistema.</strong> No terminan nunca, no se ven, no se fotografían y solo funcionan si alguien tiene asignado hacerlas cada semana. Son aburridas.</p>
+
+  <p>Por eso el patrón es tan repetido: la planta hace S1, S2 y S3 en un sábado memorable, saca las fotos de antes y después, las cuelga en el tablón, y no monta ni S4 ni S5. Seis meses más tarde el puesto ha vuelto a su estado anterior sin que nadie pueda decir en qué semana ocurrió. La conclusión que se saca entonces —"las 5S aquí no funcionan"— es exactamente la equivocada: no se llegaron a implantar, se ejecutó su primera mitad.</p>
+
+  <h2 id="fracaso">Cinco motivos reales de fracaso en pyme</h2>
+  <ul>
+    <li><strong>Se plantean como campaña.</strong> Con nombre, cartelería y fecha de inicio. Todo lo que tiene fecha de inicio y no de continuidad se percibe, con razón, como algo que va a pasar.</li>
+    <li><strong>Se hacen sin el operario del puesto.</strong> Es el error que más caro sale. Cuando alguien de oficina decide qué se tira de un puesto que no usa, no solo se pierden cosas necesarias: se pierde la colaboración del equipo para todo lo que venga después, incluida cualquier iniciativa de mejora.</li>
+    <li><strong>Nadie audita, o se audita cuando viene un cliente.</strong> La auditoría del día antes de la visita enseña al taller que esto va de aparentar. Es peor que no auditar.</li>
+    <li><strong>Se mide con una puntuación que no decide nada.</strong> Las hojas de 1 a 5 por cada ese, con su media y su gráfico, que nadie usa para tomar ninguna decisión. Vuelve a aplicarse el filtro de siempre: si nadie hace nada distinto según el resultado, el indicador sobra.</li>
+    <li><strong>El puesto no está documentado.</strong> El más de fondo. Si no hay un estado objetivo definido, "correcto" es la opinión del que pasa por delante, y esa opinión cambia con la persona y con el día.</li>
+  </ul>
+
+  <h2 id="checklist">Un checklist de puesto que sí se usa</h2>
+  <p>La cuarta ese se materializa en un checklist de fin de turno. Para que se cumpla tiene que ser corto —de seis a ocho puntos, no veinte—, específico de ese puesto y comprobable en menos de dos minutos. Un ejemplo de estructura para un puesto de máquina:</p>
+
+  <ul>
+    <li>Herramienta y utillaje devueltos a su ubicación marcada; ninguna silueta vacía en el panel.</li>
+    <li>Material sobrante de la orden identificado y retirado de la zona de trabajo.</li>
+    <li>Superficie de trabajo y zona de máquina sin virutas ni restos.</li>
+    <li>Sin fugas ni manchas nuevas en el suelo bajo la máquina (si hay, se reporta, no se limpia y calla).</li>
+    <li>Consumibles por debajo del mínimo marcado: avisados.</li>
+    <li>Documentación del puesto: solo la versión vigente, sin copias sueltas.</li>
+    <li>Incidencias del turno registradas para el relevo.</li>
+  </ul>
+
+  <p>Fíjate en el cuarto punto y en el sexto. El cuarto convierte la limpieza en detección, que es de lo que se trata. El sexto es el que conecta las 5S con la calidad: una copia antigua plastificada en la máquina es exactamente el tipo de hallazgo que aparece en <a href="/blog/preparar-auditoria-iso-9001-produccion/">una auditoría ISO 9001</a>.</p>
+
+  <h2 id="sop">5S e instrucciones de trabajo</h2>
+  <p>Las dos cosas se tratan como iniciativas separadas y son la misma. Una <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucción de trabajo</a> solo es ejecutable si el puesto está en orden: si el paso 3 dice verificar con un calibre concreto y ese calibre no está donde debería, el procedimiento se rompe ahí y el operario improvisa. Y a la inversa, el estándar de puesto de la cuarta ese es un documento más, con su versión y su responsable, exactamente igual que un SOP.</p>
+
+  <p>La consecuencia práctica: si vas a hacer las dos cosas, hazlas en el mismo puesto y a la vez. Documentar el proceso de una máquina cuyo entorno es un caos produce una instrucción que no se puede seguir; ordenar un puesto sin definir qué se hace en él produce un orden que nadie sabe mantener.</p>
+
+  <h2 id="empezar">Plan de arranque en un puesto</h2>
+  <ul>
+    <li><strong>Elige un puesto, no la planta.</strong> Idealmente uno con problemas visibles y con un operario dispuesto. El objetivo de este primero no es el resultado: es tener una referencia que enseñar al resto.</li>
+    <li><strong>Hazlo con quien trabaja ahí.</strong> Él decide qué se queda. Tú preguntas "¿cuándo fue la última vez que usaste esto?" y aguantas el silencio.</li>
+    <li><strong>Marca las ubicaciones y haz la foto del estado objetivo.</strong> La foto es el estándar. Se cuelga en el puesto.</li>
+    <li><strong>Escribe el checklist de fin de turno.</strong> Seis a ocho puntos, dos minutos.</li>
+    <li><strong>Asigna la auditoría.</strong> Nombre, día de la semana y cinco minutos. Sin nombre y sin día, no hay quinta ese.</li>
+    <li><strong>A las cuatro semanas, decide.</strong> Si el puesto se mantiene, replica. Si no, no repliques todavía: averigua qué falló, porque replicar un método que no aguanta cuatro semanas multiplica el problema por el número de puestos.</li>
+  </ul>
+
+  <p><em>Nota sobre cifras: en el contenido sobre 5S circulan porcentajes muy concretos de reducción de tiempos de búsqueda y de accidentes, casi siempre sin fuente ni metodología. No los vas a encontrar aquí. Si quieres medir el efecto en tu planta, lo honesto es contar antes y después una cosa observable: cuántas veces por turno alguien se mueve del puesto a buscar algo.</em></p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no ordena un taller: eso se hace con las manos y con el operario delante. Lo que sostiene es la parte donde las 5S se caen, que son las dos últimas eses.</p>
+
+  <ul>
+    <li><strong>El estado objetivo, en el puesto.</strong> La foto del puesto correcto y el checklist viven donde se ejecutan, accesibles con un QR desde el <a href="/portal-operario/">portal del operario</a> y también <a href="/modo-offline/">sin wifi</a>, en lugar de en una carpeta de la oficina.</li>
+    <li><strong>El checklist de fin de turno, registrado.</strong> Los <a href="/workflows/">workflows</a> convierten la comprobación en algo que deja rastro: quién, cuándo y con qué resultado. Sin registro no hay quinta ese, solo buena voluntad.</li>
+    <li><strong>La auditoría, con dueño y con historial.</strong> Se puede ver qué puestos se comprueban y cuáles llevan semanas sin pasar revisión, que es la información que hace que el sistema no se apague sin avisar.</li>
+    <li><strong>Una sola versión del estándar de puesto.</strong> Cuando cambia la ubicación de algo, cambia para los tres turnos a la vez, en <a href="/documentacion-procesos/">documentación de procesos</a>.</li>
+    <li><strong>Lo que aparece repetido, al estándar.</strong> Las incidencias que se repiten en los checklists entran por el <a href="/kaizen/">panel de mejora continua</a> en lugar de quedarse en la hoja de la semana pasada.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Un puesto, una foto y una auditoría con nombre y día.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué son las 5S y para qué sirven?</h3>
+  <p>Son cinco etapas de origen japonés —clasificar, ordenar, limpiar, estandarizar y mantener— para organizar un puesto de trabajo. Su objetivo real no es que la planta esté limpia: es que el puesto delate por sí solo cuando algo está fuera de su sitio, para que el problema se vea antes de convertirse en un fallo.</p>
+
+  <h3>¿Cuáles son las cinco S en español?</h3>
+  <p>Seiri (clasificar: separar lo que sirve de lo que sobra), Seiton (ordenar: un sitio para cada cosa), Seiso (limpiar e inspeccionar mientras se limpia), Seiketsu (estandarizar: definir el estado correcto de forma comprobable) y Shitsuke (mantener: auditar con dueño y frecuencia). Las tres primeras son una acción; las dos últimas son un sistema.</p>
+
+  <h3>¿Por qué fracasan las 5S en la mayoría de talleres?</h3>
+  <p>Porque se ejecutan las tres primeras como una campaña de un sábado, con fotos de antes y después, y no se implanta ninguna de las dos últimas. Sin un estado correcto definido de forma comprobable y sin una auditoría corta con dueño y fecha, el puesto vuelve a su estado anterior en cuestión de meses y nadie sabe decir cuándo pasó.</p>
+
+  <h3>¿Por dónde se empieza a implantar las 5S en una pyme?</h3>
+  <p>Por un solo puesto, con el operario que trabaja en él delante y decidiendo. Nunca por la planta entera y nunca sin él: la forma más rápida de perder la credibilidad del taller es que alguien de oficina tire cosas de un puesto que no usa. Del primer puesto salen la foto del estado objetivo y el checklist que después se replica.</p>
+
+  <h3>¿Qué relación tienen las 5S con las instrucciones de trabajo?</h3>
+  <p>Una instrucción de trabajo solo es ejecutable si el puesto está en orden. Si el paso 3 dice usar un calibre concreto y ese calibre no está donde debería, el procedimiento se rompe y el operario improvisa. Las 5S son la condición física que hace que el estándar escrito se pueda cumplir.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/lean-manufacturing/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Lean Manufacturing en una pyme</div>
+        <div class="related-link-desc">Dónde encajan las 5S entre las demás herramientas.</div>
+      </a>
+      <a class="related-link-card" href="/blog/instrucciones-de-trabajo-vs-sop/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Instrucciones de trabajo vs SOP</div>
+        <div class="related-link-desc">El estándar de puesto también es un documento con versión.</div>
+      </a>
+      <a class="related-link-card" href="/kaizen/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Mejora continua</div>
+        <div class="related-link-desc">Cómo vuelve al estándar lo que detecta el checklist.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

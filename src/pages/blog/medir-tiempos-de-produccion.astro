@@ -1,0 +1,231 @@
+---
+// Cluster medicion. Origen: informe de terminos de busqueda Google Ads
+// (1 jun - 5 jul 2026): "medicion de tiempos en produccion", "como sacar
+// tiempos de produccion", "takt time como se calcula", "lead time". Cero
+// cobertura en el sitio ("medir tiempos" no aparecia en ninguna pagina).
+//
+// Anticanibalizacion: /blog/kpis-de-produccion-pyme-industrial/ es el "que
+// medir" (catalogo de indicadores); esta pieza es el "de donde sale el dato de
+// tiempo". Se enlazan entre si y no repiten formulas.
+//
+// Honestidad: sin cifras de ahorro. El aviso sobre uso del dato por persona es
+// deliberado y coherente con la politica de claims de la guia maestra.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo medir tiempos de producción sin cronómetro ni MES";
+const description = "Cómo obtener tiempos reales de producción en una pyme industrial sin estudio de cronometraje ni captura automática, y qué hacer con la dispersión.";
+const date = "2026-08-17";
+const category = "Medición y control";
+const readTime = "10 min.";
+const canonical = "https://www.gmvsolutions.es/blog/medir-tiempos-de-produccion/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se miden los tiempos de producción sin cronómetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Registrando el inicio y el fin de cada operación en el propio puesto, de forma acumulada durante semanas, en lugar de hacer un estudio puntual con un observador delante. Se obtienen muchas más muestras, en condiciones reales y con distintos operarios y turnos, que es justo lo que un cronometraje de una mañana no puede darte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre tiempo de ciclo, tiempo de operación y lead time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El tiempo de ciclo es lo que se tarda en producir una pieza en un puesto. El tiempo de operación es lo que cuesta completar una orden entera en ese puesto, preparación incluida. El lead time es todo lo que pasa desde que la orden entra en planta hasta que sale, con las esperas dentro. Buena parte de las discusiones de planta vienen de que dos personas usan la palabra tiempo para cosas distintas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no conviene fiarse de un estudio de cronometraje?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por tres motivos: quien se sabe observado no trabaja igual, la muestra es de un día concreto con una referencia concreta, y el resultado caduca en cuanto cambia el utillaje, el material o el método. Sigue siendo útil para analizar a fondo una operación, pero es una mala base para presupuestar o planificar durante años."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es mejor la media o la mediana para los tiempos de producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La mediana, casi siempre. Una avería, una parada para comer mal registrada o un fin de turno bastan para llevarse la media muy lejos de lo que ocurre un día normal. La mediana te dice cuánto tarda la ejecución típica; la diferencia entre ambas, y sobre todo la dispersión, es la información realmente valiosa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué hago si el mismo proceso tarda muy distinto según quién lo haga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tratarlo como un hallazgo de proceso, no de personas. Una dispersión grande casi siempre significa que el método no está documentado con el detalle suficiente y que cada uno lo resuelve a su manera. La acción útil es ir a ver cómo lo hace quien va más rápido y convertir eso en el estándar, no pedir al resto que apriete."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Los tiempos con los que presupuesta y planifica una pyme industrial suelen venir de un cronometraje antiguo o directamente de la intuición del jefe de taller. Las dos alternativas habituales tienen problemas conocidos: el <strong>cronómetro</strong> mide un día concreto con alguien observando, y el <strong>MES</strong> mide la máquina, que en series cortas es la parte pequeña del tiempo. Hay una tercera vía: que el tiempo salga del propio registro de ejecución, acumulado durante semanas. Y una regla que decide si el sistema sobrevive: <strong>los tiempos se analizan por proceso, nunca por persona</strong>.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#por-que">Para qué necesitas el tiempo real</a></li>
+    <li><a href="#tres-tiempos">Tres tiempos que no son lo mismo</a></li>
+    <li><a href="#cronometro">Por qué el cronómetro engaña</a></li>
+    <li><a href="#mes">Por qué el MES no cubre el hueco</a></li>
+    <li><a href="#metodo">El método: registro acumulado en el puesto</a></li>
+    <li><a href="#dispersion">La dispersión es el dato, no la media</a></li>
+    <li><a href="#confianza">El riesgo que hunde estos proyectos</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="por-que">Para qué necesitas el tiempo real</h2>
+  <p>No es un ejercicio de curiosidad. En una pyme industrial, el tiempo por operación es el dato que sostiene tres decisiones que se toman todas las semanas:</p>
+
+  <ul>
+    <li><strong>Presupuestar.</strong> Si el tiempo que metes en el precio viene de hace seis años, no sabes en qué piezas ganas dinero. Y lo más probable es que estés compitiendo a la baja justo en las que peor margen te dejan.</li>
+    <li><strong>Planificar y prometer fechas.</strong> Sin tiempo fiable, la fecha de entrega es una estimación con un colchón encima, y el colchón tiene el tamaño del susto del último retraso.</li>
+    <li><strong>Saber si un estándar es real.</strong> Un procedimiento que exige quince minutos donde de verdad hacen falta veinticinco no se cumple: se rodea. Es el origen del <a href="/blog/errores-humanos-produccion/">atajo deliberado</a>, y no se arregla insistiendo.</li>
+  </ul>
+
+  <h2 id="tres-tiempos">Tres tiempos que no son lo mismo</h2>
+  <p>Antes de medir nada conviene ponerse de acuerdo en qué se mide, porque buena parte de las discusiones de planta son en realidad un problema de vocabulario:</p>
+
+  <div class="data-card">
+    <p><strong>Tiempo de ciclo.</strong> Lo que se tarda en sacar una pieza en un puesto, una vez todo está en marcha. Es el que suele venir en la ficha de la máquina y el único que un MES mide bien.</p>
+    <p><strong>Tiempo de operación.</strong> Lo que cuesta completar una orden entera en ese puesto: preparación, cambio de utillaje, primera pieza, ejecución y retirada. Es el que necesitas para presupuestar, y en series cortas puede ser varias veces el tiempo de ciclo multiplicado por las piezas.</p>
+    <p><strong>Plazo interno (lead time).</strong> Desde que la orden entra en planta hasta que sale terminada, con las esperas entre puestos incluidas. Es el que percibe el cliente y el que casi nadie mide, porque obliga a mirar los huecos entre operaciones y no solo el trabajo.</p>
+  </div>
+
+  <p>La regla práctica: si alguien dice "esa pieza son doce minutos", pregunta cuál de los tres. En la mayoría de talleres, la respuesta revela que se estaba hablando del tiempo de ciclo mientras se planificaba con él como si fuera el de operación.</p>
+
+  <h2 id="cronometro">Por qué el cronómetro engaña</h2>
+  <p>El estudio de tiempos clásico —alguien con un cronómetro y una hoja detrás del operario— sigue siendo una herramienta válida para analizar a fondo una operación concreta. Como base para presupuestar durante años, tiene tres agujeros:</p>
+
+  <ul>
+    <li><strong>Nadie trabaja igual observado.</strong> Unos aprietan y otros se protegen. En ambos casos estás midiendo una situación excepcional, y encima no sabes en qué dirección.</li>
+    <li><strong>La muestra es minúscula.</strong> Un día, una referencia, un material, un operario, un turno. Después se aplica ese número a todo el año, con material de otro proveedor y con la máquina seis meses más gastada.</li>
+    <li><strong>Caduca en silencio.</strong> Cambia un utillaje, se modifica un paso, entra una referencia parecida pero no igual. El tiempo sigue en el sistema como si nada, y nadie lo revisa hasta que un pedido sale mal.</li>
+  </ul>
+
+  <p>Hay un cuarto problema, menos técnico y más real: en muchas plantas el cronómetro tiene una carga histórica que genera desconfianza inmediata. Poner a alguien a cronometrar sin explicar antes para qué es la forma más rápida de que el dato salga sesgado y de que el proyecto empiece con el equipo en contra.</p>
+
+  <h2 id="mes">Por qué el MES no cubre el hueco</h2>
+  <p>La respuesta del sector a "necesito tiempos" es captura automática desde máquina. Funciona muy bien para lo que hace, que es el tiempo de ciclo y las paradas del equipo.</p>
+
+  <p>El problema es dónde está el tiempo en una pyme de series cortas. Está en la preparación, en el cambio de referencia, en buscar el utillaje, en la primera pieza que no sale, en la verificación y en el trabajo manual entre operaciones. Nada de eso ocurre dentro del ciclo de la máquina, así que un sistema que solo mira la máquina te dará un dato muy preciso de la parte pequeña del problema. Está desarrollado en <a href="/vs-mes-tradicional/">cuándo un MES te sobra</a>.</p>
+
+  <div class="highlight-box">
+    <p><strong>La comprobación de un minuto.</strong> Coge una orden reciente de una serie corta y estima cuánto del tiempo total fue máquina en marcha. Si la respuesta está por debajo de la mitad, la captura automática te resolvería menos de la mitad del problema, y por bastante más dinero.</p>
+  </div>
+
+  <h2 id="metodo">El método: registro acumulado en el puesto</h2>
+  <p>La tercera vía consiste en dejar de tratar la medición como un proyecto puntual y convertirla en un subproducto del trabajo diario. El operario marca cuándo empieza y cuándo termina la operación en el mismo sitio donde consulta el proceso, y ese registro se acumula.</p>
+
+  <p>Cambia la naturaleza del dato: en lugar de doce mediciones de una mañana, tienes cientos a lo largo de meses, con distintos operarios, turnos, materiales y momentos del año. Cuatro reglas para que sirva:</p>
+
+  <div class="data-card">
+    <p><strong>1. Separa preparación de ejecución.</strong> Si van juntas, el tiempo de una orden de 5 piezas y el de una de 500 no son comparables y no podrás usar ninguno de los dos. Es la separación que más rendimiento da.</p>
+    <p><strong>2. Usa la mediana, no la media.</strong> Una avería, un final de turno o un registro que alguien olvidó cerrar bastan para llevarse la media lejos de la realidad. La mediana te dice cuánto tarda un día normal.</p>
+    <p><strong>3. Marca lo excepcional en el momento.</strong> Que el operario pueda indicar "esta orden fue rara" con un motivo, para poder excluirla del cálculo con criterio en vez de a ojo tres meses después.</p>
+    <p><strong>4. No toques nada durante las primeras semanas.</strong> Necesitas una línea base de cómo se trabaja hoy. Si mides y mejoras a la vez, no vas a poder atribuir nada.</p>
+  </div>
+
+  <p>El registro tiene además una ventaja que el cronometraje no puede dar: queda ligado a la <strong>versión del proceso</strong> que estaba vigente. Cuando cambias el método, puedes comparar antes y después sobre el mismo dato en lugar de sobre impresiones.</p>
+
+  <h2 id="dispersion">La dispersión es el dato, no la media</h2>
+  <p>Casi todo el mundo mira estos datos buscando un número único para meterlo en el ERP. El valor está en otro sitio: en cuánto varía.</p>
+
+  <p>Si la misma operación tarda 12 minutos con una persona y 25 con otra, tienes delante el hallazgo más rentable de todo el ejercicio. Y la lectura correcta no es que la segunda persona sea lenta. Casi siempre significa una de estas tres cosas:</p>
+
+  <ul>
+    <li><strong>El método no está documentado con suficiente detalle</strong>, así que cada uno ha desarrollado el suyo. Quien va rápido ha encontrado un truco que nadie ha escrito: es <a href="/blog/conocimiento-tacito-taller-industrial/">conocimiento tácito</a> puro.</li>
+    <li><strong>Las condiciones no eran las mismas.</strong> Otro material, otra máquina, otro utillaje. Si no lo estás registrando, lo estás confundiendo con una diferencia de persona.</li>
+    <li><strong>Hay un paso que a unos les da problemas y a otros no.</strong> Normalmente el que peor está explicado.</li>
+  </ul>
+
+  <p>La acción útil ante una dispersión grande es ir al puesto y ver cómo lo hace quien va más rápido, y convertir eso en el estándar. Es exactamente el desglose en pasos y puntos clave del <a href="/blog/twi-formacion-operarios-en-el-puesto/">método TWI</a>. Pedirle al resto que apriete no cambia nada, porque el problema no era el esfuerzo.</p>
+
+  <h2 id="confianza">El riesgo que hunde estos proyectos</h2>
+  <p>Merece un apartado propio porque es la causa de fracaso número uno y no es técnica.</p>
+
+  <p>En el momento en que los tiempos registrados se usan para comparar personas en una reunión —o simplemente en que el equipo <em>cree</em> que se van a usar así— el sistema se acaba. No de forma dramática: la gente empieza a cerrar los registros al final del turno de golpe, a no marcar las incidencias, a redondear. Seguirás teniendo datos, cada vez más limpios y más falsos.</p>
+
+  <p>Las tres medidas que lo evitan son sencillas y hay que tomarlas desde el primer día, no cuando aparezca el problema:</p>
+
+  <ul>
+    <li><strong>Explicar para qué se mide antes de empezar a medir.</strong> Presupuestar mejor y arreglar estándares imposibles, no vigilar.</li>
+    <li><strong>Analizar por proceso y por referencia, nunca por nombre.</strong> Y que se note en cómo se presentan los datos en las reuniones.</li>
+    <li><strong>Que el primer cambio visible beneficie al puesto.</strong> Si el resultado del primer análisis es arreglar la instrucción de una operación que todos odian, el sistema se gana la credibilidad que necesita para durar.</li>
+  </ul>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no cronometra ni captura de máquina. El tiempo aparece como consecuencia de algo que el operario ya hace: consultar el proceso en el puesto.</p>
+
+  <ul>
+    <li><strong>El registro es el subproducto.</strong> El operario abre el proceso con un QR desde el <a href="/portal-operario/">portal del operario</a> y queda el inicio, el fin, la referencia y la versión. Nadie rellena un parte aparte, que es donde mueren estos proyectos.</li>
+    <li><strong>Funciona sin wifi en planta.</strong> El registro no depende de la cobertura del taller gracias al <a href="/modo-offline/">modo offline</a>, así que no hay huecos en la serie.</li>
+    <li><strong>Tiempo ligado a versión.</strong> Cuando cambias el método puedes comparar la ejecución antes y después, en lugar de discutir si se nota.</li>
+    <li><strong>Separación de preparación y ejecución.</strong> Los <a href="/workflows/">workflows</a> permiten marcar los pasos de preparación aparte, que es la condición para que los tiempos sean comparables entre lotes de distinto tamaño.</li>
+    <li><strong>De la dispersión al estándar.</strong> Cuando aparece una diferencia grande entre ejecuciones, el cambio del proceso se gestiona desde el <a href="/kaizen/">panel de mejora continua</a> y llega a todos los turnos a la vez.</li>
+  </ul>
+
+  <p>Lo que no vas a obtener: microparadas, rendimiento minuto a minuto ni consumo por pieza. Eso es territorio de captura automática y conviene decirlo antes de que lo diga una demo.</p>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por una operación y tres semanas sin tocar nada.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Cómo se miden los tiempos de producción sin cronómetro?</h3>
+  <p>Registrando el inicio y el fin de cada operación en el propio puesto, de forma acumulada durante semanas, en lugar de hacer un estudio puntual con un observador delante. Se obtienen muchas más muestras, en condiciones reales y con distintos operarios y turnos, que es justo lo que un cronometraje de una mañana no puede darte.</p>
+
+  <h3>¿Qué diferencia hay entre tiempo de ciclo, tiempo de operación y lead time?</h3>
+  <p>El tiempo de ciclo es lo que se tarda en producir una pieza en un puesto. El tiempo de operación es lo que cuesta completar una orden entera en ese puesto, preparación incluida. El lead time es todo lo que pasa desde que la orden entra en planta hasta que sale, con las esperas dentro. Buena parte de las discusiones de planta vienen de que dos personas usan la palabra tiempo para cosas distintas.</p>
+
+  <h3>¿Por qué no conviene fiarse de un estudio de cronometraje?</h3>
+  <p>Por tres motivos: quien se sabe observado no trabaja igual, la muestra es de un día concreto con una referencia concreta, y el resultado caduca en cuanto cambia el utillaje, el material o el método. Sigue siendo útil para analizar a fondo una operación, pero es una mala base para presupuestar o planificar durante años.</p>
+
+  <h3>¿Es mejor la media o la mediana para los tiempos de producción?</h3>
+  <p>La mediana, casi siempre. Una avería, una parada para comer mal registrada o un fin de turno bastan para llevarse la media muy lejos de lo que ocurre un día normal. La mediana te dice cuánto tarda la ejecución típica; la diferencia entre ambas, y sobre todo la dispersión, es la información realmente valiosa.</p>
+
+  <h3>¿Qué hago si el mismo proceso tarda muy distinto según quién lo haga?</h3>
+  <p>Tratarlo como un hallazgo de proceso, no de personas. Una dispersión grande casi siempre significa que el método no está documentado con el detalle suficiente y que cada uno lo resuelve a su manera. La acción útil es ir a ver cómo lo hace quien va más rápido y convertir eso en el estándar, no pedir al resto que apriete.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/kpis-de-produccion-pyme-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">KPIs de producción</div>
+        <div class="related-link-desc">Qué hacer con el dato de tiempo una vez lo tienes.</div>
+      </a>
+      <a class="related-link-card" href="/blog/twi-formacion-operarios-en-el-puesto/">
+        <div class="related-link-kicker">Método</div>
+        <div class="related-link-title">Formar en el puesto con TWI</div>
+        <div class="related-link-desc">Cómo convertir en estándar lo que hace quien va más rápido.</div>
+      </a>
+      <a class="related-link-card" href="/vs-mes-tradicional/">
+        <div class="related-link-kicker">Comparativa</div>
+        <div class="related-link-title">¿Necesitas un MES?</div>
+        <div class="related-link-desc">Qué parte del tiempo captura de verdad la máquina.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

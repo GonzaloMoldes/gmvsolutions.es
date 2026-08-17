@@ -1,0 +1,253 @@
+---
+// Cluster onboarding. Hueco detectado: "TWI" / "Training Within Industry" no
+// aparecia en ninguna de las 52 URLs del sitio, y esta marcado MEDIA en
+// keywords_para_keywordplanner.csv (cluster "Formacion operarios").
+//
+// Angulo diferenciador frente al resto del cluster: los posts existentes hablan
+// de CUANTO tarda una incorporacion (/blog/reducir-onboarding-operarios-cinco-a-un-dia/),
+// de QUE ERRORES comete el nuevo (/blog/onboarding-digital-errores-manuales/) y de
+// QUE SOFTWARE elegir (/blog/onboarding-software-pymes/). Ninguno explica el acto
+// de ENSENAR una tarea. Este si, y ademas usa los "puntos clave" del desglose TWI
+// como puente formal hacia la tesis de conocimiento tacito de la casa.
+//
+// Honestidad: sin cifras de resultado. El unico dato historico va atribuido a su
+// fuente primaria (informe final del TWI Service, 1945).
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "TWI: cómo formar a un operario en el puesto en 4 pasos";
+const description = "Qué es el TWI (Training Within Industry), cómo funciona su método de instrucción en 4 pasos y cómo aplicarlo en una pyme industrial sin montar un programa.";
+const date = "2026-08-17";
+const category = "Formación en el puesto";
+const readTime = "11 min.";
+const canonical = "https://www.gmvsolutions.es/blog/twi-formacion-operarios-en-el-puesto/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el TWI (Training Within Industry)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es un programa de formación de mandos intermedios creado en Estados Unidos durante la Segunda Guerra Mundial para incorporar rápidamente a personal sin experiencia en la industria de guerra. Se compone de tres módulos: Instrucción del Trabajo, Métodos de Trabajo y Relaciones de Trabajo. Tras la guerra se implantó en Japón, donde acabó siendo una de las raíces del trabajo estandarizado y de la mejora continua."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son los 4 pasos de la Instrucción del Trabajo del TWI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Preparar al operario, presentar la operación, probar la ejecución y hacer seguimiento. La clave está en el tercer paso: el operario ejecuta la tarea delante del instructor varias veces, primero en silencio, después explicando los pasos y por último explicando los puntos clave y sus razones. Hasta que no lo hace, el instructor no sabe si ha aprendido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es un punto clave en el desglose TWI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es cualquier detalle dentro de un paso que puede arruinar el trabajo, lesionar al operario o facilitar la ejecución. Esa tercera categoría —la maña, el tacto, el ruido al que hay que estar atento— es la que nunca aparece en los manuales, porque el veterano la ejecuta de forma automática y no es consciente de que la está aplicando."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve el TWI para una pyme industrial de 30 personas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, y probablemente mejor que en una gran empresa, porque el problema que resuelve —que la formación depende de un veterano que no sabe enseñar y no tiene tiempo— es exactamente el de una pyme. Lo que no encaja es la versión completa del programa, con sus diez sesiones de certificación de instructores. Se puede empezar por el desglose de una sola tarea crítica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia el TWI de un SOP o una instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un SOP documenta cómo se ejecuta un proceso; el TWI es un método para enseñárselo a una persona. Se complementan: el desglose en pasos importantes y puntos clave es un esqueleto excelente para escribir la instrucción de trabajo, y la instrucción escrita es lo que sostiene la formación cuando el instructor ya no está delante."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> El TWI (<em>Training Within Industry</em>) es un método de instrucción en el puesto creado en la industria de guerra estadounidense en los años cuarenta y refinado después en Japón. Su parte útil para una pyme industrial es la <strong>Instrucción del Trabajo</strong>: desglosar la tarea en <strong>pasos importantes</strong>, <strong>puntos clave</strong> y <strong>razones</strong>, y enseñarla en cuatro pasos que terminan con el operario ejecutando delante de ti y explicando lo que hace. Ataca un problema que casi nadie nombra: el veterano que forma a tu gente sabe hacer el trabajo, pero nadie le ha enseñado a enseñarlo. Y el desglose en puntos clave es, de hecho, la mejor herramienta que conocemos para sacar del automático el conocimiento que el experto no sabe que tiene.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es el TWI y por qué sigue vigente</a></li>
+    <li><a href="#tres">Los tres programas, y cuál te interesa</a></li>
+    <li><a href="#manolo">Por qué falla "ponte dos semanas con Manolo"</a></li>
+    <li><a href="#desglose">El desglose: pasos importantes, puntos clave y razones</a></li>
+    <li><a href="#cuatro">Los cuatro pasos de la Instrucción del Trabajo</a></li>
+    <li><a href="#pyme">Cómo aplicarlo en una pyme sin montar un programa</a></li>
+    <li><a href="#esperar">Qué esperar (y qué no)</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es el TWI y por qué sigue vigente</h2>
+  <p>En 1940 la industria estadounidense tenía un problema de logística humana: los trabajadores cualificados se iban al frente y había que sustituirlos, a toda velocidad, por gente que nunca había pisado una fábrica. No sobraban formadores, así que la solución no fue formar operarios: fue enseñar a los <strong>encargados</strong> a formar operarios. De ahí salió el <em>Training Within Industry Service</em>.</p>
+
+  <p>Terminada la guerra, en Estados Unidos se archivó. En Japón, en cambio, se implantó durante la reconstrucción y arraigó: el TWI está en el origen del trabajo estandarizado y de buena parte de lo que hoy llamamos <a href="/blog/lean-manufacturing/">Lean Manufacturing</a>. Los cuatro pasos que vas a leer llevan ochenta años enseñándose casi sin cambios.</p>
+
+  <p>Lo interesante para ti no es la historia, es la coincidencia de escenario. El TWI se diseñó para plantas que tenían que incorporar gente sin experiencia, deprisa, sin formadores dedicados y sin parar la producción. Es literalmente la situación de una pyme industrial española que contrata en agosto, cubre una baja con una ETT o pierde a un torno con veinte años de casa.</p>
+
+  <div class="highlight-box">
+    <p><strong>Sobre el dato histórico.</strong> Las cifras de despliegue del programa (plantas y mandos certificados entre 1940 y 1945) proceden del informe final del propio TWI Service, publicado en 1945 por la <em>War Manpower Commission</em>. Es la fuente primaria; verás esas cifras repetidas en mucho contenido del sector sin atribución y con variaciones. Aquí no las usamos como argumento: el argumento es el método.</p>
+  </div>
+
+  <h2 id="tres">Los tres programas, y cuál te interesa</h2>
+  <p>El TWI clásico son tres módulos, pensados para el mando intermedio y no para el operario:</p>
+
+  <div class="data-card">
+    <p><strong>1. Instrucción del Trabajo (JI).</strong> Cómo enseñar una tarea a una persona para que la ejecute correcta, segura y conscientemente en el menor tiempo posible. Es el módulo que resuelve el problema de la incorporación, y el 90% del valor del TWI para una pyme.</p>
+    <p><strong>2. Métodos de Trabajo (JM).</strong> Cómo coger una tarea existente y mejorarla desglosándola y cuestionando cada detalle: eliminar, combinar, reordenar, simplificar. Es el antepasado directo del <a href="/kaizen/">kaizen</a> de planta.</p>
+    <p><strong>3. Relaciones de Trabajo (JR).</strong> Cómo tratar los problemas con las personas antes de que se conviertan en conflictos. Útil, pero es el que menos tiene que ver con tu documentación operativa.</p>
+  </div>
+
+  <p>Para el resto del artículo nos quedamos con el primero. Si alguna vez oyes hablar del TWI en una feria o en un curso, el 90% de las veces se está hablando de Instrucción del Trabajo aunque nadie lo diga.</p>
+
+  <h2 id="manolo">Por qué falla "ponte dos semanas con Manolo"</h2>
+  <p>El método de formación real de casi cualquier taller español es este: se pone al nuevo al lado del veterano y se espera que por ósmosis aprenda. No es una mala idea; es una idea incompleta. Y falla siempre por los mismos cuatro sitios.</p>
+
+  <ul>
+    <li><strong>Manolo sabe hacer, no sabe enseñar.</strong> Son dos competencias distintas y nadie le ha formado en la segunda. Enseñar mal no es un defecto suyo: es lo esperable cuando a alguien se le encarga una tarea para la que no se le ha preparado.</li>
+    <li><strong>Manolo tiene que producir.</strong> Está formando <em>además</em> de cumplir su objetivo del turno. Cuando entra un pedido urgente, la formación es lo primero que se cae, y el nuevo se queda mirando.</li>
+    <li><strong>Cada Manolo enseña una cosa distinta.</strong> Dos operarios formados por dos veteranos distintos acaban ejecutando el mismo proceso de dos formas distintas. Esa variabilidad reaparece meses después como una <a href="/blog/errores-humanos-produccion/">no conformidad que nadie sabe explicar</a>.</li>
+    <li><strong>Nadie comprueba si ha aprendido.</strong> Se comprueba si <em>ha estado</em>. Al final de las dos semanas, la evidencia de que el nuevo es autónomo es que Manolo dice que sí.</li>
+  </ul>
+
+  <p>El TWI ataca los cuatro. Y el cuarto es el que más duele, porque es el que convierte la formación en una apuesta: dejas suelto a alguien basándote en una impresión, y te enteras de si acertaste cuando aparece la pieza mal.</p>
+
+  <div class="highlight-box">
+    <p><strong>La frase de la tarjeta.</strong> Los instructores TWI llevaban una tarjeta de bolsillo con los cuatro pasos. Al pie, una línea que resume todo el método: <em>"Si el alumno no ha aprendido, el instructor no ha enseñado."</em> No es un eslogan motivacional; es una asignación de responsabilidad. Traslada la carga de la prueba del que aprende al que enseña.</p>
+  </div>
+
+  <h2 id="desglose">El desglose: pasos importantes, puntos clave y razones</h2>
+  <p>Antes de enseñar nada, el TWI te obliga a desglosar la tarea por escrito en tres columnas. Esta es la parte del método que más rendimiento da y la que casi nadie aplica, porque parece burocracia y no lo es.</p>
+
+  <div class="data-card">
+    <p><strong>Paso importante.</strong> Un segmento lógico de la operación en el que ocurre algo que hace avanzar el trabajo. Se escribe con un verbo y poco más: "amarrar la pieza", "cargar el programa", "verificar la cota". Una tarea de quince minutos rara vez tiene más de diez u once pasos importantes; si te salen treinta, estás describiendo movimientos, no pasos.</p>
+    <p><strong>Punto clave.</strong> Cualquier cosa <em>dentro</em> de ese paso que pueda arruinar el trabajo, lesionar al operario o facilitar la ejecución. Aquí está el oro.</p>
+    <p><strong>Razón.</strong> Por qué ese punto clave es un punto clave. Es la columna que la gente se salta y la que hace que el operario cumpla el estándar cuando nadie mira, en lugar de saltárselo en cuanto le estorbe.</p>
+  </div>
+
+  <p>Las tres categorías de punto clave no son decorativas, son un filtro de búsqueda. Cuando te sientas con el veterano, no le preguntas "¿cómo se hace esto?" —te contará los pasos, que ya sabes—. Le preguntas las tres cosas por separado:</p>
+
+  <ul>
+    <li><strong>¿Qué puede salir mal aquí?</strong> Saca los puntos clave de calidad: la cota que se va si aprietas de más, el orden de apriete, la referencia que se confunde con la de al lado.</li>
+    <li><strong>¿Qué puede hacerte daño aquí?</strong> Saca los de seguridad, que además son los que nunca están escritos en el sitio donde hacen falta.</li>
+    <li><strong>¿Qué truco has aprendido que no venía en ningún sitio?</strong> Saca la maña: el tacto, el ruido al que hay que estar atento, el cuarto de vuelta de más cuando el material viene frío, esperar diez segundos antes de X.</li>
+  </ul>
+
+  <p>Esa tercera pregunta es la que justifica todo el ejercicio. Lo que responde es exactamente <a href="/blog/conocimiento-tacito-taller-industrial/">conocimiento tácito</a>: cosas que el veterano ejecuta en automático y que no escribe cuando le pides que documente el proceso, porque no es consciente de estar haciéndolas. El TWI resolvió hace ochenta años un problema que hoy vendemos como novedad, y lo resolvió con una columna en una hoja.</p>
+
+  <p>Un aviso práctico: el desglose no se hace en una sala de reuniones. Se hace en la máquina, viendo ejecutar. Preguntar en frío da pasos; observar y preguntar sobre lo que acabas de ver da puntos clave. Es el mismo principio que usamos en el <a href="/blog/documentar-conocimiento-operarios-expertos/">método para documentar a los operarios expertos</a>.</p>
+
+  <h2 id="cuatro">Los cuatro pasos de la Instrucción del Trabajo</h2>
+  <p>Con el desglose hecho, el puesto preparado y el material a mano, la instrucción va así:</p>
+
+  <div class="data-card">
+    <p><strong>1. Preparar al operario.</strong> Ponerlo cómodo, averiguar qué sabe ya de la tarea, explicarle para qué sirve la pieza que va a hacer y colocarlo en la posición correcta —no enfrente, sino donde él va a estar cuando trabaje—. Suena a cortesía y no lo es: alguien tenso o desubicado no retiene.</p>
+    <p><strong>2. Presentar la operación.</strong> Tú ejecutas, y lo haces tres veces. La primera, diciendo los pasos importantes. La segunda, añadiendo los puntos clave. La tercera, añadiendo las razones de cada punto clave. Con paciencia, con claridad y sin dar más de lo que la persona puede asimilar de una vez.</p>
+    <p><strong>3. Probar la ejecución.</strong> Ahora ejecuta él, también varias veces. Primero en silencio, corrigiendo errores según aparecen. Después repitiendo la tarea mientras dice los pasos importantes. Después mientras dice los puntos clave. Y por último, las razones. Se sigue hasta que <em>sabes</em> que sabe.</p>
+    <p><strong>4. Hacer seguimiento.</strong> Ponerlo a trabajar solo, decirle explícitamente a quién debe preguntar, comprobar con frecuencia al principio y espaciar la ayuda a medida que responde. El seguimiento no es una formalidad: es donde se detecta que algo del paso 2 no llegó.</p>
+  </div>
+
+  <p>Si tuvieras que quedarte con una sola idea de todo el artículo, es el tercer paso. La formación tradicional termina cuando el instructor ha terminado de explicar; el TWI termina cuando el alumno ha demostrado. Y la demostración no es "hazlo": es "hazlo y dime por qué haces cada cosa", que es lo único que distingue a alguien que ha entendido de alguien que ha memorizado una secuencia y se bloqueará en cuanto la situación se salga del guion.</p>
+
+  <h2 id="pyme">Cómo aplicarlo en una pyme sin montar un programa</h2>
+  <p>El TWI oficial se imparte en sesiones de dos horas durante cinco días, con certificación de instructores. Eso tiene sentido en una planta de quinientas personas con un departamento de formación. En un taller de treinta, si esperas a poder montar eso, no lo vas a hacer nunca. La versión practicable es más pequeña:</p>
+
+  <ul>
+    <li><strong>Elige una sola tarea.</strong> La que más veces has tenido que explicar este año, o la del puesto que solo sabe cubrir una persona. Una. La tentación de empezar por el mapa completo de procesos es lo que mata estos proyectos en la semana tres.</li>
+    <li><strong>Haz el desglose observando.</strong> Media hora en la máquina con el veterano y las tres preguntas de arriba. Vas a salir con pasos importantes y, si has preguntado bien, con cuatro o cinco puntos clave que no estaban en ningún documento de la empresa.</li>
+    <li><strong>Valida el desglose con otro veterano.</strong> Si discrepan en un punto clave, acabas de encontrar una variabilidad real entre turnos. Eso solo ya justifica el ejercicio.</li>
+    <li><strong>Enseña con los cuatro pasos a la siguiente incorporación.</strong> Sin certificar a nadie. El encargado lee los cuatro pasos, los tiene delante mientras enseña y ya está por encima de la media del sector.</li>
+    <li><strong>Convierte el desglose en la instrucción de trabajo.</strong> No lo dejes en un folio dentro de una carpeta. Pasos importantes y puntos clave son, tal cual, el esqueleto de una buena <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucción de trabajo</a>. Lo tienes hecho.</li>
+    <li><strong>Registra quién está capacitado en qué.</strong> El seguimiento del paso 4 termina en una decisión —"esta persona ya opera sola en este puesto"— y esa decisión debe quedar en algún sitio. Es la entrada natural a una <a href="/gestion-competencias/">matriz de competencias</a>.</li>
+  </ul>
+
+  <p>Ese último punto es el que cierra el círculo con lo que ya haces. El TWI te da el método de enseñar; la matriz te dice a quién has enseñado qué y dónde tienes un solo operario capaz de cubrir un puesto. Sin la matriz, el TWI se queda en una buena tarde con el veterano. Es el mismo encaje que describimos en <a href="/blog/reducir-onboarding-operarios-cinco-a-un-dia/">cómo acortar la curva de autonomía</a>.</p>
+
+  <h2 id="esperar">Qué esperar (y qué no)</h2>
+  <p>Aplicar Instrucción del Trabajo a una tarea crítica da resultados concretos y acotados. Conviene saber cuáles, para no prometer de más en la reunión del lunes.</p>
+
+  <ul>
+    <li>Menos variabilidad entre personas formadas por instructores distintos, porque todas se enseñan contra el mismo desglose.</li>
+    <li>Puntos clave por escrito que hasta ahora vivían en una sola cabeza, incluidos los de seguridad.</li>
+    <li>Una comprobación real de autonomía en lugar de una impresión, porque el operario ha tenido que explicar lo que hace.</li>
+    <li>Un instructor menos quemado: enseñar con un método cuesta menos que improvisar quince veces la misma explicación.</li>
+    <li>Lo que <strong>no</strong> vas a tener: un tiempo de formación garantizado, ni una cifra de reducción que puedas anunciar antes de medir la tuya. El TWI tampoco arregla una máquina desajustada, un utillaje imposible ni una planificación que obliga a formar con prisa.</li>
+  </ul>
+
+  <p><em>Nota sobre cifras: en el contenido sobre TWI circulan porcentajes de reducción de tiempo de formación muy redondos y casi siempre sin metodología. No los vas a encontrar aquí. Si quieres medirlo en tu planta, el punto de partida honesto es cuántos días pasan hoy hasta que una incorporación produce sola y con calidad, en un puesto concreto, y comparar contra eso.</em></p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no es un curso de TWI ni sustituye al instructor: el paso 3 lo hace una persona delante de otra, y eso no se digitaliza. Lo que hace es sostener el método donde el método se cae solo, que es después de la formación y cuando el instructor no está.</p>
+
+  <ul>
+    <li><strong>El desglose deja de ser un folio.</strong> Pasos importantes, puntos clave y razones se cargan como proceso, con foto y vídeo del paso, y viven donde se ejecutan: el operario los abre con un QR desde el <a href="/portal-operario/">portal del operario</a>, también <a href="/modo-offline/">sin wifi en planta</a>.</li>
+    <li><strong>Una sola versión vigente.</strong> Cuando un punto clave cambia, cambia para todos los turnos a la vez. Se acaba la situación de dos veteranos enseñando dos versiones distintas de la misma tarea.</li>
+    <li><strong>El paso 4, con datos.</strong> Queda registrado quién ha ejecutado qué, cuándo y en qué versión, así que el seguimiento deja de depender de la memoria del encargado. Lo desarrollamos en <a href="/casos-de-uso/onboarding-operarios/">el caso de uso de onboarding de operarios</a>.</li>
+    <li><strong>La decisión de autonomía, registrada.</strong> La <a href="/gestion-competencias/">matriz de competencias</a> convierte "yo creo que ya va suelto" en un dato consultable, que es justo lo que necesita <a href="/para-quien/responsable-rrhh/">quien lleva RRHH</a> para planificar cobertura.</li>
+    <li><strong>Los puntos clave nuevos vuelven al estándar.</strong> Cuando alguien descubre en planta un detalle que faltaba, entra por el <a href="/kaizen/">panel de mejora continua</a> en lugar de quedarse en la conversación de pasillo. Es el módulo JM del TWI, con otro nombre.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por un desglose, no por una implantación.</strong> Coge la tarea que más veces has tenido que explicar este año y dedícale media hora en la máquina con las tres preguntas de puntos clave. Si de ahí salen cosas que no estaban escritas en ningún sitio —y van a salir—, ya sabes qué tamaño tiene el problema antes de comprar nada.</p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es el TWI (Training Within Industry)?</h3>
+  <p>Es un programa de formación de mandos intermedios creado en Estados Unidos durante la Segunda Guerra Mundial para incorporar rápidamente a personal sin experiencia en la industria de guerra. Se compone de tres módulos: Instrucción del Trabajo, Métodos de Trabajo y Relaciones de Trabajo. Tras la guerra se implantó en Japón, donde acabó siendo una de las raíces del trabajo estandarizado y de la mejora continua.</p>
+
+  <h3>¿Cuáles son los 4 pasos de la Instrucción del Trabajo del TWI?</h3>
+  <p>Preparar al operario, presentar la operación, probar la ejecución y hacer seguimiento. La clave está en el tercer paso: el operario ejecuta la tarea delante del instructor varias veces, primero en silencio, después explicando los pasos y por último explicando los puntos clave y sus razones. Hasta que no lo hace, el instructor no sabe si ha aprendido.</p>
+
+  <h3>¿Qué es un punto clave en el desglose TWI?</h3>
+  <p>Es cualquier detalle dentro de un paso que puede arruinar el trabajo, lesionar al operario o facilitar la ejecución. Esa tercera categoría —la maña, el tacto, el ruido al que hay que estar atento— es la que nunca aparece en los manuales, porque el veterano la ejecuta de forma automática y no es consciente de que la está aplicando.</p>
+
+  <h3>¿Sirve el TWI para una pyme industrial de 30 personas?</h3>
+  <p>Sí, y probablemente mejor que en una gran empresa, porque el problema que resuelve —que la formación depende de un veterano que no sabe enseñar y no tiene tiempo— es exactamente el de una pyme. Lo que no encaja es la versión completa del programa, con sus diez sesiones de certificación de instructores. Se puede empezar por el desglose de una sola tarea crítica.</p>
+
+  <h3>¿En qué se diferencia el TWI de un SOP o una instrucción de trabajo?</h3>
+  <p>Un SOP documenta cómo se ejecuta un proceso; el TWI es un método para enseñárselo a una persona. Se complementan: el desglose en pasos importantes y puntos clave es un esqueleto excelente para escribir la instrucción de trabajo, y la instrucción escrita es lo que sostiene la formación cuando el instructor ya no está delante.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/conocimiento-tacito-taller-industrial/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Qué es el conocimiento tácito</div>
+        <div class="related-link-desc">Lo que los puntos clave del desglose sacan a la superficie.</div>
+      </a>
+      <a class="related-link-card" href="/blog/reducir-onboarding-operarios-cinco-a-un-dia/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Acortar la curva de autonomía</div>
+        <div class="related-link-desc">Qué hacer con el desglose una vez lo tienes.</div>
+      </a>
+      <a class="related-link-card" href="/onboarding-software-pymes/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Onboarding de operarios</div>
+        <div class="related-link-desc">Cómo sostiene REELEVO la formación en el puesto.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Desglosa una tarea crítica y mira qué falta por escrito.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+</ArticleLayout>

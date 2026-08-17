@@ -1,0 +1,209 @@
+---
+// Cluster trazabilidad/calidad. Origen: informe de terminos de busqueda Google
+// Ads (1 jun - 5 jul 2026): "control de calidad norma iso 9001" fue el UNICO
+// termino en diana que genero clics (2), el mejor CTR de la cuenta. Ademas
+// "preparar auditoria ISO 9001 produccion" ya figuraba como MEDIA en
+// keywords_para_keywordplanner.csv sin pagina asignada. En el sitio, ISO 9001
+// se mencionaba en 7 paginas pero no tenia pieza propia.
+//
+// Anticanibalizacion: /calidad-y-conformidad/ es la landing de producto;
+// /blog/trazabilidad-de-un-producto/ cubre la reconstruccion de la historia de
+// una pieza. Esta pieza es la preparacion de la auditoria (evidencia
+// documental), enlaza a ambas y no repite su contenido.
+//
+// PRUDENCIA NORMATIVA (bloqueante en revision): se parafrasea la norma, no se
+// cita literal. No se afirma que REELEVO certifique ni garantice conformidad.
+// Se remite explicitamente al texto de la norma y al organismo certificador.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo preparar una auditoría ISO 9001 en producción";
+const description = "Qué mira un auditor ISO 9001 en planta, los cinco hallazgos más habituales en producción y cómo llegar con la información documentada en orden.";
+const date = "2026-08-17";
+const category = "Calidad";
+const readTime = "11 min.";
+const canonical = "https://www.gmvsolutions.es/blog/preparar-auditoria-iso-9001-produccion/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué mira un auditor de ISO 9001 cuando baja a planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si lo que hace el operario coincide con lo que dice el documento, y si puedes demostrarlo. Por eso pregunta al operario y no al responsable de calidad, y por eso mira la versión que hay colgada en la máquina en lugar de la que está en el servidor. El sistema documental puede ser impecable en la oficina y generar un hallazgo en el puesto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la información documentada en ISO 9001:2015?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el término único con el que la versión de 2015 sustituyó a procedimientos documentados y registros. Distingue dos obligaciones que conviene no confundir: la información que hay que mantener, que es el documento que describe cómo se hace algo, y la que hay que conservar, que es la evidencia de que efectivamente se hizo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se demuestra la competencia de los operarios en una auditoría?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con evidencia conservada, no con una afirmación. La norma pide determinar qué competencia es necesaria para cada puesto, asegurarse de que la persona la tiene y conservar información documentada que lo respalde. Un registro de qué formación recibió cada persona, cuándo y quién validó que ya opera sola cumple ese papel; decir que alguien lleva quince años haciéndolo, no."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el hallazgo más frecuente en una auditoría de producción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El documento obsoleto en el puesto. La versión buena está en el servidor y en la máquina hay una copia plastificada de hace dos revisiones que nadie retiró. Es fácil de encontrar, es difícil de discutir y apunta a un fallo de control de la información documentada, no a un descuido puntual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En cuánto tiempo se puede preparar una auditoría ISO 9001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuatro semanas dan para hacer un recorrido serio de puestos, retirar versiones obsoletas, reunir la evidencia de competencia y revisar el cierre de las no conformidades del año. Lo que no da tiempo a arreglar en cuatro semanas es un sistema que no se usa: si los registros se rellenan la víspera, se nota, y ese es un problema de fondo que no tiene atajo."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Una auditoría ISO 9001 no se gana en la oficina de calidad: se gana en el puesto. El auditor baja a planta, le pregunta al operario cómo hace su trabajo y compara la respuesta con el documento que hay allí. Casi todos los hallazgos de producción salen de la misma raíz: <strong>hay una distancia entre lo que está escrito, lo que se hace y lo que se puede demostrar</strong>. Este artículo repasa qué mira el auditor, los cinco hallazgos que más se repiten y un plan de cuatro semanas. No sustituye al texto de la norma ni a tu organismo certificador.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#donde">Dónde se juega de verdad la auditoría</a></li>
+    <li><a href="#documentada">Mantener y conservar: la distinción que más falla</a></li>
+    <li><a href="#que-mira">Qué mira el auditor en planta</a></li>
+    <li><a href="#hallazgos">Los cinco hallazgos que más se repiten</a></li>
+    <li><a href="#plan">Plan de cuatro semanas</a></li>
+    <li><a href="#dia">El día de la auditoría</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="donde">Dónde se juega de verdad la auditoría</h2>
+  <p>La preparación típica de una pyme industrial consiste en revisar el manual de calidad, actualizar el listado de documentos y comprobar que las actas de las revisiones por la dirección están firmadas. Todo eso hay que tenerlo, y nada de eso es donde aparecen los hallazgos.</p>
+
+  <p>Los hallazgos aparecen cuando el auditor cruza la puerta del taller. Su método es sencillo y bastante difícil de sortear: coge un producto o una orden, la sigue hacia atrás, y va preguntando a las personas que la tocaron. Si el operario describe una forma de trabajar y el documento del puesto describe otra, hay una desviación, y da igual lo bien redactado que esté el manual.</p>
+
+  <p>De ahí la única regla de preparación que de verdad importa: <strong>lo que tienes que revisar es la distancia entre tres cosas</strong> — lo que está escrito, lo que realmente se hace y lo que puedes demostrar. Cuanto más se separan, más superficie ofreces.</p>
+
+  <h2 id="documentada">Mantener y conservar: la distinción que más falla</h2>
+  <p>La versión de 2015 de la norma sustituyó los términos "procedimiento documentado" y "registro" por uno solo, <strong>información documentada</strong>. El cambio parece cosmético y no lo es, porque dentro conviven dos obligaciones distintas que mucha gente mezcla:</p>
+
+  <div class="data-card">
+    <p><strong>Información documentada que se debe mantener.</strong> Es el documento vivo: el procedimiento, la instrucción de trabajo, el plan de control. Describe <em>cómo</em> se hace algo. Tiene versión, y la obligación asociada es que esté actualizado, controlado y disponible donde y cuando se necesita.</p>
+    <p><strong>Información documentada que se debe conservar.</strong> Es la evidencia: el registro de que la verificación se hizo, de que la formación ocurrió, de que el lote se liberó. Describe <em>qué pasó</em>. No se actualiza, se guarda, y la obligación asociada es que sea legible, recuperable y protegida contra modificaciones indebidas.</p>
+  </div>
+
+  <p>La confusión práctica más habitual es tener muy cuidada la primera y muy descuidada la segunda. Procedimientos impecables, con su codificación y su control de cambios; y luego la evidencia de que se ejecutaron es una hoja fotocopiada con firmas. Es justo al revés de donde está el riesgo, porque un procedimiento se puede rehacer en una tarde y una evidencia que no se generó en su momento no se puede recuperar.</p>
+
+  <h2 id="que-mira">Qué mira el auditor en planta</h2>
+  <p>Traducido a lo que va a pasar en tu taller, y con la cláusula de referencia entre paréntesis para que puedas contrastarlo con el texto de la norma:</p>
+
+  <ul>
+    <li><strong>Que la información esté disponible en el puesto y sea la vigente</strong> (7.5.3). Mira la máquina, no el servidor.</li>
+    <li><strong>Que exista evidencia conservada de la competencia de quien opera</strong> (7.2). No pregunta si están formados: pide verlo.</li>
+    <li><strong>Que la producción se ejecute en condiciones controladas</strong> (8.5.1), es decir, con información disponible que defina qué hay que hacer y qué resultado hay que alcanzar, y con las verificaciones previstas realizadas.</li>
+    <li><strong>Que se pueda identificar y trazar</strong> (8.5.2) el estado de un producto respecto a sus verificaciones a lo largo del proceso.</li>
+    <li><strong>Que las salidas no conformes se controlen</strong> (8.7) y quede constancia de la no conformidad, de lo que se decidió y de quién lo autorizó.</li>
+    <li><strong>Que las acciones correctivas ataquen la causa</strong> (10.2) y no solo el síntoma.</li>
+  </ul>
+
+  <p><em>Las referencias de cláusula son orientativas y corresponden a ISO 9001:2015. Contrasta siempre con el texto de la norma y con los criterios de tu entidad de certificación: este artículo es una guía de preparación práctica, no una interpretación normativa.</em></p>
+
+  <h2 id="hallazgos">Los cinco hallazgos que más se repiten</h2>
+  <div class="data-card">
+    <p><strong>1. El documento obsoleto en la máquina.</strong> La revisión buena está en el servidor y en el puesto hay una copia plastificada de hace dos versiones. Es el clásico absoluto: fácil de encontrar, imposible de discutir, y no se lee como un descuido sino como un fallo de control. Mientras existan copias en papel que alguien tiene que ir a sustituir una por una, este hallazgo te va a visitar.</p>
+    <p><strong>2. No poder demostrar la formación.</strong> "Javi lleva quince años en esa máquina" es cierto y no es evidencia. Sin un registro de qué se le formó, cuándo y quién validó que ya operaba solo, la competencia está afirmada pero no documentada.</p>
+    <p><strong>3. Los registros rellenados a posteriori.</strong> Veinte casillas de un mes entero completadas con el mismo bolígrafo, la misma letra y sin una sola tachadura. Se detecta en segundos, y el problema que revela es más grave que el hallazgo: significa que el registro no forma parte del trabajo, sino de la ceremonia previa a la auditoría.</p>
+    <p><strong>4. Acciones correctivas que no corrigen.</strong> El informe describe que se retrabajó el lote y se avisó al operario. Eso es la corrección. La acción correctiva es qué cambió para que no vuelva a pasar, y ahí suele haber un hueco o un "se refuerza la formación" que no se ha materializado en nada.</p>
+    <p><strong>5. El procedimiento que no describe la realidad.</strong> El documento dice una cosa, el operario hace otra —normalmente mejor, o más rápida, o simplemente posible con la máquina que hay hoy— y nadie ha actualizado nada. Es el <a href="/blog/errores-humanos-produccion/">atajo consolidado</a>, y el auditor lo encuentra preguntando, no leyendo.</p>
+  </div>
+
+  <h2 id="plan">Plan de cuatro semanas</h2>
+  <ul>
+    <li><strong>Semana 1 — Recorrido de puestos.</strong> Con una hoja, puesto por puesto: ¿qué documentación hay aquí?, ¿es la vigente?, ¿coincide con lo que me cuenta quien trabaja aquí? Este recorrido, hecho de verdad, encuentra más que cualquier revisión documental.</li>
+    <li><strong>Semana 2 — Barrido de versiones.</strong> Retirar físicamente todas las copias obsoletas, incluidas las del cajón y las de la carpeta del turno de noche. Y responder a la pregunta incómoda: cuando cambie una instrucción la semana que viene, ¿qué mecanismo garantiza que la copia del puesto se sustituye? Si la respuesta es "que alguien se acuerde", el hallazgo volverá el año próximo.</li>
+    <li><strong>Semana 3 — Evidencia de competencia.</strong> Reunir, por persona y por puesto, qué formación se dio, cuándo y quién validó la autonomía. Si te falta el histórico, no lo inventes: documenta la situación actual y deja registrada la validación desde hoy. Un sistema que arranca hoy y es honesto se defiende; un histórico fabricado la semana anterior, no.</li>
+    <li><strong>Semana 4 — No conformidades del año.</strong> Repasa los cierres y sepáralos en dos columnas: corrección y acción correctiva. Las que solo tengan la primera columna son las que te van a preguntar.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>La comprobación de los diez minutos.</strong> Baja a un puesto sin avisar y pregunta al operario cómo hace la operación. Después lee el documento que hay allí. Si no coinciden, acabas de simular la auditoría entera. Repítelo en tres puestos y tendrás una idea bastante fiel de en qué estado llegas.</p>
+  </div>
+
+  <h2 id="dia">El día de la auditoría</h2>
+  <p>Dos consejos que no son normativos y ahorran disgustos. El primero: que el operario responda lo que hace de verdad, no lo que cree que debe decir. Un equipo previamente aleccionado se contradice en el segundo puesto, y una contradicción es peor que una desviación honesta. El segundo: si detectas tú un incumplimiento antes que el auditor y llegas con el análisis empezado, la conversación cambia por completo de tono.</p>
+
+  <p>Y una advertencia sobre alcance: certificarse no es objetivo de este artículo ni algo que resuelva una herramienta. La certificación la concede una entidad acreditada tras auditar tu sistema. Lo que sí puedes hacer es llegar con la información documentada en orden, que es donde se pierden la mayoría de las pymes industriales.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no es un software de sistema de gestión de la calidad, no redacta tu manual y no certifica nada. Cubre una parte concreta: que la información documentada del puesto esté controlada y que la evidencia de ejecución se genere sola.</p>
+
+  <ul>
+    <li><strong>Una única versión vigente.</strong> El operario consulta el proceso con un QR desde el <a href="/portal-operario/">portal del operario</a>; al publicar un cambio, deja de existir la versión anterior en todos los puestos a la vez. Es el hallazgo número uno atacado en su raíz, no con más carpetas.</li>
+    <li><strong>Evidencia que se genera al trabajar.</strong> Cada ejecución deja quién, cuándo y con qué versión, sin un parte aparte. Los registros rellenados a posteriori dejan de tener sentido porque el registro <em>es</em> el trabajo.</li>
+    <li><strong>Competencia documentada.</strong> La <a href="/gestion-competencias/">matriz de competencias</a> guarda qué formación tiene cada persona en cada proceso y quién validó su autonomía, que es exactamente lo que pide la cláusula 7.2.</li>
+    <li><strong>No conformidades con su historia.</strong> La incidencia queda ligada al proceso, la versión y la ejecución, lo que permite pasar de la corrección a la causa en <a href="/calidad-y-conformidad/">calidad y conformidad</a>, y reconstruir la <a href="/blog/trazabilidad-de-un-producto/">trazabilidad de una pieza</a>.</li>
+    <li><strong>Firma cuando hace falta evidencia formal.</strong> Para las verificaciones y liberaciones que requieren constancia de quién autorizó, con <a href="/firma-digital/">firma digital</a>.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por el recorrido de puestos: documento vigente contra realidad.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué mira un auditor de ISO 9001 cuando baja a planta?</h3>
+  <p>Si lo que hace el operario coincide con lo que dice el documento, y si puedes demostrarlo. Por eso pregunta al operario y no al responsable de calidad, y por eso mira la versión que hay colgada en la máquina en lugar de la que está en el servidor. El sistema documental puede ser impecable en la oficina y generar un hallazgo en el puesto.</p>
+
+  <h3>¿Qué es la información documentada en ISO 9001:2015?</h3>
+  <p>Es el término único con el que la versión de 2015 sustituyó a procedimientos documentados y registros. Distingue dos obligaciones que conviene no confundir: la información que hay que mantener, que es el documento que describe cómo se hace algo, y la que hay que conservar, que es la evidencia de que efectivamente se hizo.</p>
+
+  <h3>¿Cómo se demuestra la competencia de los operarios en una auditoría?</h3>
+  <p>Con evidencia conservada, no con una afirmación. La norma pide determinar qué competencia es necesaria para cada puesto, asegurarse de que la persona la tiene y conservar información documentada que lo respalde. Un registro de qué formación recibió cada persona, cuándo y quién validó que ya opera sola cumple ese papel; decir que alguien lleva quince años haciéndolo, no.</p>
+
+  <h3>¿Cuál es el hallazgo más frecuente en una auditoría de producción?</h3>
+  <p>El documento obsoleto en el puesto. La versión buena está en el servidor y en la máquina hay una copia plastificada de hace dos revisiones que nadie retiró. Es fácil de encontrar, es difícil de discutir y apunta a un fallo de control de la información documentada, no a un descuido puntual.</p>
+
+  <h3>¿En cuánto tiempo se puede preparar una auditoría ISO 9001?</h3>
+  <p>Cuatro semanas dan para hacer un recorrido serio de puestos, retirar versiones obsoletas, reunir la evidencia de competencia y revisar el cierre de las no conformidades del año. Lo que no da tiempo a arreglar en cuatro semanas es un sistema que no se usa: si los registros se rellenan la víspera, se nota, y ese es un problema de fondo que no tiene atajo.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/trazabilidad-de-un-producto/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Trazabilidad de un producto</div>
+        <div class="related-link-desc">Cómo reconstruir la historia de una pieza cuando la piden.</div>
+      </a>
+      <a class="related-link-card" href="/blog/control-de-calidad-en-excel/">
+        <div class="related-link-kicker">Análisis</div>
+        <div class="related-link-title">Control de calidad en Excel</div>
+        <div class="related-link-desc">Por qué la hoja de cálculo flojea justo como evidencia.</div>
+      </a>
+      <a class="related-link-card" href="/calidad-y-conformidad/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Calidad y conformidad</div>
+        <div class="related-link-desc">Qué registra REELEVO de cada ejecución, y sus límites.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

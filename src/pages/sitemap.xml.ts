@@ -90,6 +90,12 @@ export async function GET() {
     page('/blog/lean-manufacturing/', '0.8', 'monthly', '2026-06-29'),
     page('/blog/digitalizar-produccion-pyme-industrial/', '0.8', 'monthly', '2026-07-01'),
     page('/blog/errores-humanos-produccion/', '0.8', 'monthly', '2026-07-30'),
+    page('/blog/twi-formacion-operarios-en-el-puesto/', '0.75', 'monthly', '2026-08-17'),
+    page('/blog/kpis-de-produccion-pyme-industrial/', '0.8', 'monthly', '2026-08-17'),
+    page('/blog/medir-tiempos-de-produccion/', '0.75', 'monthly', '2026-08-17'),
+    page('/blog/5s-en-un-taller-industrial/', '0.75', 'monthly', '2026-08-17'),
+    page('/blog/preparar-auditoria-iso-9001-produccion/', '0.8', 'monthly', '2026-08-17'),
+    page('/blog/control-de-calidad-en-excel/', '0.75', 'monthly', '2026-08-17'),
 
     // /recursos/gestion-competencias-industria/, /recursos/onboarding-software-pymes/ y
     // /recursos/onboarding-vs-tradicional/ NO van en el sitemap: canonicalizan a su
