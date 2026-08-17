@@ -8,8 +8,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/vercel": "^11.0.4",
+    "@astrojs/vercel": "^11.0.5",
     "@sanity/client": "^7.20.0",
     "astro": "^7.1.6"
+  },
+  "overrides": {
+    "path-to-regexp": "6.3.0"
   }
 }
