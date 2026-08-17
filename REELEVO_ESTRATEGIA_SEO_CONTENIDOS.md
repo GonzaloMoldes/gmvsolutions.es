@@ -66,7 +66,9 @@ Whale escribe en inglés. Su contenido de manufacturing es genérico (cita a Toy
 | `app instrucciones máquina QR` | Muy baja | Muy baja | Landing /como-funciona/ |
 | `software formación operarios` | Media | Media | Nuevo artículo |
 | `alternativa whale sop industrial` | Muy baja | Muy baja | Nuevo artículo comparativa |
-| `digitalizar procesos taller` | Baja | Baja | Nuevo artículo |
+| `digitalizar procesos taller` | Baja | Baja | ✅ Cubierto: /blog/digitalizar-produccion-pyme-industrial/ |
+| `digitalizar la producción` | Media | Baja | ✅ Cubierto: /blog/digitalizar-produccion-pyme-industrial/ |
+| `digitalización de la producción pyme` | Baja | Baja | ✅ Cubierto: /blog/digitalizar-produccion-pyme-industrial/ |
 | `skill matrix software pyme` | Muy baja | Muy baja | Nuevo artículo |
 
 ---

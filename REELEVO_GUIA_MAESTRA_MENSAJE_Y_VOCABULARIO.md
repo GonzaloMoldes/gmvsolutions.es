@@ -71,6 +71,9 @@ La categoria que debemos dominar es:
 - `cobertura de bajas en produccion`
 - `transferencia de conocimiento en planta`
 - `matriz de habilidades`
+- `digitalizar procesos`
+- `digitalizar la produccion`
+- `digitalizacion de la produccion`
 
 ### Categorias de apoyo, no principales
 
@@ -304,6 +307,11 @@ Si una frase no hace ninguna de esas 4 cosas, probablemente sobra.
 - trazabilidad
 - implantacion ligera
 - configuracion tecnica en 1 dia
+- digitalizar procesos
+- digitalizar la produccion
+- digitalizacion de la produccion
+
+> Nota sobre "digitalizar": estas tres expresiones SI deben usarse, porque la pyme las busca de forma natural. La regla es enmarcarlas siempre en concreto: lo que se digitaliza es el `proceso` (el "como") y el `dato de la ejecucion` (el "que ha pasado"), empezando por un proceso critico. Nunca venderlas como una `transformacion digital` abstracta, ni como automatizacion de maquina (IoT/SCADA/MES). Es decir: `digitalizar la produccion` SI; `transformacion digital de la fabrica` NO (ver lista de evitar).
 
 ### Palabras y expresiones a usar con cuidado
 
