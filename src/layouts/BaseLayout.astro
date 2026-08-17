@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import GaliciaSeal from '../components/GaliciaSeal.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterModal from '../components/NewsletterModal.astro';
 import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
@@ -47,6 +48,11 @@ const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
 // La home va a /index.md porque /.md no es una URL valida.
 const trimmed = canonical.replace(/\/$/, '');
 const markdownUrl = trimmed === BASE_URL ? `${BASE_URL}/index.md` : `${trimmed}.md`;
+
+// Modal de alta (newsletter + cuenta). Apagado por defecto: solo se renderiza
+// cuando PUBLIC_NEWSLETTER_MODAL === 'on'. Asi el codigo puede desplegarse sin
+// exponer el formulario hasta tener configuradas las credenciales en Vercel.
+const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
 ---
 
 <!doctype html>
@@ -237,6 +243,8 @@ const markdownUrl = trimmed === BASE_URL ? `${BASE_URL}/index.md` : `${trimmed}.
 
     <Footer />
   </div>
+
+  {showNewsletterModal && <NewsletterModal />}
 
   <!-- Tracking de CTAs (S1-C7): listener delegado -> dataLayer -> GA4/Ads via GTM -->
   <script is:inline>
