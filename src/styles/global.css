@@ -64,12 +64,14 @@ a:hover{color:var(--orange-hover);}
 }
 .show-entry-splash body{overflow:hidden;}
 .show-entry-splash .entry-splash{
-  opacity:1;visibility:visible;pointer-events:none;
+  opacity:1;visibility:visible;pointer-events:auto;
   transition:opacity .6s ease;
 }
+/* Ver la nota del <style is:inline> de BaseLayout.astro: el contenido sigue
+   pintado debajo del splash (que es opaco) para no invalidar el LCP. Solo se
+   neutraliza la interaccion mientras dura el efecto. */
 .show-entry-splash .site-shell{
-  opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .35s ease, visibility 0s linear .35s;
+  pointer-events:none;
 }
 .entry-splash-logo-visible .entry-splash__logo-wrap{
   opacity:1;

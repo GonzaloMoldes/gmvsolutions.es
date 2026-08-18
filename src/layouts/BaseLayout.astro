@@ -7,6 +7,7 @@ import NewsletterModal from '../components/NewsletterModal.astro';
 import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
 import '../styles/global.css';
 import entryLogo from '../../reelevo-brand-logo-transparent-shadow.png';
+import { getImage } from 'astro:assets';
 
 export interface Props {
   title: string;
@@ -53,6 +54,20 @@ const markdownUrl = trimmed === BASE_URL ? `${BASE_URL}/index.md` : `${trimmed}.
 // cuando PUBLIC_NEWSLETTER_MODAL === 'on'. Asi el codigo puede desplegarse sin
 // exponer el formulario hasta tener configuradas las credenciales en Vercel.
 const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
+
+// Logo del splash. Es el elemento que marca el First Contentful Paint, asi que
+// el original (PNG de 1000x1000 y 54 KiB) para mostrarse a 300 px en movil era
+// el mayor lastre de la primera pintura. Se sirve en WebP a 800 px: sigue
+// sobrando resolucion para el zoom final (scale 5.6 sobre 300 px) y pesa una
+// fraccion. Si se cambia el archivo de origen debe seguir siendo cuadrado.
+const ENTRY_LOGO_SIZE = 800;
+const entrySplashLogo = await getImage({
+  src: entryLogo,
+  width: ENTRY_LOGO_SIZE,
+  height: ENTRY_LOGO_SIZE,
+  format: 'webp',
+  quality: 82,
+});
 ---
 
 <!doctype html>
@@ -60,6 +75,20 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconnect a los origenes de la ruta critica. Va ANTES del primer script
+       de terceros a proposito: uc.js de Cookiebot bloquea el renderizado 1,7 s
+       y no puede pasarse a async (data-blockingmode="auto" exige que cargue
+       sincrono y el primero, o deja de bloquear las cookies antes del
+       consentimiento), asi que lo unico que se puede recortar es el coste de
+       abrir la conexion. -->
+  <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin />
+  <link rel="preconnect" href="https://consentcdn.cookiebot.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
+  <link rel="dns-prefetch" href="https://egoi.site" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
@@ -96,10 +125,22 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
       overflow: hidden;
     }
 
+    html.show-entry-splash body {
+      overflow: hidden;
+    }
+
+    /* El contenido NO se oculta con opacity/visibility mientras dura el splash.
+       Chrome descarta como candidato a LCP cualquier elemento que tenga
+       opacity:0 en el mismo o en un ancestro, asi que ocultar .site-shell
+       retrasaba el LCP hasta que terminaba la animacion (11,5 s en movil,
+       5.034 ms de "retraso de renderizado" con un TTFB de solo 121 ms).
+       El splash ya es una capa opaca a pantalla completa con z-index:1000:
+       tapa exactamente igual, pero deja que el hero pinte de verdad. La
+       oclusion por otra capa no afecta al LCP, solo la transparencia.
+       pointer-events + overflow:hidden + inert (lo pone el script del final
+       del body) mantienen la pagina inerte mientras se ve el efecto. */
     html.entry-splash-booting .site-shell,
     html.show-entry-splash .site-shell {
-      opacity: 0 !important;
-      visibility: hidden !important;
       pointer-events: none !important;
     }
 
@@ -112,7 +153,7 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
     html.show-entry-splash .entry-splash {
       opacity: 1 !important;
       visibility: visible !important;
-      pointer-events: none !important;
+      pointer-events: auto !important;
     }
   </style>
 
@@ -204,9 +245,8 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
 
-  <!-- Google Fonts (carga asíncrona, fuera de la ruta crítica) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Fonts (carga asíncrona, fuera de la ruta crítica).
+       Los preconnect de fonts.googleapis/gstatic estan arriba, con el resto. -->
   <link
     rel="preload"
     as="style"
@@ -229,11 +269,12 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
     <div class="entry-splash__logo-wrap">
       <img
         class="entry-splash__logo"
-        src={entryLogo.src}
-        width={entryLogo.width}
-        height={entryLogo.height}
+        src={entrySplashLogo.src}
+        width={ENTRY_LOGO_SIZE}
+        height={ENTRY_LOGO_SIZE}
         alt=""
         decoding="async"
+        fetchpriority="high"
       />
     </div>
   </div>
@@ -296,6 +337,10 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
   <script is:inline>
     (() => {
       const root = document.documentElement;
+      // El contenido ya no se oculta con opacity (invalidaba el LCP), asi que
+      // hay que neutralizarlo de verdad: pointer-events desde el CSS para el
+      // raton e inert aqui para teclado y lectores de pantalla.
+      const shell = document.querySelector('.site-shell');
       const logoRevealDelay = 220;
       const pulseDuration = 3000;
       const zoomDuration = 920;
@@ -307,6 +352,7 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
         root.classList.remove('entry-splash-zoom');
         root.classList.remove('entry-splash-logo-visible');
         root.classList.remove('show-entry-splash');
+        if (shell) shell.removeAttribute('inert');
       };
 
       // Failsafe global: el splash nunca debe bloquear la interaccion mas alla de
@@ -326,6 +372,8 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
       if (!root.classList.contains('show-entry-splash')) {
         return;
       }
+
+      if (shell) shell.setAttribute('inert', '');
 
       window.setTimeout(() => {
         root.classList.add('entry-splash-logo-visible');
