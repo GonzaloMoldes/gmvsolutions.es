@@ -276,6 +276,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="story-result">
           <div class="result-num">35 seg</div>
           <div class="result-label">ahorrados por ciclo · capturados y estandarizados en 4 días</div>
+          <p class="story-disclaimer">Escenario ilustrativo del recorrido de una propuesta dentro de la herramienta, no un caso medido en un cliente.</p>
         </div>
       </div>
     </div>
@@ -605,11 +606,24 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .story-result {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 24px 28px;
     background: rgba(255, 100, 0, 0.08);
     border: 1px solid rgba(255, 150, 0, 0.25);
     border-radius: 6px;
+  }
+
+  /* flex-basis 100% para que caiga a su propia linea bajo la cifra, en vez de
+     competir con ella dentro de la misma fila. */
+  .story-disclaimer {
+    flex-basis: 100%;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 150, 0, 0.2);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--gray2);
   }
 
   .result-num {

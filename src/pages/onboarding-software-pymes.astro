@@ -142,7 +142,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="feature-card">
           <div class="feature-num">4</div>
           <h3>Cobertura de bajas</h3>
-          <p>Cuando el experto falta, el sustituto accede al procedimiento completo. Puede trabajar con 70-80% de autonomía desde el primer día.</p>
+          <p>Cuando el experto falta, el sustituto accede al procedimiento completo y puede arrancar sin esperar a que alguien coja el teléfono.</p>
         </div>
 
         <div class="feature-card">
@@ -165,68 +165,74 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <!-- RESULTADOS -->
   <section class="section">
     <div class="section-inner">
+      <!-- Este bloque se titulaba "Resultados medidos" y ninguna de sus cifras
+           (-70%, -80%, "se paga en 1-2 meses") estaba medida en ningun cliente.
+           Se sustituye por el cambio operativo real, que si se puede sostener.
+           Regla: PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, Anexo III. -->
       <div class="fade-up">
-        <div class="eyebrow">Resultados medidos</div>
-        <h2 class="section-title">¿Qué mejora con REELEVO?</h2>
+        <div class="eyebrow">Qué cambia</div>
+        <h2 class="section-title">Qué cambia cuando el procedimiento está en el puesto</h2>
       </div>
 
       <div class="results-comparison fade-up delay-1">
         <div class="result-metric">
-          <div class="metric-title">Tiempo de aprendizaje</div>
+          <div class="metric-title">Cómo aprende una incorporación</div>
           <div class="metric-before">
             <span class="label">Antes</span>
-            <span class="value">2-4 semanas</span>
+            <span class="value">Depende de quién le enseñe y de cuándo pueda</span>
           </div>
           <div class="metric-arrow">→</div>
           <div class="metric-after">
             <span class="label">Con REELEVO</span>
-            <span class="value">3-5 días</span>
-            <span class="percent">-70%</span>
+            <span class="value">Avanza con la guía delante y el tutor verifica</span>
           </div>
         </div>
 
         <div class="result-metric">
-          <div class="metric-title">Autonomía operario nuevo</div>
+          <div class="metric-title">Cuando falta el titular del puesto</div>
           <div class="metric-before">
             <span class="label">Antes</span>
-            <span class="value">30-40%</span>
+            <span class="value">Se llama al experto, esté donde esté</span>
           </div>
           <div class="metric-arrow">→</div>
           <div class="metric-after">
             <span class="label">Con REELEVO</span>
-            <span class="value">70-80%</span>
-            <span class="percent">+100%</span>
+            <span class="value">El sustituto abre el proceso y arranca</span>
           </div>
         </div>
 
         <div class="result-metric">
-          <div class="metric-title">Horas tutor/nuevo</div>
+          <div class="metric-title">El tiempo del que enseña</div>
           <div class="metric-before">
             <span class="label">Antes</span>
-            <span class="value">40-60 horas</span>
+            <span class="value">Uno de tus mejores operarios, fuera de su máquina</span>
           </div>
           <div class="metric-arrow">→</div>
           <div class="metric-after">
             <span class="label">Con REELEVO</span>
-            <span class="value">8-12 horas</span>
-            <span class="percent">-80%</span>
+            <span class="value">Acompaña en los pasos críticos, no en todos</span>
           </div>
         </div>
 
         <div class="result-metric">
-          <div class="metric-title">ROI</div>
+          <div class="metric-title">Lo que queda del turno</div>
           <div class="metric-before">
-            <span class="label">Costo/mes</span>
-            <span class="value">49€</span>
+            <span class="label">Antes</span>
+            <span class="value">Lo que alguien recuerde en la reunión del día siguiente</span>
           </div>
           <div class="metric-arrow">→</div>
           <div class="metric-after">
-            <span class="label">Se paga en</span>
-            <span class="value">1-2 meses</span>
-            <span class="percent">✓</span>
+            <span class="label">Con REELEVO</span>
+            <span class="value">Quién lo hizo, cuándo y con qué resultado</span>
           </div>
         </div>
       </div>
+
+      <p class="results-note fade-up delay-2">
+        Son los cambios operativos que produce la herramienta. No publicamos porcentajes de mejora
+        ni ROI medio porque todavía no tenemos una base de clientes que los respalde: el día que la
+        tengamos, los publicaremos diciendo de dónde salen.
+      </p>
     </div>
   </section>
 
@@ -270,12 +276,12 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
-  <!-- CLIENTES -->
+  <!-- SECTORES (no son clientes: es el encaje del producto) -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Para qué sectores</div>
-        <h2 class="section-title">Pymes industriales que usan REELEVO</h2>
+        <h2 class="section-title">Sectores para los que está diseñado</h2>
       </div>
 
       <div class="sectors-grid fade-up delay-1">
@@ -292,53 +298,25 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <!-- PRECIOS -->
-  <section class="section">
+  <!-- Las tarjetas de plan viven SOLO en /precios/. Aqui habia una segunda tabla
+       con datos obsoletos (79 EUR, "acceso 1 operario", "maquinas ilimitadas") que
+       contradecia a /precios/ y al propio producto. Una sola pagina es duena del
+       precio: si vuelve a hacer falta el dato aqui, se enlaza, no se duplica. -->
+  <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Transparente y simple</div>
-        <h2 class="section-title">Precios sin sorpresas</h2>
+        <h2 class="section-title">Precio publicado, por empresa</h2>
+        <p class="section-sub">
+          Desde 49 €/mes por empresa, sin licencia por usuario y con el precio visible
+          antes de hablar con nadie. Los planes suben según las capacidades que necesitas,
+          no según cuánta gente lo usa.
+        </p>
       </div>
 
-      <div class="pricing-cards fade-up delay-1">
-        <div class="pricing-card">
-          <h3>Starter</h3>
-          <div class="price">49€/mes</div>
-          <p class="price-desc">Para conocer REELEVO</p>
-          <ul>
-            <li>Hasta 5 máquinas/procesos</li>
-            <li>Acceso 1 operario</li>
-            <li>Soporte por email</li>
-          </ul>
-          <a href="https://app.gmvsolutions.es/registro" class="btn-secondary">Comenzar</a>
-        </div>
-
-        <div class="pricing-card highlight">
-          <h3>Professional</h3>
-          <div class="price">79€/mes</div>
-          <p class="price-desc">La mayoría de pymes</p>
-          <ul>
-            <li>Máquinas ilimitadas</li>
-            <li>Acceso 5 operarios</li>
-            <li>Matriz de competencias</li>
-            <li>Reportes básicos</li>
-            <li>Soporte prioritario</li>
-          </ul>
-          <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
-        </div>
-
-        <div class="pricing-card">
-          <h3>Enterprise</h3>
-          <div class="price">Contactar</div>
-          <p class="price-desc">Grandes operaciones</p>
-          <ul>
-            <li>Usuarios ilimitados</li>
-            <li>API integración</li>
-            <li>SSO/Active Directory</li>
-            <li>SLA garantizado</li>
-            <li>Soporte dedicado</li>
-          </ul>
-          <a href="/sobre-nosotros/" class="btn-secondary">Contactar</a>
-        </div>
+      <div class="fade-up delay-1" style="margin-top:32px;">
+        <a href="/precios/" class="btn-primary"
+           data-cta data-cta-intent="precios" data-cta-location="body" data-cta-label="Ver planes y precios">Ver planes y precios →</a>
       </div>
     </div>
   </section>
@@ -523,16 +501,26 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     letter-spacing: 0.05em;
   }
 
+  /* Antes eran cifras sueltas ("3-5 días") a 1.3rem. Ahora son frases, asi que
+     baja el cuerpo y entra interlineado: a 1.3rem una frase de linea y media
+     competia con el titulo de la tarjeta. */
   .value {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
     color: var(--text);
   }
 
-  .percent {
+  .metric-after .value {
+    color: var(--white);
+  }
+
+  .results-note {
+    max-width: 760px;
+    margin-top: 24px;
     font-size: 0.85rem;
-    color: var(--orange);
-    font-weight: 600;
+    line-height: 1.65;
+    color: var(--gray2);
   }
 
   .steps {
@@ -588,96 +576,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 0.95rem;
   }
 
-  .pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  .pricing-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pricing-card.highlight {
-    border-color: var(--orange);
-    background: rgba(255, 150, 0, 0.02);
-  }
-
-  .pricing-card h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-  }
-
-  .price {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .price-desc {
-    color: var(--gray2);
-    font-size: 0.85rem;
-    margin-bottom: 24px;
-  }
-
-  .pricing-card ul {
-    list-style: none;
-    padding: 20px 0;
-    margin: 20px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    flex: 1;
-    text-align: left;
-  }
-
-  .pricing-card li {
-    padding: 8px 0;
-    color: var(--gray);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .pricing-card li:before {
-    content: "✓ ";
-    color: var(--orange);
-    font-weight: 600;
-    margin-right: 8px;
-  }
-
-  .btn-secondary {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    text-decoration: none;
-    border-radius: 4px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: all 0.25s;
-    margin-top: auto;
-  }
-
-  .btn-secondary:hover {
-    background: var(--border);
-  }
-
   @media (max-width: 900px) {
     .problem-grid,
     .solution-features,
     .results-comparison,
-    .sectors-grid,
-    .pricing-cards {
+    .sectors-grid {
       grid-template-columns: 1fr;
     }
 

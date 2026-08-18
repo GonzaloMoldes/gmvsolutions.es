@@ -32,6 +32,8 @@ export async function GET() {
     page('/calidad-y-conformidad/', '0.75', 'monthly'),
     page('/cobertura-turnos/', '0.75', 'monthly'),
     page('/control-produccion/', '0.8', 'monthly'),
+    page('/oee/', '0.8', 'monthly'),
+    page('/seguridad/', '0.7', 'monthly'),
     page('/mantenimiento/', '0.8', 'monthly'),
     page('/kaizen/', '0.8', 'monthly'),
     page('/workflows/', '0.8', 'monthly'),

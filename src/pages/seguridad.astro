@@ -1,0 +1,497 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+
+// Contenido verificado contra reelevo-app:
+//   supabase/migrations/     → 81 migraciones con ENABLE ROW LEVEL SECURITY
+//   ..._auto_hash_companies_pin_trigger.sql → PIN hasheado con bcrypt por trigger
+//   lib/security-headers.ts  → CSP enforcing, HSTS, X-Frame-Options DENY, nosniff,
+//                              Referrer-Policy, Permissions-Policy
+//   lib/company-permissions.ts → 7 roles de empresa con permisos por ruta
+//   app/api/cron/gdpr-cleanup  → purga automatica
+//   app/api/scim, app/api/empresa/scim → SCIM 2.0
+//   package.json → @sentry/nextjs, posthog-js
+// OJO: Cloudflare Turnstile esta SOLO en el registro (app/api/company-registration),
+// no en el login. No ampliar esa afirmacion sin volver a comprobarlo.
+// Regla: PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, tareas D3 · D9 · D12.
+
+const title = "Seguridad y protección de datos | REELEVO";
+const description = "Cómo REELEVO aísla los datos de cada empresa: Row Level Security en Postgres, permisos por rol, auditoría, cumplimiento RGPD y alojamiento en la UE.";
+const canonical = "https://www.gmvsolutions.es/seguridad/";
+
+const faqs: FaqItem[] = [
+  {
+    q: '¿Dónde se alojan los datos?',
+    a: 'En infraestructura dentro de la Unión Europea, sobre Supabase y Vercel. Algunos servicios auxiliares pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas. Los procesos y la documentación que cargas siguen siendo propiedad de tu empresa.',
+  },
+  {
+    q: '¿Cómo se garantiza que una empresa no vea los datos de otra?',
+    a: 'Con Row Level Security en Postgres, que es aislamiento a nivel de base de datos y no una condición en el código de la aplicación. La diferencia importa: si mañana alguien introduce un error en una consulta, la base de datos sigue sin devolver filas de otra empresa. Está aplicado en las tablas mediante migraciones versionadas.',
+  },
+  {
+    q: '¿Es seguro que el operario entre sin cuenta ni contraseña?',
+    a: 'Sí, porque no hay credencial permanente en el dispositivo. El acceso por QR abre una sesión de corta duración —24 horas— asociada a ese dispositivo, y el PIN de empresa se guarda hasheado con bcrypt mediante un trigger en la base de datos, nunca en claro. El operario no tiene acceso al panel de empresa en ningún caso.',
+  },
+  {
+    q: '¿Puedo dar acceso a un jefe de línea sin que vea la facturación?',
+    a: 'Sí. Hay siete roles de empresa con alcance distinto, y el control se aplica tanto en la ruta como en la API. Un supervisor entra a validación, procesos y estadísticas; un responsable ve el panel completo salvo facturación, claves de API e integraciones; y el rol de gestor permite dar permisos por área sin tener que crear un rol nuevo.',
+  },
+  {
+    q: '¿Qué pasa con nuestros datos si dejamos de usar REELEVO?',
+    a: 'Puedes exportarlos y solicitar la baja desde el propio panel, sin pasar por soporte. Además existe una purga automática que elimina datos según la política de retención, de modo que la eliminación no depende de que alguien se acuerde de ejecutarla.',
+  },
+];
+
+const pageSchema = softwareApplicationSchema();
+const schema = [pageSchema, faqPageSchema(faqs)];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Seguridad · RGPD · Alojamiento en la UE</div>
+    <h1 class="fade-up delay-1">Las preguntas que hace IT,<br><em>respondidas por delante</em></h1>
+    <p class="fade-up delay-2">
+      Aislamiento de datos por empresa a nivel de base de datos, permisos por rol, registro de auditoría
+      y alojamiento en la Unión Europea. Sin cuestionario de 60 preguntas para averiguarlo.
+    </p>
+    <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="mailto:hola@gmvsolutions.es" class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Consulta de seguridad">Hablar con nosotros</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- AISLAMIENTO -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Aislamiento de datos</div>
+        <h2 class="section-title">Cada empresa ve lo suyo,<br><em>y lo impone la base de datos</em></h2>
+        <p class="section-sub">
+          El aislamiento no está implementado como un filtro en el código de la aplicación,
+          sino con <strong>Row Level Security</strong> en Postgres, aplicado sobre las tablas
+          mediante migraciones versionadas.
+        </p>
+      </div>
+
+      <div class="sec-callout fade-up delay-1">
+        <strong>Por qué esta distinción importa:</strong> si el aislamiento vive en el código, basta con
+        que una consulta nueva olvide un <em>where</em> para que se filtren datos de otro cliente. Con RLS,
+        la propia base de datos se niega a devolver esas filas aunque la consulta esté mal escrita.
+        Es la diferencia entre confiar en la disciplina del equipo y no tener que confiar en ella.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ROLES -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Control de acceso</div>
+        <h2 class="section-title">Siete roles, con alcance distinto</h2>
+        <p class="section-sub">
+          El control se aplica en la ruta y también en la API, así que no depende de que la
+          interfaz esconda un botón.
+        </p>
+      </div>
+
+      <div class="roles-table fade-up delay-1">
+        <div class="roles-row roles-head">
+          <div>Rol</div>
+          <div>Qué alcanza</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">admin_empresa</div>
+          <div>Control total: facturación, usuarios, claves de API, webhooks, SSO, SCIM e integraciones</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">plant_manager</div>
+          <div>Su planta: panel, turnos, monitoreo y reportes de ese centro</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">gestor_empresa</div>
+          <div>Permisos por área a la carta: productividad, procesos, máquinas, operarios, planificación o reportes</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">responsable</div>
+          <div>Panel completo, salvo facturación, claves de API, webhooks e integraciones</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">supervisor</div>
+          <div>Validación de ejecuciones, procesos, máquinas, estadísticas, rutas y Kaizen</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">tecnico</div>
+          <div>Procesos, contenidos, Kaizen y validación técnica</div>
+        </div>
+        <div class="roles-row">
+          <div class="role-name">operario</div>
+          <div>Portal del operario y flujo QR. Sin acceso al panel de empresa</div>
+        </div>
+      </div>
+
+      <div class="sec-callout fade-up delay-2">
+        <strong>El caso práctico:</strong> puedes dar acceso a los jefes de línea sin exponer la facturación,
+        y dar permisos por área a un gestor sin tener que pedirnos un rol nuevo.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EL OPERARIO SIN CUENTA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La pregunta incómoda</div>
+        <h2 class="section-title">«Si el operario entra sin contraseña,<br><em>¿eso no es un agujero?»</em></h2>
+        <p class="section-sub">
+          Es la primera objeción de cualquier responsable de IT, y es razonable. La respuesta es que
+          precisamente por eso no hay ninguna credencial permanente guardada en el dispositivo.
+        </p>
+      </div>
+
+      <div class="sec-grid fade-up delay-1">
+        <article class="sec-card">
+          <div class="sec-tag">Sesión</div>
+          <h3 class="sec-title">De corta duración</h3>
+          <p class="sec-desc">
+            El escaneo del QR abre una sesión válida <strong>24 horas</strong> en ese dispositivo.
+            Un móvil perdido no es una cuenta comprometida indefinidamente.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">PIN de empresa</div>
+          <h3 class="sec-title">Hasheado con bcrypt</h3>
+          <p class="sec-desc">
+            Nunca se guarda en claro. El hash lo aplica un <strong>trigger en la base de datos</strong>,
+            así que no depende de que una ruta concreta se acuerde de hacerlo.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">Alcance</div>
+          <h3 class="sec-title">Solo el puesto</h3>
+          <p class="sec-desc">
+            La sesión de operario da acceso al flujo de ejecución, no al panel de empresa.
+            Ni a datos de otras plantas, ni a nada administrativo.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">Registro</div>
+          <h3 class="sec-title">Toda acción queda firmada</h3>
+          <p class="sec-desc">
+            Sin cuenta no significa sin rastro: el código personal de 8 caracteres identifica
+            quién ejecutó cada proceso, y eso es lo que sostiene la trazabilidad.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLATAFORMA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Plataforma</div>
+        <h2 class="section-title">Lo que hay debajo</h2>
+      </div>
+
+      <div class="plat-table fade-up delay-1">
+        <div class="plat-row">
+          <div class="plat-k">Autenticación</div>
+          <div class="plat-v">Supabase Auth con JWT, y comprobación de rol en cada ruta y cada endpoint de API</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">Cabeceras HTTP</div>
+          <div class="plat-v">Content-Security-Policy en modo enforcing, HSTS, <code>X-Frame-Options: DENY</code>, <code>nosniff</code>, Referrer-Policy y Permissions-Policy con cámara, micrófono y geolocalización desactivados</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">Anti-bot</div>
+          <div class="plat-v">Cloudflare Turnstile en el registro de empresa</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">Auditoría</div>
+          <div class="plat-v">Registro de auditoría, logs de aplicación, logs de acceso e histórico de correos enviados</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">API</div>
+          <div class="plat-v">Claves con <em>scopes</em>, límite de llamadas, analítica de uso y aviso automático antes de que caduque una clave</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">Observabilidad</div>
+          <div class="plat-v">Sentry para errores, PostHog para producto y monitorización de disponibilidad con health checks</div>
+        </div>
+        <div class="plat-row">
+          <div class="plat-k">Alojamiento</div>
+          <div class="plat-v">Unión Europea, sobre Supabase y Vercel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IDENTIDAD CORPORATIVA -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Identidad corporativa</div>
+        <h2 class="section-title">Si ya tienes un directorio, se conecta</h2>
+      </div>
+
+      <div class="sec-grid sec-grid-2 fade-up delay-1">
+        <article class="sec-card">
+          <div class="sec-tag">SCIM 2.0</div>
+          <h3 class="sec-title">Aprovisionamiento automático</h3>
+          <p class="sec-desc">
+            Alta, baja y cambios de usuario sincronizados desde <strong>Okta, Azure AD o JumpCloud</strong>.
+            Cuando RRHH da de baja a alguien en el directorio, deja de tener acceso aquí sin que nadie
+            tenga que acordarse.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">SSO / SAML · Enterprise</div>
+          <h3 class="sec-title">Inicio de sesión único</h3>
+          <p class="sec-desc">
+            Los usuarios de panel entran con las credenciales corporativas, sujetos a las políticas
+            de contraseña y segundo factor que ya tengáis definidas. Disponible en el plan Enterprise.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RGPD -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">RGPD</div>
+        <h2 class="section-title">Cumplimiento que no depende de que alguien se acuerde</h2>
+      </div>
+
+      <div class="sec-grid sec-grid-3 fade-up delay-1">
+        <article class="sec-card">
+          <div class="sec-tag">Retención</div>
+          <h3 class="sec-title">Purga automática</h3>
+          <p class="sec-desc">
+            Un proceso periódico elimina los datos según la política de retención configurada,
+            sin intervención manual.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">Portabilidad</div>
+          <h3 class="sec-title">Exportación desde el panel</h3>
+          <p class="sec-desc">
+            Tus procesos y registros se exportan sin pasar por soporte. Los datos son de tu empresa
+            y tienen que poder salir.
+          </p>
+        </article>
+
+        <article class="sec-card">
+          <div class="sec-tag">Baja</div>
+          <h3 class="sec-title">Un flujo, no un correo</h3>
+          <p class="sec-desc">
+            La solicitud de baja y eliminación está en el propio panel, con su procedimiento,
+            junto al aviso legal y la política de cookies.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <FaqSection items={faqs} />
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">¿Te falta algún dato?</div>
+    <h2 class="cta-title fade-up delay-1">
+      Si IT necesita algo más concreto,<br><em>pregúntanos directamente</em>
+    </h2>
+    <p class="cta-sub fade-up delay-2">
+      Preferimos responder una pregunta técnica incómoda antes de la compra que después.
+      Escríbenos con lo que necesites verificar.
+    </p>
+    <div class="cta-actions fade-up delay-3">
+      <a href="mailto:hola@gmvsolutions.es" class="btn-primary"
+         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Consulta de seguridad">
+        hola@gmvsolutions.es
+      </a>
+    </div>
+    <div class="cta-note fade-up delay-4">Alojamiento en la UE · Aislamiento por RLS · Exportación y baja desde el panel</div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .sec-callout {
+    max-width: 860px;
+    margin-top: 32px;
+    padding: 22px 26px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .88rem;
+    line-height: 1.75;
+    color: var(--gray);
+  }
+
+  .sec-callout strong { color: var(--white); font-weight: 500; }
+  .sec-callout em { color: var(--white); font-style: italic; }
+
+  /* ROLES */
+  .roles-table {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 900px;
+  }
+
+  .roles-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 15px 20px;
+    font-size: .86rem;
+    line-height: 1.6;
+    color: var(--gray);
+  }
+
+  .roles-row + .roles-row { border-top: 1px solid var(--border); }
+
+  .roles-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--white);
+    background: rgba(255, 255, 255, .03);
+  }
+
+  .role-name {
+    font-family: 'DM Mono', monospace;
+    font-size: .78rem;
+    color: var(--orange);
+  }
+
+  /* TARJETAS */
+  .sec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .sec-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sec-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .sec-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 22px;
+  }
+
+  .sec-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .sec-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .98rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .sec-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .sec-desc strong { color: var(--white); font-weight: 500; }
+
+  /* PLATAFORMA */
+  .plat-table {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 900px;
+  }
+
+  .plat-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 16px 20px;
+    font-size: .86rem;
+    line-height: 1.65;
+    color: var(--gray);
+  }
+
+  .plat-row + .plat-row { border-top: 1px solid var(--border); }
+
+  .plat-k {
+    font-family: 'Oswald', sans-serif;
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .plat-v code {
+    font-family: 'DM Mono', monospace;
+    font-size: .78rem;
+    color: var(--orange);
+  }
+
+  .plat-v em { font-style: italic; }
+
+  @media (max-width: 1000px) {
+    .sec-grid,
+    .sec-grid-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .sec-grid,
+    .sec-grid-2,
+    .sec-grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .roles-row,
+    .plat-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  }
+</style>

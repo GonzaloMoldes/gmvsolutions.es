@@ -142,6 +142,95 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
+  <!-- RECALLS Y TRAZABILIDAD DE LOTE -->
+  <!-- Verificado en reelevo-app: app/api/empresa/recalls/route.ts define
+       severity informative|precautionary|mandatory y scope_type
+       lot_reference|production_order|date_range|obra. El cron
+       traceability-completeness vigila piezas sin lote y recalls con piezas
+       pendientes >48 h. OJO: trazabilidad y recalls NO estan capados por plan
+       (tarea A9 pendiente de decision), asi que no se atribuyen a ningun plan. -->
+  <section class="section" id="recalls">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cuando algo sale mal</div>
+        <h2 class="section-title">«Un cliente reclama un lote»<br><em>y hay que reconstruirlo a mano</em></h2>
+        <p class="section-sub">
+          Es el peor día del responsable de calidad: alguien pregunta por una entrega de hace tres meses
+          y la respuesta está repartida entre partes en papel, un Excel y la memoria de quien estaba ese turno.
+        </p>
+      </div>
+
+      <div class="recall-grid fade-up delay-1">
+        <article class="recall-card">
+          <div class="recall-tag">Buscar</div>
+          <h3 class="recall-title">Localizar lo afectado</h3>
+          <p class="recall-desc">
+            Búsqueda por lote sobre las ejecuciones reales. De una referencia de lote sales a las piezas,
+            las obras, los procesos que se ejecutaron y los operarios que intervinieron.
+          </p>
+        </article>
+
+        <article class="recall-card">
+          <div class="recall-tag">Acotar</div>
+          <h3 class="recall-title">Definir el alcance</h3>
+          <p class="recall-desc">
+            Una retirada se acota por <strong>referencia de lote</strong>, por <strong>orden de producción</strong>,
+            por <strong>rango de fechas</strong> o por <strong>obra</strong>. Es lo que evita retirar de más
+            —caro— o de menos —peor—.
+          </p>
+        </article>
+
+        <article class="recall-card">
+          <div class="recall-tag">Clasificar</div>
+          <h3 class="recall-title">Tres niveles de severidad</h3>
+          <p class="recall-desc">
+            <strong>Obligatorio</strong>, <strong>precautorio</strong> o <strong>informativo</strong>.
+            No es lo mismo avisar de una desviación menor que retirar producto del mercado, y el registro
+            debe distinguirlo.
+          </p>
+        </article>
+
+        <article class="recall-card">
+          <div class="recall-tag">Contener</div>
+          <h3 class="recall-title">Cuarentena por pieza</h3>
+          <p class="recall-desc">
+            Cada pieza afectada lleva su estado dentro de la retirada, de modo que en cualquier momento
+            se sabe qué queda pendiente de revisar y qué está ya resuelto.
+          </p>
+        </article>
+
+        <article class="recall-card">
+          <div class="recall-tag">Demostrar</div>
+          <h3 class="recall-title">Informe público por pieza</h3>
+          <p class="recall-desc">
+            Cada pieza puede llevar su QR y una página de trazabilidad —obra, producto, operarios,
+            ejecuciones y lote— con informe descargable. Si tu empresa lo activa, el cliente final
+            lo consulta él mismo.
+          </p>
+        </article>
+
+        <article class="recall-card">
+          <div class="recall-tag">Vigilar</div>
+          <h3 class="recall-title">Huecos detectados solos</h3>
+          <p class="recall-desc">
+            Una revisión diaria avisa de las piezas producidas sin referencia de lote y de los recalls
+            con piezas aún sin revisar. El agujero de trazabilidad se detecta antes de que lo detecte
+            un cliente.
+          </p>
+        </article>
+      </div>
+
+      <div class="recall-note fade-up delay-2">
+        <strong>Lo que hace posible todo esto</strong> no es un módulo de trazabilidad aparte, sino que el
+        operario ya registra la ejecución en el puesto. La cadena lote → pieza → proceso → persona → turno
+        se construye sola mientras se produce, que es la única forma de que esté completa el día que
+        alguien pregunta.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
@@ -260,6 +349,68 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .use-grid {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 48px;
+  }
+
+  /* RECALLS */
+  .recall-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .recall-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 22px;
+  }
+
+  .recall-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .recall-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .98rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .recall-desc {
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .recall-desc strong { color: var(--white); font-weight: 500; }
+
+  .recall-note {
+    max-width: 860px;
+    margin: 28px auto 0;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .88rem;
+    line-height: 1.75;
+    color: var(--gray);
+  }
+
+  .recall-note strong { color: var(--white); font-weight: 500; }
+
+  @media (max-width: 1000px) {
+    .recall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 700px) {
+    .recall-grid { grid-template-columns: 1fr; }
   }
 
   .boundary-grid {

@@ -99,16 +99,31 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Qué es un workflow en REELEVO</div>
         <h2 class="section-title">Una secuencia de pasos, con responsables, condiciones y seguimiento</h2>
-        <p class="section-sub">Un workflow de REELEVO es un proceso estructurado que puede tener múltiples pasos, múltiples operarios, condiciones de avance, puntos de aprobación y ramas paralelas — y que se puede lanzar manual o automáticamente.</p>
+        <p class="section-sub">Un workflow de REELEVO es un proceso estructurado que puede tener múltiples pasos, múltiples operarios, condiciones de avance, puntos de aprobación y ramas paralelas. Se monta arrastrando <strong>17 tipos de nodo</strong> distintos, y se lanza a mano o solo.</p>
       </div>
 
+      <!-- Los 17 tipos verificados en reelevo-app: start, end, process,
+           operation, machine, manual_task, measurement, supervisor_approval,
+           decision, checkpoint, incident, rework, blocked_wait, delay,
+           parallel_split, parallel_join, note. Si se toca esta lista hay que
+           volver a contar: la cifra del titulo debe cuadrar con las tarjetas. -->
       <div class="node-types fade-up delay-1">
-        <div class="eyebrow-small">Tipos de nodo disponibles en el editor</div>
+        <div class="eyebrow-small">Los 17 tipos de nodo del editor</div>
         <div class="nodes-grid">
           <div class="node-card">
             <div class="node-icon">▶</div>
             <div class="node-name">Operación</div>
             <div class="node-desc">Tarea ejecutada por un operario siguiendo un SOP</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">⚙</div>
+            <div class="node-name">Proceso</div>
+            <div class="node-desc">Un proceso completo ya documentado, embebido en el flujo</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">🏭</div>
+            <div class="node-name">Máquina</div>
+            <div class="node-desc">Paso asociado a una máquina concreta del taller</div>
           </div>
           <div class="node-card">
             <div class="node-icon">✓</div>
@@ -131,19 +146,54 @@ const schema = [pageSchema, faqPageSchema(faqs)];
             <div class="node-desc">El workflow se bloquea hasta que el supervisor aprueba</div>
           </div>
           <div class="node-card">
-            <div class="node-icon">⏱</div>
-            <div class="node-name">Espera programada</div>
-            <div class="node-desc">Pausa por tiempo antes de continuar al siguiente paso</div>
-          </div>
-          <div class="node-card">
             <div class="node-icon">🏁</div>
             <div class="node-name">Checkpoint</div>
             <div class="node-desc">Punto de control que requiere validación explícita</div>
           </div>
           <div class="node-card">
-            <div class="node-icon">⇌</div>
-            <div class="node-name">Ramas paralelas</div>
-            <div class="node-desc">Divisiones y uniones para tareas simultáneas</div>
+            <div class="node-icon">⚠</div>
+            <div class="node-name">Incidencia</div>
+            <div class="node-desc">Rama para cuando algo no sale como debería</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">↺</div>
+            <div class="node-name">Retrabajo</div>
+            <div class="node-desc">Devuelve la pieza a un paso anterior para corregirla</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">⏸</div>
+            <div class="node-name">Espera bloqueada</div>
+            <div class="node-desc">El flujo no avanza hasta que se cumpla una condición</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">⏱</div>
+            <div class="node-name">Retardo</div>
+            <div class="node-desc">Pausa por tiempo: curado, enfriado, secado</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">⇥</div>
+            <div class="node-name">Split paralelo</div>
+            <div class="node-desc">Abre varias ramas que se ejecutan a la vez</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">⇤</div>
+            <div class="node-name">Join paralelo</div>
+            <div class="node-desc">Espera a que todas las ramas terminen para seguir</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">📝</div>
+            <div class="node-name">Nota</div>
+            <div class="node-desc">Anotación en el diagrama, sin efecto en la ejecución</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">●</div>
+            <div class="node-name">Inicio</div>
+            <div class="node-desc">Por dónde arranca el flujo</div>
+          </div>
+          <div class="node-card">
+            <div class="node-icon">◉</div>
+            <div class="node-name">Fin</div>
+            <div class="node-desc">Dónde se da por cerrado</div>
           </div>
         </div>
       </div>

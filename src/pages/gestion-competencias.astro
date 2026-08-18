@@ -261,6 +261,67 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
+  <!-- LO QUE DETECTA SOLO -->
+  <!-- Verificado en reelevo-app/app/api/cron/: skill-decay (hitos 60/90/180
+       dias), cert-expiry (aviso a <=7 dias, diario 07:00 UTC),
+       knowledge-signals, shift-coverage-risk. -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Sin que nadie lo mire</div>
+        <h2 class="section-title">Una matriz que se degrada sola<br><em>no sirve de nada</em></h2>
+        <p class="section-sub">
+          El problema de las matrices de competencias en Excel no es construirlas: es que a los seis meses
+          ya no reflejan la realidad y nadie se fía. Estas revisiones se ejecutan a diario sin que nadie
+          las lance.
+        </p>
+      </div>
+
+      <div class="auto-grid fade-up delay-1">
+        <article class="auto-card">
+          <div class="auto-tag">Diario</div>
+          <h3 class="auto-title">Competencias que se oxidan</h3>
+          <p class="auto-desc">
+            Si alguien lleva mucho sin ejecutar un proceso, su capacitación deja de ser real aunque
+            siga marcada en la matriz. REELEVO lo detecta por hitos de <strong>60, 90 y 180 días</strong>
+            sin práctica, configurables.
+          </p>
+        </article>
+
+        <article class="auto-card">
+          <div class="auto-tag">Diario</div>
+          <h3 class="auto-title">Certificaciones a punto de vencer</h3>
+          <p class="auto-desc">
+            Aviso automático de las certificaciones que caducan en los <strong>próximos 7 días</strong>,
+            para que la renovación se planifique en vez de descubrirse el día que hace falta la persona.
+          </p>
+        </article>
+
+        <article class="auto-card">
+          <div class="auto-tag">Diario</div>
+          <h3 class="auto-title">Conocimiento en riesgo</h3>
+          <p class="auto-desc">
+            Señala los procesos que <strong>dependen de una sola persona</strong>, los que llevan
+            demasiado tiempo sin revisarse y los que muestran una variación anómala entre quienes
+            los ejecutan.
+          </p>
+        </article>
+
+        <article class="auto-card">
+          <div class="auto-tag">Diario</div>
+          <h3 class="auto-title">Turnos sin quien cubra</h3>
+          <p class="auto-desc">
+            Cruza el turno planificado con las certificaciones activas y avisa de los procesos críticos
+            que se quedan sin nadie capacitado, mientras aún se puede reorganizar.
+            <a href="/cobertura-turnos/">Ver cobertura de turnos →</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- CTA -->
   <FaqSection items={faqs} />
 
@@ -290,6 +351,62 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 </BaseLayout>
 
 <style>
+  /* LO QUE DETECTA SOLO */
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .auto-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 22px;
+  }
+
+  .auto-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .auto-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .96rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .auto-desc {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .auto-desc strong { color: var(--white); font-weight: 500; }
+
+  .auto-desc a {
+    color: var(--orange);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .auto-desc a:hover { text-decoration: underline; }
+
+  @media (max-width: 1100px) {
+    .auto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .auto-grid { grid-template-columns: 1fr; }
+  }
+
   .challenge-content {
     max-width: 700px;
     margin-top: 40px;

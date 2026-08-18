@@ -221,8 +221,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
         <div class="access-card">
           <div class="access-icon">📶</div>
-          <h3>Funciona sin conexión</h3>
-          <p>Si la wifi de planta falla, el operario puede seguir trabajando. Las acciones se guardan en el dispositivo y se sincronizan automáticamente cuando vuelve la conexión.</p>
+          <h3>Aguanta los cortes de wifi</h3>
+          <p>Si la señal cae a mitad de un proceso, el operario puede seguir con lo que ya tenía abierto. Lo que registra se guarda en el dispositivo y se envía solo cuando vuelve la conexión.</p>
         </div>
 
         <div class="access-card">
@@ -230,6 +230,66 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <h3>Sin contraseñas complicadas</h3>
           <p>El operario accede con sus credenciales simples o desde el QR de su puesto. La experiencia está diseñada para gente que no usa ordenadores habitualmente.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PORTAL DEL SUPERVISOR -->
+  <!-- Verificado en reelevo-app/app/supervisor/: validar, aprobaciones, rutas,
+       proceso, y dashboard con supervisor_inbox alimentado por los crons de
+       anomalias y de completitud de trazabilidad. -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">El otro lado</div>
+        <h2 class="section-title">El jefe de turno tiene su propio portal<br><em>y no es el panel de dirección</em></h2>
+        <p class="section-sub">
+          Un jefe de línea no necesita el panel completo de la empresa: necesita despachar lo que le
+          corresponde en cinco minutos, desde donde esté. Por eso tiene su propio espacio, separado
+          del portal del operario y del panel de dirección.
+        </p>
+      </div>
+
+      <div class="sup-grid fade-up delay-1">
+        <article class="sup-card">
+          <div class="sup-tag">Validar</div>
+          <h3 class="sup-title">Ejecuciones pendientes de firma</h3>
+          <p class="sup-desc">
+            Las sesiones que requieren validación llegan a una bandeja: se revisan y quedan validadas
+            o rechazadas. El operario sabe si su trabajo quedó conforme.
+          </p>
+        </article>
+
+        <article class="sup-card">
+          <div class="sup-tag">Aprobar</div>
+          <h3 class="sup-title">Pasos que exigen un visto bueno</h3>
+          <p class="sup-desc">
+            Cuando un proceso incluye un paso de aprobación de supervisor, la petición aparece aquí.
+            El operario no sigue hasta que alguien responde — que es justo el punto de control que se
+            busca en los pasos críticos.
+          </p>
+        </article>
+
+        <article class="sup-card">
+          <div class="sup-tag">Formar</div>
+          <h3 class="sup-title">Rutas de aprendizaje en curso</h3>
+          <p class="sup-desc">
+            Seguimiento de quién está formándose en qué y por dónde va, para que la formación no
+            dependa de acordarse de preguntar.
+          </p>
+        </article>
+
+        <article class="sup-card">
+          <div class="sup-tag">Atender</div>
+          <h3 class="sup-title">Una bandeja que se llena sola</h3>
+          <p class="sup-desc">
+            Los avisos automáticos —procesos con anomalías, piezas sin lote, retiradas con piezas
+            pendientes— caen en la bandeja del supervisor, en lugar de esperar a que alguien los
+            descubra.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -264,6 +324,52 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 </BaseLayout>
 
 <style>
+  /* PORTAL DEL SUPERVISOR */
+  .sup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .sup-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 22px;
+  }
+
+  .sup-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .sup-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: .96rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .sup-desc {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1100px) {
+    .sup-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .sup-grid { grid-template-columns: 1fr; }
+  }
+
   .challenge-content {
     max-width: 700px;
     margin-top: 40px;

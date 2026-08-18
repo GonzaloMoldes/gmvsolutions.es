@@ -23,6 +23,10 @@ const faqs: FaqItem[] = [
     a: 'Entre dos y cinco. Los que más rotación tienen o más reprocesos generan. Documentar la planta entera antes de empezar a usar nada es el camino corto a que el proyecto se abandone; un proceso resuelto y en uso convence más que un plan de doce meses.',
   },
   {
+    q: '¿Hay que teclear todos los procedimientos desde cero?',
+    a: 'No. Puedes subir los que ya tengas en Word o PDF y la IA propone el proceso troceado en pasos, en el idioma original del documento. Para lo que nunca se escribió, puedes grabar en vídeo al operario haciéndolo y se proponen los pasos a partir de lo que se ve. En los dos casos el resultado queda pendiente de revisión: tú lo corriges y lo apruebas antes de que llegue al puesto.',
+  },
+  {
     q: '¿Quién debe redactar la documentación?',
     a: 'El operario que domina el proceso, acompañado de alguien que le dé estructura. Cuando lo redacta calidad desde un despacho sale un documento formalmente correcto que pierde los detalles reales del puesto, que son precisamente los que evitan el error.',
   },
@@ -83,7 +87,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
             <li>Operario experto documenta MIENTRAS ejecuta el proceso</li>
             <li>App lo guía por los pasos: "¿Cuál es el siguiente paso?"</li>
             <li>A un click de distancia del SOP: foto, video, checklist</li>
-            <li>Disponible offline en máquina (QR o acceso app)</li>
+            <li>Disponible en la máquina por QR, y resistente a los cortes de wifi</li>
             <li>Operario nuevo consulta 10 segundos</li>
             <li>Sigue el procedimiento</li>
             <li>¡Listo!</li>
@@ -113,7 +117,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="feature">
           <div class="feature-icon">📱</div>
           <h3>Accesible en 3 segundos</h3>
-          <p>QR en máquina + scan = SOP abierto directamente. O app preinstalada. Sin buscar nada. Offline si no hay wifi.</p>
+          <p>QR en máquina + scan = SOP abierto directamente. O app preinstalada. Sin buscar nada. Y si la wifi cae con el SOP ya abierto, sigue ahí.</p>
         </div>
 
         <div class="feature">
@@ -199,6 +203,65 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <h3>🧹 Limpieza GMP</h3>
           <p>Si necesitas conformidad ISO/IATF: checklist paso a paso de limpieza por zona. Con foto de "antes" y "después".</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- IMPORTACIÓN CON IA -->
+  <!-- Datos verificados en reelevo-app: /api/empresa/import/start (PDF y DOCX,
+       10 MB, Claude Sonnet) y /api/empresa/procesos/video-to-steps (hasta 15
+       frames extraidos en el navegador con FFmpeg WASM, Claude vision). El job
+       queda en estado needs_review: no se publica nada sin aprobar. -->
+  <section class="section" id="importar">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La objeción de verdad</div>
+        <h2 class="section-title">«Pasar mis procedimientos a esto<br><em>me va a costar meses</em>»</h2>
+        <p class="section-sub">
+          Es la razón real por la que estos proyectos no arrancan. No es el precio ni la resistencia
+          del operario: es que alguien tiene que sentarse a escribir cien procedimientos desde cero.
+          REELEVO ataca justo esa parte.
+        </p>
+      </div>
+
+      <div class="import-grid fade-up delay-1">
+        <article class="import-card">
+          <div class="import-tag">Word y PDF</div>
+          <h3 class="import-title">Lo que ya tienes escrito</h3>
+          <p class="import-desc">
+            Sueltas el documento —hasta 10 MB— y la IA lee el procedimiento y propone el proceso ya
+            troceado: título, tipo, descripción y hasta 20 pasos con su detalle. Respeta el idioma
+            original del documento.
+          </p>
+        </article>
+
+        <article class="import-card">
+          <div class="import-tag">Vídeo</div>
+          <h3 class="import-title">Lo que solo está en la cabeza de alguien</h3>
+          <p class="import-desc">
+            Para lo que nunca se escribió: grabas al operario haciéndolo. REELEVO toma fotogramas a lo
+            largo del vídeo y propone los pasos a partir de lo que se ve. Si el vídeo tiene voz, la
+            transcripción manda sobre la imagen.
+          </p>
+        </article>
+
+        <article class="import-card">
+          <div class="import-tag">Siempre revisado</div>
+          <h3 class="import-title">La IA propone, tú apruebas</h3>
+          <p class="import-desc">
+            El resultado queda en estado <strong>pendiente de revisión</strong>. Lo abres, corriges lo
+            que haga falta y lo apruebas o lo rechazas. Nada llega al puesto de trabajo sin que una
+            persona lo haya validado.
+          </p>
+        </article>
+      </div>
+
+      <div class="import-note fade-up delay-2">
+        <strong>Lo que esto no es:</strong> no documenta tu planta sola. El criterio de qué es crítico,
+        qué tolerancia aplica y qué se hace cuando algo va mal lo sigue poniendo quien conoce la máquina.
+        Lo que se ahorra es la página en blanco y el tecleo — que es justo donde estos proyectos se paran.
       </div>
     </div>
   </section>
@@ -415,6 +478,63 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     line-height: 1.5;
   }
 
+  /* IMPORTACIÓN CON IA */
+  .import-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .import-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 26px 24px;
+  }
+
+  .import-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .import-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .import-desc {
+    font-size: .87rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  .import-desc strong { color: var(--white); font-weight: 500; }
+
+  /* El limite se marca en el mismo bloque que la promesa, no escondido al pie:
+     prometer "documentacion automatica" es exactamente como se pierde la
+     confianza en la primera reunion tecnica. */
+  .import-note {
+    max-width: 780px;
+    margin: 28px auto 0;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .87rem;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  .import-note strong { color: var(--white); font-weight: 500; }
+
   .impact-metrics {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -507,7 +627,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     }
 
     .failure-reasons,
-    .procedures-grid {
+    .procedures-grid,
+    .import-grid {
       grid-template-columns: 1fr;
     }
   }

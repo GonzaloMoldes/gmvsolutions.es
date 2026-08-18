@@ -4,14 +4,14 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "API de software industrial | REELEVO";
-const description = "Conecta REELEVO con tu ERP, Power BI y Teams: API REST documentada, webhooks en tiempo real y conector Power Automate para industria.";
+const description = "Conecta REELEVO con tu ERP, Power BI y Teams: API REST documentada, 21 eventos de webhook y conector Power Automate para industria.";
 const canonical = "https://www.gmvsolutions.es/api-integraciones/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
 const faqs: FaqItem[] = [
   {
     q: '¿REELEVO tiene API?',
-    a: 'Sí, una API REST documentada con webhooks en tiempo real. Permite leer los datos de ejecución de planta —producción, competencias, incidencias— desde cualquier sistema externo, y recibir avisos en el momento en que ocurre algo en lugar de consultar cada cierto tiempo.',
+    a: 'Sí, una API REST documentada y 21 eventos de webhook. Permite leer los datos de ejecución de planta —producción, competencias, incidencias— desde cualquier sistema externo, y recibir el aviso cuando ocurre algo en lugar de tener que consultar cada cierto tiempo. Los webhooks se entregan cada cinco minutos, con reintentos y registro de entregas.',
   },
   {
     q: '¿Se puede conectar con mi ERP?',
@@ -38,7 +38,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="page-hero">
     <div class="eyebrow fade-up">API REST · Webhooks · Power BI · Microsoft Teams · Power Automate</div>
     <h1 class="fade-up delay-1">REELEVO no es una isla.<br><em>Se conecta con lo que ya tienes</em></h1>
-    <p class="fade-up delay-2">API REST documentada, webhooks en tiempo real y un kit de integración nativo con Microsoft 365. Los datos operativos de tu planta donde los necesitas: en tu ERP, en tu dashboard de BI o en Teams.</p>
+    <p class="fade-up delay-2">API REST documentada, 21 eventos de webhook y un kit de integración nativo con Microsoft 365. Los datos operativos de tu planta donde los necesitas: en tu ERP, en tu dashboard de BI o en Teams.</p>
     <div class="hero-cta fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
     </div>
@@ -94,24 +94,25 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Tres capas de integración</div>
-        <h2 class="section-title">Desde el webhook en tiempo real hasta el dashboard en Power BI</h2>
-        <p class="section-sub">REELEVO ofrece distintos niveles de integración según lo que necesites: desde notificaciones instantáneas hasta explotación avanzada de datos en tu herramienta de BI.</p>
+        <h2 class="section-title">Desde el aviso automático hasta el dashboard en Power BI</h2>
+        <p class="section-sub">REELEVO ofrece distintos niveles de integración según lo que necesites: desde el aviso automático de un evento de planta hasta la explotación avanzada de datos en tu herramienta de BI.</p>
       </div>
 
       <div class="integration-layers fade-up delay-1">
 
         <div class="layer-card layer-1">
           <div class="layer-badge">Capa 1</div>
-          <h3>Webhooks — eventos en tiempo real</h3>
-          <p>Configura webhooks para que REELEVO notifique a tus sistemas externos cuando ocurre un evento relevante. Sin polling, sin consultas periódicas.</p>
+          <h3>Webhooks — 21 eventos de planta</h3>
+          <p>Configura webhooks para que REELEVO notifique a tus sistemas externos cuando ocurre un evento relevante. Tú no consultas nada: el aviso llega solo.</p>
           <div class="layer-events">
             <div class="event-tag">Proceso completado</div>
-            <div class="event-tag">Certificación emitida</div>
-            <div class="event-tag">Propuesta Kaizen creada</div>
-            <div class="event-tag">Producción validada</div>
-            <div class="event-tag">Workflow completado</div>
+            <div class="event-tag">Riesgo de cobertura de turno</div>
+            <div class="event-tag">Competencia degradada</div>
+            <div class="event-tag">Incidencia de calidad detectada</div>
+            <div class="event-tag">Certificación por caducar</div>
+            <div class="event-tag">Pieza generada</div>
           </div>
-          <p class="layer-detail">Cada payload va firmado con HMAC para que puedas verificar la autenticidad. Logs de entregas y reintento automático si tu sistema no responde.</p>
+          <p class="layer-detail">Entrega cada 5 minutos, con reintento automático si tu sistema no responde y registro de todas las entregas. Cada payload va firmado con HMAC-SHA256 para que puedas verificar la autenticidad.</p>
         </div>
 
         <div class="layer-card layer-2">
@@ -175,7 +176,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="use-case">
           <div class="uc-icon">🔔</div>
           <h3>Alertas en Teams cuando algo ocurre en planta</h3>
-          <p>Un operario completa la producción del día. Una propuesta Kaizen espera aprobación. La cobertura de un turno está por debajo del mínimo. Teams lo recibe al instante. Sin que nadie tenga que acordarse de revisar el sistema.</p>
+          <p>Un operario completa la producción del día. Una propuesta Kaizen espera aprobación. La cobertura de un turno está por debajo del mínimo. Teams lo recibe en cuanto se entrega el evento, sin que nadie tenga que acordarse de revisar el sistema.</p>
         </div>
 
         <div class="use-case">
@@ -195,6 +196,84 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <div class="divider"></div>
 
+  <!-- CONECTORES -->
+  <!-- Verificado en reelevo-app: app/empresa/configuracion/integraciones/
+       contiene factorial, holded, machinemetrics, microsoft-365, mtconnect y
+       whatsapp. SAP se configura por sus propias rutas
+       (app/api/empresa/integraciones/sap-hr y sap-production) con crons
+       sap-hr-sync (diario) y sap-production-sync. -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Conectores</div>
+        <h2 class="section-title">Con qué se conecta, sin escribir código</h2>
+        <p class="section-sub">
+          Además de la API, hay conectores ya construidos para los sistemas que se repiten
+          en una pyme industrial.
+        </p>
+      </div>
+
+      <div class="connectors-grid fade-up delay-1">
+        <div class="conn-group">
+          <div class="conn-group-title">ERP y producción</div>
+          <div class="conn-item">
+            <div class="conn-name">SAP HR</div>
+            <div class="conn-desc">Sincronización diaria de empleados</div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-name">SAP Production</div>
+            <div class="conn-desc">Órdenes de fabricación sincronizadas de forma periódica</div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-name">Holded</div>
+            <div class="conn-desc">Productos y órdenes bajo demanda</div>
+          </div>
+        </div>
+
+        <div class="conn-group">
+          <div class="conn-group-title">RRHH</div>
+          <div class="conn-item">
+            <div class="conn-name">Factorial</div>
+            <div class="conn-desc">Sincronización de personal, para no dar de alta a la gente dos veces</div>
+          </div>
+        </div>
+
+        <div class="conn-group">
+          <div class="conn-group-title">IoT industrial</div>
+          <div class="conn-item">
+            <div class="conn-name">MachineMetrics</div>
+            <div class="conn-desc">Telemetría de máquina por webhook entrante</div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-name">MTConnect</div>
+            <div class="conn-desc">Estándar de telemetría para máquina conectada</div>
+          </div>
+        </div>
+
+        <div class="conn-group">
+          <div class="conn-group-title">Ofimática y mensajería</div>
+          <div class="conn-item">
+            <div class="conn-name">Microsoft 365</div>
+            <div class="conn-desc">SSO, Power BI, Power Automate y entregas a Teams</div>
+          </div>
+          <div class="conn-item">
+            <div class="conn-name">WhatsApp</div>
+            <div class="conn-desc">Avisos a operarios y responsables donde ya leen</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="connectors-note fade-up delay-2">
+        Cada conector necesita que la configuración del lado de tu sistema esté completa —credenciales,
+        permisos y, en el caso del IoT, que la máquina publique de verdad. Antes de contarlo como hecho
+        en tu proyecto, confírmalo con nosotros: preferimos decirte que un conector concreto requiere
+        trabajo por tu parte que descubrirlo a mitad de la implantación.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- TABLA COMPARATIVA: PLANES -->
   <section class="section">
     <div class="section-inner">
@@ -203,6 +282,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <h2 class="section-title">Qué nivel de integración incluye cada plan</h2>
       </div>
 
+      <!-- Verificado contra reelevo-app: el acceso a la API lo abre la clave de
+           API, y v1 y v2 comparten el mismo wrapper de autenticacion
+           (withApiV1Auth). El limite real por plan es maxApiCallsMonthly, que
+           vale 0 en Free y Starter. Ver PLAN_CORRECCIONES_WEB_VS_APP_2026-08. -->
       <div class="plan-table fade-up delay-1">
         <div class="plan-row plan-header">
           <div class="plan-col">Funcionalidad</div>
@@ -210,46 +293,55 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="plan-col plan-enterprise">Enterprise</div>
         </div>
         <div class="plan-row">
-          <div class="plan-col">API v1 (lectura básica)</div>
+          <div class="plan-col">API REST v1 y v2 (lectura + escritura)</div>
           <div class="plan-col plan-yes">✓</div>
           <div class="plan-col plan-yes">✓</div>
         </div>
         <div class="plan-row">
-          <div class="plan-col">Webhooks (hasta 5 activos)</div>
-          <div class="plan-col plan-yes">✓</div>
-          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col">Claves de API y analítica de uso</div>
+          <div class="plan-col plan-yes">3 claves</div>
+          <div class="plan-col plan-yes">Ilimitadas</div>
         </div>
         <div class="plan-row">
-          <div class="plan-col">API v2 completa (lectura + escritura)</div>
-          <div class="plan-col plan-no">—</div>
-          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col">Llamadas al mes</div>
+          <div class="plan-col plan-yes">10.000</div>
+          <div class="plan-col plan-yes">Sin límite</div>
         </div>
         <div class="plan-row">
-          <div class="plan-col">Webhooks ilimitados</div>
-          <div class="plan-col plan-no">—</div>
-          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col">Webhooks activos (21 eventos)</div>
+          <div class="plan-col plan-yes">5</div>
+          <div class="plan-col plan-yes">Ilimitados</div>
         </div>
         <div class="plan-row">
           <div class="plan-col">Kit Power BI (queries + vistas + DAX)</div>
-          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
           <div class="plan-col plan-yes">✓</div>
         </div>
         <div class="plan-row">
           <div class="plan-col">Conector Power Automate</div>
-          <div class="plan-col plan-no">—</div>
+          <div class="plan-col plan-yes">✓</div>
           <div class="plan-col plan-yes">✓</div>
         </div>
         <div class="plan-row">
           <div class="plan-col">Notificaciones Microsoft Teams</div>
+          <div class="plan-col plan-yes">✓</div>
+          <div class="plan-col plan-yes">✓</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-col">Documentación de API dedicada</div>
           <div class="plan-col plan-no">—</div>
           <div class="plan-col plan-yes">✓</div>
         </div>
         <div class="plan-row">
-          <div class="plan-col">OpenAPI spec completa documentada</div>
+          <div class="plan-col">Implementación asistida por el equipo REELEVO</div>
           <div class="plan-col plan-no">—</div>
           <div class="plan-col plan-yes">✓</div>
         </div>
       </div>
+      <p class="plan-table-note fade-up delay-2">
+        Los planes Free y Starter no incluyen acceso a la API ni webhooks. La integración
+        empieza en Pro. <a href="/precios/">Ver planes y precios →</a>
+      </p>
     </div>
   </section>
 
@@ -561,11 +653,92 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .plan-row {
+    /* 140px y no 120: las celdas ya no son solo un tick, llevan el limite real
+       ("10.000", "Ilimitadas") y a 120 se partian en dos lineas. */
     display: grid;
-    grid-template-columns: 1fr 120px 120px;
+    grid-template-columns: 1fr 140px 140px;
   }
 
   .plan-row + .plan-row { border-top: 1px solid var(--border); }
+
+  .plan-table-note {
+    max-width: 760px;
+    margin-top: 16px;
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* CONECTORES */
+  .connectors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    align-items: start;
+  }
+
+  .conn-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 20px;
+  }
+
+  .conn-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .conn-item + .conn-item {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .conn-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: .92rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .conn-desc {
+    font-size: .8rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .connectors-note {
+    max-width: 860px;
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .85rem;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  @media (max-width: 1100px) {
+    .connectors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .connectors-grid { grid-template-columns: 1fr; }
+  }
+
+  .plan-table-note a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .plan-table-note a:hover { text-decoration: underline; }
 
   .plan-header .plan-col {
     padding: 12px 20px;

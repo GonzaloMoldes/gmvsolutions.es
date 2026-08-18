@@ -31,16 +31,35 @@ const schema = [
       "Procedimientos en el puesto sin cuenta de operario",
       "Registro verificable de ejecución",
       "Monitor de actividad de turno",
-      "Gestión de competencias",
-      "Modo offline"
+      "Gestión de competencias y certificaciones",
+      "Trazabilidad por pieza y lote",
+      "OEE y análisis Lean sobre datos de ejecución",
+      "Mantenimiento preventivo",
+      "Kaizen y mejora continua",
+      "API REST y webhooks",
+      "Resistencia a cortes de conexión en el flujo de ejecución"
     ],
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "EUR",
-      "lowPrice": "49",
-      "highPrice": "149",
+      "lowPrice": "0",
+      "highPrice": "129",
       "offerCount": "3",
       "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "url": "https://app.gmvsolutions.es/registro",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "billingIncrement": "1",
+            "unitText": "MES / EMPRESA"
+          }
+        },
         {
           "@type": "Offer",
           "name": "Starter",
@@ -57,13 +76,13 @@ const schema = [
         },
         {
           "@type": "Offer",
-          "name": "Profesional",
-          "price": "149",
+          "name": "Pro",
+          "price": "129",
           "priceCurrency": "EUR",
           "url": "https://app.gmvsolutions.es/registro",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "149",
+            "price": "129",
             "priceCurrency": "EUR",
             "billingIncrement": "1",
             "unitText": "MES / EMPRESA"

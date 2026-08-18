@@ -4,14 +4,14 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Software industrial en modo offline | REELEVO";
-const description = "REELEVO funciona sin conexión: el operario trabaja desde el móvil aunque falle la wifi de planta y todo se sincroniza al volver la cobertura.";
+const description = "El flujo de ejecución de REELEVO aguanta los cortes de wifi de planta: lo ya abierto sigue disponible y lo registrado se encola y sincroniza solo.";
 const canonical = "https://www.gmvsolutions.es/modo-offline/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
 const faqs: FaqItem[] = [
   {
-    q: '¿Funciona REELEVO sin wifi en planta?',
-    a: 'Sí. El operario trabaja desde su móvil aunque la cobertura de planta falle o directamente no exista, y las acciones se sincronizan solas al recuperar conexión. La falta de wifi industrial es una de las excusas más habituales para no empezar, y no es un impedimento real.',
+    q: '¿Aguanta REELEVO los cortes de wifi en planta?',
+    a: 'Sí, en el flujo de ejecución. Lo que el operario ya ha abierto con cobertura sigue disponible cuando la señal cae, y lo que registra se guarda en el dispositivo y se envía solo al recuperar la red. Está pensado para las zonas muertas de una nave, que es el caso real en un taller.',
   },
   {
     q: '¿Hay que instalar una app desde la tienda?',
@@ -19,11 +19,15 @@ const faqs: FaqItem[] = [
   },
   {
     q: '¿Qué pasa con los datos mientras no hay conexión?',
-    a: 'Quedan guardados en el propio dispositivo y se envían cuando vuelve la cobertura. El operario no tiene que hacer nada ni recordar sincronizar, que es la condición para que el sistema aguante un turno entero en una zona sin señal.',
+    a: 'Las acciones quedan en una cola en el propio dispositivo y se envían cuando vuelve la cobertura, sin que el operario tenga que acordarse de sincronizar. Es lo que permite que un hueco de señal a mitad de proceso no obligue a repetir el registro.',
+  },
+  {
+    q: '¿Puede empezar un proceso que no ha abierto nunca, estando sin cobertura?',
+    a: 'No. Sin conexión sigue disponible lo que ya se había cargado en ese dispositivo; un proceso que no se ha abierto antes necesita red para descargarse la primera vez. Por eso lo describimos como resistencia a los cortes de cobertura y no como un modo offline completo.',
   },
   {
     q: '¿Cuánto tiempo puede estar un dispositivo sin conexión?',
-    a: 'El modo offline está pensado para huecos de cobertura de una jornada, que es el caso real en un taller: zonas muertas, sótanos, naves con estructura metálica. No está pensado para trabajar semanas completamente desconectado, porque entonces nadie en oficina ve lo que pasa en planta.',
+    a: 'Está pensado para huecos de cobertura dentro de una jornada: zonas muertas, sótanos, naves con estructura metálica. No está pensado para trabajar semanas completamente desconectado, porque entonces nadie en oficina ve lo que pasa en planta.',
   },
 ];
 
@@ -37,8 +41,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">PWA · Modo offline · Sincronización automática · Sin app store</div>
-    <h1 class="fade-up delay-1">La wifi de planta no siempre funciona.<br><em>REELEVO sí.</em></h1>
-    <p class="fade-up delay-2">REELEVO es una Progressive Web App que el operario instala en su móvil en un toque — sin App Store ni Google Play. Y si la conexión falla, sigue funcionando. Las acciones se sincronizan solas cuando vuelve la red.</p>
+    <h1 class="fade-up delay-1">La wifi de planta se cae.<br><em>El proceso no se interrumpe.</em></h1>
+    <p class="fade-up delay-2">REELEVO es una Progressive Web App que el operario instala en su móvil en un toque — sin App Store ni Google Play. Si la señal cae a mitad de un proceso, lo que ya tenía abierto sigue ahí y lo que registra se encola y se envía solo al volver la red.</p>
     <div class="hero-cta fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
     </div>
@@ -90,7 +94,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Qué es una PWA</div>
         <h2 class="section-title">Una app que no requiere la tienda de apps</h2>
-        <p class="section-sub">Una Progressive Web App (PWA) es una web que se comporta como una aplicación nativa. Se instala en la pantalla de inicio del móvil, funciona sin conexión y recibe actualizaciones automáticamente — sin que el usuario haga nada.</p>
+        <p class="section-sub">Una Progressive Web App (PWA) es una web que se comporta como una aplicación nativa. Se instala en la pantalla de inicio del móvil, aguanta los cortes de conexión y recibe actualizaciones automáticamente — sin que el usuario haga nada.</p>
       </div>
 
       <div class="pwa-compare fade-up delay-1">
@@ -132,8 +136,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="offline-step">
           <div class="os-icon">📶</div>
           <div class="os-content">
-            <h3>Con conexión: funcionamiento normal</h3>
-            <p>El operario trabaja normalmente. Los datos se sincronizan en tiempo real con el servidor. El supervisor ve la actividad en el monitor en tiempo real.</p>
+            <h3>Con conexión: todo normal</h3>
+            <p>El operario abre el proceso desde el QR y trabaja. Los datos viajan al servidor según ocurren, y el supervisor ve la actividad del turno mientras pasa. De paso, lo que se abre queda guardado en el dispositivo.</p>
           </div>
         </div>
 
@@ -142,8 +146,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="offline-step offline-cut">
           <div class="os-icon">📵</div>
           <div class="os-content">
-            <h3>Conexión cortada: el operario no se da cuenta</h3>
-            <p>El operario sigue trabajando exactamente igual. El SOP del proceso ya está cacheado en el dispositivo. Las acciones que registra se guardan en cola localmente.</p>
+            <h3>Se cae la señal: el proceso abierto sigue</h3>
+            <p>El proceso que el operario ya tenía delante no desaparece, y puede seguir avanzando por los pasos. Lo que registra —unidades, paradas, checklist— se guarda en una cola en el propio móvil en lugar de perderse.</p>
           </div>
         </div>
 
@@ -152,20 +156,25 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="offline-step">
           <div class="os-icon">🔄</div>
           <div class="os-content">
-            <h3>Conexión restaurada: sincronización automática</h3>
-            <p>Cuando la wifi vuelve, REELEVO sincroniza automáticamente todas las acciones guardadas en cola. El supervisor ve los datos actualizados. Sin que el operario haga nada.</p>
+            <h3>Vuelve la conexión: se envía solo</h3>
+            <p>Al recuperar la red, la cola se envía sola en segundo plano. El operario no tiene que acordarse de sincronizar nada, y el supervisor ve los registros aparecer sin haber tenido que reclamarlos.</p>
           </div>
         </div>
       </div>
 
       <div class="cache-note fade-up delay-2">
-        <h3>Qué queda cacheado en el dispositivo</h3>
+        <h3>Qué sigue disponible sin cobertura</h3>
         <div class="cache-items">
-          <div class="cache-item">SOPs y procesos frecuentes</div>
-          <div class="cache-item">Agenda del día</div>
-          <div class="cache-item">Listas de productos y máquinas</div>
-          <div class="cache-item">Recursos multimedia de procesos</div>
+          <div class="cache-item">La aplicación en sí, sin esperar a que cargue</div>
+          <div class="cache-item">Los procesos y pantallas ya abiertos en ese móvil</div>
+          <div class="cache-item">Las fotos y recursos que ya se habían visto</div>
+          <div class="cache-item">La cola de lo registrado, hasta que vuelva la red</div>
         </div>
+        <p class="cache-limit">
+          <strong>Y qué no:</strong> un proceso que ese dispositivo no haya abierto nunca necesita conexión
+          para descargarse la primera vez. El modo offline cubre los cortes de cobertura durante la ejecución
+          —que es el problema real en una nave— no una operación desconectada de principio a fin.
+        </p>
       </div>
     </div>
   </section>
@@ -188,7 +197,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
         <div class="usecase-card">
           <h3>Trabajo exterior o en obra</h3>
-          <p>Si el equipo trabaja en instalaciones de cliente, en obra o en zonas sin wifi, el modo offline permite seguir usando REELEVO con los procesos cacheados del día.</p>
+          <p>Si el equipo trabaja en instalaciones de cliente, en obra o en zonas sin wifi, basta con abrir los procesos del día antes de salir: quedan disponibles en el dispositivo aunque allí no haya cobertura.</p>
         </div>
 
         <div class="usecase-card">
@@ -416,6 +425,20 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     border-radius: 3px;
     color: var(--gray);
   }
+
+  /* El limite va junto a lo que si funciona, y no en una nota al pie: quien
+     compra esto necesita saber donde acaba el offline antes de prometerlo
+     en su planta. */
+  .cache-limit {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--gray);
+  }
+
+  .cache-limit strong { color: var(--white); font-weight: 500; }
 
   /* USE CASES */
   .usecase-grid {

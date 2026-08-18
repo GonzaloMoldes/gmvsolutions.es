@@ -130,6 +130,66 @@ const schema = [
           <h3>Integraciones</h3>
           <p>Conecta con tu ERP, Power BI y Teams. El dato de planta donde lo necesitas.</p>
         </a>
+        <a class="module-cell" href="/oee/">
+          <h3>OEE y análisis Lean</h3>
+          <p>Disponibilidad, rendimiento y calidad por máquina, con TIMWOODS, VSM y takt.</p>
+        </a>
+        <a class="module-cell" href="/seguridad/">
+          <h3>Seguridad y RGPD</h3>
+          <p>Aislamiento por empresa, permisos por rol, auditoría y datos en la UE.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CRECER SIN CAMBIAR DE HERRAMIENTA -->
+  <!-- Verificado en reelevo-app: app/empresa/plantas (+ /comparar), rol
+       plant_manager en lib/company-permissions.ts, i18n es/en/pt,
+       app/empresa/operarios/horas y cron hour-deviation-alerts (>10%,
+       semanal). Recordatorio: NO hay limite de plantas por plan. -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cuando la empresa crece</div>
+        <h2 class="section-title">Lo que suele obligar a cambiar de herramienta<br><em>aquí ya está</em></h2>
+        <p class="section-sub">
+          Son las tres cosas que aparecen cuando una pyme industrial deja de ser una nave con un turno,
+          y las que normalmente obligan a migrar a un sistema más caro.
+        </p>
+      </div>
+
+      <div class="grow-grid fade-up delay-1">
+        <article class="grow-card">
+          <div class="grow-tag">Varias plantas</div>
+          <h3 class="grow-title">Multi-planta, sin coste por centro</h3>
+          <p class="grow-desc">
+            Puedes dar de alta las plantas y áreas que necesites —no hay límite por plan— y comparar
+            resultados entre centros del grupo. El rol <strong>jefe de planta</strong> ve y gestiona
+            solo la suya, así que un responsable de Burgos no navega los datos de Valencia.
+          </p>
+        </article>
+
+        <article class="grow-card">
+          <div class="grow-tag">Plantilla multinacional</div>
+          <h3 class="grow-title">Español, inglés y portugués</h3>
+          <p class="grow-desc">
+            La interfaz está en los tres idiomas y cada operario trabaja en el suyo. Además cada proceso
+            puede tener su propia traducción, de modo que el mismo procedimiento se lee en el idioma de
+            quien lo ejecuta sin duplicar el proceso.
+          </p>
+        </article>
+
+        <article class="grow-card">
+          <div class="grow-tag">Control de horas</div>
+          <h3 class="grow-title">Horas que salen del trabajo real</h3>
+          <p class="grow-desc">
+            Las sesiones de QR se consolidan a diario en horas por operario y categoría. Cada semana
+            avisa de quien se desvía <strong>más de un 10%</strong> respecto a su objetivo — sin que
+            nadie tenga que fichar dos veces.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -249,6 +309,48 @@ const schema = [
 
   @media (max-width: 860px) { .module-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .module-grid { grid-template-columns: 1fr; } }
+
+  /* CRECER SIN CAMBIAR DE HERRAMIENTA */
+  .grow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .grow-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 26px 24px;
+  }
+
+  .grow-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .grow-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    margin-bottom: 10px;
+  }
+
+  .grow-desc {
+    font-size: .86rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .grow-desc strong { color: var(--white); font-weight: 500; }
+
+  @media (max-width: 900px) { .grow-grid { grid-template-columns: 1fr; } }
 
   .module-cell {
     display: block;

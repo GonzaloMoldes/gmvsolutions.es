@@ -4,7 +4,7 @@ import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
 
 const title = "Precio de software SOP industrial | REELEVO";
-const description = "Precio de software SOP y de operaciones para pyme industrial: desde 49 €/mes por empresa, sin coste por operario. Ordena procesos y gana visibilidad.";
+const description = "Precio de software SOP y de operaciones para pyme industrial: plan gratuito para empezar y desde 49 €/mes por empresa, sin licencia por usuario.";
 const canonical = "https://www.gmvsolutions.es/precios/";
 const primaryCtaHref = "https://app.gmvsolutions.es/registro";
 const primaryCtaLabel = "Registrarme en REELEVO";
@@ -13,11 +13,11 @@ const primaryCtaLabel = "Registrarme en REELEVO";
 const faqs: FaqItem[] = [
   {
     q: '¿Cuánto cuesta REELEVO?',
-    a: 'Desde 49 € al mes por empresa, con el precio publicado y sin tener que pasar por una llamada comercial para conocerlo. Los planes suben según las capacidades que necesites, no según cuánta gente lo use.',
+    a: 'Hay un plan gratuito con 3 máquinas, 10 operarios y 5 procesos, pensado para empezar por un puesto. Los planes de pago son 49 € y 129 € al mes por empresa, o 490 € y 1.290 € al año. El precio está publicado y no hace falta una llamada comercial para conocerlo: los planes suben según las capacidades que necesites, no según cuánta gente lo use.',
   },
   {
     q: '¿Se paga por operario?',
-    a: 'No, se paga por empresa, y los operarios son ilimitados. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo, y acaba llevando a compartir cuentas.',
+    a: 'No, se paga por empresa y no por licencia de usuario. Cada plan incluye un número de operarios dados de alta —20 en Starter, 100 en Pro y sin límite en Enterprise— pero no se factura por cada uno. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo.',
   },
   {
     q: '¿Hay permanencia o coste de implantación?',
@@ -37,6 +37,13 @@ const pageSchema = {
   "offers": [
     {
       "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    {
+      "@type": "Offer",
       "name": "Starter",
       "price": "49",
       "priceCurrency": "EUR",
@@ -44,8 +51,8 @@ const pageSchema = {
     },
     {
       "@type": "Offer",
-      "name": "Profesional",
-      "price": "149",
+      "name": "Pro",
+      "price": "129",
       "priceCurrency": "EUR",
       "url": "https://app.gmvsolutions.es/registro"
     }
@@ -67,7 +74,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="page-hero">
     <div class="eyebrow fade-up">Precio por empresa</div>
     <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
-    <p class="fade-up delay-2">Desde 49€/mes por empresa, con precio visible desde el inicio. Sin sorpresas por usuario y sin tener que pasar por una llamada comercial para saber cuánto cuesta.</p>
+    <p class="fade-up delay-2">Hay un plan gratuito para empezar por un puesto, y de ahí 49€/mes por empresa. Precio visible desde el inicio, sin licencia por usuario y sin tener que pasar por una llamada comercial para saber cuánto cuesta.</p>
     <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
       <a href={primaryCtaHref} class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
@@ -126,28 +133,60 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <!-- PLANES -->
   <section class="section" id="planes">
     <div class="section-inner">
+      <!-- Los limites y las features de estas cuatro tarjetas salen de
+           reelevo-app/lib/tier-config.ts. Si se tocan aqui sin tocarlos alli,
+           la web vuelve a prometer lo que el producto no da. Ver
+           PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, Anexo I. -->
       <div class="plans-grid fade-up">
+        <!-- FREE -->
+        <div class="plan-card">
+          <div class="plan-name">Free</div>
+          <div class="plan-scope">Para empezar</div>
+          <div class="plan-price">0€<sub>/mes</sub></div>
+          <div class="plan-period">Gratis · Sin tarjeta</div>
+          <div class="plan-desc">Para probarlo en un puesto real antes de decidir nada. No es una demo con datos de mentira: es la plataforma, con tus máquinas y tus procesos.</div>
+          <div class="plan-features">
+            <div class="plan-feature"><span class="check">✓</span>Hasta 3 máquinas o puestos</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 10 operarios dados de alta</div>
+            <div class="plan-feature"><span class="check">✓</span>5 procesos, hasta 6 pasos por proceso</div>
+            <div class="plan-feature"><span class="check">✓</span>Acceso por QR en el puesto, sin cuenta de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Trabajo guiado paso a paso</div>
+            <div class="plan-feature"><span class="check">✓</span>Impresión de QR de máquina</div>
+            <div class="plan-feature"><span class="check">✓</span>Panel de empresa</div>
+            <div class="plan-feature"><span class="cross">×</span>Estadísticas y exportación CSV</div>
+            <div class="plan-feature"><span class="cross">×</span>Productividad y monitoreo en vivo</div>
+            <div class="plan-feature"><span class="cross">×</span>Mantenimiento y cobertura de turnos</div>
+          </div>
+          <div class="plan-cta">
+            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
+               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Free">Empezar gratis</a>
+            <p class="plan-note">Sin tarjeta. Empiezas por un puesto</p>
+          </div>
+        </div>
+
         <!-- STARTER -->
         <div class="plan-card">
           <div class="plan-name">Starter</div>
-          <div class="plan-scope">Core comercial</div>
+          <div class="plan-scope">Core operativo</div>
           <div class="plan-price">49€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
+          <div class="plan-annual">o <strong>490 €/año</strong> — dos meses gratis</div>
           <div class="plan-desc">Para equipos que quieren empezar por lo esencial: que el puesto no dependa de memoria, que el relevo entre mejor y que el turno gane estabilidad.</div>
           <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>1 planta / centro de trabajo</div>
             <div class="plan-feature"><span class="check">✓</span>Hasta 5 máquinas o puestos</div>
-            <div class="plan-feature"><span class="check">✓</span>6 Procesos por máquina</div>
-            <div class="plan-feature"><span class="check">✓</span>Operarios ilimitados (sin coste)</div>
-            <div class="plan-feature"><span class="check">✓</span>Acceso directo al proceso en el puesto, sin cuenta de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Trabajo guiado paso a paso</div>
-            <div class="plan-feature"><span class="check">✓</span>Más claridad básica sobre la ejecución</div>
-            <div class="plan-feature"><span class="check">✓</span>Apoyo ante incidencias repetitivas</div>
-            <div class="plan-feature"><span class="check">✓</span>Estadísticas básicas de uso</div>
-            <div class="plan-feature"><span class="check">✓</span>Exportación CSV</div>
-            <div class="plan-feature"><span class="cross">×</span>Múltiples plantas</div>
-            <div class="plan-feature"><span class="cross">×</span>Productividad avanzada y reporting</div>
-            <div class="plan-feature"><span class="cross">×</span>API de integración</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 20 operarios dados de alta</div>
+            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados, hasta 12 pasos por proceso</div>
+            <div class="plan-feature"><span class="check">✓</span>2 usuarios supervisores</div>
+            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Free</div>
+            <div class="plan-feature"><span class="check">✓</span>Estadísticas, productividad y monitoreo en vivo</div>
+            <div class="plan-feature"><span class="check">✓</span>Certificaciones de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Planificación y validación de producción</div>
+            <div class="plan-feature"><span class="check">✓</span>Mantenimiento preventivo</div>
+            <div class="plan-feature"><span class="check">✓</span>Cobertura de turnos</div>
+            <div class="plan-feature"><span class="check">✓</span>Obras con QR de pieza (3 obras, 50 piezas)</div>
+            <div class="plan-feature"><span class="check">✓</span>Importación masiva y exportación CSV</div>
+            <div class="plan-feature"><span class="cross">×</span>Vídeo y versionado de procesos</div>
+            <div class="plan-feature"><span class="cross">×</span>Firma digital, Kaizen y API</div>
           </div>
           <div class="plan-cta">
             <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
@@ -156,28 +195,34 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           </div>
         </div>
 
-        <!-- PROFESIONAL -->
+        <!-- PRO -->
         <div class="plan-card featured">
           <div class="plan-badge">Más popular</div>
-          <div class="plan-name">Profesional</div>
+          <div class="plan-name">Pro</div>
           <div class="plan-scope">Core + expansión</div>
-          <div class="plan-price">149€<sub>/mes</sub></div>
+          <div class="plan-price">129€<sub>/mes</sub></div>
           <div class="plan-period">Facturación mensual · Sin compromiso</div>
-          <div class="plan-desc">Para empresas que además quieren más claridad para producción, menos tiempo perdido y mejor coordinación entre operación, formación y seguimiento.</div>
+          <div class="plan-annual">o <strong>1.290 €/año</strong> — dos meses gratis</div>
+          <div class="plan-desc">Para empresas que además quieren evidencia de cumplimiento, mejora continua y el dato de planta conectado con el resto de sus sistemas.</div>
           <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Hasta 3 plantas / centros</div>
-            <div class="plan-feature"><span class="check">✓</span>Hasta 20 máquinas o puestos</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 25 máquinas o puestos</div>
+            <div class="plan-feature"><span class="check">✓</span>Hasta 100 operarios dados de alta</div>
+            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados, hasta 25 pasos por proceso</div>
+            <div class="plan-feature"><span class="check">✓</span>5 usuarios admin y 10 supervisores</div>
             <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Starter</div>
-            <div class="plan-feature"><span class="check">✓</span>Más claridad para producción y coordinación del turno</div>
-            <div class="plan-feature"><span class="check">✓</span>Seguimiento operativo más útil y reporting</div>
-            <div class="plan-feature"><span class="check">✓</span>Más visibilidad para formación y polivalencia</div>
-            <div class="plan-feature"><span class="check">✓</span>Exportación CSV y Excel</div>
-            <div class="plan-feature"><span class="roadmap">○</span>Posibles integraciones con software de RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
+            <div class="plan-feature"><span class="check">✓</span>Vídeo en procesos y versionado</div>
+            <div class="plan-feature"><span class="check">✓</span>Firma digital e informes de cumplimiento</div>
+            <div class="plan-feature"><span class="check">✓</span>Kaizen y contribuciones de operario</div>
+            <div class="plan-feature"><span class="check">✓</span>Lean: TIMWOODS, VSM y takt time</div>
+            <div class="plan-feature"><span class="check">✓</span>Control de horas y alertas de desviación</div>
+            <div class="plan-feature"><span class="check">✓</span>Reportes PDF programados por email</div>
+            <div class="plan-feature"><span class="check">✓</span>API keys, webhooks y 10.000 llamadas/mes</div>
+            <div class="plan-feature"><span class="check">✓</span>Analítica avanzada e informes personalizados</div>
+            <div class="plan-feature"><span class="cross">×</span>SSO, white label y soporte prioritario</div>
           </div>
           <div class="plan-cta">
             <a href={primaryCtaHref} class="btn-primary"
-               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Profesional">{primaryCtaLabel}</a>
+               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Pro">{primaryCtaLabel}</a>
             <p class="plan-note">Te ayudamos a validar si este es el plan que encaja</p>
           </div>
         </div>
@@ -190,13 +235,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="plan-period">Contacta para presupuesto personalizado</div>
           <div class="plan-desc">Para grupos industriales o despliegues con requisitos avanzados de integración, seguridad, soporte o compliance.</div>
           <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Profesional</div>
-            <div class="plan-feature"><span class="check">✓</span>Plantas, máquinas y puestos a medida</div>
-            <div class="plan-feature"><span class="check">✓</span>Usuarios administrativos a medida</div>
-            <div class="plan-feature"><span class="roadmap">○</span>SSO / directorio corporativo <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="roadmap">○</span>API, webhooks e  integraciones <span class="plan-badge-roadmap">Según alcance</span></div>
+            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Pro, sin límites</div>
+            <div class="plan-feature"><span class="check">✓</span>Máquinas, operarios y usuarios ilimitados</div>
+            <div class="plan-feature"><span class="check">✓</span>API v2 completa y documentación</div>
+            <div class="plan-feature"><span class="check">✓</span>Webhooks ilimitados</div>
+            <div class="plan-feature"><span class="check">✓</span>SSO / SAML</div>
+            <div class="plan-feature"><span class="check">✓</span>White label</div>
+            <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
             <div class="plan-feature"><span class="roadmap">○</span>Integraciones ERP o RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="check">✓</span>Necesidades avanzadas de reporting y conformidad</div>
             <div class="plan-feature"><span class="check">✓</span>Acuerdo de soporte dedicado</div>
             <div class="plan-feature"><span class="check">✓</span>Implementación asistida</div>
           </div>
@@ -254,17 +300,20 @@ const schema = [pageSchema, faqPageSchema(faqs)];
             <span class="roi-result-value" id="res-annual">22.140€</span>
           </div>
           <div class="roi-result-row prominent">
-            <span class="roi-result-label">Ahorro estimado con REELEVO (~25%)</span>
+            <span class="roi-result-label">Escenario con una reducción del 25%</span>
             <span class="roi-result-value" id="res-savings">8.856€</span>
           </div>
           <div class="roi-result-summary">
             <div class="roi-result-big">
-              <span class="roi-result-big-label">ROI estimado</span>
+              <span class="roi-result-big-label">Relación con el coste anual</span>
               <span class="roi-result-big-value" id="res-roi">×5.0</span>
             </div>
-            <div class="roi-result-payback" id="res-payback">Recuperas la inversión en aprox. 2.4 meses</div>
+            <div class="roi-result-payback" id="res-payback">En ese escenario, el coste se cubriría en aprox. 2.4 meses</div>
           </div>
-          <div class="roi-result-note">* REELEVO reduce parte del impacto de las bajas —menos errores, menos tiempo de parada y menos dependencia del tutor— pero no lo elimina. El cálculo usa una hipótesis conservadora de reducción del 25% del coste directo y toma como referencia el plan Profesional anualizado.</div>
+          <!-- La calculadora se queda, pero etiquetada como lo que es: una
+               hipotesis que introduce el visitante. No es un ahorro medido en
+               clientes y no puede presentarse como tal. -->
+          <div class="roi-result-note">* Esto no es un ahorro medido: es una simulación con los datos que tú introduces y una hipótesis de reducción del 25% del coste directo, tomando el plan Pro anualizado como referencia. REELEVO reduce parte del impacto de las bajas —menos errores, menos tiempo de parada y menos dependencia del tutor— pero no lo elimina, y el resultado real depende de tu operación.</div>
           <div style="margin-top:20px;">
             <a href={primaryCtaHref} class="btn-primary" style="font-size:.8rem;padding:12px 24px;"
                data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme - ROI">{primaryCtaLabel} →</a>
@@ -396,14 +445,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   /* Plans */
   .plans-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2px;
     margin-top: 48px;
   }
 
   .plan-card {
     background: var(--surface);
-    padding: 40px 32px;
+    padding: 40px 26px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -464,6 +513,20 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .8rem;
     color: var(--gray2);
     margin-bottom: 20px;
+  }
+
+  /* El anual va debajo del mensual y no en un conmutador: son dos datos, no
+     dos modos, y asi el precio de referencia (el mensual) no desaparece. */
+  .plan-annual {
+    font-size: .78rem;
+    color: var(--gray);
+    margin-top: -14px;
+    margin-bottom: 20px;
+  }
+
+  .plan-annual strong {
+    color: var(--white);
+    font-weight: 500;
   }
 
   .plan-desc {
@@ -776,6 +839,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     padding-top: 12px;
   }
 
+  /* Cuatro planes no caben legibles por debajo de ~1200px: pasan a 2x2 antes
+     de caer a columna unica, para no dejar tarjetas de 180px de ancho. */
+  @media (max-width: 1200px) {
+    .plans-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 900px) {
     .pricing-layers {
       grid-template-columns: 1fr;
@@ -785,13 +856,15 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       grid-template-columns: 1fr;
     }
 
-    .plans-grid {
-      grid-template-columns: 1fr;
-    }
-
     .roi-grid {
       grid-template-columns: 1fr;
       gap: 32px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .plans-grid {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -822,7 +895,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     const annual = absences * perBaja;
     const reductionFactor = 0.25; // Conservative assumption for partial impact reduction
     const savings = Math.round(annual * reductionFactor);
-    const reelevo = 1788;
+    // Precio anual del plan Pro (1.290 €), que es la referencia que declara la
+    // nota bajo la calculadora. Antes estaba en 1788 = 149 x 12, del precio
+    // antiguo: el calculo llevaba tiempo saliendo con un coste inflado.
+    const reelevo = 1290;
     const roi = savings > 0 ? (savings / reelevo).toFixed(1) : '—';
     const paybackMonths = savings > 0 ? (reelevo / (savings / 12)).toFixed(1) : '—';
 
@@ -832,8 +908,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     document.getElementById('res-savings')!.textContent = savings.toLocaleString('es-ES') + '€';
     document.getElementById('res-roi')!.textContent = '×' + roi;
     document.getElementById('res-payback')!.textContent = parseFloat(paybackMonths) < 1
-      ? 'Recuperas la inversión en menos de 1 mes'
-      : `Recuperas la inversión en aprox. ${paybackMonths} meses`;
+      ? 'En ese escenario, el coste se cubriría en menos de 1 mes'
+      : `En ese escenario, el coste se cubriría en aprox. ${paybackMonths} meses`;
   }
 
   document.addEventListener('DOMContentLoaded', function() {

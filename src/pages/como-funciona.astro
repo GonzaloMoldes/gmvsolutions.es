@@ -261,6 +261,14 @@ const schema = [howToSchema, faqSchema];
               <p>Soluciones a los problemas más comunes y cuándo es necesario avisar al supervisor.</p>
             </div>
           </div>
+
+          <p class="step-aside">
+            <strong>Y si ya lo tienes escrito, no hay que teclearlo otra vez.</strong> Subes el Word o el
+            PDF y la IA propone el proceso troceado en pasos; para lo que nunca se documentó, puedes
+            grabar al operario en vídeo y proponer los pasos a partir de lo que se ve. En los dos casos
+            lo revisas y lo apruebas antes de que llegue al puesto.
+            <a href="/documentacion-procesos/#importar">Cómo funciona la importación →</a>
+          </p>
         </div>
       </div>
 
@@ -421,6 +429,70 @@ const schema = [howToSchema, faqSchema];
 
   <div class="divider"></div>
 
+  <!-- LO QUE PASA SIN QUE ENTRES -->
+  <!-- Verificado contando reelevo-app/app/api/cron/: 32 crons reales (33
+       entradas menos cron-governance.test.ts). Aqui solo se listan los que
+       tienen sentido comercial; el resto son internos de REELEVO. -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Mientras tanto</div>
+        <h2 class="section-title">Y hay una cuarta parte<br><em>que ocurre sin que entres</em></h2>
+        <p class="section-sub">
+          La mayoría de herramientas esperan a que alguien abra el panel. En REELEVO hay
+          <strong>32 procesos automáticos</strong> ejecutándose por su cuenta. Estos son los que más
+          se notan en planta.
+        </p>
+      </div>
+
+      <div class="autom-grid fade-up delay-1">
+        <div class="autom-col">
+          <div class="autom-freq">Cada día</div>
+          <ul class="autom-list">
+            <li>Convierte las sesiones de QR en horas de trabajo por operario</li>
+            <li>Calcula el OEE de cada máquina y guarda el snapshot</li>
+            <li>Crea las órdenes de mantenimiento preventivo del día</li>
+            <li>Detecta turnos sin nadie capacitado para un proceso crítico</li>
+            <li>Avisa de competencias que se están perdiendo por falta de uso</li>
+            <li>Avisa de certificaciones a punto de caducar</li>
+            <li>Vigila que la cadena de trazabilidad no tenga huecos</li>
+            <li>Alerta de procesos con tasa de anomalía alta</li>
+            <li>Cierra las sesiones que quedaron abiertas sin actividad</li>
+            <li>Clasifica y puntúa las propuestas de mejora</li>
+          </ul>
+        </div>
+
+        <div class="autom-col">
+          <div class="autom-freq">Cada semana</div>
+          <ul class="autom-list">
+            <li>Envía el resumen de productividad al responsable</li>
+            <li>Envía el resumen de ROI y tiempo ahorrado</li>
+            <li>Genera y manda los informes PDF que hayas programado</li>
+            <li>Avisa de operarios con más de un 10% de desviación de horas</li>
+            <li>Recuerda las mejoras pendientes de revisar</li>
+            <li>Analiza los procesos con IA y propone mejoras pre-rellenadas</li>
+          </ul>
+
+          <div class="autom-freq" style="margin-top:26px;">Más a menudo</div>
+          <ul class="autom-list">
+            <li>Lanza los flujos de trabajo programados, cada 5 minutos</li>
+            <li>Entrega los eventos de webhook a tus sistemas, cada 5 minutos</li>
+            <li>Avisa a los operarios certificados cuando cambia un proceso</li>
+            <li>Sincroniza personal y órdenes con SAP</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="autom-note fade-up delay-2">
+        Ninguno de estos depende de que alguien se acuerde. Es la diferencia entre una herramienta que
+        guarda datos y una que te avisa: el turno sin cubrir aparece <em>antes</em> del turno, no en la
+        reunión del lunes siguiente.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- EXPLORA POR NECESIDAD -->
   <section class="section section-center">
     <div class="section-inner">
@@ -559,6 +631,103 @@ const schema = [howToSchema, faqSchema];
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 40px;
+  }
+
+  /* Nota lateral dentro de un paso del flujo: responde la objecion de "esto me
+     costara meses" justo donde aparece, sin abrir una seccion propia. */
+  .step-aside {
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .88rem;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  .step-aside strong { color: var(--white); font-weight: 500; }
+
+  .step-aside a {
+    color: var(--orange);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .step-aside a:hover { text-decoration: underline; }
+
+  /* AUTOMATIZACIONES */
+  .autom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .autom-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 26px 24px;
+  }
+
+  .autom-freq {
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .autom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .autom-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: .86rem;
+    line-height: 1.6;
+    color: var(--gray);
+  }
+
+  .autom-list li + li {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* El tick va absoluto para que las lineas de dos renglones no pierdan la
+     sangria del texto respecto al simbolo. */
+  .autom-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--orange);
+  }
+
+  .autom-list li + li::before { top: 10px; }
+
+  .autom-note {
+    max-width: 860px;
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, .03);
+    border-left: 2px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    font-size: .87rem;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  .autom-note em { color: var(--white); font-style: italic; }
+
+  @media (max-width: 800px) {
+    .autom-grid { grid-template-columns: 1fr; }
   }
 
   .explore-grid {
