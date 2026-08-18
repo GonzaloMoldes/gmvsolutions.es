@@ -127,7 +127,14 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
     })(window,document,'script','dataLayer','GTM-M223Z398');</script>
     <!-- End Google Tag Manager -->
 
-  <!-- Google tag (gtag.js) — GA4 + Google Ads -->
+  <!-- Google tag (gtag.js) — GA4 + Google Ads
+       ID de GA4 del sitio: G-JJCZ6M3T8Y. Se carga AQUI y no desde GTM, a
+       proposito: asi la medicion es verificable desde el repositorio y no
+       depende del estado de un contenedor que no se puede revisar en el
+       codigo. GTM sigue cargado para el resto de etiquetas.
+       REGLA: G-JJCZ6M3T8Y debe tener UN solo cargador. Si algun dia se anade
+       una etiqueta de configuracion de GA4 dentro de GTM, hay que quitar este
+       bloque, o cada visita contara dos page_view. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJCZ6M3T8Y"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -264,8 +271,22 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
           page_type: document.body.dataset.pageType || null,
         };
         window.dataLayer = window.dataLayer || [];
+        // Doble via a proposito:
+        //  - dataLayer: lo consume GTM si algun dia hay etiquetas que lo usen.
+        //  - gtag directo: garantiza que el evento LLEGA a GA4 aunque el
+        //    contenedor no tenga ninguna etiqueta que reenvie cta_click, que es
+        //    justo lo que estaba pasando.
+        // Si se anade en GTM una etiqueta que mande cta_click a GA4, hay que
+        // quitar la llamada gtag de aqui o el evento se contara dos veces.
         window.dataLayer.push({ event: 'cta_click', ...payload });
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'cta_click', payload);
+        }
         if (LEAD_INTENTS.includes(intent)) {
+          // OJO: se dispara con el CLIC, no con el alta completada. No usar como
+          // evento clave ni como conversion de Ads sin cambiar esa semantica:
+          // mediria botones pulsados, no cuentas creadas. Se deja solo en
+          // dataLayer para no inflar conversiones en GA4 sin decidirlo antes.
           window.dataLayer.push({ event: 'generate_lead', lead_type: intent, ...payload });
         }
       });
