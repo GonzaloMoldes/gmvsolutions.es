@@ -16,6 +16,10 @@ const faqs: FaqItem[] = [
     a: 'Hay un plan gratuito con 3 máquinas, 10 operarios y 5 procesos, pensado para empezar por un puesto. Los planes de pago son 49 € y 129 € al mes por empresa, o 490 € y 1.290 € al año. El precio está publicado y no hace falta una llamada comercial para conocerlo: los planes suben según las capacidades que necesites, no según cuánta gente lo use.',
   },
   {
+    q: '¿Qué pasa cuando termina la prueba?',
+    a: 'Tu cuenta pasa al plan gratuito y sigues trabajando: no pierdes lo que hayas montado ni se te bloquea el acceso. Al registrarte tienes 60 días con el plan Pro completo y sin tarjeta, y cuando terminan te quedas con el plan Free, con sus límites de 3 máquinas, 10 operarios y 5 procesos. Pagas cuando el producto te haya dado motivos, no porque se acabe un contador.',
+  },
+  {
     q: '¿Se paga por operario?',
     a: 'No, se paga por empresa y no por licencia de usuario. Cada plan incluye un número de operarios dados de alta —20 en Starter, 100 en Pro y sin límite en Enterprise— pero no se factura por cada uno. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo.',
   },
@@ -74,7 +78,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="page-hero">
     <div class="eyebrow fade-up">Precio por empresa</div>
     <h1 class="fade-up delay-1">Pagas por la planta.<br><em>No por cada operario.</em></h1>
-    <p class="fade-up delay-2">Hay un plan gratuito para empezar por un puesto, y de ahí 49€/mes por empresa. Precio visible desde el inicio, sin licencia por usuario y sin tener que pasar por una llamada comercial para saber cuánto cuesta.</p>
+    <p class="fade-up delay-2">Empiezas con <strong>60 días del plan Pro completo, sin tarjeta</strong>. Al terminar, tu cuenta pasa al plan gratuito y sigues trabajando. Los planes de pago van desde 49€/mes por empresa, con precio visible y sin licencia por usuario.</p>
     <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
       <a href={primaryCtaHref} class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
@@ -143,8 +147,9 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="plan-name">Free</div>
           <div class="plan-scope">Para empezar</div>
           <div class="plan-price">0€<sub>/mes</sub></div>
-          <div class="plan-period">Gratis · Sin tarjeta</div>
-          <div class="plan-desc">Para probarlo en un puesto real antes de decidir nada. No es una demo con datos de mentira: es la plataforma, con tus máquinas y tus procesos.</div>
+          <div class="plan-period">Gratis · Sin tarjeta · No caduca</div>
+          <div class="plan-annual">Antes, <strong>60 días del plan Pro</strong> al registrarte</div>
+          <div class="plan-desc">Donde aterriza tu cuenta cuando acaba la prueba, y donde puede quedarse. No es una demo con datos de mentira: es la plataforma, con tus máquinas y tus procesos.</div>
           <div class="plan-features">
             <div class="plan-feature"><span class="check">✓</span>Hasta 3 máquinas o puestos</div>
             <div class="plan-feature"><span class="check">✓</span>Hasta 10 operarios dados de alta</div>

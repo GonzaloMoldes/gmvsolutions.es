@@ -177,11 +177,15 @@ const { activeNav } = Astro.props;
 
   <div class="header-right">
 
+    <!-- Es el unico CTA presente en las 60+ paginas del sitio, asi que es la
+         palanca mas barata para la captacion. "Probar gratis" es cierto sin
+         depender de la duracion del trial, que hoy no cuadra entre
+         TRIAL_DURATION_DAYS y el email de bienvenida de la app. -->
     <a
       href="https://app.gmvsolutions.es/registro"
       class="header-cta"
-      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label="Registrarme en REELEVO"
-    >Registrarme en REELEVO</a>
+      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label="Probar gratis"
+    >Probar gratis</a>
     <button
       class="hamburger"
       id="hamburgerBtn"
@@ -234,9 +238,10 @@ const { activeNav } = Astro.props;
   <div class="mobile-cta-group">
 
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"
-       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label="Registrarme en REELEVO">
-      Registrarme en REELEVO
+       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label="Probar gratis">
+      Probar gratis
     </a>
+    <p class="mobile-cta-note">Sin tarjeta · Sin compromiso</p>
   </div>
 </div>
 

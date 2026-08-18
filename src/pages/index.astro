@@ -116,8 +116,10 @@ const schema = [
     </p>
     <div class="hero-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Probar gratis">Probar gratis</a>
+      <a href="/precios/" class="btn-ghost">Ver planes</a>
     </div>
+    <p class="hero-friction fade-up delay-3">Sin tarjeta · Sin compromiso · Sin llamada comercial</p>
     <div class="hero-proof fade-up delay-4">
       <div class="hero-proof-item">
         <div class="hero-proof-num">Continuidad</div>
@@ -127,9 +129,15 @@ const schema = [
         <div class="hero-proof-num">Visibilidad</div>
         <div class="hero-proof-label">seguimiento diario de la operacion</div>
       </div>
+      <!-- El tercer bloque anclaba el sitio en 49 EUR antes de que el visitante
+           supiera que puede probarlo sin pagar. Mismo componente, misma maqueta:
+           solo cambia el ancla.
+           Los 60 dias salen de TRIAL_DURATION_DAYS en reelevo-app/lib/billing.ts.
+           Si ese valor cambia, hay que cambiarlo aqui, en el CTA de cierre, en
+           /precios y en la FAQ. -->
       <div class="hero-proof-item">
-        <div class="hero-proof-num">49€</div>
-        <div class="hero-proof-label">al mes por empresa</div>
+        <div class="hero-proof-num">60 días</div>
+        <div class="hero-proof-label">del plan Pro, sin tarjeta</div>
       </div>
     </div>
   </section>
@@ -311,17 +319,18 @@ const schema = [
         Empieza por el puesto<br><em>que más te tensiona hoy</em>
       </div>
       <p class="cta-sub fade-up delay-2">
-        Entra en la plataforma, revísala por dentro y valora si encaja con tu operación.
-        Sin rodeos: verás rápido si te ayuda a bajar dependencia y ordenar turnos.
+        Empiezas con <strong>60 días del plan Pro completo</strong>, sin tarjeta. Cuando terminan,
+        tu cuenta pasa al plan gratuito: no pierdes lo que hayas montado ni te quedas fuera.
+        Decides pagar cuando tengas motivos, no cuando se acabe un contador.
       </p>
       <div class="cta-actions fade-up delay-3">
         <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-           data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-          Registrarme en REELEVO
+           data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Probar gratis">
+          Empezar gratis con una máquina
         </a>
       </div>
       <div class="cta-note fade-up delay-4">
-        Precio claro · Arranque guiado · Decisión basada en tu operativa real
+        Sin tarjeta · Sin compromiso · Lo pruebas con tu operativa real y decides después
       </div>
     </section>
 
