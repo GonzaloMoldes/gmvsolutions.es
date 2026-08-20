@@ -75,6 +75,17 @@ export const posts: BlogPost[] = [
     priority: '0.75',
   },
   {
+    slug: 'instrucciones-de-trabajo-en-video',
+    cluster: 'sop',
+    category: 'Procedimientos Operativos',
+    title: 'Cómo crear instrucciones de trabajo en vídeo',
+    desc: 'Cuándo el vídeo funciona mejor que el texto y cuándo no, cuánto debe durar, cómo grabarlo en planta sin estudio y cómo evitar que quede obsoleto en seis meses.',
+    dateLabel: '20 ago. 2026',
+    readTime: '11 min.',
+    lastmod: '2026-08-20',
+    priority: '0.8',
+  },
+  {
     slug: 'qr-instrucciones-de-trabajo',
     cluster: 'sop',
     category: 'Procedimientos Operativos',

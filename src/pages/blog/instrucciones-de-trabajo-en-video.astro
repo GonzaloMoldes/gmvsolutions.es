@@ -1,0 +1,252 @@
+---
+// Cluster sop. Contenido 09 de guia_contenidos_GEO_REELEVO.md.
+// Brief completo en BRIEFS_GEO_09_10_INSTRUCCIONES_DIGITALES_2026-08.md.
+//
+// Hueco limpio: no habia ninguna URL sobre video como formato de instruccion.
+// Lo unico publicado era un H2 dentro del pilar ("Cuando el video ayuda y
+// cuando estorba"), que se queda en nivel resumen y enlaza aqui.
+//
+// LIMITE DE PRODUCTO, no negociable (MAPA_FUNCIONAL_PRODUCTO.md): REELEVO NO
+// graba, NO edita y NO subtitula video. El video existe solo como contenido de
+// un paso -"texto, imagenes, video, adjuntos"-. El articulo es metodo; REELEVO
+// aparece en un solo bloque y solo para decir donde vive el video y como se
+// versiona. Insinuar que es una herramienta de video seria reintroducir por la
+// puerta del blog lo que limpio PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md.
+//
+// Prohibicion explicita de la guia: no afirmar que el video sustituye a la
+// documentacion escrita. La tesis del articulo es la contraria.
+//
+// Honestidad: sin cifras de eficacia del formato video (el contenido del sector
+// esta lleno de porcentajes de retencion sin metodologia). El unico dato
+// numerico es el peso de un video y los limites de almacenamiento por plan,
+// que son verificables.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo crear instrucciones de trabajo en vídeo";
+const description = "Cuándo el vídeo funciona mejor que el texto y cuándo no, cuánto debe durar, cómo grabarlo en planta sin estudio y cómo evitar que quede obsoleto en seis meses.";
+const date = "2026-08-20";
+const category = "Procedimientos Operativos";
+const readTime = "11 min.";
+const canonical = "https://www.gmvsolutions.es/blog/instrucciones-de-trabajo-en-video/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto debe durar un vídeo de instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entre 60 y 90 segundos, y uno por operación, no uno por proceso. Si no cabe en ese tiempo, el problema casi nunca es el vídeo: es que estás grabando varios pasos juntos. Un vídeo largo no se adelanta, se abandona, porque el operario no sabe en qué minuto está lo que necesita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El vídeo sustituye al procedimiento escrito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, y plantearlo así es el error más caro. El vídeo es lineal y sirve para aprender un gesto la primera vez; el texto permite acceso directo y sirve para consultar un dato a mitad de tarea. Nadie busca el minuto 3:20 con las manos ocupadas. La mayoría de procedimientos necesitan los dos formatos, cada uno en lo suyo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué hace falta para grabar instrucciones en planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un móvil reciente, un trípode barato y elegir bien dónde te pones. Plano fijo, en horizontal, enfocando las manos y no la cara. Lo que de verdad estropea un vídeo de taller no es la cámara: es el contraluz de los ventanales y el ruido de la nave, y las dos cosas se resuelven colocándose bien y grabando la voz aparte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién debe narrar el vídeo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El operario que mejor hace esa operación, mientras la ejecuta, y con alguien de fuera preguntándole «¿por qué así?». Esa pregunta es la que saca el conocimiento tácito: el veterano se salta explicaciones porque ya no es consciente de que toma esas decisiones. Un guion leído por otra persona produce un vídeo correcto y vacío."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se evita que un vídeo de instrucción quede obsoleto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grabando clips cortos por operación en vez de un vídeo largo por proceso. Cuando cambia un gesto, se regraba ese clip de noventa segundos y no las dos horas de rodaje. Un vídeo obsoleto es más peligroso que un texto obsoleto porque parece autoridad, y es más caro de rehacer, así que se pospone más."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> El vídeo funciona cuando el problema es <strong>un gesto que no se puede describir</strong>: la presión justa, el sonido que avisa de que la pieza va mal, el orden en que se sueltan dos amarres. Para todo lo demás —parámetros, tolerancias, criterios de aceptación— el texto gana, porque se consulta en tres segundos y el vídeo obliga a verlo entero. La mayoría de procedimientos necesitan las dos cosas. Y la parte difícil no es grabar: es que dentro de un año el vídeo siga contando lo que se hace de verdad.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#cuando">Cuándo el vídeo gana al texto, y cuándo pierde</a></li>
+    <li><a href="#duracion">Cuánto debe durar</a></li>
+    <li><a href="#estructura">La estructura de un vídeo que sí se ve</a></li>
+    <li><a href="#grabar">Cómo grabarlo en planta sin montar un estudio</a></li>
+    <li><a href="#voz">La voz: quién narra y qué dice</a></li>
+    <li><a href="#revision">La revisión que casi nadie hace</a></li>
+    <li><a href="#vivo">El problema real: mantenerlo vivo</a></li>
+    <li><a href="#donde">Dónde vive el vídeo para que alguien lo vea</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="cuando">Cuándo el vídeo gana al texto, y cuándo pierde</h2>
+  <p>Hay una diferencia entre los dos formatos que decide casi todo lo demás y que rara vez se dice: <strong>el vídeo es lineal y el texto es de acceso directo</strong>.</p>
+
+  <p>Para aprender algo por primera vez, lo lineal es una ventaja: te lleva de principio a fin en el orden correcto. Para consultar un dato a mitad de tarea, lo lineal es un desastre. Nadie va a buscar el minuto 3:20 con las manos llenas de aceite para recordar si la tolerancia era 0,05 o 0,08.</p>
+
+  <p>De ahí sale el reparto práctico:</p>
+
+  <div class="data-card">
+    <p><strong>El vídeo gana cuando lo que hay que transmitir es un gesto.</strong> Cómo se apoya la pieza antes de amarrar. La fuerza justa con la que se aprieta algo que se pasa de rosca. El orden en que se sueltan dos elementos, que si se invierte deja caer la pieza. El sonido o la vibración que indican que algo va mal. Todo lo que un veterano te enseñaría diciendo «mira» en lugar de explicándolo.</p>
+    <p><strong>El texto gana cuando lo que hay que transmitir es un dato.</strong> Parámetros, cotas, tolerancias, presiones, tiempos, referencias de utillaje, criterios de aceptación, checklists. Todo lo que se consulta en mitad de la tarea y hay que encontrar en tres segundos.</p>
+  </div>
+
+  <p>Por eso la pregunta correcta no es «¿grabamos vídeo o escribimos?», sino <strong>«¿qué parte de este procedimiento es gesto y qué parte es dato?»</strong>. Casi siempre la respuesta es que hay de las dos, y el procedimiento bueno es el que pone cada cosa en su formato: el paso escrito con sus valores, y dentro de ese paso el clip de quince segundos del gesto que no se describe.</p>
+
+  <div class="highlight-box">
+    <p><strong>Un aviso que la experiencia impone.</strong> Sustituir la documentación escrita por vídeo es una idea que suena bien en una reunión y se cae en planta. Cuando llega una auditoría y piden el criterio de aceptación de una operación, «está en el minuto 2:40 de un vídeo» no es una respuesta. Sobre qué debe contener el procedimiento escrito, <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a>, y sobre a qué nivel de detalle documentarlo, <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucciones de trabajo vs SOP</a>.</p>
+  </div>
+
+  <h2 id="duracion">Cuánto debe durar</h2>
+  <p>Entre 60 y 90 segundos. Y —esto importa más que la cifra— <strong>uno por operación, no uno por proceso</strong>.</p>
+
+  <p>La tentación natural es grabar el proceso completo de una vez: total, ya está el operario preparado y la máquina en marcha. El resultado es un vídeo de once minutos que reúne todos los defectos posibles. No se consulta, porque nadie sabe en qué minuto está lo que necesita. No se salta, porque en un móvil buscar dentro de un vídeo es incómodo. Y sobre todo, no se actualiza: cuando cambie un gesto de los quince que contiene, habrá que regrabar los once minutos, así que no se regrabará.</p>
+
+  <p>Con clips por operación, cambiar un gesto cuesta noventa segundos de rodaje. Ese es el argumento de verdad para trocearlo, y no la atención del espectador.</p>
+
+  <p>Si una operación concreta no cabe en 90 segundos, antes de alargar el vídeo conviene revisar el procedimiento: casi siempre es que hay varios pasos metidos en uno.</p>
+
+  <h2 id="estructura">La estructura de un vídeo que sí se ve</h2>
+  <p>Cuatro tramos, en este orden:</p>
+
+  <div class="data-card">
+    <p><strong>1. Qué se va a hacer y en qué punto estamos.</strong> Cinco segundos, plano amplio, para que el que mira sitúe la operación en la máquina. Sin esto, el plano cerrado del principio desorienta.</p>
+    <p><strong>2. El gesto, en plano cerrado.</strong> El grueso del clip. La cámara donde estarían los ojos del operario, no enfrente. Un plano frontal invierte la izquierda y la derecha de quien mira, y en operaciones con dos manos eso confunde de verdad.</p>
+    <p><strong>3. El error típico.</strong> El tramo que casi nadie graba y el que más valor tiene. Enseñar cómo se hace mal y qué pasa: la pieza que se mueve, la marca que aparece, el ruido que hace. La gente recuerda el error mejor que la instrucción.</p>
+    <p><strong>4. Cómo se sabe que ha salido bien.</strong> El criterio de comprobación, mostrado. No «verificar el correcto asentamiento», sino la imagen de un asentamiento correcto al lado de uno que no lo es.</p>
+  </div>
+
+  <h2 id="grabar">Cómo grabarlo en planta sin montar un estudio</h2>
+  <p>Un móvil de los últimos años y un trípode de veinte euros bastan. Lo que estropea un vídeo de taller casi nunca es la cámara:</p>
+
+  <ul>
+    <li><strong>El contraluz es el enemigo número uno.</strong> Las naves tienen ventanales grandes, y si grabas con la ventana de frente, las manos salen como una silueta negra. Colócate de espaldas a la ventana, no de cara.</li>
+    <li><strong>Plano fijo, sin zoom ni paneos.</strong> Grabar con el móvil en la mano mientras se mueve produce un vídeo que marea y que no sirve para mirar un detalle. Trípode o apoyo, y si hace falta otro encuadre, se corta y se graba otro clip.</li>
+    <li><strong>En horizontal.</strong> Aunque se vaya a ver en un móvil vertical, el horizontal encuadra la máquina y las dos manos.</li>
+    <li><strong>Las manos, no la cara.</strong> El vídeo es de la operación, no del operario. Además evita el problema de tener que regrabar cuando esa persona ya no esté en la empresa.</li>
+    <li><strong>El sonido de la nave se lo come todo.</strong> El micro del móvil capta la prensa de al lado con más fuerza que la voz de quien está explicando. Dos salidas: grabar la voz aparte en un sitio tranquilo y montarla después, o prescindir de la narración y apoyarse en rótulos. Para muchos gestos, la segunda opción es incluso mejor: se entienden viéndolos.</li>
+    <li><strong>Graba la operación real.</strong> No una recreación limpia con la máquina parada y el puesto ordenado para la ocasión. El vídeo tiene que parecerse a lo que el operario se va a encontrar, con su suciedad y su desorden habitual, o pierde credibilidad en el taller.</li>
+  </ul>
+
+  <h2 id="voz">La voz: quién narra y qué dice</h2>
+  <p>Lo narra el operario que mejor hace esa operación, mientras la ejecuta. No un técnico leyendo un guion: eso produce un vídeo correcto y vacío, y el taller lo detecta al instante.</p>
+
+  <p>Pero hay una técnica que cambia el resultado, y consiste en poner a alguien detrás de la cámara con una sola pregunta: <strong>«¿por qué así?»</strong>.</p>
+
+  <p>El veterano, si lo dejas solo, narra lo que hace: «ahora aprieto esto». Con la pregunta delante, dice por qué: «ahora aprieto esto, pero solo hasta que note el tope, porque si sigo se pasa de rosca y ya no agarra». La segunda frase contiene el conocimiento que nadie ha escrito nunca. Y lo importante es que el experto no lo estaba ocultando: sencillamente ha dejado de ser consciente de que toma esa decisión, que es la definición práctica de <a href="/blog/conocimiento-tacito-taller-industrial/">conocimiento tácito</a>. Sobre cómo conducir esa conversación con método, <a href="/blog/documentar-conocimiento-operarios-expertos/">cómo documentar el conocimiento de tus operarios expertos</a>.</p>
+
+  <h2 id="revision">La revisión que casi nadie hace</h2>
+  <p>Antes de publicar, que lo vea alguien que <em>no</em> sepa hacer esa operación e intente reproducirla siguiendo solo el vídeo.</p>
+
+  <p>Es incómodo y ocupa media hora, y es lo que separa un vídeo útil de uno decorativo. Lo que aparece siempre es lo mismo: un paso que el experto se saltó sin darse cuenta. No lo omitió por descuido —lo omitió porque para él no es un paso, es algo que hace su mano sola. Solo aparece cuando alguien que no lo sabe se queda parado en ese punto.</p>
+
+  <p>Si el que prueba consigue completar la operación, el vídeo está listo. Si se queda atascado, no hay que explicárselo: hay que anotar dónde se atascó y regrabar ese tramo.</p>
+
+  <h2 id="vivo">El problema real: mantenerlo vivo</h2>
+  <p>Grabar es la parte fácil y la que se subestima menos. El problema aparece a los seis meses.</p>
+
+  <p><strong>Un vídeo obsoleto es más peligroso que un texto obsoleto</strong>, por dos razones. La primera es que parece más autoridad: un documento con fecha antigua invita a desconfiar, mientras que un vídeo donde se ve la máquina funcionando parece la verdad. La segunda es que cuesta más rehacerlo, así que se pospone, y mientras se pospone se sigue usando.</p>
+
+  <p>Lo que hace que se mantenga:</p>
+
+  <ul>
+    <li><strong>Clips cortos por operación.</strong> Ya está dicho arriba, pero el motivo de fondo es este: la única forma de que algo se actualice es que actualizarlo sea barato.</li>
+    <li><strong>El vídeo vive dentro del paso, no suelto.</strong> Si el clip está pegado al paso del procedimiento al que pertenece, cuando alguien edita ese paso ve el vídeo y se pregunta si sigue siendo válido. Un vídeo en una carpeta aparte no se lo pregunta nadie.</li>
+    <li><strong>Nada de fechas ni versiones quemadas en la imagen.</strong> Rotular «versión 3 — marzo 2026» dentro del vídeo garantiza tener que regrabarlo cuando cambie cualquier otra cosa. La versión la lleva el sistema, no el fotograma.</li>
+    <li><strong>Que el cambio se entere de que existe.</strong> Cuando se publica una versión nueva, los operarios que ya estaban formados en la anterior tienen que saberlo. Si no, la mitad de la plantilla sigue haciéndolo como en el vídeo viejo, que es peor que no haber grabado nada.</li>
+  </ul>
+
+  <h2 id="donde">Dónde vive el vídeo para que alguien lo vea</h2>
+  <p>Una carpeta compartida es el sitio donde los vídeos de instrucción van a morir. No por la carpeta en sí, sino por el recorrido que impone: el operario tendría que ir a un ordenador, entrar en la red, encontrar la carpeta correcta y abrir el archivo correcto. Antes de eso, pregunta al compañero. Siempre.</p>
+
+  <p>Para que un vídeo se vea tiene que cumplir dos condiciones: <strong>estar en el paso al que pertenece</strong> —no en un repositorio general— y <strong>alcanzarse desde el puesto</strong>, con el móvil que el operario ya lleva encima. La forma más directa de resolver la segunda es anclar el acceso a la máquina, que es lo que tratamos en <a href="/blog/qr-instrucciones-de-trabajo/">códigos QR para las instrucciones de trabajo</a>.</p>
+
+  <p>Y una advertencia práctica: el vídeo pesa. Noventa segundos grabados con un móvil rondan los 15-25 MB según la resolución. Cincuenta clips son más de un giga. Conviene mirar el límite de almacenamiento de la herramienta que uses antes de grabar doscientos, y bajar la resolución de grabación: para ver unas manos trabajando, 1080p sobra y pesa menos de la mitad que 4K.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>Conviene decir primero lo que REELEVO <strong>no</strong> hace, porque es la parte que suele darse por supuesta: <strong>no graba, no edita y no subtitula vídeo</strong>. El vídeo se produce fuera, con el móvil y con lo que uses para recortarlo, y se sube ya terminado.</p>
+
+  <p>Lo que sí resuelve es el problema del que va toda la segunda mitad de este artículo, que es dónde vive:</p>
+
+  <ul>
+    <li><strong>El vídeo es contenido de un paso</strong>, junto al texto, las imágenes y los adjuntos de ese mismo paso. No hay una videoteca aparte, que es justo lo que no queremos.</li>
+    <li><strong>Va versionado con el proceso.</strong> Al publicar una versión nueva, los operarios certificados en la anterior reciben la confirmación de lectura del cambio, así que nadie se queda ejecutando la versión vieja sin saberlo.</li>
+    <li><strong>Se ve en el puesto</strong>, dentro del flujo que abre el QR de la máquina, en <a href="/portal-operario/">el portal del operario</a>, y queda registro de quién lo ha consultado.</li>
+    <li><strong>Se edita donde se edita el procedimiento</strong>, en <a href="/documentacion-procesos/">documentación de procesos</a>, de modo que quien toca el paso ve el vídeo que lleva dentro.</li>
+  </ul>
+
+  <p>El límite que conviene tener en cuenta desde el principio: <strong>el almacenamiento va por plan</strong> —2 GB en el gratuito, 5 en Starter, 15 en Pro—. Con clips de 90 segundos a 1080p da para bastante, pero si el plan es grabar la planta entera en vídeo, es un número que hay que hacer antes y no después.</p>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por el gesto que más veces has tenido que explicar.</strong> <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Cuánto debe durar un vídeo de instrucción de trabajo?</h3>
+  <p>Entre 60 y 90 segundos, y uno por operación, no uno por proceso. Si no cabe en ese tiempo, el problema casi nunca es el vídeo: es que estás grabando varios pasos juntos. Un vídeo largo no se adelanta, se abandona, porque el operario no sabe en qué minuto está lo que necesita.</p>
+
+  <h3>¿El vídeo sustituye al procedimiento escrito?</h3>
+  <p>No, y plantearlo así es el error más caro. El vídeo es lineal y sirve para aprender un gesto la primera vez; el texto permite acceso directo y sirve para consultar un dato a mitad de tarea. Nadie busca el minuto 3:20 con las manos ocupadas. La mayoría de procedimientos necesitan los dos formatos, cada uno en lo suyo.</p>
+
+  <h3>¿Qué hace falta para grabar instrucciones en planta?</h3>
+  <p>Un móvil reciente, un trípode barato y elegir bien dónde te pones. Plano fijo, en horizontal, enfocando las manos y no la cara. Lo que de verdad estropea un vídeo de taller no es la cámara: es el contraluz de los ventanales y el ruido de la nave, y las dos cosas se resuelven colocándose bien y grabando la voz aparte.</p>
+
+  <h3>¿Quién debe narrar el vídeo?</h3>
+  <p>El operario que mejor hace esa operación, mientras la ejecuta, y con alguien de fuera preguntándole «¿por qué así?». Esa pregunta es la que saca el conocimiento tácito: el veterano se salta explicaciones porque ya no es consciente de que toma esas decisiones. Un guion leído por otra persona produce un vídeo correcto y vacío.</p>
+
+  <h3>¿Cómo se evita que un vídeo de instrucción quede obsoleto?</h3>
+  <p>Grabando clips cortos por operación en vez de un vídeo largo por proceso. Cuando cambia un gesto, se regraba ese clip de noventa segundos y no las dos horas de rodaje. Un vídeo obsoleto es más peligroso que un texto obsoleto porque parece autoridad, y es más caro de rehacer, así que se pospone más.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/qr-instrucciones-de-trabajo/">
+        <div class="related-link-kicker">Entrega</div>
+        <div class="related-link-title">Códigos QR para instrucciones</div>
+        <div class="related-link-desc">Cómo llega el vídeo al puesto sin que nadie lo busque.</div>
+      </a>
+      <a class="related-link-card" href="/blog/instrucciones-de-trabajo-vs-sop/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Instrucciones de trabajo vs SOP</div>
+        <div class="related-link-desc">Qué parte del procedimiento pide gesto y cuál pide dato.</div>
+      </a>
+      <a class="related-link-card" href="/blog/conocimiento-tacito-taller-industrial/">
+        <div class="related-link-kicker">Contexto</div>
+        <div class="related-link-title">Qué es el conocimiento tácito</div>
+        <div class="related-link-desc">Por qué el experto se salta pasos sin darse cuenta.</div>
+      </a>
+      <a class="related-link-card" href="/documentacion-procesos/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Documentación de procesos</div>
+        <div class="related-link-desc">Dónde se edita el paso que lleva el vídeo dentro.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>
