@@ -395,6 +395,12 @@ const mergedSchema = [articleSchema, ...extraSchema];
     gap: 16px;
   }
 
+  /* Con cuatro tarjetas, tres columnas dejan la cuarta sola en la segunda fila.
+     Se reparten 2x2 solo en ese caso; los bloques de tres siguen igual. */
+  .article-body :global(.related-links-grid:has(> :nth-child(4))) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .article-body :global(.related-link-card) {
     display: block;
     text-decoration: none;

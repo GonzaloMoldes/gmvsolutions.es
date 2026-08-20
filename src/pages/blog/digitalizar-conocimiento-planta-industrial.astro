@@ -1,0 +1,358 @@
+---
+// PAGINA PILAR del cluster de conocimiento industrial (Contenido 12 de la guia
+// editorial GEO). Es el hub al que enlazan SOP, onboarding y conocimiento: su
+// funcion es sostener el concepto "digitalizacion del conocimiento industrial"
+// y repartir autoridad hacia el resto del cluster.
+// Se diferencia de /blog/digitalizar-produccion-pyme-industrial/ por el OBJETO:
+// alli se digitaliza el flujo y el dato de produccion (el "que ha pasado");
+// aqui se digitaliza el saber de como se hacen las cosas (el "como"). La
+// distincion se explica de forma explicita en el cuerpo para no canibalizar.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo digitalizar el conocimiento de una planta industrial";
+const description = "Qué conocimiento existe en una planta, cuál se pierde y cómo capturarlo, digitalizarlo y mantenerlo accesible en el puesto. Guía completa para pyme industrial.";
+const date = "2026-08-20";
+const category = "Gestión del Conocimiento";
+const readTime = "18 min.";
+const canonical = "https://www.gmvsolutions.es/blog/digitalizar-conocimiento-planta-industrial/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+// Sin HTML dentro de los "text": es JSON-LD, no cuerpo del articulo.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el conocimiento industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el conjunto de saberes prácticos que permiten fabricar un producto con la calidad esperada: cómo se arranca cada máquina, con qué parámetros, qué señales indican que algo va mal, qué se comprueba antes de dar una pieza por buena y qué se hace cuando el proceso se sale de lo previsto. Una parte está escrita en procedimientos y fichas técnicas; la mayor parte vive en la cabeza de los operarios que llevan años haciéndolo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué significa digitalizar el conocimiento de una planta industrial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No significa escanear los procedimientos que ya tienes. Significa convertir el saber operativo en contenido estructurado por pasos, con una sola versión vigente, accesible desde el puesto en el momento en que hace falta y con registro de quién lo ha ejecutado. Un PDF subido a una carpeta compartida sigue siendo papel: cambia el soporte, no el problema."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por dónde se empieza a digitalizar el conocimiento de una planta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por los procesos que hoy dependen de una sola persona. No por los más complejos ni por los más frecuentes: por aquellos en los que, si mañana falta quien los domina, la línea se para o la calidad cae. En una pyme industrial suelen ser entre tres y ocho procesos, y documentarlos bien cubre la mayor parte del riesgo real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué conocimiento se pierde cuando se jubila un operario?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rara vez se pierde la secuencia principal del trabajo, que suele estar escrita en algún sitio. Lo que se va con la persona es el criterio: qué ajuste hace falta cuando el material viene distinto, qué ruido anticipa una avería, qué comprobación no está en el procedimiento pero evita un lote entero de rechazos. Es conocimiento de excepción, y es justo el que ningún manual recoge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve el vídeo para documentar procesos industriales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sirve para lo que es difícil de escribir: un gesto, una secuencia manual, el sonido de una máquina que no va fina. No sirve como formato único, porque no se puede consultar por partes ni buscar dentro, y actualizarlo obliga a volver a grabar. Lo que funciona es la combinación: pasos escritos que se leen en diez segundos y clips cortos en los pasos donde ver vale más que leer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se mide si el conocimiento de una planta está bien documentado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con cuatro indicadores: cobertura, qué porcentaje de procesos críticos está documentado; polivalencia, cuántas personas dominan cada proceso; frescura, cuánto hace que se revisó cada procedimiento; y autonomía, cuántas veces se resuelve una duda sin llamar al experto. El cuarto es el que de verdad indica si la documentación se usa o solo existe."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Digitalizar el conocimiento de una planta no es escanear lo que ya tienes escrito. El conocimiento que importa —el criterio, la excepción, el ajuste que salva un lote— nunca llegó a escribirse, y por eso la carpeta compartida está llena y la planta sigue dependiendo de tres personas. El trabajo real tiene cuatro fases: <strong>identificar</strong> qué procesos dependen de una sola persona, <strong>capturar</strong> ese saber sin pedirle a nadie que redacte un manual, <strong>entregarlo</strong> en el puesto en el momento de ejecutar, y <strong>mantenerlo vivo</strong> con una única versión vigente. Se empieza por tres procesos, no por toda la planta. Y se mide con cuatro datos: cobertura, polivalencia, frescura y autonomía.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es el conocimiento industrial</a></li>
+    <li><a href="#capas">Las cuatro capas de conocimiento de una planta</a></li>
+    <li><a href="#se-pierde">Por dónde se pierde, y no solo por jubilaciones</a></li>
+    <li><a href="#por-que-falla">Por qué la documentación tradicional no lo retiene</a></li>
+    <li><a href="#capturar">Cómo capturar el conocimiento que no está escrito</a></li>
+    <li><a href="#digitalizar">Qué significa digitalizarlo de verdad</a></li>
+    <li><a href="#accesible">Cómo hacerlo llegar al puesto</a></li>
+    <li><a href="#video">Cuándo el vídeo ayuda y cuándo estorba</a></li>
+    <li><a href="#actualizar">Cómo mantenerlo vivo</a></li>
+    <li><a href="#onboarding">Cómo se conecta con el onboarding</a></li>
+    <li><a href="#mantenimiento">Cómo se usa en mantenimiento</a></li>
+    <li><a href="#medir">Cómo medir si está funcionando</a></li>
+    <li><a href="#herramientas">Qué herramientas existen</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es el conocimiento industrial</h2>
+
+  <p>El conocimiento industrial es el conjunto de saberes prácticos que permiten fabricar un producto con la calidad esperada de forma repetible. Incluye cómo se arranca cada máquina, con qué parámetros trabaja cada referencia, qué señales indican que el proceso se está desviando, qué se comprueba antes de dar una pieza por buena y qué se hace cuando algo no sale como debería.</p>
+
+  <p>Una parte de ese conocimiento está escrita: fichas técnicas, manuales del fabricante, procedimientos que se redactaron para una auditoría. La mayor parte, no. Vive en la cabeza de las personas que llevan años ejecutando el proceso, y se transmite hablando, mirando y corrigiendo.</p>
+
+  <p>Conviene separar dos cosas que suelen confundirse, porque se digitalizan de forma distinta:</p>
+
+  <ul>
+    <li><strong>Digitalizar la producción</strong> es capturar el <em>dato de lo que ha pasado</em>: cuántas unidades, en qué máquina, con qué paradas, con qué rechazos. Lo tratamos en <a href="/blog/digitalizar-produccion-pyme-industrial/">cómo digitalizar la producción en una pyme industrial</a>.</li>
+    <li><strong>Digitalizar el conocimiento</strong> es capturar el <em>cómo se hace</em>: la secuencia, el criterio, la excepción. Es lo que ocupa este artículo.</li>
+  </ul>
+
+  <p>Son complementarios y se apoyan mutuamente —el dato de ejecución revela qué procedimientos no se están siguiendo—, pero no son el mismo proyecto ni se abordan en el mismo orden. Si tienes que elegir, el conocimiento va primero: sin él, el dato te dice que algo falla pero no qué hacer al respecto.</p>
+
+  <h2 id="capas">Las cuatro capas de conocimiento de una planta</h2>
+
+  <p>Antes de digitalizar nada conviene saber qué hay. En cualquier planta industrial conviven cuatro capas, y solo la primera está en la carpeta compartida:</p>
+
+  <div class="data-card">
+    <p><strong>1. Conocimiento documentado.</strong> Procedimientos, instrucciones, fichas técnicas, manuales. Existe, se puede encontrar y está más o menos vigente. En una pyme típica cubre entre el 20 % y el 40 % de lo que realmente hace falta saber.</p>
+    <p><strong>2. Conocimiento documentable no documentado.</strong> Procesos que nadie ha escrito nunca pero que se podrían escribir sin dificultad: la secuencia de un cambio de formato, el orden de comprobaciones de un arranque. No falta capacidad, falta tiempo y falta que alguien lo pida.</p>
+    <p><strong>3. Conocimiento tácito.</strong> El criterio del veterano. No es que no quiera contarlo: es que ya no es consciente de que lo aplica. Aquí están los ajustes por lote de material, las señales de avería, los atajos legítimos y los que no lo son.</p>
+    <p><strong>4. Conocimiento colectivo.</strong> El que no está en ninguna cabeza completo, sino repartido: producción sabe una parte, mantenimiento otra y calidad la tercera. Solo aparece cuando los tres se sientan juntos, y se pierde en cuanto uno de ellos cambia de puesto.</p>
+  </div>
+
+  <p>El error habitual es lanzar un proyecto de documentación que solo actúa sobre la capa 2 —la fácil— y presentarlo como si hubiera resuelto la 3. La capa 2 se documenta en semanas; la capa 3 requiere un método distinto, que es de lo que trata <a href="/blog/conocimiento-tacito-taller-industrial/">qué es el conocimiento tácito y por qué tu taller depende de él</a>.</p>
+
+  <h2 id="se-pierde">Por dónde se pierde, y no solo por jubilaciones</h2>
+
+  <p>La jubilación es la pérdida más visible y la que más artículos genera, pero es la menos frecuente y, paradójicamente, la más fácil de gestionar: tiene fecha. Sabes con años de antelación que esa persona se va. Las otras vías de fuga no avisan:</p>
+
+  <ul>
+    <li><strong>Rotación.</strong> Un operario con tres años de experiencia se va a la empresa de al lado por doscientos euros más. No hay traspaso porque el preaviso son quince días y en quince días no se transfiere lo que se aprendió en tres años.</li>
+    <li><strong>Bajas imprevistas.</strong> No hay pérdida definitiva, pero el efecto operativo del día siguiente es idéntico. Si el proceso solo lo domina esa persona, la línea improvisa. Lo desarrollamos en el <a href="/blog/plan-contingencia-bajas-produccion/">plan de contingencia para bajas en producción</a>.</li>
+    <li><strong>Cambios de puesto internos.</strong> El mejor operario de la línea 2 asciende a supervisor. Nadie lo vive como una pérdida de conocimiento, pero la línea 2 ha perdido a quien resolvía sus excepciones.</li>
+    <li><strong>Olvido por desuso.</strong> Un proceso que se ejecuta dos veces al año se degrada en la memoria de quien lo sabe hacer. A los seis meses, el veterano también consulta.</li>
+    <li><strong>El turno de noche.</strong> Una planta a tres turnos tiene tres versiones del mismo proceso. Ninguna está escrita y cada una funciona, hasta que un producto pasa por los tres.</li>
+  </ul>
+
+  <p>Mirado así, la pregunta útil no es "quién se jubila en los próximos cinco años", sino <strong>"qué procesos se paran si mañana falta una sola persona"</strong>. La segunda pregunta se responde hoy y cubre también la primera. El diagnóstico completo, con el plan por fases, está en <a href="/blog/crisis-perdida-conocimiento-planta-industrial/">cómo prevenir la pérdida de conocimiento en tu planta</a>.</p>
+
+  <h2 id="por-que-falla">Por qué la documentación tradicional no lo retiene</h2>
+
+  <p>Casi todas las plantas han intentado documentar alguna vez. El resultado suele ser una carpeta compartida con doscientos archivos que nadie abre. No es un problema de disciplina: es que el formato tradicional falla en cuatro puntos concretos.</p>
+
+  <p><strong>Se escribe desde el despacho.</strong> El procedimiento lo redacta quien tiene tiempo para redactar, que casi nunca es quien ejecuta el proceso. El documento describe el proceso ideal, no el real, y el operario lo detecta en la primera lectura. A partir de ahí deja de consultarlo, y con razón.</p>
+
+  <p><strong>Se redacta como un documento, no como una guía de ejecución.</strong> Cuarenta páginas de prosa con un apartado de alcance y otro de responsabilidades sirven para pasar una auditoría, no para cambiar un formato a las seis de la mañana. Lo que se necesita en el puesto son pasos numerados, cortos y verificables. Es la diferencia entre un procedimiento y una instrucción de trabajo, que explicamos en <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucciones de trabajo vs SOP</a>.</p>
+
+  <p><strong>No llega al puesto.</strong> Este es el punto que hunde más proyectos. Si consultar el procedimiento exige ir a la oficina, encender un ordenador, buscar en una carpeta y abrir un PDF, el operario no lo va a hacer: va a llamar al veterano, porque tarda cuarenta segundos. La documentación compite con una alternativa muy rápida, y pierde por logística, no por calidad.</p>
+
+  <p><strong>Envejece en silencio.</strong> Un proceso cambia y el documento no. Nadie se entera hasta que alguien sigue la versión antigua y sale mal. Un procedimiento desactualizado es peor que no tener ninguno, porque genera confianza injustificada: el operario nuevo no tiene forma de saber que lo que está leyendo ya no es válido.</p>
+
+  <div class="highlight-box">
+    <p><strong>La prueba de los cuarenta segundos.</strong> Ponte en el puesto más alejado de tu planta y cronometra cuánto tarda un operario en tener delante el procedimiento vigente del proceso que está ejecutando. Si tarda más que en llamar al compañero que sabe, tu documentación no se va a usar por bien escrita que esté. Todo lo demás del proyecto depende de que ese número baje.</p>
+  </div>
+
+  <h2 id="capturar">Cómo capturar el conocimiento que no está escrito</h2>
+
+  <p>Capturar es la fase que más se subestima. La instrucción típica —"siéntate y escribe todo lo que sabes"— no funciona con la capa 3, porque pide a la persona que verbalice algo que ha dejado de ser consciente. El método que sí funciona invierte el planteamiento: en lugar de pedir que documente, se documenta mientras trabaja.</p>
+
+  <h3>1. Empieza por el riesgo, no por el volumen</h3>
+
+  <p>Lista tus procesos críticos y marca, para cada uno, cuántas personas saben ejecutarlo sin ayuda. Los que tengan un uno son tu punto de partida. En una pyme industrial suelen ser entre tres y ocho procesos, y cubren la mayor parte del riesgo real. Documentar los cuarenta restantes puede esperar; documentar esos ocho, no.</p>
+
+  <h3>2. Graba la ejecución, no la explicación</h3>
+
+  <p>Pide al operario que ejecute el proceso como lo hace siempre, con el móvil grabando. No que explique cómo lo haría: que lo haga. La diferencia es sustancial, porque al ejecutar aparecen los gestos y las comprobaciones automáticas que al explicar se saltan.</p>
+
+  <h3>3. Pregunta por las excepciones, que es donde está el valor</h3>
+
+  <p>Terminada la ejecución, las preguntas que abren la capa 3 son siempre las mismas cuatro: qué haces distinto cuando el material viene diferente; qué es lo primero que miras si el resultado no sale bien; qué le explicarías a alguien que empieza mañana y no viene en ningún sitio; y qué has visto fallar aquí alguna vez. Las respuestas a esas cuatro preguntas valen más que las treinta páginas del manual del fabricante.</p>
+
+  <h3>4. Convierte la grabación en pasos, no en un vídeo largo</h3>
+
+  <p>El vídeo en bruto de doce minutos no es documentación: es materia prima. El entregable es una secuencia de pasos cortos, cada uno con su criterio de aceptación, y con clips de vídeo solo en los pasos donde ver aporta más que leer.</p>
+
+  <h3>5. Valida con alguien que no sea el experto</h3>
+
+  <p>La prueba definitiva no es que el veterano dé por bueno el documento —lo dará, porque él ya sabe hacerlo—. Es que otra persona ejecute el proceso siguiendo únicamente lo documentado. Todo lo que necesite preguntar es un hueco que hay que rellenar. Este paso se salta casi siempre y es el que separa una documentación real de una decorativa.</p>
+
+  <p>El método completo, con las plantillas de entrevista y los tiempos por proceso, está en <a href="/blog/documentar-conocimiento-operarios-expertos/">cómo documentar el conocimiento de tus operarios expertos</a>. Para procesos con muchos parámetros, el caso concreto de <a href="/blog/documentar-procesos-mecanizado-cnc/">documentar procesos de mecanizado CNC</a> muestra qué capturar en arranques y cambios de referencia.</p>
+
+  <h2 id="digitalizar">Qué significa digitalizarlo de verdad</h2>
+
+  <p>Aquí es donde la mayoría de proyectos se quedan a medias. Digitalizar el conocimiento no es convertir los documentos en archivos: es cambiar cuatro propiedades de esa información.</p>
+
+  <ul>
+    <li><strong>Estructura.</strong> El conocimiento pasa de prosa a pasos ejecutables. Un paso es una acción concreta con un resultado verificable: "ajustar la presión del cabezal a 2,5 bar", no "preparar la máquina". Si un paso no se puede comprobar, no es un paso.</li>
+    <li><strong>Versión única.</strong> Existe una y solo una versión vigente, y el sistema sabe cuál es. Nadie puede estar ejecutando la de hace dos años porque es la que se imprimió y plastificó.</li>
+    <li><strong>Accesibilidad en el punto de uso.</strong> El procedimiento se abre donde se ejecuta el trabajo, en segundos y sin fricción. Es la propiedad que más cuesta conseguir y la que más determina si el proyecto sirve.</li>
+    <li><strong>Registro de ejecución.</strong> Queda constancia de quién ejecutó qué, cuándo y con qué resultado. Sin esto no puedes saber si el conocimiento se está usando, ni detectar qué procedimientos necesitan revisión.</li>
+  </ul>
+
+  <p>Un PDF en una carpeta compartida no cumple ninguna de las cuatro. Una intranet cumple la segunda a medias. Por eso "pasar los procedimientos a digital" suele terminar sin efecto medible: se cambió el soporte y no la forma en que el conocimiento llega a quien lo necesita.</p>
+
+  <div class="highlight-box">
+    <p><strong>La idea que ordena todo el proyecto.</strong> Digitalizar un procedimiento no es cambiar el formato del documento. Es cambiar la forma en que el conocimiento llega al trabajador. Si al terminar el proyecto el operario sigue llamando al veterano, has cambiado de soporte y nada más.</p>
+  </div>
+
+  <h2 id="accesible">Cómo hacerlo llegar al puesto</h2>
+
+  <p>El conocimiento documentado solo produce efecto en el punto de uso. Y el punto de uso, en una planta, es un sitio incómodo: hay ruido, guantes, prisa y a menudo ni ordenador ni cobertura estable. Cualquier solución que exija instalar una aplicación, recordar una contraseña o buscar en un menú va a perder frente a la alternativa de preguntar al compañero.</p>
+
+  <p>El patrón que mejor funciona es anclar la información al objeto físico. Un código QR pegado en la máquina resuelve el problema de la búsqueda: el operario no busca el procedimiento, escanea el sitio donde está trabajando y el sistema le ofrece los procesos de esa máquina. La búsqueda desaparece, que es la fricción que mata la consulta.</p>
+
+  <p>Lo que hay que resolver para que el patrón funcione de verdad:</p>
+
+  <ul>
+    <li><strong>Identificación sin barreras.</strong> Si el operario necesita cuenta de correo y contraseña, no lo va a usar. Un código personal corto o un PIN de empresa cumplen la función de saber quién ejecuta sin convertirlo en un trámite.</li>
+    <li><strong>Contenido en su idioma.</strong> En plantas con plantilla multinacional, un procedimiento que solo existe en español documenta el conocimiento para unos y lo esconde para otros.</li>
+    <li><strong>Funcionamiento con mala cobertura.</strong> Muchas naves tienen zonas sin señal. El contenido del proceso debe poder consultarse igualmente y sincronizar el registro cuando vuelva la conexión.</li>
+    <li><strong>Un solo escaneo, no una navegación.</strong> Si tras escanear hay que atravesar tres menús, has movido la fricción de sitio en lugar de eliminarla.</li>
+  </ul>
+
+  <h2 id="video">Cuándo el vídeo ayuda y cuándo estorba</h2>
+
+  <p>El vídeo se ha convertido en la respuesta por defecto y merece más matiz. Es insustituible para transmitir lo que no se deja escribir: un gesto manual, la fuerza justa de un apriete, el sonido de una máquina que no va fina, la secuencia rápida de un cambio de utillaje. Nada de eso sobrevive a la prosa.</p>
+
+  <p>Pero como formato único es mal soporte de consulta, por tres razones prácticas: no se puede leer en diagonal para localizar el paso 7, no se puede buscar dentro, y actualizar un detalle obliga a regrabar la pieza entera. Un operario que necesita comprobar una cosa concreta no quiere ver seis minutos de vídeo.</p>
+
+  <div class="data-card">
+    <p><strong>Usa vídeo cuando:</strong> el paso implica destreza manual, la secuencia es difícil de describir en palabras, hay una señal sensorial relevante (ruido, vibración, color), o el proceso se ejecuta con poca frecuencia y hace falta refrescarlo entero.</p>
+    <p><strong>Usa texto cuando:</strong> hay valores, parámetros o tolerancias que se consultan de un vistazo, el paso es una comprobación binaria, el contenido cambia a menudo, o el operario ya conoce el proceso y solo necesita verificar un dato.</p>
+    <p><strong>Formato que funciona:</strong> pasos escritos como esqueleto y clips de entre quince y noventa segundos incrustados en los pasos que lo necesitan. Consultable por partes, actualizable por partes.</p>
+  </div>
+
+  <h2 id="actualizar">Cómo mantenerlo vivo</h2>
+
+  <p>Un proyecto de documentación tiene dos momentos de riesgo. El primero es arrancarlo. El segundo, mucho más letal, es el mes catorce: los procesos han cambiado, los documentos no, y la planta ha vuelto a preguntar al veterano. Lo que evita ese final no es disciplina, es diseño.</p>
+
+  <p><strong>Versionado explícito.</strong> Cada procedimiento tiene una versión vigente y un historial. Cuando cambia, los operarios afectados se enteran: una confirmación de lectura de la nueva versión es un mecanismo simple y suficiente en una pyme.</p>
+
+  <p><strong>El operario como fuente de actualización.</strong> Quien está en la máquina es quien primero detecta que el procedimiento ya no encaja. Si tiene una forma de reportarlo en dos toques desde el mismo sitio donde consulta el proceso, la documentación se corrige sola. Si tiene que escribir un correo al responsable de calidad, no lo va a hacer nunca.</p>
+
+  <p><strong>Cadena de validación corta.</strong> Operario propone, supervisor valida, se publica. Tres pasos. Cualquier flujo con más aprobaciones muere por inanición en una empresa de cuarenta personas.</p>
+
+  <p><strong>Señales automáticas de revisión.</strong> Un procedimiento que lleva un año sin tocarse, o uno cuyo paso 4 concentra las incidencias reportadas, son candidatos objetivos a revisión. Es preferible una lista corta generada por el sistema que una revisión anual completa que nadie hace.</p>
+
+  <h2 id="onboarding">Cómo se conecta con el onboarding</h2>
+
+  <p>El onboarding es donde la digitalización del conocimiento se paga sola, porque es la actividad que hoy consume ese conocimiento de la forma más cara: un operario veterano dejando de producir para explicar por enésima vez lo mismo.</p>
+
+  <p>Con los procesos críticos documentados, la incorporación cambia de forma. El nuevo no aprende escuchando, sino ejecutando con el procedimiento delante; el tutor deja de dictar los pasos y pasa a verificar el resultado. Sigue haciendo falta —nadie aprende una planta con un móvil—, pero deja de estar ocupado a jornada completa.</p>
+
+  <p>La documentación tampoco sustituye al método de formación. El <a href="/blog/twi-formacion-operarios-en-el-puesto/">método TWI</a> lleva ochenta años describiendo cómo se enseña una tarea en el puesto, y sigue siendo válido: lo que cambia es que el estándar deja de vivir en la cabeza del instructor. Si quieres el recorrido completo de la incorporación, está en <a href="/blog/onboarding-software-pymes/">onboarding software para pymes</a>, y el objetivo realista de reducción de la curva en <a href="/blog/reducir-onboarding-operarios-cinco-a-un-dia/">cómo reducir la curva de cinco días a uno</a>.</p>
+
+  <p>La otra mitad es saber quién sabe qué. Una <a href="/blog/gestion-competencias-industria/">matriz de competencias</a> convierte la documentación en un mapa de capacidad: qué procesos domina cada persona, con qué nivel de autonomía y dónde solo hay uno. Sin ese mapa, documentar es trabajar a ciegas sobre qué proceso urge más.</p>
+
+  <h2 id="mantenimiento">Cómo se usa en mantenimiento</h2>
+
+  <p>Mantenimiento es el área donde el conocimiento tácito está más concentrado y peor documentado, porque el trabajo es por naturaleza excepcional: la avería que hoy resuelve el técnico con quince años de casa no estaba en ningún manual.</p>
+
+  <p>Hay dos tipos de conocimiento con tratamiento distinto. El <strong>preventivo</strong> es rutinario y se documenta como cualquier otro procedimiento por pasos: qué se revisa, cada cuánto, con qué criterio de aceptación. Tienes la estructura en la <a href="/blog/sop-mantenimiento-preventivo-guia-plantilla/">guía de SOP de mantenimiento preventivo</a>.</p>
+
+  <p>El <strong>correctivo</strong> es otra cosa. Aquí lo que hay que capturar no es un procedimiento sino un historial de casos: qué síntoma apareció, qué se comprobó, qué resultó ser y cómo se resolvió. Un archivo de averías resueltas, indexado por máquina, vale más para el técnico nuevo que cualquier manual del fabricante. La regla práctica es documentar en el momento del cierre de la incidencia, cuando la información aún está fresca y cuesta dos minutos; una semana después ya no se hace.</p>
+
+  <h2 id="medir">Cómo medir si está funcionando</h2>
+
+  <p>Un proyecto de conocimiento sin medición se convierte en una opinión a los seis meses. Cuatro indicadores bastan, y los cuatro se pueden tomar antes de empezar para tener línea base:</p>
+
+  <div class="data-card">
+    <p><strong>Cobertura</strong> — qué porcentaje de tus procesos críticos tiene documentación vigente y utilizable. Empieza normalmente entre el 20 % y el 40 %.</p>
+    <p><strong>Polivalencia</strong> — cuántas personas pueden ejecutar cada proceso crítico sin ayuda. El dato que importa no es la media, es cuántos procesos están en uno.</p>
+    <p><strong>Frescura</strong> — antigüedad de la última revisión de cada procedimiento. Un procedimiento de más de un año en un proceso que ha cambiado es documentación falsa.</p>
+    <p><strong>Autonomía</strong> — con qué frecuencia se resuelve una duda operativa sin recurrir a la persona experta. Es el más difícil de medir y el único que dice si el proyecto ha funcionado.</p>
+  </div>
+
+  <p>Los tres primeros los da el propio sistema de documentación. El cuarto, en una pyme, se puede aproximar preguntando al veterano cuántas veces le interrumpieron esta semana. Si al cabo de tres meses esa cifra no ha bajado, el problema no es la documentación: es que no llega al puesto.</p>
+
+  <h2 id="herramientas">Qué herramientas existen</h2>
+
+  <p>El panorama tiene tres niveles, y elegir mal de nivel es el error más caro:</p>
+
+  <ul>
+    <li><strong>Ofimática y carpetas compartidas.</strong> Coste cero de licencia. Válido si tienes una o dos máquinas y cinco personas. Falla en versión única y en accesibilidad en el puesto, que son justo las dos propiedades que importan. El techo se nota pronto, como en el <a href="/blog/control-de-calidad-en-excel/">control de calidad en Excel</a>.</li>
+    <li><strong>Software de documentación operativa.</strong> Procesos por pasos, versionado, acceso desde el puesto y registro de ejecución. Es el nivel que encaja con la mayoría de pymes industriales. Los criterios de elección —idioma, modelo de precio, esfuerzo de implantación y adopción real del operario— están en <a href="/blog/software-sop-para-fabricas-comparativa/">software SOP para fábricas</a>.</li>
+    <li><strong>MES y suites industriales.</strong> Captura automática desde máquina, integración con ERP, planificación. Potentes y caras, con implantaciones de meses. Se justifican con cierto volumen; por debajo, la mayor parte del módulo no se usa nunca.</li>
+  </ul>
+
+  <p>La regla que evita el error: elige el nivel por el problema que tienes hoy, no por el que crees que tendrás en cinco años. Un proyecto grande que muere en la fase de implantación deja la planta exactamente igual que estaba, con dos años menos.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+
+  <p>REELEVO es un software SOP industrial para pymes construido justo sobre el punto que hunde estos proyectos: que el conocimiento llegue al puesto sin fricción.</p>
+
+  <p><strong>Acceso sin barreras.</strong> El operario escanea un QR pegado en la máquina y se identifica con un código personal de ocho caracteres o un PIN de empresa. No instala nada, no crea cuenta y no recuerda contraseñas. Desde ahí ve los procesos activos de esa máquina y ejecuta paso a paso.</p>
+
+  <p><strong>Procesos, no documentos.</strong> Cada proceso se compone de pasos con texto, imágenes, vídeo y adjuntos, con comprobaciones, campos de captura y firma al cierre. El contenido puede estar en español, inglés o portugués, con el idioma preferido por operario.</p>
+
+  <p><strong>Una sola versión vigente.</strong> Los procesos están versionados y, cuando cambia uno, los operarios certificados reciben la notificación y confirman la lectura de la nueva versión. Desde el propio flujo pueden reportar un problema o sugerir una mejora, que el supervisor valida.</p>
+
+  <p><strong>Mapa de dependencia.</strong> La matriz de competencias, el mapa de cobertura de turnos y el análisis de riesgo de conocimiento muestran qué procesos dependen de una sola persona y cuáles llevan tiempo sin revisarse — que es la lista por la que conviene empezar a documentar.</p>
+
+  <p><strong>Punto de partida.</strong> Si ya tienes procedimientos en Word, PDF o vídeo, hay importación asistida por IA para convertirlos en procesos por pasos en lugar de empezar de cero.</p>
+
+  <p><strong>Qué no hace.</strong> No sustituye a tu ERP ni a un MES: no captura datos automáticamente desde la máquina, aporta el dato de ejecución que esos sistemas no recogen y lo entrega por API y webhooks. El funcionamiento sin cobertura cubre el flujo de ejecución, no la aplicación completa. Y no incluye una biblioteca de procesos ya hechos: el conocimiento que se documenta es el de tu planta, porque es el único que sirve.</p>
+
+  <div class="highlight-box">
+    <p><strong>Empieza por tres procesos, no por la planta entera.</strong> El plan gratuito cubre 3 máquinas, 10 operarios y 5 procesos, suficiente para documentar tus procesos críticos y comprobar lo único que importa: si un sustituto puede ejecutarlos sin llamar al experto. <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a> · <a href="/precios/" data-cta data-cta-intent="producto" data-cta-location="body" data-cta-label="Ver precios">Ver precios →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es el conocimiento industrial?</h3>
+  <p>Es el conjunto de saberes prácticos que permiten fabricar un producto con la calidad esperada: cómo se arranca cada máquina, con qué parámetros, qué señales indican que algo va mal, qué se comprueba antes de dar una pieza por buena y qué se hace cuando el proceso se sale de lo previsto. Una parte está escrita en procedimientos y fichas técnicas; la mayor parte vive en la cabeza de los operarios que llevan años haciéndolo.</p>
+
+  <h3>¿Qué significa digitalizar el conocimiento de una planta industrial?</h3>
+  <p>No significa escanear los procedimientos que ya tienes. Significa convertir el saber operativo en contenido estructurado por pasos, con una sola versión vigente, accesible desde el puesto en el momento en que hace falta y con registro de quién lo ha ejecutado. Un PDF subido a una carpeta compartida sigue siendo papel: cambia el soporte, no el problema.</p>
+
+  <h3>¿Por dónde se empieza a digitalizar el conocimiento de una planta?</h3>
+  <p>Por los procesos que hoy dependen de una sola persona. No por los más complejos ni por los más frecuentes: por aquellos en los que, si mañana falta quien los domina, la línea se para o la calidad cae. En una pyme industrial suelen ser entre tres y ocho procesos, y documentarlos bien cubre la mayor parte del riesgo real.</p>
+
+  <h3>¿Qué conocimiento se pierde cuando se jubila un operario?</h3>
+  <p>Rara vez se pierde la secuencia principal del trabajo, que suele estar escrita en algún sitio. Lo que se va con la persona es el criterio: qué ajuste hace falta cuando el material viene distinto, qué ruido anticipa una avería, qué comprobación no está en el procedimiento pero evita un lote entero de rechazos. Es conocimiento de excepción, y es justo el que ningún manual recoge.</p>
+
+  <h3>¿Sirve el vídeo para documentar procesos industriales?</h3>
+  <p>Sirve para lo que es difícil de escribir: un gesto, una secuencia manual, el sonido de una máquina que no va fina. No sirve como formato único, porque no se puede consultar por partes ni buscar dentro, y actualizarlo obliga a volver a grabar. Lo que funciona es la combinación: pasos escritos que se leen en diez segundos y clips cortos en los pasos donde ver vale más que leer.</p>
+
+  <h3>¿Cómo se mide si el conocimiento de una planta está bien documentado?</h3>
+  <p>Con cuatro indicadores: cobertura, qué porcentaje de procesos críticos está documentado; polivalencia, cuántas personas dominan cada proceso; frescura, cuánto hace que se revisó cada procedimiento; y autonomía, cuántas veces se resuelve una duda sin llamar al experto. El cuarto es el que de verdad indica si la documentación se usa o solo existe.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">El clúster completo</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/documentar-conocimiento-operarios-expertos/">
+        <div class="related-link-kicker">Captura</div>
+        <div class="related-link-title">Documentar el conocimiento del experto</div>
+        <div class="related-link-desc">El método de las cuatro fases, con plantillas de entrevista.</div>
+      </a>
+      <a class="related-link-card" href="/blog/crisis-perdida-conocimiento-planta-industrial/">
+        <div class="related-link-kicker">Diagnóstico</div>
+        <div class="related-link-title">Prevenir la pérdida de conocimiento</div>
+        <div class="related-link-desc">Qué procesos dependen de una persona y qué hacer antes de que se vaya.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Formato</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">La estructura en la que aterriza el conocimiento capturado.</div>
+      </a>
+      <a class="related-link-card" href="/casos-de-uso/transferencia-conocimiento/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Transferencia de conocimiento</div>
+        <div class="related-link-desc">Cómo lo resuelve REELEVO en planta, y hasta dónde llega.</div>
+      </a>
+    </div>
+  </div>
+
+</ArticleLayout>
