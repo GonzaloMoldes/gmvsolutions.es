@@ -46,7 +46,16 @@
       "Bash(sed -i \"s/date: '20 ago. 2026'/date: '17 ago. 2026'/; s/date: '27 ago. 2026'/date: '17 ago. 2026'/; s/date: '3 sept. 2026'/date: '17 ago. 2026'/; s/date: '10 sept. 2026'/date: '17 ago. 2026'/; s/date: '17 sept. 2026'/date: '17 ago. 2026'/\" src/pages/blog/index.astro)",
       "Bash(sed -i \"s#\\\\\\(page\\('/blog/kpis-de-produccion-pyme-industrial/', '0.8', 'monthly', \\\\\\)'2026-08-20'#\\\\1'2026-08-17'#; s#\\\\\\(page\\('/blog/medir-tiempos-de-produccion/', '0.75', 'monthly', \\\\\\)'2026-08-27'#\\\\1'2026-08-17'#; s#\\\\\\(page\\('/blog/5s-en-un-taller-industrial/', '0.75', 'monthly', \\\\\\)'2026-09-03'#\\\\1'2026-08-17'#; s#\\\\\\(page\\('/blog/preparar-auditoria-iso-9001-produccion/', '0.8', 'monthly', \\\\\\)'2026-09-10'#\\\\1'2026-08-17'#; s#\\\\\\(page\\('/blog/control-de-calidad-en-excel/', '0.75', 'monthly', \\\\\\)'2026-09-17'#\\\\1'2026-08-17'#\" src/pages/sitemap.xml.ts)",
       "Bash(sed -i 's/^### 3\\\\.1 — KPIs de producción \\(20 ago\\)/### 3.1 — KPIs de producción/; s/^### 3\\\\.2 — Medir tiempos de producción \\(27 ago\\)/### 3.2 — Medir tiempos de producción/; s/^### 3\\\\.3 — Las 5S en un taller \\(3 sept\\)/### 3.3 — Las 5S en un taller/; s/^### 3\\\\.4 — Preparar una auditoría ISO 9001 \\(10 sept\\)/### 3.4 — Preparar una auditoría ISO 9001/; s/^### 3\\\\.5 — Control de calidad en Excel \\(17 sept\\)/### 3.5 — Control de calidad en Excel/' CALENDARIO_EDITORIAL_2026-08_09.md)",
-      "Bash(sed -i 's/^Según `REELEVO_ESTRATEGIA_SEO_CONTENIDOS.md` \\(sección 7\\), 2-3 posts por artículo. Ángulo sugerido por pieza, publicando el día siguiente a la publicación y a los 10 días:/Este es el calendario vivo del documento: las URLs ya están publicadas, y lo que se escalona es la difusión, una pieza por semana. Según `REELEVO_ESTRATEGIA_SEO_CONTENIDOS.md` \\(sección 7\\), 2-3 posts por artículo:/' CALENDARIO_EDITORIAL_2026-08_09.md)"
+      "Bash(sed -i 's/^Según `REELEVO_ESTRATEGIA_SEO_CONTENIDOS.md` \\(sección 7\\), 2-3 posts por artículo. Ángulo sugerido por pieza, publicando el día siguiente a la publicación y a los 10 días:/Este es el calendario vivo del documento: las URLs ya están publicadas, y lo que se escalona es la difusión, una pieza por semana. Según `REELEVO_ESTRATEGIA_SEO_CONTENIDOS.md` \\(sección 7\\), 2-3 posts por artículo:/' CALENDARIO_EDITORIAL_2026-08_09.md)",
+      "Bash(python -c \"import json,sys; v=json.load\\(sys.stdin\\); print\\([x for x in v if x.startswith\\(\\('11.','12.'\\)\\)][-12:]\\)\")",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)[-8:]\\)\")",
+      "Bash(python -c \"import json,sys; print\\([x for x in json.load\\(sys.stdin\\) if x.startswith\\('6.'\\)]\\)\")",
+      "Bash(cp .vercel/output/config.json /tmp/config-antes.json)",
+      "Bash(python -c \"import json;print\\(len\\(json.load\\(open\\('/tmp/config-antes.json'\\)\\)['routes']\\)\\)\")",
+      "Bash(echo \"rutas antes: $\\(python -c \"import json;print\\(len\\(json.load\\(open\\('/tmp/config-antes.json'\\)\\)['routes']\\)\\)\"\\)\")",
+      "Bash(gh api *)",
+      "PowerShell($gh = Get-Command gh -ErrorAction SilentlyContinue; if \\($gh\\) { $gh.Source } else { \"gh no instalado\" }; $p = \"$env:ProgramFiles\\\\GitHub CLI\\\\gh.exe\"; if \\(Test-Path $p\\) { \"encontrado: $p\" })",
+      "Bash(grep -E \"package\\(-lock\\)?\\\\.json$|yarn\\\\.lock$|pnpm-lock\")"
     ]
   }
 }
