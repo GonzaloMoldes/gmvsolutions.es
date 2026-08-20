@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Screenshot from '../components/Screenshot.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
+
+// Disparador 1 del plan comercial (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M3b).
+// Era el unico disparador con mucho contenido (270 menciones) y ninguna pagina
+// comercial: el 83 % vivia en el blog.
+//
+// Dos reglas al tocar esta pagina:
+//  1. No prometer que los errores desaparecen. Se reduce la parte del error que
+//     viene de no tener el criterio delante; el resto sigue ahi.
+//  2. El Pareto de rechazos existe solo como API, sin pantalla. No mencionarlo
+//     (regla 13 del MAPA_FUNCIONAL_PRODUCTO.md).
+const title = "Reducir errores en producción industrial | REELEVO";
+const description = "El error que se repite no es despiste: es que el criterio correcto no estaba en el puesto. Pasos con evidencia, paradas con motivo y validación del supervisor.";
+const canonical = "https://www.gmvsolutions.es/errores-en-planta/";
+
+const faqs: FaqItem[] = [
+  {
+    q: '¿Esto elimina los errores?',
+    a: 'No, y desconfía de quien te lo diga. Un operario cansado, una máquina descalibrada o un material fuera de especificación van a seguir dando problemas. Lo que se reduce es la parte del error que viene de no tener el criterio delante en el momento de decidir, y el tiempo que hoy pasa hasta que alguien se entera de que ha ocurrido.',
+  },
+  {
+    q: '¿Y si el operario marca «sí, correcto» sin haber mirado?',
+    a: 'Puede pasar, igual que hoy se firma un parte en papel al final del turno sin haberlo rellenado sobre la marcha. Por eso los pasos que de verdad importan no se cierran con un clic: piden una foto, una medición que hay que introducir o el visto bueno del supervisor antes de dejar continuar. No es infalible, pero deja rastro de qué se comprobó y qué no.',
+  },
+  {
+    q: '¿Sirve cuando hay que responder a una no conformidad?',
+    a: 'Sirve para no reconstruirla de memoria. De cada ejecución queda quién la hizo, cuándo, con qué versión del proceso, qué pasos completó, qué midió y qué unidades salieron rechazadas. El criterio de calidad lo sigues poniendo tú; lo que cambia es que la revisión parte de un registro y no de una conversación.',
+  },
+  {
+    q: '¿Cuántos procesos hay que documentar para notar algo?',
+    a: 'Dos o tres. Los que ya sabes: el error que te aparece cada dos semanas y del que todo el mundo tiene una teoría distinta. Empezar por ahí da una señal clara en pocas semanas; empezar por documentarlo todo suele acabar sin documentar nada.',
+  },
+  {
+    q: '¿Esto no acaba sirviendo para señalar al operario que se equivocó?',
+    a: 'Depende de cómo lo uses, y por eso conviene decirlo antes de empezar. El registro está pensado para revisar el procedimiento: si el mismo paso falla con tres personas distintas, el problema no son las tres personas. Si se usa para buscar culpables, la gente deja de reportar problemas y pierdes justo el dato que querías.',
+  },
+];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO — Reducir errores en planta",
+  "description": description,
+  "url": canonical,
+  "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
+};
+
+const schema = [pageSchema, faqPageSchema(faqs)];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle="REELEVO — El error que se repite no es de la persona"
+  ogDescription="Cuando el mismo fallo aparece cada dos semanas, el criterio correcto no estaba en el puesto. Pasos con evidencia, causa registrada y mejora que cambia el proceso."
+  activeNav="casos-de-uso"
+  schema={schema}
+  pageType="caso_uso"
+>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow fade-up">Errores que se repiten</div>
+  <h1 class="fade-up delay-1">El error que se repite<br><em>no es de la persona</em></h1>
+  <p class="fade-up delay-2">Cuando el mismo fallo aparece cada dos semanas no es despiste. Es que el criterio correcto no estaba disponible en el puesto en el momento de decidir, y nadie se entera hasta que llega la reclamación.</p>
+  <div class="hero-cta-group fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    <a href="/blog/errores-humanos-produccion/" class="btn-ghost">Por qué ocurren →</a>
+  </div>
+  <p class="hero-cta-note fade-up delay-3">Empiezas por un proceso · Sin tarjeta · Sin compromiso</p>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">En el puesto</div>
+      <div class="stat-label">El criterio está delante en el momento de decidir, no en una carpeta del servidor que nadie abre con las manos sucias</div>
+    </div>
+    <div class="stat-item fade-up delay-1">
+      <div class="stat-num">Con evidencia</div>
+      <div class="stat-label">Los pasos críticos piden foto, medición o visto bueno del supervisor antes de dejar continuar</div>
+    </div>
+    <div class="stat-item fade-up delay-2">
+      <div class="stat-num">Con causa</div>
+      <div class="stat-label">Cada parada y cada unidad rechazada quedan con su motivo, no agrupadas como «incidencias»</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-full"></div>
+
+<!-- LOS TRES QUE MÁS SE REPITEN -->
+<section class="section" id="problema">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Lo que pasa hoy</div>
+    <h2 class="section-title fade-up delay-1">Los tres errores que <em>más se repiten</em> en una pyme industrial</h2>
+    <p class="section-sub fade-up delay-2">No son fallos exóticos. Son los que aparecen en la reunión del lunes con la misma frase: «otra vez lo mismo».</p>
+
+    <div class="scenario-grid fade-up delay-3">
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">Cambio de turno</div>
+        <div class="scenario-card-title">El arranque con los parámetros del anterior</div>
+        <p>Entra el turno de tarde y la máquina viene configurada para la serie de la mañana. Los parámetros correctos están en la cabeza del que se acaba de ir y en una libreta que no es de nadie.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> se arranca «como suele ir» y el problema aparece treinta piezas después.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> el arranque es un proceso con sus valores, sus fotos y sus comprobaciones. <strong>El que entra no tiene que adivinar en qué estado se lo dejaron.</strong></div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">Cambio de referencia</div>
+        <div class="scenario-card-title">El paso que todo el mundo sabe</div>
+        <p>Hay un ajuste que hay que hacer solo cuando se cambia de referencia. Es tan obvio para los veteranos que nunca se escribió, así que el que lleva tres meses no sabe que existe.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> el lote sale mal y se descubre en control final, o en casa del cliente.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> ese ajuste es un paso más del proceso. <strong>No depende de que alguien se acuerde de mencionarlo.</strong></div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">El control fantasma</div>
+        <div class="scenario-card-title">Firmado a las 14:00, hecho nunca</div>
+        <p>El parte de control se rellena entero al final del turno, de memoria y con la misma letra para las ocho horas. Nadie miente: es que rellenarlo sobre la marcha con guantes es incómodo.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> tienes un papel firmado que no demuestra que la comprobación se hiciera.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> la comprobación se cierra en el momento, desde el móvil, <strong>con la foto o la medición pegada al paso.</strong></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUÉ CAMBIA -->
+<section class="section" id="solucion">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Qué cambia en el puesto</div>
+    <h2 class="section-title fade-up delay-1">Menos margen para improvisar <em>en los cuatro pasos que importan</em></h2>
+    <p class="section-sub fade-up delay-2">La mayoría de los errores repetidos no vienen de no saber hacer el trabajo. Vienen de decidir con información incompleta y de que el fallo tarde semanas en salir a la luz.</p>
+
+    <div class="benefit-list fade-up delay-3">
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <div class="benefit-title">El criterio llega cuando hay que decidir</div>
+          <div class="benefit-desc">Se escanea el QR de la máquina y aparece el proceso en su versión vigente, con texto, fotos y vídeo. Sin cuenta ni contraseña, sin buscar la carpeta del servidor y sin el plastificado de hace tres años que sigue colgado al lado.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Deja de haber decisiones tomadas a partir de lo que uno recuerda.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📸</div>
+        <div>
+          <div class="benefit-title">Los pasos críticos no se despachan de memoria</div>
+          <div class="benefit-desc">Un paso puede exigir foto de evidencia, una medición que hay que introducir, una espera que tiene que cumplirse o el visto bueno del supervisor. El siguiente no se abre hasta cerrar el anterior, así que el ajuste que «todo el mundo sabe» deja de poder saltarse sin querer.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>El control se hace cuando toca, no se firma al final del turno.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🔎</div>
+        <div>
+          <div class="benefit-title">El fallo queda con su causa, no como «una incidencia»</div>
+          <div class="benefit-desc">Las paradas de máquina se registran con motivo, las unidades rechazadas se cuentan aparte de las buenas y los campos de captura recogen los valores que os importan. Cuando alguien pregunta por qué se repite, hay algo concreto que mirar.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>La conversación pasa de «vamos mal» a «falla el paso 7 en la máquina 3».</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🔁</div>
+        <div>
+          <div class="benefit-title">El error se cierra cambiando el proceso</div>
+          <div class="benefit-desc">Quien detecta el problema lo reporta desde el mismo puesto y puede proponer la corrección. El supervisor la revisa y, si vale, se publica como versión nueva del proceso; los operarios certificados reciben el aviso y confirman que la han leído.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>El fallo deja de repetirse porque cambia el procedimiento, no porque se llame la atención a alguien.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAPTURA -->
+<section class="section section-center" id="evidencia">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Así se ve en la máquina</div>
+      <h2 class="section-title">Un paso cada vez,<br><em>y cerrarlo cuesta un gesto</em></h2>
+      <p class="section-sub" style="max-width:720px;margin:0 auto 40px;">El operario ve el paso en el que está, con su vídeo si lo tiene, y lo cierra confirmando que salió bien o declarando que hay un problema. Esa segunda opción es la importante: es la que convierte un fallo en un dato en lugar de en un comentario de pasillo.</p>
+    </div>
+
+    <figure class="screenshot-fig fade-up delay-1">
+      <Screenshot name="sop-operario" alt="Ejecución de un proceso paso a paso en el móvil del operario: vídeo del paso, confirmación de que se ha completado correctamente o aviso de problema, y el paso siguiente todavía bloqueado" class="screenshot-img" layout="single" />
+      <figcaption class="screenshot-caption">Ejecución en el puesto — cada paso se confirma o se marca como problema, y el siguiente espera su turno</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LÍMITES -->
+<section class="section" id="limites">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Conviene decirlo claro</div>
+      <h2 class="section-title">Esto no elimina <em>el error humano</em></h2>
+      <p class="section-sub">Reduce la parte del error que viene de no tener el criterio delante y de que nadie se entere hasta que llega la reclamación. Esa parte suele ser la mayor, pero no es toda.</p>
+    </div>
+
+    <div class="limite-grid fade-up delay-1">
+      <article class="limite-card ok">
+        <h3 class="limite-title">Sí es</h3>
+        <ul class="limite-list">
+          <li>El procedimiento correcto disponible en el momento de decidir</li>
+          <li>Pasos críticos que piden evidencia antes de dejar continuar</li>
+          <li>Paradas y rechazos registrados con su motivo</li>
+          <li>Una vía para que la corrección acabe cambiando el proceso</li>
+        </ul>
+      </article>
+
+      <article class="limite-card caution">
+        <h3 class="limite-title">No es</h3>
+        <ul class="limite-list">
+          <li>Un sistema a prueba de fallos ni una garantía de cero defectos</li>
+          <li>Un control automático de la máquina: no lee sensores ni corrige parámetros</li>
+          <li>Un sustituto de tu sistema de calidad ni del criterio del responsable</li>
+          <li>Una herramienta para repartir culpas cuando algo sale mal</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<FaqSection items={faqs} />
+
+<div class="divider-full"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
+  <h3 class="cta-title fade-up delay-1">Empieza por el error<br><em>que más se te repite</em></h3>
+  <p class="cta-sub fade-up delay-2">Ya sabes cuál es. Coge ese proceso, ponlo en la máquina con sus comprobaciones y mira qué aparece en las primeras semanas. Si el fallo sigue, al menos sabrás en qué paso ocurre.</p>
+  <div class="cta-actions fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+  </div>
+  <div class="cta-note fade-up delay-4" style="margin-top:18px;">
+    Relacionado:
+    <a href="/consistencia-entre-turnos/">consistencia entre turnos</a> ·
+    <a href="/calidad-y-conformidad/">calidad y conformidad</a> ·
+    <a href="/por-que-usar-reelevo/">los nueve problemas</a>
+  </div>
+</section>
+
+<style>
+  /* Mismo bloque "si es / no es" que /consistencia-entre-turnos/ y
+     /calidad-y-conformidad/. Si aparece una cuarta pagina que lo necesite,
+     toca subirlo a global.css en lugar de copiarlo otra vez. */
+  .limite-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .limite-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+  }
+
+  .limite-card.ok {
+    border-left: 3px solid var(--green);
+  }
+
+  .limite-card.caution {
+    border-left: 3px solid var(--orange);
+  }
+
+  .limite-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 18px;
+  }
+
+  .limite-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .limite-list li {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .limite-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .limite-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+</BaseLayout>

@@ -112,7 +112,10 @@ export function faqPageSchema(items: FaqItem[]) {
 const SEGMENT_LABELS: Record<string, string> = {
   'como-funciona': 'Cómo funciona',
   precios: 'Precios',
-  'por-que-usar-reelevo': 'Por qué usar REELEVO',
+  // La miga, el enlace del header y el del footer dicen lo mismo a proposito:
+  // el <title> conserva "Por que usar REELEVO" para busqueda, pero en pantalla
+  // la pagina se llama igual en todas partes.
+  'por-que-usar-reelevo': 'Qué resuelve',
   'sobre-nosotros': 'Sobre nosotros',
   'video-demo': 'Vídeo demo',
   recursos: 'Recursos',

@@ -9,6 +9,14 @@ const { activeNav } = Astro.props;
   <a href="/" class="header-logo">REEL<span>EVO</span></a>
 
   <nav class="header-nav">
+    <!-- Va ANTES de "Como funciona" a proposito: el visitante decide primero si
+         reconoce su problema y solo despues le interesa el mecanismo. Apunta al
+         hub de los nueve disparadores de compra
+         (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08.md, M2). -->
+    <a href="/por-que-usar-reelevo/" class={activeNav === 'por-que-usar-reelevo' ? 'nav-active' : ''}>
+      Qué resuelve
+    </a>
+
     <a href="/como-funciona/" class={activeNav === 'como-funciona' ? 'nav-active' : ''}>
       Cómo funciona
     </a>
@@ -122,6 +130,18 @@ const { activeNav } = Astro.props;
             Transferencia de conocimiento
             <span class="nav-sub-label">Captura antes de que se vayan</span>
           </a>
+          <a href="/consistencia-entre-turnos/">
+            Consistencia entre turnos
+            <span class="nav-sub-label">Que no cada uno lo haga a su manera</span>
+          </a>
+          <a href="/errores-en-planta/">
+            Errores que se repiten
+            <span class="nav-sub-label">El fallo que vuelve cada dos semanas</span>
+          </a>
+          <a href="/portal-operario/">
+            Menos interrupciones al encargado
+            <span class="nav-sub-label">El operario resuelve en el puesto</span>
+          </a>
         </div>
         <div class="mega-col">
           <div class="mega-col-title">Por rol</div>
@@ -200,6 +220,7 @@ const { activeNav } = Astro.props;
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="/por-que-usar-reelevo/">Qué resuelve</a>
   <a href="/como-funciona/">Cómo funciona</a>
   <div class="mobile-section-title">Plataforma — Gestión y operaciones</div>
   <a href="/software-gestion-pyme-industrial/">Software de gestión industrial</a>
@@ -225,6 +246,9 @@ const { activeNav } = Astro.props;
   <a href="/casos-de-uso/onboarding-operarios/">Onboarding operarios</a>
   <a href="/casos-de-uso/personal-ett/">Personal ETT</a>
   <a href="/casos-de-uso/transferencia-conocimiento/">Transferencia de conocimiento</a>
+  <a href="/consistencia-entre-turnos/">Consistencia entre turnos</a>
+  <a href="/errores-en-planta/">Errores que se repiten</a>
+  <a href="/portal-operario/">Menos interrupciones al encargado</a>
   <div class="mobile-section-title">Soluciones — Por rol</div>
   <a href="/para-quien/jefe-de-produccion/">Jefe de producción</a>
   <a href="/para-quien/responsable-rrhh/">Responsable de RRHH</a>

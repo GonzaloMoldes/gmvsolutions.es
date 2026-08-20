@@ -40,7 +40,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <h1 class="fade-up delay-1">REELEVO no es una isla.<br><em>Se conecta con lo que ya tienes</em></h1>
     <p class="fade-up delay-2">API REST documentada, 21 eventos de webhook y un kit de integración nativo con Microsoft 365. Los datos operativos de tu planta donde los necesitas: en tu ERP, en tu dashboard de BI o en Teams.</p>
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -155,6 +156,22 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
     </div>
   </section>
+  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
+       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
+       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
+  <div class="divider"></div>
+
+  <section class="section section-center">
+    <div class="section-inner" style="max-width:680px;">
+      <p class="section-sub fade-up" style="margin-bottom:24px;">La API y los webhooks se entienden mejor con tus propios datos dentro. La cuenta gratuita ya deja probar el flujo completo.</p>
+      <div class="fade-up delay-1">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-label="Ver la API con datos reales">Ver la API con datos reales</a>
+      </div>
+      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
+    </div>
+  </section>
+
 
   <div class="divider"></div>
 
@@ -416,7 +433,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Empieza por digitalizar la operación en planta. Cuando eso esté asentado, conectar Power BI o tu ERP deja de ser un proyecto y pasa a ser una extensión natural.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarse gratis
       </a>
       <a href="/integracion-m365/" class="btn-ghost">

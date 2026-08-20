@@ -30,7 +30,7 @@ const schema = {
   <p class="fade-up delay-2">El nuevo operario encuentra el proceso en el puesto y sigue una referencia clara. Con la matriz de competencias visualizas quién domina qué, y el experto deja de cargar con toda la tutoría.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
@@ -43,11 +43,11 @@ const schema = {
   <div class="stat-band-inner">
     <div class="stat-item fade-up">
       <div class="stat-num">3–5 días</div>
-      <div class="stat-label">tiempo medio que tarda un nuevo operario en alcanzar el rendimiento del titular</div>
+      <div class="stat-label">tiempo medio que tarda un nuevo operario en alcanzar el rendimiento del titular<br><span style="color:var(--gray2);font-size:.78rem;">Encuesta REELEVO, 2025</span></div>
     </div>
     <div class="stat-item fade-up delay-1">
       <div class="stat-num">+40%</div>
-      <div class="stat-label">más errores operativos durante los primeros días de cualquier incorporación</div>
+      <div class="stat-label">más errores operativos durante los primeros días de cualquier incorporación<br><span style="color:var(--gray2);font-size:.78rem;">Encuesta REELEVO, 2025</span></div>
     </div>
     <div class="stat-item fade-up delay-2">
       <div class="stat-num">Menos tutoría</div>
@@ -160,6 +160,48 @@ const schema = {
 
 <div class="divider"></div>
 
+<!-- CUANTO TARDA — disparador 5 (reducir el tiempo de aprendizaje).
+     La web daba el dato del sector (3-5 dias) pero nunca decia como se sabe el
+     tuyo, que es lo que convierte el disparador en algo accionable.
+     (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M4a) -->
+<section class="section" id="cuanto-tarda">
+  <div class="section-inner" style="max-width:900px;margin:0 auto;">
+    <div class="eyebrow fade-up">Tiempo de aprendizaje</div>
+    <h2 class="section-title fade-up delay-1">¿Cuánto tarda hoy en ir solo? <em>¿Y cómo lo sabes?</em></h2>
+    <p class="section-sub fade-up delay-2">Hoy la respuesta suele ser una impresión del encargado: «va aprendiendo», «todavía no lo veo suelto». Con esa impresión se deciden los turnos. Es la parte del onboarding que nadie mide porque nunca ha habido con qué.</p>
+
+    <div class="steps-grid fade-up delay-3" style="margin-top:48px;">
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">01</div>
+        <h3 class="step-card-title">En qué paso se atasca</h3>
+        <p class="step-card-desc">No «va lento», sino que el paso 4 le lleva el triple que al resto. Eso ya no es un problema de la persona: es un paso mal explicado o una parte del trabajo que hay que practicar aparte.</p>
+      </div>
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">02</div>
+        <h3 class="step-card-title">Cuánto lleva recorrido</h3>
+        <p class="step-card-desc">La ruta de aprendizaje muestra qué procesos ha completado, cuántas veces y qué le falta para el siguiente nivel. El progreso deja de discutirse y pasa a mirarse.</p>
+      </div>
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">03</div>
+        <h3 class="step-card-title">Cómo va frente al titular</h3>
+        <p class="step-card-desc">El mismo proceso, en la misma máquina, ejecutado por el que lleva quince años y por el que entró el mes pasado. La distancia entre esos dos tiempos es el número que de verdad te interesa.</p>
+      </div>
+    </div>
+
+    <p class="section-sub fade-up delay-3" style="margin-top:40px;text-align:center;">
+      El número no baja por mirarlo. Baja cuando ves que hay un paso donde se atasca todo el mundo
+      y arreglas ese paso — que además es el que estará dando problemas también en los tres turnos.
+    </p>
+
+    <div class="fade-up delay-3" style="text-align:center;margin-top:28px;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="cuanto-tarda" data-cta-trigger="05" data-cta-label="Medir la próxima incorporación">Medir la próxima incorporación</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CÓMO FUNCIONA -->
 <section class="section section-center" id="como-funciona">
   <div class="section-inner" style="max-width:760px;">
@@ -200,7 +242,7 @@ const schema = {
   <p class="cta-sub fade-up delay-2">Documenta los procesos críticos antes de la próxima incorporación.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
     Relacionado:

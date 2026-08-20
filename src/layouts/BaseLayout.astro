@@ -307,6 +307,10 @@ const entrySplashLogo = await getImage({
           cta_label: cta.dataset.ctaLabel || (cta.textContent || '').trim(),
           cta_location: cta.dataset.ctaLocation || 'body',
           cta_intent: intent,
+          // Disparador de compra 01..09 al que responde la pagina o la tarjeta
+          // (ver PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08.md). Solo lo llevan
+          // los CTA que pertenecen a un dolor concreto; el resto va a null.
+          cta_trigger: cta.dataset.ctaTrigger || null,
           cta_destination: cta.getAttribute('href'),
           page_path: location.pathname,
           page_type: document.body.dataset.pageType || null,

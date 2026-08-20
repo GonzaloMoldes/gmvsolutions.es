@@ -40,7 +40,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <h1 class="fade-up delay-1">Cada pieza que sale de tu fábrica<br><em>sabe exactamente quién la hizo</em></h1>
     <p class="fade-up delay-2">Agrupa toda la producción bajo un proyecto, genera un QR individual por cada pieza terminada y consulta al instante quién la produjo, cuándo, en qué proceso y dentro de qué obra. Trazabilidad real, no papel.</p>
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -139,6 +140,22 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
     </div>
   </section>
+  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
+       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
+       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
+  <div class="divider"></div>
+
+  <section class="section section-center">
+    <div class="section-inner" style="max-width:680px;">
+      <p class="section-sub fade-up" style="margin-bottom:24px;">Con una obra y unas cuantas piezas ya se ve si el historial por pieza te sirve para responder a un cliente.</p>
+      <div class="fade-up delay-1">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-label="Crear la primera obra">Crear la primera obra</a>
+      </div>
+      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
+    </div>
+  </section>
+
 
   <div class="divider"></div>
 
@@ -302,7 +319,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Crea tu primera obra y ve cómo cambia la lectura del proyecto cuando cada paso queda atado a su contexto.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarse gratis
       </a>
       <a href="/workflows/" class="btn-ghost">

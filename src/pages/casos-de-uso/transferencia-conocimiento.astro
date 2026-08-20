@@ -13,7 +13,7 @@ const schema = {
 
 <BaseLayout
   title="Transferencia de conocimiento industrial | REELEVO"
-  description="Transferencia de conocimiento industrial: captura del conocimiento crítico del experto antes de que se jubile o se vaya, documentado en el puesto."
+  description="Transferencia de conocimiento industrial: captura lo que sabe el experto antes de que se jubile. Y si ya se ha ido, reconstruye el procedimiento desde tus documentos y desde quien se quedó."
   canonical="https://www.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/"
   ogTitle="REELEVO — Transferencia de conocimiento operativo | Captura antes de que se vayan"
   ogDescription="Tu mejor técnico se jubila en 6 meses. REELEVO captura su conocimiento operativo antes de que desaparezca. En 30 minutos por proceso, con el móvil."
@@ -42,6 +42,7 @@ const schema = {
   .timeline-content { padding-top: 12px; }
   .timeline-heading { font-family: 'Oswald', sans-serif; font-size: .95rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; color: var(--white); }
   .timeline-desc { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+  .step-card-number { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--orange); margin-bottom: 16px; }
   @media(max-width:960px) { .risk-grid { grid-template-columns: 1fr; } }
   @media(max-width:600px) {
     .risk-card { padding: 28px 24px; }
@@ -57,7 +58,7 @@ const schema = {
   <p class="fade-up delay-2">Lleva 20 años en esa planta. Sabe cómo arrancar la línea en invierno, qué hacer cuando el sensor de presión da falsos positivos, qué pasos nunca hay que seguir en ese orden. Ese conocimiento no está en ningún manual: está en su cabeza. Documentar esos procesos es clave para que ese saber hacer no se pierda.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="04" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
@@ -244,6 +245,50 @@ const schema = {
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- YA SE FUE — el angulo curativo del disparador 8.
+     Toda la pagina, y la linea de tiempo de arriba en particular, esta escrita en
+     clave preventiva ("capturalo antes de que se vaya"). Pero el que compra suele
+     llegar tarde: ya perdio a la persona. Ese visitante se iba de la pagina sin
+     respuesta justo despues de leer que deberia haber empezado hace seis meses.
+     (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M4c) -->
+<section class="section" id="ya-se-fue">
+  <div class="section-inner" style="max-width:900px;margin:0 auto;">
+    <div class="eyebrow fade-up">Si ya es tarde</div>
+    <h2 class="section-title fade-up delay-1">Ya se ha ido. <em>¿Se puede recuperar<br>lo que sabía?</em></h2>
+    <p class="section-sub fade-up delay-2">En parte sí, y antes de lo que parece. No vas a recuperar su cabeza: vas a recuperar el procedimiento, que es lo que necesitas para que ese puesto deje de depender de una llamada.</p>
+
+    <div class="steps-grid fade-up delay-3" style="margin-top:48px;">
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">01</div>
+        <h3 class="step-card-title">Lo que sí dejó escrito</h3>
+        <p class="step-card-desc">Los Word, los PDF y las hojas de instrucciones que están sueltos por carpetas y correos. Se suben y la importación asistida propone un proceso paso a paso que tú revisas y apruebas. Casi nunca está todo, pero rara vez no hay nada.</p>
+      </div>
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">02</div>
+        <h3 class="step-card-title">Lo que sabe el que se quedó</h3>
+        <p class="step-card-desc">Alguien sigue haciendo ese trabajo, aunque sea peor que el que se fue. Se le graba en vídeo mientras lo hace y de ahí sale un borrador de proceso. Corregir un borrador es mucho más rápido que escribir desde una hoja en blanco.</p>
+      </div>
+      <div class="step-card" style="text-align:left;">
+        <div class="step-card-number">03</div>
+        <h3 class="step-card-title">Lo que va apareciendo al trabajar</h3>
+        <p class="step-card-desc">Los primeros meses son los que más enseñan: dónde se atasca la gente, qué falla y qué se pregunta. Desde su portal, el operario puede pedir el procedimiento que le falta, así que la lista de lo que hay que documentar la escribe quien lo echa en falta.</p>
+      </div>
+    </div>
+
+    <p class="section-sub fade-up delay-3" style="margin-top:40px;text-align:center;">
+      No vas a recuperarlo todo, y quien te diga lo contrario no ha estado en una planta.
+      Vas a recuperar lo suficiente para que el puesto arranque sin buscar el teléfono de un jubilado.
+    </p>
+
+    <div class="fade-up delay-3" style="text-align:center;margin-top:28px;">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="ya-se-fue" data-cta-trigger="08" data-cta-label="Empezar por lo que quedó">Empezar por lo que quedó</a>
+    </div>
+  </div>
+</section>
+
 <div class="divider-full"></div>
 
 <!-- CTA FINAL -->
@@ -253,7 +298,7 @@ const schema = {
   <p class="cta-sub fade-up delay-2">El experto documenta los primeros procesos críticos antes de que sea tarde.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="04" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
     Relacionado:

@@ -40,7 +40,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <h1 class="fade-up delay-1">Los datos de tu planta<br><em>directamente en las herramientas que ya usas</em></h1>
     <p class="fade-up delay-2">Si tu empresa ya trabaja con Microsoft 365, REELEVO se conecta sin fricción. Datos de producción, competencias y calidad en Power BI. Alertas automáticas en Teams. Flujos en Power Automate. Todo con un kit listo para importar.</p>
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
       <a href="/api-integraciones/" class="btn-ghost">Ver API completa →</a>
     </div>
   </section>
@@ -131,6 +132,22 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
     </div>
   </section>
+  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
+       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
+       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
+  <div class="divider"></div>
+
+  <section class="section section-center">
+    <div class="section-inner" style="max-width:680px;">
+      <p class="section-sub fade-up" style="margin-bottom:24px;">Los cuatro dashboards salen de datos de ejecución reales. Necesitas tener algo ejecutado para que digan algo.</p>
+      <div class="fade-up delay-1">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-label="Conectarlo con tu Power BI">Conectarlo con tu Power BI</a>
+      </div>
+      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
+    </div>
+  </section>
+
 
   <div class="divider"></div>
 
@@ -278,7 +295,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Si ya trabajas con Microsoft 365, la integración te evita copiar y pegar datos para ver lo que pasa en planta.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarse gratis
       </a>
       <a href="/precios/" class="btn-ghost">

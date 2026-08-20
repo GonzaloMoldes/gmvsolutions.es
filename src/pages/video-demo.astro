@@ -217,7 +217,21 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <!-- CTA FINAL -->
   <FaqSection items={faqs} />
 
+  
+  <!-- CTA intermedio (M6b/M6d): la pagina solo ofrecia crear cuenta al final. -->
   <div class="divider"></div>
+
+  <section class="section section-center">
+    <div class="section-inner" style="max-width:680px;">
+      <p class="section-sub fade-up" style="margin-bottom:24px;">El demo va con datos de ejemplo. Con los tuyos dentro se ve de verdad si encaja: documenta un proceso real y compruébalo.</p>
+      <div class="fade-up delay-1">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-trigger="02" data-cta-label="Probarlo con mis procesos">Probarlo con mis procesos</a>
+      </div>
+      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
+    </div>
+  </section>
+<div class="divider"></div>
 
   <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Listo para ver REELEVO?</div>
@@ -230,7 +244,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     El video te mostrará exactamente qué esperar.
   </p>
   <div class="cta-actions fade-up delay-3">
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="02" data-cta-label="Registrarme en REELEVO">
       Registrarme en REELEVO
     </a>
     <a href="/precios/#roi" class="btn-ghost">
@@ -253,7 +268,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px;">
       <a href="/blog/onboarding-software-pymes/" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 28px; text-decoration: none; transition: transform .2s; display: block;">
         <h3 style="color: var(--white); margin-top: 0;">📖 Guía: Onboarding software para pymes</h3>
-        <p style="color: var(--gray); margin: 12px 0;">Descubre cómo un onboarding software reduce costos de incorporación en un 40% y mejora la gestión de competencias.</p>
+        <p style="color: var(--gray); margin: 12px 0;">Qué cambia cuando la incorporación deja de depender de que el tutor esté libre, y cómo queda registrado lo que ya sabe hacer cada persona.</p>
         <p style="color: var(--orange); font-weight: 600; margin: 0;">Leer guía →</p>
       </a>
 

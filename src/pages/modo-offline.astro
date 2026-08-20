@@ -44,7 +44,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <h1 class="fade-up delay-1">La wifi de planta se cae.<br><em>El proceso no se interrumpe.</em></h1>
     <p class="fade-up delay-2">REELEVO es una Progressive Web App que el operario instala en su móvil en un toque — sin App Store ni Google Play. Si la señal cae a mitad de un proceso, lo que ya tenía abierto sigue ahí y lo que registra se encola y se envía solo al volver la red.</p>
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -121,6 +122,22 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       </div>
     </div>
   </section>
+  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
+       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
+       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
+  <div class="divider"></div>
+
+  <section class="section section-center">
+    <div class="section-inner" style="max-width:680px;">
+      <p class="section-sub fade-up" style="margin-bottom:24px;">La forma honesta de comprobar esto es en el punto muerto de tu propia nave, no en una demo con wifi de oficina.</p>
+      <div class="fade-up delay-1">
+        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-label="Probarlo en tu nave">Probarlo en tu nave</a>
+      </div>
+      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
+    </div>
+  </section>
+
 
   <div class="divider"></div>
 
@@ -229,7 +246,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Haz una prueba en tu planta y comprueba cómo responde la PWA en el suelo real de trabajo, no solo en la oficina.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
         Registrarse gratis
       </a>
       <a href="/portal-operario/" class="btn-ghost">

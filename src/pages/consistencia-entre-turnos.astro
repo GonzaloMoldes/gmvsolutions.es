@@ -1,0 +1,339 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Screenshot from '../components/Screenshot.astro';
+import { faqPageSchema, type FaqItem } from '../lib/seo';
+
+// Pagina del eje de CONSISTENCIA (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M3a).
+// Cubre los disparadores 6 (estandarizar operaciones) y 7 (que no cada operario
+// lo haga a su manera), que hasta ahora solo existian en el blog.
+//
+// Regla al tocar esta pagina: la variacion se mira SIEMPRE por proceso, nunca por
+// persona. En cuanto el copy suena a control de personal, el jefe de produccion
+// deja de comprarlo. Por eso la seccion de limites no es opcional.
+const title = "Estandarizar procesos entre turnos y operarios | REELEVO";
+const description = "Cuando cada turno hace la misma pieza a su manera: una sola versión del proceso en el puesto, aviso cuando cambia y detección de los procesos que más varían entre personas.";
+const canonical = "https://www.gmvsolutions.es/consistencia-entre-turnos/";
+
+const faqs: FaqItem[] = [
+  {
+    q: '¿Y si mi mejor operario tiene un método mejor que el que está escrito?',
+    a: 'Entonces el que está mal es el documento, y eso hay que arreglarlo, no taparlo. El operario propone la mejora desde su móvil, el supervisor la revisa y, si vale, se publica como versión nueva del proceso para todos los turnos. Estandarizar no es obligar a hacerlo peor: es que la mejor forma conocida llegue al resto en vez de quedarse en una sola persona.',
+  },
+  {
+    q: '¿Hay que documentarlo todo para que esto sirva de algo?',
+    a: 'No. Se empieza por los procesos donde la variación cuesta dinero: arranques, cambios de referencia y controles de calidad. Son pocos y son los que más se repiten. El mapa de riesgo de conocimiento ayuda a elegirlos, porque marca los que dependen de una sola persona, los que llevan tiempo sin revisar y los que más varían entre personas.',
+  },
+  {
+    q: '¿Esto no es vigilar al operario?',
+    a: 'No, y la diferencia es importante. La variación se mira por proceso, no por persona: si la misma tarea sale distinta en tres turnos, el que está mal explicado es el proceso. REELEVO no es un sistema de control de presencia ni sirve para hacer un ranking de quién es más lento. Lo que registra es qué se ejecutó y con qué resultado, que es lo que hace falta para revisar el procedimiento.',
+  },
+  {
+    q: '¿Qué pasa cuando cambio un proceso y hay gente trabajando?',
+    a: 'Se publica una versión nueva y pasa a ser la única vigente. Los operarios certificados en ese proceso reciben el aviso y confirman que la han leído, así que no queda nadie trabajando con la anterior por desconocimiento. Las ejecuciones ya hechas conservan la versión con la que se hicieron, que es lo que permite revisar después qué instrucción se siguió realmente.',
+  },
+  {
+    q: '¿Sirve si en mis turnos no todos hablan el mismo idioma?',
+    a: 'Sí. Cada proceso puede tener su traducción y cada operario ve el contenido en su idioma preferido, entre español, inglés y portugués. Lo que no cambia es el proceso: mismos pasos, mismo orden y mismos controles, solo que en el idioma de quien lo ejecuta.',
+  },
+];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "REELEVO — Consistencia entre turnos y operarios",
+  "description": description,
+  "url": canonical,
+  "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
+};
+
+const schema = [pageSchema, faqPageSchema(faqs)];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle="REELEVO — Que el proceso salga igual lo haga quien lo haga"
+  ogDescription="Una sola versión del proceso en el puesto, aviso cuando cambia y detección de los procesos que más varían entre personas y entre turnos."
+  activeNav="casos-de-uso"
+  schema={schema}
+  pageType="caso_uso"
+>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow fade-up">Consistencia entre turnos</div>
+  <h1 class="fade-up delay-1">Tres turnos haciendo<br><em>la misma pieza de tres maneras</em></h1>
+  <p class="fade-up delay-2">No es indisciplina. Es que la instrucción está en un plastificado de hace tres años, cada uno aprendió de alguien distinto y nadie ha dicho nunca cuál de las tres formas es la buena.</p>
+  <div class="hero-cta-group fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+    <a href="/documentacion-procesos/" class="btn-ghost">Ver cómo se documenta →</a>
+  </div>
+  <p class="hero-cta-note fade-up delay-3">Empiezas por un proceso · Sin tarjeta · Sin compromiso</p>
+</section>
+
+<div class="divider-full"></div>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item fade-up">
+      <div class="stat-num">Una versión</div>
+      <div class="stat-label">La vigente. Cuando cambia, quien está certificado en ese proceso recibe el aviso y confirma que la ha leído</div>
+    </div>
+    <div class="stat-item fade-up delay-1">
+      <div class="stat-num">Tres turnos</div>
+      <div class="stat-label">El mismo proceso, con las mismas fotos y los mismos avisos, en mañana, tarde y noche</div>
+    </div>
+    <div class="stat-item fade-up delay-2">
+      <div class="stat-num">Variación visible</div>
+      <div class="stat-label">El mapa de riesgo señala qué procesos varían más entre personas, para saber cuáles arreglar primero</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-full"></div>
+
+<!-- DE DÓNDE SALE LA VARIACIÓN -->
+<section class="section" id="problema">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Por qué pasa</div>
+    <h2 class="section-title fade-up delay-1">Nadie decidió hacerlo distinto. <em>Simplemente nunca se decidió cómo.</em></h2>
+    <p class="section-sub fade-up delay-2">La variación no aparece de golpe: se acumula. Estas son las tres formas en que entra en una planta.</p>
+
+    <div class="scenario-grid fade-up delay-3">
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">El atajo del veterano</div>
+        <div class="scenario-card-title">«Yo esto lo hago más rápido»</div>
+        <p>Lleva quince años en la máquina y ha encontrado un camino más corto que funciona. Casi siempre. Nunca se ha escrito, así que el de tarde sigue haciendo la versión larga y el nuevo se ha inventado una tercera a medio camino.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> el atajo se transmite de boca en boca, deformado, y nadie sabe si es mejor o solo más rápido.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> se propone como mejora, se revisa y, si vale, <strong>pasa a ser el paso oficial de los tres turnos.</strong></div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">Dos verdades a la vez</div>
+        <div class="scenario-card-title">El plastificado y el PDF del servidor</div>
+        <p>En la máquina hay una hoja de 2023. En la carpeta compartida, un Word que alguien actualizó el año pasado. Los dos dicen cosas distintas en el paso 7 y ninguno lleva fecha visible.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> cada uno sigue el que tiene más a mano, y los dos creen estar haciéndolo bien.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> solo hay una versión publicada. <strong>Las anteriores quedan archivadas, no en circulación.</strong></div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-card-tag">Cada maestro, su escuela</div>
+        <div class="scenario-card-title">Aprendido de oídas</div>
+        <p>El de mañana aprendió con Javi, el de tarde con Manuel y el último con quien estuviera libre esa semana. Cada uno heredó los criterios de su maestro, incluidos los que ya estaban torcidos.</p>
+        <div class="scenario-before"><strong>Sin REELEVO:</strong> la variación se hereda y se multiplica con cada incorporación nueva.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> todos aprenden <strong>contra el mismo proceso</strong>, sea quien sea el que les acompañe esos días.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUÉ CAMBIA -->
+<section class="section" id="solucion">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Qué cambia en el puesto</div>
+    <h2 class="section-title fade-up delay-1">Una sola forma de hacerlo, <em>y a la vista de todos</em></h2>
+    <p class="section-sub fade-up delay-2">No se trata de que nadie se salga del guion. Se trata de que exista un guion, de que sea el mismo para los tres turnos y de que mejorarlo sea más fácil que ignorarlo.</p>
+
+    <div class="benefit-list fade-up delay-3">
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📄</div>
+        <div>
+          <div class="benefit-title">Una sola versión vigente, y se nota cuando cambia</div>
+          <div class="benefit-desc">Al publicar una versión nueva, los operarios certificados en ese proceso reciben el aviso y confirman la lectura. Se acabó el «yo tenía la de antes» y el papel de la máquina que nadie recuerda cuándo se imprimió.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Deja de haber dos formas correctas al mismo tiempo.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <div class="benefit-title">El mismo proceso en los tres turnos</div>
+          <div class="benefit-desc">Se abre desde el QR de la máquina, con las mismas fotos, el mismo orden y los mismos avisos. Sin cuenta ni contraseña, así que el gesto es idéntico para el titular, para el sustituto y para el que entró ayer.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>El turno de noche trabaja con lo mismo que el de mañana.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">🔍</div>
+        <div>
+          <div class="benefit-title">Ves dónde está la variación, no solo que existe</div>
+          <div class="benefit-desc">El mapa de riesgo de conocimiento marca los procesos que dependen de una sola persona, los que llevan tiempo sin revisar y los que presentan más variación. En estadísticas quedan la duración y las anomalías por proceso y por máquina, y las horas avisan de desviaciones por encima del 10 %.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Empiezas por los cinco procesos que más varían, no por los cincuenta que hay.</p>
+        </div>
+      </div>
+
+      <div class="benefit-row">
+        <div class="benefit-icon">💡</div>
+        <div>
+          <div class="benefit-title">Si el atajo es bueno, se convierte en el estándar</div>
+          <div class="benefit-desc">El operario propone la mejora desde el móvil, el supervisor la revisa y, si vale, se publica como versión nueva. El conocimiento del que más sabe deja de ser un truco personal y pasa a ser el procedimiento de la empresa.</div>
+        </div>
+        <div class="benefit-result">
+          <div class="benefit-result-label">El resultado</div>
+          <p>Estandarizar deja de significar «hazlo como está escrito aunque sea peor».</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAPTURA -->
+<section class="section section-center" id="evidencia">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Lo que queda registrado</div>
+      <h2 class="section-title">La variación deja de ser<br><em>una sospecha del encargado</em></h2>
+      <p class="section-sub" style="max-width:720px;margin:0 auto 40px;">Cada ejecución guarda quién la hizo, cuándo, cuánto duró y cuántos pasos se completaron. Cuando el mismo proceso aparece repetido con duraciones muy distintas, ya no hace falta discutir si pasa: se ve.</p>
+    </div>
+
+    <figure class="screenshot-fig fade-up delay-1">
+      <Screenshot name="detalle-procesos" alt="Registro detallado de ejecuciones en REELEVO: cada fila muestra el proceso, la máquina, el operario, la fecha, la duración y los pasos completados" class="screenshot-img" layout="single" />
+      <figcaption class="screenshot-caption">Registro de ejecuciones — el mismo proceso, ejecutado por personas distintas, con su duración y sus pasos completados</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LÍMITES -->
+<section class="section" id="limites">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="eyebrow">Conviene decirlo claro</div>
+      <h2 class="section-title">Esto no es <em>un sistema de control de personal</em></h2>
+      <p class="section-sub">La variación se mira por proceso, nunca por persona. Si la misma tarea sale distinta en tres turnos, el que está mal explicado es el proceso.</p>
+    </div>
+
+    <div class="limite-grid fade-up delay-1">
+      <article class="limite-card ok">
+        <h3 class="limite-title">Sí es</h3>
+        <ul class="limite-list">
+          <li>Una forma de saber qué procesos varían más entre personas</li>
+          <li>Una versión única publicada para los tres turnos</li>
+          <li>Un camino para que la mejora del que más sabe llegue al resto</li>
+          <li>Una base para revisar el procedimiento, no a quien lo ejecuta</li>
+        </ul>
+      </article>
+
+      <article class="limite-card caution">
+        <h3 class="limite-title">No es</h3>
+        <ul class="limite-list">
+          <li>Un sistema de vigilancia ni de control de presencia</li>
+          <li>Un ranking para señalar al operario más lento</li>
+          <li>Una herramienta para justificar sanciones</li>
+          <li>Un sustituto de que alguien pase por la máquina</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<FaqSection items={faqs} />
+
+<div class="divider-full"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
+  <h3 class="cta-title fade-up delay-1">Empieza por el proceso<br><em>que cada turno hace distinto</em></h3>
+  <p class="cta-sub fade-up delay-2">Uno basta. Documenta el arranque o el cambio de referencia que más discusiones genera, ponlo en la máquina y mira qué pasa en la primera semana con los tres turnos trabajando contra el mismo texto.</p>
+  <div class="cta-actions fade-up delay-3">
+    <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+       data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+  </div>
+  <div class="cta-note fade-up delay-4" style="margin-top:18px;">
+    Relacionado:
+    <a href="/documentacion-procesos/">documentación de procesos</a> ·
+    <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a> ·
+    <a href="/por-que-usar-reelevo/">los nueve problemas</a>
+  </div>
+</section>
+
+<style>
+  /* Bloque "si es / no es". Mismo patron que usa /calidad-y-conformidad/, que
+     tambien tiene que marcar sus limites; alli esta igualmente en estilo scoped. */
+  .limite-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .limite-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+  }
+
+  .limite-card.ok {
+    border-left: 3px solid var(--green);
+  }
+
+  .limite-card.caution {
+    border-left: 3px solid var(--orange);
+  }
+
+  .limite-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 18px;
+  }
+
+  .limite-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .limite-list li {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .limite-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .limite-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+</BaseLayout>

@@ -32,7 +32,7 @@ const pageSchema = softwareApplicationSchema();
 const schema = [pageSchema, faqPageSchema(faqs)];
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="casos-de-uso" pageType="capacidad">
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -40,10 +40,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <h1 class="fade-up delay-1">El operario no necesita<br><em>que nadie le diga qué toca hoy</em></h1>
     <p class="fade-up delay-2">Su agenda está en el móvil. Sus procesos están en el QR. Su progreso de formación es visible. Sus contribuciones tienen reconocimiento. El portal del operario de REELEVO — sin formación previa, sin contraseñas complicadas.</p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="/video-demo/" class="btn-primary"
-         data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Solicitar demo">Solicitar demo</a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="09" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      <a href="/video-demo/" class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
   </section>
 
@@ -85,7 +85,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="risk-box fade-up delay-2">
         <h3>Un operario sin contexto depende siempre del encargado</h3>
-        <p>Cada pregunta que el operario hace al encargado es tiempo perdido para los dos. El portal del operario elimina esa dependencia.</p>
+        <p>Cada pregunta que el operario hace al encargado es tiempo perdido para los dos, y las que llegan cuando el encargado no está se resuelven improvisando. Cuando el operario tiene delante su agenda, sus procesos y una vía para pedir lo que falta, la mayoría de esas interrupciones dejan de ocurrir: no porque nadie pregunte, sino porque la respuesta ya está en el puesto.</p>
       </div>
     </div>
   </section>
@@ -148,8 +148,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           </div>
         </div>
 
-        <div class="portal-card">
+        <div class="portal-card highlight-card">
           <div class="portal-num">6</div>
+          <div class="portal-content">
+            <h3>Pedir el procedimiento que falta</h3>
+            <p>Cuando el operario se encuentra con una tarea que no tiene proceso documentado, en lugar de llamar al encargado puede solicitarlo desde su portal. La petición llega a quien gestiona la documentación con el contexto de quién la pide y para qué máquina. La lista de lo que hay que documentar deja de salir de una reunión y pasa a escribirla quien lo echa en falta.</p>
+            <div class="portal-route">/empresa/solicitudes</div>
+          </div>
+        </div>
+
+        <div class="portal-card">
+          <div class="portal-num">7</div>
           <div class="portal-content">
             <h3>Nueva contribución</h3>
             <p>El operario puede proponer una mejora de proceso directamente desde su móvil. La propuesta entra en el flujo Kaizen. Sin papel, sin esperar a la reunión de turno, sin que se pierda en el camino.</p>
@@ -310,9 +319,9 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Si el operario encuentra instrucciones, avisos y contexto en un mismo sitio, pregunta menos y resuelve más por su cuenta.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="/video-demo/" class="btn-primary"
-         data-cta data-cta-intent="demo" data-cta-location="footer" data-cta-label="Solicitar demo">
-        Solicitar demo
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="09" data-cta-label="Registrarme en REELEVO">
+        Registrarme en REELEVO
       </a>
       <a href="/gestion-competencias/" class="btn-ghost">
         Ver gestión de competencias →

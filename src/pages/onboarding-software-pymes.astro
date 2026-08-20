@@ -52,9 +52,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <section class="page-hero">
     <div class="eyebrow fade-up">Onboarding Software Especializado</div>
     <h1 class="fade-up delay-1">Onboarding software<br><em>para pymes industriales</em></h1>
-    <p class="fade-up delay-2">Reduce el tiempo de aprendizaje de operarios nuevos en un 40%. Cubre bajas sin llamar al experto. Documenta procedimientos paso a paso.</p>
+    <p class="fade-up delay-2">Deja de estimar cuánto tarda un operario nuevo en ir solo: lo ves paso a paso. Cubre bajas sin llamar al experto y documenta los procedimientos en el puesto.</p>
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">Registrarse gratis</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
   </section>
 
@@ -84,7 +85,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="problem-card">
           <div class="problem-icon">❌</div>
           <h3>Errores frecuentes</h3>
-          <p>Sin instrucciones claras, los nuevos cometen errores 40% más frecuentes que los titulares, generando defectos y reprocesos.</p>
+          <p>Sin instrucciones claras en el puesto, la incorporación decide por criterio propio en sus primeros días. De ahí salen defectos y reprocesos que nadie atribuye al onboarding.</p>
         </div>
 
         <div class="problem-card">
@@ -97,14 +98,15 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="cost-analysis fade-up delay-2">
         <h3>¿Cuánto cuesta un mal onboarding?</h3>
         <div class="cost-calc">
-          <p>Una pyme típica (40 empleados, 7.2% absentismo):</p>
+          <p>Haz el cálculo con una planta tipo de 40 empleados y un 7,2 % de absentismo. Los dos primeros datos salen de la encuesta; el resto es aritmética, y los supuestos están a la vista para que puedas cambiarlos por los tuyos:</p>
           <ul>
-            <li><strong>3.2 horas</strong> de producción perdida por cada baja de operario clave</li>
-            <li><strong>150-300€/hora</strong> de coste de línea parada</li>
-            <li><strong>480-960€</strong> por baja no cubierta correctamente</li>
-            <li><strong>79 bajas/año</strong> de operarios clave = <strong>€38,000 - €76,000/año en paradas</strong></li>
+            <li><strong>3,2 horas</strong> de producción perdida por cada baja de operario clave <span style="color:var(--gray2);">— Encuesta REELEVO 2025</span></li>
+            <li><strong>150-300 €/hora</strong> de coste de línea parada <span style="color:var(--gray2);">— Encuesta REELEVO 2025</span></li>
+            <li><strong>480-960 €</strong> por baja no cubierta <span style="color:var(--gray2);">— cálculo: 3,2 h × el coste/hora anterior</span></li>
+            <li><strong>38.000-76.000 €/año</strong> <span style="color:var(--gray2);">— cálculo: lo anterior × 79 bajas de operario clave al año, que es lo que sale con esa plantilla y ese absentismo</span></li>
           </ul>
-          <p class="highlight-box">Sin contar: errores de calidad, reprocesos, deterioro del equipo, riesgo de seguridad.</p>
+          <p class="highlight-box">Cambia las horas o el coste/hora por los de tu planta y el resultado se mueve mucho. Ese es el número que te interesa, no el del ejemplo. Y no incluye errores de calidad, reprocesos ni deterioro del equipo.</p>
+          <p style="margin-top:16px;font-size:.78rem;color:var(--gray2);line-height:1.6;">Fuente de los datos de partida: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347, empresas de 10-200 empleados del sector manufacturero). Las dos últimas cifras son un cálculo derivado, no un dato observado.</p>
         </div>
       </div>
     </div>
@@ -337,7 +339,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       Abre la puerta con una primera prueba y mira cómo baja la fricción cuando el equipo aprende con materiales que sí usa.
     </p>
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary">
+      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarse gratis">
         Registrarse gratis
       </a>
       <a href="/precios/" class="btn-ghost">

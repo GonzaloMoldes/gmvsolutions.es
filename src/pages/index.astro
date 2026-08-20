@@ -162,7 +162,8 @@ const schema = [
           <div class="eyebrow">El día a día</div>
           <h2 class="section-title">Que problema resuelve REELEVO</h2>
           <p class="section-sub">
-            Bajas, incorporaciones y turnos sin trazabilidad. Ese es el foco principal.
+            Bajas, incorporaciones, turnos sin trazabilidad y procesos que cada uno hace a su manera.
+            Ese es el foco principal.
           </p>
         </div>
 
@@ -223,6 +224,29 @@ const schema = [
               <li>Dependes de reuniones y llamadas para saber el estado real</li>
             </ul>
           </div>
+
+          <!-- Cuarta escena: abre el eje de consistencia, que hasta ahora no
+               aparecia en la home (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M1).
+               Cubre los disparadores 1 (errores), 6 (estandarizar) y 7 (que cada
+               uno lo haga a su manera). -->
+          <div class="caso">
+            <div class="caso-tag">Tres turnos, tres criterios</div>
+            <h3 class="caso-title">
+              «La misma pieza sale<br>
+              distinta según<br>
+              quién esté.»
+            </h3>
+            <p class="caso-desc">
+              La instrucción existe, pero cada uno la interpreta a su manera. El veterano se salta
+              dos pasos porque «siempre lo ha hecho así», el de tarde ajusta distinto, el de noche
+              improvisa. Nadie hace nada mal a propósito: no hay una versión única de cómo se hace.
+            </p>
+            <ul class="caso-benefits">
+              <li>Errores que se repiten sin que nadie sepa de dónde salen</li>
+              <li>Mejorar es imposible si cada turno parte de un método distinto</li>
+              <li>La no conformidad aparece meses después y no hay rastro de qué se hizo</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -236,8 +260,8 @@ const schema = [
           <div class="eyebrow">Lo que dicen los números</div>
           <h2 class="section-title">El coste que nadie mide</h2>
           <p class="section-sub">
-            Son datos del sector industrial español. La mayoría de pymes industriales y talleres
-            asumen esto como "normal". No lo es.
+            Datos de la Encuesta REELEVO 2025 sobre 347 pymes industriales españolas.
+            La mayoría de talleres asumen esto como "normal". No lo es.
           </p>
         </div>
 
@@ -264,6 +288,10 @@ const schema = [
             </div>
           </div>
         </div>
+
+        <p class="fade-up delay-2" style="text-align:center;margin-top:32px;font-size:.78rem;color:var(--gray2);line-height:1.6;">
+          Fuente: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347, empresas de 10-200 empleados del sector manufacturero).
+        </p>
       </div>
     </section>
 
@@ -357,6 +385,21 @@ const schema = [
   .casos-header .section-sub,
   .perfiles-header .section-sub {
     margin: 0 auto;
+  }
+
+  /* La clase .casos es global y esta a 3 columnas, colapsando a 1 por debajo de
+     1000px (global.css). Aqui hay CUATRO escenas, asi que en la home se reparten
+     2x2: con 3+1 quedaria una tarjeta huerfana en la segunda fila. Se sobreescribe
+     solo aqui para no tocar la clase global, que usa tambien un articulo del blog.
+     Al ser estilo scoped, estas dos reglas ganan a las globales en toda la escala:
+     la de 760px es la que devuelve la columna unica en movil. */
+  .casos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 760px) {
+    .casos {
+      grid-template-columns: 1fr;
+    }
   }
 
 
