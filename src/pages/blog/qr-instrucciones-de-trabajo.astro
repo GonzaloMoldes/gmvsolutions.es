@@ -1,0 +1,274 @@
+---
+// Cluster sop. Contenido 10 de guia_contenidos_GEO_REELEVO.md.
+// Brief completo en BRIEFS_GEO_09_10_INSTRUCCIONES_DIGITALES_2026-08.md.
+//
+// Hueco limpio: no habia ninguna URL que atacase "codigos QR instrucciones de
+// trabajo". QR aparecia de pasada en diez articulos y en ninguno como tema.
+//
+// Anticanibalizacion: /blog/trazabilidad-de-un-producto/ menciona QR cinco
+// veces, pero para QR de pieza (acreditar lo que se hizo). Aqui es QR de
+// maquina (entregar la instruccion). La frontera se dice explicitamente en
+// el cuerpo y los dos se enlazan.
+//
+// Regla del brief, del propio guion de la guia: "evitar convertir el articulo
+// en una pagina de venta; debe ser util incluso para alguien que no vaya a
+// comprar REELEVO". Por eso las secciones 1 a 8 estan escritas para cualquier
+// herramienta -incluido un generador gratuito y un PDF- y REELEVO se concentra
+// en un solo bloque al final.
+//
+// Honestidad (MAPA_FUNCIONAL_PRODUCTO.md): el flujo QR es el nucleo del
+// producto y esta en los cuatro planes, Free incluido, asi que el CTA no
+// necesita letra pequena. Offline es MVP: se dice "sin cobertura en el flujo
+// de ejecucion", nunca "offline completo". Sin cifras de mejora inventadas.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Cómo usar códigos QR para las instrucciones de trabajo";
+const description = "Cómo funciona un QR pegado en la máquina para dar al operario el procedimiento correcto: qué resuelve, qué información muestra, límites y cómo implantarlo.";
+const date = "2026-08-20";
+const category = "Procedimientos Operativos";
+const readTime = "12 min.";
+const canonical = "https://www.gmvsolutions.es/blog/qr-instrucciones-de-trabajo/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve un código QR en una máquina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para que el operario acceda desde su móvil al procedimiento de esa máquina en su versión vigente, sin ordenador y sin buscar en ninguna carpeta. Resuelve un problema de acceso, no de contenido: el QR acerca el procedimiento al puesto, pero no mejora un procedimiento mal escrito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es mejor un QR por máquina o un QR por proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por máquina. La máquina es el objeto físico que el operario tiene delante, y una misma máquina suele ejecutar varios procesos. Con un QR por proceso harían falta varias etiquetas en el mismo bastidor y el operario tendría que saber cuál escanear antes de empezar, que es justo la decisión que no debería tener que tomar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si no hay cobertura en la nave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Que el QR no resuelve nada, porque es un enlace. Antes de imprimir ninguna etiqueta hay que medir la señal en el punto exacto donde se va a pegar, no en la oficina: las naves con estructura metálica y máquinas grandes crean sombras de cobertura de varios metros. Existen sistemas que cachean el contenido para que la ejecución siga sin señal, pero eso hay que comprobarlo antes, no suponerlo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué material debe tener la etiqueta de un QR en un taller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Poliéster o polipropileno con adhesivo acrílico y laminado mate. El papel no aguanta: la taladrina, el aceite y el roce lo borran en semanas. El laminado tiene que ser mate porque el brillante refleja los fluorescentes del techo y el móvil no consigue leer el código."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿De qué tamaño tiene que ser un QR para que se lea bien?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una regla práctica es que el lado del código mida aproximadamente la décima parte de la distancia de lectura. Para escanear a unos 30 cm, un QR de 3 cm de lado va sobrado. Importa más respetar el margen blanco alrededor del código, que mucha gente recorta para que la etiqueta quede más pequeña y es lo que impide que el móvil lo reconozca."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  date={date}
+  category={category}
+  readTime={readTime}
+  canonical={canonical}
+  schema={faqSchema}
+>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Un QR pegado en la máquina resuelve <strong>la última distancia</strong>: el procedimiento ya existe, está bien escrito y está actualizado, pero el operario no llega hasta él porque no tiene ordenador, ni email, ni ganas de otro sistema. Escanea con su móvil, ve la instrucción de esa máquina en su versión vigente y ejecuta. Lo que el QR <em>no</em> resuelve es que el procedimiento esté mal: si el contenido no sirve, el QR solo lo reparte más rápido. Y no es magia — depende de una cosa muy poco glamurosa que casi nadie comprueba antes: si hay cobertura en ese punto exacto de la nave.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#problema">Qué problema resuelve, y cuál no</a></li>
+    <li><a href="#funciona">Cómo funciona, paso a paso</a></li>
+    <li><a href="#ejemplo">Un ejemplo concreto: las 6:05 de la mañana</a></li>
+    <li><a href="#informacion">Qué información puede mostrar</a></li>
+    <li><a href="#ventajas">Ventajas frente al papel plastificado</a></li>
+    <li><a href="#limites">Limitaciones, dichas en serio</a></li>
+    <li><a href="#practicas">Buenas prácticas de implantación</a></li>
+    <li><a href="#empezar">Cómo empezar con una sola máquina</a></li>
+    <li><a href="#reelevo">Cómo lo resuelve REELEVO</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="problema">Qué problema resuelve, y cuál no</h2>
+  <p>Hay un momento muy concreto en el que se decide si un procedimiento sirve para algo: cuando el operario está delante de la máquina, con una duda, y tiene que decidir en cinco segundos si la resuelve solo o llama a alguien.</p>
+
+  <p>En la mayoría de plantas ese momento se resuelve llamando. No porque el procedimiento no exista —normalmente existe, y a veces está muy bien hecho—, sino porque llegar hasta él cuesta más que preguntar: está en una carpeta del servidor, en un ordenador que está en la oficina, dentro de una estructura de subcarpetas que conoce quien la creó. El operario no tiene ordenador en el puesto, con frecuencia no tiene correo corporativo, y desde luego no va a atravesar la nave para consultar un PDF.</p>
+
+  <p>A esa brecha se le puede llamar <strong>la última distancia</strong>: los últimos metros entre un procedimiento correcto y la persona que lo necesita. Es donde muere la mayor parte del esfuerzo de documentación de una pyme industrial. Se documenta bien y luego nadie lo consulta, así que a los seis meses el procedimiento está desactualizado, y como está desactualizado ya nadie se fía, y como nadie se fía se vuelve a preguntar al veterano. El círculo se cierra solo.</p>
+
+  <p>Un QR pegado en la máquina ataca exactamente esa distancia y nada más. Conviene tener claro el reparto:</p>
+
+  <div class="data-card">
+    <p><strong>Lo que sí resuelve.</strong> El acceso. Que el procedimiento correcto esté a un escaneo del puesto, sin cuenta, sin ordenador y sin buscar. Y que lo que se ve sea siempre la última versión, porque el QR apunta a un sitio, no a un archivo.</p>
+    <p><strong>Lo que no resuelve.</strong> Que el procedimiento esté bien escrito, que esté actualizado, que alguien lo mantenga y que el operario tenga la formación mínima para entenderlo. Un QR sobre un procedimiento malo es un procedimiento malo que ahora llega más rápido y con más autoridad aparente.</p>
+  </div>
+
+  <p>Dicho de otra forma: el QR es <strong>un canal de entrega, no un método de documentación</strong>. Si todavía estás decidiendo qué documentar y con qué nivel de detalle, esa decisión va antes y la tratamos en <a href="/blog/que-es-un-sop-industrial/">qué es un SOP industrial</a> y en <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucciones de trabajo vs SOP</a>.</p>
+
+  <h2 id="funciona">Cómo funciona, paso a paso</h2>
+  <p>Un QR no es más que una forma de escribir una dirección web para que una cámara la lea. Todo lo interesante ocurre en lo que hay al otro lado del enlace. El recorrido completo, con independencia de la herramienta que uses, tiene cinco tramos:</p>
+
+  <div class="data-card">
+    <p><strong>1. Escanear.</strong> El operario apunta con la cámara del móvil a la etiqueta pegada en la máquina. Desde hace años no hace falta ninguna app: la cámara nativa de Android y de iPhone reconoce el código y ofrece abrir el enlace.</p>
+    <p><strong>2. Identificarse.</strong> Aquí está la decisión de diseño que más condiciona si el sistema se usa o no. Si al otro lado hay un formulario de registro con email y contraseña, el operario abandona — y hace bien. Lo que funciona en planta es un código personal corto, del estilo de los que ya usan para fichar.</p>
+    <p><strong>3. Elegir qué se va a hacer.</strong> La máquina no hace una sola cosa. Al escanear aparecen los procesos disponibles en esa máquina, y lo razonable es que estén ordenados por frecuencia de uso, de modo que lo que se hace veinte veces al día esté siempre arriba.</p>
+    <p><strong>4. Ejecutar.</strong> El procedimiento se presenta paso a paso, no como un documento entero que hay que leer. Un paso ocupa la pantalla, se completa, se pasa al siguiente. Esto importa más de lo que parece: un PDF de nueve páginas en un móvil es ilegible, y esa es la razón por la que muchos intentos de digitalizar procedimientos fracasan sin que nadie sepa explicar por qué.</p>
+    <p><strong>5. Cerrar dejando rastro.</strong> Al terminar queda registrado quién ejecutó qué, cuándo y con qué resultado. Este tramo es opcional en el sentido técnico, pero es el que convierte el QR en algo más que un visor de documentos.</p>
+  </div>
+
+  <p>Los tramos 1 a 4 los puedes montar con herramientas gratuitas: un generador de QR y una página estable con la instrucción. El tramo 5 es el que normalmente obliga a una herramienta específica, porque necesita identidad, permisos y almacenamiento.</p>
+
+  <h2 id="ejemplo">Un ejemplo concreto: las 6:05 de la mañana</h2>
+  <p>Un centro de mecanizado que trabaja tres referencias distintas. El turno de mañana entra a las 6:00 y el encargado llega a las 7:30. A las 6:05, un operario que lleva cinco semanas en la empresa tiene que hacer un cambio de referencia que ha visto hacer dos veces.</p>
+
+  <p><strong>Sin QR</strong>, las opciones son tres y ninguna buena: tirar de memoria y arriesgarse a un reglaje mal hecho que se detectará en la tercera pieza; esperar hora y media a que llegue el encargado, con la máquina parada; o llamarlo por teléfono a su casa, que es lo que suele pasar y lo que explica por qué los encargados de planta contestan llamadas a las seis de la mañana.</p>
+
+  <p><strong>Con QR</strong>, escanea la etiqueta del bastidor, se identifica con su código, elige «cambio de referencia» y avanza por los pasos: retirar utillaje anterior, montar el nuevo, verificar la referencia del amarre, cargar el programa correcto, hacer pieza de prueba, medir tres cotas y registrarlas antes de dar salida a la serie.</p>
+
+  <p>Lo relevante del ejemplo no es que el operario tenga la instrucción. Es que <strong>la comprobación de las tres cotas queda registrada</strong>. Si dos semanas después aparece un lote con una cota fuera de tolerancia, hay dónde mirar: qué se midió aquella mañana, quién lo midió y qué valores dio. Sin ese registro, la investigación se convierte en una conversación sobre lo que cada uno recuerda. Es la misma lógica que desarrollamos en <a href="/blog/trazabilidad-de-un-producto/">trazabilidad de un producto</a>.</p>
+
+  <h2 id="informacion">Qué información puede mostrar</h2>
+  <p>Conviene distinguir entre lo que un QR <em>puede</em> mostrar y lo que <em>debe</em> mostrar. Puede mostrar cualquier cosa que quepa en una página web. Debe mostrar lo que sirva en ese momento y en esa máquina:</p>
+
+  <ul>
+    <li><strong>Los procesos de esa máquina</strong>, no el catálogo entero de la planta. Un operario delante del torno no necesita ver los procedimientos de la línea de envasado.</li>
+    <li><strong>El contenido del paso</strong>: texto corto, una foto del punto exacto, un vídeo de quince segundos del gesto que no se puede describir, o el plano en PDF si hace falta consultarlo.</li>
+    <li><strong>Checklists con evidencia</strong>, cuando la comprobación necesita prueba: una foto del montaje antes de arrancar.</li>
+    <li><strong>Campos de captura</strong>: las cotas medidas, la temperatura del baño, el número de lote del material que se ha cargado.</li>
+    <li><strong>El histórico de la máquina</strong>: la última avería, la última intervención de mantenimiento, la incidencia que reportó el turno de noche. Esta es la información que casi nadie pone y que más agradece quien entra a un turno.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p><strong>Un criterio para decidir qué entra.</strong> Si la información no cambia ninguna decisión del operario en los próximos diez minutos, no va detrás del QR. Va en el gestor documental, que es otro sitio y tiene otro público. La tentación de meterlo todo es lo que convierte una herramienta útil en una que nadie abre.</p>
+  </div>
+
+  <h2 id="ventajas">Ventajas frente al papel plastificado</h2>
+  <p>El competidor real de un QR no es otro software: es el DIN-A4 plastificado colgado del bastidor con una brida. Merece respeto, porque tiene virtudes que a menudo se ignoran — no necesita batería, no depende de la cobertura, no tiene curva de aprendizaje y se lee con guantes sucios. Cualquier alternativa tiene que ser mejor <em>a pesar</em> de eso.</p>
+
+  <ul>
+    <li><strong>Siempre la versión vigente.</strong> El plastificado envejece en silencio. Nadie sabe de qué año es, y el operario veterano hace tiempo que sabe que «eso ya no se hace así», conocimiento que el operario nuevo no tiene. Un enlace apunta siempre a lo que hay ahora.</li>
+    <li><strong>Actualizar no obliga a recorrer la nave.</strong> Cambiar un plastificado significa imprimir, plastificar, buscar los que existen —que nunca se sabe cuántos son ni dónde están— y sustituirlos todos. Con enlace, se cambia una vez.</li>
+    <li><strong>Queda registro.</strong> Un plastificado no dice quién lo ha leído. Cuando cambia un procedimiento por una no conformidad, saber si los doce operarios afectados han visto la versión nueva deja de ser un acto de fe.</li>
+    <li><strong>El idioma lo elige quien lee.</strong> En plantillas con operarios de varias nacionalidades, esto resuelve un problema real que el papel solo resuelve multiplicando los plastificados.</li>
+    <li><strong>Admite formatos que el papel no.</strong> El vídeo corto es el caso claro: hay gestos que no se describen y se ven en diez segundos. Sobre cuándo compensa y cuándo estorba, hay un apartado en <a href="/blog/digitalizar-conocimiento-planta-industrial/#video">la guía de digitalización del conocimiento</a>.</li>
+  </ul>
+
+  <h2 id="limites">Limitaciones, dichas en serio</h2>
+  <p>Esta es la sección que suele faltar, y la que decide si la implantación sale bien. Todos estos problemas son resolubles, pero solo si se miran antes:</p>
+
+  <div class="data-card">
+    <p><strong>La cobertura manda.</strong> Un QR es un enlace, así que sin señal no hay nada. Y la señal en una nave industrial no se parece a la de una oficina: las estructuras metálicas y las propias máquinas crean sombras de varios metros. Hay que medirla <em>en el punto donde se va a pegar la etiqueta</em>, con el móvil que va a usar el operario, no con el tuyo en la puerta de la nave. Algunos sistemas cachean el contenido para que la ejecución continúe sin señal, pero eso se comprueba, no se supone.</p>
+    <p><strong>La etiqueta física se degrada.</strong> Taladrina, aceite, virutas calientes, roce de la manga del mono. Un QR impreso en papel dura semanas. Hay que presupuestar material decente y una reposición periódica.</p>
+    <p><strong>Guantes y manos sucias.</strong> El operario que está mecanizando no siempre está en condiciones de manejar una pantalla táctil. En puestos así, un móvil personal es mala solución y una tablet fija con funda —o un soporte junto a la máquina— funciona mucho mejor.</p>
+    <p><strong>El móvil personal es una conversación, no un detalle técnico.</strong> Usar el teléfono propio para trabajar tiene implicaciones de batería, de datos y también laborales. Merece hablarlo con el comité o con los propios operarios antes de dar por hecho que a todo el mundo le parece bien. Es una de las causas más frecuentes de rechazo, y casi nunca aparece en los pilotos porque los voluntarios del piloto son los que no tienen problema.</p>
+    <p><strong>No sustituye a la formación.</strong> Un procedimiento guía a quien ya sabe algo. No convierte a alguien que nunca ha tocado la máquina en operario, y presentarlo así genera exactamente la desconfianza que hace fracasar el proyecto. Sobre la formación en el puesto, <a href="/blog/twi-formacion-operarios-en-el-puesto/">el método TWI</a> sigue siendo la referencia.</p>
+    <p><strong>Si el procedimiento está mal, el QR empeora las cosas.</strong> Distribuye el error más deprisa y le da la autoridad de lo que parece un sistema oficial.</p>
+  </div>
+
+  <h2 id="practicas">Buenas prácticas de implantación</h2>
+  <ul>
+    <li><strong>Un QR por máquina, no por proceso.</strong> La máquina es el objeto físico que el operario tiene delante; el proceso se elige después, en pantalla. Con un QR por proceso acabas con cuatro etiquetas en el mismo bastidor y obligas al operario a acertar cuál escanea antes de empezar.</li>
+    <li><strong>Que el QR apunte a un sitio, no a un archivo.</strong> Es el error de diseño más caro y el más frecuente. Si el código lleva directamente a <code>procedimiento_v3.pdf</code>, el día que se publique la v4 todas las etiquetas impresas apuntan a la versión vieja y hay que reimprimirlas. El código debe apuntar a una dirección estable —«el proceso de esta máquina»— que resuelva sola cuál es la versión vigente.</li>
+    <li><strong>Material y acabado.</strong> Poliéster o polipropileno, adhesivo acrílico, laminado <strong>mate</strong>. El brillante refleja los fluorescentes del techo y hay ángulos en los que el móvil no lee.</li>
+    <li><strong>Tamaño y margen.</strong> Regla práctica: el lado del código, alrededor de la décima parte de la distancia de lectura. Para 30 cm, 3 cm sobran. Y respeta el margen blanco alrededor: recortarlo para que la etiqueta quede más pequeña es la causa número uno de códigos que no se leen.</li>
+    <li><strong>Dónde se pega.</strong> A la altura de los ojos, en una superficie plana, fuera de la zona de virutas y de salpicadura, y nunca en una puerta o carenado que al abrirse deje el código fuera de la vista. Evita superficies que se calienten: el adhesivo cede.</li>
+    <li><strong>Texto legible junto al código.</strong> El nombre y el número de máquina impresos al lado. Cuando el escaneo falla —y alguna vez falla—, alguien tiene que poder decir por teléfono de qué máquina está hablando.</li>
+    <li><strong>Imprímelos desde el sistema, nunca a mano.</strong> Un QR generado en una web gratuita y pegado en un Word no tiene forma de saber a qué máquina corresponde ni de regenerarse. La impresión debe salir del propio sistema que gestiona las máquinas.</li>
+    <li><strong>Mete la revisión de etiquetas en el mantenimiento.</strong> Una línea más en la ronda preventiva: comprobar que el QR de la máquina se lee. Es el tipo de tarea que si no tiene dueño no la hace nadie, y te enteras cuando un operario ya no lo usa.</li>
+  </ul>
+
+  <h2 id="empezar">Cómo empezar con una sola máquina</h2>
+  <p>La implantación que falla es la que empieza por toda la planta. La que funciona empieza por una máquina y por una pregunta muy concreta:</p>
+
+  <div class="highlight-box">
+    <p><strong>¿Qué máquina genera más llamadas al encargado?</strong> No la más cara, ni la más crítica, ni la que más produce. La que más interrumpe. Esa es la que tiene el problema que el QR resuelve, y es donde el resultado se va a notar sin que haya que medirlo con un indicador.</p>
+  </div>
+
+  <p>A partir de ahí, un piloto honesto cabe en dos semanas:</p>
+
+  <ul>
+    <li><strong>Días 1 y 2.</strong> Documentar <em>un</em> proceso de esa máquina, el más repetido. Con el operario que mejor lo hace delante, y capturando cómo lo hace él de verdad, no cómo dice el manual de la máquina. Ese matiz es la diferencia entre un procedimiento útil y uno decorativo, y va más a fondo en <a href="/blog/documentar-conocimiento-operarios-expertos/">cómo documentar el conocimiento de tus operarios expertos</a>.</li>
+    <li><strong>Día 3.</strong> Medir la cobertura en el punto exacto. Si no hay señal, se decide ahí: repetidor, cacheo o cambiar de máquina piloto. No se sigue adelante esperando que se arregle solo.</li>
+    <li><strong>Día 4.</strong> Imprimir y pegar la etiqueta. Enseñárselo a los tres turnos, no solo al de mañana.</li>
+    <li><strong>Días 5 a 10.</strong> Dejarlo correr sin intervenir y anotar dos cosas: cuántas veces se ha escaneado y cuántas llamadas ha recibido el encargado por esa máquina.</li>
+    <li><strong>Cierre.</strong> Preguntar a los operarios qué falta y qué sobra. Lo que digan sobre el paso que resulta confuso vale más que cualquier dato de uso.</li>
+  </ul>
+
+  <p>Si al cabo de dos semanas el sistema no se usa, casi siempre es por una de tres razones: no había cobertura, había que registrarse con email, o el procedimiento estaba escrito por alguien que no hace ese trabajo. Ninguna de las tres se arregla comprando otra herramienta.</p>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>Todo lo anterior funciona con cualquier herramienta, incluido un generador de QR gratuito y una página estable. Si quieres el camino corto, el flujo QR es el núcleo de REELEVO y no una función añadida:</p>
+
+  <ul>
+    <li><strong>El operario entra sin cuenta.</strong> Escanea el QR de la máquina y se identifica con un código personal: sin email, sin contraseña y sin instalar nada. Es lo que quita de en medio la barrera que hace fracasar la mayoría de implantaciones. Puedes ver ese recorrido en <a href="/portal-operario/">el portal del operario</a>.</li>
+    <li><strong>Los QR se imprimen desde el sistema.</strong> Cada máquina tiene el suyo, con reimpresión cuando la etiqueta se estropea, así que el código siempre sabe a qué máquina pertenece.</li>
+    <li><strong>El enlace apunta al proceso, no al archivo.</strong> Al publicar una versión nueva, el QR pegado en la máquina sigue siendo válido y el operario recibe la confirmación de lectura del cambio. Es <a href="/documentacion-procesos/">documentación de procesos</a> versionada, no un PDF con fecha en el nombre.</li>
+    <li><strong>La ejecución deja evidencia.</strong> Checklist con foto, campos de captura, unidades producidas y rechazadas, firma al cerrar y certificación automática del operario en esa versión del proceso.</li>
+    <li><strong>El idioma lo elige el operario</strong> entre las traducciones publicadas del proceso.</li>
+  </ul>
+
+  <p>Dos precisiones para que no haya sorpresas. La primera: sobre cobertura, el flujo funciona con contenido cacheado y sincronización diferida, lo que cubre <strong>la ejecución sin señal</strong>; no es un modo offline completo y no conviene planificarlo como tal. La segunda: el QR de máquina que se describe aquí entrega la instrucción, mientras que el <strong>QR de pieza</strong> hace algo distinto —acredita lo que se hizo sobre una pieza concreta— y se usa para trazabilidad y para el cliente final.</p>
+
+  <div class="highlight-box">
+    <p><strong>El flujo QR está también en el plan gratuito</strong>, así que puedes imprimir el primer código y pegarlo en una máquina sin pagar nada. <a href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="body" data-cta-trigger="09" data-cta-label="Imprimir mi primer QR">Imprimir mi primer QR →</a></p>
+  </div>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Para qué sirve un código QR en una máquina?</h3>
+  <p>Para que el operario acceda desde su móvil al procedimiento de esa máquina en su versión vigente, sin ordenador y sin buscar en ninguna carpeta. Resuelve un problema de acceso, no de contenido: el QR acerca el procedimiento al puesto, pero no mejora un procedimiento mal escrito.</p>
+
+  <h3>¿Es mejor un QR por máquina o un QR por proceso?</h3>
+  <p>Por máquina. La máquina es el objeto físico que el operario tiene delante, y una misma máquina suele ejecutar varios procesos. Con un QR por proceso harían falta varias etiquetas en el mismo bastidor y el operario tendría que saber cuál escanear antes de empezar, que es justo la decisión que no debería tener que tomar.</p>
+
+  <h3>¿Qué pasa si no hay cobertura en la nave?</h3>
+  <p>Que el QR no resuelve nada, porque es un enlace. Antes de imprimir ninguna etiqueta hay que medir la señal en el punto exacto donde se va a pegar, no en la oficina: las naves con estructura metálica y máquinas grandes crean sombras de cobertura de varios metros. Existen sistemas que cachean el contenido para que la ejecución siga sin señal, pero eso hay que comprobarlo antes, no suponerlo.</p>
+
+  <h3>¿Qué material debe tener la etiqueta de un QR en un taller?</h3>
+  <p>Poliéster o polipropileno con adhesivo acrílico y laminado mate. El papel no aguanta: la taladrina, el aceite y el roce lo borran en semanas. El laminado tiene que ser mate porque el brillante refleja los fluorescentes del techo y el móvil no consigue leer el código.</p>
+
+  <h3>¿De qué tamaño tiene que ser un QR para que se lea bien?</h3>
+  <p>Una regla práctica es que el lado del código mida aproximadamente la décima parte de la distancia de lectura. Para escanear a unos 30 cm, un QR de 3 cm de lado va sobrado. Importa más respetar el margen blanco alrededor del código, que mucha gente recorta para que la etiqueta quede más pequeña y es lo que impide que el móvil lo reconozca.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/instrucciones-de-trabajo-vs-sop/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Instrucciones de trabajo vs SOP</div>
+        <div class="related-link-desc">Qué nivel de detalle poner detrás del código.</div>
+      </a>
+      <a class="related-link-card" href="/blog/que-es-un-sop-industrial/">
+        <div class="related-link-kicker">Fundamentos</div>
+        <div class="related-link-title">Qué es un SOP industrial</div>
+        <div class="related-link-desc">Qué debe contener el procedimiento antes de repartirlo.</div>
+      </a>
+      <a class="related-link-card" href="/blog/digitalizar-conocimiento-planta-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Digitalizar el conocimiento de la planta</div>
+        <div class="related-link-desc">Dónde encaja la entrega en el puesto dentro del proyecto completo.</div>
+      </a>
+      <a class="related-link-card" href="/portal-operario/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Portal del operario</div>
+        <div class="related-link-desc">El recorrido completo desde el escaneo hasta la firma.</div>
+      </a>
+    </div>
+  </div>
+</ArticleLayout>

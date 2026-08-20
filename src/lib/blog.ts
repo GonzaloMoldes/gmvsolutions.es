@@ -75,6 +75,17 @@ export const posts: BlogPost[] = [
     priority: '0.75',
   },
   {
+    slug: 'qr-instrucciones-de-trabajo',
+    cluster: 'sop',
+    category: 'Procedimientos Operativos',
+    title: 'Cómo usar códigos QR para las instrucciones de trabajo',
+    desc: 'Cómo funciona un QR pegado en la máquina para dar al operario el procedimiento correcto: qué resuelve, qué información muestra, límites y cómo implantarlo.',
+    dateLabel: '20 ago. 2026',
+    readTime: '12 min.',
+    lastmod: '2026-08-20',
+    priority: '0.8',
+  },
+  {
     slug: 'onboarding-software-pymes',
     cluster: 'onboarding',
     category: 'Onboarding Software',

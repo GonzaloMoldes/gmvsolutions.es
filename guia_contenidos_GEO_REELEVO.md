@@ -10,18 +10,20 @@ orientada a SEO, GEO/AI visibility y generación de demanda cualificada.\
 
 ------------------------------------------------------------------------
 
-# ▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░ ESTADO: 56 % EJECUTADO
+# ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░ ESTADO: 66 % EJECUTADO
 
 **Última actualización:** 2026-08-20 · **La ejecución empezó por el final.** El contenido 12 —el pilar— se publicó antes que los de Fase 1, porque el clúster de conocimiento ya tenía masa crítica y el pilar era lo que faltaba para unirlo. El orden de fases de la sección 20 describe la intención original, no el estado real; la referencia es esta tabla.
 
 | Fase | Qué cubre | Estado | Peso |
 |---|---|---|---|
-| **Fase 1** — Consolidación | SOP: contenidos 01 a 04 | **◐ 63 %** | 4,00 j |
+| **Fase 1** — Consolidación | SOP: contenidos 01, 03 y 04 (el 02 descartado) | **◐ 67 %** | 3,00 j |
 | **Fase 2** — Expansión | Conocimiento y onboarding: 05 a 08 | **◐ 63 %** | 4,00 j |
-| **Fase 3** — Diferenciación | Vídeo, QR, experto y pilar: 09 a 12 | **◐ 50 %** | 5,00 j |
-| **Estructura** — Enlazado interno | La regla de la sección 12 sobre los 27 artículos | **◐ 40 %** | 1,00 j |
+| **Fase 3** — Diferenciación | Vídeo, QR y pilar: 09, 10 y 12 (el 11 descartado) | **◐ 75 %** | 4,00 j |
+| **Estructura** — Enlazado y arreglos | La regla de la sección 12 sobre los 28 artículos, más la tabla que falta en el 03 | **◐ 42 %** | 1,00 j |
 
-**Cálculo:** 7,90 de 14,00 jornadas = **56 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
+**Cálculo:** 7,92 de 12,00 jornadas = **66 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
+
+**El denominador bajó de 14,00 a 12,00 j** al resolver la decisión D1 el 2026-08-20: los contenidos **02** y **11** se marcan `⊘ descartado`, porque su tema ya está cubierto y publicarlos por separado competiría contra URLs que ya posicionan. No es deuda oculta: es trabajo que no hay que hacer.
 
 ### Cobertura de los 12 contenidos
 
@@ -30,7 +32,7 @@ Se mide con dos casillas: **①** el tema está cubierto en algún artículo pub
 | # | Contenido | ① | ② | Dónde está hoy |
 |---|---|:---:|:---:|---|
 | 01 | Qué es un SOP | ☑ | ☑ | `/blog/que-es-un-sop-industrial/` |
-| 02 | Crear un SOP paso a paso | ☑ | ◐ | Dentro del 01 («Cómo crear un SOP en 5 pasos») y de `/blog/plantilla-sop-produccion/` |
+| 02 | Crear un SOP paso a paso | ☑ | ⊘ | **Descartado (D1, 2026-08-20).** Vive dentro del 01 («Cómo crear un SOP en 5 pasos») y de `/blog/plantilla-sop-produccion/`. Con URL propia competiría contra los dos |
 | 03 | SOP vs instrucción de trabajo | ☑ | ☑ | `/blog/instrucciones-de-trabajo-vs-sop/` — **le falta la tabla comparativa que el brief exige** |
 | 04 | Digitalizar los SOP de una planta | ☐ | ☐ | Nada. `/blog/software-sop-para-fabricas-comparativa/` resuelve *qué herramienta elegir*, no *cómo se hace el paso* |
 | 05 | Documentar el conocimiento de los operarios | ☑ | ☑ | `/blog/documentar-conocimiento-operarios-expertos/` |
@@ -38,27 +40,30 @@ Se mide con dos casillas: **①** el tema está cubierto en algún artículo pub
 | 07 | Transferir conocimiento entre trabajadores | ◐ | ☐ | Solo la página comercial `/casos-de-uso/transferencia-conocimiento/`. En blog, un H2 dentro del 05 |
 | 08 | Onboarding industrial: formar a un operario | ☑ | ◐ | Repartido entre `/blog/reducir-onboarding-operarios-cinco-a-un-dia/`, `/blog/twi-formacion-operarios-en-el-puesto/` y `/blog/onboarding-vs-tradicional/`. Ninguno se llama ni responde «cómo formo a un nuevo operario» |
 | 09 | Instrucciones de trabajo en vídeo | ◐ | ☐ | Un H2 dentro del 12 («Cuándo el vídeo ayuda y cuándo estorba») |
-| 10 | QR para digitalizar instrucciones | ☐ | ☐ | Nada. QR aparece de pasada en 10 artículos, en ninguno como tema |
-| 11 | Capturar el conocimiento del experto | ☑ | ◐ | Solapa con el 05 (metodología en 4 fases) y con `/blog/conocimiento-tacito-taller-industrial/` |
+| 10 | QR para digitalizar instrucciones | ☑ | ☑ | `/blog/qr-instrucciones-de-trabajo/` — publicado 2026-08-20 |
+| 11 | Capturar el conocimiento del experto | ☑ | ⊘ | **Descartado (D1, 2026-08-20).** Solapa casi entero con el 05 (metodología en 4 fases) y con `/blog/conocimiento-tacito-taller-industrial/` |
 | 12 | Digitalizar el conocimiento de la planta | ☑ | ☑ | `/blog/digitalizar-conocimiento-planta-industrial/` — pilar, 15 H2 |
 
-**Cuatro huecos reales: 04, 07, 09 y 10.** Son los únicos donde no hay nada publicado que responda la consulta, y los únicos que se pueden escribir sin competir contra una URL propia.
+**Quedan tres huecos: 04, 07 y 09.** El 10 se cerró el 2026-08-20. Son los únicos donde no hay nada publicado que responda la consulta, y los únicos que se pueden escribir sin competir contra una URL propia.
 
-**Tres `◐` que no son deuda, son una decisión pendiente.** El 02, el 08 y el 11 ya están cubiertos en sustancia. Publicarlos como piezas separadas crearía competencia interna contra artículos que ya posicionan. La decisión —fusionar y marcarlos `⊘ descartado`, o darles URL propia con un ángulo que los demás no cubran— está sin tomar y bloquea 1,50 j del cómputo.
+**D1, resuelta el 2026-08-20.** El 02, el 08 y el 11 estaban cubiertos en sustancia y bloqueaban 1,50 j. Decisión tomada: el **02** y el **11** se descartan —su tema ya está bien resuelto donde está y una URL propia canibalizaría—, y el **08** sí recibe pieza propia, porque está repartido entre tres artículos y ninguno responde a «cómo formo a un operario nuevo», que es lo que la gente busca. El denominador baja de 14,00 a 12,00 j.
 
 ### Tareas abiertas
 
 | Tarea | Qué es | Estado | Peso |
 |---|---|:---:|---|
+| **C09** | Escribir «Cómo crear instrucciones de trabajo mediante vídeo» — brief cerrado | ☐ | 1,00 |
 | **C04** | Escribir «Cómo digitalizar los SOP de una planta industrial» | ☐ | 1,00 |
 | **C07** | Escribir «Cómo transferir conocimiento entre trabajadores» | ☐ | 1,00 |
-| **C09** | Escribir «Cómo crear instrucciones de trabajo mediante vídeo» | ☐ | 1,00 |
-| **C10** | Escribir «Cómo utilizar códigos QR para digitalizar instrucciones» | ☐ | 1,00 |
-| **C03b** | Añadir al 03 la tabla comparativa que el brief exige | ☐ | 0,20 |
-| **D1** | Decidir qué se hace con el 02, el 08 y el 11: fusión o URL propia | ☐ | — |
-| **E1** | Enlazado interno de la sección 12: 10 de 27 artículos cumplen la regla | ◐ | 0,80 |
+| **C08b** | Dar URL propia al 08: «cómo formar a un operario nuevo» (D1) | ◐ | 1,00 |
+| **C03b** | Añadir al 03 la tabla comparativa que el brief exige desde junio | ☐ | 0,20 |
+| **E1** | Enlazado interno de la sección 12: 11 de 28 artículos cumplen la regla | ◐ | 0,80 |
+| ~~**C10**~~ | ~~QR para instrucciones~~ — publicado 2026-08-20 | ☑ | 1,00 |
+| ~~**D1**~~ | ~~Decidir sobre el 02, el 08 y el 11~~ — resuelta 2026-08-20 | ☑ | — |
 
-**Sobre E1.** De los 17 que no cumplen, **7 no pueden cumplirla**: están en clústeres de uno o dos artículos (`digitalizacion`, `lean`, `medicion`, `absentismo`), donde «al menos 2 del mismo clúster» es imposible. Los **10 subsanables** son los de `sop`, `onboarding` y `conocimiento`, que sí tienen hermanos suficientes. Medido con el registro de `src/lib/blog.ts`, contando enlaces únicos y descartando el propio artículo.
+**Sobre E1.** De los 17 que no cumplen, **7 no pueden cumplirla**: están en clústeres de uno o dos artículos (`digitalizacion`, `lean`, `medicion`, `absentismo`), donde «al menos 2 del mismo clúster» es imposible sin publicar más piezas de ese tema. Sobre la base realista de **21 artículos subsanables, cumplen 11**. Medido con el registro de `src/lib/blog.ts`, contando enlaces únicos y descartando el propio artículo.
+
+**Los cuatro más baratos de arreglar** ya tienen dos hermanos del mismo clúster y solo les falta un enlace a otro clúster: `instrucciones-de-trabajo-vs-sop`, `plantilla-sop-produccion`, `sop-mantenimiento-preventivo-guia-plantilla` y `reducir-onboarding-operarios-cinco-a-un-dia`. Un enlace bien puesto en cada uno sube E1 de 11 a 15 de 21.
 
 > **Cómo mantener este bloque.** Al publicar un contenido: marcar sus dos casillas, recalcular el peso acumulado sobre el denominador vigente (hoy 14,00), actualizar la barra del título (cada ▓ son 5 puntos porcentuales) y re-medir E1, que cambia con cada artículo nuevo. Estados: `☐ pendiente` · `◐ en curso o parcial` · `☑ hecho` · `⊘ descartado (con motivo)`, igual que en `PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08.md` y `PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md`.
 
