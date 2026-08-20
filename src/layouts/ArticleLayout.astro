@@ -84,7 +84,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
 // que ademas produce la ruta correcta (Inicio -> Blog -> articulo). No se duplica aqui.
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex}>
+<BaseLayout title={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex} ogType="article" publishedTime={date}>
   <article class="article-page">
     <div class="article-container">
 

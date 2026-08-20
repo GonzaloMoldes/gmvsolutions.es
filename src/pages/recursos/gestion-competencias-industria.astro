@@ -7,7 +7,9 @@ const canonical = "https://www.gmvsolutions.es/blog/gestion-competencias-industr
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Guide",
+  // "Guide" no existe en schema.org: los validadores lo ignoran. Es una pagina
+  // hub con noindex y canonica al articulo, asi que WebPage es el tipo correcto.
+  "@type": "WebPage",
   "headline": title,
   "description": description,
   "url": "https://www.gmvsolutions.es/recursos/gestion-competencias-industria/",
