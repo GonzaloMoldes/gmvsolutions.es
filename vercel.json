@@ -2,13 +2,23 @@
   "framework": "astro",
   "redirects": [
     {
-      "source": "/en/:path*",
-      "destination": "https://www.gmvsolutions.es/:path*",
+      "source": "/en",
+      "destination": "https://www.gmvsolutions.es/",
       "permanent": true
     },
     {
-      "source": "/pt/:path*",
-      "destination": "https://www.gmvsolutions.es/:path*",
+      "source": "/pt",
+      "destination": "https://www.gmvsolutions.es/",
+      "permanent": true
+    },
+    {
+      "source": "/en/:path(.*)",
+      "destination": "https://www.gmvsolutions.es/:path",
+      "permanent": true
+    },
+    {
+      "source": "/pt/:path(.*)",
+      "destination": "https://www.gmvsolutions.es/:path",
       "permanent": true
     },
     {
