@@ -1,5 +1,23 @@
 {
   "framework": "astro",
+  "redirects": [
+    {
+      "source": "/en/:path*",
+      "destination": "https://www.gmvsolutions.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/pt/:path*",
+      "destination": "https://www.gmvsolutions.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gmvsolutions.es" }],
+      "destination": "https://www.gmvsolutions.es/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
