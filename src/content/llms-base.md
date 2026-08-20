@@ -2,7 +2,7 @@
 
 > Software español para digitalizar la operación de planta en pymes industriales: control de producción, continuidad ante bajas y trazabilidad de ejecución, sin la complejidad de un MES. Desarrollado por GMV Solutions, España.
 
-**Última actualización:** 2026-08-18
+**Última actualización:** <!--UPDATED-->
 **Idioma:** es-ES (Español)
 **País de enfoque:** ES (España)
 **Tipo de negocio:** SaaS B2B (empresa privada)
@@ -94,27 +94,7 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Personal ETT](https://www.gmvsolutions.es/casos-de-uso/personal-ett/) — El temporal accede a los SOPs sin cuenta ni app, rinde desde el primer turno
 - [Transferencia de conocimiento](https://www.gmvsolutions.es/casos-de-uso/transferencia-conocimiento/) — Captura el conocimiento tácito antes de jubilaciones o salidas
 
-### Blog
-- [Blog principal](https://www.gmvsolutions.es/blog/) — Artículos sobre onboarding, SOPs, gestión de competencias y absentismo industrial
-- [Crisis de pérdida de conocimiento](https://www.gmvsolutions.es/blog/crisis-perdida-conocimiento-planta-industrial/)
-- [Qué es un SOP industrial](https://www.gmvsolutions.es/blog/que-es-un-sop-industrial/)
-- [Coste del absentismo en pymes](https://www.gmvsolutions.es/blog/coste-absentismo-pymes-industriales/)
-- [Documentar conocimiento de operarios expertos](https://www.gmvsolutions.es/blog/documentar-conocimiento-operarios-expertos/)
-- [Gestión de competencias en la industria](https://www.gmvsolutions.es/blog/gestion-competencias-industria/)
-- [Onboarding software vs tradicional](https://www.gmvsolutions.es/blog/onboarding-vs-tradicional/)
-- [Documentar procesos de mecanizado CNC](https://www.gmvsolutions.es/blog/documentar-procesos-mecanizado-cnc/)
-- [Instrucciones de trabajo vs SOP](https://www.gmvsolutions.es/blog/instrucciones-de-trabajo-vs-sop/)
-- [Plantilla de SOP de producción](https://www.gmvsolutions.es/blog/plantilla-sop-produccion/)
-- [Conocimiento tácito en el taller industrial](https://www.gmvsolutions.es/blog/conocimiento-tacito-taller-industrial/)
-- [Reducir el onboarding de operarios de 5 a 1 día](https://www.gmvsolutions.es/blog/reducir-onboarding-operarios-cinco-a-un-dia/)
-- [Plan de contingencia ante bajas en producción](https://www.gmvsolutions.es/blog/plan-contingencia-bajas-produccion/)
-- [SOP de mantenimiento preventivo: guía y plantilla](https://www.gmvsolutions.es/blog/sop-mantenimiento-preventivo-guia-plantilla/)
-- [Software SOP para fábricas: comparativa](https://www.gmvsolutions.es/blog/software-sop-para-fabricas-comparativa/)
-- [Cómo saber la trazabilidad de un producto](https://www.gmvsolutions.es/blog/trazabilidad-de-un-producto/)
-- [Lean Manufacturing: qué es y cómo aplicarlo en una pyme](https://www.gmvsolutions.es/blog/lean-manufacturing/)
-- [Cómo digitalizar la producción en una pyme industrial](https://www.gmvsolutions.es/blog/digitalizar-produccion-pyme-industrial/)
-- [Onboarding digital en planta: cómo reducir los errores manuales](https://www.gmvsolutions.es/blog/onboarding-digital-errores-manuales/)
-- [Onboarding software para pymes: guía completa](https://www.gmvsolutions.es/blog/onboarding-software-pymes/)
+<!--BLOG-->
 
 ### Landing pages de alto valor
 - [Onboarding software para pymes](https://www.gmvsolutions.es/onboarding-software-pymes/) — Guía completa sobre onboarding digital para pymes industriales

@@ -1,8 +1,8 @@
+import { posts, REVISION } from '../lib/blog';
+
 export async function GET() {
   const baseURL = 'https://www.gmvsolutions.es';
   const lastmod = '2026-07-01';
-  // Fecha de la revision SEO/GEO del blog.
-  const REVISION = '2026-07-27';
 
   // `lastmod` global por defecto. Cuando una pagina se publica o revisa en otra
   // fecha, se pasa la suya: un lastmod uniforme y falso en todo el sitemap resta
@@ -62,42 +62,21 @@ export async function GET() {
     page('/casos-de-uso/onboarding-operarios/', '0.85', 'monthly'),
     page('/casos-de-uso/personal-ett/', '0.8', 'monthly'),
     page('/casos-de-uso/transferencia-conocimiento/', '0.8', 'monthly'),
+    // URL de primer nivel aunque vive en el menu de casos de uso, igual que
+    // /cobertura-turnos/. Publicada 2026-08-19, de ahi su lastmod propio.
+    page('/consistencia-entre-turnos/', '0.85', 'monthly', '2026-08-19'),
+    page('/errores-en-planta/', '0.85', 'monthly', '2026-08-20'),
 
     page('/sectores/alimentacion/', '0.75', 'monthly'),
     page('/sectores/mecanizado-cnc/', '0.75', 'monthly'),
 
     page('/blog/', '0.8', 'weekly', REVISION),
 
-    // Revisados el 2026-07-27 (auditoria SEO/GEO: FAQ + schema, indice con anclas,
-    // migracion de layout). Su dateModified en el BlogPosting coincide con este lastmod.
-    page('/blog/coste-absentismo-pymes-industriales/', '0.75', 'monthly', REVISION),
-    page('/blog/crisis-perdida-conocimiento-planta-industrial/', '0.75', 'monthly', REVISION),
-    page('/blog/documentar-conocimiento-operarios-expertos/', '0.75', 'monthly', REVISION),
-    page('/blog/gestion-competencias-industria/', '0.8', 'monthly', REVISION),
-    page('/blog/onboarding-software-pymes/', '0.8', 'monthly', REVISION),
-    page('/blog/onboarding-vs-tradicional/', '0.8', 'monthly', REVISION),
-    page('/blog/que-es-un-sop-industrial/', '0.75', 'monthly', REVISION),
-    page('/blog/documentar-procesos-mecanizado-cnc/', '0.75', 'monthly', REVISION),
-    page('/blog/instrucciones-de-trabajo-vs-sop/', '0.75', 'monthly', REVISION),
-    page('/blog/software-sop-para-fabricas-comparativa/', '0.8', 'monthly', REVISION),
-    page('/blog/plantilla-sop-produccion/', '0.8', 'monthly', REVISION),
-    page('/blog/sop-mantenimiento-preventivo-guia-plantilla/', '0.75', 'monthly', REVISION),
-    page('/blog/conocimiento-tacito-taller-industrial/', '0.75', 'monthly', REVISION),
-    page('/blog/reducir-onboarding-operarios-cinco-a-un-dia/', '0.75', 'monthly', REVISION),
-    page('/blog/plan-contingencia-bajas-produccion/', '0.75', 'monthly', REVISION),
-    page('/blog/onboarding-digital-errores-manuales/', '0.8', 'monthly', REVISION),
-
-    // Sin cambios desde su publicacion: conservan su fecha real.
-    page('/blog/trazabilidad-de-un-producto/', '0.75', 'monthly', '2026-06-26'),
-    page('/blog/lean-manufacturing/', '0.8', 'monthly', '2026-06-29'),
-    page('/blog/digitalizar-produccion-pyme-industrial/', '0.8', 'monthly', '2026-07-01'),
-    page('/blog/errores-humanos-produccion/', '0.8', 'monthly', '2026-07-30'),
-    page('/blog/twi-formacion-operarios-en-el-puesto/', '0.75', 'monthly', '2026-08-17'),
-    page('/blog/kpis-de-produccion-pyme-industrial/', '0.8', 'monthly', '2026-08-17'),
-    page('/blog/medir-tiempos-de-produccion/', '0.75', 'monthly', '2026-08-17'),
-    page('/blog/5s-en-un-taller-industrial/', '0.75', 'monthly', '2026-08-17'),
-    page('/blog/preparar-auditoria-iso-9001-produccion/', '0.8', 'monthly', '2026-08-17'),
-    page('/blog/control-de-calidad-en-excel/', '0.75', 'monthly', '2026-08-17'),
+    // Entradas del blog generadas desde src/lib/blog.ts (registro unico que
+    // comparten /blog/, este sitemap y /llms.txt). Cada articulo lleva su propia
+    // prioridad y su lastmod: REVISION si se reviso en la auditoria SEO/GEO del
+    // 2026-07-27, o su fecha real de publicacion si no se ha tocado desde entonces.
+    ...posts.map((post) => page(`/blog/${post.slug}/`, post.priority, 'monthly', post.lastmod)),
 
     // /recursos/gestion-competencias-industria/, /recursos/onboarding-software-pymes/ y
     // /recursos/onboarding-vs-tradicional/ NO van en el sitemap: canonicalizan a su
