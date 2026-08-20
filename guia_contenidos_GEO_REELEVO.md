@@ -10,7 +10,7 @@ orientada a SEO, GEO/AI visibility y generación de demanda cualificada.\
 
 ------------------------------------------------------------------------
 
-# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░ ESTADO: 75 % EJECUTADO
+# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ ESTADO: 78 % EJECUTADO
 
 **Última actualización:** 2026-08-20 · **La ejecución empezó por el final.** El contenido 12 —el pilar— se publicó antes que los de Fase 1, porque el clúster de conocimiento ya tenía masa crítica y el pilar era lo que faltaba para unirlo. El orden de fases de la sección 20 describe la intención original, no el estado real; la referencia es esta tabla.
 
@@ -19,9 +19,9 @@ orientada a SEO, GEO/AI visibility y generación de demanda cualificada.\
 | **Fase 1** — Consolidación | SOP: contenidos 01, 03 y 04 (el 02 descartado) | **◐ 67 %** | 3,00 j |
 | **Fase 2** — Expansión | Conocimiento y onboarding: 05 a 08 | **◐ 63 %** | 4,00 j |
 | **Fase 3** — Diferenciación | Vídeo, QR y pilar: 09, 10 y 12 (el 11 descartado) | **☑ 100 %** | 4,00 j |
-| **Estructura** — Enlazado y arreglos | La regla de la sección 12 sobre los 29 artículos, más la tabla que falta en el 03 | **◐ 44 %** | 1,00 j |
+| **Estructura** — Enlazado y arreglos | La regla de la sección 12, cerrada. Queda la tabla que falta en el 03 | **◐ 80 %** | 1,00 j |
 
-**Cálculo:** 8,94 de 12,00 jornadas = **75 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
+**Cálculo:** 9,30 de 12,00 jornadas = **78 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
 
 **El denominador bajó de 14,00 a 12,00 j** al resolver la decisión D1 el 2026-08-20: los contenidos **02** y **11** se marcan `⊘ descartado`, porque su tema ya está cubierto y publicarlos por separado competiría contra URLs que ya posicionan. No es deuda oculta: es trabajo que no hay que hacer.
 
@@ -56,14 +56,16 @@ Se mide con dos casillas: **①** el tema está cubierto en algún artículo pub
 | **C07** | Escribir «Cómo transferir conocimiento entre trabajadores» | ☐ | 1,00 |
 | **C08b** | Dar URL propia al 08: «cómo formar a un operario nuevo» (D1) | ◐ | 1,00 |
 | **C03b** | Añadir al 03 la tabla comparativa que el brief exige desde junio | ☐ | 0,20 |
-| **E1** | Enlazado interno de la sección 12: 12 de 29 artículos cumplen la regla | ◐ | 0,80 |
+| ~~**E1**~~ | ~~Enlazado interno de la sección 12~~ — cerrado 2026-08-20: **22 de 22** sobre la base arreglable | ☑ | 0,80 |
 | ~~**C09**~~ | ~~Instrucciones en vídeo~~ — publicado 2026-08-20 | ☑ | 1,00 |
 | ~~**C10**~~ | ~~QR para instrucciones~~ — publicado 2026-08-20 | ☑ | 1,00 |
 | ~~**D1**~~ | ~~Decidir sobre el 02, el 08 y el 11~~ — resuelta 2026-08-20 | ☑ | — |
 
-**Sobre E1.** De los 17 que no cumplen, **7 no pueden cumplirla**: están en clústeres de uno o dos artículos (`digitalizacion`, `lean`, `medicion`, `absentismo`), donde «al menos 2 del mismo clúster» es imposible sin publicar más piezas de ese tema. Sobre la base realista de **22 artículos subsanables, cumplen 12**. Medido con el registro de `src/lib/blog.ts`, contando enlaces únicos y descartando el propio artículo.
+**Sobre E1, cerrado el 2026-08-20.** Cumplen **22 de 29**, y los 7 que faltan son exactamente los que **no pueden cumplirla**: están en clústeres de uno o dos artículos (`digitalizacion`, `lean`, `medicion`, `absentismo`), donde «al menos 2 del mismo clúster» es imposible por aritmética. Sobre la base arreglable, **22 de 22**.
 
-**Los cuatro más baratos de arreglar** ya tienen dos hermanos del mismo clúster y solo les falta un enlace a otro clúster: `instrucciones-de-trabajo-vs-sop`, `plantilla-sop-produccion`, `sop-mantenimiento-preventivo-guia-plantilla` y `reducir-onboarding-operarios-cinco-a-un-dia`. Un enlace bien puesto en cada uno sube E1 de 12 a 16 de 22.
+Costó **11 enlaces en 10 artículos**, no los 30 que sugería el 12 de 29 inicial: nueve piezas estaban a un solo enlace de cumplir, y en el artículo de CNC un mismo párrafo resolvió las dos que le faltaban. Ninguno es un enlace de relleno; todos van dentro de un párrafo que ya trataba el tema.
+
+**Los 7 restantes no se arreglan enlazando**, sino publicando: `lean`, `medicion` y `absentismo` necesitarían una tercera pieza cada uno, y `digitalizacion` tiene un solo artículo. Es una decisión de contenido, no de enlazado, y por eso quedan fuera del denominador. Medido con el registro de `src/lib/blog.ts`, contando enlaces únicos y descartando el propio artículo.
 
 > **Cómo mantener este bloque.** Al publicar un contenido: marcar sus dos casillas, recalcular el peso acumulado sobre el denominador vigente (hoy 14,00), actualizar la barra del título (cada ▓ son 5 puntos porcentuales) y re-medir E1, que cambia con cada artículo nuevo. Estados: `☐ pendiente` · `◐ en curso o parcial` · `☑ hecho` · `⊘ descartado (con motivo)`, igual que en `PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08.md` y `PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md`.
 
