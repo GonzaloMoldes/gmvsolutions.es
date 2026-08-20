@@ -342,6 +342,59 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: 1rem;
   }
 
+  /* Tabla comparativa. Primitiva de articulo, como .data-card: la guia
+     editorial pide tabla en las piezas de tipo "A vs B" y hasta ahora cada
+     articulo tenia que traerse sus propios estilos.
+     El envoltorio .tabla-comparativa hace scroll horizontal en movil en lugar
+     de desbordar la pagina. */
+  .article-body :global(.tabla-comparativa) {
+    margin: 28px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .article-body :global(.tabla-comparativa table) {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: .88rem;
+  }
+
+  .article-body :global(.tabla-comparativa th) {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--orange);
+    font-size: .8rem;
+    letter-spacing: .02em;
+  }
+
+  .article-body :global(.tabla-comparativa td) {
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.85);
+    vertical-align: top;
+  }
+
+  /* Primera columna: el criterio que se compara. */
+  .article-body :global(.tabla-comparativa td:first-child) {
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .article-body :global(.tabla-comparativa caption) {
+    caption-side: bottom;
+    padding-top: 12px;
+    font-size: .78rem;
+    color: var(--gray2);
+    text-align: left;
+    line-height: 1.6;
+  }
+
   /* Highlight box */
   .article-body :global(.highlight-box) {
     background: rgba(244,82,30,.08);

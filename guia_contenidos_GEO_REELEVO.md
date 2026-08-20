@@ -10,7 +10,7 @@ orientada a SEO, GEO/AI visibility y generación de demanda cualificada.\
 
 ------------------------------------------------------------------------
 
-# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ ESTADO: 78 % EJECUTADO
+# ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ ESTADO: 79 % EJECUTADO
 
 **Última actualización:** 2026-08-20 · **La ejecución empezó por el final.** El contenido 12 —el pilar— se publicó antes que los de Fase 1, porque el clúster de conocimiento ya tenía masa crítica y el pilar era lo que faltaba para unirlo. El orden de fases de la sección 20 describe la intención original, no el estado real; la referencia es esta tabla.
 
@@ -19,9 +19,9 @@ orientada a SEO, GEO/AI visibility y generación de demanda cualificada.\
 | **Fase 1** — Consolidación | SOP: contenidos 01, 03 y 04 (el 02 descartado) | **◐ 67 %** | 3,00 j |
 | **Fase 2** — Expansión | Conocimiento y onboarding: 05 a 08 | **◐ 63 %** | 4,00 j |
 | **Fase 3** — Diferenciación | Vídeo, QR y pilar: 09, 10 y 12 (el 11 descartado) | **☑ 100 %** | 4,00 j |
-| **Estructura** — Enlazado y arreglos | La regla de la sección 12, cerrada. Queda la tabla que falta en el 03 | **◐ 80 %** | 1,00 j |
+| **Estructura** — Enlazado y arreglos | La regla de la sección 12 y la tabla del 03, ambas cerradas | **☑ 100 %** | 1,00 j |
 
-**Cálculo:** 9,30 de 12,00 jornadas = **78 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
+**Cálculo:** 9,50 de 12,00 jornadas = **79 %**. Un contenido cuenta 1,00 j; el pilar 2,00 j por extensión y por ser el que sostiene el clúster. `◐` cuenta media jornada.
 
 **El denominador bajó de 14,00 a 12,00 j** al resolver la decisión D1 el 2026-08-20: los contenidos **02** y **11** se marcan `⊘ descartado`, porque su tema ya está cubierto y publicarlos por separado competiría contra URLs que ya posicionan. No es deuda oculta: es trabajo que no hay que hacer.
 
@@ -33,7 +33,7 @@ Se mide con dos casillas: **①** el tema está cubierto en algún artículo pub
 |---|---|:---:|:---:|---|
 | 01 | Qué es un SOP | ☑ | ☑ | `/blog/que-es-un-sop-industrial/` |
 | 02 | Crear un SOP paso a paso | ☑ | ⊘ | **Descartado (D1, 2026-08-20).** Vive dentro del 01 («Cómo crear un SOP en 5 pasos») y de `/blog/plantilla-sop-produccion/`. Con URL propia competiría contra los dos |
-| 03 | SOP vs instrucción de trabajo | ☑ | ☑ | `/blog/instrucciones-de-trabajo-vs-sop/` — **le falta la tabla comparativa que el brief exige** |
+| 03 | SOP vs instrucción de trabajo | ☑ | ☑ | `/blog/instrucciones-de-trabajo-vs-sop/` — tabla comparativa añadida el 2026-08-20 |
 | 04 | Digitalizar los SOP de una planta | ☐ | ☐ | Nada. `/blog/software-sop-para-fabricas-comparativa/` resuelve *qué herramienta elegir*, no *cómo se hace el paso* |
 | 05 | Documentar el conocimiento de los operarios | ☑ | ☑ | `/blog/documentar-conocimiento-operarios-expertos/` |
 | 06 | Pérdida de conocimiento por jubilaciones | ☑ | ☑ | `/blog/crisis-perdida-conocimiento-planta-industrial/` — la jubilación está en la `description` y en 11 pasajes |
@@ -55,7 +55,7 @@ Se mide con dos casillas: **①** el tema está cubierto en algún artículo pub
 | **C04** | Escribir «Cómo digitalizar los SOP de una planta industrial» | ☐ | 1,00 |
 | **C07** | Escribir «Cómo transferir conocimiento entre trabajadores» | ☐ | 1,00 |
 | **C08b** | Dar URL propia al 08: «cómo formar a un operario nuevo» (D1) | ◐ | 1,00 |
-| **C03b** | Añadir al 03 la tabla comparativa que el brief exige desde junio | ☐ | 0,20 |
+| ~~**C03b**~~ | ~~Tabla comparativa del 03~~ — hecha 2026-08-20, con los siete criterios y el ejemplo de mantenimiento que pide la sección 6 | ☑ | 0,20 |
 | ~~**E1**~~ | ~~Enlazado interno de la sección 12~~ — cerrado 2026-08-20: **22 de 22** sobre la base arreglable | ☑ | 0,80 |
 | ~~**C09**~~ | ~~Instrucciones en vídeo~~ — publicado 2026-08-20 | ☑ | 1,00 |
 | ~~**C10**~~ | ~~QR para instrucciones~~ — publicado 2026-08-20 | ☑ | 1,00 |
