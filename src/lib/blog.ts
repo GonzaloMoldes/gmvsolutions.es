@@ -229,6 +229,17 @@ export const posts: BlogPost[] = [
     priority: '0.75',
   },
   {
+    slug: 'programa-de-mantenimiento-preventivo',
+    cluster: 'sop',
+    category: 'Mantenimiento',
+    title: 'Programa de mantenimiento preventivo: cómo diseñarlo paso a paso',
+    desc: 'Qué máquinas incluir, cómo construir el calendario, quién lo gestiona y los errores que hacen fracasar el programa a nivel de planta.',
+    dateLabel: '20 sept. 2026',
+    readTime: '10 min.',
+    lastmod: '2026-09-20',
+    priority: '0.8',
+  },
+  {
     slug: 'reducir-onboarding-operarios-cinco-a-un-dia',
     cluster: 'onboarding',
     category: 'Onboarding',

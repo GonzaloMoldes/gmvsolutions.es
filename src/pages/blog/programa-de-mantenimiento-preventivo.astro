@@ -1,0 +1,165 @@
+---
+// CON-GEO-1 (cluster SOP/mantenimiento). Brief: PLAN_CONTENIDOS_GEO_2026-09.md tarea C1.
+// Diferenciado a proposito de sop-mantenimiento-preventivo-guia-plantilla.astro: ese
+// post resuelve UNA tarea (el documento), este resuelve LA PLANTA (el programa que
+// organiza todas las tareas de todas las maquinas). Se enlazan entre si.
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const title = "Programa de mantenimiento preventivo: cómo diseñarlo paso a paso";
+const description = "Cómo montar un programa de mantenimiento preventivo en una pyme industrial: qué máquinas incluir, cómo construir el calendario, quién lo gestiona y los errores que lo hacen fracasar.";
+const canonical = "https://www.gmvsolutions.es/blog/programa-de-mantenimiento-preventivo/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es un programa de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el plan que organiza todas las tareas de mantenimiento preventivo de una planta: qué máquinas lo necesitan, con qué frecuencia se revisa cada una, quién es responsable y cómo se comprueba que se cumple. No es el procedimiento de una tarea concreta —eso es un SOP de mantenimiento—, es el sistema que decide qué SOPs existen y cuándo se ejecutan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se hace un programa de mantenimiento preventivo paso a paso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuatro pasos: primero un inventario de máquinas con su criticidad, para saber cuáles entran en el programa y cuáles no. Segundo, un calendario de tareas por máquina, agrupado por parada para no perder producción varias veces por lo mismo. Tercero, un responsable de programa que rinde cuentas del conjunto, no solo de tareas sueltas. Cuarto, un indicador de cumplimiento que se revisa con regularidad, no solo cuando algo se rompe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre un programa, un plan y un protocolo de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En la práctica se usan como sinónimos y no vale la pena pelear la terminología. Si acaso: programa y plan suelen referirse a lo mismo, el conjunto de tareas de toda la planta con su calendario. Protocolo se usa más para el procedimiento de una tarea concreta —lo mismo que aquí llamamos SOP de mantenimiento—, es decir, es una pieza dentro del programa, no el programa entero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas máquinas hacen falta para que compense montar un programa de mantenimiento preventivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es un umbral de máquinas, es un umbral de dependencia: en cuanto una máquina parada te deja sin producir y no tienes alternativa inmediata, esa máquina necesita entrar en un programa, tenga la planta tres máquinas o treinta. El criterio de criticidad importa más que el conteo."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-09-20" dateModified="2026-09-20" category="Mantenimiento" readTime="10 min" canonical={canonical} schema={faqSchema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Un programa de mantenimiento preventivo es el nivel de planta: qué máquinas lo necesitan, con qué frecuencia y quién responde por el conjunto. No es lo mismo que el SOP de una tarea concreta —esa es la pieza que va dentro—, y confundir los dos niveles es la razón por la que muchos programas se quedan en un Excel que nadie termina de completar.</p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es un programa de mantenimiento preventivo</a></li>
+    <li><a href="#diferencia-sop">En qué se diferencia de un SOP de mantenimiento</a></li>
+    <li><a href="#inventario">Paso 1: inventario y criticidad de máquinas</a></li>
+    <li><a href="#calendario">Paso 2: construir el calendario</a></li>
+    <li><a href="#responsables">Paso 3: un responsable de programa, no solo de tareas</a></li>
+    <li><a href="#indicadores">Paso 4: saber si el programa funciona</a></li>
+    <li><a href="#errores">Los errores que lo hacen fracasar</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es un programa de mantenimiento preventivo</h2>
+  <p>Un programa de mantenimiento preventivo es el sistema que decide, para toda la planta, qué se revisa, cuándo y quién responde. No es una tarea ni un documento suelto: es la capa que organiza todas las tareas de todas las máquinas y las convierte en un plan que se puede seguir, auditar y ajustar.</p>
+
+  <p>Cuando el mantenimiento preventivo falla en una pyme, casi nunca es porque falte una instrucción bien escrita para una máquina en concreto. Falla porque nadie tiene la vista de conjunto: qué máquinas están cubiertas, cuáles se han quedado fuera, si las frecuencias se cumplen y quién debería estar dando la cara si no se cumplen. Eso es exactamente lo que resuelve un programa, y es distinto de resolver una tarea.</p>
+
+  <h2 id="diferencia-sop">En qué se diferencia de un SOP de mantenimiento</h2>
+  <p>Es la confusión más habitual del tema, y merece la pena aclararla antes de seguir. Un <a href="/blog/sop-mantenimiento-preventivo-guia-plantilla/">SOP de mantenimiento preventivo</a> es el procedimiento de <strong>una</strong> tarea: qué se hace, dónde, cómo, cada cuánto y quién la ejecuta, para lubricar un rodamiento o inspeccionar una correa en una máquina concreta.</p>
+
+  <p>El programa es el nivel de arriba: el conjunto de todos esos SOPs, con la lógica que decide cuáles existen, con qué prioridad y bajo la responsabilidad de quién. Un programa bien diseñado puede apoyarse en SOPs mal escritos y sobrevivir; un SOP perfecto sin programa que lo sostenga se acaba abandonando, porque nadie a nivel de planta se pregunta si se está cumpliendo.</p>
+
+  <h2 id="inventario">Paso 1: inventario y criticidad de máquinas</h2>
+  <p>Antes de programar nada, hay que decidir qué entra en el programa. No todas las máquinas necesitan el mismo nivel de preventivo, y tratar a todas por igual es la forma más rápida de que el programa se vuelva inabarcable y se abandone entero.</p>
+
+  <p>El criterio práctico es la criticidad, no el precio de la máquina ni su antigüedad:</p>
+  <ul>
+    <li><strong>Sin alternativa:</strong> si se para, ¿hay otra máquina o proceso que la sustituya, aunque sea peor? Si no, es crítica por definición.</li>
+    <li><strong>Coste de la parada:</strong> no solo el tiempo de reparación, también lo que deja de producirse mientras tanto y si hay entregas comprometidas.</li>
+    <li><strong>Historial de averías:</strong> una máquina que ya ha fallado por lo mismo dos veces te está diciendo dónde poner el preventivo, no hace falta adivinarlo.</li>
+  </ul>
+
+  <p>Con esas tres preguntas se ordena el parque de máquinas en dos o tres niveles de prioridad. El programa arranca por las críticas; el resto entra después, cuando el sistema ya funciona y no compite por la misma atención.</p>
+
+  <h2 id="calendario">Paso 2: construir el calendario</h2>
+  <p>El error clásico es programar cada tarea de forma aislada: la máquina A se revisa el día 5, la B el día 12, la C el día 18, cada una en su propio ciclo. El resultado son paradas cortas repartidas por todo el mes, cada una interrumpiendo producción por su cuenta.</p>
+
+  <p>Funciona mejor agrupar por parada: si dos máquinas de la misma línea admiten revisión con una frecuencia parecida, se juntan en la misma ventana aunque una pudiera esperar unos días más. Se pierde algo de precisión en la frecuencia exacta y se gana una sola interrupción en vez de dos. En una pyme, esa segunda cosa suele importar más.</p>
+
+  <p>La frecuencia de cada tarea la marca el fabricante y el uso real —horas de máquina, no solo el calendario—, pero el criterio final es que se cumpla. Una tarea mensual que se hace siempre vale más que una semanal que se salta la mitad de las veces.</p>
+
+  <h2 id="responsables">Paso 3: un responsable de programa, no solo de tareas</h2>
+  <p>Cada tarea suele tener un responsable —el operario o el técnico que la ejecuta—, pero eso no basta. El programa necesita además <strong>un responsable del conjunto</strong>: alguien que sepa cuántas tareas están al día, cuántas se han retrasado y por qué, y que pueda contestar esa pregunta sin tener que reconstruirla a mano.</p>
+
+  <p>Sin esa figura, el programa se sostiene mientras una persona lo lleva en la cabeza, y el problema aparece en el mismo momento que en cualquier otro proceso que depende de una sola persona: <a href="/blog/plan-contingencia-bajas-produccion/">cuando esa persona está de baja o de vacaciones</a>, nadie más sabe si el preventivo se está cumpliendo.</p>
+
+  <h2 id="indicadores">Paso 4: saber si el programa funciona</h2>
+  <p>Un programa sin indicador es una intención, no un sistema. No hace falta un cuadro de mando complejo: con dos números bien llevados se sabe si el programa está vivo o se está muriendo en silencio.</p>
+
+  <ul>
+    <li><strong>% de cumplimiento:</strong> de las tareas programadas en el periodo, cuántas se hicieron en plazo. Es el número que primero cae cuando el programa empieza a fallar, y suele caer antes de que se note en las averías.</li>
+    <li><strong>Paradas no programadas evitadas o repetidas:</strong> si una avería que el preventivo debía cubrir vuelve a aparecer, el programa tiene un agujero concreto, no un problema general.</li>
+  </ul>
+
+  <p>Para el resto de indicadores de planta —los que sí conviene mirar y los que son ruido en una pyme— está la guía de <a href="/blog/kpis-de-produccion-pyme-industrial/">KPIs de producción</a>.</p>
+
+  <h2 id="errores">Los errores que lo hacen fracasar</h2>
+  <ul>
+    <li><strong>Programarlo todo de golpe.</strong> Un programa que cubre las cuarenta máquinas de la planta desde el primer día no se sostiene. Empieza por las críticas y añade el resto cuando lo primero ya funciona.</li>
+    <li><strong>Vivir en un Excel que solo abre una persona.</strong> Es el mismo patrón que hace fracasar el SOP individual, pero a escala de planta: si el calendario completo vive en un archivo que solo consulta el responsable de mantenimiento, el programa depende de que esa persona no falte nunca.</li>
+    <li><strong>No revisar la frecuencia cuando no se cumple.</strong> Si una tarea semanal se incumple sistemáticamente, casi nunca es un problema de disciplina: es que la frecuencia no es realista con la carga de producción actual. Ajustarla suele arreglar más que insistir.</li>
+    <li><strong>Separarlo de la agenda de producción.</strong> Un programa que vive en un sistema aparte del que usan los operarios para su trabajo diario compite por atención y casi siempre pierde. La tarea de mantenimiento tiene que aparecer donde el operario ya está mirando, no en un sitio adicional que hay que acordarse de abrir.</li>
+  </ul>
+
+  <h2 id="reelevo">Cómo lo resuelve REELEVO</h2>
+  <p>REELEVO no es un GMAO ni pretende serlo —para plantas con mantenimiento muy intensivo, un GMAO especializado sigue siendo lo correcto—. Lo que hace es la parte que más pymes necesitan y menos suelen tener resuelta: que el plan de preventivo, una vez definido, <strong>genere la orden de trabajo automáticamente</strong> y la coloque en la agenda del operario junto a las tareas de producción, sin que nadie tenga que acordarse de abrir un sistema aparte.</p>
+
+  <p>Eso resuelve directamente el error más común de esta lista: el programa deja de depender de que una persona lo recuerde, porque el sistema lo saca solo cuando toca. Puedes ver cómo funciona en <a href="/mantenimiento/">la página de mantenimiento</a>, y si lo que necesitas primero es visibilidad de todo lo que pasa en planta, no solo del preventivo, en <a href="/control-produccion/">control de producción</a>.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué es un programa de mantenimiento preventivo?</h3>
+  <p>Es el plan que organiza todas las tareas de mantenimiento preventivo de una planta: qué máquinas lo necesitan, con qué frecuencia se revisa cada una, quién es responsable y cómo se comprueba que se cumple. No es el procedimiento de una tarea concreta —eso es un SOP de mantenimiento—, es el sistema que decide qué SOPs existen y cuándo se ejecutan.</p>
+
+  <h3>¿Cómo se hace un programa de mantenimiento preventivo paso a paso?</h3>
+  <p>Cuatro pasos: primero un inventario de máquinas con su criticidad, para saber cuáles entran en el programa y cuáles no. Segundo, un calendario de tareas por máquina, agrupado por parada para no perder producción varias veces por lo mismo. Tercero, un responsable de programa que rinde cuentas del conjunto, no solo de tareas sueltas. Cuarto, un indicador de cumplimiento que se revisa con regularidad, no solo cuando algo se rompe.</p>
+
+  <h3>¿Qué diferencia hay entre un programa, un plan y un protocolo de mantenimiento preventivo?</h3>
+  <p>En la práctica se usan como sinónimos y no vale la pena pelear la terminología. Si acaso: programa y plan suelen referirse a lo mismo, el conjunto de tareas de toda la planta con su calendario. Protocolo se usa más para el procedimiento de una tarea concreta —lo mismo que aquí llamamos SOP de mantenimiento—, es decir, es una pieza dentro del programa, no el programa entero.</p>
+
+  <h3>¿Cuántas máquinas hacen falta para que compense montar un programa de mantenimiento preventivo?</h3>
+  <p>No es un umbral de máquinas, es un umbral de dependencia: en cuanto una máquina parada te deja sin producir y no tienes alternativa inmediata, esa máquina necesita entrar en un programa, tenga la planta tres máquinas o treinta. El criterio de criticidad importa más que el conteo.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/mantenimiento/">
+        <div class="related-link-kicker">Producto</div>
+        <div class="related-link-title">Mantenimiento</div>
+        <div class="related-link-desc">Órdenes generadas automáticamente e integradas en la agenda del operario.</div>
+      </a>
+      <a class="related-link-card" href="/blog/sop-mantenimiento-preventivo-guia-plantilla/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">SOP de mantenimiento preventivo</div>
+        <div class="related-link-desc">La pieza dentro del programa: cómo documentar una tarea concreta.</div>
+      </a>
+      <a class="related-link-card" href="/blog/kpis-de-produccion-pyme-industrial/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">KPIs de producción</div>
+        <div class="related-link-desc">Qué indicadores merece la pena medir en una pyme, y cuáles son ruido.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Pon en marcha tu programa.</strong> <a href="/blog/sop-mantenimiento-preventivo-guia-plantilla/#plantilla" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Solicitar una demo →</a></p>
+  </div>
+</ArticleLayout>

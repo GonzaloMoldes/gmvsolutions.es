@@ -55,6 +55,14 @@ const faqSchema = {
         "@type": "Answer",
         "text": "La matriz de competencias —o matriz de habilidades— es el registro de qué operario está capacitado para qué tarea o máquina y en qué nivel. Combinada con instrucciones digitalizadas, permite asignar el trabajo según la capacitación real en lugar de la intuición, y ver dónde hace falta reforzar la formación antes de que aparezca el error."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se emite una nueva versión de una instrucción de trabajo en onboarding digital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La emisión es instantánea: al guardar el cambio, la nueva versión sustituye a la anterior en todos los puestos a la vez, sin reimprimir nada ni dejar copias antiguas circulando. El operario que consulta el proceso ve siempre la versión vigente, y queda registrado qué versión siguió cada ejecución para el caso de que haya que reconstruirlo después."
+      }
     }
   ]
 };
@@ -126,7 +134,7 @@ const faqSchema = {
   <p>La instrucción se consulta donde se necesita, no se memoriza de antemano en una sesión que se olvida a la semana. Un QR en la máquina y el <a href="/portal-operario/">portal del operario</a> en el móvil bastan; si el taller no tiene cobertura, el <a href="/modo-offline/">modo offline</a> resuelve el hueco. Esto es lo que corrige los errores de parámetro: el valor vigente está delante, no en la memoria.</p>
 
   <h3>3. Trazabilidad y control de versiones automáticos</h3>
-  <p>Cada consulta y cada actualización queda registrada. Si cambia el proceso, el cambio se refleja al instante en todos los puestos sin reimprimir nada, y desaparece la situación de tener tres versiones distintas conviviendo en tres líneas. Cuando aparece una no conformidad, puedes reconstruir qué instrucción se siguió —lo mismo que hace la <a href="/blog/trazabilidad-de-un-producto/">trazabilidad de producto</a>, aplicado al proceso.</p>
+  <p><strong>La emisión de una nueva versión es instantánea:</strong> cada consulta y cada actualización queda registrada, y si cambia el proceso, el cambio se refleja al instante en todos los puestos sin reimprimir nada. Desaparece la situación de tener tres versiones distintas conviviendo en tres líneas. Cuando aparece una no conformidad, puedes reconstruir qué instrucción se siguió —lo mismo que hace la <a href="/blog/trazabilidad-de-un-producto/">trazabilidad de producto</a>, aplicado al proceso.</p>
 
   <h3>4. El porqué, junto al paso</h3>
   <p>Añadir una línea de contexto —"si aprietas antes de centrar, la pieza sale ovalada"— convierte una instrucción en criterio. Es la parte que más tarda en transmitirse por acompañamiento informal y la que evita los errores de criterio, los caros. Documentarla es la mitad del trabajo de <a href="/blog/documentar-conocimiento-operarios-expertos/">capturar el conocimiento del operario experto</a>.</p>
@@ -184,6 +192,9 @@ const faqSchema = {
 
   <h3>¿Qué es la matriz de competencias y cómo se relaciona con el onboarding?</h3>
   <p>La matriz de competencias —o matriz de habilidades— es el registro de qué operario está capacitado para qué tarea o máquina y en qué nivel. Combinada con instrucciones digitalizadas, permite asignar el trabajo según la capacitación real en lugar de la intuición, y ver dónde hace falta reforzar la formación antes de que aparezca el error.</p>
+
+  <h3>¿Cómo se emite una nueva versión de una instrucción de trabajo en onboarding digital?</h3>
+  <p>La emisión es instantánea: al guardar el cambio, la nueva versión sustituye a la anterior en todos los puestos a la vez, sin reimprimir nada ni dejar copias antiguas circulando. El operario que consulta el proceso ve siempre la versión vigente, y queda registrado qué versión siguió cada ejecución para el caso de que haya que reconstruirlo después.</p>
 
   <div class="related-links">
     <div class="related-links-label">Relacionado</div>
