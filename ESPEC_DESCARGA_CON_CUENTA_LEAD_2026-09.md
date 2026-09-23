@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** no iniciado · **0/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **1/14 tareas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -542,21 +542,21 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 
 | Fase | Alcance | Repo | Hechas | % | |
 |---|---|---|---:|---:|---|
-| **A · El lead de descarga** | Esquema y endpoint | app | 0/2 | **0 %** | ░░░░░░░░░░ |
+| **A · El lead de descarga** | Esquema y endpoint | app | 1/2 | **50 %** | █████░░░░░ |
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 0/4 | **0 %** | ░░░░░░░░░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **0/14** | **0 %** | ░░░░░░░░░░ |
+| | **TOTAL** | | **1/14** | **7 %** | █░░░░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
 
 | Tarea | Qué aporta | La necesita | Estado en `PLAN_CRM_LEADS` |
 |---|---|---|---|
-| `T-01` | Purga de `marketing_leads` en `gdpr-cleanup` | DL-1 | ⬜ |
-| `T-03` | `marketing_leads` generalizada | DL-1 | ⬜ |
+| `T-01` | Purga de `marketing_leads` en `gdpr-cleanup` | DL-1 | ✅ |
+| `T-03` | `marketing_leads` generalizada | DL-1 | ✅ |
 | `T-04` | `POST /api/leads/alta` | DL-2, DL-6 | ⬜ |
 | `T-06` | El registro reconoce leads | DL-12 | ⬜ |
 | `T-09` | Filtro por origen en el panel | DL-7 | ⬜ |
@@ -587,7 +587,11 @@ Leyenda: ⬜ pendiente · 🟡 en curso · ✅ completada · ⛔ bloqueada (con 
 
 #### DL-1 · Extensiones de esquema para el origen `descarga_web`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `bf0aff8a` (reelevo-app)
+*Cierre:* aplicada junto con `T-03` en `reelevo-app/supabase/migrations/20260924000001_t03_dl1_marketing_leads_generalizar.sql`. Verificado contra la base real el 2026-09-24 (14/14): columnas y backfill, anon sin INSERT ni SELECT, índice único por email normalizado, CHECK de origen, cascada de descargas y FK de sesión con SET NULL.
+Desvío sobre la técnica de abajo: `marketing_lead_descargas` queda **sin políticas** (sólo
+`service_role`, patrón de `consent_log`), porque el admin lee por rutas de API con
+`service_role`. Por eso la prueba de RLS es «anon/authenticated no leen», no «admin_reelevo sí».
 **Repo:** app · **Estimación:** ~3 h · **Depende de:** `T-01`, `T-03`
 
 **Técnica**
@@ -974,7 +978,7 @@ leer el `git log`.
 
 | Fecha | Tarea | Commit | Repo | Nota |
 |---|---|---|---|---|
-| — | — | — | — | Sin cierres todavía |
+| 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
 
 ---
 
