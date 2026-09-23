@@ -10,6 +10,13 @@
 > (`PLAN_GENERADOR_INSTRUCCIONES_2026-09.md`, tarea `G8`), pero el mecanismo debe
 > servir para cualquier herramienta de captación futura.
 
+> **⚠️ 2026-09-23 · §2 sustituida.** El modelo A (`companies.estado='lead'`) se
+> descarta: `companies.status` ya existe y tiene 103 lecturas en la app, 61 sin filtro
+> por estado. El lead vive en `marketing_leads` generalizada y se ve como lead en el
+> admin mediante una vista. Ver `ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md` §2 y
+> `PLAN_CRM_LEADS_2026-09-02.md` §3 (en `reelevo-app/docs/`). El resto de esta
+> espec sigue vigente donde no contradiga a esas dos.
+
 ---
 
 ## Aviso sobre esta especificación
