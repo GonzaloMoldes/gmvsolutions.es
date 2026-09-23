@@ -147,7 +147,7 @@ grep -c "^\*\*Estado:\*\* ✅" PLAN_RECURSOS_SOP_IT_2026-09.md   # completadas
 
 #### R-1 · Script generador de las plantillas
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** `cb00191`
 **Estimación:** ~1 h · **Depende de:** —
 
 **Técnica**
@@ -167,7 +167,7 @@ grep -c "^\*\*Estado:\*\* ✅" PLAN_RECURSOS_SOP_IT_2026-09.md   # completadas
 
 #### R-2 · Plantilla de SOP
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** `cb00191`
 **Estimación:** ~1 h · **Depende de:** R-1
 
 **Técnica:** contenido de §3.
@@ -181,7 +181,7 @@ grep -c "^\*\*Estado:\*\* ✅" PLAN_RECURSOS_SOP_IT_2026-09.md   # completadas
 
 #### R-3 · Plantilla de instrucción de trabajo
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** `cb00191`
 **Estimación:** ~1 h · **Depende de:** R-1
 
 **Técnica:** contenido de §4.
@@ -194,7 +194,7 @@ grep -c "^\*\*Estado:\*\* ✅" PLAN_RECURSOS_SOP_IT_2026-09.md   # completadas
 
 #### R-4 · Revisión visual
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-23 · **Commit:** `cb00191`
 **Estimación:** ~30 min · **Depende de:** R-2, R-3
 
 **Técnica:** abrir ambos en Word (automatización COM), exportar a PDF y revisar página
@@ -250,10 +250,10 @@ para las plantillas de SOP o IT.
 
 | Fecha | Tarea | Commit | Nota |
 |---|---|---|---|
-| 2026-09-23 | R-1 | pendiente | `scripts/descargables/generar-plantillas.cjs`. Genera los dos `.docx` en `src/descargables/` |
-| 2026-09-23 | R-2 | pendiente | SOP: 4 páginas. El SOP en blanco cabe en una. «Cuándo se aplica» y «Registros» se integraron en el bloque 1 y los responsables en el 5 para que cupiera y coincidiera con los seis bloques del FAQ |
-| 2026-09-23 | R-3 | pendiente | IT: 6 páginas (instrucciones, IT en 2, control, ejemplo en 2) |
-| 2026-09-23 | R-4 | pendiente | Revisadas en Word → PDF página a página. Ninguna tabla pierde su cabecera al partirse; casillas ☐/☒ visibles; pie en todas las páginas |
+| 2026-09-23 | R-1 | `cb00191` | `scripts/descargables/generar-plantillas.cjs`. Genera los dos `.docx` en `src/descargables/` |
+| 2026-09-23 | R-2 | `cb00191` | SOP: 4 páginas. El SOP en blanco cabe en una. «Cuándo se aplica» y «Registros» se integraron en el bloque 1 y los responsables en el 5 para que cupiera y coincidiera con los seis bloques del FAQ |
+| 2026-09-23 | R-3 | `cb00191` | IT: 6 páginas (instrucciones, IT en 2, control, ejemplo en 2) |
+| 2026-09-23 | R-4 | `cb00191` | Revisadas en Word → PDF página a página. Ninguna tabla pierde su cabecera al partirse; casillas ☐/☒ visibles; pie en todas las páginas |
 
 ---
 
