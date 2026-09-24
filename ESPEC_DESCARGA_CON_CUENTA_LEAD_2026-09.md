@@ -322,13 +322,22 @@ anterior.
 
 | # | Acción | Dónde | Detalle | Estado |
 |---|---|---|---|---|
-| **1** | **Desplegar `reelevo-app` en producción** | Vercel, app | Producción sirve un build de **mediados de julio** (DEPENDENCIAS nº 0): sin desplegar, `/api/leads/alta` **no existe**. Incluye T-04 (`5fbaba42`) | ⬜ |
-| **2** | Crear y configurar `LEADS_ALTA_SECRET` | Vercel, app **y** web | DEPENDENCIAS nº 25b. Mismo valor en los dos proyectos | ⬜ |
+| **1** | **Crear `LEADS_ALTA_SECRET`** y añadirlo al proyecto **de la app** en Vercel | Tu terminal + Vercel, app | Antes del push, para que el despliegue del paso 2 ya lo lea y no haga falta redesplegar. DEPENDENCIAS nº 25b. Guardarlo en el gestor de contraseñas: se usa otra vez en el paso 4 | ⬜ |
+| **2** | **Push de `Reelevo.V.1`** → Vercel despliega la app | GitHub → Vercel, app | Medido el 2026-09-24: producción **ya está al día** hasta lo subido (la nota de julio del nº 0 estaba desfasada); falta sólo lo de los **14 commits locales sin subir**, entre ellos T-04 (`5fbaba42`). Build con Turbopack verificado en local | ⬜ |
 | **3** | Crear el widget de **Turnstile** | Cloudflare → Turnstile → *Add widget*, dominio `www.gmvsolutions.es`, modo *Managed* | Da dos claves: `PUBLIC_TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY`. **Van juntas** (I-9) | ⬜ |
 | **4** | Configurar las variables de la web | Vercel, web | `LEADS_ALTA_URL` = `https://<dominio-app>/api/leads/alta`, `DESCARGA_TOKEN_SECRET` (nuevo, distinto, sólo web) y las dos de Turnstile. DEPENDENCIAS nº 25c | ⬜ |
 | **5** | **Revisión legal** de `/legal/privacidad/` y de los textos del formulario | Asesoría | Si cambian los textos del formulario, **subir `VERSION_TEXTOS_DESCARGA`** en `src/lib/descarga-consentimiento.ts` | ⬜ |
 | **6** | Desplegar la web en una **preview** y descargar las dos plantillas | Vercel, web | Confirma lo único que no se puede probar en local: que la función lee `src/descargables/` (§4.5). Con un email de prueba propio | ⬜ |
 | **7** | Desplegar la web en producción y repetir la descarga | Vercel, web | Después, borrar el lead de prueba de `marketing_leads` | ⬜ |
+
+
+**Registro de ejecución** — una fila por paso, con la prueba de que está hecho. Los valores de
+los secretos no se anotan nunca.
+
+| Fecha | Paso | Quién | Qué se hizo | Prueba |
+|---|---|---|---|---|
+| 2026-09-24 | preparación | Claude | Estado de producción medido: `check:deploy` contra `app.gmvsolutions.es` → todas las rutas recientes existen **salvo `/api/leads/alta`** (404). `/api/health` → 200. La rama local `Reelevo.V.1` va **14 commits por delante** de `origin`: 9 de esta función (T-01…T-04, DL-1…DL-5 en docs y código) y 5 del 2026-09-23 de otra sesión (T-054 y documentación) | salida de `check:deploy` y `git status -sb` |
+| 2026-09-24 | preparación | Claude | `next build` (Turbopack, el de Vercel) en el repo de la app: **pasa**, `/api/leads/alta` compilada. Con `--webpack` falla por tipos en rutas antiguas de `/api/v2/*` que no son de este cambio y que producción ya compila con Turbopack | log del build |
 
 **Comprobaciones rápidas tras cada despliegue:**
 
