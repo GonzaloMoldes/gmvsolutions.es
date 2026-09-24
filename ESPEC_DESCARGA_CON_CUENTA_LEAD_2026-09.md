@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **1/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **2/14 tareas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -245,6 +245,48 @@ Variables nuevas en Vercel (web):
 > que **no existe en la app** (verificado el 2026-09-23: ninguna referencia en
 > `reelevo-app`). Debe pasar a llamar a `/api/leads/alta` con
 > `origen: 'newsletter_modal'`. Un único endpoint para todos los orígenes.
+
+### 4.6 Secretos y configuración en Vercel
+
+Toda variable secreta de esta función, **dónde vive, cómo se generó y cuándo se configuró**.
+El procedimiento paso a paso, la verificación con `curl` y la rotación están en
+`reelevo-app/docs/DEPENDENCIAS_MANUALES_GONZALO.md` **§25**, que es donde el repo de la app
+lleva las acciones que se hacen fuera del código. **El valor de un secreto no se anota nunca**
+en ningún documento: sólo el método y la fecha. Se guarda en el gestor de contraseñas.
+
+**Método de generación** de todos los secretos propios de esta función (256 bits, sin
+caracteres `+/=` que se rompan al copiar):
+
+```bash
+node -e "console.log(require(crypto).randomBytes(32).toString(base64url))"
+```
+
+| Variable | Proyecto(s) | Para qué | Lo lee | Generación | Estado |
+|---|---|---|---|---|---|
+| `LEADS_ALTA_SECRET` | **app y web, mismo valor** | La web se identifica ante `POST /api/leads/alta` | app: `getLeadsAltaSecret()` → `coincideSecreto()` (`lib/cron-auth.ts`, `timingSafeEqual`) · web: `/api/descarga`, `/api/suscribir` | comando de arriba | ⬜ pendiente de crear (DEPENDENCIAS nº 25b) |
+| `LEADS_ALTA_URL` | web | URL del endpoint de la app | web | no es secreta | ⬜ (DL-5) |
+| `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `/api/descarga` | comando de arriba | ⬜ (DL-5) |
+| `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `lib/lead-token.ts` | comando de arriba | ⬜ (DL-9) |
+| `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` | la da Cloudflare, no se genera | ⬜ (DL-5) |
+
+Reglas:
+
+- **Production** lleva un valor; **Preview y Development** otro distinto, generado igual. Una
+  preview nunca puede crear leads en producción aunque apunte mal `LEADS_ALTA_URL`.
+- Las variables se marcan como **Sensitive** en Vercel y sólo se leen al desplegar: tras
+  añadirlas hay que **redesplegar**.
+- Un secreto que sólo usa un proyecto (`DESCARGA_TOKEN_SECRET`, `LEAD_TOKEN_SECRET`) **no
+  se copia al otro**. Cuantos menos sitios lo tengan, menos sitios por donde se filtra.
+- Cada alta o rotación se anota en el **registro de configuración** de DEPENDENCIAS §25 con
+  fecha, proyecto, entorno y método.
+
+**Registro de hitos de configuración:**
+
+| Fecha | Qué | Dónde | Quién | Verificación |
+|---|---|---|---|---|
+| 2026-09-24 | Migración `20260924000001` aplicada | Supabase, SQL Editor (producción) | Gonzalo | Script contra la base real, 14/14 ✅ |
+| 2026-09-24 | `LEADS_ALTA_SECRET` declarada como variable opcional | `reelevo-app`: `lib/env-schema.ts`, `lib/runtime-env.ts`, `.env.example` | código | `check:env-example` ✅ |
+| — | `LEADS_ALTA_SECRET` creada y configurada | Vercel, app y web | Gonzalo | `curl` sin secreto → `401` |
 
 ---
 
@@ -542,13 +584,13 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 
 | Fase | Alcance | Repo | Hechas | % | |
 |---|---|---|---:|---:|---|
-| **A · El lead de descarga** | Esquema y endpoint | app | 1/2 | **50 %** | █████░░░░░ |
+| **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 0/4 | **0 %** | ░░░░░░░░░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **1/14** | **7 %** | █░░░░░░░░░ |
+| | **TOTAL** | | **2/14** | **14 %** | █░░░░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -557,7 +599,7 @@ que estén antes de la tarea que los necesita):
 |---|---|---|---|
 | `T-01` | Purga de `marketing_leads` en `gdpr-cleanup` | DL-1 | ✅ |
 | `T-03` | `marketing_leads` generalizada | DL-1 | ✅ |
-| `T-04` | `POST /api/leads/alta` | DL-2, DL-6 | ⬜ |
+| `T-04` | `POST /api/leads/alta` | DL-2, DL-6 | ✅ |
 | `T-06` | El registro reconoce leads | DL-12 | ⬜ |
 | `T-09` | Filtro por origen en el panel | DL-7 | ⬜ |
 | `T-11` | Enlace lead ↔ cuenta | DL-8 | ⬜ |
@@ -624,7 +666,9 @@ Desvío sobre la técnica de abajo: `marketing_lead_descargas` queda **sin polí
 
 #### DL-2 · Origen `descarga_web` en `POST /api/leads/alta`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `5fbaba42` (reelevo-app)
+*Cierre (con `T-04`):* `app/api/leads/alta/route.ts` + `lib/leads/alta.ts`. 29 tests (ruta y regla de consentimiento); prueba de mutación: romper la regla del 409 hace fallar 2. Consultas validadas en solo lectura contra la base real. Límites iniciales: 500 altas nuevas/día y 20/hora por dominio de empresa (buzones públicos exentos del segundo), fail-closed. Ruta añadida al baseline de service-client con justificación (393 → 394). **Para que funcione en producción falta desplegar y configurar `LEADS_ALTA_SECRET` en Vercel** (mismo valor en la web).
+Desvíos sobre la técnica de abajo: la lógica pura vive en `lib/leads/alta.ts` (un `route.ts` de Next sólo puede exportar handlers); el `409` cubre también cuentas `inactiva` (registradas sin confirmar); y `logAudit` no guarda el email.
 **Repo:** app · **Estimación:** ~4 h · **Depende de:** `T-04`, DL-1
 
 **Técnica**
@@ -979,6 +1023,7 @@ leer el `git log`.
 | Fecha | Tarea | Commit | Repo | Nota |
 |---|---|---|---|---|
 | 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
+| 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
 
 ---
 
