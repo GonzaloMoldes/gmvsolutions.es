@@ -331,7 +331,7 @@ anterior.
 | **1** | **Crear `LEADS_ALTA_SECRET`** y añadirlo al proyecto **de la app** en Vercel | Tu terminal + Vercel, app | Antes del push, para que el despliegue del paso 2 ya lo lea y no haga falta redesplegar. DEPENDENCIAS nº 25b. Guardarlo en el gestor de contraseñas: se usa otra vez en el paso 4 | ✅ 2026-09-24 (Gonzalo) |
 | **2** | **Push de `Reelevo.V.1`** y **promover a producción** en Vercel | GitHub → Vercel, app | El push genera sólo una **preview**: en el proyecto `reelevo-app` de Vercel la producción **se actualiza promoviendo a mano** (97 de los últimos 100 despliegues son previews; los 3 de producción salen de `Reelevo.V.1`). Hay que abrir el despliegue del commit y pulsar **Promote to Production** | ✅ 2026-09-24 |
 | **3** | Crear el widget de **Turnstile** | Cloudflare → Turnstile → *Add widget*, dominio `www.gmvsolutions.es`, modo *Managed* | Da dos claves: `PUBLIC_TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY`. **Van juntas** (I-9) | ✅ 2026-09-24 (Gonzalo) |
-| **4** | Configurar las variables de la web | Vercel, proyecto de la web (repo `gmvsolutions.es`) | Tabla «Variables de la web por entorno», abajo. DEPENDENCIAS nº 25c. **La web publica en producción con cada push a `main`** (72 de los últimos 100 despliegues son Production), a diferencia de la app | ⬜ |
+| **4** | Configurar las variables de la web | Vercel, proyecto **`gmvsolutions-es`** (repo `gmvsolutions.es`) | Tabla «Variables de la web por entorno», abajo. DEPENDENCIAS nº 25c. **La web publica en producción con cada push a `main`** (72 de los últimos 100 despliegues son Production), a diferencia de la app | ✅ 2026-09-24 (Gonzalo) · se verifica en el paso 6 |
 | **5** | **Revisión legal** de `/legal/privacidad/` y de los textos del formulario | Asesoría | Si cambian los textos del formulario, **subir `VERSION_TEXTOS_DESCARGA`** en `src/lib/descarga-consentimiento.ts` | ⬜ |
 | **6** | Desplegar la web en una **preview** y descargar las dos plantillas | Vercel, web | Push de una **rama aparte** (no `main`, que publicaría en producción). Confirma lo único que no se puede probar en local: que la función lee `src/descargables/` (§4.5). Con un email de prueba propio, contra la app real | ⬜ |
 | **7** | Push de `main` → producción, y repetir la descarga | GitHub → Vercel, web | Aquí se prueba el **Turnstile real**. Después, borrar los leads de prueba de `marketing_leads` | ⬜ |
@@ -340,13 +340,20 @@ anterior.
 **Variables de la web por entorno** (paso 4). `PUBLIC_TURNSTILE_SITE_KEY` se inserta en el HTML al
 compilar, y las demás se leen al compilar la función: **hay que ponerlas antes del despliegue**.
 
-| Variable | Production | Preview | Sensitive |
+| Variable | Production | Preview | Tipo en Vercel |
 |---|---|---|---|
-| `LEADS_ALTA_URL` | `https://app.gmvsolutions.es/api/leads/alta` | la misma | no |
-| `LEADS_ALTA_SECRET` | el de la app (gestor de contraseñas) | **el mismo** (excepción de §4.6) | sí |
-| `DESCARGA_TOKEN_SECRET` | nuevo, `crypto.randomBytes(32)` base64url | otro nuevo, distinto | sí |
-| `PUBLIC_TURNSTILE_SITE_KEY` | la *Site Key* del widget | `1x00000000000000000000AA` (prueba) | no |
-| `TURNSTILE_SECRET_KEY` | la *Secret Key* del widget | `1x0000000000000000000000000000000AA` (prueba) | sí |
+| `LEADS_ALTA_URL` | `https://app.gmvsolutions.es/api/leads/alta` | la misma | Config |
+| `LEADS_ALTA_SECRET` | el de la app (gestor de contraseñas) | **el mismo** (excepción de §4.6) | Sensitive |
+| `DESCARGA_TOKEN_SECRET` | nuevo, `crypto.randomBytes(32)` base64url | otro nuevo, distinto | Sensitive |
+| `PUBLIC_TURNSTILE_SITE_KEY` | la *Site Key* del widget | `1x00000000000000000000AA` (prueba) | **Config** |
+| `TURNSTILE_SECRET_KEY` | la *Secret Key* del widget | `1x0000000000000000000000000000000AA` (prueba) | Sensitive |
+
+**Por qué `PUBLIC_TURNSTILE_SITE_KEY` es Config y no Sensitive:** Vercel avisa de que el prefijo
+`PUBLIC_` expone el valor al navegador y ofrece pasarla a Config. Es correcto: la *Site Key* de
+Turnstile **es pública por diseño** (Cloudflare la da para ir en el HTML; el widget no funciona sin
+ella) y no sirve de nada sin la *Secret Key*. Al revés, `TURNSTILE_SECRET_KEY` no lleva el prefijo
+justamente para no llegar nunca al navegador. Regla general: **ninguna variable Sensitive puede
+llevar `PUBLIC_`**.
 
 **Registro de ejecución** — una fila por paso, con la prueba de que está hecho. Los valores de
 los secretos no se anotan nunca.
@@ -361,6 +368,7 @@ los secretos no se anotan nunca.
 | 2026-09-24 | 3 | Gonzalo | Widget de Turnstile creado en Cloudflare; las dos claves guardadas en el gestor | confirmado por Gonzalo; se verificará en el paso 6 |
 | 2026-09-24 13:48 UTC | 2 (promover) | Gonzalo | Despliegue de `f53d0b90` promovido a producción en Vercel | GitHub: despliegue **Production** de `f53d0b90` a las 13:48 UTC. `POST https://app.gmvsolutions.es/api/leads/alta` sin credenciales → **`401` «No autenticado»**: la ruta existe **y** lee `LEADS_ALTA_SECRET` (sin él sería `503`). `check:deploy` → todas las rutas recientes existen. `/api/health` → 200 |
 | 2026-09-24 | 4 (preparación) | Claude | La web publica en producción con cada push a `main` (72/100 despliegues Production) y sus previews están tras el login de Vercel (`302` al SSO). Decidido: Preview con el mismo `LEADS_ALTA_SECRET` y las claves de prueba de Turnstile, para probar en el paso 6 contra la app real | `gh api …/deployments` y `curl` a la última preview |
+| 2026-09-24 | 4 | Gonzalo | Las cinco variables de la tabla añadidas al proyecto `gmvsolutions-es`, en Production y en Preview. `PUBLIC_TURNSTILE_SITE_KEY` como **Config** (Vercel lo propone por el prefijo `PUBLIC_`; es correcto, la *Site Key* es pública) | confirmado por Gonzalo. **No verificable todavía:** producción de la web sirve código sin `/api/descarga/` y ningún despliegue ha leído aún las variables. Se verifica en el paso 6 |
 
 **Comprobaciones rápidas tras cada despliegue:**
 
