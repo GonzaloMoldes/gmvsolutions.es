@@ -222,7 +222,7 @@ todas las páginas.
 
 #### R-6 · Página «Plantilla de instrucción de trabajo»
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `90c923c`
 *Cierre:* `src/pages/blog/plantilla-instruccion-de-trabajo.astro` con dos botones `data-descarga="plantilla-it"` (arriba, tras el TL;DR, y al final), FAQ de 4 preguntas con `FAQPage` idéntico a los `<h3>`, y el mismo ejemplo del cluster (filtro hidráulico de la prensa). Registrada en `src/lib/blog.ts` (sale sola en `/blog/`, `/sitemap.xml` y `/llms.txt`, verificado en el build), miga de pan en `src/lib/seo.ts`, fila en la matriz. Enlazada desde `instrucciones-de-trabajo-vs-sop` (texto y CTA final) y `que-es-un-sop-industrial`. `validate-schema`: 0 errores, 0 avisos. Descarga probada en Chromium en la página real.
 **Estimación:** ~½ día · **Depende de:** R-3 · **Bloqueada para publicar por:** DL-4
 
@@ -237,7 +237,7 @@ enlazado desde `instrucciones-de-trabajo-vs-sop` y `que-es-un-sop-industrial`. A
 
 #### R-7 · Conectar los CTAs rotos
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `90c923c`
 *Cierre:* `plantilla-sop-produccion.astro`: el `href="#"` pasa a `data-descarga="plantilla-sop"`, fuera el `TODO` y el aviso «en preparación», y **un segundo botón arriba**, tras el TL;DR (quien busca «plantilla SOP para descargar» viene a eso). Enlace cruzado a la plantilla de instrucción. Descarga probada en Chromium en la página real.
 **Fallo encontrado en la captura y corregido:** dentro de un artículo, `.btn-primary` salía **naranja sobre naranja, sin texto visible**: las reglas de enlace de `ArticleLayout.astro` le ganaban. Añadida la excepción para `a.btn-primary`.
 **Operativo en producción cuando se cumpla la puesta en marcha** de la espec de descarga (§4.7).
@@ -260,8 +260,8 @@ para las plantillas de SOP o IT.
 | 2026-09-23 | R-3 | `cb00191` | IT: 6 páginas (instrucciones, IT en 2, control, ejemplo en 2) |
 | 2026-09-23 | R-4 | `cb00191` | Revisadas en Word → PDF página a página. Ninguna tabla pierde su cabecera al partirse; casillas ☐/☒ visibles; pie en todas las páginas |
 | 2026-09-24 | R-5 | `abb02c5` | Entradas del catálogo, validadas por `check:descargables` |
-| 2026-09-24 | R-6 | pendiente | Post nuevo con su descarga, registrado, enlazado y validado |
-| 2026-09-24 | R-7 | pendiente | Post del SOP con dos botones de descarga; corregido `.btn-primary` invisible en artículos |
+| 2026-09-24 | R-6 | `90c923c` | Post nuevo con su descarga, registrado, enlazado y validado |
+| 2026-09-24 | R-7 | `90c923c` | Post del SOP con dos botones de descarga; corregido `.btn-primary` invisible en artículos |
 
 ---
 
