@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **11/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** ⏸️ **en pausa desde el 2026-09-24** · **11/15 tareas** · descargas y conversión de leads **en producción y probadas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -10,6 +10,74 @@
 >
 > Este documento vive **idéntico en los dos repos**: en la raíz de la web y en
 > `docs/` de la app. Si se cambia en uno, se copia al otro.
+
+---
+
+## ⏸️ Estado a 2026-09-24 — punto de parada
+
+**Resumen:** la captación y la conversión de leads **funcionan en producción** y están
+probadas de punta a punta. Falta ver mejor los leads en el admin (DL-7, DL-8), arreglar la
+newsletter (DL-6), la revisión legal (DL-14) y activar el cron de los correos 1-3.
+
+### Lo que funciona hoy en producción
+
+| Pieza | Dónde | Probado |
+|---|---|---|
+| Botones de descarga en `/blog/plantilla-sop-produccion/` y `/blog/plantilla-instruccion-de-trabajo/` (post nuevo) | web | ✅ descarga real, 2026-09-24 14:03 |
+| Formulario con Turnstile real, cuenta lead creada antes de entregar el archivo | web + app | ✅ |
+| Alta de leads `POST /api/leads/alta` (409 a clientes, sin tocar su cuenta) | app | ✅ 401 / 409 / 200 en producción |
+| **Correo 0** «Tu cuenta está creada» al crear el lead | app | ✅ lead 11, 20:13 |
+| **Completar la cuenta** desde el enlace: formulario relleno, sólo CIF + contraseña, sin confirmar email, **empresa activa** (D-9), prueba Pro 60 días, lead convertido | app | ✅ 8/8 comprobaciones en la base, 20:13–20:40 |
+| Registro normal con el email de un lead → lo vincula (T-06) | app | ✅ tests; no probado a mano |
+| Baja de correos comerciales `/api/leads/baja` (GET enseña, POST ejecuta, un clic RFC 8058) | app | ✅ desplegada, `LEAD_TOKEN_SECRET` verificado; **baja real sin probar** (llegará con el primer correo 1) |
+| Plantillas de los 4 correos, editables en `Admin › Gestión de correos` (y ahora los overrides sí se aplican al envío) | app | ✅ |
+| Purga RGPD de leads a los 2 años | app | ✅ tests; corre en `gdpr-cleanup` (mensual) |
+
+### Lo que está hecho pero **no corre todavía**
+
+- **Cron `lead-nurturing`** (correos 1, 2 y 3): desplegado y programado en `cron-daily.yml` a las
+  08:45 UTC, pero **GitHub Actions no tiene cuota hasta ~2026-10-03**. Mientras tanto no sale ningún
+  correo 1-3; cuando corra, recupera los atrasados. **Primer destinatario: el lead 7** (la descarga de
+  prueba de Gonzalo de las 14:03, con consentimiento) → servirá para probar la secuencia y la baja.
+
+### Tareas pendientes, en el orden recomendado
+
+| # | Tarea | Qué es | Depende de | Notas para retomar |
+|---|---|---|---|---|
+| 1 | **DL-7** | Columnas de descarga, consentimiento y paso de la secuencia en `Marketing › Leads` | `T-09` (filtro por origen) | Hacer `T-09` a la vez: el panel sólo entiende la tarjeta con QR. Vista: `components/admin/AdminMarketingLeadsView.tsx`, API: `app/api/admin/marketing/leads/route.ts` |
+| 2 | **DL-8** | Leads sin convertir en `Admin › Empresas` con etiqueta **Lead** | `T-11`, `T-14` | `ClientesTab.tsx` lee `companies` desde el cliente y permite cambiar el estado: las filas de lead **no** deben tener selector. Vista `admin_empresas_y_leads` con `security_invoker` |
+| 3 | **DL-6** | `/api/suscribir` de la web llama a `APP_REGISTRO_URL`, que **no existe**: la newsletter está rota hoy | — | Cambiar a `LEADS_ALTA_URL` con `origen: newsletter_modal`. El correo 0 ya admite leads sin recurso |
+| 4 | **DL-14** | Revisión legal de `/legal/privacidad/` y de los textos del formulario | asesoría | Si cambian los textos, **subir `VERSION_TEXTOS_DESCARGA`** en `src/lib/descarga-consentimiento.ts` |
+
+### Acciones manuales pendientes (Gonzalo)
+
+| Qué | Dónde | Referencia |
+|---|---|---|
+| **Dar de baja la empresa de prueba «Test Plantilla»** (`bf801fe0-…`) | `Admin › Empresas` | registro de §4.7 |
+| **Activar el cron `lead-nurturing`**: esperar a la cuota de Actions (~2026-10-03) o darlo de alta en **cron-job.org** (`GET /api/cron/lead-nurturing`, `Authorization: Bearer <CRON_SECRET>`, diario) | GitHub / cron-job.org | DEPENDENCIAS nº 25e |
+| Revisión legal de privacidad y textos del formulario | asesoría | DL-14 |
+| **Push pendiente de documentación**: web `main` 10 commits (sólo `.md`), app `Reelevo.V.1` 1 commit (sólo `docs/`). El de la web redespliega la web sin cambios visibles | git | — |
+
+### Hallazgos abiertos (fuera de esta función)
+
+- **Activación manual de empresas:** todo registro normal nace `inactiva` y sólo un admin la activa;
+  el comentario T-011b de `company-registration` dice lo contrario. D-9 sólo lo cambia para leads.
+- **Overrides de correo:** las plantillas **anteriores** a esta función siguen sin aplicar lo editado en el
+  admin al enviar, y sus estadísticas sólo cuentan pruebas (sus claves no coinciden con el `templateName`
+  del envío). Las de leads, sí. Ver cierre de DL-10.
+- **`check:rls-initplan` falla** por una política de `contact_form_responses` de la migración
+  `20260920000001` (T-072), anterior a este trabajo.
+- **`PLAN_CRM_LEADS`:** `T-05` (correos) y `T-08` (activación desde el correo) quedan cubiertas en la
+  práctica por DL-10/DL-15 y DL-12/D-9, pero **no están cerradas formalmente** allí; `T-07` (payload) no
+  aplica a los leads de descarga.
+
+### Cómo retomar
+
+1. Leer este bloque y el **registro de ejecución de §4.7**.
+2. Hacer push de la documentación pendiente (tabla de arriba).
+3. Empezar por **`T-09` + DL-7** en `reelevo-app`. Formato de trabajo: documentar antes de construir,
+   cerrar cada tarea con fecha y commit en el mismo commit que el código, y copiar esta espec a
+   `reelevo-app/docs/` en cada cambio (vive idéntica en los dos repos).
 
 ---
 
