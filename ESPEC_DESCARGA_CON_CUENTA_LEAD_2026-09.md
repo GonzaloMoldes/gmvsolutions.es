@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/14 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -103,6 +103,24 @@ pero **no entra en la secuencia**. Motivo legal en §10.
 La función no se activa por página ni por plantilla, sino **botón a botón**, con un
 atributo (§4.1). Una página sin botones marcados no carga ni el formulario ni su script.
 
+### D-6 · Correo 0 inmediato, para todo lead nuevo — decidido 2026-09-24
+
+Al crear un lead se envía **en el momento** un correo transaccional «Tu cuenta está creada;
+complétala cuando quieras» con el enlace de §9.1. **A todos los leads nuevos, hayan marcado o
+no la casilla comercial**: es un correo sobre la cuenta que la persona acaba de pedir, no
+promoción. Sin él, quien no consiente no recibiría nunca el enlace. Detalle en §8.1, tarea DL-15.
+
+### D-7 · Plazos D+1, D+4 y D+9 — decidido 2026-09-24
+
+Los tres correos comerciales salen al día siguiente, a los 4 días y a los 9 de la descarga.
+
+### D-8 · Mismo remitente que el resto de correos — decidido 2026-09-24
+
+La secuencia sale del **mismo remitente que ya usa la app en Resend** (variable `EMAIL_FROM`), sin
+subdominio aparte. Se acepta que, si los correos comerciales acumulan quejas de spam, afecte a la
+entregabilidad de los transaccionales. Mitigación: sólo se envía a quien consintió, cada correo
+lleva baja en un clic (DL-9) y el volumen es bajo.
+
 ---
 
 <a id="3"></a>
@@ -136,7 +154,7 @@ atributo (§4.1). Una página sin botones marcados no carga ni el formulario ni 
  Pantalla: «Listo. Tu cuenta está creada»
                                           │
                                           ▼
-                                   Correo 0 · cuenta creada (transaccional) [§12.1]
+                                   Correo 0 · cuenta creada (transaccional, D-6)   
                                           │
                           ¿consintió? ── no ──► fin, salvo que vuelva por su cuenta
                                           │ sí
@@ -156,7 +174,7 @@ atributo (§4.1). Una página sin botones marcados no carga ni el formulario ni 
                                    la secuencia se detiene
 ```
 
-Los plazos D+1, D+4 y D+9 son una propuesta (§12.2).
+Plazos decididos el 2026-09-24 (D-7).
 
 ---
 
@@ -533,12 +551,14 @@ admin_empresas_y_leads
 <a id="8"></a>
 ## 8. La secuencia de calentamiento
 
-### 8.1 Los tres correos
+### 8.1 Los correos
 
-Sólo para leads con `consentimiento_comercial = true` y sin `baja_comercial_en`.
+El **correo 0** va a todo lead nuevo (D-6). Los **correos 1 a 3**, sólo a leads con
+`consentimiento_comercial = true` y sin `baja_comercial_en`.
 
 | # | Cuándo | Tema | Objetivo | CTA |
 |---|---|---|---|---|
+| **0** | **Inmediato**, al crear el lead | **Tu cuenta está creada** | Confirmar lo que ha pasado al descargar y dejarle el enlace para completarla. Transaccional: sin baja comercial, pero con cómo pedir que se borre la cuenta | **«Completa tu cuenta»** → `/registro?lead=<token>` |
 | **1** | D+1 | **Los problemas que resuelve REELEVO** | Que se reconozca en el problema: conocimiento que vive en la cabeza de dos personas, formación que depende de quién esté ese día, papeles que nadie actualiza | Ninguno de activación. Enlace a un artículo del blog relacionado con el recurso descargado |
 | **2** | D+4 | **Las capacidades** | Cómo lo resuelve: procesos documentados, portal del operario, competencias, mantenimiento. Priorizar el `modulo` del recurso que descargó | Ninguno de activación. Enlace a la página del módulo |
 | **3** | D+9 | **La prueba gratuita** | 60 días de prueba, sin tarjeta, y **su cuenta ya está a medio crear** | **«Finaliza la configuración de tu cuenta»** → `/registro?lead=<token>` |
@@ -591,10 +611,8 @@ falta, porque todos los correos eran transaccionales. Estos no lo son.
 
 ### 8.5 Remitente
 
-Recomendación: enviar la secuencia desde **un subdominio aparte** del transaccional
-(p. ej. `novedades.` frente al dominio que envía confirmaciones y avisos). Si un
-correo comercial acumula quejas de spam, no arrastra la entregabilidad de los
-correos de confirmación de registro. **[decidir, §12.3]**
+**Decidido (D-8):** el mismo que ya usa la app en Resend, `EMAIL_FROM`. Todos los correos de
+leads salen por `sendEmail()` de `lib/email.ts`, como el resto.
 
 ---
 
@@ -686,9 +704,10 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
+| **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 0/1 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **5/14** | **36 %** | ████░░░░░░ |
+| | **TOTAL** | | **5/15** | **33 %** | ███░░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -1006,7 +1025,7 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 #### DL-11 · Cron `lead-nurturing`
 
 **Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
-**Repo:** app · **Estimación:** ~1 día · **Depende de:** DL-9, DL-10
+**Repo:** app · **Estimación:** ~1 día · **Depende de:** DL-9, DL-10 · **y DL-12 antes de activarlo en producción**: el correo 3 enlaza a `/registro?lead=`, que sin DL-12 no reconoce el token
 
 **Técnica**
 
@@ -1085,6 +1104,32 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 ---
 
+### Fase E bis — Correo 0 (D-6)
+
+#### DL-15 · Correo 0 al crear el lead
+
+**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Repo:** app · **Estimación:** ~3 h · **Depende de:** DL-9 (`lib/lead-token.ts`), DL-10 (plantilla), **DL-12** (el enlace tiene que llevar a un registro que lo reconozca)
+
+**Técnica**
+
+- En `app/api/leads/alta/route.ts`, **sólo cuando el lead se crea** (no al actualizar, no en el
+  `409`): `after(() => sendEmail({ …leadCuentaCreada(…), templateName: lead-cuenta-creada }))`,
+  como el resto de correos del registro. No retrasa la respuesta a la web.
+- Enlace: `/registro?lead=<token completar>` de `lib/lead-token.ts`, 30 días.
+- Plantilla `leadCuentaCreada` en `lib/email-templates.ts`, categoría `onboarding` (es
+  transaccional, no `marketing`): qué se ha creado, el enlace, y «si no has sido tú o no
+  quieres la cuenta, responde a este correo y la borramos».
+- Queda en `email_sent_log`.
+
+**Hecho cuando**
+
+- Test de la ruta: un lead nuevo dispara el correo 0 una vez; una segunda descarga del mismo
+  email **no** lo repite; un `409` no lo envía.
+- Un alta real en producción recibe el correo y su enlace abre `/registro` relleno.
+
+---
+
 ### Fase F — Antes de publicar
 
 #### DL-14 · Textos legales y prueba de extremo a extremo
@@ -1142,15 +1187,9 @@ leer el `git log`.
 
 Ninguna bloquea empezar por la Fase A. Todas deben cerrarse antes de DL-14.
 
-1. **¿Correo 0 transaccional?** Un único correo inmediato: «Tu cuenta está creada;
-   complétala cuando quieras», con el enlace de §9.1. Sin él, **quien no consiente no
-   recibe nunca el enlace** y sólo puede convertir por el camino 9.2. Es un correo
-   sobre la cuenta que ha pedido crear, no promoción, pero conviene que legal lo
-   confirme. **Propongo incluirlo.**
-2. **¿Plazos D+1, D+4, D+9?** Propuesta. El tercero cae a los ~10 días, cuando el
-   recurso descargado ya se ha usado o se ha olvidado.
-3. **¿Subdominio aparte para el correo comercial?** (§8.5). Necesita DNS y dominio
-   verificado en Resend.
+1. ~~¿Correo 0 transaccional?~~ **Cerrada 2026-09-24: sí, inmediato (D-6).**
+2. ~~¿Plazos D+1, D+4, D+9?~~ **Cerrada 2026-09-24: sí (D-7).**
+3. ~~¿Subdominio aparte para el correo comercial?~~ **Cerrada 2026-09-24: no, el mismo remitente de Resend (D-8).**
 4. **¿Cuántos meses vive un lead sin convertir?** `PLAN_CRM_LEADS` §8.2 propone usar el
    mismo criterio que `contact_form_responses` en `gdpr-cleanup`.
 5. **¿Qué recursos salen primero?** La guía y la plantilla de OT mencionadas **aún no
