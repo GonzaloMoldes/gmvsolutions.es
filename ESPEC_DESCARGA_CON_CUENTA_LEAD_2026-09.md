@@ -701,7 +701,7 @@ Desvíos sobre la técnica de abajo: la lógica pura vive en `lib/leads/alta.ts`
 
 #### DL-3 · Catálogo de recursos y archivos privados
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `abb02c5`
 *Cierre:* catálogo en `src/data/descargables.ts` con `plantilla-sop` y `plantilla-it` (módulo `procesos`, que existe como `/empresa/procesos` en la app). `scripts/check-descargables.mjs` encadenado en `npm run build` y como `npm run check:descargables`: probado con un id inexistente, un valor calculado y un archivo en `public/`, los tres detectados; ignora comentarios. `npm run build` verificado: 0 `.docx` en la salida estática y los dos dentro de `.vercel/output/functions/_render.func/src/descargables/`.
 Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera** (`readdirSync`) en vez de una lista, para no desincronizarse del catálogo; el script lee el catálogo como texto porque el Node del build no garantiza importar `.ts`; y además de `.astro` revisa `.md`, `.mdx`, `.html`, `.ts`, `.tsx` y `.js`.
 **Repo:** web · **Estimación:** ~2 h · **Depende de:** —
@@ -1026,7 +1026,7 @@ leer el `git log`.
 |---|---|---|---|---|
 | 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
-| 2026-09-24 | DL-3 | pendiente | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
+| 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
 
 ---
 
