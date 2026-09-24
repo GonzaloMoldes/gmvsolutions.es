@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-descargables.mjs && astro build",
+    "check:descargables": "node scripts/check-descargables.mjs",
     "preview": "astro preview"
   },
   "dependencies": {

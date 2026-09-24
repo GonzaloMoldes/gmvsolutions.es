@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **2/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **3/14 tareas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -585,12 +585,12 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | Fase | Alcance | Repo | Hechas | % | |
 |---|---|---|---:|---:|---|
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
-| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 0/4 | **0 %** | ░░░░░░░░░░ |
+| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 1/4 | **25 %** | ██░░░░░░░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **2/14** | **14 %** | █░░░░░░░░░ |
+| | **TOTAL** | | **3/14** | **21 %** | ██░░░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -701,7 +701,9 @@ Desvíos sobre la técnica de abajo: la lógica pura vive en `lib/leads/alta.ts`
 
 #### DL-3 · Catálogo de recursos y archivos privados
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+*Cierre:* catálogo en `src/data/descargables.ts` con `plantilla-sop` y `plantilla-it` (módulo `procesos`, que existe como `/empresa/procesos` en la app). `scripts/check-descargables.mjs` encadenado en `npm run build` y como `npm run check:descargables`: probado con un id inexistente, un valor calculado y un archivo en `public/`, los tres detectados; ignora comentarios. `npm run build` verificado: 0 `.docx` en la salida estática y los dos dentro de `.vercel/output/functions/_render.func/src/descargables/`.
+Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera** (`readdirSync`) en vez de una lista, para no desincronizarse del catálogo; el script lee el catálogo como texto porque el Node del build no garantiza importar `.ts`; y además de `.astro` revisa `.md`, `.mdx`, `.html`, `.ts`, `.tsx` y `.js`.
 **Repo:** web · **Estimación:** ~2 h · **Depende de:** —
 
 **Técnica**
@@ -1024,6 +1026,7 @@ leer el `git log`.
 |---|---|---|---|---|
 | 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
+| 2026-09-24 | DL-3 | pendiente | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
 
 ---
 

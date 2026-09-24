@@ -1,6 +1,6 @@
 # Recursos descargables: plantilla de SOP y plantilla de instrucción de trabajo
 
-> **Escrito:** 2026-09-23 · **Repo:** `en-construccion` (web) · **Estado:** en curso · **4/7 tareas**
+> **Escrito:** 2026-09-23 · **Repo:** `en-construccion` (web) · **Estado:** en curso · **5/7 tareas**
 >
 > Dos plantillas Word para descargar a cambio de una cuenta lead
 > (`ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md`). Son los primeros recursos del
@@ -132,8 +132,8 @@ el generador, lo que produzca y esta plantilla sean el mismo documento.
 | Fase | Alcance | Hechas | % | |
 |---|---|---:|---:|---|
 | **A · Los archivos** | Generador, SOP, IT, revisión visual | 4/4 | **100 %** | ██████████ |
-| **B · En la web** | Catálogo, página de la IT, CTAs | 0/3 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | **4/7** | **57 %** | ██████░░░░ |
+| **B · En la web** | Catálogo, página de la IT, CTAs | 1/3 | **33 %** | ███░░░░░░░ |
+| | **TOTAL** | **5/7** | **71 %** | ███████░░░ |
 
 Leyenda: ⬜ pendiente · 🟡 en curso · ✅ completada · ⛔ bloqueada (con el motivo).
 Una tarea se cierra cuando se cumple todo su «Hecho cuando»; al cerrarla se rellenan
@@ -210,7 +210,8 @@ todas las páginas.
 
 #### R-5 · Alta en el catálogo de descargables
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+*Cierre:* hecho dentro de DL-3. `plantilla-sop` y `plantilla-it` en `src/data/descargables.ts`, módulo `procesos`; `npm run check:descargables` los valida.
 **Estimación:** ~15 min · **Depende de:** DL-3 de `ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md`
 
 **Técnica:** entradas `plantilla-sop` (`modulo: 'procesos'`) y `plantilla-it`
@@ -254,6 +255,7 @@ para las plantillas de SOP o IT.
 | 2026-09-23 | R-2 | `cb00191` | SOP: 4 páginas. El SOP en blanco cabe en una. «Cuándo se aplica» y «Registros» se integraron en el bloque 1 y los responsables en el 5 para que cupiera y coincidiera con los seis bloques del FAQ |
 | 2026-09-23 | R-3 | `cb00191` | IT: 6 páginas (instrucciones, IT en 2, control, ejemplo en 2) |
 | 2026-09-23 | R-4 | `cb00191` | Revisadas en Word → PDF página a página. Ninguna tabla pierde su cabecera al partirse; casillas ☐/☒ visibles; pie en todas las páginas |
+| 2026-09-24 | R-5 | pendiente | Entradas del catálogo, validadas por `check:descargables` |
 
 ---
 
