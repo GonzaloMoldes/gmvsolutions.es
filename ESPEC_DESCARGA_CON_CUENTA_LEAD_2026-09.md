@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **8/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **9/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -705,10 +705,10 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 2/3 | **67 %** | ███████░░░ |
-| **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 0/1 | **0 %** | ░░░░░░░░░░ |
+| **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 1/1 | **100 %** | ██████████ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 1/2 | **50 %** | █████░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **8/15** | **53 %** | █████░░░░░ |
+| | **TOTAL** | | **9/15** | **60 %** | ██████░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -1116,7 +1116,9 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-15 · Correo 0 al crear el lead
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `b47e9b41` (reelevo-app)
+*Cierre:* en `app/api/leads/alta/route.ts`, `enviarCorreoCero()` dentro de `after()`, **sólo cuando el lead nace**: no al actualizar, no en el `409`, no en la carrera `23505` (lo manda la petición que ganó). A todo lead nuevo, con o sin consentimiento (D-6). Pasa por `aplicarOverride`, se registra como `leadCuentaCreada` en `email_sent_log` y el enlace es `urlCompletarLead` (30 días). Sin `LEAD_TOKEN_SECRET` no se envía (un correo 0 sin enlace no sirve) y se registra; si Resend falla, el alta ya respondió 200 y el fallo queda registrado. **Desvío:** la plantilla admite `recurso` vacío para los leads de la newsletter (DL-6), que no han descargado nada: dice «Gracias por tu interés en Reelevo» en vez de «Gracias por descargar…». 9 tests nuevos (8 en la ruta, 1 en la plantilla); prueba de mutación: quitar la condición «sólo al crear» hace fallar 2. `tsc`, ESLint y gates en verde.
+*Para producción:* se activa al desplegar la app. **El primer lead que descargue después recibirá el correo 0**; el lead de prueba del 2026-09-24 (id 7) no, porque ya existía.
 **Repo:** app · **Estimación:** ~3 h · **Depende de:** DL-9 (`lib/lead-token.ts`), DL-10 (plantilla), **DL-12** (el enlace tiene que llevar a un registro que lo reconozca)
 
 **Técnica**
@@ -1190,6 +1192,7 @@ leer el `git log`.
 | 2026-09-24 | DL-9 | `0fc449fc` | app | Baja de correos con token firmado; GET enseña, POST ejecuta; verificada contra la base real |
 | 2026-09-24 | DL-10 | `847316b8` | app | Cuatro plantillas; los overrides del admin ya se aplican al envío; presupuesto de diseño corregido |
 | 2026-09-24 | DL-12 | `424804d5` | app | `/registro?lead=` relleno; mismo email → cuenta activa sin confirmar; T-06 vincula por email |
+| 2026-09-24 | DL-15 | `b47e9b41` | app | Correo 0 inmediato sólo al crear el lead; newsletter sin «descargar» |
 
 ---
 
