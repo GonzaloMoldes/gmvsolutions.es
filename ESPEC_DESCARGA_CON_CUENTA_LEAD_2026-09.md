@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **9/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **10/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -704,11 +704,11 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
-| **D · Secuencia** | Baja, plantillas, cron | app | 2/3 | **67 %** | ███████░░░ |
+| **D · Secuencia** | Baja, plantillas, cron | app | 3/3 | **100 %** | ██████████ |
 | **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 1/1 | **100 %** | ██████████ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 1/2 | **50 %** | █████░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **9/15** | **60 %** | ██████░░░░ |
+| | **TOTAL** | | **10/15** | **67 %** | ███████░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -1030,7 +1030,10 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-11 · Cron `lead-nurturing`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `7dfd1966` (reelevo-app)
+*Cierre:* `app/api/cron/lead-nurturing/route.ts` + lógica pura en `lib/leads/secuencia.ts` (`correoDelPaso`, `trasEnviar`: tras el 1 espera 3 días, tras el 2 espera 5, tras el 3 termina) + `lib/leads/cuenta.ts` (`esCuentaExistente`, sacada de la ruta de alta para que las dos usen la misma regla). Selecciona leads con consentimiento, sin baja, sin empresa, ni convertidos ni descartados, con envío vencido, en lotes de 100. Antes de cada envío, si el email ya es de una cuenta, **detiene** la secuencia sin enviar. Usa el **último** recurso descargado. Envía con `aplicarOverride`, cabeceras RFC 8058 y `templateName` = clave del admin. **Envío fallido → no avanza** (sale al día siguiente). El avance es condicional al paso anterior (`.eq('secuencia_paso', …)`) e idempotente por día (`withCronRun`). **Sin `LEAD_TOKEN_SECRET` el cron falla entero**: no se envía correo comercial sin enlace de baja. 14 tests nuevos (8 del cron, 6 de la secuencia); mutación: quitar el filtro de consentimiento hace fallar el test de selección. Consulta verificada en solo lectura contra la base real: hoy entraría sólo el lead de prueba del 2026-09-24 (id 7), con el correo 1 el 2026-09-25.
+**Desvío sobre la técnica de abajo:** los crons de esta app **no están en `vercel.json`** (vacío) sino en **GitHub Actions** (`cron-daily.yml`, aquí a las 08:45 UTC) y se vigilan en `lib/cron-health.ts` (registrado, 34 crons; su test pasa de 33 a 34). Baseline de service-client 395 → 396, justificado.
+**⚠️ Para que corra:** desplegar la app **y** que GitHub Actions tenga cuota (agotada hasta ~2026-10-03, DEPENDENCIAS nº 14), o darlo de alta en cron-job.org (DEPENDENCIAS nº 25e).
 **Repo:** app · **Estimación:** ~1 día · **Depende de:** DL-9, DL-10 · **y DL-12 antes de activarlo en producción**: el correo 3 enlaza a `/registro?lead=`, que sin DL-12 no reconoce el token
 
 **Técnica**
@@ -1193,6 +1196,7 @@ leer el `git log`.
 | 2026-09-24 | DL-10 | `847316b8` | app | Cuatro plantillas; los overrides del admin ya se aplican al envío; presupuesto de diseño corregido |
 | 2026-09-24 | DL-12 | `424804d5` | app | `/registro?lead=` relleno; mismo email → cuenta activa sin confirmar; T-06 vincula por email |
 | 2026-09-24 | DL-15 | `b47e9b41` | app | Correo 0 inmediato sólo al crear el lead; newsletter sin «descargar» |
+| 2026-09-24 | DL-11 | `7dfd1966` | app | Cron diario de los correos 1-3 en `cron-daily.yml`; necesita cuota de Actions o cron-job.org |
 
 ---
 
