@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/14 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -334,7 +334,7 @@ anterior.
 | **4** | Configurar las variables de la web | Vercel, proyecto **`gmvsolutions-es`** (repo `gmvsolutions.es`) | Tabla «Variables de la web por entorno», abajo. DEPENDENCIAS nº 25c. **La web publica en producción con cada push a `main`** (72 de los últimos 100 despliegues son Production), a diferencia de la app | ✅ 2026-09-24 (Gonzalo) · se verifica en el paso 6 |
 | **5** | **Revisión legal** de `/legal/privacidad/` y de los textos del formulario | Asesoría | Si cambian los textos del formulario, **subir `VERSION_TEXTOS_DESCARGA`** en `src/lib/descarga-consentimiento.ts` | ⏭️ omitido 2026-09-24 por decisión de Gonzalo; revisar después |
 | **6** | Desplegar la web en una **preview** y descargar las dos plantillas | Vercel, web | Push de una **rama aparte** (no `main`, que publicaría en producción). Confirma lo único que no se puede probar en local: que la función lee `src/descargables/` (§4.5). Con un email de prueba propio, contra la app real | ⏭️ omitido 2026-09-24 por decisión de Gonzalo; se comprueba con la primera descarga real del paso 7 |
-| **7** | Push de `main` → producción, y repetir la descarga | GitHub → Vercel, web | Aquí se prueba el **Turnstile real**. Después, borrar los leads de prueba de `marketing_leads` | ⬜ |
+| **7** | Push de `main` → producción, y repetir la descarga | GitHub → Vercel, web | Aquí se prueba el **Turnstile real**. Después, borrar los leads de prueba de `marketing_leads` | ✅ 2026-09-24 |
 
 
 **Variables de la web por entorno** (paso 4). `PUBLIC_TURNSTILE_SITE_KEY` se inserta en el HTML al
@@ -370,6 +370,9 @@ los secretos no se anotan nunca.
 | 2026-09-24 | 4 (preparación) | Claude | La web publica en producción con cada push a `main` (72/100 despliegues Production) y sus previews están tras el login de Vercel (`302` al SSO). Decidido: Preview con el mismo `LEADS_ALTA_SECRET` y las claves de prueba de Turnstile, para probar en el paso 6 contra la app real | `gh api …/deployments` y `curl` a la última preview |
 | 2026-09-24 | 4 | Gonzalo | Las cinco variables de la tabla añadidas al proyecto `gmvsolutions-es`, en Production y en Preview. `PUBLIC_TURNSTILE_SITE_KEY` como **Config** (Vercel lo propone por el prefijo `PUBLIC_`; es correcto, la *Site Key* es pública) | confirmado por Gonzalo. **No verificable todavía:** producción de la web sirve código sin `/api/descarga/` y ningún despliegue ha leído aún las variables. Se verifica en el paso 6 |
 | 2026-09-24 | 5 y 6 | Gonzalo | **Decisión: se omiten la revisión legal y la prueba en preview** y se pasa directamente al paso 7; los ajustes, después. Riesgos aceptados: (1) `/legal/privacidad/` y los textos del formulario se publican sin revisión de asesoría; (2) no se ha comprobado en un servidor de Vercel que la función lee `src/descargables/`: si fallara, el lead se crearía y la descarga daría error 500 con el mensaje «No hemos podido preparar la descarga». Se comprueba con la primera descarga real del paso 7 | decisión registrada, no verificación |
+| 2026-09-24 14:01 UTC | 7 (push) | Claude | `git push origin main` de la web: `184e8c0..d1547f6`, 17 commits. Build verificado antes en local | GitHub: estado Vercel `success` en `d1547f6` |
+| 2026-09-24 | 7 (comprobación) | Claude | 11/11 sobre `www.gmvsolutions.es`: los dos posts con sus dos botones y el formulario; *Site Key* real (no la de prueba); CSP con `challenges.cloudflare.com`; `POST /api/descarga/` → `422`, sin Turnstile → `403`, archivo sin token → `403` (variables presentes, ninguna `503`); el `.docx` sin URL pública (`404`); privacidad y sitemap actualizados | script de comprobación |
+| 2026-09-24 14:03 UTC | 7 (descarga real) | Gonzalo | Descarga de la plantilla SOP desde producción con un email propio y la casilla marcada: **funcionó**; Turnstile real, archivo descargado, lead visible en el portal | En la base: lead `id 7`, `descarga_web` / `plantilla-sop`, estado `nuevo`, consentimiento `true` con versión `2026-09-24`, `secuencia_siguiente_en` = 2026-09-25 14:03 UTC, una fila en `marketing_lead_descargas` (módulo `procesos`, página del post). **Confirma el riesgo del paso 6 descartado:** la función de Vercel lee `src/descargables/` |
 
 **Comprobaciones rápidas tras cada despliegue:**
 
