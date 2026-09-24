@@ -214,7 +214,18 @@ export const posts: BlogPost[] = [
     desc: 'Estructura, campos imprescindibles y ejemplo. Descárgala y adáptala a los procesos críticos de tu planta.',
     dateLabel: '28 may. 2026',
     readTime: '7 min.',
-    lastmod: REVISION,
+    lastmod: '2026-09-24', // descarga con cuenta lead (R-7)
+    priority: '0.8',
+  },
+  {
+    slug: 'plantilla-instruccion-de-trabajo',
+    cluster: 'sop',
+    category: 'Plantilla',
+    title: 'Plantilla de instrucción de trabajo para descargar',
+    desc: 'Pasos con foto, puntos críticos, autocontrol y qué hacer ante una anomalía. Con ejemplo relleno.',
+    dateLabel: '24 sept. 2026',
+    readTime: '7 min.',
+    lastmod: '2026-09-24',
     priority: '0.8',
   },
   {

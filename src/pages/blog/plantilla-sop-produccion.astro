@@ -1,7 +1,9 @@
 ---
 // SOP-4 (cluster SOP / host del lead magnet). Brief: BRIEFS_CONTENIDO_SPRINTS_2026-Q3.md seccion 2.4 + 6.1
-// TODO: enlazar el archivo descargable real (Excel/PDF) cuando exista.
+// Descarga: plantilla-sop del catálogo (src/data/descargables.ts), entregada a cambio de una
+// cuenta lead por <DescargaConCuenta /> (ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md, R-7).
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import DescargaConCuenta from '../../components/DescargaConCuenta.astro';
 
 const title = "Plantilla SOP de producción para descargar";
 const description = "Plantilla de SOP de producción lista para usar: estructura, campos imprescindibles y ejemplo. Descárgala y adáptala a los procesos críticos de tu planta.";
@@ -48,9 +50,14 @@ const faqSchema = {
 };
 ---
 
-<ArticleLayout title={title} description={description} date="2026-05-28" dateModified="2026-07-27" category="Plantilla" readTime="7 min" canonical={canonical} schema={faqSchema}>
+<ArticleLayout title={title} description={description} date="2026-05-28" dateModified="2026-09-24" category="Plantilla" readTime="7 min" canonical={canonical} schema={faqSchema}>
   <div class="highlight-box">
     <p><strong>TL;DR.</strong> Una plantilla de SOP de producción lista para rellenar: cabecera, pasos con verificación, parámetros, troubleshooting y firma. Descárgala, empieza por tus procesos críticos y adáptala a tu planta.</p>
+  </div>
+
+  <div class="highlight-box" id="descarga">
+    <p><strong>Plantilla SOP en Word, gratis.</strong> Cuatro páginas: el SOP en blanco en una sola hoja, el control de cambios y el registro de lectura que pide un auditor, y un ejemplo relleno de mantenimiento preventivo.</p>
+    <p><a href="#descarga" class="btn-primary" data-descarga="plantilla-sop" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP</a></p>
   </div>
 
   <p><strong>En este artículo:</strong></p>
@@ -125,7 +132,9 @@ const faqSchema = {
   </div>
 
   <div class="highlight-box">
-    <p><strong>Descarga la plantilla.</strong> <a href="#" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Verla en el puesto (demo) →</a></p>
-    <p><em>Plantilla descargable en preparación. Mientras tanto, pídenosla por la demo y te la enviamos.</em></p>
+    <p><strong>Descarga la plantilla.</strong> <a href="#descarga" data-descarga="plantilla-sop" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla SOP (final)">Descargar la plantilla SOP →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Verla en el puesto (demo) →</a></p>
+    <p>¿Buscas el nivel de detalle de un puesto concreto, con el gesto y el valor? Eso es una <a href="/blog/plantilla-instruccion-de-trabajo/">plantilla de instrucción de trabajo</a>.</p>
   </div>
+
+  <DescargaConCuenta />
 </ArticleLayout>

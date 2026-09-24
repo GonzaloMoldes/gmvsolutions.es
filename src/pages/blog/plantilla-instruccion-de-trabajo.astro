@@ -1,0 +1,163 @@
+---
+// Cluster SOP · host del lead magnet `plantilla-it` (PLAN_RECURSOS_SOP_IT_2026-09.md, R-6).
+// Keyword principal: «plantilla instrucción de trabajo» (100-500, lead magnet, sin página
+// hasta hoy). Secundaria: «cómo hacer instrucciones de trabajo».
+// Descarga: plantilla-it del catálogo (src/data/descargables.ts), entregada a cambio de una
+// cuenta lead por <DescargaConCuenta /> (ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md).
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import DescargaConCuenta from '../../components/DescargaConCuenta.astro';
+
+const title = "Plantilla de instrucción de trabajo para descargar";
+const description = "Plantilla de instrucción de trabajo en Word: pasos con foto, puntos críticos, autocontrol y qué hacer ante una anomalía. Con ejemplo relleno. Cómo hacerla en el puesto.";
+const canonical = "https://www.gmvsolutions.es/blog/plantilla-instruccion-de-trabajo/";
+
+// FAQPage extra: se fusiona con el BlogPosting que emite ArticleLayout. Las respuestas son
+// las mismas que los <h3> del final, palabra por palabra.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué debe incluir una plantilla de instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La identificación de la tarea y del puesto con su revisión, los EPIs, las herramientas y los parámetros con su tolerancia, los pasos numerados con una foto cada uno y los críticos marcados, el autocontrol con qué hacer si algo sale fuera, qué parar y a quién avisar ante una anomalía, y el cajetín de aprobación. Fuera de la hoja que se cuelga en la máquina, el histórico de revisiones y el acuse de lectura de cada operario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos pasos debe tener una instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los que tenga la tarea, uno por línea, pero si pasan de diez casi siempre son dos tareas. Una instrucción se consulta con las manos ocupadas: tiene que poder leerse de un vistazo delante de la máquina. Si no cabe en una o dos páginas, conviene partirla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hace falta una foto en cada paso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En los pasos donde el gesto importa, sí: una foto del útil bien colocado explica más que tres líneas. En los pasos obvios se puede omitir. La regla práctica es que un operario nuevo pueda seguirla sin preguntar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuánto hay que revisar una instrucción de trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada vez que cambia algo en el puesto: el útil, la máquina, el material o la forma de hacerlo. Una instrucción que no se revisa cuando cambia la realidad sigue colgada en la máquina diciendo lo de antes, y nadie lo nota hasta que alguien la sigue al pie de la letra."
+      }
+    }
+  ]
+};
+---
+
+<ArticleLayout title={title} description={description} date="2026-09-24" category="Plantilla" readTime="7 min" canonical={canonical} schema={faqSchema}>
+  <div class="highlight-box">
+    <p><strong>TL;DR.</strong> Una instrucción de trabajo explica cómo se hace una tarea concreta en un puesto concreto: el gesto, la herramienta y el valor. Esta plantilla trae los bloques que pide una instrucción bien hecha —pasos con foto, puntos críticos, autocontrol y qué hacer ante una anomalía— y un ejemplo relleno. Rellénala con el operario que mejor hace la tarea, delante de la máquina.</p>
+  </div>
+
+  <div class="highlight-box" id="descarga">
+    <p><strong>Plantilla de instrucción de trabajo en Word, gratis.</strong> La instrucción en blanco, el histórico de revisiones y el acuse de lectura del operario, y un ejemplo relleno: el cambio del filtro hidráulico de una prensa.</p>
+    <p><a href="#descarga" class="btn-primary" data-descarga="plantilla-it" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla instrucción de trabajo">Descargar la plantilla</a></p>
+  </div>
+
+  <p><strong>En este artículo:</strong></p>
+  <ul>
+    <li><a href="#que-es">Qué es una instrucción de trabajo</a></li>
+    <li><a href="#estructura">Qué incluye la plantilla</a></li>
+    <li><a href="#como">Cómo hacer una instrucción de trabajo, en seis reglas</a></li>
+    <li><a href="#errores">Errores frecuentes</a></li>
+    <li><a href="#ejemplo">Un ejemplo: cambiar el filtro hidráulico de una prensa</a></li>
+    <li><a href="#puesto">De la plantilla a la instrucción en el puesto</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+
+  <h2 id="que-es">Qué es una instrucción de trabajo</h2>
+  <p>Una instrucción de trabajo explica <strong>cómo se hace una tarea concreta en un puesto concreto</strong>: cómo amarrar esta pieza, cómo arrancar esta línea, cómo cambiar este filtro. Es corta y operativa, y se consulta en el momento de hacer la tarea, con las manos ocupadas.</p>
+  <p>No es lo mismo que un SOP. El SOP ordena un proceso completo —qué, quién, cuándo y con qué criterios— y suele apoyarse en varias instrucciones para los pasos delicados. Si lo que necesitas es ese nivel, tienes la <a href="/blog/plantilla-sop-produccion/">plantilla de SOP de producción</a>; la diferencia entre los dos está explicada en <a href="/blog/instrucciones-de-trabajo-vs-sop/">instrucciones de trabajo vs SOP</a>.</p>
+
+  <h2 id="estructura">Qué incluye la plantilla</h2>
+  <p>Los bloques de una instrucción bien hecha, en el orden en que se leen delante de la máquina:</p>
+  <ul>
+    <li><strong>Cabecera:</strong> tarea, código, revisión, fecha, área, línea y puesto, máquina con marca y modelo, categoría del operario y tiempo estimado. Sin revisión no sabes si lo que tienes delante es lo vigente.</li>
+    <li><strong>Objeto y alcance:</strong> para qué sirve la tarea y dónde aplica, en dos líneas.</li>
+    <li><strong>EPIs obligatorios:</strong> marcados antes de empezar, no descubiertos a mitad.</li>
+    <li><strong>Herramientas, útiles y materiales:</strong> con su referencia o medida.</li>
+    <li><strong>Parámetros de proceso:</strong> valor, unidad y tolerancia de lo que hay que ajustar o comprobar.</li>
+    <li><strong>Pasos:</strong> uno por línea, empezando por un verbo, con un hueco para la foto del paso y una casilla para marcar los críticos.</li>
+    <li><strong>Autocontrol:</strong> qué se comprueba, con qué instrumento, cada cuánto, con qué tolerancia y <em>qué hacer si sale fuera</em>.</li>
+    <li><strong>Ante una anomalía:</strong> qué se para, a quién se avisa y qué no se hace.</li>
+    <li><strong>Documentos asociados y aprobación:</strong> el SOP del que forma parte, los registros que genera y el cajetín elaborado / revisado / aprobado.</li>
+  </ul>
+  <p>Aparte, en su propia hoja, el <strong>histórico de revisiones</strong> y el <strong>acuse de lectura</strong> de cada operario: son lo que pide una auditoría y lo primero que se queda sin rellenar.</p>
+
+  <h2 id="como">Cómo hacer una instrucción de trabajo, en seis reglas</h2>
+  <ol>
+    <li><strong>Una tarea, un puesto.</strong> Si la instrucción vale para dos máquinas distintas, son dos instrucciones.</li>
+    <li><strong>Un paso por línea, empezando por un verbo:</strong> «Afloja», «Comprueba», «Retira». Si un paso necesita una frase subordinada, probablemente son dos pasos.</li>
+    <li><strong>Una foto por paso</strong> donde el gesto importa. Donde la foto lo explica, sobran palabras.</li>
+    <li><strong>Marca los puntos críticos:</strong> lo que, si se hace mal, provoca un defecto o un accidente. Tienen que verse de un vistazo.</li>
+    <li><strong>Di qué comprobar y qué hacer si sale fuera.</strong> Un autocontrol sin reacción no sirve: el operario detecta el problema y no sabe si parar.</li>
+    <li><strong>Rellénala con el operario que mejor hace la tarea, delante de la máquina.</strong> Pídele que la haga mientras la explica y anota tú. Lo valioso es lo que el veterano hace sin darse cuenta; de eso va <a href="/blog/documentar-conocimiento-operarios-expertos/">cómo documentar el conocimiento de tus operarios expertos</a>.</li>
+  </ol>
+
+  <h2 id="errores">Errores frecuentes</h2>
+  <ul>
+    <li><strong>Escrita desde la oficina:</strong> describe cómo debería hacerse, no cómo se hace, y en el puesto nadie la sigue.</li>
+    <li><strong>Párrafos en vez de pasos:</strong> con las manos ocupadas no se lee un párrafo.</li>
+    <li><strong>Valores copiados de otro sitio:</strong> un par de apriete o una presión salen del manual del fabricante de esa máquina, no de un ejemplo ni de memoria.</li>
+    <li><strong>Sin revisión ni fecha:</strong> conviven copias y nadie sabe cuál vale.</li>
+    <li><strong>Guardada donde no se trabaja:</strong> en una carpeta del servidor, no en el puesto.</li>
+  </ul>
+
+  <h2 id="ejemplo">Un ejemplo: cambiar el filtro hidráulico de una prensa</h2>
+  <p>La plantilla trae un ejemplo relleno: la instrucción para sustituir el filtro de retorno de una prensa hidráulica. Es uno de los pasos del <a href="/blog/sop-mantenimiento-preventivo-guia-plantilla/">SOP de mantenimiento preventivo</a> de esa misma prensa, que es exactamente la relación entre instrucción y SOP. Seis pasos —consignar, descargar la presión, colocar la bandeja, retirar el filtro, comprobar la referencia del nuevo y apretar al par—, cuatro de ellos marcados como críticos, y un autocontrol de fugas tras arrancar.</p>
+  <p>Los valores críticos del ejemplo, como el par de apriete o la referencia del filtro, van <strong>entre corchetes remitiendo al manual del fabricante</strong>. Es a propósito: una cifra de un ejemplo acaba copiada en una hoja plastificada junto a una máquina, y ahí un número inventado es un riesgo.</p>
+
+  <h2 id="puesto">De la plantilla a la instrucción en el puesto</h2>
+  <p>La plantilla resuelve redactar la instrucción. Lo difícil viene después: el día que cambian el útil, el papel colgado en la máquina sigue diciendo lo de antes, y el histórico de revisiones y el acuse de lectura hay que mantenerlos a mano.</p>
+  <p>Por eso el paso siguiente suele ser llevar la instrucción al puesto en digital: con un <a href="/blog/qr-instrucciones-de-trabajo/">QR en la máquina</a> que abre siempre la versión vigente, con <a href="/blog/instrucciones-de-trabajo-en-video/">vídeo del paso</a> donde la foto no basta, y con registro de quién la ha leído. Es lo que hace REELEVO en <a href="/documentacion-procesos/">documentación de procesos</a>. Y para enseñarla en el puesto sin convertirla en una clase, el método clásico sigue siendo el mejor punto de partida: <a href="/blog/twi-formacion-operarios-en-el-puesto/">TWI, formar a un operario en el puesto</a>.</p>
+
+  <h2 id="faq">Preguntas frecuentes</h2>
+
+  <h3>¿Qué debe incluir una plantilla de instrucción de trabajo?</h3>
+  <p>La identificación de la tarea y del puesto con su revisión, los EPIs, las herramientas y los parámetros con su tolerancia, los pasos numerados con una foto cada uno y los críticos marcados, el autocontrol con qué hacer si algo sale fuera, qué parar y a quién avisar ante una anomalía, y el cajetín de aprobación. Fuera de la hoja que se cuelga en la máquina, el histórico de revisiones y el acuse de lectura de cada operario.</p>
+
+  <h3>¿Cuántos pasos debe tener una instrucción de trabajo?</h3>
+  <p>Los que tenga la tarea, uno por línea, pero si pasan de diez casi siempre son dos tareas. Una instrucción se consulta con las manos ocupadas: tiene que poder leerse de un vistazo delante de la máquina. Si no cabe en una o dos páginas, conviene partirla.</p>
+
+  <h3>¿Hace falta una foto en cada paso?</h3>
+  <p>En los pasos donde el gesto importa, sí: una foto del útil bien colocado explica más que tres líneas. En los pasos obvios se puede omitir. La regla práctica es que un operario nuevo pueda seguirla sin preguntar.</p>
+
+  <h3>¿Cada cuánto hay que revisar una instrucción de trabajo?</h3>
+  <p>Cada vez que cambia algo en el puesto: el útil, la máquina, el material o la forma de hacerlo. Una instrucción que no se revisa cuando cambia la realidad sigue colgada en la máquina diciendo lo de antes, y nadie lo nota hasta que alguien la sigue al pie de la letra.</p>
+
+  <div class="related-links">
+    <div class="related-links-label">Relacionado</div>
+    <div class="related-links-grid">
+      <a class="related-link-card" href="/blog/plantilla-sop-produccion/">
+        <div class="related-link-kicker">Plantilla</div>
+        <div class="related-link-title">Plantilla SOP de producción</div>
+        <div class="related-link-desc">El nivel superior: el proceso completo.</div>
+      </a>
+      <a class="related-link-card" href="/blog/instrucciones-de-trabajo-vs-sop/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Instrucciones de trabajo vs SOP</div>
+        <div class="related-link-desc">Cuándo basta una y cuándo hace falta el otro.</div>
+      </a>
+      <a class="related-link-card" href="/blog/qr-instrucciones-de-trabajo/">
+        <div class="related-link-kicker">Guía</div>
+        <div class="related-link-title">Instrucciones de trabajo con QR</div>
+        <div class="related-link-desc">La versión vigente, en la máquina.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Descarga la plantilla.</strong> <a href="#descarga" data-descarga="plantilla-it" data-cta data-cta-intent="descarga" data-cta-location="body" data-cta-label="Descargar plantilla instrucción de trabajo (final)">Descargar la plantilla de instrucción de trabajo →</a> · <a href="/video-demo/" data-cta data-cta-intent="demo" data-cta-location="body" data-cta-label="Solicitar demo">Verla en el puesto (demo) →</a></p>
+  </div>
+
+  <DescargaConCuenta />
+</ArticleLayout>

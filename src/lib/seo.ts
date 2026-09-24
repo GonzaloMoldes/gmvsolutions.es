@@ -173,6 +173,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   'instrucciones-de-trabajo-vs-sop': 'Instrucciones de trabajo vs SOP',
   'plan-contingencia-bajas-produccion': 'Plan de contingencia para bajas en producción',
   'plantilla-sop-produccion': 'Plantilla de SOP de producción',
+  'plantilla-instruccion-de-trabajo': 'Plantilla de instrucción de trabajo',
   'reducir-onboarding-operarios-cinco-a-un-dia': 'Reducir la curva de onboarding de 5 días a 1',
   'software-sop-para-fabricas-comparativa': 'Software SOP para fábricas: comparativa',
   'sop-mantenimiento-preventivo-guia-plantilla': 'SOP de mantenimiento preventivo: guía y plantilla',

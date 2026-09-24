@@ -7,12 +7,14 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} activeNav="">
+  <!-- 2026-09-24 · Descarga con cuenta lead (ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md, DL-14):
+     redacción técnica ceñida a lo que hace el sistema. PENDIENTE DE REVISIÓN LEGAL. -->
   <section class="legal-page">
     <div class="container legal-container">
       <div class="legal-header fade-up">
         <div class="eyebrow">Protección de datos</div>
         <h1 class="section-title">Política de privacidad</h1>
-        <p class="legal-updated">Última actualización: julio 2026</p>
+        <p class="legal-updated">Última actualización: septiembre 2026</p>
       </div>
 
       <div class="legal-content fade-up delay-1">
@@ -37,6 +39,7 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
           <li><strong>Formulario de contacto / solicitud de demo:</strong> nombre, email, empresa, teléfono (opcional), número aproximado de máquinas y mensaje. Estos datos se envían a través del servicio FormSubmit y se reciben por email.</li>
           <li><strong>Diagnóstico de riesgo operativo</strong> (diagnostico.gmvsolutions.es): los datos introducidos en la calculadora se almacenan en Google Sheets para poder elaborar el informe personalizado y contactar al usuario si lo solicita.</li>
           <li><strong>Cookies analíticas:</strong> mediante Google Analytics (GA4) recogemos datos de navegación anónimos (páginas visitadas, tiempo de permanencia, dispositivo, ubicación aproximada). Estos datos se recogen solo si el usuario acepta las cookies analíticas a través del banner de Cookiebot.</li>
+          <li><strong>Descarga de recursos gratuitos</strong> (plantillas y guías del blog): nombre, email y empresa. Al descargar se crea con estos datos una <strong>cuenta de REELEVO sin activar</strong>, sin contraseña y sin acceso a la plataforma, que puedes completar cuando quieras o pedir que borremos. Guardamos también qué recursos has descargado, desde qué página y, si llegas desde una campaña, su origen (parámetros UTM). Si marcas la casilla de comunicaciones, guardamos la fecha y la versión del texto que aceptaste.</li>
           <li><strong>Registro en la plataforma</strong> (app.gmvsolutions.es): email y contraseña del administrador. En determinados flujos operativos, los operarios pueden introducir un identificador básico de uso interno (por ejemplo, nombre o alias) junto con el código de empresa para registrar la ejecución del proceso.</li>
         </ul>
 
@@ -46,14 +49,15 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
           <li>Responder a solicitudes de información, contacto o demo.</li>
           <li>Elaborar informes de diagnóstico de riesgo operativo.</li>
           <li>Gestionar el alta y acceso a la plataforma REELEVO.</li>
+          <li>Entregarte el recurso que descargas y mantener tu cuenta sin activar, para que al completarla solo tengas que añadir los datos que falten.</li>
           <li>Analizar el uso del sitio web para mejorar la experiencia del usuario.</li>
           <li>Enviar comunicaciones comerciales relacionadas con nuestros servicios, solo si el usuario ha dado su consentimiento expreso.</li>
         </ul>
 
         <h2>4. Base legal del tratamiento</h2>
         <ul>
-          <li><strong>Consentimiento del interesado</strong> (art. 6.1.a RGPD): para el envío de comunicaciones comerciales y la instalación de cookies analíticas.</li>
-          <li><strong>Ejecución de un contrato o medidas precontractuales</strong> (art. 6.1.b RGPD): para responder a solicitudes de demo, elaborar diagnósticos y gestionar la prestación del servicio REELEVO.</li>
+          <li><strong>Consentimiento del interesado</strong> (art. 6.1.a RGPD): para el envío de comunicaciones comerciales y la instalación de cookies analíticas. Al descargar un recurso, los correos sobre REELEVO solo se envían si marcas la casilla correspondiente, que es opcional: la descarga no depende de ella.</li>
+          <li><strong>Ejecución de un contrato o medidas precontractuales</strong> (art. 6.1.b RGPD): para responder a solicitudes de demo, elaborar diagnósticos, gestionar la prestación del servicio REELEVO y, al descargar un recurso, crear la cuenta sin activar y entregarte lo que has pedido.</li>
           <li><strong>Interés legítimo</strong> (art. 6.1.f RGPD): para la mejora del sitio web y la prevención del fraude.</li>
         </ul>
 
@@ -68,12 +72,13 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
           <li><strong>Storylane, Inc.</strong> (demo interactivo del producto incrustado en el sitio).</li>
           <li><strong>FormSubmit</strong> (procesamiento de formularios de contacto).</li>
           <li><strong>Cookiebot / Usercentrics</strong> (gestión del consentimiento de cookies).</li>
+          <li><strong>Cloudflare, Inc.</strong> (Turnstile, verificación anti-bots del formulario de descarga): comprueba que quien envía el formulario es una persona, a partir de datos técnicos del navegador y de la dirección IP.</li>
         </ul>
         <p>No vendemos, alquilamos ni cedemos datos personales a terceros con fines comerciales.</p>
 
         <h3>Transferencias internacionales</h3>
         <p>
-          Algunos de estos proveedores están establecidos fuera del Espacio Económico Europeo, principalmente en <strong>Estados Unidos</strong>: es el caso de Google, Microsoft, Vercel y Storylane. Estas transferencias se amparan en las <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea y, cuando el proveedor está adherido a él, en el <strong>EU-U.S. Data Privacy Framework</strong>. Puedes solicitarnos información sobre las garantías aplicadas escribiendo a <a href="mailto:hola@gmvsolutions.es">hola@gmvsolutions.es</a>.
+          Algunos de estos proveedores están establecidos fuera del Espacio Económico Europeo, principalmente en <strong>Estados Unidos</strong>: es el caso de Google, Microsoft, Vercel, Storylane y Cloudflare. Estas transferencias se amparan en las <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea y, cuando el proveedor está adherido a él, en el <strong>EU-U.S. Data Privacy Framework</strong>. Puedes solicitarnos información sobre las garantías aplicadas escribiendo a <a href="mailto:hola@gmvsolutions.es">hola@gmvsolutions.es</a>.
         </p>
         <p>
           El detalle de qué cookies instala cada uno de estos servicios, con su finalidad y duración, está en la <a href="/legal/cookies/">política de cookies</a>.
@@ -83,6 +88,7 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
         <ul>
           <li><strong>Datos de contacto:</strong> se conservan mientras exista una relación comercial o interés legítimo, y en todo caso durante el tiempo legalmente exigido.</li>
           <li><strong>Datos de diagnóstico:</strong> se conservan durante 12 meses desde su recopilación.</li>
+          <li><strong>Cuentas sin activar creadas al descargar un recurso:</strong> se eliminan automáticamente a los 2 años sin contacto. Si completas la cuenta, pasan a ser datos de la plataforma.</li>
           <li><strong>Datos de la plataforma:</strong> se conservan mientras la cuenta esté activa. Tras la baja, se eliminan en un plazo máximo de 30 días.</li>
           <li><strong>Cookies:</strong> según lo indicado en la política de cookies.</li>
         </ul>
@@ -101,6 +107,9 @@ const canonical = "https://www.gmvsolutions.es/legal/privacidad/";
         </ul>
         <p>
           Para ejercer cualquiera de estos derechos, envía un email a <strong>hola@gmvsolutions.es</strong> indicando el derecho que deseas ejercer y acompañando copia de tu documento de identidad.
+        </p>
+        <p>
+          Si tienes una cuenta sin activar creada al descargar un recurso, basta con que nos escribas desde el mismo email para borrarla. Si aceptaste recibir comunicaciones, puedes retirar ese consentimiento en cualquier momento, sin que afecte a la cuenta ni a lo que ya descargaste.
         </p>
         <p>
           Si consideras que el tratamiento de tus datos no se ajusta a la normativa, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).

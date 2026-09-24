@@ -425,6 +425,15 @@ const mergedSchema = [articleSchema, ...extraSchema];
     border-bottom: none;
   }
 
+  /* Un botón dentro del artículo no es un enlace de texto: sin esto, las dos reglas
+     de arriba pintan su texto naranja sobre su fondo naranja y el botón sale vacío
+     (visto en el botón de descarga de las plantillas, 2026-09-24). */
+  .article-body :global(a.btn-primary),
+  .article-body :global(.highlight-box a.btn-primary) {
+    color: #fff;
+    border-bottom: none;
+  }
+
   .article-body :global(.related-links) {
     margin: 48px 0 40px;
     padding: 28px 32px;

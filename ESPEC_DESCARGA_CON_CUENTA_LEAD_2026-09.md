@@ -314,6 +314,34 @@ Reglas:
 | — | `LEADS_ALTA_SECRET` creada y configurada | Vercel, app y web | Gonzalo | `curl` sin secreto → `401` |
 | — | Variables de la web configuradas (`LEADS_ALTA_URL`, `DESCARGA_TOKEN_SECRET`, Turnstile) | Vercel, web | Gonzalo | `curl -X POST <web>/api/descarga/` → `422`, no `503` |
 
+### 4.7 Puesta en marcha en producción
+
+Lo que falta para que las descargas funcionen en las páginas reales. **El código está hecho y
+probado; esto son acciones fuera del código.** En este orden, porque cada paso depende del
+anterior.
+
+| # | Acción | Dónde | Detalle | Estado |
+|---|---|---|---|---|
+| **1** | **Desplegar `reelevo-app` en producción** | Vercel, app | Producción sirve un build de **mediados de julio** (DEPENDENCIAS nº 0): sin desplegar, `/api/leads/alta` **no existe**. Incluye T-04 (`5fbaba42`) | ⬜ |
+| **2** | Crear y configurar `LEADS_ALTA_SECRET` | Vercel, app **y** web | DEPENDENCIAS nº 25b. Mismo valor en los dos proyectos | ⬜ |
+| **3** | Crear el widget de **Turnstile** | Cloudflare → Turnstile → *Add widget*, dominio `www.gmvsolutions.es`, modo *Managed* | Da dos claves: `PUBLIC_TURNSTILE_SITE_KEY` y `TURNSTILE_SECRET_KEY`. **Van juntas** (I-9) | ⬜ |
+| **4** | Configurar las variables de la web | Vercel, web | `LEADS_ALTA_URL` = `https://<dominio-app>/api/leads/alta`, `DESCARGA_TOKEN_SECRET` (nuevo, distinto, sólo web) y las dos de Turnstile. DEPENDENCIAS nº 25c | ⬜ |
+| **5** | **Revisión legal** de `/legal/privacidad/` y de los textos del formulario | Asesoría | Si cambian los textos del formulario, **subir `VERSION_TEXTOS_DESCARGA`** en `src/lib/descarga-consentimiento.ts` | ⬜ |
+| **6** | Desplegar la web en una **preview** y descargar las dos plantillas | Vercel, web | Confirma lo único que no se puede probar en local: que la función lee `src/descargables/` (§4.5). Con un email de prueba propio | ⬜ |
+| **7** | Desplegar la web en producción y repetir la descarga | Vercel, web | Después, borrar el lead de prueba de `marketing_leads` | ⬜ |
+
+**Comprobaciones rápidas tras cada despliegue:**
+
+| Comando | Esperado | Si no |
+|---|---|---|
+| `curl -s -o /dev/null -w "%{http_code}" -X POST https://<dominio-app>/api/leads/alta` | `401` | `404`: app sin desplegar (paso 1) · `503`: falta `LEADS_ALTA_SECRET` (paso 2) |
+| `curl -s -X POST https://www.gmvsolutions.es/api/descarga/ -H "Content-Type: application/json" -d "{}"` | `422` (`unknown_resource`) | `503`: faltan variables de la web (pasos 2-4) |
+| `curl -s -o /dev/null -w "%{http_code}" https://www.gmvsolutions.es/api/descarga/plantilla-sop/` | `403` (sin token) | `503`: falta `DESCARGA_TOKEN_SECRET` |
+
+Hasta completar los pasos 1 a 4, **las páginas funcionan pero la descarga no**: el formulario se
+abre y, al enviar, explica que no ha podido crear la cuenta. No se pierde ningún dato ni se
+entrega nada sin lead.
+
 ---
 
 <a id="5"></a>
@@ -1017,7 +1045,9 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-14 · Textos legales y prueba de extremo a extremo
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** 🟡 en curso · **Completada:** no · **Fecha:** — · **Commit:** —
+*2026-09-24 · hecho:* `/legal/privacidad/` actualizada (datos de la descarga y cuenta sin activar, finalidad, base 6.1.b para la cuenta y 6.1.a para los correos con casilla opcional, **Cloudflare** como destinatario y en transferencias a EE. UU., conservación de 2 años sin contacto, cómo borrarla); textos del formulario en `src/lib/descarga-consentimiento.ts` versión `2026-09-24`. Recorrido probado en local en las dos páginas reales.
+*Falta:* (1) **revisión legal** de esos textos; (2) la **puesta en marcha de §4.7**; (3) la prueba en preview y producción de §4.7. La parte de correos (baja, secuencia) y la conversión por los dos caminos siguen pendientes de DL-9 a DL-12.
 **Repo:** web + app · **Estimación:** ~4 h · **Depende de:** todas las anteriores, `T-13` · **Bloquea:** publicar
 
 **Técnica**
