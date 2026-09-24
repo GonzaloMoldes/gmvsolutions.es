@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **4/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/14 tareas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -246,7 +246,7 @@ Variables nuevas en Vercel (web):
 > `reelevo-app`). Debe pasar a llamar a `/api/leads/alta` con
 > `origen: 'newsletter_modal'`. Un único endpoint para todos los orígenes.
 
-#### Decisiones de implementación (DL-5, 2026-09-24)
+#### Decisiones de implementación (DL-5 y DL-4, 2026-09-24)
 
 Tomadas al construir los endpoints. Cada una dice qué cambia respecto a lo que esta espec
 decía antes y por qué.
@@ -258,6 +258,11 @@ decía antes y por qué.
 | **I-3** | **Textos legales y su versión en un módulo propio** (`src/lib/descarga-consentimiento.ts`) | La app guarda `consentimiento_texto_version` para acreditar qué texto se aceptó (RGPD art. 7.1) | No se puede cambiar la redacción sin tocar el archivo donde está la versión |
 | **I-4** | **Rutas con barra final**: `/api/descarga/` y `/api/descarga/<recurso>/?t=…` | El sitio tiene `trailingSlash: always`, igual que `/api/suscribir/` | El componente (DL-4) tiene que llamar con la barra |
 | **I-5** | **Token sin datos personales**: sólo recurso y caducidad, HMAC-SHA256 | Si alguien comparte el enlace, en 10 minutos no vale y no dice de quién era | Cada descarga necesita pasar otra vez por el formulario; la app ya reconoce al lead por su email |
+| **I-6** | **`<dialog>` nativo** con `showModal()` en vez de un `div` con `role="dialog"` como el modal de newsletter | El navegador ya encierra el foco, cierra con Esc y marca el resto de la página como inerte; hacerlo a mano es donde suelen fallar los modales | Hay que declarar `margin: auto`: el reset global (`* { margin: 0 }`) anula el centrado nativo del `<dialog>`. Detectado en las capturas, no en los asserts |
+| **I-7** | **Eventos de GA4 de `AUDITORIA_EVENTOS_CTA_GA4.md`**, no nombres nuevos: el clic ya envía `cta_click` (tracker global de `[data-cta]`); al confirmarse el lead, `generate_lead` con `lead_type: descarga` + `file_download`; ante un fallo, `descarga_error` con el código | Los nombres `descarga_abrir` / `descarga_lead_ok` de DL-4 duplicaban eventos que la auditoría ya define y GTM ya escucha | Un cliente existente (409) envía `file_download` pero **no** `generate_lead`: no es un lead nuevo |
+| **I-8** | **Datos del formulario en `sessionStorage`**, no `localStorage` | Son datos personales y el navegador puede ser el de un PC de taller compartido | Se olvidan al cerrar la pestaña; dentro de la sesión, el segundo recurso llega con los datos puestos |
+| **I-9** | **Turnstile se carga al abrir el formulario**, con tema oscuro, y la CSP de `vercel.json` permite `challenges.cloudflare.com` en `script-src` y `frame-src` | Una página con botones no paga el script de Cloudflare hasta que alguien pide una descarga | Sin `PUBLIC_TURNSTILE_SITE_KEY` el formulario se envía sin token y el servidor responde 403: **las dos claves de Turnstile van juntas** |
+| **I-10** | Si alguien pulsa **antes de que cargue el script**, el enlace lleva a su `href` | Es el mismo comportamiento que sin JavaScript: la página del recurso | No se pierde el clic; se pierde el formulario en ese primer instante |
 
 **Pendiente de comprobar fuera de local** (entra en DL-14): en una **preview de Vercel**, que
 la función lee `src/descargables/` desde `process.cwd()`. El build lo deja todo en
@@ -286,7 +291,7 @@ node -e "console.log(require(crypto).randomBytes(32).toString(base64url))"
 | `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `firmarToken()` / `verificarToken()` de `src/lib/descarga-token.ts` | comando de arriba | 🟡 leída por el código (DL-5); falta crearla y configurarla en Vercel |
 | `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `lib/lead-token.ts` | comando de arriba | ⬜ (DL-9) |
 | `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` (`siteverify`) | la da Cloudflare, no se genera. En local: clave de pruebas `1x0000000000000000000000000000000AA` | 🟡 leída por el código (DL-5); falta crear el widget en Cloudflare y configurarla |
-| `PUBLIC_TURNSTILE_SITE_KEY` | web | Clave pública del widget en el formulario | web: `<DescargaConCuenta />` | la da Cloudflare junto con la secreta | ⬜ (DL-4) |
+| `PUBLIC_TURNSTILE_SITE_KEY` | web | Clave pública del widget en el formulario | web: `<DescargaConCuenta />` | la da Cloudflare junto con la secreta. En local: clave de pruebas `1x00000000000000000000AA` | 🟡 leída por el código (DL-4); falta crear el widget en Cloudflare y configurarla. **Va siempre junto a `TURNSTILE_SECRET_KEY`** (I-9) |
 
 Reglas:
 
@@ -606,12 +611,12 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | Fase | Alcance | Repo | Hechas | % | |
 |---|---|---|---:|---:|---|
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
-| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 2/4 | **50 %** | █████░░░░░ |
+| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **4/14** | **29 %** | ███░░░░░░░ |
+| | **TOTAL** | | **5/14** | **36 %** | ████░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -747,7 +752,9 @@ Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera*
 
 #### DL-4 · Componente `<DescargaConCuenta />`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+*Cierre:* `src/components/DescargaConCuenta.astro` + CSP de `vercel.json`. **Probado en Chromium real con Playwright, 23/23**, contra `astro dev`, una app simulada y el Turnstile de pruebas de Cloudflare: sólo el elemento con `data-descarga` abre el formulario y el resto navega normal; sin JavaScript el marcado lleva a su `href`; se abre con Enter y se cierra con Esc; foco al primer campo y al título de la vista final; error con `role="alert"`; descarga real del `.docx` idéntico al original; vista «Tu cuenta está creada» y variante de cliente existente; la app caída no entrega archivo y el botón permite reintentar; `generate_lead` + `file_download` en `dataLayer`; centrado en escritorio y en móvil 375 px sin scroll horizontal; sin errores de JavaScript. Capturas revisadas: destaparon el diálogo pegado arriba a la izquierda (I-6), corregido.
+Desvíos sobre la técnica de abajo: I-6 a I-10 de §4.5. **Lo que no se ha probado:** con un lector de pantalla real (el anuncio se apoya en `role="alert"` y `aria-live`, verificados en el DOM) y la CSP, que sólo aplica Vercel. **No está montado en ninguna página real**: publicarlo depende de R-7 y de DL-14.
 **Repo:** web · **Estimación:** ~1 día · **Depende de:** DL-3
 
 **Técnica**
@@ -1052,6 +1059,7 @@ leer el `git log`.
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
 | 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
 | 2026-09-24 | DL-5 | `45fadde` | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
+| 2026-09-24 | DL-4 | pendiente | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
 
 ---
 

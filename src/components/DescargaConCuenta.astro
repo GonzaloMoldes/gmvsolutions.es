@@ -1,0 +1,475 @@
+---
+// <DescargaConCuenta /> — formulario de descarga con cuenta lead (DL-4).
+// Espec: ESPEC_DESCARGA_CON_CUENTA_LEAD_2026-09.md §4.1 y §4.4.
+//
+// Se activa SÓLO en los elementos marcados con `data-descarga="<id del catálogo>"`.
+// Cualquier otro botón de la página se comporta como siempre. Sin JavaScript, el
+// elemento marcado sigue su `href` (la página del recurso), no se rompe nada.
+//
+// Se importa en cada página que tenga botones marcados, NO en BaseLayout: una página
+// sin botones no carga ni el formulario ni su script (D-5).
+//
+// Flujo: clic → formulario → POST /api/descarga/ → la app crea el lead → la web
+// devuelve una URL con token de 10 min → el navegador descarga. Sin lead no hay
+// descarga (D-2). El formulario no guarda nada en el servidor por sí mismo.
+import { DESCARGABLES } from '../data/descargables';
+import { AVISO_CUENTA_LEAD, TEXTO_CONSENTIMIENTO_COMERCIAL } from '../lib/descarga-consentimiento';
+
+// Sólo títulos: el script necesita el nombre del recurso para el encabezado, nada más.
+const titulos = Object.fromEntries(Object.entries(DESCARGABLES).map(([id, r]) => [id, r.titulo]));
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+const privacyHref = '/legal/privacidad/';
+---
+
+<dialog
+  class="dc-modal"
+  id="dc-modal"
+  aria-labelledby="dc-titulo"
+  aria-describedby="dc-sub"
+  data-titulos={JSON.stringify(titulos)}
+  data-sitekey={siteKey}
+>
+  <div class="dc-card">
+    <button type="button" class="dc-close" aria-label="Cerrar" data-dc-cerrar>&times;</button>
+
+    <div data-dc-vista="formulario">
+      <div class="dc-eyebrow">Descarga gratuita</div>
+      <h2 class="dc-title" id="dc-titulo">Descarga el recurso</h2>
+      <p class="dc-sub" id="dc-sub">Déjanos tus datos y la descarga empieza al momento.</p>
+
+      <form class="dc-form" id="dc-form" novalidate>
+        <div class="dc-field">
+          <label for="dc-nombre">Nombre</label>
+          <input id="dc-nombre" name="nombre" type="text" autocomplete="name" required maxlength="120" aria-describedby="dc-error" />
+        </div>
+        <div class="dc-field">
+          <label for="dc-empresa">Empresa</label>
+          <input id="dc-empresa" name="empresa" type="text" autocomplete="organization" required maxlength="200" aria-describedby="dc-error" />
+        </div>
+        <div class="dc-field">
+          <label for="dc-email">Email de trabajo</label>
+          <input id="dc-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="dc-error" />
+        </div>
+
+        {/* Honeypot anti-bots: oculto a humanos, lo rellenan los bots. */}
+        <div class="dc-hp" aria-hidden="true">
+          <label for="dc-website">No rellenar</label>
+          <input id="dc-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        {/* Aviso obligatorio de leer, no una casilla: la base es lo que la persona pide (§10.1). */}
+        <p class="dc-aviso">
+          {AVISO_CUENTA_LEAD} <a href={privacyHref} target="_blank" rel="noopener">Política de privacidad</a>.
+        </p>
+
+        {/* Consentimiento comercial: opcional y sin marcar (D-4). La descarga no depende de él. */}
+        <label class="dc-consent">
+          <input type="checkbox" name="consentimiento_comercial" id="dc-consent" />
+          <span>{TEXTO_CONSENTIMIENTO_COMERCIAL}</span>
+        </label>
+
+        <div class="dc-turnstile" id="dc-turnstile"></div>
+
+        <button type="submit" class="dc-submit" id="dc-submit">Descargar</button>
+        <p class="dc-error" id="dc-error" role="alert" hidden></p>
+      </form>
+    </div>
+
+    <div data-dc-vista="listo" hidden>
+      <div class="dc-eyebrow">Listo</div>
+      <h2 class="dc-title" id="dc-listo-titulo" tabindex="-1">Tu cuenta está creada</h2>
+      <p class="dc-sub" id="dc-listo-sub">
+        La descarga ha empezado. Te hemos creado una cuenta de REELEVO sin activar con tus datos:
+        cuando quieras probar la plataforma solo tendrás que completarla.
+      </p>
+      <a class="dc-submit dc-submit--ghost" id="dc-repetir" href="#">Descargar otra vez</a>
+      <button type="button" class="dc-submit dc-submit--link" data-dc-cerrar>Cerrar</button>
+    </div>
+  </div>
+  <p class="dc-sr" id="dc-estado" aria-live="polite"></p>
+</dialog>
+
+<script>
+  type Titulos = Record<string, string>
+  type Turnstile = {
+    render: (el: HTMLElement, opts: Record<string, unknown>) => string
+    reset: (id?: string) => void
+  }
+
+  const modal = document.getElementById('dc-modal') as HTMLDialogElement | null
+  if (modal) iniciar(modal)
+
+  function iniciar(modal: HTMLDialogElement) {
+    const titulos: Titulos = JSON.parse(modal.dataset.titulos || '{}')
+    const siteKey = modal.dataset.sitekey || ''
+    const form = modal.querySelector<HTMLFormElement>('#dc-form')!
+    const submit = modal.querySelector<HTMLButtonElement>('#dc-submit')!
+    const errorEl = modal.querySelector<HTMLParagraphElement>('#dc-error')!
+    const estado = modal.querySelector<HTMLParagraphElement>('#dc-estado')!
+    const titulo = modal.querySelector<HTMLHeadingElement>('#dc-titulo')!
+    const vistaForm = modal.querySelector<HTMLElement>('[data-dc-vista="formulario"]')!
+    const vistaListo = modal.querySelector<HTMLElement>('[data-dc-vista="listo"]')!
+    const repetir = modal.querySelector<HTMLAnchorElement>('#dc-repetir')!
+    const listoTitulo = modal.querySelector<HTMLHeadingElement>('#dc-listo-titulo')!
+    const listoSub = modal.querySelector<HTMLParagraphElement>('#dc-listo-sub')!
+    const TEXTO_BOTON = submit.textContent || 'Descargar'
+
+    let recurso = ''
+    let turnstileToken = ''
+    let turnstileId: string | undefined
+
+    // ── Datos por sesión: UTM de entrada y lo ya escrito ─────────────────────
+    // sessionStorage y no localStorage: son datos personales en un navegador que puede
+    // ser compartido (un PC de taller). Se olvidan al cerrar la pestaña.
+    const leer = (k: string) => { try { return JSON.parse(sessionStorage.getItem(k) || 'null') } catch { return null } }
+    const guardar = (k: string, v: unknown) => { try { sessionStorage.setItem(k, JSON.stringify(v)) } catch { /* modo privado */ } }
+
+    const params = new URLSearchParams(location.search)
+    if (params.get('utm_source') && !leer('reelevo-utm')) {
+      // Primer contacto de la sesión: no se pisa con la navegación posterior.
+      guardar('reelevo-utm', { source: params.get('utm_source'), medium: params.get('utm_medium'), campaign: params.get('utm_campaign') })
+    }
+
+    const empujar = (evento: Record<string, unknown>) => {
+      const w = window as unknown as { dataLayer?: unknown[] }
+      w.dataLayer = w.dataLayer || []
+      w.dataLayer.push({ page_path: location.pathname, ...evento })
+    }
+
+    // ── Turnstile: se carga al abrir, no con la página ─────────────────────────
+    function cargarTurnstile(): Promise<Turnstile | null> {
+      const w = window as unknown as { turnstile?: Turnstile }
+      if (w.turnstile) return Promise.resolve(w.turnstile)
+      if (!siteKey) return Promise.resolve(null)
+      return new Promise(resolve => {
+        const s = document.createElement('script')
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+        s.async = true
+        s.onload = () => resolve(w.turnstile ?? null)
+        s.onerror = () => resolve(null)
+        document.head.appendChild(s)
+      })
+    }
+
+    async function montarTurnstile() {
+      const ts = await cargarTurnstile()
+      const cont = modal.querySelector<HTMLElement>('#dc-turnstile')!
+      if (!ts) return
+      if (turnstileId !== undefined) { ts.reset(turnstileId); turnstileToken = ''; return }
+      turnstileId = ts.render(cont, {
+        sitekey: siteKey,
+        language: 'es',
+        theme: 'dark', // el formulario es oscuro; el tema claro por defecto desentona
+        callback: (t: string) => { turnstileToken = t },
+        'expired-callback': () => { turnstileToken = '' },
+        'error-callback': () => { turnstileToken = '' },
+      })
+    }
+
+    // ── Abrir y cerrar ─────────────────────────────────────────────────────────
+    function abrir(id: string) {
+      recurso = id
+      titulo.textContent = titulos[id] ? `Descarga: ${titulos[id]}` : 'Descarga el recurso'
+      vistaForm.hidden = false
+      vistaListo.hidden = true
+      errorEl.hidden = true
+      submit.disabled = false
+      submit.textContent = TEXTO_BOTON
+
+      const previos = leer('reelevo-descarga-datos')
+      if (previos) {
+        for (const campo of ['nombre', 'empresa', 'email'] as const) {
+          const input = form.elements.namedItem(campo) as HTMLInputElement | null
+          if (input && !input.value && previos[campo]) input.value = previos[campo]
+        }
+      }
+
+      modal.showModal()
+      ;(form.elements.namedItem('nombre') as HTMLInputElement).focus()
+      montarTurnstile()
+    }
+
+    // Delegación: sirve también para botones que aparezcan después de cargar la página.
+    // Sólo reacciona a elementos con data-descarga; el resto de clics no se tocan.
+    document.addEventListener('click', e => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>('[data-descarga]')
+      if (!el) return
+      const id = el.dataset.descarga || ''
+      if (!titulos[id]) return // id desconocido: se deja el enlace normal (check-descargables lo impide en build)
+      e.preventDefault()
+      abrir(id)
+    })
+
+    modal.addEventListener('click', e => {
+      if ((e.target as Element).closest('[data-dc-cerrar]')) modal.close()
+      // Clic en el fondo (fuera de la tarjeta) cierra.
+      if (e.target === modal) modal.close()
+    })
+
+    // ── Envío ──────────────────────────────────────────────────────────────────
+    const mostrarError = (msg: string) => {
+      errorEl.textContent = msg
+      errorEl.hidden = false
+      estado.textContent = ''
+    }
+
+    const MENSAJES: Record<string, string> = {
+      invalid_input: 'Revisa los datos: nombre, empresa y un email válido.',
+      unknown_resource: 'Este recurso ya no está disponible.',
+      captcha_failed: 'No hemos podido verificar que no eres un robot. Vuelve a intentarlo.',
+      rate_limited: 'Demasiados intentos. Espera unos minutos y vuelve a probar.',
+      // D-2: sin lead no hay descarga. Hay que decirlo claro, no un «error» genérico.
+      account_failed: 'No hemos podido crear tu cuenta ahora mismo, así que todavía no podemos darte el archivo. Inténtalo en unos minutos.',
+      not_configured: 'La descarga no está disponible en este momento. Inténtalo más tarde.',
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault()
+      errorEl.hidden = true
+
+      const nombre = (form.elements.namedItem('nombre') as HTMLInputElement).value.trim()
+      const empresa = (form.elements.namedItem('empresa') as HTMLInputElement).value.trim()
+      const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim()
+      const consiente = (form.elements.namedItem('consentimiento_comercial') as HTMLInputElement).checked
+      const website = (form.elements.namedItem('website') as HTMLInputElement).value
+
+      if (!nombre || !empresa || !email) return mostrarError('Completa nombre, empresa y email.')
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return mostrarError('Revisa el email.')
+      if (siteKey && !turnstileToken) return mostrarError('Espera a que termine la verificación de seguridad.')
+
+      submit.disabled = true
+      submit.textContent = 'Preparando la descarga…'
+      estado.textContent = 'Enviando tus datos y preparando la descarga.'
+
+      let res: Response
+      let json: { ok?: boolean; error?: string; url?: string; cliente?: boolean } = {}
+      try {
+        res = await fetch('/api/descarga/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            recurso, nombre, empresa, email,
+            consentimiento_comercial: consiente,
+            pagina: location.pathname,
+            utm: leer('reelevo-utm') ?? undefined,
+            turnstile_token: turnstileToken,
+            website,
+          }),
+        })
+        json = await res.json().catch(() => ({}))
+      } catch {
+        json = { ok: false, error: 'account_failed' }
+      }
+
+      if (!json.ok || !json.url) {
+        submit.disabled = false
+        submit.textContent = TEXTO_BOTON
+        mostrarError(MENSAJES[json.error || ''] || MENSAJES.account_failed)
+        empujar({ event: 'descarga_error', error_code: json.error || 'desconocido', recurso })
+        montarTurnstile() // un token de Turnstile sólo vale una vez
+        return
+      }
+
+      guardar('reelevo-descarga-datos', { nombre, empresa, email })
+
+      // La URL responde con Content-Disposition: attachment → el navegador descarga
+      // sin salir de la página.
+      window.location.href = json.url
+      repetir.href = json.url
+
+      if (json.cliente) {
+        listoTitulo.textContent = 'Ya tienes cuenta en REELEVO'
+        listoSub.textContent = 'La descarga ha empezado. Como ya eres usuario, no hemos creado nada nuevo: entra en tu cuenta cuando quieras.'
+      } else {
+        listoTitulo.textContent = 'Tu cuenta está creada'
+        listoSub.textContent = 'La descarga ha empezado. Te hemos creado una cuenta de REELEVO sin activar con tus datos: cuando quieras probar la plataforma solo tendrás que completarla.'
+      }
+      vistaForm.hidden = true
+      vistaListo.hidden = false
+      listoTitulo.focus()
+      estado.textContent = 'Descarga iniciada.'
+
+      const archivo = titulos[recurso] || recurso
+      if (!json.cliente) {
+        empujar({ event: 'generate_lead', lead_type: 'descarga', cta_location: 'descarga_modal', recurso })
+      }
+      empujar({ event: 'file_download', file_name: archivo, file_extension: 'docx', cta_location: 'descarga_modal', recurso })
+    })
+  }
+</script>
+
+<style>
+  .dc-modal {
+    /* El <dialog> nativo se centra con margin:auto; el reset global (margin:0) lo anula
+       y lo deja pegado arriba a la izquierda. */
+    margin: auto;
+    width: min(460px, calc(100vw - 28px));
+    max-height: calc(100dvh - 28px);
+    padding: 0;
+    border: 1px solid var(--border, #444);
+    border-radius: 8px;
+    background: var(--surface, #2b2b2b);
+    color: var(--white, #fff);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
+    overflow: auto;
+  }
+  .dc-modal::backdrop {
+    background: rgba(0, 0, 0, .72);
+    backdrop-filter: blur(3px);
+  }
+  .dc-modal[open] { animation: dc-in .28s ease; }
+  @keyframes dc-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dc-modal[open] { animation: none; }
+  }
+  .dc-card { position: relative; padding: 36px 34px 30px; }
+  .dc-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--gray, #aaa);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .dc-close:hover, .dc-close:focus-visible { color: var(--orange, #F4521E); }
+
+  .dc-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--orange, #F4521E);
+    margin-bottom: 12px;
+  }
+  .dc-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    color: var(--white, #fff);
+  }
+  .dc-title:focus { outline: none; }
+  .dc-sub {
+    font-size: .9rem;
+    color: var(--gray, #b3b3b3);
+    line-height: 1.6;
+    margin: 0 0 22px;
+  }
+
+  .dc-field { margin-bottom: 14px; }
+  .dc-field label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray, #b3b3b3);
+    margin-bottom: 6px;
+  }
+  .dc-field input {
+    width: 100%;
+    background: rgba(0, 0, 0, .25);
+    border: 1px solid var(--border, #444);
+    border-radius: 4px;
+    padding: 11px 12px;
+    color: var(--white, #fff);
+    font-size: .95rem;
+    font-family: inherit;
+  }
+  .dc-field input:focus-visible {
+    outline: 2px solid var(--orange, #F4521E);
+    outline-offset: 1px;
+    border-color: var(--orange, #F4521E);
+  }
+
+  .dc-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .dc-aviso {
+    font-size: .78rem;
+    color: var(--gray, #b3b3b3);
+    line-height: 1.5;
+    margin: 16px 0 12px;
+  }
+  .dc-aviso a, .dc-consent a { color: var(--orange, #F4521E); }
+  .dc-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 0 0 18px;
+    font-size: .78rem;
+    color: var(--gray, #b3b3b3);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .dc-consent input { margin-top: 2px; accent-color: var(--orange, #F4521E); }
+
+  .dc-turnstile:not(:empty) { margin-bottom: 16px; min-height: 65px; }
+
+  .dc-submit {
+    display: block;
+    width: 100%;
+    background: var(--orange, #F4521E);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 13px 16px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  .dc-submit:hover { opacity: .9; }
+  .dc-submit:focus-visible { outline: 2px solid var(--white, #fff); outline-offset: 2px; }
+  .dc-submit:disabled { opacity: .6; cursor: default; }
+  .dc-submit--ghost {
+    background: transparent;
+    border: 1px solid var(--border, #444);
+    color: var(--white, #fff);
+  }
+  .dc-submit--link {
+    background: none;
+    color: var(--gray, #b3b3b3);
+    margin-top: 8px;
+    font-size: .85rem;
+  }
+
+  .dc-error {
+    color: #ff6b4a;
+    font-size: .82rem;
+    line-height: 1.5;
+    margin: 12px 0 0;
+  }
+  .dc-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .dc-card { padding: 30px 20px 24px; }
+  }
+</style>
