@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **10/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **11/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -113,6 +113,21 @@ promoción. Sin él, quien no consiente no recibiría nunca el enlace. Detalle e
 ### D-7 · Plazos D+1, D+4 y D+9 — decidido 2026-09-24
 
 Los tres correos comerciales salen al día siguiente, a los 4 días y a los 9 de la descarga.
+
+### D-9 · Las cuentas completadas desde el enlace de un lead nacen activas — decidido 2026-09-24
+
+**Medido ese día:** toda empresa que se registra nace `inactiva` y `proxy.ts` la encierra en
+«Tu cuenta está en proceso de activación» **hasta que un admin la activa a mano** desde
+`Admin › Empresas` (las 4 empresas activas lo están por un cambio manual en `company_status_log`;
+ninguna línea de código las pone en `activa`). Activar el trial no cambia ese estado.
+
+**Decisión:** si la cuenta se completa **desde el enlace del correo de un lead con su mismo
+email** (buzón probado + Turnstile), la empresa nace **`activa`** y entra directamente en el
+módulo de lo que descargó (DL-13). Queda anotado en su historial de estados. **El resto de
+registros sigue con la aprobación manual** de siempre.
+
+Motivo: los correos 0 y 3 prometen que la prueba empieza al completarla; con aprobación manual,
+los 60 días correrían mientras espera, y la revisión no añade nada a un buzón ya probado.
 
 ### D-8 · Mismo remitente que el resto de correos — decidido 2026-09-24
 
@@ -706,9 +721,9 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 3/3 | **100 %** | ██████████ |
 | **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 1/1 | **100 %** | ██████████ |
-| **E · Completar la cuenta** | Token y aterrizaje | app | 1/2 | **50 %** | █████░░░░░ |
+| **E · Completar la cuenta** | Token y aterrizaje | app | 2/2 | **100 %** | ██████████ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **10/15** | **67 %** | ███████░░░ |
+| | **TOTAL** | | **11/15** | **73 %** | ███████░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -1096,7 +1111,11 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-13 · Aterrizaje por módulo
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `cb4818ea` (reelevo-app)
+*Cierre:* `destinoTrasAlta()` en `lib/leads/conversion.ts` (módulo de la **última** descarga → ruta, **lista cerrada**: `procesos` → `/empresa/procesos`, `mantenimiento` → `/empresa/mantenimiento`, cualquier otro valor o error → `/empresa/dashboard`); `company-registration` devuelve `destino` y `RegistroView` entra ahí tras abrir sesión, sólo si empieza por `/empresa/`. `admin_empresa` tiene acceso a esas rutas (`lib/company-permissions.ts`).
+**Hallazgo que obligó a D-9:** sin ella, la redirección acababa en `/empresa/pendiente`: las empresas nacen `inactiva` y sólo un admin las activa. Con D-9, el alta desde el enlace inserta la empresa `activa` y añade una fila a `company_status_log` («Activada al completar la cuenta desde el enlace del correo de un lead (D-9)»). **El comentario T-011b de `company-registration` es engañoso** («sin trial, `companies.status` se queda en `inactiva`»): con o sin trial se queda `inactiva`; queda anotado aquí, no se toca ese flujo.
+5 tests nuevos (3 en el alta: nace activa + historial, destino, sin enlace sigue inactiva; 2 de `destinoTrasAlta`, incluido un módulo `../../admin`). `tsc`, ESLint y gates en verde.
+*Web:* no hace falta cambiar nada: el catálogo ya envía `modulo` (DL-3) y el alta lo guarda (DL-2).
 **Repo:** app + web · **Estimación:** ~3 h · **Depende de:** DL-12
 
 **Técnica**
@@ -1197,6 +1216,7 @@ leer el `git log`.
 | 2026-09-24 | DL-12 | `424804d5` | app | `/registro?lead=` relleno; mismo email → cuenta activa sin confirmar; T-06 vincula por email |
 | 2026-09-24 | DL-15 | `b47e9b41` | app | Correo 0 inmediato sólo al crear el lead; newsletter sin «descargar» |
 | 2026-09-24 | DL-11 | `7dfd1966` | app | Cron diario de los correos 1-3 en `cron-daily.yml`; necesita cuota de Actions o cron-job.org |
+| 2026-09-24 | DL-13 | `cb4818ea` | app | Entrada por el módulo descargado; D-9: la cuenta desde el enlace nace activa |
 
 ---
 
