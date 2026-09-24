@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **5/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **6/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -307,7 +307,7 @@ node -e "console.log(require(crypto).randomBytes(32).toString(base64url))"
 | `LEADS_ALTA_SECRET` | **app y web, mismo valor** | La web se identifica ante `POST /api/leads/alta` | app: `getLeadsAltaSecret()` → `coincideSecreto()` (`lib/cron-auth.ts`, `timingSafeEqual`) · web: `/api/descarga`, `/api/suscribir` | comando de arriba | ⬜ pendiente de crear (DEPENDENCIAS nº 25b) |
 | `LEADS_ALTA_URL` | web | URL del endpoint de la app | web: `/api/descarga` | no es secreta | 🟡 leída por el código (DL-5); falta configurarla en Vercel |
 | `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `firmarToken()` / `verificarToken()` de `src/lib/descarga-token.ts` | comando de arriba | 🟡 leída por el código (DL-5); falta crearla y configurarla en Vercel |
-| `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `lib/lead-token.ts` | comando de arriba | ⬜ (DL-9) |
+| `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `firmarTokenLead()` / `verificarTokenLead()` de `lib/lead-token.ts` | comando de arriba | 🟡 leída por el código (DL-9); falta crearla en Vercel (DEPENDENCIAS nº 25d) |
 | `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` (`siteverify`) | la da Cloudflare, no se genera. En local: clave de pruebas `1x0000000000000000000000000000000AA` | 🟡 leída por el código (DL-5); falta crear el widget en Cloudflare y configurarla |
 | `PUBLIC_TURNSTILE_SITE_KEY` | web | Clave pública del widget en el formulario | web: `<DescargaConCuenta />` | la da Cloudflare junto con la secreta. En local: clave de pruebas `1x00000000000000000000AA` | 🟡 leída por el código (DL-4); falta crear el widget en Cloudflare y configurarla. **Va siempre junto a `TURNSTILE_SECRET_KEY`** (I-9) |
 
@@ -703,11 +703,11 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
-| **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
+| **D · Secuencia** | Baja, plantillas, cron | app | 1/3 | **33 %** | ███░░░░░░░ |
 | **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 0/1 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **5/15** | **33 %** | ███░░░░░░░ |
+| | **TOTAL** | | **6/15** | **40 %** | ████░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -977,7 +977,9 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-9 · Baja de correos comerciales
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `0fc449fc` (reelevo-app)
+*Cierre:* `lib/lead-token.ts` (tokens HMAC con propósito `baja` —sin caducidad— o `completar` —30 días—, sólo el id del lead; `urlBajaLead`, `urlCompletarLead`, `cabecerasBajaLead` con RFC 8058), `app/api/leads/baja/route.ts` y `headers` en `sendEmail()`. **El GET no da de baja**: enseña un botón; da de baja el POST, que usan ese botón y el un clic de Gmail/Yahoo (los escáneres de correo abren los enlaces y darían de baja a quien no lo pidió). Idempotente: la segunda baja no cambia la fecha. 18 tests nuevos (token 11, ruta 7) + 1 en `email.test.ts`; `tsc`, ESLint y gates en verde. **Verificado contra la base real** con un lead de prueba creado y borrado: la actualización marca la fecha, quita el próximo envío, es idempotente y conserva el paso. Baseline de service-client 394 → 395, justificado.
+*Para producción falta:* crear `LEAD_TOKEN_SECRET` en el proyecto `reelevo-app` de Vercel (DEPENDENCIAS nº 25d) y promover el despliegue. No corre prisa: ningún correo usa estos enlaces hasta DL-11 y DL-15.
 **Repo:** app · **Estimación:** ~1 día · **Depende de:** DL-1 · **Bloquea:** DL-11
 
 **Técnica**
@@ -1179,6 +1181,7 @@ leer el `git log`.
 | 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
 | 2026-09-24 | DL-5 | `45fadde` | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
 | 2026-09-24 | DL-4 | `01c8de0` | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
+| 2026-09-24 | DL-9 | `0fc449fc` | app | Baja de correos con token firmado; GET enseña, POST ejecuta; verificada contra la base real |
 
 ---
 
