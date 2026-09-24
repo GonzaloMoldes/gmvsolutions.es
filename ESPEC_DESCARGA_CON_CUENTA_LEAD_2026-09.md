@@ -307,7 +307,7 @@ node -e "console.log(require(crypto).randomBytes(32).toString(base64url))"
 | `LEADS_ALTA_SECRET` | **app y web, mismo valor** | La web se identifica ante `POST /api/leads/alta` | app: `getLeadsAltaSecret()` → `coincideSecreto()` (`lib/cron-auth.ts`, `timingSafeEqual`) · web: `/api/descarga`, `/api/suscribir` | comando de arriba | ⬜ pendiente de crear (DEPENDENCIAS nº 25b) |
 | `LEADS_ALTA_URL` | web | URL del endpoint de la app | web: `/api/descarga` | no es secreta | 🟡 leída por el código (DL-5); falta configurarla en Vercel |
 | `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `firmarToken()` / `verificarToken()` de `src/lib/descarga-token.ts` | comando de arriba | 🟡 leída por el código (DL-5); falta crearla y configurarla en Vercel |
-| `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `firmarTokenLead()` / `verificarTokenLead()` de `lib/lead-token.ts` | comando de arriba | 🟡 leída por el código (DL-9); falta crearla en Vercel (DEPENDENCIAS nº 25d) |
+| `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `firmarTokenLead()` / `verificarTokenLead()` de `lib/lead-token.ts` | comando de arriba | 🟡 leída por el código (DL-9); **creada en Vercel el 2026-09-24** (Production, Sensitive). Se verifica al desplegar DL-9 |
 | `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` (`siteverify`) | la da Cloudflare, no se genera. En local: clave de pruebas `1x0000000000000000000000000000000AA` | 🟡 leída por el código (DL-5); falta crear el widget en Cloudflare y configurarla |
 | `PUBLIC_TURNSTILE_SITE_KEY` | web | Clave pública del widget en el formulario | web: `<DescargaConCuenta />` | la da Cloudflare junto con la secreta. En local: clave de pruebas `1x00000000000000000000AA` | 🟡 leída por el código (DL-4); falta crear el widget en Cloudflare y configurarla. **Va siempre junto a `TURNSTILE_SECRET_KEY`** (I-9) |
 
@@ -335,7 +335,8 @@ Reglas:
 | 2026-09-24 | Migración `20260924000001` aplicada | Supabase, SQL Editor (producción) | Gonzalo | Script contra la base real, 14/14 ✅ |
 | 2026-09-24 | `LEADS_ALTA_SECRET` declarada como variable opcional | `reelevo-app`: `lib/env-schema.ts`, `lib/runtime-env.ts`, `.env.example` | código | `check:env-example` ✅ |
 | 2026-09-24 | `LEADS_ALTA_URL`, `LEADS_ALTA_SECRET`, `DESCARGA_TOKEN_SECRET`, `TURNSTILE_SECRET_KEY` leídas por la web | `en-construccion`: `src/pages/api/descarga/` | código | e2e local 20/20 ✅ |
-| — | `LEADS_ALTA_SECRET` creada y configurada | Vercel, app y web | Gonzalo | `curl` sin secreto → `401` |
+| 2026-09-24 | `LEADS_ALTA_SECRET` creada y configurada | Vercel, app y web | Gonzalo | `curl` sin secreto → `401` ✅ |
+| 2026-09-24 | `LEAD_TOKEN_SECRET` creada (valor propio, distinto de los demás) | Vercel, `reelevo-app`, Production | Gonzalo | pendiente: al desplegar DL-9, `GET /api/leads/baja?t=x` → `400`, no `503` |
 | — | Variables de la web configuradas (`LEADS_ALTA_URL`, `DESCARGA_TOKEN_SECRET`, Turnstile) | Vercel, web | Gonzalo | `curl -X POST <web>/api/descarga/` → `422`, no `503` |
 
 ### 4.7 Puesta en marcha en producción
