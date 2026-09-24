@@ -776,7 +776,7 @@ Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera*
 
 #### DL-5 · `POST /api/descarga` y `GET /api/descarga/[recurso]`
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `45fadde`
 *Cierre:* `src/pages/api/descarga/index.ts` (POST) y `src/pages/api/descarga/[recurso].ts` (GET), token en `src/lib/descarga-token.ts`, textos legales y su versión en `src/lib/descarga-consentimiento.ts`. **7 tests del token** (`npm run test:descarga`, runner nativo de Node). **Recorrido de extremo a extremo en local, 20/20**, con `astro dev` y una app simulada: contrato de §5 recibido tal cual por la app, el `.docx` servido byte a byte, 403 sin token / con token de otro recurso / manipulado / caducado, 409 → descarga como cliente, 500 y app caída → 502 sin descarga, 429 propagado, y validación, Turnstile y honeypot sin llegar a llamar a la app. `npm run build` y `tsc` (0 errores en todo el proyecto) en verde.
 Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effort**: la web no tiene Redis; la protección real son Turnstile y los topes compartidos de la app (T-04). (2) **Honeypot → 502** en vez del éxito fingido de `/api/suscribir`: aquí un éxito fingido tendría que entregar el archivo. (3) Timeout con `AbortSignal.timeout`. (4) Los textos del formulario y su versión viven en un módulo propio para que no puedan cambiar por separado.
 **Pendiente de comprobar en una preview de Vercel** (dentro de DL-14): que la función lee `src/descargables/` desde `process.cwd()`. El build ya muestra los archivos en `_render.func/src/descargables/`.
@@ -1051,7 +1051,7 @@ leer el `git log`.
 | 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
 | 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
-| 2026-09-24 | DL-5 | pendiente | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
+| 2026-09-24 | DL-5 | `45fadde` | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
 
 ---
 
