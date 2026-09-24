@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **6/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **7/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -704,11 +704,11 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
 | **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 3/4 | **75 %** | ████████░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
-| **D · Secuencia** | Baja, plantillas, cron | app | 1/3 | **33 %** | ███░░░░░░░ |
+| **D · Secuencia** | Baja, plantillas, cron | app | 2/3 | **67 %** | ███████░░░ |
 | **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 0/1 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **6/15** | **40 %** | ████░░░░░░ |
+| | **TOTAL** | | **7/15** | **47 %** | █████░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -1003,7 +1003,10 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-10 · Las tres plantillas de calentamiento
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `847316b8` (reelevo-app)
+*Cierre:* **cuatro** plantillas, no tres: `leadCuentaCreada` (correo 0, D-6, categoría `onboarding`) y `leadCalentamiento1..3` (categoría `marketing`), en `lib/email-templates.ts` con el diseño `base()`. Nombre y empresa **escapados** (vienen de un formulario público). Los tres comerciales llevan pie con remitente, motivo y baja (LSSI arts. 20 y 22); el correo 0, cómo borrar la cuenta. Días de prueba desde `TRIAL_DURATION_DAYS`. Contenido por recurso en `lib/leads/recursos.ts` (artículo del correo 1 y capacidad del correo 2; URLs comprobadas en producción, títulos reales). Registradas en `Admin › Gestión de correos` con ejemplos; la **clave es el mismo `templateName` del envío**, para que las estadísticas cuenten los envíos reales. 14 tests nuevos (8 de plantillas, 5 de overrides, +1 de cabeceras). Revisadas en Chromium a 700 px y 375 px.
+**Hallazgo 1 — lo que se edita en el admin no llegaba a ningún envío real:** `email_template_overrides` sólo se aplicaba al «enviar prueba». Nueva `lib/email-overrides.ts` (`aplicarOverride`), que usan el envío de prueba y los correos a leads; si falla la lectura, sale el original. **Las plantillas anteriores siguen sin aplicarlo** (hay que tocar cada flujo que las envía) y **tampoco coinciden sus claves con el `templateName` con que se envían** (p. ej. `confirmar-email-registro`), así que sus estadísticas en el admin sólo cuentan pruebas. Anotado, fuera de esta función.
+**Hallazgo 2 — DL-9 había subido el presupuesto de diseño** (`check:design-budget`, no pasado entonces): la página de baja metía 7 hex y 1 `<button>` en `app/`. Es HTML suelto sin el layout, así que sus colores y su botón pasan a `lib/leads/pagina-baja.ts`, como los de los correos. Presupuesto: `hex` 355 (tope bajado de 356), `botonHandRolled` 698 = tope.
 **Repo:** app · **Estimación:** ~1 día · **Depende de:** —
 
 **Técnica**
@@ -1183,6 +1186,7 @@ leer el `git log`.
 | 2026-09-24 | DL-5 | `45fadde` | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
 | 2026-09-24 | DL-4 | `01c8de0` | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
 | 2026-09-24 | DL-9 | `0fc449fc` | app | Baja de correos con token firmado; GET enseña, POST ejecuta; verificada contra la base real |
+| 2026-09-24 | DL-10 | `847316b8` | app | Cuatro plantillas; los overrides del admin ya se aplican al envío; presupuesto de diseño corregido |
 
 ---
 
