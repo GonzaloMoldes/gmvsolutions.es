@@ -752,7 +752,7 @@ Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera*
 
 #### DL-4 · Componente `<DescargaConCuenta />`
 
-**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `01c8de0`
 *Cierre:* `src/components/DescargaConCuenta.astro` + CSP de `vercel.json`. **Probado en Chromium real con Playwright, 23/23**, contra `astro dev`, una app simulada y el Turnstile de pruebas de Cloudflare: sólo el elemento con `data-descarga` abre el formulario y el resto navega normal; sin JavaScript el marcado lleva a su `href`; se abre con Enter y se cierra con Esc; foco al primer campo y al título de la vista final; error con `role="alert"`; descarga real del `.docx` idéntico al original; vista «Tu cuenta está creada» y variante de cliente existente; la app caída no entrega archivo y el botón permite reintentar; `generate_lead` + `file_download` en `dataLayer`; centrado en escritorio y en móvil 375 px sin scroll horizontal; sin errores de JavaScript. Capturas revisadas: destaparon el diálogo pegado arriba a la izquierda (I-6), corregido.
 Desvíos sobre la técnica de abajo: I-6 a I-10 de §4.5. **Lo que no se ha probado:** con un lector de pantalla real (el anuncio se apoya en `role="alert"` y `aria-live`, verificados en el DOM) y la CSP, que sólo aplica Vercel. **No está montado en ninguna página real**: publicarlo depende de R-7 y de DL-14.
 **Repo:** web · **Estimación:** ~1 día · **Depende de:** DL-3
@@ -1059,7 +1059,7 @@ leer el `git log`.
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
 | 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
 | 2026-09-24 | DL-5 | `45fadde` | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
-| 2026-09-24 | DL-4 | pendiente | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
+| 2026-09-24 | DL-4 | `01c8de0` | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
 
 ---
 
