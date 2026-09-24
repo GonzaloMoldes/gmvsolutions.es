@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **7/15 tareas** · **descargas en producción desde el 2026-09-24**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **8/15 tareas** · **descargas en producción desde el 2026-09-24**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -706,9 +706,9 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 2/3 | **67 %** | ███████░░░ |
 | **E bis · Correo 0** | Correo inmediato al crear el lead (D-6) | app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
+| **E · Completar la cuenta** | Token y aterrizaje | app | 1/2 | **50 %** | █████░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **7/15** | **47 %** | █████░░░░░ |
+| | **TOTAL** | | **8/15** | **53 %** | █████░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -718,7 +718,7 @@ que estén antes de la tarea que los necesita):
 | `T-01` | Purga de `marketing_leads` en `gdpr-cleanup` | DL-1 | ✅ |
 | `T-03` | `marketing_leads` generalizada | DL-1 | ✅ |
 | `T-04` | `POST /api/leads/alta` | DL-2, DL-6 | ✅ |
-| `T-06` | El registro reconoce leads | DL-12 | ⬜ |
+| `T-06` | El registro reconoce leads | DL-12 | ✅ |
 | `T-09` | Filtro por origen en el panel | DL-7 | ⬜ |
 | `T-11` | Enlace lead ↔ cuenta | DL-8 | ⬜ |
 | `T-13` | Privacidad | DL-14 | ⬜ |
@@ -1060,7 +1060,9 @@ Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effor
 
 #### DL-12 · Token de lead en `/registro`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** `424804d5` (reelevo-app)
+*Cierre (con `T-06`):* `lib/leads/conversion.ts` (`leadDesdeToken`, `vincularLeadsAlRegistrar`), `app/registro/page.tsx` (el token se valida en el servidor; el id del lead no llega al navegador), `components/public/RegistroView.tsx` (formulario relleno, email bloqueado, aviso «Tu cuenta ya está a medio crear», entrada directa al panel) y `app/api/company-registration`. **Con el token válido y el mismo email** (sin distinguir mayúsculas): `createUser({ email_confirm: true })`, trial ya, sin correo de confirmación, `requiere_confirmacion: false`. **Con otro email**, el token no prueba nada: flujo normal con confirmación y **el lead del token no se vincula** (si no, con el enlace de otro alguien se quedaría con su lead). **Sin token**: flujo normal y vincula los leads de ese email (T-06). También en el alta por LinkedIn. La vinculación nunca tumba un alta. De paso: Auth sin error y sin usuario hacía un `TypeError` y dejaba la empresa huérfana; ahora revierte y responde 500 controlado. Tests: 6 nuevos en `company-registration` (27/27) + 8 en `conversion.test.ts`; **suite completa `test:ci` 426 ficheros / 3.237 tests en verde** (baseline subido). Verificado contra la base real (select del token; update por email sin mayúsculas con recuento; un lead ya vinculado no se retoca) y **la página renderizada en local** con un lead de prueba: relleno, email bloqueado, aviso; tokens de baja, de otro secreto o basura → formulario vacío. No se envió el alta en local (la app local apunta a la base de producción).
+*Para producción:* se activa al desplegar la app (necesita `LEAD_TOKEN_SECRET`, ya creado). Hasta que DL-15 o DL-11 envíen correos, nadie tiene un enlace `?lead=`.
 **Repo:** app · **Estimación:** ~1 día · **Depende de:** `T-06`, DL-9 (`lib/lead-token.ts`)
 
 **Técnica**
@@ -1187,6 +1189,7 @@ leer el `git log`.
 | 2026-09-24 | DL-4 | `01c8de0` | web | Formulario en `<dialog>`, probado en Chromium 23/23. No montado en páginas reales hasta R-7/DL-14 |
 | 2026-09-24 | DL-9 | `0fc449fc` | app | Baja de correos con token firmado; GET enseña, POST ejecuta; verificada contra la base real |
 | 2026-09-24 | DL-10 | `847316b8` | app | Cuatro plantillas; los overrides del admin ya se aplican al envío; presupuesto de diseño corregido |
+| 2026-09-24 | DL-12 | `424804d5` | app | `/registro?lead=` relleno; mismo email → cuenta activa sin confirmar; T-06 vincula por email |
 
 ---
 
