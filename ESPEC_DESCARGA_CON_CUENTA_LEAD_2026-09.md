@@ -1,6 +1,6 @@
 # Descarga con cuenta lead — especificación web + app
 
-> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **3/14 tareas**
+> **Escrita:** 2026-09-23 · **Repos:** `en-construccion` (web) y `reelevo-app` (app y admin) · **Estado:** en curso · **4/14 tareas**
 >
 > Especifica una función que se activa **sólo en los botones que se marquen** en la
 > web: al pulsar, el visitante deja sus datos, **se le crea una cuenta lead en
@@ -246,6 +246,24 @@ Variables nuevas en Vercel (web):
 > `reelevo-app`). Debe pasar a llamar a `/api/leads/alta` con
 > `origen: 'newsletter_modal'`. Un único endpoint para todos los orígenes.
 
+#### Decisiones de implementación (DL-5, 2026-09-24)
+
+Tomadas al construir los endpoints. Cada una dice qué cambia respecto a lo que esta espec
+decía antes y por qué.
+
+| # | Decisión | Por qué | Consecuencia |
+|---|---|---|---|
+| **I-1** | **Límite por IP en memoria de la función**, best-effort (10 peticiones / 10 min por IP) | La web no tiene Redis y montarlo sólo para esto no compensa | Con varias instancias cada una cuenta por su lado. **La protección real contra altas masivas es Turnstile + el tope diario y por dominio de la app (T-04)**, que sí son compartidos |
+| **I-2** | **Honeypot relleno → 502, sin lead ni descarga** | `/api/suscribir` finge éxito ante un bot; aquí fingir éxito obligaría a entregar el archivo, que es justo lo que se protege | El bot recibe el mismo error que si la app hubiera fallado: no aprende qué lo delató |
+| **I-3** | **Textos legales y su versión en un módulo propio** (`src/lib/descarga-consentimiento.ts`) | La app guarda `consentimiento_texto_version` para acreditar qué texto se aceptó (RGPD art. 7.1) | No se puede cambiar la redacción sin tocar el archivo donde está la versión |
+| **I-4** | **Rutas con barra final**: `/api/descarga/` y `/api/descarga/<recurso>/?t=…` | El sitio tiene `trailingSlash: always`, igual que `/api/suscribir/` | El componente (DL-4) tiene que llamar con la barra |
+| **I-5** | **Token sin datos personales**: sólo recurso y caducidad, HMAC-SHA256 | Si alguien comparte el enlace, en 10 minutos no vale y no dice de quién era | Cada descarga necesita pasar otra vez por el formulario; la app ya reconoce al lead por su email |
+
+**Pendiente de comprobar fuera de local** (entra en DL-14): en una **preview de Vercel**, que
+la función lee `src/descargables/` desde `process.cwd()`. El build lo deja todo en
+`.vercel/output/functions/_render.func/src/descargables/`, pero la ruta en tiempo de
+ejecución sólo se confirma desplegando.
+
 ### 4.6 Secretos y configuración en Vercel
 
 Toda variable secreta de esta función, **dónde vive, cómo se generó y cuándo se configuró**.
@@ -264,10 +282,11 @@ node -e "console.log(require(crypto).randomBytes(32).toString(base64url))"
 | Variable | Proyecto(s) | Para qué | Lo lee | Generación | Estado |
 |---|---|---|---|---|---|
 | `LEADS_ALTA_SECRET` | **app y web, mismo valor** | La web se identifica ante `POST /api/leads/alta` | app: `getLeadsAltaSecret()` → `coincideSecreto()` (`lib/cron-auth.ts`, `timingSafeEqual`) · web: `/api/descarga`, `/api/suscribir` | comando de arriba | ⬜ pendiente de crear (DEPENDENCIAS nº 25b) |
-| `LEADS_ALTA_URL` | web | URL del endpoint de la app | web | no es secreta | ⬜ (DL-5) |
-| `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `/api/descarga` | comando de arriba | ⬜ (DL-5) |
+| `LEADS_ALTA_URL` | web | URL del endpoint de la app | web: `/api/descarga` | no es secreta | 🟡 leída por el código (DL-5); falta configurarla en Vercel |
+| `DESCARGA_TOKEN_SECRET` | **sólo web** | Firma HMAC de los tokens de descarga de 10 min | web: `firmarToken()` / `verificarToken()` de `src/lib/descarga-token.ts` | comando de arriba | 🟡 leída por el código (DL-5); falta crearla y configurarla en Vercel |
 | `LEAD_TOKEN_SECRET` | **sólo app** | Firma de los enlaces de baja y de completar la cuenta | app: `lib/lead-token.ts` | comando de arriba | ⬜ (DL-9) |
-| `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` | la da Cloudflare, no se genera | ⬜ (DL-5) |
+| `TURNSTILE_SECRET_KEY` | web | Verificación de Turnstile en el formulario | web: `/api/descarga` (`siteverify`) | la da Cloudflare, no se genera. En local: clave de pruebas `1x0000000000000000000000000000000AA` | 🟡 leída por el código (DL-5); falta crear el widget en Cloudflare y configurarla |
+| `PUBLIC_TURNSTILE_SITE_KEY` | web | Clave pública del widget en el formulario | web: `<DescargaConCuenta />` | la da Cloudflare junto con la secreta | ⬜ (DL-4) |
 
 Reglas:
 
@@ -286,7 +305,9 @@ Reglas:
 |---|---|---|---|---|
 | 2026-09-24 | Migración `20260924000001` aplicada | Supabase, SQL Editor (producción) | Gonzalo | Script contra la base real, 14/14 ✅ |
 | 2026-09-24 | `LEADS_ALTA_SECRET` declarada como variable opcional | `reelevo-app`: `lib/env-schema.ts`, `lib/runtime-env.ts`, `.env.example` | código | `check:env-example` ✅ |
+| 2026-09-24 | `LEADS_ALTA_URL`, `LEADS_ALTA_SECRET`, `DESCARGA_TOKEN_SECRET`, `TURNSTILE_SECRET_KEY` leídas por la web | `en-construccion`: `src/pages/api/descarga/` | código | e2e local 20/20 ✅ |
 | — | `LEADS_ALTA_SECRET` creada y configurada | Vercel, app y web | Gonzalo | `curl` sin secreto → `401` |
+| — | Variables de la web configuradas (`LEADS_ALTA_URL`, `DESCARGA_TOKEN_SECRET`, Turnstile) | Vercel, web | Gonzalo | `curl -X POST <web>/api/descarga/` → `422`, no `503` |
 
 ---
 
@@ -585,12 +606,12 @@ Fecha, versión del texto aceptado e IP truncada según `lib/consent-record.ts`
 | Fase | Alcance | Repo | Hechas | % | |
 |---|---|---|---:|---:|---|
 | **A · El lead de descarga** | Esquema y endpoint | app | 2/2 | **100 %** | ██████████ |
-| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 1/4 | **25 %** | ██░░░░░░░░ |
+| **B · El botón** | Catálogo, componente, endpoints, suscribir | web | 2/4 | **50 %** | █████░░░░░ |
 | **C · Admin** | Leads y Empresas | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **D · Secuencia** | Baja, plantillas, cron | app | 0/3 | **0 %** | ░░░░░░░░░░ |
 | **E · Completar la cuenta** | Token y aterrizaje | app | 0/2 | **0 %** | ░░░░░░░░░░ |
 | **F · Publicable** | Legal y prueba completa | web + app | 0/1 | **0 %** | ░░░░░░░░░░ |
-| | **TOTAL** | | **3/14** | **21 %** | ██░░░░░░░░ |
+| | **TOTAL** | | **4/14** | **29 %** | ███░░░░░░░ |
 
 **Requisitos de `PLAN_CRM_LEADS`** (se siguen en ese documento, aquí sólo se vigila
 que estén antes de la tarea que los necesita):
@@ -755,7 +776,10 @@ Desvíos sobre la técnica de abajo: `includeFiles` incluye **la carpeta entera*
 
 #### DL-5 · `POST /api/descarga` y `GET /api/descarga/[recurso]`
 
-**Estado:** ⬜ pendiente · **Completada:** no · **Fecha:** — · **Commit:** —
+**Estado:** ✅ completada · **Completada:** sí · **Fecha:** 2026-09-24 · **Commit:** pendiente
+*Cierre:* `src/pages/api/descarga/index.ts` (POST) y `src/pages/api/descarga/[recurso].ts` (GET), token en `src/lib/descarga-token.ts`, textos legales y su versión en `src/lib/descarga-consentimiento.ts`. **7 tests del token** (`npm run test:descarga`, runner nativo de Node). **Recorrido de extremo a extremo en local, 20/20**, con `astro dev` y una app simulada: contrato de §5 recibido tal cual por la app, el `.docx` servido byte a byte, 403 sin token / con token de otro recurso / manipulado / caducado, 409 → descarga como cliente, 500 y app caída → 502 sin descarga, 429 propagado, y validación, Turnstile y honeypot sin llegar a llamar a la app. `npm run build` y `tsc` (0 errores en todo el proyecto) en verde.
+Desvíos sobre la técnica de abajo: (1) **límite por IP en memoria, best-effort**: la web no tiene Redis; la protección real son Turnstile y los topes compartidos de la app (T-04). (2) **Honeypot → 502** en vez del éxito fingido de `/api/suscribir`: aquí un éxito fingido tendría que entregar el archivo. (3) Timeout con `AbortSignal.timeout`. (4) Los textos del formulario y su versión viven en un módulo propio para que no puedan cambiar por separado.
+**Pendiente de comprobar en una preview de Vercel** (dentro de DL-14): que la función lee `src/descargables/` desde `process.cwd()`. El build ya muestra los archivos en `_render.func/src/descargables/`.
 **Repo:** web · **Estimación:** ~1 día · **Depende de:** DL-2, DL-3
 
 **Técnica**
@@ -1027,6 +1051,7 @@ leer el `git log`.
 | 2026-09-24 | DL-1 | `bf0aff8a` | app | Migración `20260924000001` aplicada y verificada contra la base real (14/14) |
 | 2026-09-24 | DL-2 | `5fbaba42` | app | `POST /api/leads/alta` con 29 tests. Falta desplegar y configurar `LEADS_ALTA_SECRET` |
 | 2026-09-24 | DL-3 | `abb02c5` | web | Catálogo, `check-descargables` en el build y archivos empaquetados en la función |
+| 2026-09-24 | DL-5 | pendiente | web | Endpoints de descarga con token de 10 min. e2e local 20/20. Falta configurar variables y probar en preview |
 
 ---
 

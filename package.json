@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "node scripts/check-descargables.mjs && astro build",
     "check:descargables": "node scripts/check-descargables.mjs",
+    "test:descarga": "node --test scripts/test-descarga-token.test.ts",
     "preview": "astro preview"
   },
   "dependencies": {
