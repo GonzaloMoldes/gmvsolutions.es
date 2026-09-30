@@ -55,6 +55,7 @@ const faqSchema = {
   date={date}
   category={category}
   readTime={readTime}
+  dateModified="2026-09-30"
   canonical={canonical}
   schema={faqSchema}
 >
@@ -82,7 +83,7 @@ const faqSchema = {
   <h2 id="tipos">Los tres tipos de trazabilidad</h2>
   <p>No es un solo concepto. Para reconstruir la historia completa de un producto necesitas encadenar tres tramos:</p>
   <ul>
-    <li><strong>Trazabilidad hacia atrás (de proveedor):</strong> qué lote de materia prima, de qué proveedor y con qué albarán entró en este producto. Es lo que te permite acotar un problema a un origen concreto en vez de a toda la producción.</li>
+    <li><strong>Trazabilidad hacia atrás (de proveedor):</strong> qué lote de materia prima, de qué proveedor y con qué albarán entró en este producto. Es lo que te permite acotar un problema a un origen concreto en vez de a toda la producción. Cuando la pieza lleva varios materiales, hace falta un lote por material; lo desarrollamos en <a href="/blog/trazabilidad-lotes-materia-prima/">trazabilidad de lotes de materia prima</a>.</li>
     <li><strong>Trazabilidad interna (de proceso):</strong> qué le pasó dentro de tu planta —qué máquinas, qué operarios, qué procedimiento, qué controles y qué incidencias. Es la que más se descuida y, a la vez, la que más rápido te delata cuando algo falla, porque casi nunca está documentada.</li>
     <li><strong>Trazabilidad hacia delante (de cliente):</strong> a qué pedido, lote y cliente fue cada unidad. Es lo que convierte una retirada en algo selectivo en lugar de una llamada a toda tu cartera.</li>
   </ul>
@@ -131,7 +132,7 @@ const faqSchema = {
   <p>El cambio práctico se nota el día de una reclamación. En lugar de preguntar a los operarios y revisar partes incompletos, el responsable escanea el QR de la pieza reclamada y tiene la ficha completa en <strong>diez segundos</strong>: de la reclamación a la causa raíz, sin investigar. Lo ves aplicado paso a paso en <a href="/obras-trazabilidad/">obras y trazabilidad</a>, y cómo se conecta con auditorías y conformidad en <a href="/calidad-y-conformidad/">calidad y conformidad</a>.</p>
 
   <div class="highlight-box">
-    <p><strong>Trazabilidad operativa, no un MES.</strong> REELEVO rastrea la producción por obra y por pieza, y deja el historial de ejecución consultable. Lo que <em>no</em> hace es gestionar la genealogía completa de lotes de materia prima ni la planificación de capacidad de un MES o un ERP. Para la mayoría de pymes industriales, esa trazabilidad de ejecución resuelve la mayor parte de los problemas reales sin la complejidad de implantar un MES.</p>
+    <p><strong>Trazabilidad operativa, no un MES.</strong> REELEVO rastrea la producción por obra y por pieza, y deja el historial de ejecución consultable. También registra qué <a href="/blog/trazabilidad-lotes-materia-prima/">lote de cada material</a> entró en cada pieza. Lo que <em>no</em> hace es gestionar el inventario de materia prima ni la planificación de capacidad de un MES o un ERP. Para la mayoría de pymes industriales, esa trazabilidad de ejecución resuelve la mayor parte de los problemas reales sin la complejidad de implantar un MES.</p>
   </div>
 
   <h2 id="faq">Preguntas frecuentes</h2>

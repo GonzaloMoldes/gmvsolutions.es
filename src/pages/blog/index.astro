@@ -9,7 +9,16 @@ const canonical = "https://www.gmvsolutions.es/blog/";
 // Los datos ya no viven aqui: vienen de src/lib/blog.ts, el registro unico que
 // comparten esta pagina, /sitemap.xml y /llms.txt. Anadir un articulo alli lo
 // publica en los tres sitios a la vez.
-import { clusters, posts as articles } from '../../lib/blog';
+import { clusters, posts as articles, publishedISO, latestPublishedISO, NEW_POST_DAYS } from '../../lib/blog';
+
+// Candidatos a "Novedades": lo publicado en los NEW_POST_DAYS dias previos a la
+// ultima publicacion. Cualquier articulo que el navegador marque como nuevo esta
+// en esta lista; cual se ve de verdad lo decide el script de Header.astro.
+const limiteNovedades = new Date(Date.parse(latestPublishedISO) - NEW_POST_DAYS * 864e5)
+  .toISOString().slice(0, 10);
+const candidatosNovedades = articles
+  .filter((a) => publishedISO(a) > limiteNovedades)
+  .sort((a, b) => publishedISO(b).localeCompare(publishedISO(a)));
 
 const schema = {
   "@context": "https://schema.org",
@@ -42,6 +51,29 @@ const schema = {
     </nav>
   </section>
 
+  <!-- NOVEDADES: oculta salvo que el script marque la seccion con .is-new -->
+  <section class="section blog-news" id="novedades" data-published={latestPublishedISO}>
+    <div class="section-inner">
+      <div class="eyebrow blog-news__eyebrow">Publicado en los últimos {NEW_POST_DAYS} días</div>
+      <h2 class="section-title">Novedades</h2>
+      <div class="articles-grid">
+        {candidatosNovedades.map((a) => (
+          <a href={`/blog/${a.slug}/`} class="article-card" data-published={publishedISO(a)}>
+            <div class="article-card-category">{a.category}<span class="new-badge">Nuevo</span></div>
+            <h3 class="article-card-title">{a.title}</h3>
+            <p class="article-card-desc">{a.desc}</p>
+            <div class="article-card-meta">
+              <span>{a.dateLabel}</span>
+              <span>·</span>
+              <span>⏱️ {a.readTime}</span>
+            </div>
+            <div class="article-card-link">Leer artículo →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <div class="divider"></div>
 
   <!-- ARTÍCULOS POR INTENCIÓN -->
@@ -54,8 +86,8 @@ const schema = {
         </div>
         <div class="articles-grid fade-up delay-1">
           {articles.filter((a) => a.cluster === c.key).map((a) => (
-            <a href={`/blog/${a.slug}/`} class="article-card">
-              <div class="article-card-category">{a.category}</div>
+            <a href={`/blog/${a.slug}/`} class="article-card" data-published={publishedISO(a)}>
+              <div class="article-card-category">{a.category}<span class="new-badge">Nuevo</span></div>
               <h3 class="article-card-title">{a.title}</h3>
               <p class="article-card-desc">{a.desc}</p>
               <div class="article-card-meta">
@@ -122,6 +154,15 @@ const schema = {
     color: var(--orange);
   }
 
+  /* Novedades */
+  .blog-news:not(.is-new),
+  .blog-news .article-card:not(.is-new) {
+    display: none;
+  }
+  .blog-news__eyebrow {
+    color: var(--gold);
+  }
+
   /* Articles grid */
   .articles-grid {
     display: grid;
@@ -144,6 +185,18 @@ const schema = {
 
   .article-card:hover {
     border-color: var(--border-hover);
+  }
+
+  .article-card.is-new {
+    border-color: var(--gold-border);
+    box-shadow: 0 0 24px var(--gold-glow);
+  }
+
+  .article-card-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   .article-card-category {

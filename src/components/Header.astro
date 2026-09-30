@@ -4,6 +4,8 @@ export interface Props {
 }
 const { activeNav } = Astro.props;
 
+import { latestPublishedISO, NEW_POST_DAYS } from '../lib/blog';
+
 // Un solo origen para el mega-menu de escritorio y el menu movil. Antes cada
 // uno tenia su propio marcado con los mismos 34 enlaces escritos dos veces, y
 // nada impedia que se separaran al tocar uno solo (tarea E2 de
@@ -136,14 +138,17 @@ const RECURSOS = [
         class={`nav-dropdown-trigger${activeNav === 'recursos' || activeNav === 'blog' ? ' nav-active' : ''}`}
         aria-expanded="false"
         aria-haspopup="true"
+        data-published={latestPublishedISO}
       >
         Recursos
+        <span class="new-badge">Nuevo</span>
         <svg viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
       </button>
       <div class="nav-dropdown-menu">
         {RECURSOS.map((it) => (
-          <a href={it.href}>
+          <a href={it.href} data-published={it.href === '/blog/' ? latestPublishedISO : undefined}>
             {it.label}
+            {it.href === '/blog/' && <span class="new-badge">Nuevo contenido</span>}
             <span class="nav-sub-label">{it.sub}</span>
           </a>
         ))}
@@ -168,6 +173,7 @@ const RECURSOS = [
       aria-label="Menú"
       aria-controls="mobileMenu"
       aria-expanded="false"
+      data-published={latestPublishedISO}
     >
       <span></span><span></span><span></span>
     </button>
@@ -196,7 +202,9 @@ const RECURSOS = [
   <a href="/precios/">Precios</a>
 
   <div class="mobile-section-title">Recursos y Blog</div>
-  {RECURSOS.map((it) => <a href={it.href}>{it.label}</a>)}
+  {RECURSOS.map((it) => it.href === '/blog/'
+    ? <a href={it.href} data-published={latestPublishedISO}>{it.label} <span class="new-badge">Nuevo contenido</span></a>
+    : <a href={it.href}>{it.label}</a>)}
 
   <div class="mobile-cta-group">
 
@@ -207,6 +215,23 @@ const RECURSOS = [
     <p class="mobile-cta-note">Sin tarjeta · Sin compromiso</p>
   </div>
 </div>
+
+<script is:inline define:vars={{ newPostDays: NEW_POST_DAYS }}>
+  // Se decide en el navegador y no en el build: el sitio es estatico, y una
+  // comparacion en el build dejaria la marca puesta hasta el siguiente despliegue.
+  // Espera al DOM completo porque las tarjetas del indice del blog van despues
+  // de la cabecera.
+  function marcarNuevos() {
+    var ventana = newPostDays * 864e5;
+    var ahora = Date.now();
+    document.querySelectorAll('[data-published]').forEach(function (el) {
+      var t = Date.parse(el.getAttribute('data-published') + 'T00:00:00');
+      if (ahora >= t && ahora - t < ventana) el.classList.add('is-new');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', marcarNuevos);
+  else marcarNuevos();
+</script>
 
 <script>
   // Astro compila este bloque como modulo con ambito propio: nada de lo que se

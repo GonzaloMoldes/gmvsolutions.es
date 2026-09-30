@@ -3,6 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
   title: string;
+  /** <title> para buscadores (50-60 caracteres) cuando el H1 es mas largo. El H1 y og:title siguen usando `title`. */
+  seoTitle?: string;
   description: string;
   date: string;
   category: string;
@@ -20,6 +22,7 @@ export interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   date,
   category,
@@ -84,7 +87,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
 // que ademas produce la ruta correcta (Inicio -> Blog -> articulo). No se duplica aqui.
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex} ogType="article" publishedTime={date}>
+<BaseLayout title={seoTitle ?? title} ogTitle={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex} ogType="article" publishedTime={date}>
   <article class="article-page">
     <div class="article-container">
 

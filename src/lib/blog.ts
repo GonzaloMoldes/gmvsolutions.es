@@ -313,7 +313,7 @@ export const posts: BlogPost[] = [
     desc: 'Qué significa, qué datos necesitas para reconstruir su historia y cómo montarla paso a paso. Más cómo lo resuelve REELEVO pieza a pieza.',
     dateLabel: '26 jun. 2026',
     readTime: '9 min.',
-    lastmod: '2026-06-26',
+    lastmod: '2026-09-30', // lotes por material (MAT en la app)
     priority: '0.75',
   },
   {
@@ -404,10 +404,54 @@ export const posts: BlogPost[] = [
     lastmod: '2026-08-17',
     priority: '0.75',
   },
+  {
+    slug: 'trazabilidad-lotes-materia-prima',
+    cluster: 'trazabilidad',
+    category: 'Trazabilidad',
+    title: 'Trazabilidad de lotes de materia prima',
+    desc: 'Qué lote de cada material fue a cada pieza y a cada obra: qué registrar, cuándo, dónde se rompe la cadena y cómo acotar una retirada al lote defectuoso.',
+    dateLabel: '30 sept. 2026',
+    readTime: '11 min.',
+    lastmod: '2026-09-30',
+    priority: '0.8',
+  },
+  {
+    slug: 'acuse-de-lectura-instrucciones-prl',
+    cluster: 'sop',
+    category: 'Documentación de procesos',
+    title: 'Acuse de lectura de instrucciones de PRL o IT',
+    desc: 'Cómo demostrar que cada trabajador leyó, entendió y aceptó la versión vigente, por qué la hoja de firmas no basta y cuándo hace falta firma avanzada.',
+    dateLabel: '30 sept. 2026',
+    readTime: '12 min.',
+    lastmod: '2026-09-30',
+    priority: '0.8',
+  },
 ];
 
 /** URL absoluta canonica de un articulo. */
 export const postUrl = (p: BlogPost) => `/blog/${p.slug}/`;
+
+// --- Contenido nuevo ---------------------------------------------------------
+/** Dias durante los que un articulo recien publicado se marca como nuevo. */
+export const NEW_POST_DAYS = 7;
+
+const MESES: Record<string, string> = {
+  'ene.': '01', 'feb.': '02', 'mar.': '03', 'abr.': '04', 'may.': '05', 'jun.': '06',
+  'jul.': '07', 'ago.': '08', 'sept.': '09', 'oct.': '10', 'nov.': '11', 'dic.': '12',
+};
+
+/** Fecha de publicacion ISO (YYYY-MM-DD), derivada de `dateLabel` ("30 sept. 2026"). */
+export const publishedISO = (p: BlogPost): string => {
+  const [dia, mes, anio] = p.dateLabel.split(' ');
+  const mm = MESES[mes];
+  if (!mm || !/^\d{1,2}$/.test(dia) || !/^\d{4}$/.test(anio)) {
+    throw new Error(`[blog] dateLabel no reconocido en ${p.slug}: "${p.dateLabel}"`);
+  }
+  return `${anio}-${mm}-${dia.padStart(2, '0')}`;
+};
+
+/** Publicacion mas reciente del blog, para el aviso de contenido nuevo del menu. */
+export const latestPublishedISO = posts.map(publishedISO).sort().at(-1)!;
 
 // --- Guardia anti-deriva -----------------------------------------------------
 // Se ejecuta en build. Compara el registro con los ficheros reales del directorio

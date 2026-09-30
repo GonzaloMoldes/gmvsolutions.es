@@ -69,3 +69,5 @@ url,tipo,prioridad,intencion,keyword_primaria,keyword_secundaria,cta_principal,c
 /legal/cookies/,legal,P2,legal,politica de cookies REELEVO,gestion consentimiento cookies,No aplica,https://gmvsolutions.es/legal/cookies/,implementado_estructura
 /legal/privacidad/,legal,P2,legal,politica de privacidad REELEVO,tratamiento de datos REELEVO,No aplica,https://gmvsolutions.es/legal/privacidad/,implementado_estructura
 /blog/plantilla-instruccion-de-trabajo/,blog,P2,informacional,plantilla instruccion de trabajo,como hacer instrucciones de trabajo,Descargar plantilla,https://gmvsolutions.es/blog/plantilla-instruccion-de-trabajo/,implementado
+/blog/trazabilidad-lotes-materia-prima/,blog,P2,informacional,trazabilidad de lotes de materia prima,trazabilidad por lote de material,Registrarme,https://gmvsolutions.es/blog/trazabilidad-lotes-materia-prima/,implementado
+/blog/acuse-de-lectura-instrucciones-prl/,blog,P2,informacional,acuse de lectura instrucciones de trabajo,como demostrar formacion PRL trabajador,Registrarme,https://gmvsolutions.es/blog/acuse-de-lectura-instrucciones-prl/,implementado

@@ -23,6 +23,9 @@
      queda en ~5,0:1 sobre --surface y ~4,7:1 sobre el fondo mas claro que
      usamos (--surface3), asi que cumple en todos los fondos del sistema. */
   --gray2:   rgba(255,255,255,0.48);
+  --gold:    #F2C14E;
+  --gold-glow: rgba(242,193,78,0.35);
+  --gold-border: rgba(242,193,78,0.45);
   --green:   #22C55E;
   --red:     #EF4444;
   --entry-logo-zoom: 4.8;
@@ -152,6 +155,18 @@ a:hover{color:var(--orange-hover);}
 .mobile-menu.active{display:flex;}
 .mobile-menu a{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:400;color:var(--gray);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);transition:color .2s;}
 .mobile-menu a:hover{color:var(--white);}
+/* ── CONTENIDO NUEVO DEL BLOG ──
+   La clase .is-new la pone el script de Header.astro durante los primeros
+   NEW_POST_DAYS dias tras la ultima publicacion. Sin ella, la etiqueta no existe. */
+.new-badge{display:none;font-family:'DM Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1A1405;background:var(--gold);border-radius:999px;padding:2px 7px;line-height:1.4;white-space:nowrap;box-shadow:0 0 10px var(--gold-glow);}
+.is-new > .new-badge,.is-new .article-card-category > .new-badge{display:inline-block;}
+.nav-dropdown-menu a.is-new .new-badge{margin-left:8px;vertical-align:1px;}
+.mobile-menu a.is-new .new-badge{margin-left:8px;vertical-align:2px;}
+.header-nav .nav-dropdown > .nav-dropdown-trigger.is-new{color:var(--gold);animation:gold-pulse 2.4s ease-in-out infinite;}
+.hamburger.is-new{position:relative;}
+.hamburger.is-new::after{content:'';position:absolute;top:2px;right:0;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:gold-pulse 2.4s ease-in-out infinite;}
+@keyframes gold-pulse{0%,100%{text-shadow:0 0 4px var(--gold-glow);filter:drop-shadow(0 0 0 transparent);}50%{text-shadow:0 0 12px var(--gold),0 0 22px var(--gold-glow);filter:drop-shadow(0 0 4px var(--gold-glow));}}
+@media (prefers-reduced-motion:reduce){.header-nav .nav-dropdown > .nav-dropdown-trigger.is-new,.hamburger.is-new::after{animation:none;text-shadow:0 0 10px var(--gold-glow);}}
 .mobile-section-title{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);padding:24px 0 8px;border-bottom:none;}
 .mobile-cta-group{margin-top:32px;display:flex;flex-direction:column;gap:12px;}
 .mobile-cta-note{margin:0;text-align:center;font-size:.75rem;color:var(--gray2);}
