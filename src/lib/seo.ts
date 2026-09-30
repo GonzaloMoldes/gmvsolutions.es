@@ -40,7 +40,10 @@ export const organizationSchema = {
     'Personal ETT en fábrica',
     'Pymes industriales españolas',
   ],
-  sameAs: ['https://www.linkedin.com/company/reelevo'],
+  sameAs: [
+    'https://www.linkedin.com/company/reelevo',
+    'https://www.metalindustria.com/empresas/reelevo',
+  ],
   founder: {
     '@type': 'Person',
     name: 'Gonzalo Moldes',
