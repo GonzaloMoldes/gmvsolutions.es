@@ -497,7 +497,8 @@ schema.push(faqPageSchema(faqs));
   .h-ph { border-top: 2px solid var(--steel); padding-top: 10px; font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
   .h-ph--2 { grid-column: span 2; }
   .h-ph--last { border-color: var(--orange); color: var(--orange-ink); }
-  .h-lane { position: relative; height: 12px; margin-bottom: -26px; top: 18px; }
+  /* Fila propia para la cinta: antes iba detras de las tarjetas y solo asomaba en los huecos. */
+  .h-lane { position: relative; height: 12px; margin: 14px 0 34px; }
   .h-lane i { position: absolute; left: 0; right: 28px; top: 0; height: 12px; background: repeating-linear-gradient(-45deg, var(--orange) 0 14px, var(--steel) 14px 28px); }
   /* La cinta avanza un periodo horizontal de la raya (28px / cos 45°): el bucle no se nota. */
   @media (prefers-reduced-motion: no-preference) { .h-lane i { animation: hLane 1.6s linear infinite; } .h-tape { animation: hTape 2s linear infinite; } }
