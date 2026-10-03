@@ -168,6 +168,31 @@ a:hover{color:var(--steel);}
 .btn-ghost:hover{border-color:var(--orange-ink);color:var(--orange-ink);}
 .btn-ghost:visited{color:var(--white);}
 
+/* Brillo de los botones principales: una franja clara cruza el boton al pasar
+   el raton. Solo con movimiento permitido; sin el, queda el cambio de color. */
+.btn-primary,.header-cta{position:relative;overflow:hidden;isolation:isolate;}
+.btn-primary::after,.header-cta::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);opacity:0;}
+@media(prefers-reduced-motion:no-preference){
+  .btn-primary:hover::after,.header-cta:hover::after{opacity:1;animation:btnShine .7s ease-out;}
+  .btn-ghost{transition:all .25s,transform .25s;}
+  .btn-ghost:hover{transform:translateY(-1px);}
+}
+@keyframes btnShine{from{left:-60%;}to{left:130%;}}
+
+/* Transicion entre paginas: fundido nativo del navegador (View Transitions
+   entre documentos). No usa el router de Astro a proposito: con el, los
+   scripts inline (GTM, Cookiebot, observadores) no se volverian a ejecutar.
+   Los navegadores que no lo soportan navegan como siempre. */
+@view-transition{navigation:auto;}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none;}}
+::view-transition-old(root){animation:vtOut .18s ease-in both;}
+::view-transition-new(root){animation:vtIn .28s ease-out both;}
+@keyframes vtOut{to{opacity:0;}}
+@keyframes vtIn{from{opacity:0;transform:translateY(6px);}}
+/* La cabecera se queda quieta entre paginas en vez de fundirse. */
+.header{view-transition-name:site-header;}
+
 /* ══════════════════════════════════════════
    FONDO — Imagen fija en toda la página
    ══════════════════════════════════════════ */

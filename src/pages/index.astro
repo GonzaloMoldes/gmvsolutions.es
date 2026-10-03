@@ -206,23 +206,23 @@ schema.push(faqPageSchema(faqs));
     <div class="h-wrap">
       <div class="h-kicker h-kicker--dark">§02 · Lo que dicen los números</div>
       <h2 class="h-h2">El coste que nadie mide</h2>
-      <div class="h-read">
+      <div class="h-read fade-up">
         <div class="h-read-item">
           <div class="h-read-label">Absentismo medio</div>
-          <div class="h-read-num">7,2<span>%</span></div>
-          <div class="h-bar"><i style="width:7.2%"></i></div>
+          <div class="h-read-num"><span class="h-count" data-to="7.2" data-dec="1">7,2</span><span>%</span></div>
+          <div class="h-bar"><i style="--w:7.2%"></i></div>
           <p>1 de cada 14 trabajadores falta cada día.</p>
         </div>
         <div class="h-read-item">
           <div class="h-read-label">Días hasta rendir</div>
-          <div class="h-read-num">3–5<span class="h-read-unit"> d</span></div>
-          <div class="h-bar"><i style="width:60%"></i></div>
+          <div class="h-read-num"><span class="h-count" data-to="3">3</span>–<span class="h-count" data-to="5">5</span><span class="h-read-unit"> d</span></div>
+          <div class="h-bar"><i style="--w:60%"></i></div>
           <p>Hasta que una incorporación rinde como el titular.</p>
         </div>
         <div class="h-read-item">
           <div class="h-read-label">Llaman al experto</div>
-          <div class="h-read-num">40<span>%</span></div>
-          <div class="h-bar"><i style="width:40%"></i></div>
+          <div class="h-read-num"><span class="h-count" data-to="40">40</span><span>%</span></div>
+          <div class="h-bar"><i style="--w:40%"></i></div>
           <p>De jefes de planta llaman al experto aunque esté de baja.</p>
         </div>
       </div>
@@ -360,6 +360,38 @@ schema.push(faqPageSchema(faqs));
   </section>
 </BaseLayout>
 
+<script>
+  // Cifras de la banda de datos: cuentan desde 0 cuando el bloque entra en
+  // pantalla. El HTML ya trae el valor final, asi que sin JS, con "reducir
+  // movimiento" o para un buscador se lee el dato correcto.
+  const nums = document.querySelectorAll<HTMLElement>('.h-count');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (nums.length && !reduce && 'IntersectionObserver' in window) {
+    const fmt = (v: number, dec: number) => v.toFixed(dec).replace('.', ',');
+    const run = (el: HTMLElement) => {
+      const to = parseFloat(el.dataset.to || '0');
+      const dec = parseInt(el.dataset.dec || '0', 10);
+      const t0 = performance.now();
+      const dur = 1400;
+      const tick = (t: number) => {
+        const k = Math.min(1, (t - t0) / dur);
+        el.textContent = fmt(to * (1 - Math.pow(1 - k, 3)), dec);
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    nums.forEach((el) => (el.textContent = fmt(0, parseInt(el.dataset.dec || '0', 10))));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.querySelectorAll<HTMLElement>('.h-count').forEach(run);
+        io.unobserve(e.target);
+      }
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    document.querySelectorAll('.h-read').forEach((el) => io.observe(el));
+  }
+</script>
+
 <style>
   .h-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   .h-kicker { font-family: 'DM Mono', monospace; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 14px; }
@@ -390,7 +422,8 @@ schema.push(faqPageSchema(faqs));
 
   /* INCIDENCIAS */
   .h-inc { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-  .h-inc-card { background: var(--paper); border: 1px solid var(--border); border-top: 4px solid var(--steel); }
+  .h-inc-card { background: var(--paper); border: 1px solid var(--border); border-top: 4px solid var(--steel); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .h-inc-card:hover { transform: translateY(-4px); border-top-color: var(--orange); box-shadow: 0 18px 30px -22px rgba(20,22,24,.45); }
   .h-inc-top { display: flex; justify-content: space-between; padding: 12px 18px; border-bottom: 1px dashed var(--border); font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--gray2); }
   .h-inc-body { padding: 20px 18px 24px; display: flex; flex-direction: column; gap: 10px; }
   .h-inc-tag { font-family: 'DM Mono', monospace; font-size: .72rem; font-weight: 600; text-transform: uppercase; color: var(--orange-ink); }
@@ -409,7 +442,12 @@ schema.push(faqPageSchema(faqs));
   .h-read-num span { color: var(--orange); }
   .h-read-unit { font-size: .4em; }
   .h-bar { height: 6px; background: #2A2E33; }
-  .h-bar i { display: block; height: 6px; background: var(--orange); }
+  .h-bar i { display: block; height: 6px; width: var(--w); background: var(--orange); }
+  /* Las barras se llenan a la vez que cuentan las cifras (script al final). */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .h-read .h-bar i { width: 0; transition: width 1.4s cubic-bezier(.22, 1, .36, 1) .2s; }
+    :global(.js) .h-read:global(.is-visible) .h-bar i { width: var(--w); }
+  }
   .h-read-item p { margin: 0; font-size: .95rem; line-height: 1.6; color: #B9B6AE; }
   .h-source { margin: 0; padding-top: 20px; border-top: 1px solid #3A3E44; font-family: 'DM Mono', monospace; font-size: .72rem; line-height: 1.6; color: #9A978F; max-width: none; }
 
@@ -420,9 +458,16 @@ schema.push(faqPageSchema(faqs));
   .h-ph--last { border-color: var(--orange); color: var(--orange-ink); }
   .h-lane { position: relative; height: 12px; margin-bottom: -26px; top: 18px; }
   .h-lane i { position: absolute; left: 0; right: 28px; top: 0; height: 12px; background: repeating-linear-gradient(-45deg, var(--orange) 0 14px, var(--steel) 14px 28px); }
+  /* La cinta avanza un periodo horizontal de la raya (28px / cos 45°): el bucle no se nota. */
+  @media (prefers-reduced-motion: no-preference) { .h-lane i { animation: hLane 1.6s linear infinite; } .h-tape { animation: hTape 2s linear infinite; } }
+  @keyframes hLane { to { background-position: 39.6px 0; } }
+  @keyframes hTape { to { background-position: 50.91px 0; } }
   .h-lane b { position: absolute; right: 0; top: -12px; width: 32px; height: 36px; background: var(--orange); clip-path: polygon(0 0, 100% 50%, 0 100%); }
   .h-route { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-  .h-st { position: relative; background: var(--paper); border: 1px solid var(--border); padding: 64px 18px 20px; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+  .h-st { position: relative; background: var(--paper); border: 1px solid var(--border); padding: 64px 18px 20px; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; transition: transform .25s, box-shadow .25s; }
+  .h-st:hover { transform: translateY(-4px); box-shadow: 0 18px 30px -22px rgba(20,22,24,.45); }
+  .h-st:hover .h-st-plate { background: var(--orange); color: var(--steel); }
+  .h-st-plate { transition: background .2s, color .2s; }
   .h-st-plate { position: absolute; top: -18px; left: 18px; background: var(--steel); color: #ECEAE5; font-family: 'DM Mono', monospace; font-weight: 600; font-size: .85rem; padding: 12px 12px; line-height: 1; }
   .h-st--last { background: var(--steel); color: #ECEAE5; border-color: var(--steel); }
   .h-st--last .h-st-plate { background: var(--orange); color: var(--steel); }
@@ -441,8 +486,10 @@ schema.push(faqPageSchema(faqs));
 
   /* ROLES */
   .h-roles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
-  .h-role { background: var(--paper); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 200px; text-decoration: none; color: var(--white); transition: border-color .2s, transform .2s; }
-  .h-role:hover { border-color: var(--steel); transform: translateY(-2px); color: var(--white); }
+  .h-role { background: var(--paper); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 200px; text-decoration: none; color: var(--white); transition: border-color .25s, transform .25s, box-shadow .25s; border-top: 4px solid var(--border); }
+  .h-role:hover { border-color: var(--border); border-top-color: var(--orange); transform: translateY(-4px); color: var(--white); box-shadow: 0 18px 30px -22px rgba(20,22,24,.45); }
+  .h-role:hover .h-role-go { letter-spacing: .04em; }
+  .h-role-go { transition: letter-spacing .25s; }
   .h-role-n { font-family: 'DM Mono', monospace; font-size: .72rem; text-transform: uppercase; color: var(--gray2); }
   .h-role-t { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
   .h-role-d { font-size: .95rem; line-height: 1.55; color: var(--gray); flex-grow: 1; }
