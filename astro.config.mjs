@@ -10,6 +10,12 @@ import { readdirSync } from 'node:fs';
 // Puesta en marcha: SANITY_PUESTA_EN_MARCHA.md
 const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '');
 const sanityProjectId = env.PUBLIC_SANITY_PROJECT_ID;
+// Linea de diagnostico en el log de build (Vercel → Deployment → Building).
+console.log(
+  sanityProjectId
+    ? `[sanity] ACTIVO · proyecto ${sanityProjectId} · dataset ${env.PUBLIC_SANITY_DATASET || 'production'} · panel en /admin/`
+    : `[sanity] INACTIVO · falta PUBLIC_SANITY_PROJECT_ID en este entorno (VERCEL_ENV=${process.env.VERCEL_ENV ?? 'local'}) · /admin/ no se genera`,
+);
 const sanityIntegrations = sanityProjectId
   ? [
       sanity({
