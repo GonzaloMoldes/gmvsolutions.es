@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterModal from '../components/NewsletterModal.astro';
+import MarcoTaller from '../components/MarcoTaller.astro';
 import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
 import '../styles/global.css';
 
@@ -227,6 +228,8 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
 
     <Footer />
   </div>
+
+  <MarcoTaller />
 
   {showNewsletterModal && <NewsletterModal />}
 
