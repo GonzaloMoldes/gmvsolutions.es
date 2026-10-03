@@ -1,0 +1,9 @@
+---
+// Caja destacada de un articulo de Sanity. Reutiliza .highlight-box, la misma
+// clase que usan los articulos escritos en codigo (estilos en ArticleLayout).
+const { node } = Astro.props as { node: { titulo?: string; texto: string } };
+---
+
+<div class="highlight-box">
+  <p>{node.titulo && <strong>{node.titulo} </strong>}{node.texto}</p>
+</div>

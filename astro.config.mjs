@@ -1,6 +1,29 @@
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 import vercel from '@astrojs/vercel';
+import react from '@astrojs/react';
+import sanity from '@sanity/astro';
 import { readdirSync } from 'node:fs';
+
+// Sanity (gestor de contenidos). Solo se activa con PUBLIC_SANITY_PROJECT_ID:
+// sin el, el sitio compila exactamente igual que antes y /admin/ no existe.
+// Puesta en marcha: SANITY_PUESTA_EN_MARCHA.md
+const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '');
+const sanityProjectId = env.PUBLIC_SANITY_PROJECT_ID;
+const sanityIntegrations = sanityProjectId
+  ? [
+      sanity({
+        projectId: sanityProjectId,
+        dataset: env.PUBLIC_SANITY_DATASET || 'production',
+        apiVersion: '2025-01-01',
+        // Build estatico: siempre datos publicados y frescos (sin CDN cacheado).
+        useCdn: false,
+        // Panel de edicion dentro de la web. robots.txt ya bloquea /admin/.
+        studioBasePath: '/admin',
+      }),
+      react(),
+    ]
+  : [];
 
 // Nota: el sitemap lo genera el endpoint manual y curado src/pages/sitemap.xml.ts
 // (/sitemap.xml, 62 URLs indexables, excluye las paginas noindex). Es el que anuncia
@@ -12,6 +35,7 @@ import { readdirSync } from 'node:fs';
 // on-demand; el resto del sitio se sigue pre-renderizando a HTML estatico.
 export default defineConfig({
   site: 'https://www.gmvsolutions.es',
+  integrations: sanityIntegrations,
   trailingSlash: 'always',
   adapter: vercel({
     // DL-3 · Los recursos descargables viven fuera de public/ (no tienen URL propia) y

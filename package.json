@@ -10,9 +10,19 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/react": "^7.0.0",
     "@astrojs/vercel": "^11.0.5",
+    "@sanity/astro": "^3.5.1",
     "@sanity/client": "^7.20.0",
-    "astro": "^7.1.6"
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.17.0",
+    "astro": "^7.1.6",
+    "astro-portabletext": "^1.0.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-is": "^19.3.0",
+    "sanity": "^6.17.0",
+    "styled-components": "^6.5.3"
   },
   "overrides": {
     "path-to-regexp": "6.3.0"

@@ -1,0 +1,81 @@
+---
+// Articulos del blog gestionados en Sanity. Los escritos en codigo tienen su
+// propio .astro en esta carpeta y tienen prioridad: src/lib/blog.ts rompe el
+// build si un articulo de Sanity repite la URL de uno de codigo.
+//
+// Sin Sanity configurado, getStaticPaths devuelve [] y esta ruta no genera nada.
+import { PortableText } from 'astro-portabletext';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import PtImagen from '../../components/portable/PtImagen.astro';
+import PtDestacado from '../../components/portable/PtDestacado.astro';
+import PtEnlace from '../../components/portable/PtEnlace.astro';
+import { getArticulos, urlImagen, type ArticuloSanity } from '../../lib/sanity';
+
+export async function getStaticPaths() {
+  const articulos = await getArticulos();
+  return articulos.map((articulo) => ({ params: { slug: articulo.slug }, props: { articulo } }));
+}
+
+const { articulo } = Astro.props as { articulo: ArticuloSanity };
+const canonical = `https://www.gmvsolutions.es/blog/${articulo.slug}/`;
+const imagen = urlImagen(articulo.mainImage, 1200);
+
+// Mismo patron que los articulos de codigo: el FAQPage se fusiona con el
+// BlogPosting que emite ArticleLayout.
+const faqs = articulo.faqs ?? [];
+const faqSchema = faqs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : undefined;
+
+const components = {
+  type: { image: PtImagen, destacado: PtDestacado },
+  mark: { link: PtEnlace },
+};
+---
+
+<ArticleLayout
+  title={articulo.title}
+  seoTitle={articulo.seoTitle}
+  description={articulo.description}
+  date={articulo.publishedAt}
+  dateModified={articulo.updatedAt}
+  category={articulo.category}
+  readTime={articulo.readTime || '8 min.'}
+  canonical={canonical}
+  image={imagen}
+  schema={faqSchema}
+  noindex={articulo.noindex}
+>
+  {imagen && (
+    <figure class="pt-portada">
+      <img src={imagen} alt={articulo.mainImage?.alt ?? ''} width="1200" loading="eager" decoding="async" />
+    </figure>
+  )}
+
+  <PortableText value={articulo.body} components={components} />
+
+  {faqs.length > 0 && (
+    <section id="faq">
+      <h2>Preguntas frecuentes</h2>
+      {faqs.map((f) => (
+        <>
+          <h3>{f.q}</h3>
+          <p>{f.a}</p>
+        </>
+      ))}
+    </section>
+  )}
+</ArticleLayout>
+
+<style>
+  .pt-portada { margin: 0 0 32px; }
+  .pt-portada img { width: 100%; height: auto; display: block; border: 6px solid var(--steel); }
+</style>

@@ -1,3 +1,4 @@
+import { getArticulos } from './sanity';
 // Registro unico de los articulos del blog. Es la FUENTE DE VERDAD para:
 //   - /blog/        indice por cluster (src/pages/blog/index.astro)
 //   - /sitemap.xml  entradas del blog (src/pages/sitemap.xml.ts)
@@ -44,6 +45,8 @@ export interface BlogPost {
   lastmod: string;
   /** priority del sitemap. */
   priority: string;
+  /** 'sanity' si el articulo viene del gestor de contenidos (ruta blog/[slug].astro). */
+  origen?: 'codigo' | 'sanity';
 }
 
 export interface Cluster {
@@ -62,7 +65,8 @@ export const clusters: Cluster[] = [
   { key: 'medicion', label: 'Medición y control de producción' },
 ];
 
-export const posts: BlogPost[] = [
+/** Articulos escritos en codigo (src/pages/blog/*.astro). */
+const postsCodigo: BlogPost[] = [
   {
     slug: 'que-es-un-sop-industrial',
     cluster: 'sop',
@@ -428,6 +432,40 @@ export const posts: BlogPost[] = [
   },
 ];
 
+// --- Articulos de Sanity --------------------------------------------------------
+// Se suman a los de codigo en build. Los marcados como borrador (noindex) tienen
+// pagina pero no entran en el indice, el sitemap ni /llms.txt.
+const MESES_CORTOS = ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
+const etiquetaFecha = (iso: string): string => {
+  const [anio, mes, dia] = iso.split('-');
+  return `${parseInt(dia, 10)} ${MESES_CORTOS[parseInt(mes, 10) - 1]} ${anio}`;
+};
+
+const articulosSanity = await getArticulos();
+const slugsCodigo = new Set(postsCodigo.map((p) => p.slug));
+const duplicados = articulosSanity.filter((a) => slugsCodigo.has(a.slug)).map((a) => a.slug);
+if (duplicados.length) {
+  throw new Error(`[blog] Articulos de Sanity con la misma URL que uno escrito en codigo: ${duplicados.join(', ')}`);
+}
+
+const postsSanity: BlogPost[] = articulosSanity
+  .filter((a) => !a.noindex)
+  .map((a) => ({
+    slug: a.slug,
+    cluster: a.cluster as ClusterKey,
+    category: a.category,
+    title: a.cardTitle || a.title,
+    desc: a.cardDesc,
+    dateLabel: etiquetaFecha(a.publishedAt),
+    readTime: a.readTime || '8 min.',
+    lastmod: a.updatedAt || a.publishedAt,
+    priority: '0.8',
+    origen: 'sanity' as const,
+  }));
+
+/** Todos los articulos publicados: los de codigo y los de Sanity. */
+export const posts: BlogPost[] = [...postsCodigo, ...postsSanity];
+
 /** URL absoluta canonica de un articulo. */
 export const postUrl = (p: BlogPost) => `/blog/${p.slug}/`;
 
@@ -461,9 +499,9 @@ const archivos = import.meta.glob('../pages/blog/*.astro');
 const slugsEnDisco = new Set(
   Object.keys(archivos)
     .map((ruta) => ruta.replace(/^.*\/blog\//, '').replace(/\.astro$/, ''))
-    .filter((slug) => slug !== 'index'),
+    .filter((slug) => slug !== 'index' && !slug.startsWith('[')),
 );
-const slugsRegistrados = new Set(posts.map((p) => p.slug));
+const slugsRegistrados = new Set(postsCodigo.map((p) => p.slug));
 
 const sinRegistrar = [...slugsEnDisco].filter((s) => !slugsRegistrados.has(s));
 const sinFichero = [...slugsRegistrados].filter((s) => !slugsEnDisco.has(s));

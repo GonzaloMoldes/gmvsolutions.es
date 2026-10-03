@@ -1,0 +1,9 @@
+---
+// Enlace dentro de un articulo de Sanity. Los externos se abren en otra
+// pestaña con noopener; los internos (/..., #...) se quedan como estan.
+const { node } = Astro.props as { node: { markDef?: { href?: string } } };
+const href = node.markDef?.href ?? '#';
+const externo = /^https?:\/\//.test(href) && !href.includes('gmvsolutions.es');
+---
+
+<a href={href} {...(externo ? { target: '_blank', rel: 'noopener' } : {})}><slot /></a>
