@@ -7,7 +7,7 @@
 // No se usa el modulo virtual «sanity:client» de @sanity/astro a proposito: solo
 // existe cuando la integracion esta activa, y este fichero se importa siempre.
 import { createClient, type SanityClient } from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 
 const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID as string | undefined;
 const dataset = (import.meta.env.PUBLIC_SANITY_DATASET as string | undefined) || 'production';
@@ -18,7 +18,7 @@ const client: SanityClient | null = sanityEnabled
   ? createClient({ projectId, dataset, apiVersion: '2025-01-01', useCdn: false })
   : null;
 
-const builder = client ? imageUrlBuilder(client) : null;
+const builder = client ? createImageUrlBuilder(client) : null;
 
 /** URL de una imagen de Sanity, recortada y en formato automatico (WebP/AVIF). */
 export function urlImagen(source: unknown, ancho = 1200): string | undefined {
@@ -63,6 +63,13 @@ export function getArticulos(): Promise<ArticuloSanity[]> {
     .fetch<ArticuloSanity[]>(
       `*[_type == "articulo" && defined(slug.current) && !(_id in path("drafts.**"))] | order(publishedAt desc) ${CAMPOS}`,
     )
-    .then((lista) => lista.filter((a) => a.title && a.slug && a.publishedAt && a.cluster));
+    .then((lista) => lista.filter((a) => a.title && a.slug && a.publishedAt && a.cluster))
+    // Si Sanity no responde (ID mal copiado, red, caida) el sitio se publica
+    // igual, sin los articulos de Sanity, en vez de romper el build: un build
+    // roto deja servido el despliegue anterior y el panel /admin/ no aparece.
+    .catch((err: Error) => {
+      console.warn(`\n[sanity] AVISO: no se pudieron leer los articulos (proyecto ${projectId}, dataset ${dataset}): ${err.message}\n[sanity] El sitio se construye SIN los articulos de Sanity.\n`);
+      return [];
+    });
   return cache;
 }
