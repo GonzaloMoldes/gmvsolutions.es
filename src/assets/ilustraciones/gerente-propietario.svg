@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="El gerente revisa en su portátil el estado de la planta, que se ve a través de la ventana del despacho">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="60" y="70" width="250" height="170" rx="4" fill="#ECEAE5" stroke="#C9C6BF" stroke-width="6"/>
+<path d="M185 70V240" stroke="#C9C6BF" stroke-width="4"/>
+<path d="M70 230V180L110 160V180L150 160V180L190 160V230Z" fill="#C9C6BF"/><rect x="200" y="150" width="20" height="80" fill="#C9C6BF"/><path d="M230 230V190H300V230Z" fill="#C9C6BF"/>
+<path d="M330 300H600" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
+<path d="M350 300L344 400M580 300L586 400" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
+<path d="M440 296L426 300H556L544 296Z" fill="#141618"/>
+<path d="M448 296L438 222H530L540 296Z" fill="#141618"/>
+<rect x="452" y="236" width="20" height="18" fill="#3FB950"/><rect x="478" y="236" width="20" height="18" fill="#3FB950"/><rect x="504" y="236" width="20" height="18" fill="#F4521E"/>
+<rect x="456" y="264" width="64" height="6" rx="3" fill="#3A3E44"/><rect x="456" y="276" width="44" height="6" rx="3" fill="#3A3E44"/>
+<rect x="566" y="276" width="18" height="24" rx="3" fill="#F6F5F2" stroke="#C9C6BF" stroke-width="2"/>
+<path d="M220 400V320H300" stroke="#141618" stroke-width="3" fill="none"/><path d="M220 360H300V400" stroke="#141618" stroke-width="3" fill="none"/>
+<g transform="translate(286 344) scale(0.8)">
+<path d="M-25 -40L56 -40L56 -12L-25 -12Z" fill="#23272D"/>
+<path d="M36 -40L60 -40L58 70L36 70Z" fill="#23272D"/>
+<path d="M30 66h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-170" width="12" height="16" fill="#F2A68A"/>
+<path d="M-25 -128Q-23 -156 1 -158L17 -158Q39 -154 37 -126L35 -30L-27 -30Z" fill="#3A3E44"/>
+<path d="M1 -158L9 -120L17 -158Z" fill="#FFFFFF"/>
+<path d="M25 -140L59 -100L104 -106" fill="none" stroke="#3A3E44" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><circle cx="108" cy="-107" r="8" fill="#F2A68A"/>
+<ellipse cx="6" cy="-184" rx="15" ry="17" fill="#F2A68A"/>
+<path d="M-10 -182Q-13 -208 7 -208Q25 -207 23 -188Q14 -196 1 -194Q-7 -192 -10 -178Z" fill="#5A3A2E"/>
+</g>
+<rect x="330" y="56" width="273" height="54" rx="16" fill="#F4521E"/><path d="M440 108l2 22 20-22z" fill="#F4521E"/>
+<path d="M352 83l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="382" y="91" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Planta en marcha</text>
+</svg>

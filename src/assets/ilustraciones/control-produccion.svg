@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="El jefe de producción señala una pantalla de planta donde la línea 3 aparece parada">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="240" y="50" width="370" height="206" rx="8" fill="#141618"/>
+<rect x="256" y="66" width="106" height="78" rx="4" fill="#23272D"/><rect x="372" y="66" width="106" height="78" rx="4" fill="#23272D"/><rect x="488" y="66" width="106" height="78" rx="4" fill="#23272D"/>
+<circle cx="272" cy="82" r="6" fill="#3FB950"/><circle cx="388" cy="82" r="6" fill="#3FB950"/><circle cx="504" cy="82" r="6" fill="#F4521E"/>
+<text x="284" y="87" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B9B6AE">L1</text><text x="400" y="87" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B9B6AE">L2</text><text x="516" y="87" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B9B6AE">L3</text>
+<rect x="266" y="104" width="70" height="8" rx="4" fill="#3FB950"/><rect x="266" y="120" width="50" height="8" rx="4" fill="#3A3E44"/>
+<rect x="382" y="104" width="80" height="8" rx="4" fill="#3FB950"/><rect x="382" y="120" width="40" height="8" rx="4" fill="#3A3E44"/>
+<rect x="498" y="104" width="30" height="8" rx="4" fill="#F4521E"/><rect x="498" y="120" width="60" height="8" rx="4" fill="#3A3E44"/>
+<rect x="256" y="156" width="338" height="86" rx="4" fill="#23272D"/>
+<rect x="276" y="206" width="22" height="26" fill="#3A3E44"/><rect x="310" y="190" width="22" height="42" fill="#3A3E44"/><rect x="344" y="178" width="22" height="54" fill="#3A3E44"/><rect x="378" y="196" width="22" height="36" fill="#3A3E44"/><rect x="412" y="214" width="22" height="18" fill="#F4521E"/>
+<path d="M425 256V320M395 320H455" stroke="#141618" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(170 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#D9937A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+<path d="M25 -270L64 -300L92 -334" fill="none" stroke="#C9C6BF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 -270L64 -300L92 -334" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><circle cx="96" cy="-340" r="8" fill="#D9937A"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#D9937A"/>
+<path d="M-10 -312Q-13 -338 7 -338Q25 -337 23 -318Q14 -326 1 -324Q-7 -322 -10 -308Z" fill="#141618"/>
+</g>
+<rect x="380" y="300" width="256" height="54" rx="16" fill="#F4521E"/><path d="M500 302l10 -20 12 20z" fill="#F4521E"/>
+<text x="402" y="335" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">L3 · parada 4 min</text>
+</svg>

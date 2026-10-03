@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 // Pagina 404 con marca y salidas utiles. Antes no existia ninguna, asi que
 // cualquier enlace roto, URL antigua o error de tecleo caia en la pagina
 // generica de Vercel: sin cabecera, sin navegacion y sin forma de volver.
@@ -22,6 +23,7 @@ const description = "La página que buscas no existe o ha cambiado de dirección
       <a href="/" class="btn-primary" data-cta data-cta-intent="navegacion" data-cta-location="404" data-cta-label="Volver al inicio">Volver al inicio</a>
       <a href="/como-funciona/" class="btn-ghost" data-cta data-cta-intent="producto" data-cta-location="404" data-cta-label="Como funciona">Cómo funciona REELEVO</a>
     </div>
+    <Ilustracion escena="404" />
   </section>
 
   <section class="section">
@@ -94,16 +96,16 @@ const description = "La página que buscas no existe o ha cambiado de dirección
   }
 
   .notfound-kicker {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
   .notfound-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     text-transform: uppercase;

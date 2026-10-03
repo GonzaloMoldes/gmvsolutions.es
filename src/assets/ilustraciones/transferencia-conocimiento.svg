@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Un operario veterano explica su máquina mientras un compañero joven lo graba con el móvil">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="450" y="160" width="150" height="242" rx="8" fill="#DAD7D0"/>
+<rect x="468" y="182" width="90" height="64" rx="4" fill="#ECEAE5"/><circle cx="580" cy="200" r="7" fill="#F2C14E"/>
+<rect x="468" y="270" width="110" height="10" rx="5" fill="#C9C6BF"/>
+<g transform="translate(400 400) scale(-0.8 0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#D9937A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<path d="M-15 -270L-50 -240L-70 -262" fill="none" stroke="#F4521E" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-73" cy="-266" r="8" fill="#D9937A"/>
+<path d="M25 -270L40 -230L30 -200" fill="none" stroke="#F4521E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="29" cy="-194" r="8" fill="#D9937A"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#D9937A"/>
+<path d="M-10 -312Q-13 -338 7 -338Q25 -337 23 -318Q14 -326 1 -324Q-7 -322 -10 -308Z" fill="#E2DFD8"/>
+<path d="M8 -304Q16 -298 22 -304" fill="none" stroke="#E2DFD8" stroke-width="4" stroke-linecap="round"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E" opacity="0"/>
+</g>
+<g transform="translate(170 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#B9765E"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#3A3E44"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F4521E"/>
+<path d="M25 -270L59 -250L86 -268" fill="none" stroke="#3A3E44" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="90" cy="-270" r="8" fill="#B9765E"/>
+<rect x="90" y="-296" width="20" height="34" rx="4" fill="#141618"/><circle cx="100" cy="-284" r="5" fill="#EF4444"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#B9765E"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+</g>
+<rect x="20" y="60" width="249" height="54" rx="16" fill="#E2DFD8"/><path d="M150 112l2 22 18-22z" fill="#E2DFD8"/>
+<circle cx="44" cy="87" r="7" fill="#EF4444"/>
+<text x="60" y="95" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Grabando paso 4</text>
+<rect x="290" y="46" width="344" height="54" rx="16" fill="#F4521E"/><path d="M400 98l2 22 20-22z" fill="#F4521E"/>
+<text x="312" y="81" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">30 años, ya en el puesto</text>
+</svg>

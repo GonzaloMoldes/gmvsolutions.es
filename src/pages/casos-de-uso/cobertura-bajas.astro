@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -58,7 +59,8 @@ const schema = [faqPageSchema(faqs), {
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
-</section>
+  <Ilustracion escena="cobertura-bajas" />
+  </section>
 
 <div class="divider-full"></div>
 
@@ -185,10 +187,10 @@ const schema = [faqPageSchema(faqs), {
 
 <style>
   .step-card-number {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 </style>

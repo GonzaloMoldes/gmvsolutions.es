@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -52,6 +53,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
+    <Ilustracion escena="modo-offline" />
   </section>
 
   <div class="divider"></div>
@@ -203,7 +205,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .os-icon { margin-bottom: 14px; }
 
   .os-content h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.02rem;
     margin-bottom: 10px;
     color: var(--white);
@@ -220,7 +222,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cache-note {
@@ -233,7 +235,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cache-note h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.02rem;
     margin: 0 0 16px;
     color: var(--white);
@@ -276,7 +278,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     color: var(--gray);
   }
 
-  .cache-limit strong { color: var(--orange); font-weight: 500; }
+  .cache-limit strong { color: var(--orange-ink); font-weight: 500; }
 
   /* CUÁNDO ES ÚTIL */
   .usecase-grid {
@@ -302,7 +304,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .usecase-card h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .98rem;
     margin-bottom: 10px;
     color: var(--white);
@@ -322,7 +324,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }

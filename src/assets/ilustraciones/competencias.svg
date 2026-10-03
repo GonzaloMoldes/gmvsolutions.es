@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="La responsable de RRHH señala la matriz de polivalencia en la pared mientras un operario recibe su certificación">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="300" y="60" width="306" height="220" rx="6" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="2"/>
+<rect x="320" y="80" width="60" height="8" rx="4" fill="#3A3E44"/>
+<rect x="320" y="110" width="40" height="30" fill="#F4521E"/><rect x="368" y="110" width="40" height="30" fill="#F4521E"/><rect x="416" y="110" width="40" height="30" fill="#F2C14E"/><rect x="464" y="110" width="40" height="30" fill="#E2DFD8"/><rect x="512" y="110" width="40" height="30" fill="#F4521E"/><rect x="560" y="110" width="28" height="30" fill="#E2DFD8"/>
+<rect x="320" y="148" width="40" height="30" fill="#F2C14E"/><rect x="368" y="148" width="40" height="30" fill="#F4521E"/><rect x="416" y="148" width="40" height="30" fill="#E2DFD8"/><rect x="464" y="148" width="40" height="30" fill="#F4521E"/><rect x="512" y="148" width="40" height="30" fill="#F2C14E"/><rect x="560" y="148" width="28" height="30" fill="#F4521E"/>
+<rect x="320" y="186" width="40" height="30" fill="#E2DFD8"/><rect x="368" y="186" width="40" height="30" fill="#F2C14E"/><rect x="416" y="186" width="40" height="30" fill="#F4521E"/><rect x="464" y="186" width="40" height="30" fill="#F4521E"/><rect x="512" y="186" width="40" height="30" fill="#E2DFD8"/><rect x="560" y="186" width="28" height="30" fill="#F2C14E"/>
+<rect x="320" y="224" width="40" height="30" fill="#F4521E"/><rect x="368" y="224" width="40" height="30" fill="#E2DFD8"/><rect x="416" y="224" width="40" height="30" fill="#F4521E"/><rect x="464" y="224" width="40" height="30" fill="#F2C14E"/><rect x="512" y="224" width="40" height="30" fill="#F4521E"/><rect x="560" y="224" width="28" height="30" fill="#E2DFD8"/>
+<g transform="translate(110 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#B9765E"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<circle cx="18" cy="-244" r="9" fill="#F2C14E"/><path d="M14 -244l3 3 6-6" fill="none" stroke="#141618" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M27 -268L33 -190" stroke="#F4521E" stroke-width="16" stroke-linecap="round"/><circle cx="34" cy="-180" r="8" fill="#B9765E"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#B9765E"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
+</g>
+<g transform="translate(240 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#F2A68A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+<path d="M25 -270L64 -300L92 -334" fill="none" stroke="#C9C6BF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 -270L64 -300L92 -334" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><circle cx="96" cy="-340" r="8" fill="#F2A68A"/>
+<path d="M-12 -318Q-16 -296 -20 -280L-6 -284Z" fill="#7A4A35"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#F2A68A"/>
+<path d="M-12 -310Q-14 -340 8 -339Q26 -338 23 -318Q12 -328 -2 -322Z" fill="#7A4A35"/>
+</g>
+<rect x="60" y="40" width="334" height="54" rx="16" fill="#F4521E"/><path d="M100 92l-2 22 22-22z" fill="#F4521E"/>
+<path d="M80 67l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="110" y="75" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Puesto 3 · habilitado</text>
+</svg>

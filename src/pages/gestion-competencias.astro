@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -50,6 +51,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="/video-demo/" class="btn-ghost"
          data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
+    <Ilustracion escena="competencias" />
   </section>
 
   <div class="divider"></div>
@@ -234,11 +236,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .matrix-title {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin: 0 0 20px;
   }
 
@@ -252,7 +254,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .matrix-table th {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .85rem;
     font-weight: 600;
     text-align: left;
@@ -271,14 +273,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .matrix-table tbody tr:last-child td { border-bottom: none; }
 
   .matrix-table td:first-child {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-weight: 600;
     color: var(--white);
   }
 
   .level-3 { color: var(--green) !important; font-weight: 500; }
   .level-2 { color: var(--gray) !important; }
-  .level-1 { color: var(--orange) !important; }
+  .level-1 { color: var(--orange-ink) !important; }
 
   .matrix-analysis {
     margin: 22px 0 0;
@@ -292,7 +294,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .matrix-analysis strong { color: var(--white); font-weight: 500; }
 
   .sub-head {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--white);
@@ -320,7 +322,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .solution-cell h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
     margin-bottom: 10px;
     color: var(--white);
@@ -358,7 +360,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .auto-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .98rem;
     margin-bottom: 10px;
     color: var(--white);
@@ -380,7 +382,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }

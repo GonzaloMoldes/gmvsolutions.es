@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
@@ -50,6 +51,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="/video-demo/" class="btn-ghost"
          data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
+    <Ilustracion escena="mantenimiento" />
   </section>
 
   <div class="divider"></div>
@@ -209,15 +211,15 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     height: 44px;
     min-width: 44px;
     background: var(--orange);
-    color: #fff;
+    color: var(--steel, #141618);
     border-radius: 50%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
   }
 
   .flow-content h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.05rem;
     margin-bottom: 8px;
     color: var(--white);
@@ -233,7 +235,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .flow-arrow {
     text-align: center;
     font-size: 1.6rem;
-    color: var(--orange);
+    color: var(--orange-ink);
     padding: 6px 0;
     margin-left: 22px;
   }
@@ -259,7 +261,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .solution-cell h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
     margin-bottom: 10px;
     color: var(--white);
@@ -281,7 +283,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
@@ -310,7 +312,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .cta-trust {
     margin-top: 16px;
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(20,22,24, 0.45);
     letter-spacing: .04em;
   }
 </style>

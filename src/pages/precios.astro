@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
@@ -84,6 +85,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
       <a href="/vs-alternativas/" class="btn-ghost">Comparar alternativas</a>
     </div>
+    <Ilustracion escena="precios" />
   </section>
 
   <div class="divider"></div>
@@ -330,16 +332,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .package-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
   .package-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: .03em;
@@ -392,7 +394,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     transform: translateX(-50%);
     background: var(--orange);
     color: var(--white);
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .6rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -401,26 +403,26 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .plan-name {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .05em;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
   .plan-scope {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 
   .plan-price {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1;
@@ -571,7 +573,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roi-result-value {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--white);
@@ -596,10 +598,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roi-result-big-value {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .roi-result-payback {
@@ -616,7 +618,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .trial-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: clamp(1.6rem, 3.5vw, 2.2rem);
     font-weight: 700;
     text-transform: uppercase;
@@ -625,7 +627,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .trial-title em {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-style: normal;
   }
 
@@ -666,7 +668,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .comp-table thead th {
     background: var(--surface2);
     padding: 16px 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -677,7 +679,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .comp-table thead th.comp-highlight {
     background: rgba(244,82,30,.12);
-    color: var(--orange);
+    color: var(--orange-ink);
     border-bottom-color: var(--orange);
   }
 
@@ -695,7 +697,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .comp-table tbody tr:hover td {
-    background: rgba(255,255,255,.02);
+    background: rgba(20,22,24,.02);
   }
 
   .comp-table tbody tr:hover td.comp-highlight {
@@ -735,7 +737,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .plan-badge-roadmap {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .1em;
     text-transform: uppercase;

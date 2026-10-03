@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Una operaria con bata y gorro junto a una línea de llenado de botellas registra el lote en la tablet">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="360" y="120" width="130" height="110" rx="6" fill="#DAD7D0"/>
+<rect x="384" y="230" width="10" height="26" fill="#B9B6AE"/><rect x="420" y="230" width="10" height="26" fill="#B9B6AE"/><rect x="456" y="230" width="10" height="26" fill="#B9B6AE"/>
+<rect x="378" y="140" width="60" height="40" rx="3" fill="#ECEAE5"/><circle cx="470" cy="150" r="7" fill="#3FB950"/>
+<rect x="260" y="300" width="360" height="14" rx="7" fill="#3A3E44"/>
+<path d="M290 314V400M590 314V400" stroke="#3A3E44" stroke-width="6"/>
+<rect x="280" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/><rect x="286" y="250" width="12" height="10" rx="2" fill="#F4521E"/>
+<rect x="320" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/><rect x="326" y="250" width="12" height="10" rx="2" fill="#F4521E"/>
+<rect x="377" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/><rect x="383" y="250" width="12" height="10" rx="2" fill="#F4521E"/>
+<rect x="413" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/>
+<rect x="449" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/>
+<rect x="510" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/><rect x="550" y="258" width="24" height="42" rx="8" fill="#C9C6BF"/>
+<g transform="translate(180 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#B9765E"/>
+<path d="M-27 -258Q-25 -286 1 -288L17 -288Q41 -284 39 -256L41 -110L-31 -110Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+<rect x="48" y="-262" width="32" height="42" rx="4" fill="#141618"/><rect x="52" y="-257" width="24" height="32" rx="2" fill="#F4521E"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#C9C6BF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/><circle cx="57" cy="-233" r="8" fill="#B9765E"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#B9765E"/>
+<path d="M-14 -316Q-14 -344 8 -344Q30 -344 28 -316Q26 -324 8 -326Q-6 -326 -14 -316Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+</g>
+<rect x="60" y="56" width="210" height="54" rx="16" fill="#F4521E"/><path d="M150 108l2 22 20-22z" fill="#F4521E"/>
+<text x="82" y="91" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="20" fill="#141618">LOTE 2410-B ✓</text>
+<rect x="330" y="40" width="301" height="54" rx="16" fill="#E2DFD8"/><path d="M420 92l2 22 18-22z" fill="#E2DFD8"/>
+<circle cx="356" cy="67" r="7" fill="#3FB950"/>
+<text x="372" y="75" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Limpieza registrada</text>
+</svg>

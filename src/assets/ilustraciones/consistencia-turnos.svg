@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Tres operarios de los turnos de mañana, tarde y noche siguen la misma versión del proceso en sus tablets">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<circle cx="140" cy="132" r="16" fill="#F2C14E"/><path d="M140 104v-8M140 168v-8M112 132h-8M176 132h-8M120 112l-6-6M160 112l6-6" stroke="#F2C14E" stroke-width="3" stroke-linecap="round"/>
+<path d="M300 140a20 20 0 0 1 40 0Z" fill="#F4521E"/><path d="M290 140H350" stroke="#F4521E" stroke-width="3" stroke-linecap="round"/>
+<path d="M512 116a20 20 0 1 0 18 28a16 16 0 1 1 -18 -28Z" fill="#5A5F66"/>
+<text x="140" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">MAÑANA</text>
+<text x="320" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">TARDE</text>
+<text x="510" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">NOCHE</text>
+<path d="M230 220V390M420 220V390" stroke="#C9C6BF" stroke-width="2" stroke-dasharray="6 6"/>
+<g transform="translate(120 400) scale(0.66)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#F2A68A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<rect x="48" y="-262" width="32" height="42" rx="4" fill="#141618"/><rect x="52" y="-257" width="24" height="32" rx="2" fill="#F6F5F2"/><rect x="56" y="-251" width="14" height="5" fill="#F4521E"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#F4521E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="57" cy="-233" r="8" fill="#F2A68A"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#F2A68A"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
+</g>
+<g transform="translate(305 400) scale(0.66)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#B9765E"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<rect x="48" y="-262" width="32" height="42" rx="4" fill="#141618"/><rect x="52" y="-257" width="24" height="32" rx="2" fill="#F6F5F2"/><rect x="56" y="-251" width="14" height="5" fill="#F4521E"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#F4521E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="57" cy="-233" r="8" fill="#B9765E"/>
+<circle cx="-13" cy="-322" r="9" fill="#141618"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#B9765E"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
+</g>
+<g transform="translate(490 400) scale(0.66)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#D9937A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<rect x="48" y="-262" width="32" height="42" rx="4" fill="#141618"/><rect x="52" y="-257" width="24" height="32" rx="2" fill="#F6F5F2"/><rect x="56" y="-251" width="14" height="5" fill="#F4521E"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#F4521E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="57" cy="-233" r="8" fill="#D9937A"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#D9937A"/>
+<path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
+</g>
+<rect x="170" y="40" width="319" height="50" rx="16" fill="#F4521E"/>
+<text x="192" y="73" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Misma versión · rev. C</text>
+</svg>

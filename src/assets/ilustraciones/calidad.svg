@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="La responsable de calidad revisa en el portátil el registro firmado de una ejecución junto a la pieza">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<path d="M320 286H610" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
+<path d="M340 286L330 400M590 286L600 400" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
+<path d="M400 282L380 286H520L506 282Z" fill="#141618"/>
+<path d="M410 282L424 196H530L516 282Z" fill="#141618"/>
+<rect x="436" y="208" width="72" height="8" rx="4" fill="#F6F5F2"/>
+<path d="M438 230l4 4 8-8M438 248l4 4 8-8" fill="none" stroke="#3FB950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="456" y="228" width="44" height="6" rx="3" fill="#3A3E44"/><rect x="456" y="246" width="36" height="6" rx="3" fill="#3A3E44"/>
+<path d="M436 268q8 -10 16 0t16 0" fill="none" stroke="#F4521E" stroke-width="3" stroke-linecap="round"/>
+<circle cx="568" cy="270" r="16" fill="#B9B6AE"/><circle cx="568" cy="270" r="6" fill="#F6F5F2"/>
+<g transform="translate(230 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#F2A68A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#3A3E44"/>
+<rect x="48" y="-266" width="34" height="46" rx="3" fill="#F6F5F2" stroke="#141618" stroke-width="3"/>
+<rect x="55" y="-252" width="20" height="4" fill="#C9C6BF"/><rect x="55" y="-242" width="16" height="4" fill="#C9C6BF"/><rect x="58" y="-270" width="14" height="6" fill="#141618"/>
+<path d="M27 -268L35 -225L55 -232" fill="none" stroke="#3A3E44" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="57" cy="-233" r="8" fill="#F2A68A"/>
+<circle cx="-13" cy="-322" r="10" fill="#141618"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#F2A68A"/>
+<path d="M-10 -312Q-13 -338 7 -338Q25 -337 23 -318Q14 -326 1 -324Q-7 -322 -10 -308Z" fill="#141618"/>
+</g>
+<rect x="320" y="70" width="271" height="54" rx="16" fill="#F4521E"/><path d="M440 122l2 22 20-22z" fill="#F4521E"/>
+<path d="M340 97l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="370" y="105" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Firma registrada</text>
+<rect x="60" y="56" width="184" height="54" rx="16" fill="#E2DFD8"/><path d="M160 108l2 22 18-22z" fill="#E2DFD8"/>
+<text x="82" y="91" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="19" fill="#141618">ISO 9001 ✓</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Un operario consulta en la tablet anclada al centro de mecanizado el paso del programa antes de medir la pieza">
+<path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
+<rect x="300" y="120" width="300" height="282" rx="10" fill="#DAD7D0"/>
+<rect x="320" y="146" width="190" height="150" rx="6" fill="#3A3E44"/>
+<rect x="330" y="156" width="170" height="130" rx="4" fill="#4A4F57"/>
+<rect x="404" y="160" width="22" height="56" fill="#B9B6AE"/><path d="M410 216H420L415 234Z" fill="#F2C14E"/>
+<rect x="370" y="250" width="90" height="26" rx="3" fill="#8A8780"/><rect x="396" y="236" width="40" height="14" fill="#C9C6BF"/>
+<rect x="526" y="146" width="56" height="120" rx="4" fill="#C9C6BF"/>
+<rect x="534" y="156" width="40" height="28" rx="2" fill="#141618"/><circle cx="542" cy="200" r="5" fill="#3FB950"/><circle cx="558" cy="200" r="5" fill="#F4521E"/>
+<rect x="534" y="216" width="40" height="6" rx="3" fill="#B9B6AE"/><rect x="534" y="230" width="28" height="6" rx="3" fill="#B9B6AE"/>
+<rect x="320" y="312" width="262" height="10" rx="5" fill="#C9C6BF"/>
+<path d="M290 230H306" stroke="#141618" stroke-width="5" stroke-linecap="round"/>
+<rect x="232" y="196" width="62" height="54" rx="5" fill="#141618"/><rect x="238" y="202" width="50" height="42" rx="2" fill="#F6F5F2"/>
+<rect x="244" y="210" width="24" height="6" rx="3" fill="#F4521E"/><rect x="244" y="222" width="36" height="5" rx="2.5" fill="#C9C6BF"/><rect x="244" y="232" width="28" height="5" rx="2.5" fill="#C9C6BF"/>
+<g transform="translate(150 400) scale(0.8)">
+<path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
+<path d="M-39 -4h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/><path d="M-5 -2h30a7 7 0 0 1 7 7v3h-41a4 4 0 0 1 4-10z" fill="#141618"/>
+<rect x="-1" y="-300" width="12" height="16" fill="#D9937A"/>
+<path d="M-25 -258Q-23 -286 1 -288L17 -288Q39 -284 37 -256L33 -156L-27 -156Z" fill="#F4521E"/>
+<path d="M-26 -204H35V-196H-26Z" fill="#F6F5F2"/><path d="M-26 -184H34V-178H-26Z" fill="#F6F5F2"/>
+<path d="M25 -270L59 -230L91 -242" fill="none" stroke="#F4521E" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><circle cx="95" cy="-244" r="8" fill="#D9937A"/>
+<ellipse cx="6" cy="-314" rx="15" ry="17" fill="#D9937A"/>
+<rect x="8" y="-320" width="20" height="8" rx="3" fill="#B9B6AE" opacity="0.9"/>
+<path d="M-10 -312Q-13 -338 7 -338Q25 -337 23 -318Q14 -326 1 -324Q-7 -322 -10 -308Z" fill="#141618"/>
+</g>
+<rect x="40" y="52" width="277" height="54" rx="16" fill="#F4521E"/><path d="M130 104l-2 22 22-22z" fill="#F4521E"/>
+<text x="62" y="87" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="19" fill="#141618">PROG. 041 · PASO 2/4</text>
+<rect x="340" y="46" width="226" height="54" rx="16" fill="#E2DFD8"/><path d="M430 98l2 22 18-22z" fill="#E2DFD8"/>
+<path d="M362 73l7 7 13-14" fill="none" stroke="#3FB950" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392" y="81" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Cota medida</text>
+</svg>

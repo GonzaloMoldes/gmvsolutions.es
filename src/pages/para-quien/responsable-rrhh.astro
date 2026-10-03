@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -58,6 +59,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Acompañamiento en la puesta en marcha</div>
+    <Ilustracion escena="competencias" />
   </section>
 
   <div class="divider"></div>
@@ -309,7 +311,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .proof-points h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 18px;
@@ -373,7 +375,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -391,10 +393,10 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-stat {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -412,7 +414,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .problem-description h4,
   .problem-solution h4 {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -424,7 +426,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-solution h4 {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .problem-description ul,
@@ -446,7 +448,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-solution li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 3px;
   }
 
@@ -472,7 +474,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-traditional h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
@@ -480,11 +482,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-reelevo h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-process {
@@ -528,7 +530,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .cert-problems h4,
   .cert-benefits h4 {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -540,7 +542,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-benefits h4 {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-problems ul,
@@ -562,7 +564,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-benefits li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 4px;
   }
 
@@ -584,11 +586,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-data-card h4 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .95rem;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-data-grid {
@@ -632,7 +634,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .integration-name {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -641,20 +643,20 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .integration-status {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .6rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 20px;
   }
 
   .integration-features h4 {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
@@ -672,7 +674,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .integration-features li::before {
     content: '→';
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-right: 8px;
     font-weight: 500;
   }
@@ -683,11 +685,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .integration-demo h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .integration-flow {
@@ -715,12 +717,12 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-weight: 600;
   }
 
   .flow-content h4 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: .9rem;
     font-weight: 600;
     margin-bottom: 4px;
@@ -733,7 +735,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .flow-arrow {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-size: 1.5rem;
     font-weight: 600;
   }
@@ -755,7 +757,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .case-quote blockquote {
     font-size: 1rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 20px;
     font-style: italic;
   }
@@ -792,7 +794,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .case-metric-before,
   .case-metric-after {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .6rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -801,7 +803,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .case-metric-number {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
@@ -814,7 +816,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .case-metric-number.new {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .case-metric-label {
@@ -831,7 +833,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .case-roi h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: var(--green);
@@ -846,7 +848,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .roi-item {
     font-size: .85rem;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     line-height: 1.5;
   }
 
@@ -901,13 +903,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-weight: 600;
     flex-shrink: 0;
   }
 
   .phase-header h3 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -927,11 +929,11 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .phase-tasks h4,
   .phase-hr h4 {
-    font-family: 'DM Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -951,7 +953,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .phase-tasks li::before,
   .phase-hr li::before {
     content: '→';
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-right: 8px;
     font-weight: 500;
   }

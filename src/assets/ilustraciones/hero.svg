@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-label="Ilustración: un operario con casco sigue los pasos en la tablet del puesto mientras el jefe de producción consulta el turno">
+<path d="M30 505 Q50 470 200 480 Q360 462 520 478 Q690 466 705 505 Q695 538 520 532 Q360 546 200 536 Q40 540 30 505Z" fill="#E2DFD8"/>
+<rect x="56" y="246" width="156" height="256" rx="8" fill="#DAD7D0"/>
+<rect x="76" y="274" width="96" height="74" rx="4" fill="#ECEAE5"/>
+<rect x="90" y="300" width="40" height="6" rx="3" fill="#C9C6BF"/>
+<circle cx="190" cy="290" r="7" fill="#C9C6BF"/><circle cx="190" cy="314" r="7" fill="#F4521E" opacity="0.55"/>
+<rect x="76" y="372" width="116" height="10" rx="5" fill="#C9C6BF"/>
+<rect x="76" y="396" width="80" height="10" rx="5" fill="#C9C6BF"/>
+<rect x="600" y="430" width="38" height="48" fill="#D6D0C4"/><rect x="640" y="442" width="34" height="36" fill="#CDC6B8"/><rect x="616" y="400" width="34" height="30" fill="#CDC6B8"/>
+<rect x="594" y="478" width="88" height="8" fill="#B9B6AE"/><rect x="600" y="486" width="8" height="10" fill="#B9B6AE"/><rect x="634" y="486" width="8" height="10" fill="#B9B6AE"/><rect x="668" y="486" width="8" height="10" fill="#B9B6AE"/>
+<path d="M684 506 L697 456 L710 506Z" fill="#F4521E"/><rect x="688" y="476" width="18" height="7" fill="#F6F5F2"/><rect x="680" y="504" width="34" height="5" fill="#F4521E"/>
+<path d="M404 108v18M395 117h18" stroke="#C9C6BF" stroke-width="3" stroke-linecap="round"/>
+<circle cx="640" cy="200" r="13" fill="none" stroke="#C9C6BF" stroke-width="3"/><path d="M640 193v14M633 200h14" stroke="#C9C6BF" stroke-width="3" stroke-linecap="round"/>
+<path d="M120 170v14M113 177h14" stroke="#C9C6BF" stroke-width="3" stroke-linecap="round"/>
+<path d="M368 296 L368 498" stroke="#141618" stroke-width="3"/>
+<path d="M344 498 L392 498" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
+<rect x="334" y="232" width="68" height="64" rx="5" fill="#141618"/>
+<rect x="340" y="238" width="56" height="52" rx="2" fill="#F6F5F2"/>
+<rect x="346" y="246" width="26" height="6" rx="3" fill="#F4521E"/>
+<rect x="346" y="258" width="42" height="5" rx="2.5" fill="#C9C6BF"/>
+<rect x="346" y="268" width="34" height="5" rx="2.5" fill="#C9C6BF"/>
+<path d="M376 278l4 4 8-8" fill="none" stroke="#3FB950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M224 334 L250 334 L234 494 L212 494 Z" fill="#3A3E44"/>
+<path d="M242 334 L270 334 L264 496 L242 496 Z" fill="#23272D"/>
+<path d="M206 492 h30 a7 7 0 0 1 7 7 v3 h-41 a4 4 0 0 1 4 -10z" fill="#141618"/>
+<path d="M240 494 h30 a7 7 0 0 1 7 7 v3 h-41 a4 4 0 0 1 4 -10z" fill="#141618"/>
+<rect x="244" y="196" width="12" height="16" fill="#E8957C"/>
+<path d="M220 238 Q222 210 246 208 L262 208 Q284 212 282 240 L278 340 L218 340 Z" fill="#F4521E"/>
+<path d="M219 292 L280 292 L280 300 L219 300Z" fill="#F6F5F2"/>
+<path d="M219 312 L279 312 L279 318 L219 318Z" fill="#F6F5F2"/>
+<path d="M248 210 L248 340" stroke="#C2410C" stroke-width="2"/>
+<path d="M270 226 L304 266 L336 254" fill="none" stroke="#F4521E" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="340" cy="252" r="8" fill="#F2A68A"/>
+<ellipse cx="251" cy="182" rx="15" ry="17" fill="#F2A68A"/>
+<path d="M233 177 Q234 154 253 154 Q271 155 271 175 L279 177 L279 183 L230 183 Z" fill="#F2C14E"/>
+<path d="M510 334 L534 334 L542 498 L520 498 Z" fill="#3A3E44"/>
+<path d="M528 334 L554 334 L550 500 L528 500 Z" fill="#23272D"/>
+<path d="M514 496 h30 a7 7 0 0 1 7 7 v3 h-41 a4 4 0 0 1 4 -10z" fill="#141618"/>
+<path d="M524 498 h30 a7 7 0 0 1 7 7 v3 h-41 a4 4 0 0 1 4 -10z" fill="#141618"/>
+<rect x="522" y="196" width="12" height="16" fill="#C9826A"/>
+<path d="M502 238 Q504 210 526 208 L540 208 Q560 212 558 240 L556 340 L506 340 Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
+<path d="M506 226 L470 254 L452 226" fill="none" stroke="#C9C6BF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M506 226 L470 254 L452 226" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="450" cy="220" r="8" fill="#D9937A"/>
+<rect x="536" y="258" width="32" height="44" rx="4" fill="#141618" transform="rotate(-8 552 280)"/>
+<rect x="541" y="264" width="22" height="30" rx="2" fill="#F4521E" opacity="0.9" transform="rotate(-8 552 280)"/>
+<path d="M556 232 L560 272" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round"/>
+<circle cx="558" cy="286" r="7" fill="#D9937A"/>
+<ellipse cx="529" cy="182" rx="15" ry="17" fill="#D9937A"/>
+<path d="M513 182 Q510 158 530 158 Q548 159 546 178 Q537 170 524 172 Q516 174 513 186Z" fill="#141618"/>
+<rect x="248" y="70" width="215" height="58" rx="16" fill="#F4521E"/>
+<path d="M286 126 l-6 22 l26 -22z" fill="#F4521E"/>
+<path d="M268 99l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="298" y="107" font-family="Archivo, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text>
+<rect x="470" y="60" width="169" height="58" rx="16" fill="#E2DFD8"/>
+<path d="M516 116 l4 22 l20 -22z" fill="#E2DFD8"/>
+<circle cx="494" cy="89" r="7" fill="#3FB950"/>
+<text x="510" y="97" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#141618">L3 02:39</text>
+</svg>
