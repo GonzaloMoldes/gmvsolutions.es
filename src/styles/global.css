@@ -203,6 +203,9 @@ a:hover{color:var(--steel);}
   background-color:var(--black);
   background-image:linear-gradient(rgba(20,22,24,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(20,22,24,.045) 1px,transparent 1px);
   background-size:40px 40px;
+  /* Parallax de la home: --mx/--my solo existen alli; en el resto valen 0. */
+  background-position:calc(var(--mx,0) * 16px) calc(var(--my,0) * 12px);
+  transition:background-position .6s cubic-bezier(.22,1,.36,1);
 }
 .hero{
   position:relative;z-index:1;

@@ -392,6 +392,37 @@ schema.push(faqPageSchema(faqs));
   }
 </script>
 
+<script>
+  // Parallax del hero: guarda la posicion del raton normalizada en --mx/--my.
+  // Solo escritorio con raton, sin «reducir movimiento», y solo mientras el
+  // hero esta en pantalla; un requestAnimationFrame por movimiento como maximo.
+  const hero = document.querySelector('.h-hero');
+  const fino = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (hero && fino && !quieto) {
+    const root = document.documentElement;
+    let visible = true;
+    let frame = 0;
+    let mx = 0;
+    let my = 0;
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (!visible) { root.style.setProperty('--mx', '0'); root.style.setProperty('--my', '0'); }
+    }).observe(hero);
+    window.addEventListener('pointermove', (ev) => {
+      if (!visible) return;
+      mx = (ev.clientX / window.innerWidth) * 2 - 1;
+      my = (ev.clientY / window.innerHeight) * 2 - 1;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        root.style.setProperty('--mx', mx.toFixed(3));
+        root.style.setProperty('--my', my.toFixed(3));
+      });
+    }, { passive: true });
+  }
+</script>
+
 <style>
   .h-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   .h-kicker { font-family: 'DM Mono', monospace; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 14px; }
@@ -412,6 +443,16 @@ schema.push(faqPageSchema(faqs));
   .h-spec > div { padding: 20px 24px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .h-spec dt { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gray2); }
   .h-spec dd { margin: 6px 0 0; font-weight: 700; font-size: 1.05rem; }
+
+  /* Parallax del hero (solo raton y con movimiento permitido). El script de
+     abajo escribe --mx/--my (-1..1) en <html>; cada capa se desplaza con su
+     propia profundidad. Se usa la propiedad «translate» y no «transform» para
+     no pisar las animaciones de los globos y de la respiracion. */
+  @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+    .h-hero :global(.h-hero-ilus svg) { translate: calc(var(--mx, 0) * -10px) calc(var(--my, 0) * -6px); transition: translate .5s cubic-bezier(.22, 1, .36, 1); }
+    .h-hero :global(.h-hero-ilus .ilus-breathe) { translate: calc(var(--mx, 0) * 5px) calc(var(--my, 0) * 3px); transition: translate .5s cubic-bezier(.22, 1, .36, 1); }
+    .h-hero :global(.h-hero-ilus .ilus-bubble) { translate: calc(var(--mx, 0) * 14px) calc(var(--my, 0) * 9px); transition: translate .6s cubic-bezier(.22, 1, .36, 1); }
+  }
 
   /* SECCIONES */
   .h-sec { padding: 104px 0; }
