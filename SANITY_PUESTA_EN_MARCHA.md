@@ -1,6 +1,6 @@
 # Sanity: gestor de contenidos del blog
 
-> **Estado:** código listo y desplegado en la rama de prueba · **Falta:** crear el proyecto de Sanity y las variables (pasos 1 a 4)
+> **Estado:** proyecto `1rbyt934` conectado (fijo en el código) · panel en `/admin/` de cada despliegue
 
 ## Qué hace
 
@@ -8,7 +8,7 @@
 - **Artículos del blog** creados desde el panel: título, URL, tema, categoría, fechas, imagen destacada, cuerpo con títulos, listas, enlaces, imágenes y cajas destacadas, preguntas frecuentes y campos SEO.
 - Cada artículo publicado entra solo en **/blog/**, **/sitemap.xml**, **/llms.txt**, su versión **/blog/&lt;url&gt;.md** y el aviso de «contenido nuevo» del menú, con el mismo schema (BlogPosting + FAQPage) que los artículos escritos en código.
 - Los 30 artículos actuales siguen en código y no cambian. Si un artículo de Sanity repite la URL de uno de código, el build falla a propósito.
-- **Sin las variables de Sanity el sitio compila exactamente igual que antes** y `/admin/` no existe.
+- Si Sanity no responde durante el build, el sitio se publica igual sin los artículos de Sanity y el log lo avisa con `[sanity] AVISO`.
 
 ## Puesta en marcha (una sola vez)
 
@@ -29,7 +29,10 @@ En el proyecto: **API → CORS origins → Add CORS origin**, marcando **Allow c
 | `https://*.vercel.app` | El panel en las vistas previas de Vercel |
 | `http://localhost:4321` | Trabajo en local |
 
-### 3. Variables en Vercel
+### 3. Variables en Vercel (opcional)
+
+El Project ID `1rbyt934` ya va fijo en `astro.config.mjs`, `sanity.config.ts` y `src/lib/sanity.ts` (no es secreto). Las variables solo hacen falta para apuntar a otro proyecto o dataset; si existen, tienen prioridad.
+
 
 **Vercel → proyecto gmvsolutions-es → Settings → Environment Variables**:
 

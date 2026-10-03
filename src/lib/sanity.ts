@@ -9,7 +9,8 @@
 import { createClient, type SanityClient } from '@sanity/client';
 import { createImageUrlBuilder } from '@sanity/image-url';
 
-const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID as string | undefined;
+// Mismo valor por defecto que astro.config.mjs (el Project ID es publico).
+const projectId = (import.meta.env.PUBLIC_SANITY_PROJECT_ID as string | undefined) || '1rbyt934';
 const dataset = (import.meta.env.PUBLIC_SANITY_DATASET as string | undefined) || 'production';
 
 export const sanityEnabled = Boolean(projectId);

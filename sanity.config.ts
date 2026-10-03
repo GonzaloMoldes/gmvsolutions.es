@@ -11,7 +11,7 @@ import { schemaTypes } from './sanity/schemaTypes';
 export default defineConfig({
   name: 'reelevo',
   title: 'REELEVO · Contenidos',
-  projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
+  projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID || '1rbyt934',
   dataset: import.meta.env.PUBLIC_SANITY_DATASET || 'production',
   plugins: [
     structureTool({

@@ -9,7 +9,11 @@ import { readdirSync } from 'node:fs';
 // sin el, el sitio compila exactamente igual que antes y /admin/ no existe.
 // Puesta en marcha: SANITY_PUESTA_EN_MARCHA.md
 const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), '');
-const sanityProjectId = env.PUBLIC_SANITY_PROJECT_ID;
+// El Project ID no es secreto (viaja en cada peticion del panel): va fijo como
+// valor por defecto para no depender de las variables de Vercel. La variable,
+// si existe, tiene prioridad.
+const SANITY_PROJECT_ID_POR_DEFECTO = '1rbyt934';
+const sanityProjectId = env.PUBLIC_SANITY_PROJECT_ID || SANITY_PROJECT_ID_POR_DEFECTO;
 // Linea de diagnostico en el log de build (Vercel → Deployment → Building).
 console.log(
   sanityProjectId
