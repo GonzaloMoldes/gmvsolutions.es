@@ -18,10 +18,7 @@
 <circle cx="536" cy="386" r="16" fill="#141618"/><circle cx="536" cy="386" r="6" fill="#8A8780"/>
 <circle cx="586" cy="386" r="16" fill="#141618"/><circle cx="586" cy="386" r="6" fill="#8A8780"/>
 <rect x="602" y="320" width="16" height="50" fill="#3A3E44"/>
-<path d="M546 300Q548 276 562 274L572 274Q584 278 584 300Z" fill="#F4521E"/>
-<ellipse cx="565" cy="258" rx="11" ry="12" fill="#D9937A"/>
-<path d="M552 256Q553 240 566 240Q579 241 579 254L585 256L585 260L549 260Z" fill="#F2C14E"/>
-<path d="M552 286L530 284" stroke="#F4521E" stroke-width="10" stroke-linecap="round"/>
+<path d="M544 300Q545 274 562 271L572 271Q586 275 586 300Z" fill="#F4521E"/><path d="M544 300Q545 274 562 271L564 300Z" fill="#DB4618"/><path d="M545 288H586V293H545Z" fill="#F2F0EA"/><path d="M561 262h9v10h-9z" fill="#C27A5E"/><ellipse cx="566" cy="252" rx="11" ry="12" fill="#D9937A"/><path d="M576 249Q581 253 576 257Z" fill="#D9937A"/><ellipse cx="560" cy="254" rx="2.6" ry="3.8" fill="#C9826A"/><path d="M554 248Q555 232 567 232Q580 232 580 247Z" fill="#F2C14E"/><path d="M567 232Q555 232 554 248H562Q561 236 567 232Z" fill="#E0A92E"/><path d="M552 246H585V249H552Z" fill="#E0A92E"/><path d="M550 282L532 286" stroke="#F4521E" stroke-width="10" stroke-linecap="round"/><circle cx="529" cy="286" r="5.5" fill="#4A4F57"/>
 <rect x="60" y="56" width="319" height="54" rx="16" fill="#F4521E"/><path d="M200 108l2 22 20-22z" fill="#F4521E"/>
 <text x="82" y="91" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">60 días de Pro, gratis</text>
 <rect x="400" y="56" width="160" height="54" rx="16" fill="#E2DFD8"/>
