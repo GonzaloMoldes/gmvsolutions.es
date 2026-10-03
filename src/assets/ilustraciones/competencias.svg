@@ -30,5 +30,5 @@
 </g>
 <rect x="60" y="40" width="334" height="54" rx="16" fill="#F4521E"/><path d="M100 92l-2 22 22-22z" fill="#F4521E"/>
 <path d="M80 67l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="110" y="75" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Puesto 3 · habilitado</text>
+<text x="110" y="75" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Puesto 3 · habilitado</text>
 </svg>

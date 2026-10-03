@@ -17,8 +17,8 @@
 <path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
 </g>
 <rect x="40" y="60" width="331" height="54" rx="16" fill="#F4521E"/><path d="M190 112l2 22 20-22z" fill="#F4521E"/>
-<text x="62" y="95" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Preventivo · cada 500 h</text>
+<text x="62" y="95" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Preventivo · cada 500 h</text>
 <rect x="380" y="56" width="150" height="54" rx="16" fill="#E2DFD8"/>
 <rect x="400" y="72" width="22" height="22" rx="3" fill="none" stroke="#141618" stroke-width="2.5"/><path d="M400 80H422" stroke="#141618" stroke-width="2.5"/>
-<text x="432" y="91" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="19" fill="#141618">HOY ✓</text>
+<text x="432" y="91" font-family="DM Mono, monospace" font-weight="600" font-size="19" fill="#141618">HOY ✓</text>
 </svg>

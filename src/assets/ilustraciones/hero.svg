@@ -51,9 +51,9 @@
 <rect x="248" y="70" width="215" height="58" rx="16" fill="#F4521E"/>
 <path d="M286 126 l-6 22 l26 -22z" fill="#F4521E"/>
 <path d="M268 99l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="298" y="107" font-family="Archivo, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text>
+<text x="298" y="107" font-family="DM Sans, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text>
 <rect x="470" y="60" width="169" height="58" rx="16" fill="#E2DFD8"/>
 <path d="M516 116 l4 22 l20 -22z" fill="#E2DFD8"/>
 <circle cx="494" cy="89" r="7" fill="#3FB950"/>
-<text x="510" y="97" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22" fill="#141618">L3 02:39</text>
+<text x="510" y="97" font-family="DM Mono, monospace" font-weight="600" font-size="22" fill="#141618">L3 02:39</text>
 </svg>

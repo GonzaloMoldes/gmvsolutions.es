@@ -23,7 +23,7 @@
 </g>
 <rect x="320" y="70" width="271" height="54" rx="16" fill="#F4521E"/><path d="M440 122l2 22 20-22z" fill="#F4521E"/>
 <path d="M340 97l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="370" y="105" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Firma registrada</text>
+<text x="370" y="105" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Firma registrada</text>
 <rect x="60" y="56" width="184" height="54" rx="16" fill="#E2DFD8"/><path d="M160 108l2 22 18-22z" fill="#E2DFD8"/>
-<text x="82" y="91" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="19" fill="#141618">ISO 9001 ✓</text>
+<text x="82" y="91" font-family="DM Mono, monospace" font-weight="600" font-size="19" fill="#141618">ISO 9001 ✓</text>
 </svg>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Un operario mira un plano de la nave delante de una barrera con el cartel 404">
 <path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
 <rect x="380" y="120" width="190" height="110" rx="6" fill="#141618"/>
-<text x="475" y="198" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="64" fill="#F4521E">404</text>
+<text x="475" y="198" text-anchor="middle" font-family="DM Mono, monospace" font-weight="600" font-size="64" fill="#F4521E">404</text>
 <path d="M410 230V300M540 230V300" stroke="#141618" stroke-width="5"/>
 <rect x="350" y="298" width="250" height="30" fill="#F4521E"/>
 <path d="M370 298L350 328H366L386 298ZM410 298L390 328H406L426 298ZM450 298L430 328H446L466 298ZM490 298L470 328H486L506 298ZM530 298L510 328H526L546 298ZM570 298L550 328H566L586 298Z" fill="#F6F5F2"/>
@@ -21,5 +21,5 @@
 <path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
 </g>
 <rect x="60" y="50" width="306" height="54" rx="16" fill="#E2DFD8"/><path d="M160 102l2 22 18-22z" fill="#E2DFD8"/>
-<text x="82" y="85" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Este puesto no existe</text>
+<text x="82" y="85" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Este puesto no existe</text>
 </svg>

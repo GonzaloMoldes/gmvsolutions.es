@@ -3,9 +3,9 @@
 <circle cx="140" cy="132" r="16" fill="#F2C14E"/><path d="M140 104v-8M140 168v-8M112 132h-8M176 132h-8M120 112l-6-6M160 112l6-6" stroke="#F2C14E" stroke-width="3" stroke-linecap="round"/>
 <path d="M300 140a20 20 0 0 1 40 0Z" fill="#F4521E"/><path d="M290 140H350" stroke="#F4521E" stroke-width="3" stroke-linecap="round"/>
 <path d="M512 116a20 20 0 1 0 18 28a16 16 0 1 1 -18 -28Z" fill="#5A5F66"/>
-<text x="140" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">MAÑANA</text>
-<text x="320" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">TARDE</text>
-<text x="510" y="190" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">NOCHE</text>
+<text x="140" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">MAÑANA</text>
+<text x="320" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">TARDE</text>
+<text x="510" y="190" text-anchor="middle" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">NOCHE</text>
 <path d="M230 220V390M420 220V390" stroke="#C9C6BF" stroke-width="2" stroke-dasharray="6 6"/>
 <g transform="translate(120 400) scale(0.66)">
 <path d="M-21 -162L5 -162L-11 -2L-33 -2Z" fill="#3A3E44"/><path d="M-3 -162L25 -162L19 0L-3 0Z" fill="#23272D"/>
@@ -42,5 +42,5 @@
 <path d="M-12 -319Q-11 -342 8 -342Q26 -341 26 -321L34 -319L34 -313L-15 -313Z" fill="#F2C14E"/>
 </g>
 <rect x="170" y="40" width="319" height="50" rx="16" fill="#F4521E"/>
-<text x="192" y="73" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Misma versión · rev. C</text>
+<text x="192" y="73" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Misma versión · rev. C</text>
 </svg>

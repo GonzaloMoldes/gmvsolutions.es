@@ -2,17 +2,17 @@
 <path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
 <rect x="60" y="392" width="96" height="8" fill="#B9B6AE"/>
 <rect x="72" y="340" width="72" height="52" fill="#E2DFD8" stroke="#B9B6AE" stroke-width="2"/>
-<text x="108" y="362" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#141618">FREE</text>
-<text x="108" y="382" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#5A5F66">0 €</text>
+<text x="108" y="362" text-anchor="middle" font-family="DM Mono, monospace" font-size="13" font-weight="600" fill="#141618">FREE</text>
+<text x="108" y="382" text-anchor="middle" font-family="DM Mono, monospace" font-size="13" fill="#5A5F66">0 €</text>
 <rect x="176" y="392" width="116" height="8" fill="#B9B6AE"/>
 <rect x="184" y="308" width="100" height="84" fill="#F2C14E"/>
-<text x="234" y="344" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="600" fill="#141618">STARTER</text>
-<text x="234" y="368" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#141618">49 €/mes</text>
+<text x="234" y="344" text-anchor="middle" font-family="DM Mono, monospace" font-size="15" font-weight="600" fill="#141618">STARTER</text>
+<text x="234" y="368" text-anchor="middle" font-family="DM Mono, monospace" font-size="14" fill="#141618">49 €/mes</text>
 <rect x="480" y="120" width="12" height="282" fill="#3A3E44"/><rect x="500" y="120" width="12" height="282" fill="#3A3E44"/>
 <rect x="352" y="280" width="140" height="8" fill="#141618"/>
 <rect x="358" y="160" width="128" height="120" fill="#F4521E"/>
-<text x="422" y="212" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="22" font-weight="600" fill="#141618">PRO</text>
-<text x="422" y="240" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#141618">129 €/mes</text>
+<text x="422" y="212" text-anchor="middle" font-family="DM Mono, monospace" font-size="22" font-weight="600" fill="#141618">PRO</text>
+<text x="422" y="240" text-anchor="middle" font-family="DM Mono, monospace" font-size="15" fill="#141618">129 €/mes</text>
 <path d="M512 300H600V380H512Z" fill="#F2C14E"/>
 <path d="M530 300V230H580L596 300" fill="none" stroke="#141618" stroke-width="5" stroke-linejoin="round"/>
 <circle cx="536" cy="386" r="16" fill="#141618"/><circle cx="536" cy="386" r="6" fill="#8A8780"/>
@@ -23,7 +23,7 @@
 <path d="M552 256Q553 240 566 240Q579 241 579 254L585 256L585 260L549 260Z" fill="#F2C14E"/>
 <path d="M552 286L530 284" stroke="#F4521E" stroke-width="10" stroke-linecap="round"/>
 <rect x="60" y="56" width="319" height="54" rx="16" fill="#F4521E"/><path d="M200 108l2 22 20-22z" fill="#F4521E"/>
-<text x="82" y="91" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">60 días de Pro, gratis</text>
+<text x="82" y="91" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">60 días de Pro, gratis</text>
 <rect x="400" y="56" width="160" height="54" rx="16" fill="#E2DFD8"/>
-<text x="422" y="91" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Sin tarjeta</text>
+<text x="422" y="91" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Sin tarjeta</text>
 </svg>

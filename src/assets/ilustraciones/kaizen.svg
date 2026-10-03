@@ -2,9 +2,9 @@
 <path d="M20 400Q40 372 170 380Q320 364 470 378Q620 368 625 400Q615 430 470 426Q320 438 170 430Q30 434 20 400Z" fill="#E2DFD8"/>
 <rect x="300" y="70" width="306" height="230" rx="6" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="2"/>
 <path d="M402 84V286M504 84V286" stroke="#E2DFD8" stroke-width="2"/>
-<text x="318" y="100" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">IDEAS</text>
-<text x="418" y="100" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">EN CURSO</text>
-<text x="520" y="100" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">ESTÁNDAR</text>
+<text x="318" y="100" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">IDEAS</text>
+<text x="418" y="100" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">EN CURSO</text>
+<text x="520" y="100" font-family="DM Mono, monospace" font-size="12" font-weight="600" fill="#5A5F66">ESTÁNDAR</text>
 <rect x="316" y="114" width="72" height="44" fill="#F4521E"/><rect x="316" y="168" width="72" height="44" fill="#F2C14E"/><rect x="316" y="222" width="72" height="44" fill="#F2C14E"/>
 <rect x="418" y="114" width="72" height="44" fill="#F2C14E"/><rect x="418" y="168" width="72" height="44" fill="#F2C14E"/>
 <rect x="520" y="114" width="72" height="44" fill="#E2DFD8"/>
@@ -25,5 +25,5 @@
 </g>
 <rect x="40" y="56" width="271" height="54" rx="16" fill="#F4521E"/><path d="M150 108l2 22 20-22z" fill="#F4521E"/>
 <circle cx="70" cy="79" r="10" fill="none" stroke="#141618" stroke-width="3"/><path d="M66 92H74M67 97H73" stroke="#141618" stroke-width="3" stroke-linecap="round"/>
-<text x="90" y="91" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Mejora propuesta</text>
+<text x="90" y="91" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Mejora propuesta</text>
 </svg>

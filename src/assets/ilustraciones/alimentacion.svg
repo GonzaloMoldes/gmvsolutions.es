@@ -23,8 +23,8 @@
 <path d="M-14 -316Q-14 -344 8 -344Q30 -344 28 -316Q26 -324 8 -326Q-6 -326 -14 -316Z" fill="#FFFFFF" stroke="#C9C6BF" stroke-width="1.5"/>
 </g>
 <rect x="60" y="56" width="210" height="54" rx="16" fill="#F4521E"/><path d="M150 108l2 22 20-22z" fill="#F4521E"/>
-<text x="82" y="91" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="20" fill="#141618">LOTE 2410-B ✓</text>
+<text x="82" y="91" font-family="DM Mono, monospace" font-weight="600" font-size="20" fill="#141618">LOTE 2410-B ✓</text>
 <rect x="330" y="40" width="301" height="54" rx="16" fill="#E2DFD8"/><path d="M420 92l2 22 18-22z" fill="#E2DFD8"/>
 <circle cx="356" cy="67" r="7" fill="#3FB950"/>
-<text x="372" y="75" font-family="Archivo, sans-serif" font-weight="700" font-size="21" fill="#141618">Limpieza registrada</text>
+<text x="372" y="75" font-family="DM Sans, sans-serif" font-weight="700" font-size="21" fill="#141618">Limpieza registrada</text>
 </svg>
