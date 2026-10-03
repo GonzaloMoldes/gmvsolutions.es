@@ -128,22 +128,22 @@
   }
 
   /* Esquinas: arriba quedan bajo la cabecera fija (64 px). */
-  .m-corner { width: 48px; height: 48px; }
-  .m-tl { top: 72px; left: 8px; }
-  .m-tr { top: 72px; right: 8px; transform: scaleX(-1); }
-  .m-bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
-  .m-br { bottom: 8px; right: 8px; transform: scale(-1, -1); }
+  .m-corner { width: 30px; height: 30px; }
+  .m-tl { top: 70px; left: 6px; }
+  .m-tr { top: 70px; right: 6px; transform: scaleX(-1); }
+  .m-bl { bottom: 6px; left: 6px; transform: scaleY(-1); }
+  .m-br { bottom: 6px; right: 6px; transform: scale(-1, -1); }
 
-  /* Herramientas: asoman por los bordes, cortadas por la ventana. --g es el
-     margen libre a cada lado del contenido (1300 px de ancho maximo): en
-     pantallas grandes las piezas entran mas, en las justas se retiran. */
+  /* Herramientas: pequeñas y pegadas al borde, cortadas por la ventana. --g
+     es el margen libre a cada lado del contenido (1300 px de ancho maximo);
+     solo una parte pequeña de ese margen se usa, para que la pagina respire. */
   .marco { --g: max(0px, (100vw - 1300px) / 2); }
-  .m-cable { left: calc(var(--g) * .5 - 34px); top: 140px; height: min(520px, 62vh); width: auto; }
-  .m-llave { left: calc(var(--g) * .8 - 190px); bottom: 64px; transform: rotate(-30deg); }
-  .m-tornillos { left: calc(var(--g) * .7 - 70px); bottom: 170px; }
-  .m-manguera { right: calc(var(--g) * .5 - 170px); bottom: -150px; }
-  .m-destornillador { right: calc(var(--g) * .8 - 150px); top: 46%; transform: rotate(158deg); }
-  .m-allen { right: calc(var(--g) * .6 - 22px); top: 26%; transform: rotate(12deg); }
+  .m-cable { left: calc(var(--g) * .2 - 22px); top: 150px; height: min(300px, 40vh); width: auto; }
+  .m-llave { left: calc(var(--g) * .3 - 110px); bottom: 40px; width: 150px; height: auto; transform: rotate(-30deg); }
+  .m-tornillos { left: calc(var(--g) * .25 - 34px); bottom: 110px; width: 66px; height: auto; }
+  .m-manguera { right: calc(var(--g) * .2 - 100px); bottom: -92px; width: 150px; height: auto; }
+  .m-destornillador { right: calc(var(--g) * .3 - 92px); top: 50%; width: 130px; height: auto; transform: rotate(158deg); }
+  .m-allen { right: calc(var(--g) * .25 - 14px); top: 28%; width: 38px; height: auto; transform: rotate(12deg); }
 
   /* Con menos hueco a los lados, las herramientas pisarian el contenido. */
   @media (max-width: 1279px) {
