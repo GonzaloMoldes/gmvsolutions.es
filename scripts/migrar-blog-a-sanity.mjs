@@ -1,6 +1,9 @@
 // Migra los articulos del blog escritos en codigo (src/pages/blog/*.astro) a
 // documentos de Sanity.
 //
+// HISTORICO: ya se ejecuto. Los .astro de origen se borraron en octubre de 2026
+// tras importar los 33 articulos; se conserva como referencia de la conversion.
+//
 //   node scripts/migrar-blog-a-sanity.mjs            -> genera los ficheros
 //   node scripts/migrar-blog-a-sanity.mjs --solo a,b -> solo esos slugs
 //

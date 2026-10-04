@@ -7,7 +7,7 @@
 - **Panel de edición** en `https://www.gmvsolutions.es/admin/` (Sanity Studio dentro de la propia web).
 - **Artículos del blog** creados desde el panel: título, URL, tema, categoría, fechas, imagen destacada, cuerpo con títulos, listas, enlaces, imágenes y cajas destacadas, preguntas frecuentes y campos SEO.
 - Cada artículo publicado entra solo en **/blog/**, **/sitemap.xml**, **/llms.txt**, su versión **/blog/&lt;url&gt;.md** y el aviso de «contenido nuevo» del menú, con el mismo schema (BlogPosting + FAQPage) que los artículos escritos en código.
-- Los 30 artículos actuales siguen en código y no cambian. Si un artículo de Sanity repite la URL de uno de código, el build falla a propósito.
+- Los 33 artículos que había en código se migraron a Sanity (octubre de 2026): todo el blog se edita desde el panel.
 - Si Sanity no responde durante el build, el sitio se publica igual sin los artículos de Sanity y el log lo avisa con `[sanity] AVISO`.
 
 ## Puesta en marcha (una sola vez)
@@ -80,7 +80,8 @@ Reglas que conviene respetar (las mismas que para los artículos de código):
 | `src/lib/sanity.ts` | Lectura de Sanity en build |
 | `src/lib/blog.ts` | Mezcla artículos de código y de Sanity |
 | `src/pages/blog/[slug].astro` | Página de cada artículo de Sanity |
-| `src/pages/blog/[slug].md.ts` | Versión markdown (también para los de Sanity) |
+| `src/pages/blog/[slug].md.ts` | Versión markdown de cada artículo |
+| `src/lib/blogMarkdown.ts` | Markdown de los artículos, compartido por los `.md` y `/llms-full.txt` |
 | `src/components/portable/` | Imagen, caja destacada y enlace dentro del cuerpo |
 | `vercel.json` | CSP ampliada para `*.sanity.io` (panel e imágenes) |
 
@@ -91,14 +92,17 @@ Reglas que conviene respetar (las mismas que para los artículos de código):
 | Esquema ampliado: tablas, enlaces relacionados, cajas de dato, descarga, anclas, separador, bloque HTML, enlaces con medición CTA | Hecho |
 | Conversión: `node scripts/migrar-blog-a-sanity.mjs` → `scripts/migracion/articulos.ndjson` + `src/styles/blog-migrado.css` | Hecho |
 | Verificación local (modo `SANITY_FIXTURE`): 33/33 páginas con el mismo texto, enlaces, anclas, títulos, CTA, FAQ y altura; índice del blog, sitemap, `/llms.txt` y los 33 `.md` idénticos | Hecho |
-| Importar a Sanity: `SANITY_WRITE_TOKEN=… node scripts/importar-a-sanity.mjs` | Pendiente de acceso |
-| Borrar los 33 `.astro` y sus entradas de `src/lib/blog.ts` | Después de importar |
+| Importar a Sanity: `SANITY_WRITE_TOKEN=… node scripts/importar-a-sanity.mjs` (33 documentos en `1rbyt934/production`) | Hecho |
+| Comparar la web construida desde Sanity con la de código: mismo texto, enlaces, anclas, títulos, CTA, metas, JSON-LD y alturas renderizadas (escritorio y móvil) en los 33; índice, sitemap, `/llms.txt` y los 33 `.md` idénticos | Hecho |
+| Borrar los 33 `.astro` y sus entradas de `src/lib/blog.ts` | Hecho |
 
-Mientras un artículo esté en código y en Sanity a la vez, gana el de código y el log de build lo avisa con `[blog] … se usa la versión de código`. No hay corte.
+**No vuelvas a ejecutar `importar-a-sanity.mjs`:** sustituiría los artículos por la versión del `.ndjson` y se perderían los cambios hechos después en el panel.
+
+Si en el futuro un artículo está en código y en Sanity a la vez, gana el de código y el log de build lo avisa con `[blog] … se usa la versión de código`.
 
 30 de los 33 artículos quedan íntegramente editables. Los tres con maquetación a medida (`onboarding-software-pymes`, `onboarding-vs-tradicional`, `gestion-competencias-industria`) guardan esas secciones como «Bloque HTML»; su texto normal es editable igual que el resto.
 
-**Revisar sin red:** `SANITY_FIXTURE=scripts/migracion/articulos.ndjson npm run build` construye leyendo los artículos del fichero en vez de Sanity.
+**Construir sin red:** `SANITY_FIXTURE=scripts/migracion/articulos.ndjson npm run build` construye leyendo los artículos del fichero (la foto de la migración, no los cambios posteriores del panel) en vez de Sanity.
 
 ## Siguientes pasos posibles
 

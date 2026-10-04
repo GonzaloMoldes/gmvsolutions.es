@@ -4,7 +4,10 @@
 //
 // El token se crea en sanity.io/manage → API → Tokens (permiso Editor). Los _id
 // son deterministas (articulo-<slug>): repetir la importacion sustituye los
-// documentos en vez de duplicarlos. Alternativa sin este script:
+// documentos en vez de duplicarlos.
+//
+// HISTORICO: la importacion se hizo en octubre de 2026. NO volver a ejecutarlo:
+// createOrReplace pisaria los cambios hechos despues desde el panel /admin/. Alternativa sin este script:
 //   npx sanity dataset import scripts/migracion/articulos.ndjson production --replace
 import { readFileSync } from 'node:fs';
 import { createClient } from '@sanity/client';
