@@ -10,12 +10,12 @@
 <rect x="76" y="290" width="84" height="62" rx="4" fill="#E2DFD8"/>
 <path d="M92 340l14-22 12 14 10-8 14 16" fill="none" stroke="#C9C6BF" stroke-width="3" stroke-linejoin="round"/>
 <rect x="180" y="284" width="20" height="60" rx="4" fill="#CFCBC2"/>
-<circle class="ilus-blink" cx="190" cy="298" r="5" fill="#3FB950"/><circle cx="190" cy="314" r="5" fill="#F4521E"/><circle cx="190" cy="330" r="5" fill="#B9B6AE"/>
+<circle cx="190" cy="298" r="5" fill="#3FB950" class="ilus-blink"/><circle cx="190" cy="314" r="5" fill="#F4521E"/><circle cx="190" cy="330" r="5" fill="#B9B6AE"/>
 <rect x="68" y="380" width="128" height="9" rx="4.5" fill="#C9C6BF"/>
 <rect x="68" y="398" width="88" height="9" rx="4.5" fill="#C9C6BF"/>
 <rect x="68" y="470" width="128" height="20" rx="4" fill="#CFCBC2"/>
 <rect x="94" y="196" width="8" height="54" fill="#B9B6AE"/>
-<rect class="ilus-blink" x="88" y="208" width="20" height="13" rx="3" fill="#3FB950"/>
+<rect x="88" y="208" width="20" height="13" rx="3" fill="#3FB950" class="ilus-blink"/>
 <rect x="88" y="222" width="20" height="13" rx="3" fill="#F2C14E" opacity=".55"/>
 <rect x="88" y="236" width="20" height="13" rx="3" fill="#F4521E" opacity=".35"/>
 <rect x="86" y="202" width="24" height="6" rx="3" fill="#9A978F"/>
@@ -37,10 +37,10 @@
 <rect x="348" y="242" width="28" height="6" rx="3" fill="#F4521E"/>
 <rect x="348" y="254" width="48" height="5" rx="2.5" fill="#D3D0C9"/>
 <rect x="348" y="264" width="38" height="5" rx="2.5" fill="#D3D0C9"/>
-<circle class="ilus-blink" cx="391" cy="280" r="7" fill="#3FB950"/><path d="M387.5 280l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="391" cy="280" r="7" fill="#3FB950" class="ilus-blink"/><path d="M387.5 280l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
 <!-- ═══ OPERARIO (mira a la derecha) ═══ -->
-<g class="ilus-breathe" style="--d:0s"><g transform="translate(248 500)">
+<g class="ilus-breathe" style="--d:0.00s"><g transform="translate(248 500)">
 <!-- pierna trasera -->
 <path d="M-24 -182C-26 -142 -28 -114 -30 -94L-36 -12H-20L-12 -94C-8 -122 -2 -152 2 -182Z" fill="#2B3038"/>
 <!-- pierna delantera -->
@@ -70,7 +70,7 @@
 <path d="M21 -330Q28 -323 21 -317Z" fill="#F0A585"/>
 <ellipse cx="0" cy="-323" rx="3.5" ry="5" fill="#E3906F"/>
 <path d="M-6 -330Q-9 -314 -3 -310L3 -320Z" fill="#3B2A20"/>
-<path d="M12 -313Q17 -311 20 -314" fill="none" stroke="#C97A5C" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="10.5" cy="-318" r="3.4" fill="#C97A5C" opacity=".3" data-cara=""/><ellipse cx="16.5" cy="-324.5" rx="1.9" ry="2.4" fill="#23272D"/><path d="M13 -330.5Q16.5 -332.5 20.5 -330.5" fill="none" stroke="#3B2A20" stroke-width="2" stroke-linecap="round"/><path d="M14.5 -313.5Q18 -311 21 -314" fill="none" stroke="#C97A5C" stroke-width="1.7" stroke-linecap="round"/>
 <!-- casco -->
 <path d="M-9 -330Q-8 -354 9 -355Q28 -355 28 -332Z" fill="#F2C14E"/>
 <path d="M9 -355Q-8 -354 -9 -330H2Q1 -350 9 -355Z" fill="#E0A92E"/>
@@ -109,10 +109,10 @@
 <path d="M20 -330Q27 -323 20 -317Z" fill="#D9937A"/>
 <ellipse cx="-1" cy="-323" rx="3.5" ry="5" fill="#C9826A"/>
 <path d="M-8 -322Q-12 -346 6 -348Q22 -350 26 -336Q20 -338 12 -337Q6 -334 3 -328L-2 -320Z" fill="#141618"/>
-<path d="M10 -330h12" stroke="#23272D" stroke-width="2"/><rect x="11" y="-333" width="9" height="7" rx="2" fill="none" stroke="#23272D" stroke-width="1.8"/>
-<path d="M11 -313Q16 -311 19 -314" fill="none" stroke="#A86650" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M3 -327H11" stroke="#23272D" stroke-width="1.6"/><rect x="11" y="-329" width="11" height="8" rx="2.5" fill="#FFFFFF" fill-opacity=".25" stroke="#23272D" stroke-width="1.8"/>
+<circle cx="9.5" cy="-318" r="3.4" fill="#A86650" opacity=".3"/><ellipse cx="15.8" cy="-324.5" rx="1.9" ry="2.4" fill="#23272D"/><path d="M12.5 -331Q16 -333 20 -331" fill="none" stroke="#141618" stroke-width="2" stroke-linecap="round"/><path d="M13.5 -313.5Q17 -311 20 -314" fill="none" stroke="#A86650" stroke-width="1.7" stroke-linecap="round"/>
 <!-- tablet sujeta al pecho -->
-<g transform="rotate(-8 30 -236)"><rect x="16" y="-262" width="32" height="44" rx="4" fill="#23272D"/><rect x="20" y="-258" width="24" height="36" rx="2" fill="#F4521E"/><rect x="24" y="-252" width="15" height="4" rx="2" fill="#F6F5F2"/><rect x="24" y="-244" width="10" height="4" rx="2" fill="#F6F5F2" opacity=".7"/></g></g>
+<g transform="rotate(-8 30 -236)"><rect x="16" y="-262" width="32" height="44" rx="4" fill="#23272D"/><rect x="20" y="-258" width="24" height="36" rx="2" fill="#F4521E"/><rect x="24" y="-252" width="15" height="4" rx="2" fill="#F6F5F2"/><rect x="24" y="-244" width="10" height="4" rx="2" fill="#F6F5F2" opacity=".7"/></g>
 <path d="M-14 -280Q-20 -248 -6 -232" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round"/>
 <path d="M-14 -280Q-20 -248 -6 -232" fill="none" stroke="#D3D0C9" stroke-width="15" stroke-linecap="round" opacity=".3"/>
 <path d="M-6 -232L18 -236" fill="none" stroke="#D9937A" stroke-width="10" stroke-linecap="round"/>
@@ -124,15 +124,15 @@
 <path d="M54 -256L78 -286" fill="none" stroke="#D9937A" stroke-width="11" stroke-linecap="round"/>
 <path d="M74 -292c2 -8 6 -12 10 -11c3 1 3 5 2 9l-2 8c-3 4 -8 4 -10 -1z" fill="#D9937A"/>
 <path d="M86 -296l4 -6" stroke="#D9937A" stroke-width="4" stroke-linecap="round"/>
-</g>
+</g></g>
 
 <!-- bocadillos -->
-<g class="ilus-bubble" style="--i:0"><rect x="240" y="66" width="196" height="58" rx="18" fill="#F4521E"/>
-<path d="M282 122l-6 24 28-24z" fill="#F4521E"/>
-<path d="M262 95l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="294" y="103" font-family="DM Sans, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text>
-</g><g class="ilus-bubble" style="--i:1"><rect x="470" y="56" width="176" height="58" rx="18" fill="#FFFFFF"/>
-<path d="M512 112l4 22 20-22z" fill="#FFFFFF"/>
-<circle class="ilus-blink" cx="496" cy="85" r="7" fill="#3FB950"/>
-<text x="512" y="93" font-family="DM Mono, monospace" font-weight="500" font-size="22" fill="#141618">L3 02:39</text>
-</g></svg>
+<g class="ilus-bubble" style="--i:0"><rect x="240" y="66" width="196" height="58" rx="18" fill="#F4521E"/><path d="M282 122l-6 24 28-24z" fill="#F4521E"/><path d="M262 95l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="294" y="103" font-family="DM Sans, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text></g>
+
+
+
+<g class="ilus-bubble" style="--i:1"><rect x="470" y="56" width="176" height="58" rx="18" fill="#FFFFFF"/><path d="M512 112l4 22 20-22z" fill="#FFFFFF"/><circle cx="496" cy="85" r="7" fill="#3FB950" class="ilus-blink"/><text x="512" y="93" font-family="DM Mono, monospace" font-weight="500" font-size="22" fill="#141618">L3 02:39</text></g>
+
+
+
+</svg>

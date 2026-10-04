@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Firma digital operativa industrial | REELEVO";
 const description = "Firma digital en el flujo de planta: el operario firma al completar y el supervisor al validar. Evidencia para auditorías ISO sin papel.";
@@ -48,6 +49,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
+    <Ilustracion escena="firma-digital" />
   </section>
 
   <div class="divider"></div>

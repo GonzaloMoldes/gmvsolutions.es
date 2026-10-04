@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 // Contenido verificado contra reelevo-app:
 //   supabase/migrations/     → 81 migraciones con ENABLE ROW LEVEL SECURITY
@@ -90,6 +91,7 @@ const plataforma = [
       <a href="mailto:hola@gmvsolutions.es" class="btn-ghost"
          data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Consulta de seguridad">Hablar con nosotros</a>
     </div>
+    <Ilustracion escena="seguridad" />
   </section>
 
   <div class="divider"></div>

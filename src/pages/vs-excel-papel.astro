@@ -4,6 +4,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Digitalizar la planta sin Excel ni papel | REELEVO";
 const description = "Fábrica sin papel para la pyme industrial: deja el Excel y el papel y digitaliza procesos, partes y competencias sin un proyecto pesado.";
@@ -60,6 +61,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
+    <Ilustracion escena="vs-excel-papel" />
   </section>
 
   <div class="divider"></div>

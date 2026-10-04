@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Workflows operativos industriales | REELEVO";
 const description = "Flujos de trabajo multi-paso y multi-operario con editor visual: aprobaciones, checkpoints y ramas paralelas para lo que supera un SOP simple.";
@@ -78,6 +79,7 @@ const nodos = [
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
+    <Ilustracion escena="workflows" />
   </section>
 
   <div class="divider"></div>

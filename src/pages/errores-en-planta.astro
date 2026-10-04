@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import Screenshot from '../components/Screenshot.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 // Disparador 1 del plan comercial (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M3b).
 // Era el unico disparador con mucho contenido (270 menciones) y ninguna pagina
@@ -75,6 +76,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <a href="/blog/errores-humanos-produccion/" class="btn-ghost">Por qué ocurren →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Empiezas por un proceso · Sin tarjeta · Sin compromiso</p>
+  <Ilustracion escena="errores-en-planta" />
 </section>
 
 <div class="divider-full"></div>

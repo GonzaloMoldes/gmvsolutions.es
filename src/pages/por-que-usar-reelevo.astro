@@ -3,6 +3,7 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Por qué usar REELEVO en tu pyme industrial | REELEVO";
 const description = "Los nueve problemas por los que una pyme industrial acaba comprando REELEVO: errores repetidos, incorporaciones lentas y dependencia de una persona.";
@@ -132,6 +133,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="eyebrow fade-up">Autodiagnóstico · Nueve problemas de planta</div>
     <h1 class="fade-up delay-1">¿Cuál de estos <br><em>nueve problemas tienes hoy?</em></h1>
     <p class="fade-up delay-2">Casi ninguna pyme industrial los tiene los nueve. Con dos basta para que la planta vaya a trompicones. Elige el tuyo y verás qué cambia exactamente.</p>
+    <Ilustracion escena="por-que-usar-reelevo" />
   </section>
 
   <div class="divider"></div>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 // Contenido verificado contra reelevo-app:
 //   lib/oee.ts               → formulas de disponibilidad, rendimiento y calidad
@@ -69,6 +70,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
       <a href="/precios/" class="btn-ghost">Ver planes</a>
     </div>
+    <Ilustracion escena="oee" />
   </section>
 
   <div class="divider"></div>
