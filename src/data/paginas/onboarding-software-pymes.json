@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Onboarding software para pymes industriales | REELEVO",
+    "description": "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días."
+  },
+  "hero": {
+    "antetitulo": "Onboarding Software Especializado",
+    "titulo": "Onboarding software",
+    "tituloDestacado": "para pymes industriales",
+    "texto": "Deja de estimar cuánto tarda un operario nuevo en ir solo: lo ves paso a paso. Cubre bajas sin llamar al experto y documenta los procedimientos en el puesto.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-un-onboarding-software-para-planta",
+        "q": "¿Qué es un onboarding software para planta?",
+        "a": "Es la herramienta que ordena la incorporación de un operario: le da el proceso documentado en el puesto desde el primer día y registra qué ha ejecutado y con qué autonomía. Se diferencia de un software de RRHH en que no se queda en el papeleo del alta, sino que llega a la máquina."
+      },
+      {
+        "id": "faq-sustituye-al-operario-que-tutoriza",
+        "q": "¿Sustituye al operario que tutoriza?",
+        "a": "No, le cambia el papel. En lugar de explicar cada paso desde cero en cada incorporación, el tutor verifica el resultado y resuelve lo que la documentación no cubre. El objetivo es que el conocimiento deje de pasar por una sola persona, no prescindir de ella."
+      },
+      {
+        "id": "faq-a-partir-de-que-tamano-de-plantilla",
+        "q": "¿A partir de qué tamaño de plantilla compensa?",
+        "a": "Más que el tamaño, decide la rotación. Una planta de 15 personas que incorpora a alguien cada mes o trabaja con ETT lo aprovecha más que una de 60 con plantilla estable. La pregunta útil es cuántas horas de tu mejor operario se van en tutorizar cada alta."
+      },
+      {
+        "id": "faq-cuanto-se-tarda-en-ponerlo-en-marcha",
+        "q": "¿Cuánto se tarda en ponerlo en marcha?",
+        "a": "La configuración técnica es de un día al ser SaaS. El plazo real lo marca documentar los procesos de los puestos por los que más gente pasa: empezando por dos o tres, la primera incorporación puede arrancar con el proceso en el puesto en un par de semanas."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza por el primer día",
+    "titulo": "Comienza tu onboarding",
+    "tituloDestacado": "sin montar un proyecto eterno",
+    "texto": "Abre la puerta con una primera prueba y mira cómo baja la fricción cuando el equipo aprende con materiales que sí usa.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver cómo arrancar →",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "landing"
+}

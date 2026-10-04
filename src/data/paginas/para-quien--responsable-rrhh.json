@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "Onboarding operarios RRHH industrial | REELEVO",
+    "description": "Onboarding de operarios para RRHH industrial: acorta la curva de autonomía del operario, reduce tutorías y da visibilidad de competencias por puesto."
+  },
+  "hero": {
+    "antetitulo": "Para responsables de RRHH industrial",
+    "titulo": "Onboarding de operarios",
+    "tituloDestacado": "mas rapido y consistente",
+    "texto": "Estandariza incorporaciones por puesto, baja la carga de tutoría repetitiva y gana una visión más clara de qué competencias tiene cada persona en planta.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-esto-certifica-formalmente-las-competencias-de-mi",
+        "q": "¿Esto certifica formalmente las competencias de mi plantilla?",
+        "a": "No sustituye una certificación formal. Lo que aporta es evidencia operativa mucho más cercana al trabajo real que una asistencia a curso: el registro tradicional —curso teórico, test, firma manual— no garantiza competencia práctica, mientras que aquí queda constancia de qué proceso ejecutó cada persona, cuántas veces, en qué máquina y con qué resultado."
+      },
+      {
+        "id": "faq-que-gana-rrhh-que-hoy-no-tenga",
+        "q": "¿Qué gana RRHH que hoy no tenga?",
+        "a": "Visibilidad de quién está realmente capacitado para qué puesto, en datos y no en la impresión del encargado. Con eso se planifica la formación por donde hay hueco de cobertura, se prepara la sucesión antes de una jubilación y se responde a una baja consultando la matriz en vez de improvisando."
+      },
+      {
+        "id": "faq-cuanto-tiempo-de-mi-equipo-consume-ponerlo",
+        "q": "¿Cuánto tiempo de mi equipo consume ponerlo en marcha?",
+        "a": "El experto captura el proceso una sola vez, en menos de media hora, y queda disponible para todas las incorporaciones siguientes. No hay que montar un plan de formación nuevo ni parar la planta: se empieza por el puesto con más rotación y se ve el efecto en la siguiente incorporación."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Para responsables de RRHH",
+    "titulo": "Ordena el onboarding y gana",
+    "tituloDestacado": "visibilidad sobre competencias",
+    "texto": "Regístrate, revisa el producto y contrástalo con tus métricas reales de onboarding. Te acompañamos en la puesta en marcha y revisamos el encaje con tu stack actual de RRHH.",
+    "nota": "Ver también [gestión de competencias](/gestion-competencias/) o [onboarding de operarios](/casos-de-uso/onboarding-operarios/).\nExportaciones e integraciones: caso a caso · Sin prometer lo que no esté validado",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO →",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "tipo": "rol"
+}

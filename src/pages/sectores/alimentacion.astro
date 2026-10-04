@@ -3,28 +3,19 @@ import Ilustracion from '../../components/Ilustracion.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Software SOP para industria alimentaria | REELEVO";
-const description = "Software SOP para industria alimentaria: estandariza procesos sensibles y mejora la trazabilidad en alimentación y la revisión interna en planta.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/sectores--alimentacion.json.
+const pagina = await getPagina('sectores/alimentacion');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/sectores/alimentacion/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las
 // secciones "Lo que aporta" y "Limites y alcance" (tarea D4 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué aporta REELEVO concretamente en una planta alimentaria?',
-    a: 'El puesto aguanta mejor bajas y rotación sin depender del titular; los cambios de formato y los protocolos de limpieza dejan de apoyarse en memoria; producción y calidad ganan información para reorganizar y revisar dónde hay fragilidad; y la formación en puesto deja una base útil para acompañar la autonomía, que con personal de campaña es justo lo que falta.',
-  },
-  {
-    q: '¿Encaja con los requisitos de higiene y conformidad del sector?',
-    a: 'Como capa operativa, sí: los checklists de limpieza por zona quedan ejecutados y fechados, con foto donde haga falta, y cada ejecución deja constancia de quién la hizo y con qué versión del procedimiento. Lo que no hace es sustituir tu sistema de calidad ni garantizarte por sí solo una certificación concreta.',
-  },
-  {
-    q: '¿Qué no hay que esperar de esto?',
-    a: 'No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en cambios de formato y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,16 +42,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   pageType="sector"
 >
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software SOP para industria alimentaria</div>
-    <h1 class="fade-up delay-1">Procesos estandarizados para <br><em>industria alimentaria</em></h1>
-    <p class="fade-up delay-2">
-      En una planta alimentaria un cambio de formato, una incorporación o una revisión interna
-      no pueden depender de la memoria. REELEVO deja el proceso documentado en el puesto,
-      con competencias visibles y más claridad para la revisión interna.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque prudente · Continuidad operativa y revisión interna</div>
     <Ilustracion escena="alimentacion" />
@@ -185,20 +174,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Tiene sentido en tu planta?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Si operas en alimentación, <br><em>vemos el encaje real contigo</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más consistencia,
-      más continuidad y una base más útil para revisión interna en tu operativa.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/calidad-y-conformidad/" class="btn-ghost">Ver calidad y conformidad →</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4"> <br />Ver también <a href="/para-quien/responsable-calidad/">responsable de calidad</a>, <a href="/calidad-y-conformidad/">calidad y conformidad</a> o el sector <a href="/sectores/mecanizado-cnc/">mecanizado CNC</a>.</div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

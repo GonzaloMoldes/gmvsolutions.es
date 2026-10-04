@@ -24,7 +24,8 @@ const PAGINAS = [
     .filter((f) => f.endsWith('.json'))
     .map((f) => {
       const slug = f.replace(/\.json$/, '');
-      return { _id: `pagina-${slug}`, _type: 'paginaFuncionalidad', fichero: `../src/data/paginas/${f}`, extra: { ruta: `/${slug}/` } };
+      const { tipo = 'funcionalidad' } = JSON.parse(readFileSync(new URL(`../src/data/paginas/${f}`, import.meta.url), 'utf8'));
+      return { _id: `pagina-${slug}`, _type: 'paginaFuncionalidad', fichero: `../src/data/paginas/${f}`, extra: { ruta: `/${slug.replace(/--/g, '/')}/`, tipo } };
     }),
 ];
 
@@ -107,10 +108,17 @@ if (dry) {
   process.exit(0);
 }
 
-// Primero las preguntas: las paginas las referencian.
+// Que habia antes de esta ejecucion, para el resumen final.
+const ids = [...docs.map((d) => d._id), ...preguntas.keys()];
+const previos = new Set((await client.getDocuments(ids)).filter(Boolean).map((d) => d._id));
+
+// Primero las preguntas: las paginas las referencian. «tipo» y «ruta» son de
+// solo lectura en el panel: se completan tambien en las paginas ya creadas.
+const fijos = docs.filter((d) => d._type === 'paginaFuncionalidad');
 const tx = client.transaction();
 for (const p of preguntas.values()) tx.createIfNotExists(p);
 for (const d of docs) tx.createIfNotExists(d);
+for (const d of fijos) tx.patch(d._id, (p) => p.setIfMissing({ tipo: d.tipo, ruta: d.ruta }));
 await tx.commit();
 
 // Migracion de la fase 2 (ver cabecera).
@@ -129,8 +137,6 @@ if (inline) {
   }
 }
 
-for (const d of [...docs, ...preguntas.values()]) {
-  const existente = await client.getDocument(d._id);
-  if (existente?._createdAt !== existente?._updatedAt && d._type !== 'preguntaFrecuente' && !migrados.has(d._id)) console.log(`${d._id}: ya existía, no se ha tocado`);
-}
-console.log(`Listo: ${docs.length} páginas y ${preguntas.size} preguntas.`);
+const nuevos = [...docs, ...preguntas.values()].filter((d) => !previos.has(d._id));
+console.log(`Creados: ${nuevos.length} (${nuevos.filter((d) => d._type !== 'preguntaFrecuente').length} páginas, ${nuevos.filter((d) => d._type === 'preguntaFrecuente').length} preguntas).`);
+console.log(`Ya existían y no se han tocado: ${docs.length + preguntas.size - nuevos.length - migrados.size}${migrados.size ? ` · migrados: ${[...migrados].join(', ')}` : ''}.`);

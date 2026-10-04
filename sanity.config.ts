@@ -7,6 +7,7 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './sanity/schemaTypes';
+import { TIPOS_PAGINA } from './sanity/schemaTypes/paginaFuncionalidad';
 
 // Documentos unicos: su _id es el nombre del tipo («home», «precios»...), que es
 // lo que lee src/lib/contenido.ts.
@@ -37,8 +38,25 @@ export default defineConfig({
               S.listItem().title(title).id(id).child(S.document().schemaType(id).documentId(id).title(title)),
             ),
             S.listItem()
-              .title('Páginas de funcionalidad')
-              .child(S.documentTypeList('paginaFuncionalidad').title('Páginas de funcionalidad').defaultOrdering([{ field: 'ruta', direction: 'asc' }])),
+              .title('Páginas')
+              .child(
+                S.list()
+                  .title('Páginas')
+                  .items(
+                    TIPOS_PAGINA.map(({ title, value }) =>
+                      S.listItem()
+                        .title(title)
+                        .id(`paginas-${value}`)
+                        .child(
+                          S.documentTypeList('paginaFuncionalidad')
+                            .title(title)
+                            .filter('_type == "paginaFuncionalidad" && tipo == $tipo')
+                            .params({ tipo: value })
+                            .defaultOrdering([{ field: 'ruta', direction: 'asc' }]),
+                        ),
+                    ),
+                  ),
+              ),
             S.divider(),
             S.listItem()
               .title('Preguntas frecuentes')

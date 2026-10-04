@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Poka/IFS vs REELEVO — Comparativa de software industrial para pymes",
+    "description": "Poka (IFS) vs REELEVO: MES enterprise frente a una plataforma ligera. Comparación por precio, implantación y escalabilidad para la pyme industrial."
+  },
+  "hero": {
+    "antetitulo": "Comparativa de herramientas",
+    "titulo": "Poka vs REELEVO",
+    "tituloDestacado": "MES vs SOP operativo",
+    "texto": "Un MES enterprise frente a un software de instrucciones de trabajo digitales ligero, comparados en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.",
+    "botones": [
+      {
+        "texto": "Comparar criterios",
+        "url": "#comparativa"
+      },
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-poka-y-en-que-se",
+        "q": "¿Qué es Poka y en qué se diferencia de REELEVO?",
+        "a": "Poka, hoy parte de IFS, es una plataforma connected worker orientada a gran industria, con formación, comunicación y soporte al operario integrados. REELEVO cubre la capa operativa —proceso en el puesto, ejecución y competencias— con implantación ligera y precio por empresa, pensado para pymes."
+      },
+      {
+        "id": "faq-necesito-una-plataforma-connected-worker-completa",
+        "q": "¿Necesito una plataforma connected worker completa?",
+        "a": "Depende del punto de partida. Si aún no tienes los procesos documentados ni registro de la ejecución, una plataforma completa añade capas sobre unos cimientos que no existen. Lo barato y lo que más retorno da al principio es el proceso y el dato de ejecución."
+      },
+      {
+        "id": "faq-cuanto-cuesta-poka",
+        "q": "¿Cuánto cuesta Poka?",
+        "a": "No publica tarifa: su contratación es de tipo enterprise, con configuración a medida. REELEVO publica precio desde 49 € al mes por empresa. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo."
+      },
+      {
+        "id": "faq-cuando-encaja-mejor-poka",
+        "q": "¿Cuándo encaja mejor Poka?",
+        "a": "En plantas grandes o multiplanta, con equipo de mejora continua dedicado y capacidad para sostener un despliegue de meses. Ahí el alcance mayor se aprovecha; en una pyme con tres puestos críticos por documentar, suele sobrar."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Tu caso concreto",
+    "titulo": "¿Necesitas SOP u",
+    "tituloDestacado": "MES completo?",
+    "texto": "Si lo que necesitas es documentar la operación y dar contexto al equipo, probablemente no te haga falta una plataforma tan pesada como parece.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Ver si encaja",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

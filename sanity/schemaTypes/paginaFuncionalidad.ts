@@ -1,7 +1,10 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { AYUDA_FORMATO, enlace, preguntas } from './comunes';
 
-// Paginas de funcionalidad (/documentacion-procesos/, /seguridad/, /oee/...).
+// Paginas con portada + FAQ + llamada final: funcionalidad (/seguridad/, /oee/...),
+// comparativas (/vs-dozuki/...), roles (/para-quien/...), sectores, landings y
+// paginas generales (/como-funciona/...). El nombre del tipo se mantiene por los
+// datos ya creados; en el panel se llama «Página».
 // Un documento por pagina, _id «pagina-<slug>», creado por
 // scripts/sembrar-paginas-sanity.mjs: crear uno nuevo desde el panel no crea
 // una pagina, por eso el panel no lo permite (ver sanity.config.ts).
@@ -10,8 +13,17 @@ import { AYUDA_FORMATO, enlace, preguntas } from './comunes';
 // secciones intermedias (tarjetas, tablas, capturas) son distintas en cada
 // pagina y siguen en el codigo. Respaldo: src/data/paginas/<slug>.json.
 
+export const TIPOS_PAGINA = [
+  { title: 'Funcionalidad', value: 'funcionalidad' },
+  { title: 'Comparativa', value: 'comparativa' },
+  { title: 'Para quién (rol)', value: 'rol' },
+  { title: 'Sector', value: 'sector' },
+  { title: 'Landing', value: 'landing' },
+  { title: 'General', value: 'general' },
+];
+
 const titular = (sufijo: string) => [
-  defineField({ name: 'titulo', title: `Título${sufijo}`, type: 'string', validation: (r) => r.required() }),
+  defineField({ name: 'titulo', title: `Título${sufijo}`, type: 'text', rows: 2, description: 'Un salto de línea aquí es un salto de línea en la página.', validation: (r) => r.required() }),
   defineField({ name: 'tituloDestacado', title: 'Título: parte destacada (en naranja)', type: 'string' }),
 ];
 
@@ -26,7 +38,7 @@ const botones = defineField({
 
 export const paginaFuncionalidad = defineType({
   name: 'paginaFuncionalidad',
-  title: 'Página de funcionalidad',
+  title: 'Página',
   type: 'document',
   groups: [
     { name: 'seo', title: 'SEO' },
@@ -35,6 +47,13 @@ export const paginaFuncionalidad = defineType({
     { name: 'ctaFinal', title: 'Llamada final' },
   ],
   fields: [
+    defineField({
+      name: 'tipo',
+      title: 'Tipo de página',
+      type: 'string',
+      readOnly: true,
+      options: { list: TIPOS_PAGINA },
+    }),
     defineField({
       name: 'ruta',
       title: 'Página',
@@ -66,7 +85,7 @@ export const paginaFuncionalidad = defineType({
         ...titular(''),
         defineField({ name: 'texto', title: 'Texto', type: 'text', rows: 3, description: AYUDA_FORMATO }),
         botones,
-        defineField({ name: 'nota', title: 'Nota final', type: 'string' }),
+        defineField({ name: 'nota', title: 'Nota final', type: 'text', rows: 2, description: AYUDA_FORMATO }),
       ],
     }),
   ],

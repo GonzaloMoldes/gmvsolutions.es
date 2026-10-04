@@ -4,27 +4,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Software calidad operativa industrial | REELEVO";
-const description = "Software de calidad operativa con evidencia de ejecución: revisa qué se siguió y cuándo, soporta cambios de proceso y vigila puestos sensibles en planta.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/para-quien--responsable-calidad.json.
+const pagina = await getPagina('para-quien/responsable-calidad');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/para-quien/responsable-calidad/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las secciones "Valor ejecutivo" y "Limites y alcance"
 // (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué gana calidad con esto sin montar más burocracia?',
-    a: 'Revisar con menos intuición: menos dependencia de la memoria, de correos o de explicaciones posteriores para entender qué pasó. Más claridad para ver cómo aterrizan las nuevas referencias y los cambios operativos en el puesto. Una base más útil para hablar con producción sobre incidencias y puntos débiles. Y soporte real a la formación en puestos sensibles, más allá de listas de asistencia y firmas.',
-  },
-  {
-    q: '¿Sustituye a mi sistema de calidad?',
-    a: 'No, y no vamos a exagerarlo. Sí aporta más claridad para la revisión interna, más contexto ante cambios de proceso y desviaciones, más continuidad entre calidad, operación y formación, y una base más útil para puestos sensibles. No es un sustituto automático de tu sistema de calidad, ni una garantía legal universal para cualquier norma o sector, ni una certificación formal completa de competencias, ni un reemplazo del criterio del responsable de calidad.',
-  },
-  {
-    q: '¿Por dónde empiezo si llevo calidad en una pyme?',
-    a: 'Por el proceso donde más veces has tenido que reconstruir a posteriori qué se hizo. Con ese documentado y ejecutándose en el puesto ya se ve si el registro que deja te sirve para una revisión interna, sin haber cambiado tu sistema de calidad.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -50,16 +41,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   pageType="rol"
 >
   <section class="page-hero">
-    <div class="eyebrow fade-up">Para calidad y compliance</div>
-    <h1 class="fade-up delay-1">Más claridad para revisar. <br><em>Menos dependencia de papeles y memoria.</em></h1>
-    <p class="fade-up delay-2">
-      REELEVO ayuda a calidad a revisar mejor lo que pasa en planta: qué referencia estaba visible,
-      cuándo ocurrió el trabajo, cómo terminó y dónde sigue haciendo falta apoyo.
-      Sin convertirlo en más burocracia y sin inflar el alcance legal.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque práctico · Revisión interna con más criterio</div>
     <Ilustracion escena="calidad" />
@@ -207,20 +196,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Revisión final</div>
-    <div class="cta-title fade-up delay-1">
-      Si llevas calidad o compliance, <br><em>mira el encaje con casos reales de planta</em>
-    </div>
-    <p class="cta-sub fade-up delay-2">
-      Regístrate, revisa el producto con tu equipo y valora si aporta más claridad a tu revisión interna,
-      a los cambios de proceso y a los puestos sensibles, sin promesas infladas.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <div class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</div>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/sobre-nosotros/#portabilidad" class="btn-ghost">Ver datos y continuidad →</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Ver también el encaje en <a href="/sectores/mecanizado-cnc/">mecanizado y CNC</a> o <a href="/calidad-y-conformidad/">calidad y conformidad</a>. <br />Implementación asistida · Enfoque prudente para calidad y compliance</div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

@@ -2,33 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "REELEVO vs Dozuki: comparativa para pyme industrial";
-const description = "Comparativa de software de instrucciones de trabajo digitales: Dozuki vs REELEVO en idioma, precio, implantación y adopción para pyme industrial española.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/vs-dozuki.json.
+const pagina = await getPagina('vs-dozuki');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/vs-dozuki/";
 
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué diferencia principal hay entre REELEVO y Dozuki?',
-    a: 'El encaje. Dozuki es una plataforma consolidada orientada a industria grande y mercado anglosajón; REELEVO está diseñado en español para pymes industriales, con precio público por empresa y arranque ligero. No es que uno sea mejor: resuelven el mismo problema para tamaños de empresa distintos.',
-  },
-  {
-    q: '¿Dozuki está en español?',
-    a: 'Su producto y su soporte son de origen anglosajón, así que la experiencia en español depende de traducción. Para una plantilla hispanohablante eso no es un detalle estético: el idioma de la interfaz y del soporte es uno de los factores que más pesa en si el operario acaba usando la herramienta.',
-  },
-  {
-    q: '¿Cuánto cuesta Dozuki frente a REELEVO?',
-    a: 'REELEVO publica su precio desde 49 € al mes por empresa. Dozuki no publica tarifa cerrada y su contratación pasa por proceso comercial, por lo que cualquier cifra concreta sería una estimación. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo.',
-  },
-  {
-    q: '¿Cuándo tendría más sentido Dozuki?',
-    a: 'Si eres una empresa grande o multinacional, trabajas en inglés, necesitas integraciones profundas con sistemas corporativos y tienes equipo para sostener una implantación larga. En ese escenario una plataforma enterprise encaja mejor que una pensada para arrancar rápido en una pyme.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -55,14 +42,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Comparativa de herramientas</div>
-    <h1 class="fade-up delay-1">Dozuki vs REELEVO <br><em>¿Cuál es mejor para tu pyme?</em></h1>
-    <p class="fade-up delay-2">Dos opciones de software de instrucciones de trabajo digitales, comparadas en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-      <a href="#comparativa" class="btn-primary"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
   </section>
 
@@ -222,21 +213,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Si Dozuki no te encaja</div>
-    <h3 class="cta-title fade-up delay-1">
-      ¿Quieres una alternativa más ligera? <br><em>REELEVO puede encajar mejor</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Si buscas una opción más cercana a la forma de trabajar de una pyme industrial, aquí puedes comparar sin ruido y sin promesas de catálogo.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse gratis">
-        Ver REELEVO
-      </a>
-      <a href="/precios/" class="btn-ghost">
-        Ver precios →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarse gratis">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

@@ -5,27 +5,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Software operaciones pyme industrial para gerencia | REELEVO";
-const description = "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/para-quien--gerente-propietario.json.
+const pagina = await getPagina('para-quien/gerente-propietario');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/para-quien/gerente-propietario/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Cuando encaja"
 // (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Cuándo tiene sentido para una gerencia meterse en esto?',
-    a: 'Cuando el coste de improvisar ya se nota en el día a día: hay puestos donde faltar una persona desordena la operación, los expertos siguen dedicando demasiado tiempo a enseñar, quieres ordenar procesos críticos sin depender de un proyecto de IT largo, o buscas claridad comercial con precio visible e implantación asumible. No hace falta convertirlo en un proyecto estratégico enorme.',
-  },
-  {
-    q: '¿Cuánto compromiso supone empezar?',
-    a: 'Se empieza por un proceso y un puesto, con precio público y sin llamada comercial obligatoria. La idea es justo la contraria a una transformación gigantesca: si el primer proceso documentado no cambia nada en tu operativa, no hay motivo para seguir.',
-  },
-  {
-    q: '¿Qué riesgo reduce concretamente?',
-    a: 'El de depender de dos o tres personas para que la planta funcione. Cuando el conocimiento crítico está solo en la cabeza de quien lleva quince años, una baja, una jubilación o una salida se convierten en un problema de continuidad, no de recursos humanos.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,12 +42,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Para gerentes y propietarios</div>
-    <h1 class="fade-up delay-1">Control operativo para gerencia, <br><em>sin complejidad MES</em>.</h1>
-    <p class="fade-up delay-2">Identifica riesgos de continuidad, ordena puestos críticos y gana visibilidad diaria sin abrir un proyecto largo ni difícil de defender internamente.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}.</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Precio publicado por empresa · Puesta en marcha ágil</div>
     <Ilustracion escena="gerente-propietario" />
@@ -282,19 +275,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Para decisores</div>
-    <h3 class="cta-title fade-up delay-1">Reduce el riesgo operativo <em>de forma sostenida</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">Regístrate, revisa el producto por dentro y valora si encaja con tu planta.
- Empezamos por procesos críticos y medimos impacto con tu realidad operativa.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Ver también <a href="/precios/">precios</a> o <a href="/por-que-usar-reelevo/">qué resuelve</a>. <br />Precio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
     </section>
 </BaseLayout>
 

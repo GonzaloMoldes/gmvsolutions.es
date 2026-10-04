@@ -4,7 +4,7 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
 import Ilustracion from '../components/Ilustracion.astro';
-import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
 // Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/workflows.json.
 const pagina = await getPagina('workflows');
@@ -56,7 +56,7 @@ const nodos = [
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
     <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
-    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
     <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
       {pagina.hero.botones[0] && (
@@ -159,7 +159,7 @@ const nodos = [
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
     <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
-    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
     <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
       {pagina.ctaFinal.botones[0] && (
@@ -170,7 +170,7 @@ const nodos = [
 <a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
 )}
     </div>
-    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
+    <div class="cta-trust fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 
 </BaseLayout>

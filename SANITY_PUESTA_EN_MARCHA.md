@@ -58,7 +58,7 @@ La web es estática: un artículo nuevo aparece cuando Vercel vuelve a construir
 
 **sanity.io/manage → Members → Invite** con el rol **Editor**. Entran en `/admin/` con su cuenta.
 
-## Páginas editables (fases 1 a 3)
+## Páginas editables (fases 1 a 4)
 
 Además del blog, el panel tiene dos documentos únicos (se abren directamente, no se pueden duplicar ni borrar):
 
@@ -68,7 +68,7 @@ Además del blog, el panel tiene dos documentos únicos (se abren directamente, 
 | **Precios** | SEO, portada, las tarjetas de los planes (precio, líneas de facturación, funciones con ✓ / × / ○, botón y nota), FAQ y llamada final. Los precios numéricos alimentan también el schema de Google. La calculadora de ROI sigue en el código. |
 | **Página de preguntas frecuentes** | `/faqs/`: SEO, portada, categorías con sus preguntas y las dos llamadas a la acción. |
 | **Preguntas frecuentes** | Cada pregunta es un documento propio y se elige desde las páginas que la muestran (home, precios, `/faqs/`). Corregirla una vez la corrige en todas. Su texto alimenta el bloque visible y el schema FAQPage. |
-| **Páginas de funcionalidad** | Las 17 páginas de producto (`/documentacion-procesos/`, `/seguridad/`, `/oee/`, `/portal-operario/`...): SEO, portada (antetítulo, H1, texto y botones), FAQ y llamada final. Las secciones intermedias de cada página (tarjetas, tablas, capturas) siguen en el código. No se pueden crear desde el panel: una página nueva necesita su plantilla en el código. |
+| **Páginas** | 36 páginas agrupadas por tipo: funcionalidad (17: `/seguridad/`, `/oee/`...), comparativas (7: `/vs-dozuki/`...), para quién (4), sectores (2), landings (2) y generales (4: cómo funciona, qué resuelve, sobre nosotros, vídeo demo). En cada una: SEO, portada (antetítulo, H1, texto y botones), FAQ y llamada final, según las tenga. Las secciones intermedias (tarjetas, tablas, capturas) siguen en el código. No se pueden crear desde el panel: una página nueva necesita su plantilla en el código. |
 | **Ajustes generales** | Lema de marca del pie, botón «Probar gratis» de la cabecera y del menú móvil, columnas de enlaces del pie, email, dirección y LinkedIn. |
 
 Cómo funciona:
@@ -76,6 +76,7 @@ Cómo funciona:
 - **El diseño no se toca desde el panel.** Ilustraciones, pictogramas, captura y animaciones siguen en el código; el panel solo cambia textos, enlaces y el número de elementos de cada lista.
 - **Formato:** negrita con `**así**`; en las respuestas de las preguntas, también enlaces con `[texto](/url/)` y párrafos separados por una línea en blanco. No admite HTML: lo que se escriba se muestra tal cual.
 - **Planes de precios:** los límites y funciones salen de la app (`reelevo-app/lib/tier-config.ts`). Si se cambian aquí, hay que cambiarlos también allí, o la web prometerá lo que el producto no da.
+- **Saltos de línea:** en los titulares y en las notas finales, un salto de línea en el panel es un salto de línea en la página.
 - **Cifras de §02:** se escriben como se leen («7,2», «40», «3–5»); los números se animan solos.
 - **Recorrido §03:** el pictograma va por orden (E-01 a E-06). Un séptimo paso sale sin pictograma.
 - **Respaldo:** los textos por defecto viven en `src/data/*.default.json`. Un campo vacío en el panel, o una lista vaciada, vuelve a ese texto; si Sanity no responde en el build, la página sale entera con ellos.

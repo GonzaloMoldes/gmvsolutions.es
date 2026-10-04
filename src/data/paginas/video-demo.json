@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Demo del software de instrucciones de trabajo digitales | REELEVO",
+    "description": "Demo guiada de REELEVO: ve el software de instrucciones de trabajo digitales en planta —onboarding y gestión de competencias— para pymes en pocos minutos."
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-el-demo-es-una-grabacion-o-puedo",
+        "q": "¿El demo es una grabación o puedo interactuar?",
+        "a": "Es interactivo: haces clic tú mismo y avanzas a tu ritmo por las pantallas reales del producto. Puedes saltarte las partes que no te interesen en lugar de esperar a que un vídeo llegue al minuto que te importa."
+      },
+      {
+        "id": "faq-hace-falta-registrarse-para-verlo",
+        "q": "¿Hace falta registrarse para verlo?",
+        "a": "No. Se abre directamente en la página, sin formulario ni cuenta previa. Si prefieres verlo en pantalla completa, hay un enlace para abrirlo en una pestaña nueva."
+      },
+      {
+        "id": "faq-que-partes-del-producto-recorre",
+        "q": "¿Qué partes del producto recorre?",
+        "a": "Planificación de la producción, el equipo con su matriz de competencias, el análisis de producción con calidad y paradas, y la trazabilidad con QRs y equipamientos. Es decir, el ciclo completo, no solo una pantalla de muestra."
+      },
+      {
+        "id": "faq-puedo-ver-el-producto-con-mis-propios",
+        "q": "¿Puedo ver el producto con mis propios datos?",
+        "a": "El demo usa datos de ejemplo para que se entienda el flujo. Para verlo con tus procesos, lo práctico es registrarse y documentar un proceso real: es el momento en el que se ve de verdad si encaja en tu planta."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "¿Listo para ver REELEVO?",
+    "titulo": "Empieza con onboarding software.",
+    "tituloDestacado": "Gestión de competencias desde el primer día.",
+    "texto": "49€/mes. Sin compromiso. Implementación asistida. El video te mostrará exactamente qué esperar.",
+    "nota": "Precio publicado · Sin sorpresas · Soporte en español",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Evaluar ahorro potencial →",
+        "url": "/precios/#roi"
+      }
+    ]
+  },
+  "tipo": "general"
+}

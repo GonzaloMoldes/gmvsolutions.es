@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Sobre REELEVO | Software de instrucciones de trabajo digitales",
+    "description": "Sobre REELEVO: el equipo de GMV Solutions detrás del software de instrucciones de trabajo digitales para la pyme industrial española, y su método de implementación."
+  },
+  "hero": {
+    "antetitulo": "El equipo",
+    "titulo": "Detrás de REELEVO",
+    "tituloDestacado": "hay personas, no una corporación.",
+    "texto": "Somos un equipo pequeño, cercano y con foco muy concreto: construir el software de instrucciones de trabajo digitales que necesita la pyme industrial española para reducir su dependencia operativa, sin meterla en un proyecto pesado ni venderle una suite inflada.",
+    "botones": []
+  },
+  "ctaFinal": {
+    "antetitulo": "¿Hablamos?",
+    "titulo": "Cuéntanos tu situación.",
+    "tituloDestacado": "Sin presión, sin script de ventas.",
+    "texto": "Somos un equipo pequeño. Si contactas, hablará contigo alguien que entiende el producto y el problema que intentas resolver.",
+    "nota": "Respuesta en menos de 24h · Sin compromiso",
+    "botones": [
+      {
+        "texto": "Escribirnos directamente →",
+        "url": "mailto:hola@gmvsolutions.es"
+      },
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "tipo": "general"
+}

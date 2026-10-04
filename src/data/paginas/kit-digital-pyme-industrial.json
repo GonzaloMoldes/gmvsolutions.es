@@ -1,0 +1,32 @@
+{
+  "seo": {
+    "title": "Kit Digital: digitalización de planta industrial | REELEVO",
+    "description": "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar procesos, onboarding y competencias."
+  },
+  "hero": {
+    "antetitulo": "Ayudas a la digitalización",
+    "titulo": "Digitaliza tu planta industrial",
+    "tituloDestacado": "con el Kit Digital",
+    "texto": "Las ayudas a la digitalización de pymes pueden ayudarte a ordenar procesos, onboarding y competencias en planta. Te contamos qué existe, qué puede cubrir y cómo encaja REELEVO.",
+    "botones": [
+      {
+        "texto": "Hablar con nosotros",
+        "url": "mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital"
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Siguiente paso",
+    "titulo": "¿Quieres valorar tu caso?",
+    "tituloDestacado": "",
+    "texto": "Cuéntanos tu situación y te orientamos sobre cómo digitalizar tu planta y qué ayudas podrían aplicar.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Hablar con nosotros",
+        "url": "mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital"
+      }
+    ]
+  },
+  "tipo": "landing"
+}

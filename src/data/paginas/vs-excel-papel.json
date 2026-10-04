@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Digitalizar la planta sin Excel ni papel | REELEVO",
+    "description": "Fábrica sin papel para la pyme industrial: deja el Excel y el papel y digitaliza procesos, partes y competencias sin un proyecto pesado."
+  },
+  "hero": {
+    "antetitulo": "Comparativa de categoría",
+    "titulo": "Adiós al Excel y al papel",
+    "tituloDestacado": "en planta",
+    "texto": "El competidor real del día a día no es otro software: es el Excel de producción y el parte en papel. Compara qué cambia al pasar del papel a un [software de instrucciones de trabajo digitales](/), con partes y competencias digitales, en una pyme industrial y sin un proyecto pesado.",
+    "botones": [
+      {
+        "texto": "Comparar criterios",
+        "url": "#comparativa"
+      },
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-tiene-de-malo-llevar-los-procesos",
+        "q": "¿Qué tiene de malo llevar los procesos en Excel y papel?",
+        "a": "Que no tienen coste de licencia pero sí coste oculto. El operario no abre un PDF del servidor, llama al veterano; circulan varias versiones del mismo documento sin saber cuál vale; y no queda rastro de qué instrucción se siguió cuando algo sale mal."
+      },
+      {
+        "id": "faq-no-es-mas-barato-seguir-con-excel",
+        "q": "¿No es más barato seguir con Excel?",
+        "a": "En licencia sí. La comparación honesta es contra lo que cuesta lo que no se ve: las horas del operario experto resolviendo dudas, los reprocesos por seguir una versión antigua y el tiempo de reconstruir qué pasó cuando llega una reclamación."
+      },
+      {
+        "id": "faq-puedo-empezar-sin-abandonar-del-todo-el",
+        "q": "¿Puedo empezar sin abandonar del todo el Excel?",
+        "a": "Sí, y es lo habitual. Se empieza por dos o tres procesos críticos y el resto sigue como estaba. Migrar todo de golpe es el camino corto a que el proyecto se abandone; un proceso resuelto y en uso convence más que un plan completo sobre papel."
+      },
+      {
+        "id": "faq-y-si-mi-equipo-no-quiere-cambiar",
+        "q": "¿Y si mi equipo no quiere cambiar de forma de trabajar?",
+        "a": "Es la objeción más razonable de todas. Por eso lo que decide no es la funcionalidad sino el acceso: si el operario tiene que instalar algo, crear una cuenta o recordar una contraseña, no lo usará. Escanear un QR y ver el paso en foto o vídeo no le añade trabajo, se lo quita."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Salto ordenado",
+    "titulo": "Migra sin dolor,",
+    "tituloDestacado": "empezando por lo que más te pesa",
+    "texto": "No hay que borrar el Excel de un día para otro. Empieza por lo que hoy te obliga a rehacer trabajo y deja el resto en transición.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

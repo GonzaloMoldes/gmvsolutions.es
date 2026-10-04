@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "Comparativa de software SOP para pymes industriales | REELEVO",
+    "description": "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola."
+  },
+  "hero": {
+    "antetitulo": "Comparación honesta",
+    "titulo": "Alternativa ligera para pyme:",
+    "tituloDestacado": "REELEVO vs otras opciones",
+    "texto": "Compara en 5 criterios: precio, arranque, adopcion operativa, idioma y encaje real para pyme industrial espanola.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-criterios-importan-de-verdad-al-comparar",
+        "q": "¿Qué criterios importan de verdad al comparar software SOP?",
+        "a": "Cinco: idioma nativo de interfaz y soporte, modelo de precio (público y por empresa frente a por operario y bajo petición), esfuerzo de implantación, facilidad de acceso para el operario en el puesto y encaje con tu tamaño real. La adopción en planta es la que decide si el proyecto sirve o queda en una licencia pagada."
+      },
+      {
+        "id": "faq-como-se-si-una-herramienta-se-me",
+        "q": "¿Cómo sé si una herramienta se me queda grande?",
+        "a": "Las señales aparecen en la propia demo: integraciones complejas, módulos que no vas a usar, captura de datos de máquina vía SCADA o un equipo de implantación dedicado. Todo eso tiene sentido en gran industria, pero en una pyme se traduce en coste, lentitud y funciones que nadie tocará."
+      },
+      {
+        "id": "faq-por-que-muchos-competidores-no-publican-precio",
+        "q": "¿Por qué muchos competidores no publican precio?",
+        "a": "Porque su venta pasa por un proceso comercial con configuración a medida, algo habitual en producto enterprise. No es necesariamente malo, pero sí es información: si necesitas varias llamadas solo para saber cuánto cuesta, el proyecto tampoco va a ser ligero. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo."
+      },
+      {
+        "id": "faq-como-se-prueba-una-alternativa-con-poco",
+        "q": "¿Cómo se prueba una alternativa con poco riesgo?",
+        "a": "Sin migrar nada: eliges los tres procesos más críticos, los documentas con quien los domina y compruebas una cosa concreta, si un sustituto puede seguirlos sin llamar al experto. Esa prueba se hace en semanas y responde a la única pregunta que importa antes de comprometerse."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Si ya lo has comparado",
+    "titulo": "Si quieres verlo por dentro,",
+    "tituloDestacado": "pruébalo en tu propio contexto",
+    "texto": "Abre la plataforma, revisa cómo se estructura y compárala con lo que hoy te está funcionando de verdad.",
+    "nota": "Implementación asistida incluida · Soporte en español · Sin letra pequeña",
+    "botones": [
+      {
+        "texto": "Entrar a REELEVO →",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios completos",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

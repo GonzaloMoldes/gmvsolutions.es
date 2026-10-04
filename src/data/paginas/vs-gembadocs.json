@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "GembaDocs vs REELEVO — Software documentación y lean manufacturing",
+    "description": "GembaDocs vs REELEVO: la alternativa pensada para la pyme industrial española. Comparación en idioma, precio, implantación y adopción del operario."
+  },
+  "hero": {
+    "antetitulo": "Comparativa de herramientas",
+    "titulo": "GembaDocs vs REELEVO",
+    "tituloDestacado": "Documentación visual vs operativa integral",
+    "texto": "Si buscas un software de instrucciones de trabajo digitales, esta es la comparación en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.",
+    "botones": [
+      {
+        "texto": "Comparar criterios",
+        "url": "#comparativa"
+      },
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-en-que-se-parecen-reelevo-y-gembadocs",
+        "q": "¿En qué se parecen REELEVO y GembaDocs?",
+        "a": "En la idea de capturar el procedimiento rápido desde el móvil, en el propio puesto, en lugar de redactarlo en un despacho. Es el enfoque correcto y en eso coinciden."
+      },
+      {
+        "id": "faq-en-que-se-diferencian",
+        "q": "¿En qué se diferencian?",
+        "a": "En el alcance. GembaDocs se centra en crear y distribuir la documentación; REELEVO además registra la ejecución, mantiene la matriz de competencias y da trazabilidad de qué se hizo. Si solo necesitas documentar, esa diferencia no te aporta; si necesitas saber qué pasó en el turno, sí."
+      },
+      {
+        "id": "faq-gembadocs-esta-en-espanol",
+        "q": "¿GembaDocs está en español?",
+        "a": "Su producto es de origen anglosajón y su soporte funciona en inglés. Para una plantilla hispanohablante, el idioma de la interfaz y de quien te atiende cuando algo falla es un factor de adopción real, no un detalle."
+      },
+      {
+        "id": "faq-cuando-elegiria-gembadocs",
+        "q": "¿Cuándo elegiría GembaDocs?",
+        "a": "Si tu único objetivo es documentar procedimientos rápido y no necesitas registro de ejecución, competencias ni trazabilidad, una herramienta más acotada es una elección razonable. La pregunta es si dentro de un año seguirás queriendo solo eso."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Para tu pyme",
+    "titulo": "¿Necesitas documentación visual o",
+    "tituloDestacado": "onboarding operativo?",
+    "texto": "Si tu problema es que los operarios nuevos tardan en aprender y los expertos no documentan procedimientos, REELEVO está hecho para ti. Implementación en 2 días, soporte en español, precio transparente.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Registrarse en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios →",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

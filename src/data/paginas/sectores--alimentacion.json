@@ -1,0 +1,55 @@
+{
+  "seo": {
+    "title": "Software SOP para industria alimentaria | REELEVO",
+    "description": "Software SOP para industria alimentaria: estandariza procesos sensibles y mejora la trazabilidad en alimentación y la revisión interna en planta."
+  },
+  "hero": {
+    "antetitulo": "Software SOP para industria alimentaria",
+    "titulo": "Procesos estandarizados para",
+    "tituloDestacado": "industria alimentaria",
+    "texto": "En una planta alimentaria un cambio de formato, una incorporación o una revisión interna no pueden depender de la memoria. REELEVO deja el proceso documentado en el puesto, con competencias visibles y más claridad para la revisión interna.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-aporta-reelevo-concretamente-en-una-planta",
+        "q": "¿Qué aporta REELEVO concretamente en una planta alimentaria?",
+        "a": "El puesto aguanta mejor bajas y rotación sin depender del titular; los cambios de formato y los protocolos de limpieza dejan de apoyarse en memoria; producción y calidad ganan información para reorganizar y revisar dónde hay fragilidad; y la formación en puesto deja una base útil para acompañar la autonomía, que con personal de campaña es justo lo que falta."
+      },
+      {
+        "id": "faq-encaja-con-los-requisitos-de-higiene-y",
+        "q": "¿Encaja con los requisitos de higiene y conformidad del sector?",
+        "a": "Como capa operativa, sí: los checklists de limpieza por zona quedan ejecutados y fechados, con foto donde haga falta, y cada ejecución deja constancia de quién la hizo y con qué versión del procedimiento. Lo que no hace es sustituir tu sistema de calidad ni garantizarte por sí solo una certificación concreta."
+      },
+      {
+        "id": "faq-que-no-hay-que-esperar-de-esto",
+        "q": "¿Qué no hay que esperar de esto?",
+        "a": "No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en cambios de formato y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "¿Tiene sentido en tu planta?",
+    "titulo": "Si operas en alimentación,",
+    "tituloDestacado": "vemos el encaje real contigo",
+    "texto": "Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más consistencia, más continuidad y una base más útil para revisión interna en tu operativa.",
+    "nota": "Implementación asistida · Enfoque prudente para industria alimentaria\nVer también [responsable de calidad](/para-quien/responsable-calidad/), [calidad y conformidad](/calidad-y-conformidad/) o el sector [mecanizado CNC](/sectores/mecanizado-cnc/).",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver calidad y conformidad →",
+        "url": "/calidad-y-conformidad/"
+      }
+    ]
+  },
+  "tipo": "sector"
+}

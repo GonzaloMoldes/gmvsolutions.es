@@ -1,0 +1,55 @@
+{
+  "seo": {
+    "title": "Software de operaciones para mecanizado CNC | REELEVO",
+    "description": "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES."
+  },
+  "hero": {
+    "antetitulo": "Software de operaciones para mecanizado CNC",
+    "titulo": "Continuidad operativa en",
+    "tituloDestacado": "mecanizado y CNC",
+    "texto": "En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia visible, para sostener la continuidad sin depender de una sola persona.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-aporta-reelevo-concretamente-en-un-taller",
+        "q": "¿Qué aporta REELEVO concretamente en un taller de mecanizado?",
+        "a": "Cuatro cosas medibles en el día a día: el puesto aguanta mejor bajas, cambios de turno y sustituciones sin depender tanto del titular; los arranques y cambios de utillaje delicados dejan de apoyarse solo en memoria o en una llamada; producción gana información para reorganizar y ver dónde sigue habiendo fragilidad; y el onboarding en puesto crítico deja una base útil para acompañar la autonomía del que aprende."
+      },
+      {
+        "id": "faq-sirve-si-cada-pieza-que-hacemos-es",
+        "q": "¿Sirve si cada pieza que hacemos es distinta?",
+        "a": "Sí, es el caso habitual en mecanizado por encargo. Lo que se documenta no es la pieza sino el proceso —el arranque de la máquina, el cambio de utillaje, el criterio de control— que se repite aunque la referencia cambie. Y cada unidad puede llevar su trazabilidad individual si el cliente la exige."
+      },
+      {
+        "id": "faq-que-no-hay-que-esperar-de-esto-sectores-mecanizado-cnc",
+        "q": "¿Qué no hay que esperar de esto?",
+        "a": "No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en arranques y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "¿Tiene sentido en tu taller?",
+    "titulo": "Si trabajas en mecanizado o CNC,",
+    "tituloDestacado": "vemos el encaje real contigo",
+    "texto": "Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más continuidad, más claridad y menos dependencia del titular en tu operativa real.",
+    "nota": "Implementación asistida · Enfoque prudente para mecanizado y CNC\nVer también [jefe de producción](/para-quien/jefe-de-produccion/), [responsable de calidad](/para-quien/responsable-calidad/) o el sector [alimentación](/sectores/alimentacion/).",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver cómo funciona →",
+        "url": "/como-funciona/"
+      }
+    ]
+  },
+  "tipo": "sector"
+}

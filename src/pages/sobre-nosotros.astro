@@ -2,9 +2,13 @@
 import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Sobre REELEVO | Software de instrucciones de trabajo digitales";
-const description = "Sobre REELEVO: el equipo de GMV Solutions detrás del software de instrucciones de trabajo digitales para la pyme industrial española, y su método de implementación.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/sobre-nosotros.json.
+const pagina = await getPagina('sobre-nosotros');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/sobre-nosotros/";
 
 const aboutPageSchema = {
@@ -94,9 +98,9 @@ const schema = [aboutPageSchema, faqSchema];
   activeNav="nosotros" pageType="core">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">El equipo</div>
-    <h1 class="fade-up delay-1">Detrás de REELEVO <br><em>hay personas, no una corporación.</em></h1>
-    <p class="fade-up delay-2">Somos un equipo pequeño, cercano y con foco muy concreto: construir el software de instrucciones de trabajo digitales que necesita la pyme industrial española para reducir su dependencia operativa, sin meterla en un proyecto pesado ni venderle una suite inflada.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <Ilustracion escena="sobre-nosotros" />
   </section>
 
@@ -374,26 +378,19 @@ const schema = [aboutPageSchema, faqSchema];
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Hablamos?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Cuéntanos tu situación. <br><em>Sin presión, sin script de ventas.</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Somos un equipo pequeño. Si contactas, hablará contigo alguien que entiende el producto
-      y el problema que intentas resolver.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="mailto:hola@gmvsolutions.es" class="btn-primary">
-        Escribirnos directamente →
-      </a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">
-      Respuesta en menos de 24h · Sin compromiso
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

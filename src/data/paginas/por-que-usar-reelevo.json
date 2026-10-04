@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Por qué usar REELEVO en tu pyme industrial | REELEVO",
+    "description": "Los nueve problemas por los que una pyme industrial acaba comprando REELEVO: errores repetidos, incorporaciones lentas y dependencia de una persona."
+  },
+  "hero": {
+    "antetitulo": "Autodiagnóstico · Nueve problemas de planta",
+    "titulo": "¿Cuál de estos",
+    "tituloDestacado": "nueve problemas tienes hoy?",
+    "texto": "Casi ninguna pyme industrial los tiene los nueve. Con dos basta para que la planta vaya a trompicones. Elige el tuyo y verás qué cambia exactamente.",
+    "botones": []
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-tengo-que-resolver-los-nueve-a-la",
+        "q": "¿Tengo que resolver los nueve a la vez?",
+        "a": "No, y no conviene. Casi ninguna planta los tiene los nueve, y las que arrancan bien lo hacen por dos o tres procesos concretos: el que más se para, el que más errores repite o el que solo sabe hacer una persona. El resto se añade cuando el primero ya está funcionando."
+      },
+      {
+        "id": "faq-que-problema-resuelve-reelevo-exactamente",
+        "q": "¿Qué problema resuelve REELEVO exactamente?",
+        "a": "La dependencia de personas concretas. Cuando el conocimiento de cómo se hace cada trabajo vive solo en la cabeza de unos pocos, cada baja, jubilación o incorporación desordena el turno. REELEVO lleva ese conocimiento al puesto y registra la ejecución para que deje de depender de quién esté."
+      },
+      {
+        "id": "faq-en-que-se-diferencia-de-un-mes-por-que-usar-reelevo",
+        "q": "¿En qué se diferencia de un MES?",
+        "a": "Un MES cubre planificación de capacidad, integración con el ERP y a menudo captura de datos de máquina, con la inversión que eso implica. REELEVO se queda en la capa operativa: el proceso en el puesto y la ejecución registrada. Para una pyme suele ser el primer paso y el que más retorno da."
+      },
+      {
+        "id": "faq-por-que-no-basta-con-excel-y",
+        "q": "¿Por qué no basta con Excel y carpetas compartidas?",
+        "a": "Porque no tienen coste de licencia pero sí coste oculto: el operario no abre un PDF del servidor, llama al veterano; circulan varias versiones del mismo documento y nadie sabe cuál vale; y no queda rastro de qué se hizo. El problema no es el formato, es dónde vive la información."
+      },
+      {
+        "id": "faq-que-hace-falta-por-nuestra-parte-para",
+        "q": "¿Qué hace falta por nuestra parte para empezar?",
+        "a": "Elegir dos o tres procesos críticos y documentarlos con quien los domina, idealmente grabando mientras se ejecutan. La configuración técnica es de un día; el trabajo real es ese, y es el que no puede hacer el proveedor por ti."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza por lo crítico",
+    "titulo": "Empieza por el problema",
+    "tituloDestacado": "que has reconocido primero",
+    "texto": "No hace falta ordenar la planta entera para notar la diferencia. Coge el proceso que hoy depende de una sola persona y móntalo. Si eso funciona, el resto es repetir.",
+    "nota": "Precio publicado · Implantación ligera · Soporte en español",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver planes →",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "general"
+}

@@ -4,27 +4,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Herramienta para jefe de produccion industrial | REELEVO";
-const description = "Gana visibilidad de turno, cubre bajas con menos improvisacion y mejora decisiones de planta con trazabilidad operativa y matriz de habilidades.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/para-quien--jefe-de-produccion.json.
+const pagina = await getPagina('para-quien/jefe-de-produccion');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/para-quien/jefe-de-produccion/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Beneficios especificos"
 // (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué cambia concretamente para un jefe de producción?',
-    a: 'Cuatro cosas. La cobertura de una baja deja de improvisarse: el sustituto encuentra el proceso en la máquina y entra al turno con el estándar del titular. Ves en un mismo panel qué se está ejecutando en cada máquina y dónde hay incidencia, en vez de reconstruirlo a llamadas. La formación en el puesto deja de depender de que tu mejor operario pare su máquina. Y las decisiones de asignación se toman sobre lo que está registrado, no sobre estimaciones.',
-  },
-  {
-    q: '¿Esto me obliga a cambiar cómo planifico los turnos?',
-    a: 'No. La planificación la sigues haciendo tú; lo que se añade es la capa de capacidad, que cruza el turno que ya has planificado con quién está realmente certificado para cada proceso y avisa antes del arranque si algo queda descubierto.',
-  },
-  {
-    q: '¿Cuánto tarda en verse algo?',
-    a: 'Lo que tardes en documentar un proceso y ponerlo en una máquina. Con el primer turno registrado ya se ve si el dato te sirve para decidir; no hace falta tener la planta entera documentada para que la primera baja cubierta sin llamar a nadie se note.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,12 +42,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Para jefes de producción</div>
-    <h1 class="fade-up delay-1">Visibilidad de turno, <br><em>sin reconstruirlo a llamadas</em>.</h1>
-    <p class="fade-up delay-2">Ves qué proceso está cubierto, dónde se está trabando el turno y qué puesto depende de una sola persona. Así puedes mover recursos antes de que la línea se te caiga encima.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}.</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Acompañamiento real en la puesta en marcha</div>
     <Ilustracion escena="control-produccion" />
@@ -293,19 +286,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Para jefes de producción</div>
-    <div class="cta-title fade-up delay-1">Reduce la dependencia operativa <em>de forma sostenida</em>
-    </div>
-    <p class="cta-sub fade-up delay-2">Entra y revísalo con tu equipo de turno: cobertura de bajas,
-      matriz de habilidades, planificación por máquina y procesos listos en puesto.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <div class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</div>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Ver también <a href="/control-produccion/">control de producción</a> o <a href="/cobertura-turnos/">cobertura de turnos</a>. <br />Puesta en marcha ágil · Panel operativo · Integración con telemetría cuando tenga sentido
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

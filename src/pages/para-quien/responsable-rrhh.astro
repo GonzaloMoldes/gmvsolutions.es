@@ -5,27 +5,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Onboarding operarios RRHH industrial | REELEVO";
-const description = "Onboarding de operarios para RRHH industrial: acorta la curva de autonomía del operario, reduce tutorías y da visibilidad de competencias por puesto.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/para-quien--responsable-rrhh.json.
+const pagina = await getPagina('para-quien/responsable-rrhh');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/para-quien/responsable-rrhh/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Trazabilidad operativa"
 // (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Esto certifica formalmente las competencias de mi plantilla?',
-    a: 'No sustituye una certificación formal. Lo que aporta es evidencia operativa mucho más cercana al trabajo real que una asistencia a curso: el registro tradicional —curso teórico, test, firma manual— no garantiza competencia práctica, mientras que aquí queda constancia de qué proceso ejecutó cada persona, cuántas veces, en qué máquina y con qué resultado.',
-  },
-  {
-    q: '¿Qué gana RRHH que hoy no tenga?',
-    a: 'Visibilidad de quién está realmente capacitado para qué puesto, en datos y no en la impresión del encargado. Con eso se planifica la formación por donde hay hueco de cobertura, se prepara la sucesión antes de una jubilación y se responde a una baja consultando la matriz en vez de improvisando.',
-  },
-  {
-    q: '¿Cuánto tiempo de mi equipo consume ponerlo en marcha?',
-    a: 'El experto captura el proceso una sola vez, en menos de media hora, y queda disponible para todas las incorporaciones siguientes. No hay que montar un plan de formación nuevo ni parar la planta: se empieza por el puesto con más rotación y se ve el efecto en la siguiente incorporación.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,12 +42,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Para responsables de RRHH industrial</div>
-    <h1 class="fade-up delay-1">Onboarding de operarios <br><em>mas rapido y consistente</em>.</h1>
-    <p class="fade-up delay-2">Estandariza incorporaciones por puesto, baja la carga de tutoría repetitiva y gana una visión más clara de qué competencias tiene cada persona en planta.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}.</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Acompañamiento en la puesta en marcha</div>
     <Ilustracion escena="competencias" />
@@ -259,23 +252,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Para responsables de RRHH</div>
-    <h3 class="cta-title fade-up delay-1">
-      Ordena el onboarding y gana <br><em>visibilidad sobre competencias</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Regístrate, revisa el producto y contrástalo con tus métricas reales de onboarding.
-      Te acompañamos en la puesta en marcha y revisamos el encaje con tu stack actual de RRHH.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Ver también <a href="/gestion-competencias/">gestión de competencias</a> o <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a>. <br />
-      Exportaciones e integraciones: caso a caso · Sin prometer lo que no esté validado
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

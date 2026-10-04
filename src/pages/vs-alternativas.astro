@@ -3,30 +3,17 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Comparativa de software SOP para pymes industriales | REELEVO";
-const description = "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/vs-alternativas.json.
+const pagina = await getPagina('vs-alternativas');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/vs-alternativas/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué criterios importan de verdad al comparar software SOP?',
-    a: 'Cinco: idioma nativo de interfaz y soporte, modelo de precio (público y por empresa frente a por operario y bajo petición), esfuerzo de implantación, facilidad de acceso para el operario en el puesto y encaje con tu tamaño real. La adopción en planta es la que decide si el proyecto sirve o queda en una licencia pagada.',
-  },
-  {
-    q: '¿Cómo sé si una herramienta se me queda grande?',
-    a: 'Las señales aparecen en la propia demo: integraciones complejas, módulos que no vas a usar, captura de datos de máquina vía SCADA o un equipo de implantación dedicado. Todo eso tiene sentido en gran industria, pero en una pyme se traduce en coste, lentitud y funciones que nadie tocará.',
-  },
-  {
-    q: '¿Por qué muchos competidores no publican precio?',
-    a: 'Porque su venta pasa por un proceso comercial con configuración a medida, algo habitual en producto enterprise. No es necesariamente malo, pero sí es información: si necesitas varias llamadas solo para saber cuánto cuesta, el proyecto tampoco va a ser ligero. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo.',
-  },
-  {
-    q: '¿Cómo se prueba una alternativa con poco riesgo?',
-    a: 'Sin migrar nada: eliges los tres procesos más críticos, los documentas con quien los domina y compruebas una cosa concreta, si un sustituto puede seguirlos sin llamar al experto. Esa prueba se hace en semanas y responde a la única pregunta que importa antes de comprometerse.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -68,13 +55,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Comparación honesta</div>
-    <h1 class="fade-up delay-1">Alternativa ligera para pyme: <br><em>REELEVO vs otras opciones</em></h1>
-    <p class="fade-up delay-2">Compara en 5 criterios: precio, arranque, adopcion operativa, idioma y encaje real para pyme industrial espanola.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/precios/" class="btn-ghost">Ver precios</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
   </section>
 
@@ -443,20 +434,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Si ya lo has comparado</div>
-    <h2 class="cta-title fade-up delay-1">Si quieres verlo por dentro, <br><em>pruébalo en tu propio contexto</em>
-    </h2>
-    <p class="cta-sub fade-up delay-2">Abre la plataforma, revisa cómo se estructura y compárala con lo que hoy te está funcionando de verdad.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h2 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h2>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Entrar a REELEVO →
-      </a>
-      <a href="/precios/" class="btn-ghost">Ver precios completos
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Implementación asistida incluida · Soporte en español · Sin letra pequeña
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

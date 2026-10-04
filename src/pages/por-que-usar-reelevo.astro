@@ -4,9 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Por qué usar REELEVO en tu pyme industrial | REELEVO";
-const description = "Los nueve problemas por los que una pyme industrial acaba comprando REELEVO: errores repetidos, incorporaciones lentas y dependencia de una persona.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/por-que-usar-reelevo.json.
+const pagina = await getPagina('por-que-usar-reelevo');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/por-que-usar-reelevo/";
 
 // Hub de autodiagnostico (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M2).
@@ -85,28 +89,7 @@ const problemas = [
 ];
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Tengo que resolver los nueve a la vez?',
-    a: 'No, y no conviene. Casi ninguna planta los tiene los nueve, y las que arrancan bien lo hacen por dos o tres procesos concretos: el que más se para, el que más errores repite o el que solo sabe hacer una persona. El resto se añade cuando el primero ya está funcionando.',
-  },
-  {
-    q: '¿Qué problema resuelve REELEVO exactamente?',
-    a: 'La dependencia de personas concretas. Cuando el conocimiento de cómo se hace cada trabajo vive solo en la cabeza de unos pocos, cada baja, jubilación o incorporación desordena el turno. REELEVO lleva ese conocimiento al puesto y registra la ejecución para que deje de depender de quién esté.',
-  },
-  {
-    q: '¿En qué se diferencia de un MES?',
-    a: 'Un MES cubre planificación de capacidad, integración con el ERP y a menudo captura de datos de máquina, con la inversión que eso implica. REELEVO se queda en la capa operativa: el proceso en el puesto y la ejecución registrada. Para una pyme suele ser el primer paso y el que más retorno da.',
-  },
-  {
-    q: '¿Por qué no basta con Excel y carpetas compartidas?',
-    a: 'Porque no tienen coste de licencia pero sí coste oculto: el operario no abre un PDF del servidor, llama al veterano; circulan varias versiones del mismo documento y nadie sabe cuál vale; y no queda rastro de qué se hizo. El problema no es el formato, es dónde vive la información.',
-  },
-  {
-    q: '¿Qué hace falta por nuestra parte para empezar?',
-    a: 'Elegir dos o tres procesos críticos y documentarlos con quien los domina, idealmente grabando mientras se ejecutan. La configuración técnica es de un día; el trabajo real es ese, y es el que no puede hacer el proveedor por ti.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -130,9 +113,9 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   activeNav="por-que-usar-reelevo" pageType="core">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Autodiagnóstico · Nueve problemas de planta</div>
-    <h1 class="fade-up delay-1">¿Cuál de estos <br><em>nueve problemas tienes hoy?</em></h1>
-    <p class="fade-up delay-2">Casi ninguna pyme industrial los tiene los nueve. Con dos basta para que la planta vaya a trompicones. Elige el tuyo y verás qué cambia exactamente.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <Ilustracion escena="por-que-usar-reelevo" />
   </section>
 
@@ -248,22 +231,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza por lo crítico</div>
-    <h3 class="cta-title fade-up delay-1">
-      Empieza por el problema <br><em>que has reconocido primero</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      No hace falta ordenar la planta entera para notar la diferencia. Coge el proceso que hoy depende de una sola persona
-      y móntalo. Si eso funciona, el resto es repetir.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/precios/" class="btn-ghost">Ver planes →</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">
-      Precio publicado · Implantación ligera · Soporte en español
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 
 </BaseLayout>

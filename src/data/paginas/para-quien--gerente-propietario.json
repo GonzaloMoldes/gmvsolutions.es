@@ -1,0 +1,51 @@
+{
+  "seo": {
+    "title": "Software operaciones pyme industrial para gerencia | REELEVO",
+    "description": "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa."
+  },
+  "hero": {
+    "antetitulo": "Para gerentes y propietarios",
+    "titulo": "Control operativo para gerencia,",
+    "tituloDestacado": "sin complejidad MES",
+    "texto": "Identifica riesgos de continuidad, ordena puestos críticos y gana visibilidad diaria sin abrir un proyecto largo ni difícil de defender internamente.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-cuando-tiene-sentido-para-una-gerencia-meterse",
+        "q": "¿Cuándo tiene sentido para una gerencia meterse en esto?",
+        "a": "Cuando el coste de improvisar ya se nota en el día a día: hay puestos donde faltar una persona desordena la operación, los expertos siguen dedicando demasiado tiempo a enseñar, quieres ordenar procesos críticos sin depender de un proyecto de IT largo, o buscas claridad comercial con precio visible e implantación asumible. No hace falta convertirlo en un proyecto estratégico enorme."
+      },
+      {
+        "id": "faq-cuanto-compromiso-supone-empezar",
+        "q": "¿Cuánto compromiso supone empezar?",
+        "a": "Se empieza por un proceso y un puesto, con precio público y sin llamada comercial obligatoria. La idea es justo la contraria a una transformación gigantesca: si el primer proceso documentado no cambia nada en tu operativa, no hay motivo para seguir."
+      },
+      {
+        "id": "faq-que-riesgo-reduce-concretamente",
+        "q": "¿Qué riesgo reduce concretamente?",
+        "a": "El de depender de dos o tres personas para que la planta funcione. Cuando el conocimiento crítico está solo en la cabeza de quien lleva quince años, una baja, una jubilación o una salida se convierten en un problema de continuidad, no de recursos humanos."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Para decisores",
+    "titulo": "Reduce el riesgo operativo",
+    "tituloDestacado": "de forma sostenida",
+    "texto": "Regístrate, revisa el producto por dentro y valora si encaja con tu planta. Empezamos por procesos críticos y medimos impacto con tu realidad operativa.",
+    "nota": "Ver también [precios](/precios/) o [qué resuelve](/por-que-usar-reelevo/).\nPrecio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO →",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "tipo": "rol"
+}

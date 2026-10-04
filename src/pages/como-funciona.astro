@@ -3,9 +3,13 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StorylaneDemo from '../components/StorylaneDemo.astro';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Cómo funciona REELEVO: instrucciones de trabajo digitales en 3 pasos";
-const description = "Cómo funciona REELEVO, el software de instrucciones de trabajo digitales: capturar el proceso, dejarlo en el puesto y ejecutarlo paso a paso con trazabilidad.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/como-funciona.json.
+const pagina = await getPagina('como-funciona');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/como-funciona/";
 
 const howToSchema = {
@@ -201,12 +205,14 @@ const schema = [howToSchema, faqSchema];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Flujo completo</div>
-    <h1 class="fade-up delay-1">Así pasa tu planta de depender del experto <br>a trabajar con <em>más continuidad</em>.</h1>
-    <p class="fade-up delay-2">Cuando falta alguien clave, el turno no debería tambalearse. Este es el recorrido real en 3 pasos: capturar conocimiento útil, dejarlo disponible en el puesto y ejecutarlo sin depender de una llamada.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <em>{pagina.hero.tituloDestacado}</em></>}.</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="fade-up delay-3" style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="como-funciona" />
   </section>
@@ -556,18 +562,19 @@ const schema = [howToSchema, faqSchema];
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Última comprobación</div>
-    <div class="cta-title fade-up delay-1">Elige un proceso crítico <br><em>y pruébalo en contexto real</em>
-    </div>
-    <p class="cta-sub fade-up delay-2">Entra, revisa cómo se trabaja en el puesto y valida si encaja con tu realidad operativa.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <div class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</div>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →</a>
-      <a href="/precios/" class="btn-ghost">Ver precios</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Sin letra pequeña · Acompañamiento en marcha · Resultado visible desde el primer bloque
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

@@ -54,12 +54,15 @@ export async function getPaginaFaqs(): Promise<PaginaFaqs> {
   return mezclar(faqsDefecto, await getDocumento('paginaFaqs', `{ ..., categorias[]{ ..., "preguntas": preguntas${PREGUNTAS} } }`));
 }
 
-// Paginas de funcionalidad: un JSON por pagina en src/data/paginas/<slug>.json
-// y un documento «paginaFuncionalidad» con _id «pagina-<slug>» en Sanity.
+// Paginas (funcionalidad, comparativas, roles, sectores...): un JSON por pagina
+// en src/data/paginas/<slug>.json y un documento «paginaFuncionalidad» con _id
+// «pagina-<slug>» en Sanity. En las rutas con carpeta, la barra pasa a «--»
+// (para-quien/jefe-de-produccion -> para-quien--jefe-de-produccion).
 const paginasDefecto = import.meta.glob<PaginaFuncionalidad>('../data/paginas/*.json', { eager: true, import: 'default' });
 export type PaginaFuncionalidad = typeof import('../data/paginas/portal-operario.json');
 
-export async function getPagina(slug: string): Promise<PaginaFuncionalidad> {
+export async function getPagina(ruta: string): Promise<PaginaFuncionalidad> {
+  const slug = ruta.replace(/\//g, '--');
   const defecto = paginasDefecto[`../data/paginas/${slug}.json`];
   if (!defecto) throw new Error(`Falta src/data/paginas/${slug}.json`);
   return mezclar(defecto, await getDocumento(`pagina-${slug}`, `{ ..., faq{ ..., "items": items${PREGUNTAS} } }`));
@@ -82,8 +85,12 @@ const urlSegura = (url: string) => /^(\/|#|https:\/\/|mailto:)/.test(url);
 export function conNegritas(texto: string): string {
   return escapar(texto)
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, url) => (urlSegura(url) ? `<a href="${url}">${t}</a>` : t));
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, url) => (urlSegura(url) ? `<a href="${url}">${t}</a>` : t))
+    .replace(/\n/g, '<br>');
 }
+
+/** Titular: texto escapado, con cada salto de linea del panel como <br>. */
+export const conSaltos = (texto: string) => escapar(texto).replace(/\n/g, '<br>');
 
 /** Como conNegritas, pero cada bloque separado por una linea en blanco es un <p>. */
 export const parrafos = (texto: string) =>

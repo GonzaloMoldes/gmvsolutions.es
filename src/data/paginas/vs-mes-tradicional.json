@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Alternativa ligera a un MES para pymes | REELEVO",
+    "description": "¿Buscas un MES y eres pyme industrial? Quizá no lo necesitas. MES frente a plataforma operativa ligera: precio, implantación y adopción real."
+  },
+  "hero": {
+    "antetitulo": "Comparativa de categoría",
+    "titulo": "¿Buscas un MES pero eres pyme?",
+    "tituloDestacado": "Quizá no lo necesitas.",
+    "texto": "Un MES resuelve problemas de planta grande y compleja. Si eres una pyme industrial, compara el enfoque MES con una plataforma operativa ligera en 5 criterios: idioma, precio, implantación, adopción del operario y encaje real.",
+    "botones": [
+      {
+        "texto": "Comparar criterios",
+        "url": "#comparativa"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-hace-un-mes-que-no-haga",
+        "q": "¿Qué hace un MES que no haga REELEVO?",
+        "a": "Planificación de capacidad, integración profunda con el ERP, gestión de materiales y, en muchos casos, captura de datos directamente de máquina vía SCADA o autómatas. Es un alcance mayor, con la inversión y el tiempo de implantación que eso conlleva."
+      },
+      {
+        "id": "faq-necesita-una-pyme-industrial-un-mes",
+        "q": "¿Necesita una pyme industrial un MES?",
+        "a": "Casi nunca como primer paso. La mayor parte del retorno inicial está antes: en digitalizar el proceso y capturar el dato de la ejecución donde ocurre el trabajo. Un MES resuelve problemas de planificación que solo aparecen cuando lo básico ya está resuelto."
+      },
+      {
+        "id": "faq-reelevo-es-un-mes-ligero",
+        "q": "¿REELEVO es un MES ligero?",
+        "a": "No, y no conviene venderlo así. Es la capa operativa: el proceso en el puesto y la ejecución registrada. Si lo que necesitas es planificación de capacidad o integración de materiales con el ERP, eso es territorio de un MES y REELEVO no lo cubre."
+      },
+      {
+        "id": "faq-puedo-empezar-por-reelevo-y-poner-un",
+        "q": "¿Puedo empezar por REELEVO y poner un MES más adelante?",
+        "a": "Sí, y es el orden que suele funcionar. Tener los procesos documentados y el dato de ejecución capturado hace que cualquier proyecto posterior parta de una base real en lugar de intentar automatizar algo que nadie ha ordenado antes."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza sin sobredimensionar",
+    "titulo": "Empieza ligero,",
+    "tituloDestacado": "por los procesos que más te frenan",
+    "texto": "No hace falta un proyecto de meses ni un despliegue pesado. Coge primero los puntos donde más improvisas y deja el resto para después.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver comparativa de alternativas →",
+        "url": "/vs-alternativas/"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

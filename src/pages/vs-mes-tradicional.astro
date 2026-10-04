@@ -4,33 +4,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Alternativa ligera a un MES para pymes | REELEVO";
-const description = "¿Buscas un MES y eres pyme industrial? Quizá no lo necesitas. MES frente a plataforma operativa ligera: precio, implantación y adopción real.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/vs-mes-tradicional.json.
+const pagina = await getPagina('vs-mes-tradicional');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/vs-mes-tradicional/";
 
 // Era ComparisonChart, un @type que no existe en schema.org: el buscador
 // descartaba el bloque entero y la pagina se quedaba sin schema de contenido.
 // WebPage + about es el equivalente valido para una comparativa.
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué hace un MES que no haga REELEVO?',
-    a: 'Planificación de capacidad, integración profunda con el ERP, gestión de materiales y, en muchos casos, captura de datos directamente de máquina vía SCADA o autómatas. Es un alcance mayor, con la inversión y el tiempo de implantación que eso conlleva.',
-  },
-  {
-    q: '¿Necesita una pyme industrial un MES?',
-    a: 'Casi nunca como primer paso. La mayor parte del retorno inicial está antes: en digitalizar el proceso y capturar el dato de la ejecución donde ocurre el trabajo. Un MES resuelve problemas de planificación que solo aparecen cuando lo básico ya está resuelto.',
-  },
-  {
-    q: '¿REELEVO es un MES ligero?',
-    a: 'No, y no conviene venderlo así. Es la capa operativa: el proceso en el puesto y la ejecución registrada. Si lo que necesitas es planificación de capacidad o integración de materiales con el ERP, eso es territorio de un MES y REELEVO no lo cubre.',
-  },
-  {
-    q: '¿Puedo empezar por REELEVO y poner un MES más adelante?',
-    a: 'Sí, y es el orden que suele funcionar. Tener los procesos documentados y el dato de ejecución capturado hace que cualquier proyecto posterior parta de una base real en lugar de intentar automatizar algo que nadie ha ordenado antes.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,12 +38,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="comparativa">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Comparativa de categoría</div>
-    <h1 class="fade-up delay-1">¿Buscas un MES pero eres pyme? <br><em>Quizá no lo necesitas.</em></h1>
-    <p class="fade-up delay-2">Un MES resuelve problemas de planta grande y compleja. Si eres una pyme industrial, compara el enfoque MES con una plataforma operativa ligera en 5 criterios: idioma, precio, implantación, adopción del operario y encaje real.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-      <a href="#comparativa" class="btn-primary"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">Comparar criterios</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Comparar criterios">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
   </section>
 
@@ -190,15 +179,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza sin sobredimensionar</div>
-    <h3 class="cta-title fade-up delay-1">Empieza ligero, <br><em>por los procesos que más te frenan</em></h3>
-    <p class="cta-sub fade-up delay-2">
-      No hace falta un proyecto de meses ni un despliegue pesado. Coge primero los puntos donde más improvisas y deja el resto para después.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/vs-alternativas/" class="btn-ghost">Ver comparativa de alternativas →</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 </BaseLayout>

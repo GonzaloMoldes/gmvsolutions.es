@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "REELEVO vs Dozuki: comparativa para pyme industrial",
+    "description": "Comparativa de software de instrucciones de trabajo digitales: Dozuki vs REELEVO en idioma, precio, implantación y adopción para pyme industrial española."
+  },
+  "hero": {
+    "antetitulo": "Comparativa de herramientas",
+    "titulo": "Dozuki vs REELEVO",
+    "tituloDestacado": "¿Cuál es mejor para tu pyme?",
+    "texto": "Dos opciones de software de instrucciones de trabajo digitales, comparadas en 5 criterios para pyme industrial: idioma, precio, implantación, adopción del operario y encaje real.",
+    "botones": [
+      {
+        "texto": "Comparar criterios",
+        "url": "#comparativa"
+      },
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-diferencia-principal-hay-entre-reelevo-y",
+        "q": "¿Qué diferencia principal hay entre REELEVO y Dozuki?",
+        "a": "El encaje. Dozuki es una plataforma consolidada orientada a industria grande y mercado anglosajón; REELEVO está diseñado en español para pymes industriales, con precio público por empresa y arranque ligero. No es que uno sea mejor: resuelven el mismo problema para tamaños de empresa distintos."
+      },
+      {
+        "id": "faq-dozuki-esta-en-espanol",
+        "q": "¿Dozuki está en español?",
+        "a": "Su producto y su soporte son de origen anglosajón, así que la experiencia en español depende de traducción. Para una plantilla hispanohablante eso no es un detalle estético: el idioma de la interfaz y del soporte es uno de los factores que más pesa en si el operario acaba usando la herramienta."
+      },
+      {
+        "id": "faq-cuanto-cuesta-dozuki-frente-a-reelevo",
+        "q": "¿Cuánto cuesta Dozuki frente a REELEVO?",
+        "a": "REELEVO publica su precio desde 49 € al mes por empresa. Dozuki no publica tarifa cerrada y su contratación pasa por proceso comercial, por lo que cualquier cifra concreta sería una estimación. Los datos de la tabla salen de información pública y de configuraciones vistas en partners; cuando un proveedor no publica precio, lo indicamos como tal en vez de estimarlo."
+      },
+      {
+        "id": "faq-cuando-tendria-mas-sentido-dozuki",
+        "q": "¿Cuándo tendría más sentido Dozuki?",
+        "a": "Si eres una empresa grande o multinacional, trabajas en inglés, necesitas integraciones profundas con sistemas corporativos y tienes equipo para sostener una implantación larga. En ese escenario una plataforma enterprise encaja mejor que una pensada para arrancar rápido en una pyme."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Si Dozuki no te encaja",
+    "titulo": "¿Quieres una alternativa más ligera?",
+    "tituloDestacado": "REELEVO puede encajar mejor",
+    "texto": "Si buscas una opción más cercana a la forma de trabajar de una pyme industrial, aquí puedes comparar sin ruido y sin promesas de catálogo.",
+    "nota": "",
+    "botones": [
+      {
+        "texto": "Ver REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios →",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "comparativa"
+}

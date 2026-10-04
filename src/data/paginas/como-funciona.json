@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Cómo funciona REELEVO: instrucciones de trabajo digitales en 3 pasos",
+    "description": "Cómo funciona REELEVO, el software de instrucciones de trabajo digitales: capturar el proceso, dejarlo en el puesto y ejecutarlo paso a paso con trazabilidad."
+  },
+  "hero": {
+    "antetitulo": "Flujo completo",
+    "titulo": "Así pasa tu planta de depender del experto\na trabajar con",
+    "tituloDestacado": "más continuidad",
+    "texto": "Cuando falta alguien clave, el turno no debería tambalearse. Este es el recorrido real en 3 pasos: capturar conocimiento útil, dejarlo disponible en el puesto y ejecutarlo sin depender de una llamada.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Última comprobación",
+    "titulo": "Elige un proceso crítico",
+    "tituloDestacado": "y pruébalo en contexto real",
+    "texto": "Entra, revisa cómo se trabaja en el puesto y valida si encaja con tu realidad operativa.",
+    "nota": "Sin letra pequeña · Acompañamiento en marcha · Resultado visible desde el primer bloque",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO →",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "general"
+}

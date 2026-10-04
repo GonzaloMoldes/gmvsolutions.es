@@ -3,28 +3,19 @@ import Ilustracion from '../../components/Ilustracion.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Software de operaciones para mecanizado CNC | REELEVO";
-const description = "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/sectores--mecanizado-cnc.json.
+const pagina = await getPagina('sectores/mecanizado-cnc');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/sectores/mecanizado-cnc/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe las
 // secciones "Lo que aporta" y "Limites y alcance" (tarea D4 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué aporta REELEVO concretamente en un taller de mecanizado?',
-    a: 'Cuatro cosas medibles en el día a día: el puesto aguanta mejor bajas, cambios de turno y sustituciones sin depender tanto del titular; los arranques y cambios de utillaje delicados dejan de apoyarse solo en memoria o en una llamada; producción gana información para reorganizar y ver dónde sigue habiendo fragilidad; y el onboarding en puesto crítico deja una base útil para acompañar la autonomía del que aprende.',
-  },
-  {
-    q: '¿Sirve si cada pieza que hacemos es distinta?',
-    a: 'Sí, es el caso habitual en mecanizado por encargo. Lo que se documenta no es la pieza sino el proceso —el arranque de la máquina, el cambio de utillaje, el criterio de control— que se repite aunque la referencia cambie. Y cada unidad puede llevar su trazabilidad individual si el cliente la exige.',
-  },
-  {
-    q: '¿Qué no hay que esperar de esto?',
-    a: 'No es un sustituto de todos tus sistemas de planta, ni una promesa universal para cualquier proceso complejo, ni un reemplazo del criterio de producción o calidad. Tampoco es una garantía de rendimiento sin acompañamiento operativo: lo que sí aporta es menos improvisación en arranques y puestos críticos, más claridad para producción y calidad, y más continuidad cuando falta la persona clave.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,16 +42,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   pageType="sector"
 >
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software de operaciones para mecanizado CNC</div>
-    <h1 class="fade-up delay-1">Continuidad operativa en <br><em>mecanizado y CNC</em></h1>
-    <p class="fade-up delay-2">
-      En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos
-      críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia
-      visible, para sostener la continuidad sin depender de una sola persona.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque prudente · Continuidad operativa para puestos críticos</div>
     <Ilustracion escena="mecanizado-cnc" />
@@ -185,20 +174,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Tiene sentido en tu taller?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Si trabajas en mecanizado o CNC, <br><em>vemos el encaje real contigo</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Si te encaja, regístrate en REELEVO y pruébalo en tu planta y valora si puede aportar más continuidad,
-      más claridad y menos dependencia del titular en tu operativa real.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4"> <br />Ver también <a href="/para-quien/jefe-de-produccion/">jefe de producción</a>, <a href="/para-quien/responsable-calidad/">responsable de calidad</a> o el sector <a href="/sectores/alimentacion/">alimentación</a>.</div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 

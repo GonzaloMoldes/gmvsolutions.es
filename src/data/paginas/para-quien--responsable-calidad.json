@@ -1,0 +1,55 @@
+{
+  "seo": {
+    "title": "Software calidad operativa industrial | REELEVO",
+    "description": "Software de calidad operativa con evidencia de ejecución: revisa qué se siguió y cuándo, soporta cambios de proceso y vigila puestos sensibles en planta."
+  },
+  "hero": {
+    "antetitulo": "Para calidad y compliance",
+    "titulo": "Más claridad para revisar.",
+    "tituloDestacado": "Menos dependencia de papeles y memoria.",
+    "texto": "REELEVO ayuda a calidad a revisar mejor lo que pasa en planta: qué referencia estaba visible, cuándo ocurrió el trabajo, cómo terminó y dónde sigue haciendo falta apoyo. Sin convertirlo en más burocracia y sin inflar el alcance legal.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-gana-calidad-con-esto-sin-montar",
+        "q": "¿Qué gana calidad con esto sin montar más burocracia?",
+        "a": "Revisar con menos intuición: menos dependencia de la memoria, de correos o de explicaciones posteriores para entender qué pasó. Más claridad para ver cómo aterrizan las nuevas referencias y los cambios operativos en el puesto. Una base más útil para hablar con producción sobre incidencias y puntos débiles. Y soporte real a la formación en puestos sensibles, más allá de listas de asistencia y firmas."
+      },
+      {
+        "id": "faq-sustituye-a-mi-sistema-de-calidad",
+        "q": "¿Sustituye a mi sistema de calidad?",
+        "a": "No, y no vamos a exagerarlo. Sí aporta más claridad para la revisión interna, más contexto ante cambios de proceso y desviaciones, más continuidad entre calidad, operación y formación, y una base más útil para puestos sensibles. No es un sustituto automático de tu sistema de calidad, ni una garantía legal universal para cualquier norma o sector, ni una certificación formal completa de competencias, ni un reemplazo del criterio del responsable de calidad."
+      },
+      {
+        "id": "faq-por-donde-empiezo-si-llevo-calidad-en",
+        "q": "¿Por dónde empiezo si llevo calidad en una pyme?",
+        "a": "Por el proceso donde más veces has tenido que reconstruir a posteriori qué se hizo. Con ese documentado y ejecutándose en el puesto ya se ve si el registro que deja te sirve para una revisión interna, sin haber cambiado tu sistema de calidad."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Revisión final",
+    "titulo": "Si llevas calidad o compliance,",
+    "tituloDestacado": "mira el encaje con casos reales de planta",
+    "texto": "Regístrate, revisa el producto con tu equipo y valora si aporta más claridad a tu revisión interna, a los cambios de proceso y a los puestos sensibles, sin promesas infladas.",
+    "nota": "Ver también el encaje en [mecanizado y CNC](/sectores/mecanizado-cnc/) o [calidad y conformidad](/calidad-y-conformidad/).\nImplementación asistida · Enfoque prudente para calidad y compliance",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver datos y continuidad →",
+        "url": "/sobre-nosotros/#portabilidad"
+      }
+    ]
+  },
+  "tipo": "rol"
+}
