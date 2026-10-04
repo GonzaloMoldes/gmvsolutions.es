@@ -1,0 +1,51 @@
+{
+  "lema": "Software de instrucciones de trabajo digitales",
+  "ctaCabecera": { "texto": "Probar gratis", "url": "https://app.gmvsolutions.es/registro" },
+  "notaMenuMovil": "Sin tarjeta · Sin compromiso",
+  "email": "hola@gmvsolutions.es",
+  "direccion": ["GMV Solutions", "Rua Marola, 15002", "A Coruña, España"],
+  "linkedin": "https://www.linkedin.com/company/reelevo",
+  "columnasPie": [
+    {
+      "titulo": "Gestión y producción",
+      "enlaces": [
+        { "texto": "Software de gestión industrial", "url": "/software-gestion-pyme-industrial/" },
+        { "texto": "Control de producción", "url": "/control-produccion/" },
+        { "texto": "OEE y análisis Lean", "url": "/oee/" },
+        { "texto": "Mantenimiento preventivo", "url": "/mantenimiento/" },
+        { "texto": "Planificación y cobertura de turnos", "url": "/cobertura-turnos/" }
+      ]
+    },
+    {
+      "titulo": "Procesos y personas",
+      "enlaces": [
+        { "texto": "Documentación de procesos", "url": "/documentacion-procesos/" },
+        { "texto": "Gestión de competencias", "url": "/gestion-competencias/" },
+        { "texto": "Kaizen y mejora continua", "url": "/kaizen/" },
+        { "texto": "Portal del operario", "url": "/portal-operario/" },
+        { "texto": "Seguridad y RGPD", "url": "/seguridad/" }
+      ]
+    },
+    {
+      "titulo": "Comparativas",
+      "enlaces": [
+        { "texto": "Alternativa al MES tradicional", "url": "/vs-mes-tradicional/" },
+        { "texto": "REELEVO vs Excel y papel", "url": "/vs-excel-papel/" },
+        { "texto": "Comparativa de software SOP", "url": "/vs-alternativas/" },
+        { "texto": "Kit Digital para industria", "url": "/kit-digital-pyme-industrial/" }
+      ]
+    },
+    {
+      "titulo": "REELEVO",
+      "enlaces": [
+        { "texto": "Cómo funciona", "url": "/como-funciona/" },
+        { "texto": "Qué resuelve", "url": "/por-que-usar-reelevo/" },
+        { "texto": "Ver el demo", "url": "/video-demo/" },
+        { "texto": "Precios", "url": "/precios/" },
+        { "texto": "Recursos y guías", "url": "/recursos/" },
+        { "texto": "Blog", "url": "/blog/" },
+        { "texto": "Sobre nosotros", "url": "/sobre-nosotros/" }
+      ]
+    }
+  ]
+}

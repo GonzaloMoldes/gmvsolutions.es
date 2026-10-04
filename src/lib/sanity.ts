@@ -95,3 +95,25 @@ export function getArticulos(): Promise<ArticuloSanity[]> {
     });
   return cache;
 }
+
+const cacheDocs = new Map<string, Promise<Record<string, unknown> | null>>();
+
+/**
+ * Documento unico publicado (home, ajustes...) por su _id, o null si no existe,
+ * si Sanity no responde o en modo fixture. Igual que con los articulos, un
+ * fallo nunca rompe el build: quien llama cae a sus valores por defecto.
+ */
+export function getDocumento(id: string): Promise<Record<string, unknown> | null> {
+  if (!client || import.meta.env.SANITY_FIXTURE) return Promise.resolve(null);
+  let p = cacheDocs.get(id);
+  if (!p) {
+    p = client
+      .fetch<Record<string, unknown> | null>(`*[_id == $id][0]`, { id })
+      .catch((err: Error) => {
+        console.warn(`\n[sanity] AVISO: no se pudo leer «${id}»: ${err.message}\n[sanity] Se usan los textos por defecto del codigo.\n`);
+        return null;
+      });
+    cacheDocs.set(id, p);
+  }
+  return p;
+}

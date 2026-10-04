@@ -64,7 +64,7 @@ const bloqueTexto = defineArrayMember({
             type: 'object',
             options: { collapsible: true, collapsed: true },
             fields: [
-              defineField({ name: 'intent', title: 'Intención', type: 'string', options: { list: ['registro', 'demo', 'contacto', 'diagnostico', 'contenido'] } }),
+              defineField({ name: 'intent', title: 'Intención', type: 'string', options: { list: ['registro', 'demo', 'contacto', 'diagnostico', 'contenido', 'descarga', 'producto', 'precios', 'navegacion'] } }),
               defineField({ name: 'location', title: 'Ubicación', type: 'string', initialValue: 'body' }),
               defineField({ name: 'trigger', title: 'Disparador (01-09)', type: 'string' }),
               defineField({ name: 'label', title: 'Etiqueta', type: 'string' }),

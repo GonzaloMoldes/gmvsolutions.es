@@ -4,9 +4,13 @@ import Screenshot from '../components/Screenshot.astro';
 import Ilustracion from '../components/Ilustracion.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema } from '../lib/seo';
+import { getHome, conNegritas, etiquetaCta } from '../lib/contenido';
 
-const title = "Software de instrucciones de trabajo digitales para pymes | REELEVO";
-const description = "REELEVO es el software de instrucciones de trabajo digitales para pymes industriales: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada y sin la complejidad de un MES.";
+// Textos editables desde Sanity (Página de inicio). Respaldo: src/data/home.default.json.
+const home = await getHome();
+
+const title = home.seo.title;
+const description = home.seo.description;
 const canonical = "https://www.gmvsolutions.es/";
 
 // La Organization se emite globalmente desde BaseLayout (src/lib/seo.ts).
@@ -108,16 +112,20 @@ const schema = [
 const pictos = import.meta.glob('../assets/pictogramas/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const picto = (n: string) => pictos[`../assets/pictogramas/${n}.svg`];
 
+// Cifra de §02 tal como se escribe en el panel («7,2», «40», «3–5»): cada
+// numero se envuelve en .h-count para que el script de abajo lo anime.
+const cifraAnimada = (valor: string) =>
+  valor
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/\d+(?:,\d+)?/g, (m) => {
+      const dec = m.includes(',') ? m.split(',')[1].length : 0;
+      return `<span class="h-count" data-to="${m.replace(',', '.')}" data-dec="${dec}">${m}</span>`;
+    });
+
 // Objeciones previas al alta. Mismo texto para el bloque visible y el FAQPage.
 // Solo afirmaciones que el resto del sitio ya sostiene (featureList, /modo-offline,
 // /precios).
-const faqs = [
-  { q: '¿Qué es un software de instrucciones de trabajo digitales?', a: 'Una herramienta que sustituye los procedimientos en papel o PDF por instrucciones paso a paso que el operario abre en el puesto, con foto y vídeo y una única versión vigente. REELEVO es el software de instrucciones de trabajo digitales pensado para la pyme industrial: se abre con un QR en la máquina y cada ejecución queda registrada.' },
-  { q: '¿Necesita cada operario una cuenta?', a: 'No. Los procedimientos se ejecutan en el puesto sin cuenta de operario: el operario abre el proceso de su máquina y lo sigue paso a paso.' },
-  { q: '¿Funciona en tablet o móvil?', a: 'Sí. REELEVO funciona en web, Android e iOS, así que vale la tablet del puesto o el móvil del supervisor.' },
-  { q: '¿Y si se cae la conexión en planta?', a: 'El flujo de ejecución aguanta los cortes de wifi: lo ya abierto sigue disponible y lo registrado se encola y se sincroniza solo al volver la conexión.' },
-  { q: '¿Qué pasa al acabar los 60 días de prueba?', a: 'Tu cuenta pasa al plan gratuito. No pierdes lo que hayas montado y decides después si te compensa un plan de pago.' },
-];
+const faqs = home.faq.items.map(({ q, a }) => ({ q, a }));
 schema.push(faqPageSchema(faqs));
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="core">
@@ -126,18 +134,16 @@ schema.push(faqPageSchema(faqs));
   <section class="h-hero">
     <div class="h-wrap h-hero-grid">
       <div class="h-hero-copy">
-        <div class="h-ref"><span class="h-ref-tag">REF. 00</span> Hecho en España · pymes industriales</div>
-        <h1 class="h-title">Software de instrucciones de trabajo digitales.</h1>
-        <p class="h-lead">
-          Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO convierte lo que saben en instrucciones de trabajo digitales, paso a paso y en el puesto, para que el turno siga sin ellas.
-        </p>
+        <div class="h-ref"><span class="h-ref-tag">REF. 00</span> {home.hero.referencia}</div>
+        <h1 class="h-title">{home.hero.titulo}</h1>
+        <p class="h-lead" set:html={conNegritas(home.hero.entradilla)} />
         <div class="h-actions">
-          <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-             data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Probar gratis 60 días">Probar gratis 60 días →</a>
-          <a href="/video-demo/" class="btn-ghost"
-             data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label="Ver demo de 2 min">Ver demo de 2 min</a>
+          <a href={home.hero.ctaPrincipal.url} class="btn-primary"
+             data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label={etiquetaCta(home.hero.ctaPrincipal.texto)}>{home.hero.ctaPrincipal.texto}</a>
+          <a href={home.hero.ctaSecundario.url} class="btn-ghost"
+             data-cta data-cta-intent="demo" data-cta-location="hero" data-cta-label={etiquetaCta(home.hero.ctaSecundario.texto)}>{home.hero.ctaSecundario.texto}</a>
         </div>
-        <p class="h-note">Sin tarjeta · Sin compromiso · Sin llamada comercial</p>
+        <p class="h-note">{home.hero.nota}</p>
       </div>
       <Ilustracion escena="hero" class="h-hero-ilus" />
     </div>
@@ -147,10 +153,7 @@ schema.push(faqPageSchema(faqs));
          en la FAQ y en /precios. -->
     <div class="h-wrap">
       <dl class="h-spec">
-        <div><dt>Prueba</dt><dd>60 días del plan Pro</dd></div>
-        <div><dt>Operarios</dt><dd>Sin cuenta en el puesto</dd></div>
-        <div><dt>Dispositivos</dt><dd>Web · Android · iOS</dd></div>
-        <div><dt>Conexión</dt><dd>Aguanta cortes en planta</dd></div>
+        {home.hero.ficha.map((d) => <div><dt>{d.etiqueta}</dt><dd>{d.valor}</dd></div>)}
       </dl>
     </div>
   </section>
@@ -160,46 +163,22 @@ schema.push(faqPageSchema(faqs));
     <div class="h-wrap">
       <div class="h-head fade-up">
         <div>
-          <div class="h-kicker">§01 · El día a día</div>
-          <h2 class="h-h2">Cuatro partes que se repiten en cualquier planta</h2>
+          <div class="h-kicker">{home.escenas.antetitulo}</div>
+          <h2 class="h-h2">{home.escenas.titulo}</h2>
         </div>
-        <p class="h-head-sub">
-          REELEVO es el <strong>software de instrucciones de trabajo digitales</strong> de las pymes industriales españolas: el procedimiento vive en la máquina, se abre con el móvil y cada ejecución queda registrada. Sobre esas instrucciones se apoyan la continuidad ante bajas, el control de producción y la trazabilidad, sin implantar un MES. Está hecho para estas cuatro escenas.
-        </p>
+        <p class="h-head-sub" set:html={conNegritas(home.escenas.texto)} />
       </div>
       <div class="h-inc fade-up delay-1">
-        <article class="h-inc-card">
-          <div class="h-inc-top"><span>INC-01</span><span>MAR · 06:30</span></div>
-          <div class="h-inc-body">
-            <div class="h-inc-tag">El experto no ha venido</div>
-            <h3>«Javi está de baja. ¿Quién arranca la llenadora?»</h3>
-            <p>Su sustituto no domina el proceso y la línea no arranca hasta que Javi coja el teléfono.</p>
-          </div>
-        </article>
-        <article class="h-inc-card">
-          <div class="h-inc-top"><span>INC-02</span><span>LUN · 08:00</span></div>
-          <div class="h-inc-body">
-            <div class="h-inc-tag">Incorporación nueva</div>
-            <h3>«Es su primer día. Alguien tiene que enseñarle.»</h3>
-            <p>Tu mejor operario deja su máquina para hacer de tutor. Dos personas ocupadas, un puesto produciendo.</p>
-          </div>
-        </article>
-        <article class="h-inc-card">
-          <div class="h-inc-top"><span>INC-03</span><span>MIÉ · 09:15</span></div>
-          <div class="h-inc-body">
-            <div class="h-inc-tag">La operación diaria</div>
-            <h3>«¿Quién hizo qué ayer en la línea 3?»</h3>
-            <p>La producción pasa y no queda registro: ni quién ejecutó ni cuántas unidades salieron.</p>
-          </div>
-        </article>
-        <article class="h-inc-card">
-          <div class="h-inc-top"><span>INC-04</span><span>3 TURNOS</span></div>
-          <div class="h-inc-body">
-            <div class="h-inc-tag">Tres turnos, tres criterios</div>
-            <h3>«La misma pieza sale distinta según quién esté.»</h3>
-            <p>Nadie lo hace mal a propósito: no hay una versión única del proceso.</p>
-          </div>
-        </article>
+        {home.escenas.tarjetas.map((t) => (
+          <article class="h-inc-card">
+            <div class="h-inc-top"><span>{t.codigo}</span><span>{t.momento}</span></div>
+            <div class="h-inc-body">
+              <div class="h-inc-tag">{t.etiqueta}</div>
+              <h3>{t.titulo}</h3>
+              <p>{t.texto}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -207,29 +186,19 @@ schema.push(faqPageSchema(faqs));
   <!-- ═══ §02 DATOS ═══ -->
   <section class="h-dark">
     <div class="h-wrap">
-      <div class="h-kicker h-kicker--dark">§02 · Lo que dicen los números</div>
-      <h2 class="h-h2">El coste que nadie mide</h2>
+      <div class="h-kicker h-kicker--dark">{home.datos.antetitulo}</div>
+      <h2 class="h-h2">{home.datos.titulo}</h2>
       <div class="h-read fade-up">
-        <div class="h-read-item">
-          <div class="h-read-label">Absentismo medio</div>
-          <div class="h-read-num"><span class="h-count" data-to="7.2" data-dec="1">7,2</span><span>%</span></div>
-          <div class="h-bar"><i style="--w:7.2%"></i></div>
-          <p>1 de cada 14 trabajadores falta cada día.</p>
-        </div>
-        <div class="h-read-item">
-          <div class="h-read-label">Días hasta rendir</div>
-          <div class="h-read-num"><span class="h-count" data-to="3">3</span>–<span class="h-count" data-to="5">5</span><span class="h-read-unit"> d</span></div>
-          <div class="h-bar"><i style="--w:60%"></i></div>
-          <p>Hasta que una incorporación rinde como el titular.</p>
-        </div>
-        <div class="h-read-item">
-          <div class="h-read-label">Llaman al experto</div>
-          <div class="h-read-num"><span class="h-count" data-to="40">40</span><span>%</span></div>
-          <div class="h-bar"><i style="--w:40%"></i></div>
-          <p>De jefes de planta llaman al experto aunque esté de baja.</p>
-        </div>
+        {home.datos.cifras.map((c) => (
+          <div class="h-read-item">
+            <div class="h-read-label">{c.etiqueta}</div>
+            <div class="h-read-num"><Fragment set:html={cifraAnimada(c.valor)} /><span class={c.unidad.trim().length > 1 || c.unidad.startsWith(' ') ? 'h-read-unit' : undefined}>{c.unidad}</span></div>
+            <div class="h-bar"><i style={`--w:${c.barra ?? 0}%`}></i></div>
+            <p>{c.texto}</p>
+          </div>
+        ))}
       </div>
-      <p class="h-source">Fuente: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347, empresas de 10-200 empleados del sector manufacturero).</p>
+      <p class="h-source">{home.datos.fuente}</p>
     </div>
   </section>
 
@@ -238,10 +207,10 @@ schema.push(faqPageSchema(faqs));
     <div class="h-wrap">
       <div class="h-head fade-up">
         <div>
-          <div class="h-kicker">§03 · Recorrido de implantación</div>
-          <h2 class="h-h2">De la cuenta al turno controlado, puesto a puesto</h2>
+          <div class="h-kicker">{home.recorrido.antetitulo}</div>
+          <h2 class="h-h2">{home.recorrido.titulo}</h2>
         </div>
-        <p class="h-head-sub">No hay que implantarlo todo de golpe. Empiezas por una máquina y vas extendiendo cuando el primer puesto ya funciona solo.</p>
+        <p class="h-head-sub" set:html={conNegritas(home.recorrido.texto)} />
       </div>
 
       <div class="h-phases" aria-hidden="true">
@@ -253,58 +222,24 @@ schema.push(faqPageSchema(faqs));
       <div class="h-lane" aria-hidden="true"><i></i><b></b></div>
 
       <ol class="h-route fade-up delay-1">
-        <li class="h-st">
-          <span class="h-st-plate">E-01</span>
-          <Fragment set:html={picto('e01')} />
-          <span class="h-st-role">Gerencia</span>
-          <h3>Crea la cuenta</h3>
-          <p>Registro sin tarjeta. Tienes 60 días del plan Pro completo.</p>
-          <a href="/precios/" class="h-st-link">→ Registro y planes</a>
-        </li>
-        <li class="h-st">
-          <span class="h-st-plate">E-02</span>
-          <Fragment set:html={picto('e02')} />
-          <span class="h-st-role">Gerencia + producción</span>
-          <h3>Elige el primer puesto</h3>
-          <p>El que más te tensiona hoy: el que depende de una sola persona.</p>
-          <a href="/casos-de-uso/cobertura-bajas/" class="h-st-link">→ Cobertura de bajas</a>
-        </li>
-        <li class="h-st">
-          <span class="h-st-plate">E-03</span>
-          <Fragment set:html={picto('e03')} />
-          <span class="h-st-role">El experto</span>
-          <h3>Documenta el proceso</h3>
-          <p>El que sabe lo graba en pasos, con foto o vídeo. Una vez.</p>
-          <a href="/documentacion-procesos/" class="h-st-link">→ Documentación de procesos</a>
-        </li>
-        <li class="h-st">
-          <span class="h-st-plate">E-04</span>
-          <Fragment set:html={picto('e04')} />
-          <span class="h-st-role">Operario o sustituto</span>
-          <h3>Ejecuta en el puesto</h3>
-          <p>Sin cuenta de operario. Valida cada paso o avisa si hay un problema.</p>
-          <a href="/portal-operario/" class="h-st-link">→ Portal del operario</a>
-        </li>
-        <li class="h-st">
-          <span class="h-st-plate">E-05</span>
-          <Fragment set:html={picto('e05')} />
-          <span class="h-st-role">Jefe de producción</span>
-          <h3>Ve el turno en directo</h3>
-          <p>Quién hace qué, en qué máquina y cuánto tarda, mientras pasa.</p>
-          <a href="/control-produccion/" class="h-st-link">→ Control de producción</a>
-        </li>
-        <li class="h-st h-st--last">
-          <span class="h-st-plate">E-06</span>
-          <Fragment set:html={picto('e06')} />
-          <span class="h-st-role">Toda la planta</span>
-          <h3>Extiende a más puestos</h3>
-          <p>Competencias, trazabilidad, mantenimiento, OEE. Cuando el primero ya va solo.</p>
-          <a href="/como-funciona/" class="h-st-link">→ Cómo funciona</a>
-        </li>
+        {home.recorrido.pasos.map((st, i) => {
+          const n = String(i + 1).padStart(2, '0');
+          const svg = picto(`e${n}`);
+          return (
+            <li class={i === home.recorrido.pasos.length - 1 ? 'h-st h-st--last' : 'h-st'}>
+              <span class="h-st-plate">E-{n}</span>
+              {svg && <Fragment set:html={svg} />}
+              <span class="h-st-role">{st.rol}</span>
+              <h3>{st.titulo}</h3>
+              <p>{st.texto}</p>
+              {st.enlace?.url && <a href={st.enlace.url} class="h-st-link">→ {st.enlace.texto}</a>}
+            </li>
+          );
+        })}
       </ol>
 
       <figure class="h-shot fade-up">
-        <figcaption class="h-shot-bar"><span>Monitor de operarios · tiempo real</span><span>Captura real del producto</span></figcaption>
+        <figcaption class="h-shot-bar"><span>{home.recorrido.captura}</span><span>Captura real del producto</span></figcaption>
         <Screenshot name="monitor-actividad" alt="Monitor de operarios de REELEVO con el estado en tiempo real de cada máquina y operario" layout="full" />
       </figure>
     </div>
@@ -313,51 +248,35 @@ schema.push(faqPageSchema(faqs));
   <!-- ═══ §04 PARA QUIÉN ═══ -->
   <section class="h-sec h-sec--line">
     <div class="h-wrap">
-      <div class="h-kicker">§04 · Para quién</div>
-      <h2 class="h-h2">Elige tu puesto</h2>
+      <div class="h-kicker">{home.roles.antetitulo}</div>
+      <h2 class="h-h2">{home.roles.titulo}</h2>
       <div class="h-roles">
-        <a href="/para-quien/gerente-propietario/" class="h-role">
-          <span class="h-role-n">Rol / 01</span>
-          <span class="h-role-t">Gerente o propietario</span>
-          <span class="h-role-d">Menos dependencia de personas clave.</span>
-          <span class="h-role-go">Ver →</span>
-        </a>
-        <a href="/para-quien/jefe-de-produccion/" class="h-role">
-          <span class="h-role-n">Rol / 02</span>
-          <span class="h-role-t">Jefe de producción</span>
-          <span class="h-role-d">El turno a la vista mientras pasa.</span>
-          <span class="h-role-go">Ver →</span>
-        </a>
-        <a href="/para-quien/responsable-calidad/" class="h-role">
-          <span class="h-role-n">Rol / 03</span>
-          <span class="h-role-t">Calidad</span>
-          <span class="h-role-d">Registro verificable de cada ejecución.</span>
-          <span class="h-role-go">Ver →</span>
-        </a>
-        <a href="/para-quien/responsable-rrhh/" class="h-role">
-          <span class="h-role-n">Rol / 04</span>
-          <span class="h-role-t">RRHH</span>
-          <span class="h-role-d">Incorporaciones y competencias en orden.</span>
-          <span class="h-role-go">Ver →</span>
-        </a>
+        {home.roles.items.map((r, i) => (
+          <a href={r.url} class="h-role">
+            <span class="h-role-n">Rol / {String(i + 1).padStart(2, '0')}</span>
+            <span class="h-role-t">{r.titulo}</span>
+            <span class="h-role-d">{r.texto}</span>
+            <span class="h-role-go">Ver →</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <FaqSection items={faqs} heading="Lo que preguntan antes de probarlo" eyebrow="§05 · Preguntas de planta" />
+  <FaqSection items={faqs} heading={home.faq.titulo} eyebrow={home.faq.antetitulo} />
 
   <!-- ═══ CTA FINAL ═══ -->
   <section class="h-cta">
     <div class="h-tape" aria-hidden="true"></div>
     <div class="h-wrap h-cta-inner">
-      <div class="h-kicker h-kicker--dark">¿Quieres verlo en tu planta?</div>
-      <h2 class="h-cta-title">Empieza por el puesto que más te tensiona hoy</h2>
-      <p class="h-cta-sub">60 días del plan Pro completo, sin tarjeta. Al terminar, tu cuenta pasa al plan gratuito: no pierdes lo que hayas montado.</p>
+      <div class="h-kicker h-kicker--dark">{home.ctaFinal.antetitulo}</div>
+      <h2 class="h-cta-title">{home.ctaFinal.titulo}</h2>
+      <p class="h-cta-sub" set:html={conNegritas(home.ctaFinal.texto)} />
       <div class="h-actions">
-        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-           data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Empezar gratis con una máquina">Empezar gratis con una máquina →</a>
-        <a href="/blog/plantilla-sop-produccion/" class="btn-ghost h-ghost-dark"
-           data-cta data-cta-intent="contenido" data-cta-location="footer" data-cta-label="Descargar plantilla SOP">Descargar plantilla SOP</a>
+        <a href={home.ctaFinal.ctaPrincipal.url} class="btn-primary"
+           data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label={etiquetaCta(home.ctaFinal.ctaPrincipal.texto)}>{home.ctaFinal.ctaPrincipal.texto}</a>
+        <a href={home.ctaFinal.ctaSecundario.url} class="btn-ghost h-ghost-dark"
+           data-cta data-cta-intent="contenido" data-cta-location="footer" data-cta-label={etiquetaCta(home.ctaFinal.ctaSecundario.texto)}>{home.ctaFinal.ctaSecundario.texto}</a>
       </div>
     </div>
   </section>

@@ -1,0 +1,83 @@
+{
+  "seo": {
+    "title": "Software de instrucciones de trabajo digitales para pymes | REELEVO",
+    "description": "REELEVO es el software de instrucciones de trabajo digitales para pymes industriales: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada y sin la complejidad de un MES."
+  },
+  "hero": {
+    "referencia": "Hecho en España · pymes industriales",
+    "titulo": "Software de instrucciones de trabajo digitales.",
+    "entradilla": "Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO convierte lo que saben en instrucciones de trabajo digitales, paso a paso y en el puesto, para que el turno siga sin ellas.",
+    "ctaPrincipal": { "texto": "Probar gratis 60 días →", "url": "https://app.gmvsolutions.es/registro" },
+    "ctaSecundario": { "texto": "Ver demo de 2 min", "url": "/video-demo/" },
+    "nota": "Sin tarjeta · Sin compromiso · Sin llamada comercial",
+    "ficha": [
+      { "etiqueta": "Prueba", "valor": "60 días del plan Pro" },
+      { "etiqueta": "Operarios", "valor": "Sin cuenta en el puesto" },
+      { "etiqueta": "Dispositivos", "valor": "Web · Android · iOS" },
+      { "etiqueta": "Conexión", "valor": "Aguanta cortes en planta" }
+    ]
+  },
+  "escenas": {
+    "antetitulo": "§01 · El día a día",
+    "titulo": "Cuatro partes que se repiten en cualquier planta",
+    "texto": "REELEVO es el **software de instrucciones de trabajo digitales** de las pymes industriales españolas: el procedimiento vive en la máquina, se abre con el móvil y cada ejecución queda registrada. Sobre esas instrucciones se apoyan la continuidad ante bajas, el control de producción y la trazabilidad, sin implantar un MES. Está hecho para estas cuatro escenas.",
+    "tarjetas": [
+      { "codigo": "INC-01", "momento": "MAR · 06:30", "etiqueta": "El experto no ha venido", "titulo": "«Javi está de baja. ¿Quién arranca la llenadora?»", "texto": "Su sustituto no domina el proceso y la línea no arranca hasta que Javi coja el teléfono." },
+      { "codigo": "INC-02", "momento": "LUN · 08:00", "etiqueta": "Incorporación nueva", "titulo": "«Es su primer día. Alguien tiene que enseñarle.»", "texto": "Tu mejor operario deja su máquina para hacer de tutor. Dos personas ocupadas, un puesto produciendo." },
+      { "codigo": "INC-03", "momento": "MIÉ · 09:15", "etiqueta": "La operación diaria", "titulo": "«¿Quién hizo qué ayer en la línea 3?»", "texto": "La producción pasa y no queda registro: ni quién ejecutó ni cuántas unidades salieron." },
+      { "codigo": "INC-04", "momento": "3 TURNOS", "etiqueta": "Tres turnos, tres criterios", "titulo": "«La misma pieza sale distinta según quién esté.»", "texto": "Nadie lo hace mal a propósito: no hay una versión única del proceso." }
+    ]
+  },
+  "datos": {
+    "antetitulo": "§02 · Lo que dicen los números",
+    "titulo": "El coste que nadie mide",
+    "cifras": [
+      { "etiqueta": "Absentismo medio", "valor": "7,2", "unidad": "%", "barra": 7.2, "texto": "1 de cada 14 trabajadores falta cada día." },
+      { "etiqueta": "Días hasta rendir", "valor": "3–5", "unidad": " d", "barra": 60, "texto": "Hasta que una incorporación rinde como el titular." },
+      { "etiqueta": "Llaman al experto", "valor": "40", "unidad": "%", "barra": 40, "texto": "De jefes de planta llaman al experto aunque esté de baja." }
+    ],
+    "fuente": "Fuente: Encuesta REELEVO 2025 sobre dependencia operativa en pymes industriales españolas (n=347, empresas de 10-200 empleados del sector manufacturero)."
+  },
+  "recorrido": {
+    "antetitulo": "§03 · Recorrido de implantación",
+    "titulo": "De la cuenta al turno controlado, puesto a puesto",
+    "texto": "No hay que implantarlo todo de golpe. Empiezas por una máquina y vas extendiendo cuando el primer puesto ya funciona solo.",
+    "pasos": [
+      { "rol": "Gerencia", "titulo": "Crea la cuenta", "texto": "Registro sin tarjeta. Tienes 60 días del plan Pro completo.", "enlace": { "texto": "Registro y planes", "url": "/precios/" } },
+      { "rol": "Gerencia + producción", "titulo": "Elige el primer puesto", "texto": "El que más te tensiona hoy: el que depende de una sola persona.", "enlace": { "texto": "Cobertura de bajas", "url": "/casos-de-uso/cobertura-bajas/" } },
+      { "rol": "El experto", "titulo": "Documenta el proceso", "texto": "El que sabe lo graba en pasos, con foto o vídeo. Una vez.", "enlace": { "texto": "Documentación de procesos", "url": "/documentacion-procesos/" } },
+      { "rol": "Operario o sustituto", "titulo": "Ejecuta en el puesto", "texto": "Sin cuenta de operario. Valida cada paso o avisa si hay un problema.", "enlace": { "texto": "Portal del operario", "url": "/portal-operario/" } },
+      { "rol": "Jefe de producción", "titulo": "Ve el turno en directo", "texto": "Quién hace qué, en qué máquina y cuánto tarda, mientras pasa.", "enlace": { "texto": "Control de producción", "url": "/control-produccion/" } },
+      { "rol": "Toda la planta", "titulo": "Extiende a más puestos", "texto": "Competencias, trazabilidad, mantenimiento, OEE. Cuando el primero ya va solo.", "enlace": { "texto": "Cómo funciona", "url": "/como-funciona/" } }
+    ],
+    "captura": "Monitor de operarios · tiempo real"
+  },
+  "roles": {
+    "antetitulo": "§04 · Para quién",
+    "titulo": "Elige tu puesto",
+    "items": [
+      { "titulo": "Gerente o propietario", "texto": "Menos dependencia de personas clave.", "url": "/para-quien/gerente-propietario/" },
+      { "titulo": "Jefe de producción", "texto": "El turno a la vista mientras pasa.", "url": "/para-quien/jefe-de-produccion/" },
+      { "titulo": "Calidad", "texto": "Registro verificable de cada ejecución.", "url": "/para-quien/responsable-calidad/" },
+      { "titulo": "RRHH", "texto": "Incorporaciones y competencias en orden.", "url": "/para-quien/responsable-rrhh/" }
+    ]
+  },
+  "faq": {
+    "antetitulo": "§05 · Preguntas de planta",
+    "titulo": "Lo que preguntan antes de probarlo",
+    "items": [
+      { "q": "¿Qué es un software de instrucciones de trabajo digitales?", "a": "Una herramienta que sustituye los procedimientos en papel o PDF por instrucciones paso a paso que el operario abre en el puesto, con foto y vídeo y una única versión vigente. REELEVO es el software de instrucciones de trabajo digitales pensado para la pyme industrial: se abre con un QR en la máquina y cada ejecución queda registrada." },
+      { "q": "¿Necesita cada operario una cuenta?", "a": "No. Los procedimientos se ejecutan en el puesto sin cuenta de operario: el operario abre el proceso de su máquina y lo sigue paso a paso." },
+      { "q": "¿Funciona en tablet o móvil?", "a": "Sí. REELEVO funciona en web, Android e iOS, así que vale la tablet del puesto o el móvil del supervisor." },
+      { "q": "¿Y si se cae la conexión en planta?", "a": "El flujo de ejecución aguanta los cortes de wifi: lo ya abierto sigue disponible y lo registrado se encola y se sincroniza solo al volver la conexión." },
+      { "q": "¿Qué pasa al acabar los 60 días de prueba?", "a": "Tu cuenta pasa al plan gratuito. No pierdes lo que hayas montado y decides después si te compensa un plan de pago." }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "¿Quieres verlo en tu planta?",
+    "titulo": "Empieza por el puesto que más te tensiona hoy",
+    "texto": "60 días del plan Pro completo, sin tarjeta. Al terminar, tu cuenta pasa al plan gratuito: no pierdes lo que hayas montado.",
+    "ctaPrincipal": { "texto": "Empezar gratis con una máquina →", "url": "https://app.gmvsolutions.es/registro" },
+    "ctaSecundario": { "texto": "Descargar plantilla SOP", "url": "/blog/plantilla-sop-produccion/" }
+  }
+}

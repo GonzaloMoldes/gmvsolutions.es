@@ -58,6 +58,26 @@ La web es estática: un artículo nuevo aparece cuando Vercel vuelve a construir
 
 **sanity.io/manage → Members → Invite** con el rol **Editor**. Entran en `/admin/` con su cuenta.
 
+## Páginas editables (fase 1: home y ajustes generales)
+
+Además del blog, el panel tiene dos documentos únicos (se abren directamente, no se pueden duplicar ni borrar):
+
+| En el panel | Qué controla |
+|---|---|
+| **Página de inicio** | Todo el texto de la home, sección a sección: SEO, portada y ficha técnica, §01 escenas, §02 cifras, §03 recorrido, §04 perfiles, §05 FAQ (también alimenta el schema FAQPage) y la llamada final. |
+| **Ajustes generales** | Lema de marca del pie, botón «Probar gratis» de la cabecera y del menú móvil, columnas de enlaces del pie, email, dirección y LinkedIn. |
+
+Cómo funciona:
+
+- **El diseño no se toca desde el panel.** Ilustraciones, pictogramas, captura y animaciones siguen en el código; el panel solo cambia textos, enlaces y el número de elementos de cada lista.
+- **Negrita:** en los textos largos, `**así**`. No admite HTML: lo que se escriba se muestra tal cual.
+- **Cifras de §02:** se escriben como se leen («7,2», «40», «3–5»); los números se animan solos.
+- **Recorrido §03:** el pictograma va por orden (E-01 a E-06). Un séptimo paso sale sin pictograma.
+- **Respaldo:** los textos por defecto viven en `src/data/home.default.json` y `src/data/ajustes.default.json`. Un campo vacío en el panel, o una lista vaciada, vuelve a ese texto; si Sanity no responde en el build, la página sale entera con ellos.
+- **Primera carga:** `SANITY_WRITE_TOKEN=xxxx node scripts/sembrar-paginas-sanity.mjs`. Solo crea los documentos que no existen: nunca pisa lo editado.
+
+Ficheros: `sanity/schemaTypes/home.ts`, `ajustes.ts`, `comunes.ts` · `src/lib/contenido.ts` (lectura y mezcla) · `src/pages/index.astro`, `src/components/Header.astro`, `src/components/Footer.astro`.
+
 ## Uso diario
 
 1. Entra en `/admin/` → **Artículos del blog → +**.

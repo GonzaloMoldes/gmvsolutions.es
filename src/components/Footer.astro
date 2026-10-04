@@ -1,57 +1,29 @@
 ---
+import { getAjustes } from '../lib/contenido';
+
+// Columnas, contacto y lema: editables en Sanity (Ajustes generales).
+const ajustes = await getAjustes();
 const year = new Date().getFullYear();
 ---
 
 <footer style="border-top: 1px solid var(--border);">
   <!-- NAV / ENLACES INTERNOS (sitewide) -->
   <nav class="footer-nav" aria-label="Enlaces del sitio">
-    <div class="footer-col">
-      <div class="footer-col-title">Gestión y producción</div>
-      <a href="/software-gestion-pyme-industrial/">Software de gestión industrial</a>
-      <a href="/control-produccion/">Control de producción</a>
-      <a href="/oee/">OEE y análisis Lean</a>
-      <a href="/mantenimiento/">Mantenimiento preventivo</a>
-      <a href="/cobertura-turnos/">Planificación y cobertura de turnos</a>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-col-title">Procesos y personas</div>
-      <a href="/documentacion-procesos/">Documentación de procesos</a>
-      <a href="/gestion-competencias/">Gestión de competencias</a>
-      <a href="/kaizen/">Kaizen y mejora continua</a>
-      <a href="/portal-operario/">Portal del operario</a>
-      <a href="/seguridad/">Seguridad y RGPD</a>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-col-title">Comparativas</div>
-      <a href="/vs-mes-tradicional/">Alternativa al MES tradicional</a>
-      <a href="/vs-excel-papel/">REELEVO vs Excel y papel</a>
-      <a href="/vs-alternativas/">Comparativa de software SOP</a>
-      <a href="/kit-digital-pyme-industrial/">Kit Digital para industria</a>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-col-title">REELEVO</div>
-      <a href="/como-funciona/">Cómo funciona</a>
-      <a href="/por-que-usar-reelevo/">Qué resuelve</a>
-      <a href="/video-demo/">Ver el demo</a>
-      <a href="/precios/">Precios</a>
-      <a href="/recursos/">Recursos y guías</a>
-      <a href="/blog/">Blog</a>
-      <a href="/sobre-nosotros/">Sobre nosotros</a>
-    </div>
+    {ajustes.columnasPie.map((col) => (
+      <div class="footer-col">
+        <div class="footer-col-title">{col.titulo}</div>
+        {col.enlaces.map((e) => <a href={e.url}>{e.texto}</a>)}
+      </div>
+    ))}
 
     <div class="footer-col footer-col--contacto">
       <div class="footer-col-title">Contacto</div>
       <a
-        href="mailto:hola@gmvsolutions.es"
-        data-cta data-cta-intent="contacto" data-cta-location="footer_contacto" data-cta-label="hola@gmvsolutions.es"
-      >hola@gmvsolutions.es</a>
+        href={`mailto:${ajustes.email}`}
+        data-cta data-cta-intent="contacto" data-cta-location="footer_contacto" data-cta-label={ajustes.email}
+      >{ajustes.email}</a>
       <address class="footer-address">
-        GMV Solutions <br />
-        Rua Marola, 15002 <br />
-        A Coruña, España
+        {ajustes.direccion.map((linea, i) => <>{i > 0 && <br />}{linea}</>)}
       </address>
     </div>
   </nav>
@@ -61,13 +33,13 @@ const year = new Date().getFullYear();
       REEL<span>EVO</span>
       &nbsp;·&nbsp;
       <span style="color:var(--gray);font-weight:300;font-family:'DM Sans',sans-serif;text-transform:none;letter-spacing:0;font-size:.8rem;">
-        Software de instrucciones de trabajo digitales · by GMV Solutions
+        {ajustes.lema} · by GMV Solutions
       </span>
     </div>
 
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;">
       <a
-        href="https://www.linkedin.com/company/reelevo"
+        href={ajustes.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         class="footer-linkedin"

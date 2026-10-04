@@ -5,6 +5,10 @@ export interface Props {
 const { activeNav } = Astro.props;
 
 import { latestPublishedISO, NEW_POST_DAYS } from '../lib/blog';
+import { getAjustes } from '../lib/contenido';
+
+// Boton de registro: editable en Sanity (Ajustes generales).
+const ajustes = await getAjustes();
 
 // Un solo origen para el mega-menu de escritorio y el menu movil. Antes cada
 // uno tenia su propio marcado con los mismos 34 enlaces escritos dos veces, y
@@ -163,10 +167,10 @@ const RECURSOS = [
          depender de la duracion del trial, que hoy no cuadra entre
          TRIAL_DURATION_DAYS y el email de bienvenida de la app. -->
     <a
-      href="https://app.gmvsolutions.es/registro"
+      href={ajustes.ctaCabecera.url}
       class="header-cta"
-      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label="Probar gratis"
-    >Probar gratis</a>
+      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label={ajustes.ctaCabecera.texto}
+    >{ajustes.ctaCabecera.texto}</a>
     <button
       class="hamburger"
       id="hamburgerBtn"
@@ -208,11 +212,11 @@ const RECURSOS = [
 
   <div class="mobile-cta-group">
 
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"
-       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label="Probar gratis">
-      Probar gratis
+    <a href={ajustes.ctaCabecera.url} class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"
+       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label={ajustes.ctaCabecera.texto}>
+      {ajustes.ctaCabecera.texto}
     </a>
-    <p class="mobile-cta-note">Sin tarjeta · Sin compromiso</p>
+    <p class="mobile-cta-note">{ajustes.notaMenuMovil}</p>
   </div>
 </div>
 
