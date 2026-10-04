@@ -1,50 +1,72 @@
-// Crea en Sanity los documentos unicos de pagina (home, ajustes) con los textos
-// por defecto de src/data/*.default.json.
+// Crea en Sanity los documentos de pagina (home, precios, faqs, ajustes) y las
+// preguntas frecuentes reutilizables, con los textos de src/data/*.default.json.
 //
 //   SANITY_WRITE_TOKEN=xxxx node scripts/sembrar-paginas-sanity.mjs [--dry]
 //
-// Usa createIfNotExists: si el documento ya existe en Sanity NO lo toca, asi que
+// Usa createIfNotExists: si un documento ya existe en Sanity NO lo toca, asi que
 // se puede ejecutar sin miedo a pisar lo editado desde /admin/. Para una pagina
-// nueva basta con añadir su JSON a PAGINAS.
+// nueva basta con añadir su JSON a PAGINAS (y sus listas a TIPOS).
+//
+// Unica excepcion, la migracion de la fase 2: si la home todavia tiene sus FAQ
+// escritas dentro (fase 1) y nadie la ha editado desde que se creo, sus FAQ se
+// sustituyen por referencias a las preguntas reutilizables.
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { createClient } from '@sanity/client';
 
 const PAGINAS = [
   { _id: 'home', _type: 'home', fichero: '../src/data/home.default.json' },
+  { _id: 'precios', _type: 'precios', fichero: '../src/data/precios.default.json' },
+  { _id: 'paginaFaqs', _type: 'paginaFaqs', fichero: '../src/data/faqs.default.json' },
   { _id: 'ajustes', _type: 'ajustes', fichero: '../src/data/ajustes.default.json' },
 ];
 
 // Tipo de cada elemento de lista, por ruta del campo (sin indices). Tiene que
-// coincidir con los defineArrayMember de sanity/schemaTypes/home.ts y ajustes.ts.
+// coincidir con los defineArrayMember de sanity/schemaTypes/*.ts.
 const TIPOS = {
   '.hero.ficha': 'dato',
   '.escenas.tarjetas': 'tarjeta',
   '.datos.cifras': 'cifra',
   '.recorrido.pasos': 'paso',
   '.roles.items': 'perfil',
-  '.faq.items': 'pregunta',
   '.columnasPie': 'columna',
   '.columnasPie.enlaces': 'enlacePie',
+  '.planes': 'plan',
+  '.planes.caracteristicas': 'caracteristica',
+  '.categorias': 'categoria',
 };
+
+// Listas de preguntas: en el JSON van escritas ({ id, q, a }); en Sanity, cada
+// una es un documento «preguntaFrecuente» y la pagina guarda una referencia.
+const REFERENCIAS = new Set(['.faq.items', '.categorias.preguntas']);
+
+const preguntas = new Map();
 
 // Sanity exige un _key unico y un _type en cada objeto de una lista. La clave
 // se deriva del contenido para que sea estable entre ejecuciones.
-function conClaves(valor, ruta = '') {
+function convertir(valor, ruta = '') {
   if (Array.isArray(valor)) {
     return valor.map((v, i) => {
-      const hijo = conClaves(v, ruta);
+      const _key = createHash('sha1').update(ruta + i + JSON.stringify(v)).digest('hex').slice(0, 12);
+      if (REFERENCIAS.has(ruta)) {
+        const { id, q, a } = v;
+        if (!id) throw new Error(`Pregunta sin id en ${ruta}: ${q}`);
+        const previa = preguntas.get(id);
+        if (previa && (previa.q !== q || previa.a !== a)) throw new Error(`Dos textos distintos para la pregunta ${id}`);
+        preguntas.set(id, { _id: id, _type: 'preguntaFrecuente', q, a });
+        return { _key, _type: 'reference', _ref: id };
+      }
+      const hijo = convertir(v, ruta);
       if (hijo && typeof hijo === 'object' && !Array.isArray(hijo)) {
         const _type = TIPOS[ruta];
         if (!_type) throw new Error(`Falta el tipo de los elementos de ${ruta} en TIPOS`);
-        const _key = createHash('sha1').update(ruta + i + JSON.stringify(v)).digest('hex').slice(0, 12);
         return { _key, _type, ...hijo };
       }
       return hijo;
     });
   }
   if (valor && typeof valor === 'object') {
-    return Object.fromEntries(Object.entries(valor).map(([k, v]) => [k, conClaves(v, `${ruta}.${k}`)]));
+    return Object.fromEntries(Object.entries(valor).map(([k, v]) => [k, convertir(v, `${ruta}.${k}`)]));
   }
   return valor;
 }
@@ -66,18 +88,39 @@ const client = createClient({
 const docs = PAGINAS.map(({ _id, _type, fichero }) => ({
   _id,
   _type,
-  ...conClaves(JSON.parse(readFileSync(new URL(fichero, import.meta.url), 'utf8'))),
+  ...convertir(JSON.parse(readFileSync(new URL(fichero, import.meta.url), 'utf8'))),
 }));
 
 if (dry) {
   for (const d of docs) console.log(`${d._id}: ${Object.keys(d).length - 2} secciones/campos`);
+  console.log(`${preguntas.size} preguntas frecuentes`);
   process.exit(0);
 }
 
+// Primero las preguntas: las paginas las referencian.
 const tx = client.transaction();
+for (const p of preguntas.values()) tx.createIfNotExists(p);
 for (const d of docs) tx.createIfNotExists(d);
 await tx.commit();
-for (const d of docs) {
-  const existente = await client.getDocument(d._id);
-  console.log(`${d._id}: ${existente?._createdAt === existente?._updatedAt ? 'listo' : 'ya existía, no se ha tocado'}`);
+
+// Migracion de la fase 2 (ver cabecera).
+const home = await client.getDocument('home');
+const borrador = await client.getDocument('drafts.home');
+const inline = home?.faq?.items?.some((it) => it._type !== 'reference');
+const migrados = new Set();
+if (inline) {
+  if (home._createdAt === home._updatedAt && !borrador) {
+    const nueva = docs.find((d) => d._id === 'home');
+    await client.patch('home').ifRevisionId(home._rev).set({ 'faq.items': nueva.faq.items }).commit();
+    migrados.add('home');
+    console.log('home: FAQ pasadas a preguntas reutilizables');
+  } else {
+    console.log('home: AVISO, tiene FAQ escritas dentro pero ya se ha editado; no se migra solo.');
+  }
 }
+
+for (const d of [...docs, ...preguntas.values()]) {
+  const existente = await client.getDocument(d._id);
+  if (existente?._createdAt !== existente?._updatedAt && d._type !== 'preguntaFrecuente' && !migrados.has(d._id)) console.log(`${d._id}: ya existía, no se ha tocado`);
+}
+console.log(`Listo: ${docs.length} páginas y ${preguntas.size} preguntas.`);

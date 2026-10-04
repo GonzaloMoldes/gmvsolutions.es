@@ -29,21 +29,15 @@ export const cabeceraSeccion = [
 ];
 
 export const AYUDA_NEGRITA = 'Para poner algo en negrita, rodéalo con dos asteriscos: **así**.';
+export const AYUDA_FORMATO = 'Negrita: **así**. Enlace: [texto](/url/).';
 
-/** Pregunta frecuente: alimenta el bloque visible y el schema FAQPage. */
-export const pregunta = {
-  type: 'object',
-  name: 'pregunta',
-  fields: [
-    defineField({ name: 'q', title: 'Pregunta', type: 'string', validation: (r) => r.required() }),
-    defineField({
-      name: 'a',
-      title: 'Respuesta',
-      type: 'text',
-      rows: 4,
-      description: 'Respuesta directa de 40-60 palabras: es lo que más citan Google y las IA.',
-      validation: (r) => r.required(),
-    }),
-  ],
-  preview: { select: { title: 'q', subtitle: 'a' } },
-};
+/** Lista de preguntas frecuentes elegidas de «Preguntas frecuentes». */
+export const preguntas = (name = 'items', title = 'Preguntas') =>
+  defineField({
+    name,
+    title,
+    description: 'Elige preguntas existentes o crea una nueva desde aquí. Arrastra para ordenarlas.',
+    type: 'array',
+    of: [{ type: 'reference', to: [{ type: 'preguntaFrecuente' }] }],
+    validation: (r) => r.unique(),
+  });

@@ -1,0 +1,165 @@
+{
+  "seo": {
+    "title": "FAQ del software de instrucciones de trabajo digitales | REELEVO",
+    "description": "Resolvemos las dudas más habituales sobre cómo funciona REELEVO, cómo se implementa, qué queda registrado, seguridad de datos y compatibilidad."
+  },
+  "hero": {
+    "antetitulo": "Preguntas frecuentes",
+    "titulo": "Resolvemos tus dudas",
+    "texto": "Aquí tienes respuestas claras sobre puesta en marcha, uso en planta, seguridad y alcance real del producto."
+  },
+  "categorias": [
+    {
+      "nombre": "Arranque y prueba",
+      "preguntas": [
+        {
+          "id": "faq-cuanto-tiempo-lleva-implementar-reelevo",
+          "q": "¿Cuánto tiempo lleva implementar REELEVO?",
+          "a": "La base técnica puede quedar lista **en poco tiempo**. A partir de ahí, el ritmo lo marcáis vosotros: cuántos procesos queréis priorizar primero y cuánto acompañamiento necesita cada puesto al arrancar.\n\nNo hay que instalar software, configurar servidores ni formar a los operarios. Acceden directamente y operan."
+        },
+        {
+          "id": "faq-puedo-probarlo-antes-de-contratar",
+          "q": "¿Puedo probarlo antes de contratar?",
+          "a": "Sí. Puedes **registrarte en la plataforma** para verla por dentro y comprobar si encaja con tu operativa antes de decidir."
+        },
+        {
+          "id": "faq-es-adecuado-para-una-pyme-pequena-o",
+          "q": "¿Es adecuado para una pyme pequeña o un taller con pocos operarios?",
+          "a": "REELEVO está diseñado específicamente para **pymes industriales y talleres** de entre 5 y 200 operarios. No es un software corporativo adaptado: está pensado desde el principio para empresas donde no hay equipo de IT, los recursos son ajustados y el conocimiento vive en la cabeza de dos o tres personas clave.\n\nEl precio es fijo por empresa, no una licencia por cada usuario. Cada plan define cuánta plantilla puedes registrar, pero no se factura por operario."
+        }
+      ]
+    },
+    {
+      "nombre": "Acceso y uso en planta",
+      "preguntas": [
+        {
+          "id": "faq-como-llega-el-proceso-al-puesto-de",
+          "q": "¿Cómo llega el proceso al puesto de trabajo?",
+          "a": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. **Sin app que instalar, sin cuenta que crear.**\n\nTambién puede acceder buscando el proceso por nombre desde el portal si le resulta más cómodo."
+        },
+        {
+          "id": "faq-en-que-dispositivos-funciona-reelevo-necesita-una",
+          "q": "¿En qué dispositivos funciona REELEVO? ¿Necesita una app?",
+          "a": "REELEVO funciona en el **navegador de cualquier dispositivo**: móvil Android o iPhone, tablet, ordenador. **No hay app que descargar.** El operario abre el navegador y accede al trabajo sin fricción adicional.\n\nEl panel de administración —donde el experto documenta los SOPs y el responsable los gestiona— funciona igualmente en cualquier navegador de escritorio o tablet."
+        },
+        {
+          "id": "faq-los-operarios-tienen-que-crearse-una-cuenta",
+          "q": "¿Los operarios tienen que crearse una cuenta?",
+          "a": "**No**. Los operarios acceden con un código de empresa. Sin crear cuentas, sin contraseñas, sin gestión de usuarios. Cualquier sustituto llega al proceso correcto sin fricción.\n\nSi la empresa necesita seguimiento asociado a persona en ciertos flujos, puede usar un identificador interno de uso operativo. No hace falta convertir ese acceso rápido en una gestión pesada de usuarios."
+        },
+        {
+          "id": "faq-que-pasa-si-no-hay-cobertura-movil",
+          "q": "¿Qué pasa si no hay cobertura móvil en la planta?",
+          "a": "REELEVO funciona con **cualquier conexión a internet**: 4G, 5G o WiFi de empresa. Los contenidos están optimizados para cargar rápidamente incluso con conexiones lentas."
+        }
+      ]
+    },
+    {
+      "nombre": "Contenido y organización",
+      "preguntas": [
+        {
+          "id": "faq-los-procesos-pueden-incluir-fotos-videos-y",
+          "q": "¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?",
+          "a": "**Sí.** Cada paso de un procedimiento operativo puede incluir texto, **fotos** (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), **vídeos cortos** y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso."
+        },
+        {
+          "id": "faq-como-organizo-los-procesos-si-tengo-varias",
+          "q": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
+          "a": "El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: **Producción › Línea 3 › Torno CNC › Arranque** y el operario llega al proceso correcto en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas."
+        },
+        {
+          "id": "faq-se-puede-usar-con-operarios-que-no",
+          "q": "¿Se puede usar con operarios que no hablan español?",
+          "a": "Sí. Los procesos se documentan en el **idioma que elija el experto**. Si tienes operarios de distintos orígenes puedes crear el mismo SOP en varios idiomas y asignar uno u otro según el perfil. El uso de vídeo también reduce la dependencia del idioma escrito."
+        }
+      ]
+    },
+    {
+      "nombre": "Gestión y actualización",
+      "preguntas": [
+        {
+          "id": "faq-podemos-actualizar-los-procesos-facilmente",
+          "q": "¿Podemos actualizar los procesos fácilmente?",
+          "a": "**Sí**. Cualquier administrador puede actualizar procesos desde el panel. Los cambios se reflejan automáticamente. El operario accede a la versión más actual sin tener que buscar documentos nuevos."
+        },
+        {
+          "id": "faq-que-pasa-cuando-se-actualiza-un-procedimiento",
+          "q": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
+          "a": "Cuando un administrador actualiza un SOP, el cambio se refleja **de inmediato**. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.\n\nREELEVO mantiene el **historial de versiones** de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo."
+        },
+        {
+          "id": "faq-que-pasa-si-el-operario-experto-no",
+          "q": "¿Qué pasa si el operario experto no quiere documentar sus procesos?",
+          "a": "Es la objeción más habitual. Suele venir del miedo a \"que me quiten valor si lo dejo todo escrito\". El argumento en contra es que documentar **refuerza el estatus del experto** dentro de la empresa: su conocimiento pasa de ser una costumbre que nadie ha reconocido a ser el estándar que lleva su nombre.\n\nEl flujo de captura está diseñado para que el propio operario lo haga con sus palabras, a su ritmo, sin presión."
+        }
+      ]
+    },
+    {
+      "nombre": "Registro y trazabilidad",
+      "preguntas": [
+        {
+          "id": "faq-como-sabemos-quien-ha-accedido-y-cuando",
+          "q": "¿Cómo sabemos quién ha accedido y cuándo?",
+          "a": "Aunque no hay cuentas de operario, **REELEVO deja una base útil de actividad**: qué proceso se ha seguido, cuándo y con qué resultado. Así ganas claridad sin comprometer la simplicidad.\n\nCuando la empresa necesita más seguimiento, puede asociar ese flujo a un identificador interno y usarlo para onboarding, seguimiento interno o revisión operativa."
+        },
+        {
+          "id": "faq-que-queda-registrado-realmente",
+          "q": "¿Qué queda registrado realmente?",
+          "a": "REELEVO puede dejar una base útil sobre el proceso seguido, el puesto o máquina, la fecha y hora, la versión visible y el resultado del flujo.\n\nEso no sustituye por sí solo una certificación formal, pero sí aporta una base mucho más útil para formación, seguimiento interno y revisión operativa."
+        },
+        {
+          "id": "faq-que-diferencia-hay-entre-consulta-rapida-y",
+          "q": "¿Qué diferencia hay entre consulta rápida y seguimiento asociado?",
+          "a": "La consulta rápida prioriza que alguien encuentre el proceso y desbloquee el puesto con la mínima fricción posible.\n\nEl seguimiento asociado añade un identificador interno cuando la empresa necesita acompañar onboarding, calidad, auditorías o seguimiento interno con más detalle."
+        }
+      ]
+    },
+    {
+      "nombre": "Seguridad y datos",
+      "preguntas": [
+        {
+          "id": "faq-donde-se-almacenan-mis-datos-cumple-con",
+          "q": "¿Dónde se almacenan mis datos? ¿Cumple con el RGPD?",
+          "a": "Los datos operativos del producto se alojan principalmente en **infraestructura dentro de la Unión Europea**. REELEVO cumple con el Reglamento General de Protección de Datos (RGPD). Algunos servicios auxiliares del sitio web pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas.\n\nLos procesos que documentas son de tu propiedad y puedes solicitar la Política de Privacidad completa antes de contratar."
+        },
+        {
+          "id": "faq-tienen-soporte-en-espanol-que-pasa-si",
+          "q": "¿Tienen soporte en español? ¿Qué pasa si tenemos un problema en planta?",
+          "a": "Sí, el soporte es **en español**. Puedes contactarnos por email y chat. Los planes de pago incluyen soporte con tiempo de respuesta definido en horario laboral. No te dejamos solo después de la firma."
+        },
+        {
+          "id": "faq-es-compatible-con-nuestros-sistemas-de-gestion",
+          "q": "¿Es compatible con nuestros sistemas de gestión?",
+          "a": "REELEVO puede encajar con software de RRHH y otros sistemas según el caso. Si ya trabajáis con una herramienta concreta, revisamos el encaje durante la implantación y definimos con claridad el alcance real."
+        },
+        {
+          "id": "faq-puedo-exportar-mis-procesos-si-dejo-de",
+          "q": "¿Puedo exportar mis procesos si dejo de usar REELEVO?",
+          "a": "Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos e instrucciones en CSV y Excel. El conocimiento que has documentado es tuyo. En caso de cierre del servicio, avisaríamos con al menos 90 días de antelación y facilitaríamos la exportación completa. Más detalles en nuestra [página de Nosotros](/sobre-nosotros/#portabilidad)."
+        }
+      ]
+    }
+  ],
+  "ctaIntermedio": {
+    "texto": "Si tu duda no está aquí, la forma más rápida de resolverla es abrir una cuenta y montar un proceso real: en media hora sabrás si encaja.",
+    "cta": {
+      "texto": "Probarlo con un proceso real",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    "nota": "60 días del plan Pro, sin tarjeta"
+  },
+  "ctaFinal": {
+    "antetitulo": "Si aún te queda alguna duda",
+    "titulo": "Pruébalo con un proceso real",
+    "texto": "Entra en la plataforma y revísala con tu equipo. En poco tiempo verás si encaja con vuestra forma de trabajar.",
+    "ctaPrincipal": {
+      "texto": "Registrarme en REELEVO →",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    "ctaSecundario": {
+      "texto": "Ver precios",
+      "url": "/precios/"
+    },
+    "nota": "Sin letra pequeña · Soporte en español · Validación práctica con tu equipo"
+  }
+}

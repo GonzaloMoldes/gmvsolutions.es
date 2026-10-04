@@ -3,65 +3,36 @@ import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPrecios, conNegritas, sinMarcas, etiquetaCta } from '../lib/contenido';
 
-const title = "Precios del software de instrucciones de trabajo digitales | REELEVO";
-const description = "Precio del software de instrucciones de trabajo digitales REELEVO para pyme industrial: plan gratuito para empezar y desde 49 €/mes por empresa, sin licencia por usuario.";
+// Textos y planes editables desde Sanity (Precios). Respaldo: src/data/precios.default.json.
+const precios = await getPrecios();
+
+const title = precios.seo.title;
+const description = precios.seo.description;
 const canonical = "https://www.gmvsolutions.es/precios/";
 const primaryCtaHref = "https://app.gmvsolutions.es/registro";
 const primaryCtaLabel = "Registrarme en REELEVO";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Cuánto cuesta REELEVO?',
-    a: 'Hay un plan gratuito con 3 máquinas, 10 operarios y 5 procesos, pensado para empezar por un puesto. Los planes de pago son 49 € y 129 € al mes por empresa, o 490 € y 1.290 € al año. El precio está publicado y no hace falta una llamada comercial para conocerlo: los planes suben según las capacidades que necesites, no según cuánta gente lo use.',
-  },
-  {
-    q: '¿Qué pasa cuando termina la prueba?',
-    a: 'Tu cuenta pasa al plan gratuito y sigues trabajando: no pierdes lo que hayas montado ni se te bloquea el acceso. Al registrarte tienes 60 días con el plan Pro completo y sin tarjeta, y cuando terminan te quedas con el plan Free, con sus límites de 3 máquinas, 10 operarios y 5 procesos. Pagas cuando el producto te haya dado motivos, no porque se acabe un contador.',
-  },
-  {
-    q: '¿Se paga por operario?',
-    a: 'No, se paga por empresa y no por licencia de usuario. Cada plan incluye un número de operarios dados de alta —20 en Starter, 100 en Pro y sin límite en Enterprise— pero no se factura por cada uno. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo.',
-  },
-  {
-    q: '¿Hay permanencia o coste de implantación?',
-    a: 'El precio publicado es la suscripción; no hay un proyecto de implantación obligatorio con coste aparte, porque la configuración técnica es de un día al ser SaaS sin instalación local. Lo que sí lleva tiempo es documentar tus procesos, y ese trabajo es tuyo.',
-  },
-  {
-    q: '¿Encaja con el Kit Digital?',
-    a: 'Programas como el Kit Digital cubren parte del coste de software de digitalización para pymes y autónomos. Lo importante es elegir la solución por el problema operativo que resuelve y no por gastar la subvención, porque una herramienta que nadie usa sigue costando dinero aunque esté subvencionada.',
-  },
-];
+const faqs: FaqItem[] = precios.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
+// Solo los planes con precio numerico van como Offer al schema.
+const importe = (precio: string) => precio.replace(/[^\d,.]/g, '').replace(',', '.');
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "REELEVO",
   "description": "Software SOP industrial para reducir improvisación, ordenar incorporaciones y ganar visibilidad operativa en planta",
-  "offers": [
-    {
+  "offers": precios.planes
+    .filter((pl) => importe(pl.precio) !== '')
+    .map((pl) => ({
       "@type": "Offer",
-      "name": "Free",
-      "price": "0",
+      "name": pl.nombre,
+      "price": importe(pl.precio),
       "priceCurrency": "EUR",
-      "url": "https://app.gmvsolutions.es/registro"
-    },
-    {
-      "@type": "Offer",
-      "name": "Starter",
-      "price": "49",
-      "priceCurrency": "EUR",
-      "url": "https://app.gmvsolutions.es/registro"
-    },
-    {
-      "@type": "Offer",
-      "name": "Pro",
-      "price": "129",
-      "priceCurrency": "EUR",
-      "url": "https://app.gmvsolutions.es/registro"
-    }
-  ]
+      "url": pl.cta.url.startsWith('http') ? pl.cta.url : primaryCtaHref,
+    })),
 };
 
 const schema = [pageSchema, faqPageSchema(faqs)];
@@ -77,13 +48,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Precio por empresa</div>
-    <h1 class="fade-up delay-1">Pagas por la planta. <br><em>No por cada operario.</em></h1>
-    <p class="fade-up delay-2">Empiezas con <strong>60 días del plan Pro completo, sin tarjeta</strong>. Al terminar, tu cuenta pasa al plan gratuito y sigues trabajando. Los planes de pago van desde 49€/mes por empresa, con precio visible y sin licencia por usuario.</p>
+    <div class="eyebrow fade-up">{precios.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{precios.hero.titulo}{precios.hero.tituloDestacado && <> <br><em>{precios.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(precios.hero.texto)} />
     <div class="hero-actions fade-up delay-3" style="justify-content:center; margin-top:24px;">
-      <a href={primaryCtaHref} class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
-      <a href="/vs-alternativas/" class="btn-ghost">Comparar alternativas</a>
+      <a href={precios.hero.ctaPrincipal.url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label={etiquetaCta(precios.hero.ctaPrincipal.texto)}>{precios.hero.ctaPrincipal.texto}</a>
+      <a href={precios.hero.ctaSecundario.url} class="btn-ghost">{precios.hero.ctaSecundario.texto}</a>
     </div>
     <Ilustracion escena="precios" />
   </section>
@@ -99,121 +70,35 @@ const schema = [pageSchema, faqPageSchema(faqs)];
            la web vuelve a prometer lo que el producto no da. Ver
            PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, Anexo I. -->
       <div class="plans-grid fade-up">
-        <!-- FREE -->
-        <div class="plan-card">
-          <div class="plan-name">Free</div>
-          <div class="plan-scope">Para empezar</div>
-          <div class="plan-price">0€<sub>/mes</sub></div>
-          <div class="plan-period">Gratis · Sin tarjeta · No caduca</div>
-          <div class="plan-annual">Antes, <strong>60 días del plan Pro</strong> al registrarte</div>
-          <div class="plan-desc">Donde aterriza tu cuenta cuando acaba la prueba, y donde puede quedarse. No es una demo con datos de mentira: es la plataforma, con tus máquinas y tus procesos.</div>
-          <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Hasta 3 máquinas o puestos</div>
-            <div class="plan-feature"><span class="check">✓</span>Hasta 10 operarios dados de alta</div>
-            <div class="plan-feature"><span class="check">✓</span>5 procesos, hasta 6 pasos por proceso</div>
-            <div class="plan-feature"><span class="check">✓</span>Acceso por QR en el puesto, sin cuenta de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Trabajo guiado paso a paso</div>
-            <div class="plan-feature"><span class="check">✓</span>Impresión de QR de máquina</div>
-            <div class="plan-feature"><span class="check">✓</span>Panel de empresa</div>
-            <div class="plan-feature"><span class="cross">×</span>Estadísticas y exportación CSV</div>
-            <div class="plan-feature"><span class="cross">×</span>Productividad y monitoreo en vivo</div>
-            <div class="plan-feature"><span class="cross">×</span>Mantenimiento y cobertura de turnos</div>
-          </div>
-          <div class="plan-cta">
-            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
-               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Free">Empezar gratis</a>
-            <p class="plan-note">Sin tarjeta. Empiezas por un puesto</p>
-          </div>
-        </div>
-
-        <!-- STARTER -->
-        <div class="plan-card">
-          <div class="plan-name">Starter</div>
-          <div class="plan-scope">Core operativo</div>
-          <div class="plan-price">49€<sub>/mes</sub></div>
-          <div class="plan-period">Facturación mensual · Sin compromiso</div>
-          <div class="plan-annual">o <strong>490 €/año</strong> — dos meses gratis</div>
-          <div class="plan-desc">Para equipos que quieren empezar por lo esencial: que el puesto no dependa de memoria, que el relevo entre mejor y que el turno gane estabilidad.</div>
-          <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Hasta 5 máquinas o puestos</div>
-            <div class="plan-feature"><span class="check">✓</span>Hasta 20 operarios dados de alta</div>
-            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados, hasta 12 pasos por proceso</div>
-            <div class="plan-feature"><span class="check">✓</span>2 usuarios supervisores</div>
-            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Free</div>
-            <div class="plan-feature"><span class="check">✓</span>Estadísticas, productividad y monitoreo en vivo</div>
-            <div class="plan-feature"><span class="check">✓</span>Certificaciones de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Planificación y validación de producción</div>
-            <div class="plan-feature"><span class="check">✓</span>Mantenimiento preventivo</div>
-            <div class="plan-feature"><span class="check">✓</span>Cobertura de turnos</div>
-            <div class="plan-feature"><span class="check">✓</span>Obras con QR de pieza (3 obras, 50 piezas)</div>
-            <div class="plan-feature"><span class="check">✓</span>Importación masiva y exportación CSV</div>
-            <div class="plan-feature"><span class="cross">×</span>Vídeo y versionado de procesos</div>
-            <div class="plan-feature"><span class="cross">×</span>Firma digital, Kaizen y API</div>
-          </div>
-          <div class="plan-cta">
-            <a href={primaryCtaHref} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
-               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Starter">{primaryCtaLabel}</a>
-            <p class="plan-note">El botón te lleva al registro de la plataforma</p>
-          </div>
-        </div>
-
-        <!-- PRO -->
-        <div class="plan-card featured">
-          <div class="plan-badge">Más popular</div>
-          <div class="plan-name">Pro</div>
-          <div class="plan-scope">Core + expansión</div>
-          <div class="plan-price">129€<sub>/mes</sub></div>
-          <div class="plan-period">Facturación mensual · Sin compromiso</div>
-          <div class="plan-annual">o <strong>1.290 €/año</strong> — dos meses gratis</div>
-          <div class="plan-desc">Para empresas que además quieren evidencia de cumplimiento, mejora continua y el dato de planta conectado con el resto de sus sistemas.</div>
-          <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Hasta 25 máquinas o puestos</div>
-            <div class="plan-feature"><span class="check">✓</span>Hasta 100 operarios dados de alta</div>
-            <div class="plan-feature"><span class="check">✓</span>Procesos ilimitados, hasta 25 pasos por proceso</div>
-            <div class="plan-feature"><span class="check">✓</span>5 usuarios admin y 10 supervisores</div>
-            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Starter</div>
-            <div class="plan-feature"><span class="check">✓</span>Vídeo en procesos y versionado</div>
-            <div class="plan-feature"><span class="check">✓</span>Firma digital e informes de cumplimiento</div>
-            <div class="plan-feature"><span class="check">✓</span>Kaizen y contribuciones de operario</div>
-            <div class="plan-feature"><span class="check">✓</span>Lean: TIMWOODS, VSM y takt time</div>
-            <div class="plan-feature"><span class="check">✓</span>Control de horas y alertas de desviación</div>
-            <div class="plan-feature"><span class="check">✓</span>Reportes PDF programados por email</div>
-            <div class="plan-feature"><span class="check">✓</span>API keys, webhooks y 10.000 llamadas/mes</div>
-            <div class="plan-feature"><span class="check">✓</span>Analítica avanzada e informes personalizados</div>
-            <div class="plan-feature"><span class="cross">×</span>SSO, white label y soporte prioritario</div>
-          </div>
-          <div class="plan-cta">
-            <a href={primaryCtaHref} class="btn-primary"
-               data-cta data-cta-intent="registro" data-cta-location="pricing" data-cta-label="Registrarme - Pro">{primaryCtaLabel}</a>
-            <p class="plan-note">Te ayudamos a validar si este es el plan que encaja</p>
-          </div>
-        </div>
-
-        <!-- ENTERPRISE -->
-        <div class="plan-card">
-          <div class="plan-name">Enterprise</div>
-          <div class="plan-scope">Requisitos avanzados</div>
-          <div class="plan-price">A medida</div>
-          <div class="plan-period">Contacta para presupuesto personalizado</div>
-          <div class="plan-desc">Para grupos industriales o despliegues con requisitos avanzados de integración, seguridad, soporte o compliance.</div>
-          <div class="plan-features">
-            <div class="plan-feature"><span class="check">✓</span>Todo lo del plan Pro, sin límites</div>
-            <div class="plan-feature"><span class="check">✓</span>Máquinas, operarios y usuarios ilimitados</div>
-            <div class="plan-feature"><span class="check">✓</span>API v2 completa y documentación</div>
-            <div class="plan-feature"><span class="check">✓</span>Webhooks ilimitados</div>
-            <div class="plan-feature"><span class="check">✓</span>SSO / SAML</div>
-            <div class="plan-feature"><span class="check">✓</span>White label</div>
-            <div class="plan-feature"><span class="check">✓</span>Soporte prioritario</div>
-            <div class="plan-feature"><span class="roadmap">○</span>Integraciones ERP o RRHH <span class="plan-badge-roadmap">Según el caso</span></div>
-            <div class="plan-feature"><span class="check">✓</span>Acuerdo de soporte dedicado</div>
-            <div class="plan-feature"><span class="check">✓</span>Implementación asistida</div>
-          </div>
-          <div class="plan-cta">
-            <a href="mailto:hola@gmvsolutions.es" class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
-               data-cta data-cta-intent="contacto" data-cta-location="pricing" data-cta-label="Hablar con nosotros - Enterprise">Hablar con nosotros</a>
-            <p class="plan-note">Cuéntanos el alcance y te orientamos</p>
-          </div>
-        </div>
+        {precios.planes.map((pl) => {
+          const contacto = pl.cta.url.startsWith('mailto:');
+          return (
+            <div class={pl.destacado ? 'plan-card featured' : 'plan-card'}>
+              {pl.destacado && pl.insignia && <div class="plan-badge">{pl.insignia}</div>}
+              <div class="plan-name">{pl.nombre}</div>
+              <div class="plan-scope">{pl.ambito}</div>
+              <div class="plan-price">{pl.precio}{pl.sufijo && <sub>{pl.sufijo}</sub>}</div>
+              <div class="plan-period">{pl.periodo}</div>
+              {pl.anual && <div class="plan-annual" set:html={conNegritas(pl.anual)} />}
+              <div class="plan-desc" set:html={conNegritas(pl.descripcion)} />
+              <div class="plan-features">
+                {pl.caracteristicas.map((c) => (
+                  <div class="plan-feature">
+                    {c.estado === 'no' ? <span class="cross">×</span> : c.estado === 'segun' ? <span class="roadmap">○</span> : <span class="check">✓</span>}{c.texto}{c.estado === 'segun' && c.etiqueta && <> <span class="plan-badge-roadmap">{c.etiqueta}</span></>}
+                  </div>
+                ))}
+              </div>
+              <div class="plan-cta">
+                {pl.destacado
+                  ? <a href={pl.cta.url} class="btn-primary"
+                       data-cta data-cta-intent={contacto ? 'contacto' : 'registro'} data-cta-location="pricing" data-cta-label={contacto ? `${etiquetaCta(pl.cta.texto)} - ${pl.nombre}` : `Registrarme - ${pl.nombre}`}>{pl.cta.texto}</a>
+                  : <a href={pl.cta.url} class="btn-ghost" style="width:100%;text-align:center;font-size:.82rem;padding:14px 20px;display:block;"
+                       data-cta data-cta-intent={contacto ? 'contacto' : 'registro'} data-cta-location="pricing" data-cta-label={contacto ? `${etiquetaCta(pl.cta.texto)} - ${pl.nombre}` : `Registrarme - ${pl.nombre}`}>{pl.cta.texto}</a>}
+                <p class="plan-note">{pl.nota}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -294,22 +179,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Decisión final</div>
+    <div class="cta-eyebrow fade-up">{precios.ctaFinal.antetitulo}</div>
     <h2 class="cta-title fade-up delay-1">
-      Revisa la plataforma por dentro <br><em>y decide con criterio</em>
+      {precios.ctaFinal.titulo}{precios.ctaFinal.tituloDestacado && <> <br><em>{precios.ctaFinal.tituloDestacado}</em></>}
     </h2>
-    <p class="cta-sub fade-up delay-2">
-      El botón te lleva al registro. En pocos minutos podrás ver cómo se trabaja en el puesto
-      y valorar si este enfoque encaja de verdad con tu planta.
-    </p>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(precios.ctaFinal.texto)} />
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href={primaryCtaHref} class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        {primaryCtaLabel} →
+      <a href={precios.ctaFinal.cta.url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label={etiquetaCta(precios.ctaFinal.cta.texto)}>
+        {precios.ctaFinal.cta.texto}
       </a>
     </div>
     <div class="cta-note fade-up delay-4">
-      Precio publicado · Acompañamiento real · Sin negociación opaca
+      {precios.ctaFinal.nota}
     </div>
   </section>
 </BaseLayout>

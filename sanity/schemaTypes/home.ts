@@ -1,5 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { AYUDA_NEGRITA, cabeceraSeccion, enlace, pregunta } from './comunes';
+import { AYUDA_NEGRITA, cabeceraSeccion, enlace, preguntas } from './comunes';
 
 // Pagina de inicio. Documento unico, con _id fijo «home» (ver sanity.config.ts).
 // Cada grupo es una seccion de la home, en el mismo orden en que se ve.
@@ -171,7 +171,7 @@ export const home = defineType({
 
     seccion('faq', '§05 FAQ', [
       ...cabeceraSeccion,
-      defineField({ name: 'items', title: 'Preguntas', type: 'array', of: [defineArrayMember(pregunta)] }),
+      preguntas(),
     ]),
 
     seccion('ctaFinal', 'Llamada final', [

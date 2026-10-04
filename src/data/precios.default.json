@@ -1,0 +1,327 @@
+{
+  "seo": {
+    "title": "Precios del software de instrucciones de trabajo digitales | REELEVO",
+    "description": "Precio del software de instrucciones de trabajo digitales REELEVO para pyme industrial: plan gratuito para empezar y desde 49 €/mes por empresa, sin licencia por usuario."
+  },
+  "hero": {
+    "antetitulo": "Precio por empresa",
+    "titulo": "Pagas por la planta.",
+    "tituloDestacado": "No por cada operario.",
+    "texto": "Empiezas con **60 días del plan Pro completo, sin tarjeta**. Al terminar, tu cuenta pasa al plan gratuito y sigues trabajando. Los planes de pago van desde 49€/mes por empresa, con precio visible y sin licencia por usuario.",
+    "ctaPrincipal": {
+      "texto": "Registrarme en REELEVO",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    "ctaSecundario": {
+      "texto": "Comparar alternativas",
+      "url": "/vs-alternativas/"
+    }
+  },
+  "planes": [
+    {
+      "nombre": "Free",
+      "ambito": "Para empezar",
+      "precio": "0€",
+      "sufijo": "/mes",
+      "periodo": "Gratis · Sin tarjeta · No caduca",
+      "anual": "Antes, **60 días del plan Pro** al registrarte",
+      "descripcion": "Donde aterriza tu cuenta cuando acaba la prueba, y donde puede quedarse. No es una demo con datos de mentira: es la plataforma, con tus máquinas y tus procesos.",
+      "insignia": "",
+      "destacado": false,
+      "caracteristicas": [
+        {
+          "texto": "Hasta 3 máquinas o puestos",
+          "estado": "si"
+        },
+        {
+          "texto": "Hasta 10 operarios dados de alta",
+          "estado": "si"
+        },
+        {
+          "texto": "5 procesos, hasta 6 pasos por proceso",
+          "estado": "si"
+        },
+        {
+          "texto": "Acceso por QR en el puesto, sin cuenta de operario",
+          "estado": "si"
+        },
+        {
+          "texto": "Trabajo guiado paso a paso",
+          "estado": "si"
+        },
+        {
+          "texto": "Impresión de QR de máquina",
+          "estado": "si"
+        },
+        {
+          "texto": "Panel de empresa",
+          "estado": "si"
+        },
+        {
+          "texto": "Estadísticas y exportación CSV",
+          "estado": "no"
+        },
+        {
+          "texto": "Productividad y monitoreo en vivo",
+          "estado": "no"
+        },
+        {
+          "texto": "Mantenimiento y cobertura de turnos",
+          "estado": "no"
+        }
+      ],
+      "cta": {
+        "texto": "Empezar gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      "nota": "Sin tarjeta. Empiezas por un puesto"
+    },
+    {
+      "nombre": "Starter",
+      "ambito": "Core operativo",
+      "precio": "49€",
+      "sufijo": "/mes",
+      "periodo": "Facturación mensual · Sin compromiso",
+      "anual": "o **490 €/año** — dos meses gratis",
+      "descripcion": "Para equipos que quieren empezar por lo esencial: que el puesto no dependa de memoria, que el relevo entre mejor y que el turno gane estabilidad.",
+      "insignia": "",
+      "destacado": false,
+      "caracteristicas": [
+        {
+          "texto": "Hasta 5 máquinas o puestos",
+          "estado": "si"
+        },
+        {
+          "texto": "Hasta 20 operarios dados de alta",
+          "estado": "si"
+        },
+        {
+          "texto": "Procesos ilimitados, hasta 12 pasos por proceso",
+          "estado": "si"
+        },
+        {
+          "texto": "2 usuarios supervisores",
+          "estado": "si"
+        },
+        {
+          "texto": "Todo lo del plan Free",
+          "estado": "si"
+        },
+        {
+          "texto": "Estadísticas, productividad y monitoreo en vivo",
+          "estado": "si"
+        },
+        {
+          "texto": "Certificaciones de operario",
+          "estado": "si"
+        },
+        {
+          "texto": "Planificación y validación de producción",
+          "estado": "si"
+        },
+        {
+          "texto": "Mantenimiento preventivo",
+          "estado": "si"
+        },
+        {
+          "texto": "Cobertura de turnos",
+          "estado": "si"
+        },
+        {
+          "texto": "Obras con QR de pieza (3 obras, 50 piezas)",
+          "estado": "si"
+        },
+        {
+          "texto": "Importación masiva y exportación CSV",
+          "estado": "si"
+        },
+        {
+          "texto": "Vídeo y versionado de procesos",
+          "estado": "no"
+        },
+        {
+          "texto": "Firma digital, Kaizen y API",
+          "estado": "no"
+        }
+      ],
+      "cta": {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      "nota": "El botón te lleva al registro de la plataforma"
+    },
+    {
+      "nombre": "Pro",
+      "ambito": "Core + expansión",
+      "precio": "129€",
+      "sufijo": "/mes",
+      "periodo": "Facturación mensual · Sin compromiso",
+      "anual": "o **1.290 €/año** — dos meses gratis",
+      "descripcion": "Para empresas que además quieren evidencia de cumplimiento, mejora continua y el dato de planta conectado con el resto de sus sistemas.",
+      "insignia": "Más popular",
+      "destacado": true,
+      "caracteristicas": [
+        {
+          "texto": "Hasta 25 máquinas o puestos",
+          "estado": "si"
+        },
+        {
+          "texto": "Hasta 100 operarios dados de alta",
+          "estado": "si"
+        },
+        {
+          "texto": "Procesos ilimitados, hasta 25 pasos por proceso",
+          "estado": "si"
+        },
+        {
+          "texto": "5 usuarios admin y 10 supervisores",
+          "estado": "si"
+        },
+        {
+          "texto": "Todo lo del plan Starter",
+          "estado": "si"
+        },
+        {
+          "texto": "Vídeo en procesos y versionado",
+          "estado": "si"
+        },
+        {
+          "texto": "Firma digital e informes de cumplimiento",
+          "estado": "si"
+        },
+        {
+          "texto": "Kaizen y contribuciones de operario",
+          "estado": "si"
+        },
+        {
+          "texto": "Lean: TIMWOODS, VSM y takt time",
+          "estado": "si"
+        },
+        {
+          "texto": "Control de horas y alertas de desviación",
+          "estado": "si"
+        },
+        {
+          "texto": "Reportes PDF programados por email",
+          "estado": "si"
+        },
+        {
+          "texto": "API keys, webhooks y 10.000 llamadas/mes",
+          "estado": "si"
+        },
+        {
+          "texto": "Analítica avanzada e informes personalizados",
+          "estado": "si"
+        },
+        {
+          "texto": "SSO, white label y soporte prioritario",
+          "estado": "no"
+        }
+      ],
+      "cta": {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      "nota": "Te ayudamos a validar si este es el plan que encaja"
+    },
+    {
+      "nombre": "Enterprise",
+      "ambito": "Requisitos avanzados",
+      "precio": "A medida",
+      "sufijo": "",
+      "periodo": "Contacta para presupuesto personalizado",
+      "anual": "",
+      "descripcion": "Para grupos industriales o despliegues con requisitos avanzados de integración, seguridad, soporte o compliance.",
+      "insignia": "",
+      "destacado": false,
+      "caracteristicas": [
+        {
+          "texto": "Todo lo del plan Pro, sin límites",
+          "estado": "si"
+        },
+        {
+          "texto": "Máquinas, operarios y usuarios ilimitados",
+          "estado": "si"
+        },
+        {
+          "texto": "API v2 completa y documentación",
+          "estado": "si"
+        },
+        {
+          "texto": "Webhooks ilimitados",
+          "estado": "si"
+        },
+        {
+          "texto": "SSO / SAML",
+          "estado": "si"
+        },
+        {
+          "texto": "White label",
+          "estado": "si"
+        },
+        {
+          "texto": "Soporte prioritario",
+          "estado": "si"
+        },
+        {
+          "texto": "Integraciones ERP o RRHH",
+          "estado": "segun",
+          "etiqueta": "Según el caso"
+        },
+        {
+          "texto": "Acuerdo de soporte dedicado",
+          "estado": "si"
+        },
+        {
+          "texto": "Implementación asistida",
+          "estado": "si"
+        }
+      ],
+      "cta": {
+        "texto": "Hablar con nosotros",
+        "url": "mailto:hola@gmvsolutions.es"
+      },
+      "nota": "Cuéntanos el alcance y te orientamos"
+    }
+  ],
+  "faq": {
+    "items": [
+      {
+        "id": "faq-cuanto-cuesta-reelevo",
+        "q": "¿Cuánto cuesta REELEVO?",
+        "a": "Hay un plan gratuito con 3 máquinas, 10 operarios y 5 procesos, pensado para empezar por un puesto. Los planes de pago son 49 € y 129 € al mes por empresa, o 490 € y 1.290 € al año. El precio está publicado y no hace falta una llamada comercial para conocerlo: los planes suben según las capacidades que necesites, no según cuánta gente lo use."
+      },
+      {
+        "id": "faq-que-pasa-cuando-termina-la-prueba",
+        "q": "¿Qué pasa cuando termina la prueba?",
+        "a": "Tu cuenta pasa al plan gratuito y sigues trabajando: no pierdes lo que hayas montado ni se te bloquea el acceso. Al registrarte tienes 60 días con el plan Pro completo y sin tarjeta, y cuando terminan te quedas con el plan Free, con sus límites de 3 máquinas, 10 operarios y 5 procesos. Pagas cuando el producto te haya dado motivos, no porque se acabe un contador."
+      },
+      {
+        "id": "faq-se-paga-por-operario",
+        "q": "¿Se paga por operario?",
+        "a": "No, se paga por empresa y no por licencia de usuario. Cada plan incluye un número de operarios dados de alta —20 en Starter, 100 en Pro y sin límite en Enterprise— pero no se factura por cada uno. Es una diferencia importante en planta: un precio por usuario penaliza justo lo que quieres conseguir, que es dar acceso a todo el mundo."
+      },
+      {
+        "id": "faq-hay-permanencia-o-coste-de-implantacion",
+        "q": "¿Hay permanencia o coste de implantación?",
+        "a": "El precio publicado es la suscripción; no hay un proyecto de implantación obligatorio con coste aparte, porque la configuración técnica es de un día al ser SaaS sin instalación local. Lo que sí lleva tiempo es documentar tus procesos, y ese trabajo es tuyo."
+      },
+      {
+        "id": "faq-encaja-con-el-kit-digital",
+        "q": "¿Encaja con el Kit Digital?",
+        "a": "Programas como el Kit Digital cubren parte del coste de software de digitalización para pymes y autónomos. Lo importante es elegir la solución por el problema operativo que resuelve y no por gastar la subvención, porque una herramienta que nadie usa sigue costando dinero aunque esté subvencionada."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Decisión final",
+    "titulo": "Revisa la plataforma por dentro",
+    "tituloDestacado": "y decide con criterio",
+    "texto": "El botón te lleva al registro. En pocos minutos podrás ver cómo se trabaja en el puesto y valorar si este enfoque encaja de verdad con tu planta.",
+    "cta": {
+      "texto": "Registrarme en REELEVO →",
+      "url": "https://app.gmvsolutions.es/registro"
+    },
+    "nota": "Precio publicado · Acompañamiento real · Sin negociación opaca"
+  }
+}
