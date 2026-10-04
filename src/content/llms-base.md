@@ -1,6 +1,6 @@
 # GMV Solutions — REELEVO
 
-> Software español para digitalizar la operación de planta en pymes industriales: control de producción, continuidad ante bajas y trazabilidad de ejecución, sin la complejidad de un MES. Desarrollado por GMV Solutions, España.
+> Software de instrucciones de trabajo digitales para pymes industriales españolas: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada, continuidad ante bajas y trazabilidad, sin la complejidad de un MES. Desarrollado por GMV Solutions, España.
 
 **Última actualización:** <!--UPDATED-->
 **Idioma:** es-ES (Español)
@@ -9,9 +9,9 @@
 
 ## Qué es REELEVO
 
-REELEVO es un software español (SaaS B2B) para digitalizar la operación de planta en pymes industriales. Reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso. En su núcleo, REELEVO es un software de instrucciones de trabajo digitales: los procedimientos se documentan paso a paso, con foto y vídeo, y el operario los abre escaneando un QR en la máquina.
+REELEVO es un software de instrucciones de trabajo digitales (SaaS B2B, desarrollado en España) para pymes industriales. Los procedimientos se documentan paso a paso, con foto y vídeo, y el operario los abre escaneando un QR en la máquina. Sobre esas instrucciones reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso.
 
-**Categoría:** Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
+**Categoría:** Software de instrucciones de trabajo digitales · Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
 
 **Precio:** plan Free (0€) para empezar; Starter 49€/mes o 490€/año; Pro 129€/mes o 1.290€/año; Enterprise a medida. Se factura por empresa y no por licencia de usuario, aunque cada plan define cuántos operarios se pueden dar de alta (10 en Free, 20 en Starter, 100 en Pro, sin límite en Enterprise). De los pocos en su categoría con precio visible en euros.
 

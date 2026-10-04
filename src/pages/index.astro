@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Screenshot from '../components/Screenshot.astro';
 import PlatformMap from '../components/PlatformMap.astro';
 
-const title = "Software español para digitalizar la planta industrial | REELEVO";
-const description = "Software español para digitalizar la planta industrial: control de producción, continuidad ante bajas y trazabilidad, sin la complejidad de un MES.";
+const title = "Software de instrucciones de trabajo digitales para pymes | REELEVO";
+const description = "REELEVO es el software de instrucciones de trabajo digitales para pymes industriales: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada y sin la complejidad de un MES.";
 const canonical = "https://www.gmvsolutions.es/";
 
 // La Organization se emite globalmente desde BaseLayout (src/lib/seo.ts).
@@ -22,13 +22,15 @@ const schema = [
     "@id": "https://www.gmvsolutions.es/#software",
     "name": "REELEVO",
     "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Software de instrucciones de trabajo digitales",
     "operatingSystem": "Web, Android, iOS",
     "inLanguage": "es-ES",
     "description": description,
     "url": "https://www.gmvsolutions.es/",
     "publisher": { "@id": "https://www.gmvsolutions.es/#organization" },
     "featureList": [
-      "Procedimientos en el puesto sin cuenta de operario",
+      "Instrucciones de trabajo digitales en el puesto, sin cuenta de operario",
+      "Instrucciones paso a paso con foto y vídeo, abiertas con un QR en la máquina",
       "Registro verificable de ejecución",
       "Monitor de actividad de turno",
       "Gestión de competencias y certificaciones",
@@ -105,14 +107,14 @@ const schema = [
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-eyebrow fade-up">Software español para digitalizar la planta industrial en pymes</div>
+    <div class="hero-eyebrow fade-up">REELEVO · Hecho en España para la pyme industrial</div>
     <h1 class="hero-title fade-up delay-1">
-      Controla tu planta <br>
-      sin complejidad <br>
-      <em>de un sistema MES</em>.
+      Software de instrucciones <br>
+      de trabajo digitales <br>
+      <em>para la pyme industrial</em>.
     </h1>
     <p class="hero-sub fade-up delay-2">
-      Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO pone lo que saben en el puesto, para que el turno siga sin ellas.
+      Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO convierte lo que saben en instrucciones de trabajo digitales, paso a paso y en el puesto, para que el turno siga sin ellas.
     </p>
     <div class="hero-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -149,9 +151,10 @@ const schema = [
           <div class="eyebrow">El día a día</div>
           <h2 class="section-title">Que problema resuelve REELEVO</h2>
           <p class="section-sub">
-            REELEVO es el <strong>software español para digitalizar la planta industrial</strong> de las pymes:
-            lleva el control de producción, la continuidad ante bajas y la trazabilidad de ejecución al puesto,
-            sin la complejidad de implantar un MES. En el centro hay un <a href="/documentacion-procesos/">software de instrucciones de trabajo digitales</a>: el procedimiento vive en la máquina y se abre con el móvil. Estas son las cuatro escenas donde más se nota.
+            REELEVO es el <strong>software de instrucciones de trabajo digitales</strong> de las pymes industriales españolas:
+            el procedimiento vive en la máquina, se abre con el móvil y cada ejecución queda registrada.
+            Sobre esas instrucciones se apoyan la continuidad ante bajas, el control de producción y la trazabilidad,
+            sin la complejidad de implantar un MES. Estas son las cuatro escenas donde más se nota.
           </p>
         </div>
 

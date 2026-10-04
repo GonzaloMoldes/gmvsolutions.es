@@ -16,7 +16,7 @@ export const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/favicon.svg`,
   description:
-    'REELEVO es el software español para digitalizar la planta industrial de las pymes: control de producción, continuidad operativa y trazabilidad de ejecución, sin la complejidad de un MES.',
+    'REELEVO es el software de instrucciones de trabajo digitales para pymes industriales españolas: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada, continuidad ante bajas y trazabilidad, sin la complejidad de un MES.',
   email: 'hola@gmvsolutions.es',
   address: {
     '@type': 'PostalAddress',
@@ -28,6 +28,8 @@ export const organizationSchema = {
   foundingDate: '2025',
   areaServed: 'ES',
   knowsAbout: [
+    'Software de instrucciones de trabajo digitales',
+    'Instrucciones de trabajo digitales',
     'Software SOP industrial',
     'Procedimientos operativos estándar',
     'Documentación operativa',
@@ -72,7 +74,9 @@ export function softwareApplicationSchema() {
     '@type': 'SoftwareApplication',
     '@id': `${BASE_URL}/#software`,
     name: 'REELEVO',
+    description: 'Software de instrucciones de trabajo digitales para pymes industriales.',
     applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Software de instrucciones de trabajo digitales',
     operatingSystem: 'Web, Android, iOS',
     offers: {
       '@type': 'AggregateOffer',
