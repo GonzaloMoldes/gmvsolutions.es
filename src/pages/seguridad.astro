@@ -3,86 +3,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 
-// Contenido verificado contra reelevo-app:
-//   supabase/migrations/     → 81 migraciones con ENABLE ROW LEVEL SECURITY
-//   ..._auto_hash_companies_pin_trigger.sql → PIN hasheado con bcrypt por trigger
-//   lib/security-headers.ts  → CSP enforcing, HSTS, X-Frame-Options DENY, nosniff,
-//                              Referrer-Policy, Permissions-Policy
-//   lib/company-permissions.ts → 7 roles de empresa con permisos por ruta
-//   app/api/cron/gdpr-cleanup  → purga automatica
-//   app/api/scim, app/api/empresa/scim → SCIM 2.0
-//   package.json → @sentry/nextjs, posthog-js
-// OJO: Cloudflare Turnstile esta SOLO en el registro (app/api/company-registration),
-// no en el login. No ampliar esa afirmacion sin volver a comprobarlo.
-// Regla: PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, tareas D3 · D9 · D12.
+// Pagina deliberadamente sencilla: responde a las preguntas basicas de
+// seguridad sin entrar en detalle tecnico (proveedores, cabeceras, nombres de
+// roles, mecanismos internos). El detalle se da a quien lo pida por contacto.
 
 const title = "Seguridad y protección de datos | REELEVO";
-const description = "Cómo REELEVO aísla los datos de cada empresa: Row Level Security en Postgres, permisos por rol, auditoría, cumplimiento RGPD y alojamiento en la UE.";
+const description = "Cómo protege REELEVO los datos de tu empresa: datos separados por empresa, acceso por roles, alojamiento en la UE y cumplimiento RGPD.";
 const canonical = "https://www.gmvsolutions.es/seguridad/";
 
-// Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-//
-// Esta pagina tenia seis secciones y cuatro de ellas eran la version larga de
-// una pregunta que ya estaba aqui abajo. La seccion "La pregunta incomoda"
-// (operario sin contrasena) se elimino y su detalle se incorporo a la tercera
-// pregunta (tarea C3 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
+// Una sola lista alimenta el bloque visible y el FAQPage del head.
 const faqs: FaqItem[] = [
   {
     q: '¿Dónde se alojan los datos?',
-    a: 'En infraestructura dentro de la Unión Europea, sobre Supabase y Vercel. Algunos servicios auxiliares pueden implicar proveedores internacionales bajo las garantías contractuales adecuadas. Los procesos y la documentación que cargas siguen siendo propiedad de tu empresa.',
+    a: 'En infraestructura ubicada en la Unión Europea. Los procesos y la documentación que cargas son siempre propiedad de tu empresa.',
   },
   {
-    q: '¿Cómo se garantiza que una empresa no vea los datos de otra?',
-    a: 'Con Row Level Security en Postgres, que es aislamiento a nivel de base de datos y no una condición en el código de la aplicación. La diferencia importa: si mañana alguien introduce un error en una consulta, la base de datos sigue sin devolver filas de otra empresa. Está aplicado en las tablas mediante migraciones versionadas.',
+    q: '¿Puede otra empresa ver nuestros datos?',
+    a: 'No. Los datos de cada empresa están separados y protegidos, de modo que cada cliente solo accede a su propia información.',
   },
   {
     q: '¿Es seguro que el operario entre sin cuenta ni contraseña?',
-    a: 'Sí, y es la primera objeción razonable de cualquier responsable de IT. No hay credencial permanente en el dispositivo: el escaneo del QR abre una sesión de 24 horas asociada a ese dispositivo, así que un móvil perdido no es una cuenta comprometida indefinidamente. El PIN de empresa se guarda hasheado con bcrypt mediante un trigger en la base de datos, nunca en claro, de modo que no depende de que una ruta concreta se acuerde de hacerlo. Esa sesión da acceso al flujo de ejecución en el puesto y a nada más: ni al panel de empresa, ni a otras plantas, ni a nada administrativo. Y sin cuenta no significa sin rastro: el código personal de ocho caracteres identifica quién ejecutó cada proceso, que es lo que sostiene la trazabilidad.',
+    a: 'Sí. El acceso desde el puesto es temporal y limitado a ejecutar procesos: no da entrada al panel de empresa ni a información administrativa. Y cada ejecución queda identificada, así que se mantiene la trazabilidad.',
   },
   {
-    q: '¿Puedo dar acceso a un jefe de línea sin que vea la facturación?',
-    a: 'Sí. Hay siete roles de empresa con alcance distinto, y el control se aplica tanto en la ruta como en la API. Un supervisor entra a validación, procesos y estadísticas; un responsable ve el panel completo salvo facturación, claves de API e integraciones; y el rol de gestor permite dar permisos por área sin tener que crear un rol nuevo.',
+    q: '¿Puedo decidir qué ve cada persona?',
+    a: 'Sí. Hay distintos roles y permisos, para que cada persona vea solo lo que necesita. Por ejemplo, un jefe de línea puede trabajar con procesos sin ver la facturación.',
+  },
+  {
+    q: '¿Cumple con el RGPD?',
+    a: 'Sí. REELEVO está diseñado para cumplir el RGPD: los datos se conservan según una política de retención y puedes ejercer tus derechos desde el propio panel.',
   },
   {
     q: '¿Qué pasa con nuestros datos si dejamos de usar REELEVO?',
-    a: 'Puedes exportarlos y solicitar la baja desde el propio panel, sin pasar por soporte. Además existe una purga automática que elimina datos según la política de retención, de modo que la eliminación no depende de que alguien se acuerde de ejecutarla.',
+    a: 'Puedes exportarlos y solicitar la baja desde el panel, sin pasar por soporte. Tras la baja, los datos se eliminan.',
   },
 ];
 
 const pageSchema = softwareApplicationSchema();
 const schema = [pageSchema, faqPageSchema(faqs)];
 
-const roles = [
-  ['admin_empresa', 'Control total: facturación, usuarios, claves de API, webhooks, SSO, SCIM e integraciones'],
-  ['plant_manager', 'Su planta: panel, turnos, monitoreo y reportes de ese centro'],
-  ['gestor_empresa', 'Permisos por área a la carta: productividad, procesos, máquinas, operarios, planificación o reportes'],
-  ['responsable', 'Panel completo, salvo facturación, claves de API, webhooks e integraciones'],
-  ['supervisor', 'Validación de ejecuciones, procesos, máquinas, estadísticas, rutas y Kaizen'],
-  ['tecnico', 'Procesos, contenidos, Kaizen y validación técnica'],
-  ['operario', 'Portal del operario y flujo QR. Sin acceso al panel de empresa'],
-];
-
-const plataforma = [
-  ['Autenticación', 'Supabase Auth con JWT, y comprobación de rol en cada ruta y cada endpoint de API'],
-  ['Cabeceras HTTP', 'Content-Security-Policy en modo enforcing, HSTS, X-Frame-Options DENY, nosniff, Referrer-Policy y Permissions-Policy'],
-  ['Anti-bot', 'Cloudflare Turnstile en el registro de empresa'],
-  ['Auditoría', 'Registro de auditoría, logs de aplicación, logs de acceso e histórico de correos enviados'],
-  ['API', 'Claves con scopes, límite de llamadas, analítica de uso y aviso antes de que caduque una clave'],
-  ['Observabilidad', 'Sentry para errores, PostHog para producto y monitorización con health checks'],
-  ['Identidad', 'SCIM 2.0 con Okta, Azure AD o JumpCloud. SSO/SAML en el plan Enterprise'],
-  ['Alojamiento', 'Unión Europea, sobre Supabase y Vercel'],
+const pilares = [
+  ['Datos separados', 'Cada empresa accede solo a su información.'],
+  ['Acceso por roles', 'Cada persona ve lo que necesita para su trabajo, y nada más.'],
+  ['Alojamiento en la UE', 'Tus datos se guardan en la Unión Europea.'],
+  ['RGPD', 'Exportación, baja y eliminación de datos desde el panel.'],
 ];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
 
-  <!-- HERO + PROBLEMA -->
+  <!-- HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Seguridad · RGPD · Alojamiento en la UE</div>
-    <h1 class="fade-up delay-1">Las preguntas que hace IT, <br><em>respondidas por delante</em></h1>
+    <h1 class="fade-up delay-1">Tus datos, <br><em>protegidos y bajo tu control</em></h1>
     <p class="fade-up delay-2">
-      Aislamiento de datos por empresa a nivel de base de datos, permisos por rol, registro de auditoría
-      y alojamiento en la Unión Europea. Sin cuestionario de 60 preguntas para averiguarlo.
+      Respuestas claras a las preguntas de seguridad más habituales.
     </p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -94,90 +69,21 @@ const plataforma = [
 
   <div class="divider"></div>
 
-  <!-- CÓMO SE PROTEGE — bloque dominante -->
+  <!-- PILARES -->
   <section class="section">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Aislamiento y control de acceso</div>
-        <h2 class="section-title">Cada empresa ve lo suyo, <br><em>y lo impone la base de datos</em></h2>
-        <p class="section-sub">
-          El aislamiento no es un filtro en el código de la aplicación, sino <strong>Row Level Security</strong>
-          en Postgres, aplicado sobre las tablas mediante migraciones versionadas.
-        </p>
-      </div>
-
-      <div class="sec-callout fade-up delay-1">
-        <strong>Por qué esta distinción importa:</strong> si el aislamiento vive en el código, basta con
-        que una consulta nueva olvide un <em>where</em> para que se filtren datos de otro cliente. Con RLS,
-        la propia base de datos se niega a devolver esas filas aunque la consulta esté mal escrita.
-        Es la diferencia entre confiar en la disciplina del equipo y no tener que confiar en ella.
-      </div>
-
-      <h3 class="sub-head fade-up delay-2">Siete roles, con alcance distinto</h3>
-      <p class="sub-lede fade-up delay-2">El control se aplica en la ruta y también en la API, así que no depende de que la interfaz esconda un botón.</p>
-
-      <div class="roles-table fade-up delay-2">
-        {roles.map(([r, d]) => (
-          <div class="roles-row">
-            <div class="role-name">{r}</div>
-            <div class="role-scope">{d}</div>
-          </div>
-        ))}
-      </div>
-
-      <div class="sec-callout fade-up delay-3">
-        <strong>El caso práctico:</strong> puedes dar acceso a los jefes de línea sin exponer la facturación,
-        y dar permisos por área a un gestor sin tener que pedirnos un rol nuevo.
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- QUÉ INCLUYE -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Plataforma</div>
-        <h2 class="section-title">Lo que hay debajo</h2>
-      </div>
-
-      <div class="plat-table fade-up delay-1">
-        {plataforma.map(([k, v]) => (
-          <div class="plat-row">
-            <div class="plat-k">{k}</div>
-            <div class="plat-v">{v}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- RGPD -->
-  <section class="section">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">RGPD</div>
-        <h2 class="section-title">Cumplimiento que no depende de que alguien se acuerde</h2>
+        <div class="eyebrow">En resumen</div>
+        <h2 class="section-title">Lo básico, sin letra pequeña</h2>
       </div>
 
       <div class="sec-grid fade-up delay-1">
-        <article class="sec-card">
-          <div class="sec-tag">Retención</div>
-          <p class="sec-desc">Un proceso periódico purga los datos según la política configurada, sin intervención manual.</p>
-        </article>
-
-        <article class="sec-card">
-          <div class="sec-tag">Portabilidad</div>
-          <p class="sec-desc">Tus procesos y registros se exportan desde el panel, sin pasar por soporte. Los datos son de tu empresa.</p>
-        </article>
-
-        <article class="sec-card">
-          <div class="sec-tag">Baja</div>
-          <p class="sec-desc">La solicitud de baja y eliminación es un flujo en el panel, no un correo, junto al aviso legal y la política de cookies.</p>
-        </article>
+        {pilares.map(([k, v]) => (
+          <article class="sec-card">
+            <div class="sec-tag">{k}</div>
+            <p class="sec-desc">{v}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -190,12 +96,12 @@ const plataforma = [
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Sin cuestionario de 60 preguntas</div>
+    <div class="cta-eyebrow fade-up">¿Más preguntas?</div>
     <h3 class="cta-title fade-up delay-1">
-      Si IT tiene una pregunta <br><em>que no está aquí, contéstala con nosotros</em>
+      Si tu equipo de IT necesita más detalle, <br><em>te lo contamos</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
-      Preferimos decirte que algo no está cubierto a que lo descubras a mitad de una evaluación de proveedor.
+      Escríbenos y respondemos a tu evaluación de proveedor.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
@@ -212,110 +118,19 @@ const plataforma = [
 </BaseLayout>
 
 <style>
-  .sec-callout {
-    max-width: 860px;
-    margin-top: 32px;
-    padding: 20px 24px;
-    background: rgba(255, 255, 255, .03);
-    border-left: 2px solid var(--orange);
-    border-radius: 0 4px 4px 0;
-    font-size: .95rem;
-    line-height: 1.75;
-    color: var(--gray);
-  }
-
-  .sec-callout strong { color: var(--white); font-weight: 500; }
-
-  .sub-head {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--white);
-    margin: 48px 0 8px;
-  }
-
-  .sub-lede {
-    font-size: .95rem;
-    color: var(--gray);
-    max-width: 68ch;
-    margin: 0;
-  }
-
-  /* ROLES — el detalle que la FAQ no lleva */
-  .roles-table {
-    margin-top: 24px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    max-width: 900px;
-  }
-
-  .roles-row {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    gap: 20px;
-    padding: 14px 20px;
-    background: var(--surface);
-    font-size: .95rem;
-    line-height: 1.6;
-  }
-
-  .roles-row + .roles-row { border-top: 1px solid var(--border); }
-
-  .role-name {
-    font-family: 'DM Mono', monospace;
-    font-size: .85rem;
-    color: var(--orange);
-  }
-
-  .role-scope { color: var(--gray); }
-
-  @media (max-width: 700px) {
-    .roles-row { grid-template-columns: 1fr; gap: 6px; }
-  }
-
-  /* PLATAFORMA */
-  .plat-table {
-    margin-top: 40px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    max-width: 900px;
-  }
-
-  .plat-row {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    gap: 20px;
-    padding: 14px 20px;
-    background: var(--surface);
-    font-size: .95rem;
-    line-height: 1.6;
-  }
-
-  .plat-row + .plat-row { border-top: 1px solid var(--border); }
-
-  .plat-k {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .plat-v { color: var(--gray); }
-
-  @media (max-width: 700px) {
-    .plat-row { grid-template-columns: 1fr; gap: 6px; }
-  }
-
-  /* RGPD */
+  /* PILARES */
   .sec-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     margin-top: 40px;
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 960px) {
+    .sec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 600px) {
     .sec-grid { grid-template-columns: 1fr; }
   }
 
