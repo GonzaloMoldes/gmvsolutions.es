@@ -10,7 +10,7 @@
 // Unica excepcion, la migracion de la fase 2: si la home todavia tiene sus FAQ
 // escritas dentro (fase 1) y nadie la ha editado desde que se creo, sus FAQ se
 // sustituyen por referencias a las preguntas reutilizables.
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { createClient } from '@sanity/client';
 
@@ -19,6 +19,13 @@ const PAGINAS = [
   { _id: 'precios', _type: 'precios', fichero: '../src/data/precios.default.json' },
   { _id: 'paginaFaqs', _type: 'paginaFaqs', fichero: '../src/data/faqs.default.json' },
   { _id: 'ajustes', _type: 'ajustes', fichero: '../src/data/ajustes.default.json' },
+  // Paginas de funcionalidad: una por JSON de src/data/paginas/.
+  ...readdirSync(new URL('../src/data/paginas/', import.meta.url))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => {
+      const slug = f.replace(/\.json$/, '');
+      return { _id: `pagina-${slug}`, _type: 'paginaFuncionalidad', fichero: `../src/data/paginas/${f}`, extra: { ruta: `/${slug}/` } };
+    }),
 ];
 
 // Tipo de cada elemento de lista, por ruta del campo (sin indices). Tiene que
@@ -34,6 +41,8 @@ const TIPOS = {
   '.planes': 'plan',
   '.planes.caracteristicas': 'caracteristica',
   '.categorias': 'categoria',
+  '.hero.botones': 'boton',
+  '.ctaFinal.botones': 'boton',
 };
 
 // Listas de preguntas: en el JSON van escritas ({ id, q, a }); en Sanity, cada
@@ -85,9 +94,10 @@ const client = createClient({
   useCdn: false,
 });
 
-const docs = PAGINAS.map(({ _id, _type, fichero }) => ({
+const docs = PAGINAS.map(({ _id, _type, fichero, extra }) => ({
   _id,
   _type,
+  ...extra,
   ...convertir(JSON.parse(readFileSync(new URL(fichero, import.meta.url), 'utf8'))),
 }));
 

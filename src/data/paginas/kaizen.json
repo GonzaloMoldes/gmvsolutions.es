@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "Kaizen y mejora continua en planta industrial | REELEVO",
+    "description": "Kaizen digital para la mejora continua operativa: captura ideas de los operarios en el puesto, prioriza, implementa y estandariza en planta industrial."
+  },
+  "hero": {
+    "antetitulo": "Kaizen · Mejora Continua en Planta",
+    "titulo": "Las mejoras nacen",
+    "tituloDestacado": "donde ocurre el trabajo",
+    "texto": "El operario que ejecuta el proceso cada día ve lo que puede mejorar, pero la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla. REELEVO le da un canal para registrarla en el momento, y a ti un sistema para gestionarla hasta que se convierte en estándar.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-el-kaizen-aplicado-a-una",
+        "q": "¿Qué es el Kaizen aplicado a una planta industrial?",
+        "a": "Es la mejora continua hecha por quien ejecuta el trabajo: pequeños cambios propuestos desde el puesto, evaluados y, si funcionan, incorporados al estándar. No es un proyecto de consultoría ni una campaña puntual, sino un ciclo que se repite y que va afinando el proceso."
+      },
+      {
+        "id": "faq-como-propone-una-mejora-el-operario",
+        "q": "¿Cómo propone una mejora el operario?",
+        "a": "Desde el puesto, escaneando el QR de la máquina y dejando la propuesta en el momento en que detecta el problema. Es lo que evita el fallo clásico: la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla."
+      },
+      {
+        "id": "faq-quien-decide-que-mejoras-se-implementan",
+        "q": "¿Quién decide qué mejoras se implementan?",
+        "a": "El responsable, con las propuestas priorizadas delante en lugar de sueltas en una libreta o en una conversación de pasillo. Lo relevante no es solo decidir, sino que quien propuso vea qué pasó con su idea, porque si nunca hay respuesta las propuestas dejan de llegar."
+      },
+      {
+        "id": "faq-como-se-evita-que-las-ideas-se",
+        "q": "¿Cómo se evita que las ideas se pierdan entre turnos?",
+        "a": "Porque quedan registradas donde se generan y no dependen de que alguien se acuerde de trasladarlas al turno siguiente. El ciclo completo —propuesta, evaluación, implantación y estandarización— vive en el mismo sitio que el proceso al que afecta."
+      },
+      {
+        "id": "faq-esto-crea-por-si-solo-una-cultura",
+        "q": "¿Esto crea por sí solo una cultura de mejora continua?",
+        "a": "No, y no vamos a prometerlo: eso requiere liderazgo. Lo que sí hace REELEVO es eliminar la fricción para que las ideas lleguen, para que se gestionen con visibilidad y para que las buenas terminen incorporadas al proceso. Si el equipo tiene ideas y la empresa quiere escucharlas, REELEVO es el canal que faltaba."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Mejora continua",
+    "titulo": "Dale a tu equipo un canal",
+    "tituloDestacado": "para que las ideas no se pierdan",
+    "texto": "Las ideas están ahí. Solo necesitan un sitio donde aterrizar y un proceso para que lleguen a ser estándares.",
+    "botones": [
+      {
+        "texto": "Empezar gratis · Sin compromiso",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver documentación de procesos →",
+        "url": "/documentacion-procesos/"
+      }
+    ],
+    "nota": "Te acompañamos en la puesta en marcha · Sin compromiso y sin reuniones de más"
+  }
+}

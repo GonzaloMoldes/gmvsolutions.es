@@ -17,6 +17,9 @@ const SINGLETONS = [
   { id: 'ajustes', title: 'Ajustes generales' },
 ];
 const SINGLETON_IDS = new Set(SINGLETONS.map((s) => s.id));
+// Tipos con un conjunto fijo de documentos (uno por pagina que existe en el
+// codigo): se editan y publican, pero no se crean, duplican ni borran.
+const FIJOS = new Set([...SINGLETON_IDS, 'paginaFuncionalidad']);
 
 export default defineConfig({
   name: 'reelevo',
@@ -33,6 +36,9 @@ export default defineConfig({
             ...SINGLETONS.map(({ id, title }) =>
               S.listItem().title(title).id(id).child(S.document().schemaType(id).documentId(id).title(title)),
             ),
+            S.listItem()
+              .title('Páginas de funcionalidad')
+              .child(S.documentTypeList('paginaFuncionalidad').title('Páginas de funcionalidad').defaultOrdering([{ field: 'ruta', direction: 'asc' }])),
             S.divider(),
             S.listItem()
               .title('Preguntas frecuentes')
@@ -47,13 +53,13 @@ export default defineConfig({
   ],
   schema: {
     types: schemaTypes,
-    // Los documentos unicos no aparecen en el boton «+ Crear».
-    templates: (templates) => templates.filter(({ schemaType }) => !SINGLETON_IDS.has(schemaType)),
+    // Los documentos fijos no aparecen en el boton «+ Crear».
+    templates: (templates) => templates.filter(({ schemaType }) => !FIJOS.has(schemaType)),
   },
   document: {
-    // Ni duplicar ni borrar un documento unico: solo editar y publicar.
+    // Ni duplicar ni borrar un documento fijo: solo editar y publicar.
     actions: (acciones, { schemaType }) =>
-      SINGLETON_IDS.has(schemaType)
+      FIJOS.has(schemaType)
         ? acciones.filter(({ action }) => action && ['publish', 'discardChanges', 'restore'].includes(action))
         : acciones,
   },

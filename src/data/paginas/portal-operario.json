@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Portal del operario: procesos y agenda en el móvil | REELEVO",
+    "description": "El operario ve su agenda del día, accede a sus procesos y sigue su progreso de formación desde el móvil. Sin instalación ni formación previa."
+  },
+  "hero": {
+    "antetitulo": "Portal del operario industrial",
+    "titulo": "El operario no necesita",
+    "tituloDestacado": "que nadie le diga qué toca hoy",
+    "texto": "Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus procesos en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-ve-el-operario-en-su-portal",
+        "q": "¿Qué ve el operario en su portal?",
+        "a": "Su agenda del día, los procesos que le tocan con sus instrucciones, su progreso de formación y el estado de las mejoras que haya propuesto. La idea es que llegue al puesto sabiendo qué hacer sin tener que preguntar ni esperar a que alguien tenga un rato."
+      },
+      {
+        "id": "faq-el-operario-necesita-una-cuenta-y-una",
+        "q": "¿El operario necesita una cuenta y una contraseña?",
+        "a": "No para acceder al proceso en el puesto: basta con escanear el QR de la máquina desde el móvil. Evitar cuentas y contraseñas es deliberado, porque es donde se cae la adopción con personal temporal o con plantilla poco habituada a herramientas digitales."
+      },
+      {
+        "id": "faq-funciona-en-el-movil-personal-del-operario",
+        "q": "¿Funciona en el móvil personal del operario?",
+        "a": "Sí, se accede desde el navegador sin instalar nada. También funciona en tablets compartidas por puesto, que es lo que prefieren algunas plantas cuando no quieren depender del móvil personal de nadie."
+      },
+      {
+        "id": "faq-y-si-el-operario-no-tiene-soltura",
+        "q": "¿Y si el operario no tiene soltura con la tecnología?",
+        "a": "Por eso el acceso es escanear un código y ver fotos y vídeo del paso, no navegar por menús. La prueba de si una herramienta de planta está bien diseñada es si alguien puede usarla en su primer turno sin que nadie le enseñe."
+      },
+      {
+        "id": "faq-el-jefe-de-turno-usa-el-mismo",
+        "q": "¿El jefe de turno usa el mismo portal que el operario?",
+        "a": "No, tiene el suyo, y tampoco es el panel de dirección: un jefe de línea necesita despachar lo suyo en cinco minutos desde donde esté. En su bandeja le caen las ejecuciones pendientes de firma, los pasos que exigen visto bueno —el operario no sigue hasta que alguien responde—, las rutas de aprendizaje en curso y los avisos automáticos de procesos con anomalías o piezas sin lote."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "El operario gana contexto",
+    "titulo": "Dale al operario su propio espacio",
+    "tituloDestacado": "y la coordinación deja de ir a trompicones",
+    "texto": "Empieza por un puesto y un proceso. Si el operario llega y sabe qué hacer sin preguntar, ya has notado la diferencia.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver gestión de competencias →",
+        "url": "/gestion-competencias/"
+      }
+    ],
+    "nota": "Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico"
+  }
+}

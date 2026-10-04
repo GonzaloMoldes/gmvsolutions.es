@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "Software industrial en modo offline | REELEVO",
+    "description": "El flujo de ejecución de REELEVO aguanta los cortes de wifi de planta: lo ya abierto sigue disponible y lo registrado se encola y sincroniza solo."
+  },
+  "hero": {
+    "antetitulo": "PWA · Modo offline · Sincronización automática · Sin app store",
+    "titulo": "La wifi de planta se cae.",
+    "tituloDestacado": "El proceso no se interrumpe.",
+    "texto": "En una nave hay zonas muertas cerca de la maquinaria pesada y de las estanterías metálicas, y el operario no puede dejar la máquina parada esperando a que cargue la app. REELEVO es una Progressive Web App que se instala en el móvil de un toque, sin App Store ni Google Play, y que aguanta el corte con el proceso ya abierto.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-aguanta-reelevo-los-cortes-de-wifi-en",
+        "q": "¿Aguanta REELEVO los cortes de wifi en planta?",
+        "a": "Sí, en el flujo de ejecución. Lo que el operario ya ha abierto con cobertura sigue disponible cuando la señal cae, y lo que registra se guarda en el dispositivo hasta que vuelve la red."
+      },
+      {
+        "id": "faq-hay-que-instalar-una-app-desde-la",
+        "q": "¿Hay que instalar una app desde la tienda?",
+        "a": "No. Se accede desde el navegador del móvil, normalmente escaneando un QR en la máquina, y se instala en la pantalla de inicio con un toque. Evitar la tienda de aplicaciones importa más de lo que parece: no hace falta cuenta de tienda ni que IT gestione la instalación dispositivo a dispositivo, las actualizaciones llegan solas sin que el usuario haga nada, todos los móviles quedan siempre en la misma versión y ocupa mucho menos espacio que una app nativa."
+      },
+      {
+        "id": "faq-que-pasa-con-los-datos-mientras-no",
+        "q": "¿Qué pasa con los datos mientras no hay conexión?",
+        "a": "Las acciones quedan en una cola en el propio dispositivo y se envían cuando vuelve la cobertura, sin que el operario tenga que acordarse de sincronizar. Es lo que evita que se pierda el registro del turno por una zona muerta."
+      },
+      {
+        "id": "faq-puede-empezar-un-proceso-que-no-ha",
+        "q": "¿Puede empezar un proceso que no ha abierto nunca, estando sin cobertura?",
+        "a": "No. Sin conexión sigue disponible lo que ya se había cargado en ese dispositivo; un proceso que no se ha abierto antes necesita red para descargarse la primera vez."
+      },
+      {
+        "id": "faq-cuanto-tiempo-puede-estar-un-dispositivo-sin",
+        "q": "¿Cuánto tiempo puede estar un dispositivo sin conexión?",
+        "a": "Está pensado para huecos de cobertura dentro de una jornada: zonas muertas, sótanos, naves con estructura metálica. No está pensado para trabajar semanas completamente desconectado."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Sigue aunque falle la red",
+    "titulo": "Una herramienta que funciona",
+    "tituloDestacado": "cuando la conexión no acompaña",
+    "texto": "La forma honesta de comprobarlo es en el punto muerto de tu propia nave, no en la oficina.",
+    "botones": [
+      {
+        "texto": "Probarlo en tu nave",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el portal del operario →",
+        "url": "/portal-operario/"
+      }
+    ],
+    "nota": ""
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "seo": {
+    "title": "Documentación de procesos y SOPs en el puesto | REELEVO",
+    "description": "Documentación de procesos con REELEVO, el software de instrucciones de trabajo digitales: SOPs paso a paso en el puesto, con QR, foto y vídeo, para reducir errores y acelerar el onboarding."
+  },
+  "hero": {
+    "antetitulo": "Documentación y gestión de procesos",
+    "titulo": "El procedimiento no sirve",
+    "tituloDestacado": "si está en una carpeta del servidor",
+    "texto": "Nadie abre un PDF del servidor con las manos sucias y la máquina parada. Por eso el procedimiento acaba siendo lo que recuerda el veterano, y por eso se documenta el 100 % y se usa el 0 %. Aquí vive en la máquina, se abre con el móvil y se consulta en tres segundos.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-un-software-de-instrucciones-de-documentacion-procesos",
+        "q": "¿Qué es un software de instrucciones de trabajo digitales?",
+        "a": "Una herramienta que sustituye los procedimientos en papel o en PDF por instrucciones paso a paso que el operario abre en el propio puesto, con foto y vídeo en cada paso y una única versión vigente. REELEVO es un software de instrucciones de trabajo digitales pensado para pymes industriales: se documenta desde el móvil y se consulta escaneando un QR en la máquina."
+      },
+      {
+        "id": "faq-que-diferencia-hay-entre-esto-y-tener",
+        "q": "¿Qué diferencia hay entre esto y tener los SOPs en PDF?",
+        "a": "Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí el proceso aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta."
+      },
+      {
+        "id": "faq-como-accede-el-operario-al-proceso-en",
+        "q": "¿Cómo accede el operario al proceso en el puesto?",
+        "a": "Escaneando un QR colocado en la máquina desde su móvil. No necesita instalar nada, ni crear una cuenta, ni recordar una contraseña, que es justo lo que hace fracasar la adopción con personal temporal o con plantilla poco habituada a herramientas digitales."
+      },
+      {
+        "id": "faq-cuantos-procesos-hay-que-documentar-para-empezar",
+        "q": "¿Cuántos procesos hay que documentar para empezar?",
+        "a": "Entre dos y cinco: los que más rotación tienen o más reprocesos generan. Los seis tipos que más se repiten son arranque y parada (la secuencia exacta y qué esperar en cada etapa), cambio de parámetros (valores, tolerancias y qué NO hacer), mantenimiento básico, troubleshooting (el árbol de diagnóstico de los fallos habituales), control de calidad (qué mira, toca y mide el operario) y limpieza GMP con checklist por zona para conformidad ISO/IATF. Documentar la planta entera antes de empezar a usar nada es el camino corto a que el proyecto se abandone."
+      },
+      {
+        "id": "faq-hay-que-teclear-todos-los-procedimientos-desde",
+        "q": "¿Hay que teclear todos los procedimientos desde cero?",
+        "a": "No. Puedes subir los que ya tengas en Word o PDF y la IA propone el proceso troceado en pasos, en el idioma original del documento. Para lo que nunca se escribió, puedes grabar en vídeo al operario haciéndolo y se proponen los pasos a partir de lo que se ve. En los dos casos el resultado queda pendiente de revisión: tú lo corriges y lo apruebas antes de que llegue al puesto."
+      },
+      {
+        "id": "faq-quien-debe-redactar-la-documentacion",
+        "q": "¿Quién debe redactar la documentación?",
+        "a": "El operario que domina el proceso, acompañado de alguien que le dé estructura. Cuando lo redacta calidad desde un despacho sale un documento formalmente correcto que pierde los detalles reales del puesto, que son precisamente los que evitan el error."
+      },
+      {
+        "id": "faq-que-pasa-cuando-cambia-un-proceso",
+        "q": "¿Qué pasa cuando cambia un proceso?",
+        "a": "Se actualiza una vez y el cambio llega a todos los puestos a la vez, con su versión. Desaparece la situación de tener tres revisiones distintas conviviendo en tres líneas, y no hay que reimprimir ni recoger copias antiguas."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza por uno",
+    "titulo": "Documenta primero",
+    "tituloDestacado": "el proceso que más te cuesta repetir",
+    "texto": "No hace falta ordenar toda la planta de golpe. Con un proceso crítico disponible donde se trabaja ya cambia la forma de operar.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver gestión de competencias →",
+        "url": "/gestion-competencias/"
+      }
+    ],
+    "nota": ""
+  }
+}

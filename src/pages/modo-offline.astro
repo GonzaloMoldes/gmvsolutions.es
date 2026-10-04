@@ -4,9 +4,13 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Software industrial en modo offline | REELEVO";
-const description = "El flujo de ejecución de REELEVO aguanta los cortes de wifi de planta: lo ya abierto sigue disponible y lo registrado se encola y sincroniza solo.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/modo-offline.json.
+const pagina = await getPagina('modo-offline');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/modo-offline/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -14,28 +18,7 @@ const canonical = "https://www.gmvsolutions.es/modo-offline/";
 // La seccion "Que es una PWA" (tabla comparativa de 10 items) se elimino: la
 // segunda pregunta ya respondia lo mismo, y se le anadio el detalle que solo
 // estaba en la tabla (tarea C3 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Aguanta REELEVO los cortes de wifi en planta?',
-    a: 'Sí, en el flujo de ejecución. Lo que el operario ya ha abierto con cobertura sigue disponible cuando la señal cae, y lo que registra se guarda en el dispositivo hasta que vuelve la red.',
-  },
-  {
-    q: '¿Hay que instalar una app desde la tienda?',
-    a: 'No. Se accede desde el navegador del móvil, normalmente escaneando un QR en la máquina, y se instala en la pantalla de inicio con un toque. Evitar la tienda de aplicaciones importa más de lo que parece: no hace falta cuenta de tienda ni que IT gestione la instalación dispositivo a dispositivo, las actualizaciones llegan solas sin que el usuario haga nada, todos los móviles quedan siempre en la misma versión y ocupa mucho menos espacio que una app nativa.',
-  },
-  {
-    q: '¿Qué pasa con los datos mientras no hay conexión?',
-    a: 'Las acciones quedan en una cola en el propio dispositivo y se envían cuando vuelve la cobertura, sin que el operario tenga que acordarse de sincronizar. Es lo que evita que se pierda el registro del turno por una zona muerta.',
-  },
-  {
-    q: '¿Puede empezar un proceso que no ha abierto nunca, estando sin cobertura?',
-    a: 'No. Sin conexión sigue disponible lo que ya se había cargado en ese dispositivo; un proceso que no se ha abierto antes necesita red para descargarse la primera vez.',
-  },
-  {
-    q: '¿Cuánto tiempo puede estar un dispositivo sin conexión?',
-    a: 'Está pensado para huecos de cobertura dentro de una jornada: zonas muertas, sótanos, naves con estructura metálica. No está pensado para trabajar semanas completamente desconectado.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -46,12 +29,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">PWA · Modo offline · Sincronización automática · Sin app store</div>
-    <h1 class="fade-up delay-1">La wifi de planta se cae. <br><em>El proceso no se interrumpe.</em></h1>
-    <p class="fade-up delay-2">En una nave hay zonas muertas cerca de la maquinaria pesada y de las estanterías metálicas, y el operario no puede dejar la máquina parada esperando a que cargue la app. REELEVO es una Progressive Web App que se instala en el móvil de un toque, sin App Store ni Google Play, y que aguanta el corte con el proceso ya abierto.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="modo-offline" />
   </section>
@@ -158,21 +143,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Sigue aunque falle la red</div>
-    <h3 class="cta-title fade-up delay-1">
-      Una herramienta que funciona <br><em>cuando la conexión no acompaña</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      La forma honesta de comprobarlo es en el punto muerto de tu propia nave, no en la oficina.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Probarlo en tu nave
-      </a>
-      <a href="/portal-operario/" class="btn-ghost">
-        Ver el portal del operario →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

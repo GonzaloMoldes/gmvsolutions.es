@@ -4,37 +4,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Control y gestión de producción en pyme industrial | REELEVO";
-const description = "Control de producción: registra por operario y máquina, detecta paradas con causa y revisa KPIs diarios sin papel ni Excel.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/control-produccion.json.
+const pagina = await getPagina('control-produccion');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
 //
 // La segunda pregunta ya cubre el limite frente a un MES, asi que la seccion
 // "Enfoque prudente" se elimina en vez de repetir el argumento dos veces
 // (tarea C1 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es un software de control de producción?',
-    a: 'Es la herramienta que registra qué se fabrica, quién lo hace, en qué máquina y con qué resultado, en el momento en que ocurre. Sustituye al parte en papel que se rellena de memoria al cerrar el turno, y convierte esa información en tiempos reales y KPIs que se pueden mirar mientras la planta sigue trabajando.',
-  },
-  {
-    q: '¿En qué se diferencia de un MES?',
-    a: 'Un MES cubre además planificación de capacidad, listas de materiales, integración con el ERP y a menudo captura de datos de máquina, con la inversión e implantación que eso supone. El control de producción de REELEVO se queda en la capa operativa: la ejecución registrada en el puesto, trazable por operario, proceso y máquina. Para una pyme suele ser el primer paso, y el que más retorno da.',
-  },
-  {
-    q: '¿Hace falta conectar las máquinas o poner sensores?',
-    a: 'No. El dato lo introduce el operario desde el puesto al iniciar y cerrar cada sesión de trabajo, lo que no requiere cablear autómatas ni instalar sensores. Conectar máquina aporta precisión adicional, pero es un proyecto mucho más caro y rara vez es por donde conviene empezar en una pyme.',
-  },
-  {
-    q: '¿Cuánto tiempo le quita al operario registrar la producción?',
-    a: 'Segundos por sesión: iniciar el trabajo y cerrarlo indicando cantidad y, si la hubo, la causa de parada. La regla que seguimos es que registrar no puede costar más que el papel al que sustituye, porque en cuanto añade carga el operario lo rellena mal o lo esquiva, y entonces el dato deja de servir.',
-  },
-  {
-    q: '¿Sirve si trabajamos con órdenes pequeñas o fabricación por encargo?',
-    a: 'Sí. El registro va por sesión de trabajo asociada a proceso, operario y máquina, así que funciona igual en series largas que en lotes pequeños o piezas únicas. Para fabricación por encargo, además, cada unidad puede llevar su trazabilidad individual y su avance de obra.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 ---
@@ -43,14 +26,18 @@ const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Control y gestión de producción para pyme industrial</div>
-    <h1 class="fade-up delay-1">¿Cuánto se produjo hoy? <br><em>Con REELEVO lo sabes en tiempo real</em></h1>
-    <p class="fade-up delay-2">Hoy el jefe de producción gestiona de memoria lo que no está registrado en ningún sitio, y el parte se rellena al cerrar el turno. REELEVO registra cada sesión vinculada a operario, proceso y máquina, y te deja ver los KPIs del día mientras la planta trabaja. Sin partes en papel y sin consolidar Excel el lunes.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="control-produccion" />
   </section>
@@ -182,23 +169,19 @@ const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Visibilidad diaria</div>
-    <h3 class="cta-title fade-up delay-1">
-      Deja de gestionar de memoria <br><em>lo que nadie tiene registrado</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Empieza por un proceso y una máquina. En cuanto el primer turno queda registrado, se ve si el dato te sirve para decidir.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/oee/" class="btn-ghost">
-        Ver OEE y análisis Lean →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

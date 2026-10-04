@@ -58,7 +58,7 @@ La web es estática: un artículo nuevo aparece cuando Vercel vuelve a construir
 
 **sanity.io/manage → Members → Invite** con el rol **Editor**. Entran en `/admin/` con su cuenta.
 
-## Páginas editables (fases 1 y 2)
+## Páginas editables (fases 1 a 3)
 
 Además del blog, el panel tiene dos documentos únicos (se abren directamente, no se pueden duplicar ni borrar):
 
@@ -68,6 +68,7 @@ Además del blog, el panel tiene dos documentos únicos (se abren directamente, 
 | **Precios** | SEO, portada, las tarjetas de los planes (precio, líneas de facturación, funciones con ✓ / × / ○, botón y nota), FAQ y llamada final. Los precios numéricos alimentan también el schema de Google. La calculadora de ROI sigue en el código. |
 | **Página de preguntas frecuentes** | `/faqs/`: SEO, portada, categorías con sus preguntas y las dos llamadas a la acción. |
 | **Preguntas frecuentes** | Cada pregunta es un documento propio y se elige desde las páginas que la muestran (home, precios, `/faqs/`). Corregirla una vez la corrige en todas. Su texto alimenta el bloque visible y el schema FAQPage. |
+| **Páginas de funcionalidad** | Las 17 páginas de producto (`/documentacion-procesos/`, `/seguridad/`, `/oee/`, `/portal-operario/`...): SEO, portada (antetítulo, H1, texto y botones), FAQ y llamada final. Las secciones intermedias de cada página (tarjetas, tablas, capturas) siguen en el código. No se pueden crear desde el panel: una página nueva necesita su plantilla en el código. |
 | **Ajustes generales** | Lema de marca del pie, botón «Probar gratis» de la cabecera y del menú móvil, columnas de enlaces del pie, email, dirección y LinkedIn. |
 
 Cómo funciona:
@@ -78,9 +79,11 @@ Cómo funciona:
 - **Cifras de §02:** se escriben como se leen («7,2», «40», «3–5»); los números se animan solos.
 - **Recorrido §03:** el pictograma va por orden (E-01 a E-06). Un séptimo paso sale sin pictograma.
 - **Respaldo:** los textos por defecto viven en `src/data/*.default.json`. Un campo vacío en el panel, o una lista vaciada, vuelve a ese texto; si Sanity no responde en el build, la página sale entera con ellos.
+- **Medición GA4:** el texto y la URL de los botones se editan, pero su etiqueta de medición (`data-cta-label`) sigue fija en el código, para que las estadísticas no se partan al cambiar un texto.
+- **Versiones para IA (`/<página>.md`):** se generan de la página ya renderizada, así que recogen lo publicado en Sanity.
 - **Primera carga:** `SANITY_WRITE_TOKEN=xxxx node scripts/sembrar-paginas-sanity.mjs`. Solo crea los documentos que no existen: nunca pisa lo editado.
 
-Ficheros: `sanity/schemaTypes/home.ts`, `precios.ts`, `paginaFaqs.ts`, `preguntaFrecuente.ts`, `ajustes.ts`, `comunes.ts` · `src/lib/contenido.ts` (lectura y mezcla) · `src/pages/index.astro`, `precios.astro`, `faqs.astro`, `src/components/Header.astro`, `Footer.astro`.
+Ficheros: `sanity/schemaTypes/home.ts`, `precios.ts`, `paginaFaqs.ts`, `paginaFuncionalidad.ts`, `preguntaFrecuente.ts`, `ajustes.ts`, `comunes.ts` · `src/lib/contenido.ts` (lectura y mezcla) · `src/data/paginas/*.json` · `src/pages/index.astro`, `precios.astro`, `faqs.astro`, las 17 páginas de funcionalidad, `src/components/Header.astro`, `Footer.astro`.
 
 ## Uso diario
 

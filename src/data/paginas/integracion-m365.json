@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Integración Power BI en planta industrial | REELEVO",
+    "description": "Integración de Power BI con tu planta industrial: explota los datos de operaciones en tu stack Microsoft (Power BI, Power Automate, Teams) sin desarrollo."
+  },
+  "hero": {
+    "antetitulo": "Power BI · Power Automate · Microsoft Teams · Sin desarrollo",
+    "titulo": "Los datos de tu planta",
+    "tituloDestacado": "directamente en las herramientas que ya usas",
+    "texto": "Los datos de planta no llegan a donde se toman las decisiones: el comité mira un Excel de la semana pasada. Si tu empresa ya trabaja con Microsoft 365, REELEVO se conecta sin fricción — producción, competencias y calidad en Power BI, alertas en Teams y automatizaciones en Power Automate.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver API completa →",
+        "url": "/api-integraciones/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-necesito-para-conectar-power-bi-con",
+        "q": "¿Qué necesito para conectar Power BI con REELEVO?",
+        "a": "Una licencia de Power BI y las credenciales de acceso a los datos de tu cuenta. Los dashboards base vienen preparados, así que la puesta en marcha es de configuración, no de desarrollo."
+      },
+      {
+        "id": "faq-hace-falta-programar-para-integrarlo",
+        "q": "¿Hace falta programar para integrarlo?",
+        "a": "Para lo habitual no. Power BI y el conector de Power Automate se configuran desde interfaz. La API REST existe para casos que se salgan de ahí, y ahí sí conviene alguien técnico."
+      },
+      {
+        "id": "faq-que-se-puede-automatizar-con-power-automate",
+        "q": "¿Qué se puede automatizar con Power Automate?",
+        "a": "Flujos entre REELEVO y el resto de Microsoft 365: avisar en un canal de Teams cuando se registra una parada, crear una tarea al abrirse una incidencia, o volcar una certificación emitida en el registro de formación de SharePoint."
+      },
+      {
+        "id": "faq-y-si-mi-empresa-no-usa-microsoft",
+        "q": "¿Y si mi empresa no usa Microsoft 365?",
+        "a": "No es un requisito. REELEVO funciona igual sin nada de esto; la integración con Microsoft es una comodidad para quien ya tiene ese stack montado. Con otro entorno, la vía es la API REST y los webhooks."
+      },
+      {
+        "id": "faq-que-entra-en-cada-plan",
+        "q": "¿Qué entra en cada plan?",
+        "a": "Desde el plan Pro tienes la API REST para Power Query, el Power BI Integration Kit con sus queries y medidas DAX, el conector de Power Automate y las cuatro plantillas de flujo, con 5 webhooks activos y 10.000 llamadas a la API al mes. El plan Enterprise deja los webhooks y las llamadas sin límite y añade implementación asistida por nuestro equipo. El detalle actualizado está en la página de precios."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Conexión real",
+    "titulo": "Los cuatro dashboards salen",
+    "tituloDestacado": "de datos de ejecución reales",
+    "texto": "Necesitas tener planta registrando antes de que Power BI tenga algo que enseñar. Empieza por ahí.",
+    "botones": [
+      {
+        "texto": "Conectarlo con tu Power BI",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver la API completa →",
+        "url": "/api-integraciones/"
+      }
+    ],
+    "nota": ""
+  }
+}

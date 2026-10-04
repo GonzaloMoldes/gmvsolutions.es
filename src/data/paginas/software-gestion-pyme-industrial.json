@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Software de gestión para pyme industrial | REELEVO",
+    "description": "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable."
+  },
+  "hero": {
+    "antetitulo": "Software de gestión para pyme industrial",
+    "titulo": "El software de gestión",
+    "tituloDestacado": "que vive en la planta, no en la oficina",
+    "texto": "Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué procedimiento y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-reelevo-es-un-software-de-gestion-para",
+        "q": "¿REELEVO es un software de gestión para pymes?",
+        "a": "Sí, pero acotado: es un software de gestión para pymes industriales enfocado en las operaciones de planta (producción, competencias, procesos y mantenimiento). No es un software de gestión administrativa ni un ERP de contabilidad o facturación."
+      },
+      {
+        "id": "faq-sirve-como-software-de-empresa-o-necesito",
+        "q": "¿Sirve como software de empresa o necesito un ERP?",
+        "a": "Depende de lo que busques. Si necesitas contabilidad, nóminas o facturación, eso es un ERP y REELEVO no lo sustituye. Si lo que quieres es un software de empresa para gestionar lo que pasa en el taller —quién produce qué, con qué procedimiento y con qué formación—, REELEVO lo cubre y se integra con tu ERP por API."
+      },
+      {
+        "id": "faq-que-incluye-la-gestion-de-pymes-industriales",
+        "q": "¿Qué incluye la gestión de pymes industriales con REELEVO?",
+        "a": "Control de producción en tiempo real, matriz de competencias y polivalencia, documentación de procesos (SOP) en el puesto, planes de mantenimiento preventivo y planificación semanal de turnos. Todo conectado y sin papel. Lo que no cubre: contabilidad, facturación, nóminas ni gestión administrativa, y tampoco te obliga a un proyecto MES de meses."
+      },
+      {
+        "id": "faq-es-un-software-para-una-empresa-de",
+        "q": "¿Es un software para una empresa de cualquier sector?",
+        "a": "Está diseñado para la pyme industrial: talleres, fabricación, mecanizado, alimentación y producción en general. No es un software genérico para una empresa de servicios u oficina; su valor está en la planta."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Gestión de planta, sin papel",
+    "titulo": "El software de gestión",
+    "tituloDestacado": "que tu taller sí va a usar",
+    "texto": "Empieza por producción, competencias o procesos — sin montar un ERP ni un proyecto de meses.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios →",
+        "url": "/precios/"
+      }
+    ],
+    "nota": "Sin tarjeta de crédito · Te acompañamos en la primera configuración"
+  }
+}

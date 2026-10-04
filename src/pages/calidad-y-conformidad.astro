@@ -4,9 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Trazabilidad operativa de calidad industrial | REELEVO";
-const description = "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de la memoria.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/calidad-y-conformidad.json.
+const pagina = await getPagina('calidad-y-conformidad');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/calidad-y-conformidad/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -15,28 +19,7 @@ const canonical = "https://www.gmvsolutions.es/calidad-y-conformidad/";
 // historico y acompanamiento), que era un bloque de 3 tarjetas y solapaba con
 // la pregunta de exportacion que ya existia (tarea C2 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Sirve REELEVO para una auditoría ISO 9001?',
-    a: 'Sirve como evidencia operativa: qué proceso se siguió, en qué versión, quién lo ejecutó y con qué resultado. Eso cubre la parte que suele costar más de reconstruir en una auditoría interna. Lo que no hace es sustituir tu sistema de calidad ni garantizarte una certificación: eso sigue dependiendo del criterio del responsable y del alcance de la norma que te apliquen.',
-  },
-  {
-    q: '¿Qué evidencia queda registrada de cada ejecución?',
-    a: 'El proceso y su versión vigente en ese momento, el operario que lo ejecutó, la máquina o puesto, la fecha y hora, el resultado y las verificaciones o incidencias que aparecieron por el camino. Cuando la empresa lo necesita, puede añadirse además un identificador interno de seguimiento.',
-  },
-  {
-    q: '¿Es lo mismo que un software de gestión de calidad (QMS)?',
-    a: 'No. Un QMS cubre el sistema completo: política, auditorías, acciones correctivas, gestión documental normativa. REELEVO aporta la capa de abajo, la trazabilidad operativa de lo que realmente pasó en planta, que es justo la que suele faltar cuando llega la auditoría.',
-  },
-  {
-    q: '¿Se puede exportar el histórico?',
-    a: 'Sí. Los procesos, las instrucciones y los registros se pueden exportar para adjuntarlos a un informe de auditoría o cruzarlos con otros sistemas, y también consultarse vía API. El conocimiento documentado sigue siendo de la empresa, sin letra pequeña.',
-  },
-  {
-    q: '¿Y si calidad necesita ver cómo encaja esto en su operativa?',
-    a: 'Lo aterrizamos contigo sin vender humo regulatorio. Preferimos decirte que una parte de tu norma no queda cubierta a que lo descubras a mitad de una auditoría.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -63,18 +46,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Calidad y conformidad</div>
-    <h1 class="fade-up delay-1">«¿Qué pasó con este lote?» <br><em>y la respuesta tarda tres días</em></h1>
-    <p class="fade-up delay-2">
-      Reconstruir a mano quién hizo qué, con qué versión del procedimiento y en qué máquina se lleva días,
-      y acaba dependiendo de que alguien se acuerde. Cuando cada ejecución deja su registro, esa respuesta
-      pasa a estar a un clic.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin promesas legales infladas · Enfoque práctico para revisión interna</div>
     <Ilustracion escena="calidad" />
@@ -219,21 +202,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Tiene sentido para tu caso?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Si calidad necesita más claridad, <br><em>te enseñamos el encaje real</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Sin promesas regulatorias infladas: te decimos qué parte queda cubierta y cuál no.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/firma-digital/" class="btn-ghost">
-        Ver firma digital →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

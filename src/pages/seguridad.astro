@@ -3,42 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
+
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/seguridad.json.
+const pagina = await getPagina('seguridad');
 
 // Pagina deliberadamente sencilla: responde a las preguntas basicas de
 // seguridad sin entrar en detalle tecnico (proveedores, cabeceras, nombres de
 // roles, mecanismos internos). El detalle se da a quien lo pida por contacto.
 
-const title = "Seguridad y protección de datos | REELEVO";
-const description = "Cómo protege REELEVO los datos de tu empresa: datos separados por empresa, acceso por roles, alojamiento en la UE y cumplimiento RGPD.";
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/seguridad/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head.
-const faqs: FaqItem[] = [
-  {
-    q: '¿Dónde se alojan los datos?',
-    a: 'En infraestructura ubicada en la Unión Europea. Los procesos y la documentación que cargas son siempre propiedad de tu empresa.',
-  },
-  {
-    q: '¿Puede otra empresa ver nuestros datos?',
-    a: 'No. Los datos de cada empresa están separados y protegidos, de modo que cada cliente solo accede a su propia información.',
-  },
-  {
-    q: '¿Es seguro que el operario entre sin cuenta ni contraseña?',
-    a: 'Sí. El acceso desde el puesto es temporal y limitado a ejecutar procesos: no da entrada al panel de empresa ni a información administrativa. Y cada ejecución queda identificada, así que se mantiene la trazabilidad.',
-  },
-  {
-    q: '¿Puedo decidir qué ve cada persona?',
-    a: 'Sí. Hay distintos roles y permisos, para que cada persona vea solo lo que necesita. Por ejemplo, un jefe de línea puede trabajar con procesos sin ver la facturación.',
-  },
-  {
-    q: '¿Cumple con el RGPD?',
-    a: 'Sí. REELEVO está diseñado para cumplir el RGPD: los datos se conservan según una política de retención y puedes ejercer tus derechos desde el propio panel.',
-  },
-  {
-    q: '¿Qué pasa con nuestros datos si dejamos de usar REELEVO?',
-    a: 'Puedes exportarlos y solicitar la baja desde el panel, sin pasar por soporte. Tras la baja, los datos se eliminan.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 const schema = [pageSchema, faqPageSchema(faqs)];
@@ -55,16 +34,18 @@ const pilares = [
 
   <!-- HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Seguridad · RGPD · Alojamiento en la UE</div>
-    <h1 class="fade-up delay-1">Tus datos, <br><em>protegidos y bajo tu control</em></h1>
-    <p class="fade-up delay-2">
-      Respuestas claras a las preguntas de seguridad más habituales.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="mailto:hola@gmvsolutions.es" class="btn-ghost"
-         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Consulta de seguridad">Hablar con nosotros</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Consulta de seguridad">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="seguridad" />
   </section>
@@ -98,22 +79,18 @@ const pilares = [
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Más preguntas?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Si tu equipo de IT necesita más detalle, <br><em>te lo contamos</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Escríbenos y respondemos a tu evaluación de proveedor.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="mailto:hola@gmvsolutions.es" class="btn-ghost"
-         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Consulta de seguridad">
-        Hablar con nosotros →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Consulta de seguridad">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

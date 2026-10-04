@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Cobertura de turnos en produccion industrial | REELEVO",
+    "description": "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real."
+  },
+  "hero": {
+    "antetitulo": "Cobertura de turnos en producción",
+    "titulo": "¿Tiene tu turno de tarde",
+    "tituloDestacado": "quien sepa arrancar la línea 2?",
+    "texto": "Puedes tener el turno completo y descubrir a las seis de la mañana que ninguno de los presentes está certificado en la inyectora. No es un problema de intención, es de datos: si las competencias viven en un Excel y las asignaciones en otro, el hueco se ve cuando la línea ya está parada. REELEVO cruza las dos cosas antes de que empiece el turno.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-un-hueco-de-cobertura",
+        "q": "¿Qué es un hueco de cobertura?",
+        "a": "Es un proceso o puesto que en un turno concreto no tiene a nadie capacitado para ejecutarlo. No es lo mismo que faltar personal: puedes tener el turno completo y aun así descubrir a media mañana que nadie de los presentes sabe arrancar una línea concreta."
+      },
+      {
+        "id": "faq-como-sabe-reelevo-quien-puede-cubrir-un",
+        "q": "¿Cómo sabe REELEVO quién puede cubrir un puesto?",
+        "a": "Cruza la asignación del turno con la matriz de competencias, que registra qué operario está capacitado para qué proceso y en qué nivel. Como esa matriz se alimenta de la ejecución real y no de una hoja que alguien actualiza a mano, refleja quién sabe hacer qué hoy, no hace seis meses."
+      },
+      {
+        "id": "faq-sustituye-a-mi-sistema-de-planificacion-de",
+        "q": "¿Sustituye a mi sistema de planificación de turnos?",
+        "a": "No. REELEVO no decide horarios ni gestiona nóminas ni vacaciones. Lo que aporta es la capa de capacidad: dado el turno que ya has planificado, qué procesos quedan sin cubrir y quién podría cubrirlos. Conviven con el sistema que uses para planificar."
+      },
+      {
+        "id": "faq-con-cuanta-antelacion-avisa-de-un-hueco",
+        "q": "¿Con cuánta antelación avisa de un hueco?",
+        "a": "El análisis se hace antes del inicio de cada turno, que es cuando aún se puede reorganizar sin parar nada. El objetivo es justo ese: que el responsable vea el problema mientras todavía es una decisión de asignación, y no cuando la línea ya se ha detenido."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Siguiente paso",
+    "titulo": "Detecta el turno descubierto",
+    "tituloDestacado": "antes de que pare la línea",
+    "texto": "La alerta de cobertura es de las primeras cosas que ven los jefes de producción cuando empiezan.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver gestión de competencias →",
+        "url": "/gestion-competencias/"
+      }
+    ],
+    "nota": ""
+  }
+}

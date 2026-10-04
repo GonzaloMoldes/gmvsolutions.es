@@ -3,9 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Firma digital operativa industrial | REELEVO";
-const description = "Firma digital en el flujo de planta: el operario firma al completar y el supervisor al validar. Evidencia para auditorías ISO sin papel.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/firma-digital.json.
+const pagina = await getPagina('firma-digital');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/firma-digital/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -14,24 +18,7 @@ const canonical = "https://www.gmvsolutions.es/firma-digital/";
 // que se elimino y su unico dato propio —disponible desde el plan Pro— se
 // incorporo a la respuesta (tarea C4 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Es firma electrónica cualificada?',
-    a: 'No, y conviene decirlo claro. No es una firma cualificada con certificado reconocido en el sentido del reglamento eIDAS, así que no está pensada para contratos ni para efectos jurídicos frente a terceros. Es firma operativa: evidencia interna de quién ejecutó y quién validó. Está disponible desde el plan Pro.',
-  },
-  {
-    q: '¿Para qué sirve entonces?',
-    a: 'Para cerrar el círculo de responsabilidad dentro de la planta: el operario firma al completar un proceso y el supervisor al validar la producción. Sustituye al papel firmado que se archiva en una carpeta, con la ventaja de que la firma queda unida al registro de la ejecución concreta.',
-  },
-  {
-    q: '¿Vale como evidencia en una auditoría?',
-    a: 'Como evidencia operativa interna, sí: demuestra que hubo una validación, de quién y cuándo, ligada al proceso y su versión. Si tu auditoría exige firma cualificada para un documento concreto, ese documento necesita otra herramienta; para el día a día de planta esto es lo que suele pedirse.',
-  },
-  {
-    q: '¿Cómo firma el operario?',
-    a: 'En el mismo momento y en el mismo sitio donde termina el trabajo, desde su móvil. Lo importante no es el gesto sino el cuándo: una firma que se recoge en bloque al final del turno certifica un recuerdo, no una ejecución.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -42,12 +29,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Firma digital · Validaciones · Evidencia para auditorías · Integrado en el flujo QR</div>
-    <h1 class="fade-up delay-1">La firma del operario <br><em>sin papel, sin burocracia adicional</em></h1>
-    <p class="fade-up delay-2">El registro existe y el proceso se ejecutó, pero no hay prueba de quién lo aprobó: la validación se hace de palabra, o en un papel que alguien imprime, firma y archiva. Con REELEVO el operario firma al completar y el supervisor al validar, y la firma queda unida al registro de esa ejecución concreta.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="01" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="firma-digital" />
   </section>
@@ -140,21 +129,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Firma con contexto</div>
-    <h3 class="cta-title fade-up delay-1">
-      Empieza por el control <br><em>que hoy se firma al final del turno</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      No hace falta firmarlo todo. Con un proceso ya se ve la diferencia entre certificar una ejecución y certificar un recuerdo.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">
-        Activarlo en un proceso
-      </a>
-      <a href="/calidad-y-conformidad/" class="btn-ghost">
-        Ver calidad y conformidad →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="01" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

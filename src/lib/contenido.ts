@@ -54,6 +54,17 @@ export async function getPaginaFaqs(): Promise<PaginaFaqs> {
   return mezclar(faqsDefecto, await getDocumento('paginaFaqs', `{ ..., categorias[]{ ..., "preguntas": preguntas${PREGUNTAS} } }`));
 }
 
+// Paginas de funcionalidad: un JSON por pagina en src/data/paginas/<slug>.json
+// y un documento «paginaFuncionalidad» con _id «pagina-<slug>» en Sanity.
+const paginasDefecto = import.meta.glob<PaginaFuncionalidad>('../data/paginas/*.json', { eager: true, import: 'default' });
+export type PaginaFuncionalidad = typeof import('../data/paginas/portal-operario.json');
+
+export async function getPagina(slug: string): Promise<PaginaFuncionalidad> {
+  const defecto = paginasDefecto[`../data/paginas/${slug}.json`];
+  if (!defecto) throw new Error(`Falta src/data/paginas/${slug}.json`);
+  return mezclar(defecto, await getDocumento(`pagina-${slug}`, `{ ..., faq{ ..., "items": items${PREGUNTAS} } }`));
+}
+
 export async function getAjustes(): Promise<Ajustes> {
   return mezclar(ajustesDefecto, await getDocumento('ajustes'));
 }

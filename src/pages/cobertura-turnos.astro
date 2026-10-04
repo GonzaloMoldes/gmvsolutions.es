@@ -4,29 +4,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Cobertura de turnos en produccion industrial | REELEVO";
-const description = "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/cobertura-turnos.json.
+const pagina = await getPagina('cobertura-turnos');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es un hueco de cobertura?',
-    a: 'Es un proceso o puesto que en un turno concreto no tiene a nadie capacitado para ejecutarlo. No es lo mismo que faltar personal: puedes tener el turno completo y aun así descubrir a media mañana que nadie de los presentes sabe arrancar una línea concreta.',
-  },
-  {
-    q: '¿Cómo sabe REELEVO quién puede cubrir un puesto?',
-    a: 'Cruza la asignación del turno con la matriz de competencias, que registra qué operario está capacitado para qué proceso y en qué nivel. Como esa matriz se alimenta de la ejecución real y no de una hoja que alguien actualiza a mano, refleja quién sabe hacer qué hoy, no hace seis meses.',
-  },
-  {
-    q: '¿Sustituye a mi sistema de planificación de turnos?',
-    a: 'No. REELEVO no decide horarios ni gestiona nóminas ni vacaciones. Lo que aporta es la capa de capacidad: dado el turno que ya has planificado, qué procesos quedan sin cubrir y quién podría cubrirlos. Conviven con el sistema que uses para planificar.',
-  },
-  {
-    q: '¿Con cuánta antelación avisa de un hueco?',
-    a: 'El análisis se hace antes del inicio de cada turno, que es cuando aún se puede reorganizar sin parar nada. El objetivo es justo ese: que el responsable vea el problema mientras todavía es una decisión de asignación, y no cuando la línea ya se ha detenido.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -44,14 +31,18 @@ const mapa = [
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Cobertura de turnos en producción</div>
-    <h1 class="fade-up delay-1">¿Tiene tu turno de tarde <br><em>quien sepa arrancar la línea 2?</em></h1>
-    <p class="fade-up delay-2">Puedes tener el turno completo y descubrir a las seis de la mañana que ninguno de los presentes está certificado en la inyectora. No es un problema de intención, es de datos: si las competencias viven en un Excel y las asignaciones en otro, el hueco se ve cuando la línea ya está parada. REELEVO cruza las dos cosas antes de que empiece el turno.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="03" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="03" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="cobertura-turnos" />
   </section>
@@ -175,21 +166,17 @@ const mapa = [
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h3 class="cta-title fade-up delay-1">
-      Detecta el turno descubierto <br><em>antes de que pare la línea</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      La alerta de cobertura es de las primeras cosas que ven los jefes de producción cuando empiezan.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="03" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/gestion-competencias/" class="btn-ghost">
-        Ver gestión de competencias →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="03" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Firma digital operativa industrial | REELEVO",
+    "description": "Firma digital en el flujo de planta: el operario firma al completar y el supervisor al validar. Evidencia para auditorías ISO sin papel."
+  },
+  "hero": {
+    "antetitulo": "Firma digital · Validaciones · Evidencia para auditorías · Integrado en el flujo QR",
+    "titulo": "La firma del operario",
+    "tituloDestacado": "sin papel, sin burocracia adicional",
+    "texto": "El registro existe y el proceso se ejecutó, pero no hay prueba de quién lo aprobó: la validación se hace de palabra, o en un papel que alguien imprime, firma y archiva. Con REELEVO el operario firma al completar y el supervisor al validar, y la firma queda unida al registro de esa ejecución concreta.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-es-firma-electronica-cualificada",
+        "q": "¿Es firma electrónica cualificada?",
+        "a": "No, y conviene decirlo claro. No es una firma cualificada con certificado reconocido en el sentido del reglamento eIDAS, así que no está pensada para contratos ni para efectos jurídicos frente a terceros. Es firma operativa: evidencia interna de quién ejecutó y quién validó. Está disponible desde el plan Pro."
+      },
+      {
+        "id": "faq-para-que-sirve-entonces",
+        "q": "¿Para qué sirve entonces?",
+        "a": "Para cerrar el círculo de responsabilidad dentro de la planta: el operario firma al completar un proceso y el supervisor al validar la producción. Sustituye al papel firmado que se archiva en una carpeta, con la ventaja de que la firma queda unida al registro de la ejecución concreta."
+      },
+      {
+        "id": "faq-vale-como-evidencia-en-una-auditoria",
+        "q": "¿Vale como evidencia en una auditoría?",
+        "a": "Como evidencia operativa interna, sí: demuestra que hubo una validación, de quién y cuándo, ligada al proceso y su versión. Si tu auditoría exige firma cualificada para un documento concreto, ese documento necesita otra herramienta; para el día a día de planta esto es lo que suele pedirse."
+      },
+      {
+        "id": "faq-como-firma-el-operario",
+        "q": "¿Cómo firma el operario?",
+        "a": "En el mismo momento y en el mismo sitio donde termina el trabajo, desde su móvil. Lo importante no es el gesto sino el cuándo: una firma que se recoge en bloque al final del turno certifica un recuerdo, no una ejecución."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Firma con contexto",
+    "titulo": "Empieza por el control",
+    "tituloDestacado": "que hoy se firma al final del turno",
+    "texto": "No hace falta firmarlo todo. Con un proceso ya se ve la diferencia entre certificar una ejecución y certificar un recuerdo.",
+    "botones": [
+      {
+        "texto": "Activarlo en un proceso",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver calidad y conformidad →",
+        "url": "/calidad-y-conformidad/"
+      }
+    ],
+    "nota": ""
+  }
+}

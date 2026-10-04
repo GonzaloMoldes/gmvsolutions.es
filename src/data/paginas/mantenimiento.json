@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Software de mantenimiento preventivo y correctivo industrial | REELEVO",
+    "description": "Mantenimiento preventivo integrado en el trabajo diario: planes preventivos y correctivos, órdenes automáticas y registro de intervenciones."
+  },
+  "hero": {
+    "antetitulo": "Mantenimiento preventivo y correctivo",
+    "titulo": "El mantenimiento que no ves",
+    "tituloDestacado": "es el que para la línea",
+    "texto": "Software de mantenimiento preventivo para pyme industrial. Hoy el plan vive en un Excel que solo abre una persona y el operario no sabe que le toca hasta que alguien se lo dice. Con REELEVO defines el plan de cada máquina una vez, las órdenes de trabajo se generan solas y aparecen en la agenda del operario junto a las de producción.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-es-un-gmao-o-cmms",
+        "q": "¿Es un GMAO o CMMS?",
+        "a": "Cubre lo que una pyme industrial suele necesitar de un GMAO —planes preventivos, órdenes, registro de intervenciones e histórico por equipo— sin la complejidad de una herramienta dedicada. Si necesitas gestión de repuestos, almacén técnico o costes de mantenimiento detallados, ahí un GMAO específico va más lejos."
+      },
+      {
+        "id": "faq-cubre-mantenimiento-preventivo-y-correctivo",
+        "q": "¿Cubre mantenimiento preventivo y correctivo?",
+        "a": "Los dos, en el mismo módulo. El preventivo se programa por tiempo o por horas de máquina y genera la orden sola; el correctivo entra cuando alguien reporta una avería desde el puesto. Tenerlos juntos evita el clásico de que el correctivo se gestione por WhatsApp."
+      },
+      {
+        "id": "faq-como-se-generan-las-ordenes-de-trabajo",
+        "q": "¿Cómo se generan las órdenes de trabajo?",
+        "a": "Automáticamente a partir del plan, con su responsable o turno asignado. La tarea aparece en la agenda del operario junto a las de producción, no en un sistema aparte que hay que acordarse de abrir."
+      },
+      {
+        "id": "faq-por-que-integrar-el-mantenimiento-con-la",
+        "q": "¿Por qué integrar el mantenimiento con la operación y no llevarlo aparte?",
+        "a": "Porque cuando el preventivo vive en un Excel que solo abre el responsable, basta con que esté de vacaciones para que nadie lo recuerde, y siempre pierde la competición por la atención frente a la producción. Integrado en la misma agenda, el operario ya sabe usarlo: es la misma pantalla que abre cada día, y el SOP de la intervención es un proceso más al que llega por QR."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Mantenimiento en marcha",
+    "titulo": "El mantenimiento que no ves",
+    "tituloDestacado": "deja de pillarte a contrapié",
+    "texto": "Arranca con el plan de una sola máquina y deja de depender de notas sueltas y de la memoria de una persona.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver control de producción →",
+        "url": "/control-produccion/"
+      }
+    ],
+    "nota": "Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico"
+  }
+}

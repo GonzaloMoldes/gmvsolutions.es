@@ -4,9 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Kaizen y mejora continua en planta industrial | REELEVO";
-const description = "Kaizen digital para la mejora continua operativa: captura ideas de los operarios en el puesto, prioriza, implementa y estandariza en planta industrial.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/kaizen.json.
+const pagina = await getPagina('kaizen');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/kaizen/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -16,28 +20,7 @@ const canonical = "https://www.gmvsolutions.es/kaizen/";
 // comparativa). El argumento se mantiene, la seccion no: la plantilla admite
 // prueba O limite, no los dos (tarea B3 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es el Kaizen aplicado a una planta industrial?',
-    a: 'Es la mejora continua hecha por quien ejecuta el trabajo: pequeños cambios propuestos desde el puesto, evaluados y, si funcionan, incorporados al estándar. No es un proyecto de consultoría ni una campaña puntual, sino un ciclo que se repite y que va afinando el proceso.',
-  },
-  {
-    q: '¿Cómo propone una mejora el operario?',
-    a: 'Desde el puesto, escaneando el QR de la máquina y dejando la propuesta en el momento en que detecta el problema. Es lo que evita el fallo clásico: la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla.',
-  },
-  {
-    q: '¿Quién decide qué mejoras se implementan?',
-    a: 'El responsable, con las propuestas priorizadas delante en lugar de sueltas en una libreta o en una conversación de pasillo. Lo relevante no es solo decidir, sino que quien propuso vea qué pasó con su idea, porque si nunca hay respuesta las propuestas dejan de llegar.',
-  },
-  {
-    q: '¿Cómo se evita que las ideas se pierdan entre turnos?',
-    a: 'Porque quedan registradas donde se generan y no dependen de que alguien se acuerde de trasladarlas al turno siguiente. El ciclo completo —propuesta, evaluación, implantación y estandarización— vive en el mismo sitio que el proceso al que afecta.',
-  },
-  {
-    q: '¿Esto crea por sí solo una cultura de mejora continua?',
-    a: 'No, y no vamos a prometerlo: eso requiere liderazgo. Lo que sí hace REELEVO es eliminar la fricción para que las ideas lleguen, para que se gestionen con visibilidad y para que las buenas terminen incorporadas al proceso. Si el equipo tiene ideas y la empresa quiere escucharlas, REELEVO es el canal que faltaba.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -48,12 +31,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Kaizen · Mejora Continua en Planta</div>
-    <h1 class="fade-up delay-1">Las mejoras nacen <br><em>donde ocurre el trabajo</em></h1>
-    <p class="fade-up delay-2">El operario que ejecuta el proceso cada día ve lo que puede mejorar, pero la idea aparece a media mañana y se pierde antes de que alguien tenga tiempo de escucharla. REELEVO le da un canal para registrarla en el momento, y a ti un sistema para gestionarla hasta que se convierte en estándar.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="07" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="07" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="kaizen" />
   </section>
@@ -178,23 +163,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Mejora continua</div>
-    <h3 class="cta-title fade-up delay-1">
-      Dale a tu equipo un canal <br><em>para que las ideas no se pierdan</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Las ideas están ahí. Solo necesitan un sitio donde aterrizar y un proceso para que lleguen a ser estándares.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">
-        Empezar gratis · Sin compromiso
-      </a>
-      <a href="/documentacion-procesos/" class="btn-ghost">
-        Ver documentación de procesos →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y sin reuniones de más</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

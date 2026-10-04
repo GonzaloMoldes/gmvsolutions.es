@@ -4,9 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Integración Power BI en planta industrial | REELEVO";
-const description = "Integración de Power BI con tu planta industrial: explota los datos de operaciones en tu stack Microsoft (Power BI, Power Automate, Teams) sin desarrollo.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/integracion-m365.json.
+const pagina = await getPagina('integracion-m365');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/integracion-m365/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -14,28 +18,7 @@ const canonical = "https://www.gmvsolutions.es/integracion-m365/";
 // La quinta pregunta recoge la tabla "Que esta incluido en cada plan", que era
 // seccion propia; los limites concretos se conservan porque son el dato que
 // se busca (tarea C3 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué necesito para conectar Power BI con REELEVO?',
-    a: 'Una licencia de Power BI y las credenciales de acceso a los datos de tu cuenta. Los dashboards base vienen preparados, así que la puesta en marcha es de configuración, no de desarrollo.',
-  },
-  {
-    q: '¿Hace falta programar para integrarlo?',
-    a: 'Para lo habitual no. Power BI y el conector de Power Automate se configuran desde interfaz. La API REST existe para casos que se salgan de ahí, y ahí sí conviene alguien técnico.',
-  },
-  {
-    q: '¿Qué se puede automatizar con Power Automate?',
-    a: 'Flujos entre REELEVO y el resto de Microsoft 365: avisar en un canal de Teams cuando se registra una parada, crear una tarea al abrirse una incidencia, o volcar una certificación emitida en el registro de formación de SharePoint.',
-  },
-  {
-    q: '¿Y si mi empresa no usa Microsoft 365?',
-    a: 'No es un requisito. REELEVO funciona igual sin nada de esto; la integración con Microsoft es una comodidad para quien ya tiene ese stack montado. Con otro entorno, la vía es la API REST y los webhooks.',
-  },
-  {
-    q: '¿Qué entra en cada plan?',
-    a: 'Desde el plan Pro tienes la API REST para Power Query, el Power BI Integration Kit con sus queries y medidas DAX, el conector de Power Automate y las cuatro plantillas de flujo, con 5 webhooks activos y 10.000 llamadas a la API al mes. El plan Enterprise deja los webhooks y las llamadas sin límite y añade implementación asistida por nuestro equipo. El detalle actualizado está en la página de precios.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -53,13 +36,17 @@ const flujos = [
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Power BI · Power Automate · Microsoft Teams · Sin desarrollo</div>
-    <h1 class="fade-up delay-1">Los datos de tu planta <br><em>directamente en las herramientas que ya usas</em></h1>
-    <p class="fade-up delay-2">Los datos de planta no llegan a donde se toman las decisiones: el comité mira un Excel de la semana pasada. Si tu empresa ya trabaja con Microsoft 365, REELEVO se conecta sin fricción — producción, competencias y calidad en Power BI, alertas en Teams y automatizaciones en Power Automate.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
-      <a href="/api-integraciones/" class="btn-ghost">Ver API completa →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="integracion-m365" />
   </section>
@@ -155,21 +142,17 @@ const flujos = [
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Conexión real</div>
-    <h3 class="cta-title fade-up delay-1">
-      Los cuatro dashboards salen <br><em>de datos de ejecución reales</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Necesitas tener planta registrando antes de que Power BI tenga algo que enseñar. Empieza por ahí.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Conectarlo con tu Power BI
-      </a>
-      <a href="/api-integraciones/" class="btn-ghost">
-        Ver la API completa →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

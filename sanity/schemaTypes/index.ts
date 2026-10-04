@@ -4,5 +4,6 @@ import { ajustes } from './ajustes';
 import { precios } from './precios';
 import { paginaFaqs } from './paginaFaqs';
 import { preguntaFrecuente } from './preguntaFrecuente';
+import { paginaFuncionalidad } from './paginaFuncionalidad';
 
-export const schemaTypes = [home, precios, paginaFaqs, ajustes, preguntaFrecuente, articulo];
+export const schemaTypes = [home, precios, paginaFaqs, paginaFuncionalidad, ajustes, preguntaFrecuente, articulo];

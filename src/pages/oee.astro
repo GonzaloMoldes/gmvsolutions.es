@@ -3,6 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
+
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/oee.json.
+const pagina = await getPagina('oee');
 
 // Contenido verificado contra reelevo-app:
 //   lib/oee.ts               → formulas de disponibilidad, rendimiento y calidad
@@ -13,8 +17,8 @@ import Ilustracion from '../components/Ilustracion.astro';
 //   lib/tier-config.ts       → leanWaste, leanVsm y leanTakt son Pro+
 // Regla: PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, tarea D1.
 
-const title = "Software de OEE para pyme industrial | REELEVO";
-const description = "Calcula el OEE de cada máquina con los datos que ya registra el operario en planta: disponibilidad, rendimiento y calidad, con snapshot diario automático.";
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/oee/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -22,32 +26,7 @@ const canonical = "https://www.gmvsolutions.es/oee/";
 // La sexta pregunta recoge la tabla "Disponibilidad por plan" que era seccion
 // propia; el detalle vive en /precios/ (tarea C2 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es el OEE y cómo se calcula?',
-    a: 'El OEE (Overall Equipment Effectiveness) mide qué parte del tiempo productivo de una máquina se aprovecha de verdad. Se calcula multiplicando tres factores: disponibilidad (tiempo planificado menos paradas), rendimiento (ciclo real frente al ciclo ideal) y calidad (unidades buenas sobre unidades producidas). Un 100% significaría producir siempre, al ritmo previsto y sin ningún rechazo.',
-  },
-  {
-    q: '¿De dónde salen los datos del OEE en REELEVO?',
-    a: 'De la ejecución real en planta, no de un parte rellenado después. Cuando el operario escanea el QR y ejecuta el proceso queda registrado el tiempo, las unidades producidas, las rechazadas y las paradas con su motivo. El OEE se calcula con eso, así que no hay doble captura ni una hoja aparte que alguien tenga que mantener.',
-  },
-  {
-    q: '¿Qué hace falta configurar para que el OEE sea fiable?',
-    a: 'Tres cosas: el tiempo planificado del turno, el tiempo de ciclo ideal de cada proceso y que el operario registre los rechazos. Sin tiempo planificado no hay disponibilidad, sin ciclo ideal no hay rendimiento, y sin rechazos registrados la calidad se asume al 100%. REELEVO marca cuándo la calidad es una estimación en vez de un dato medido.',
-  },
-  {
-    q: '¿Necesito conectar sensores a las máquinas?',
-    a: 'No para empezar. El OEE se calcula con lo que registra el operario en el flujo del proceso, que es lo que permite tener OEE en máquinas antiguas sin electrónica. Si tienes máquinas conectadas, REELEVO admite telemetría por MTConnect y MachineMetrics para afinar los tiempos de parada.',
-  },
-  {
-    q: '¿Qué es el análisis TIMWOODS?',
-    a: 'Es la clasificación de los ocho desperdicios Lean: transporte, inventario, movimiento, espera, sobreproducción, sobreprocesamiento, defectos y talento desaprovechado. REELEVO reparte por esas categorías lo que aparece en planta, de forma que la conversación deja de ser "vamos mal" y pasa a ser "el 40% de lo que perdemos es espera".',
-  },
-  {
-    q: '¿Qué plan necesito para tener OEE y análisis Lean?',
-    a: 'El registro de paradas, unidades y rechazos y el monitoreo en vivo están desde el plan Starter, así que el OEE base lo tienes desde el principio. La analítica avanzada, el análisis Lean —TIMWOODS, VSM y takt time— y los reportes PDF programados por email son del plan Pro. El detalle actualizado está en la página de precios.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 const schema = [pageSchema, faqPageSchema(faqs)];
@@ -57,18 +36,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">OEE · Lean · Datos de ejecución</div>
-    <h1 class="fade-up delay-1">El OEE de tu planta, <br><em>calculado solo</em></h1>
-    <p class="fade-up delay-2">
-      Casi nadie tiene OEE, y quien lo tiene no se lo cree: sale de un Excel con datos apuntados en papel
-      y tecleados el lunes. REELEVO calcula disponibilidad, rendimiento y calidad de cada máquina con lo
-      que el operario ya registra al ejecutar el proceso — sin consolidar nada y sin pedirte un sensor
-      en una máquina de 1998.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/precios/" class="btn-ghost">Ver planes</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="oee" />
   </section>
@@ -210,21 +188,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza por una máquina</div>
-    <h2 class="cta-title fade-up delay-1">
-      No necesitas sensores. <br><em>Necesitas que quede registrado</em>
-    </h2>
-    <p class="cta-sub fade-up delay-2">
-      Empieza por la máquina que más te tensiona, con el proceso que ya ejecutan tus operarios.
-      El OEE aparece solo en cuanto hay ejecuciones registradas.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h2 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h2>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Plan gratuito para empezar · Sin tarjeta</div>
+    <div class="cta-note fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

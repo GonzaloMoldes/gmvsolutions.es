@@ -2,9 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Software de gestión para pyme industrial | REELEVO";
-const description = "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/software-gestion-pyme-industrial.json.
+const pagina = await getPagina('software-gestion-pyme-industrial');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/software-gestion-pyme-industrial/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -16,24 +20,7 @@ const canonical = "https://www.gmvsolutions.es/software-gestion-pyme-industrial/
 // La seccion "Que tipo de software es" (rejilla SI/NO) se elimino: tres de las
 // cinco preguntas ya respondian lo mismo, y lo esencial pasa al hero
 // (tarea C4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿REELEVO es un software de gestión para pymes?',
-    a: 'Sí, pero acotado: es un software de gestión para pymes industriales enfocado en las operaciones de planta (producción, competencias, procesos y mantenimiento). No es un software de gestión administrativa ni un ERP de contabilidad o facturación.',
-  },
-  {
-    q: '¿Sirve como software de empresa o necesito un ERP?',
-    a: 'Depende de lo que busques. Si necesitas contabilidad, nóminas o facturación, eso es un ERP y REELEVO no lo sustituye. Si lo que quieres es un software de empresa para gestionar lo que pasa en el taller —quién produce qué, con qué procedimiento y con qué formación—, REELEVO lo cubre y se integra con tu ERP por API.',
-  },
-  {
-    q: '¿Qué incluye la gestión de pymes industriales con REELEVO?',
-    a: 'Control de producción en tiempo real, matriz de competencias y polivalencia, documentación de procesos (SOP) en el puesto, planes de mantenimiento preventivo y planificación semanal de turnos. Todo conectado y sin papel. Lo que no cubre: contabilidad, facturación, nóminas ni gestión administrativa, y tampoco te obliga a un proyecto MES de meses.',
-  },
-  {
-    q: '¿Es un software para una empresa de cualquier sector?',
-    a: 'Está diseñado para la pyme industrial: talleres, fabricación, mecanizado, alimentación y producción en general. No es un software genérico para una empresa de servicios u oficina; su valor está en la planta.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const schema = [softwareApplicationSchema(), faqPageSchema(faqs)];
 
@@ -53,14 +40,18 @@ const modulos = [
 
   <!-- HERO + POSICIONAMIENTO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Software de gestión para pyme industrial</div>
-    <h1 class="fade-up delay-1">El software de gestión <br><em>que vive en la planta, no en la oficina</em></h1>
-    <p class="fade-up delay-2">Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué procedimiento y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
   </section>
 
@@ -139,23 +130,19 @@ Las sesiones de QR se consolidan en horas por operario, con aviso semanal de qui
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Gestión de planta, sin papel</div>
-    <h3 class="cta-title fade-up delay-1">
-      El software de gestión <br><em>que tu taller sí va a usar</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Empieza por producción, competencias o procesos — sin montar un ERP ni un proyecto de meses.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/precios/" class="btn-ghost">
-        Ver precios →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Sin tarjeta de crédito · Te acompañamos en la primera configuración</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

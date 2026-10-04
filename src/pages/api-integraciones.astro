@@ -3,9 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "API de software industrial | REELEVO";
-const description = "Conecta REELEVO con tu ERP, Power BI y Teams: API REST documentada, 21 eventos de webhook y conector Power Automate para industria.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/api-integraciones.json.
+const pagina = await getPagina('api-integraciones');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/api-integraciones/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -13,28 +17,7 @@ const canonical = "https://www.gmvsolutions.es/api-integraciones/";
 // La quinta pregunta recoge la tabla "Disponibilidad por plan" que era una
 // seccion propia; el detalle vive en /precios/, que es su sitio (tarea C1 de
 // PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿REELEVO tiene API?',
-    a: 'Sí, una API REST documentada y 21 eventos de webhook. Permite leer los datos de ejecución de planta —producción, competencias, incidencias— desde cualquier sistema externo, y recibir el aviso cuando ocurre algo en lugar de tener que consultar cada cierto tiempo. Los webhooks se entregan cada cinco minutos, con reintentos y registro de entregas.',
-  },
-  {
-    q: '¿Se puede conectar con mi ERP?',
-    a: 'Sí. La vía habitual es la API REST o el conector de Power Automate, según lo que admita tu ERP. Lo más frecuente no es una integración bidireccional completa sino llevar el dato de ejecución al ERP para cerrar órdenes o alimentar costes, que es donde está la mayor parte del valor.',
-  },
-  {
-    q: '¿Necesito un desarrollador para integrarlo?',
-    a: 'Para la API sí conviene alguien técnico, aunque sea puntualmente. Para lo más común no: el conector de Power Automate y los dashboards de Power BI se configuran sin escribir código. La recomendación es empezar por ahí y dejar la API para cuando haya un caso concreto que la exija.',
-  },
-  {
-    q: '¿Y si no quiero integrar nada al principio?',
-    a: 'Es lo normal y no pasa nada. REELEVO funciona de forma autónoma sin conectarse a ningún otro sistema; la integración tiene sentido cuando ya tienes dato de planta que merece la pena llevar a otro sitio. Integrar el primer día suele añadir complejidad antes de que haya nada que integrar.',
-  },
-  {
-    q: '¿Qué nivel de integración incluye cada plan?',
-    a: 'Los webhooks y la API v1 están disponibles desde el plan Pro, sin configuración técnica especial, igual que el kit de Power BI y el conector de Power Automate. Los conectores con SAP y la integración a medida con un ERP concreto se acuerdan aparte. El detalle actualizado de qué entra en cada plan está en la página de precios.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -45,12 +28,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">API REST · Webhooks · Power BI · Microsoft Teams · Power Automate</div>
-    <h1 class="fade-up delay-1">REELEVO no es una isla. <br><em>Se conecta con lo que ya tienes</em></h1>
-    <p class="fade-up delay-2">El ERP sabe qué se vendió, pero no qué se produjo ni quién lo hizo. El problema no es falta de datos: es que no llegan a donde se deciden las cosas. REELEVO expone los suyos con API REST documentada, 21 eventos de webhook y un kit nativo de Microsoft 365.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="api-integraciones" />
   </section>
@@ -202,23 +187,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Conexión real</div>
-    <h3 class="cta-title fade-up delay-1">
-      Lleva la actividad de planta <br><em>a las herramientas que ya usas</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Cuando la operación está asentada, conectar Power BI o tu ERP deja de ser un proyecto.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarse gratis
-      </a>
-      <a href="/integracion-m365/" class="btn-ghost">
-        Ver el kit de Microsoft 365 →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

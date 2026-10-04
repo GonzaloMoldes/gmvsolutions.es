@@ -5,42 +5,17 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Documentación de procesos y SOPs en el puesto | REELEVO";
-const description = "Documentación de procesos con REELEVO, el software de instrucciones de trabajo digitales: SOPs paso a paso en el puesto, con QR, foto y vídeo, para reducir errores y acelerar el onboarding.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/documentacion-procesos.json.
+const pagina = await getPagina('documentacion-procesos');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/documentacion-procesos/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es un software de instrucciones de trabajo digitales?',
-    a: 'Una herramienta que sustituye los procedimientos en papel o en PDF por instrucciones paso a paso que el operario abre en el propio puesto, con foto y vídeo en cada paso y una única versión vigente. REELEVO es un software de instrucciones de trabajo digitales pensado para pymes industriales: se documenta desde el móvil y se consulta escaneando un QR en la máquina.',
-  },
-  {
-    q: '¿Qué diferencia hay entre esto y tener los SOPs en PDF?',
-    a: 'Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí el proceso aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta.',
-  },
-  {
-    q: '¿Cómo accede el operario al proceso en el puesto?',
-    a: 'Escaneando un QR colocado en la máquina desde su móvil. No necesita instalar nada, ni crear una cuenta, ni recordar una contraseña, que es justo lo que hace fracasar la adopción con personal temporal o con plantilla poco habituada a herramientas digitales.',
-  },
-  {
-    q: '¿Cuántos procesos hay que documentar para empezar?',
-    a: 'Entre dos y cinco: los que más rotación tienen o más reprocesos generan. Los seis tipos que más se repiten son arranque y parada (la secuencia exacta y qué esperar en cada etapa), cambio de parámetros (valores, tolerancias y qué NO hacer), mantenimiento básico, troubleshooting (el árbol de diagnóstico de los fallos habituales), control de calidad (qué mira, toca y mide el operario) y limpieza GMP con checklist por zona para conformidad ISO/IATF. Documentar la planta entera antes de empezar a usar nada es el camino corto a que el proyecto se abandone.',
-  },
-  {
-    q: '¿Hay que teclear todos los procedimientos desde cero?',
-    a: 'No. Puedes subir los que ya tengas en Word o PDF y la IA propone el proceso troceado en pasos, en el idioma original del documento. Para lo que nunca se escribió, puedes grabar en vídeo al operario haciéndolo y se proponen los pasos a partir de lo que se ve. En los dos casos el resultado queda pendiente de revisión: tú lo corriges y lo apruebas antes de que llegue al puesto.',
-  },
-  {
-    q: '¿Quién debe redactar la documentación?',
-    a: 'El operario que domina el proceso, acompañado de alguien que le dé estructura. Cuando lo redacta calidad desde un despacho sale un documento formalmente correcto que pierde los detalles reales del puesto, que son precisamente los que evitan el error.',
-  },
-  {
-    q: '¿Qué pasa cuando cambia un proceso?',
-    a: 'Se actualiza una vez y el cambio llega a todos los puestos a la vez, con su versión. Desaparece la situación de tener tres revisiones distintas conviviendo en tres líneas, y no hay que reimprimir ni recoger copias antiguas.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -51,14 +26,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Documentación y gestión de procesos</div>
-    <h1 class="fade-up delay-1">El procedimiento no sirve <br><em>si está en una carpeta del servidor</em></h1>
-    <p class="fade-up delay-2">Nadie abre un PDF del servidor con las manos sucias y la máquina parada. Por eso el procedimiento acaba siendo lo que recuerda el veterano, y por eso se documenta el 100 % y se usa el 0 %. Aquí vive en la máquina, se abre con el móvil y se consulta en tres segundos.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="06" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="06" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="documentacion-procesos" />
   </section>
@@ -179,21 +158,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza por uno</div>
-    <h3 class="cta-title fade-up delay-1">
-      Documenta primero <br><em>el proceso que más te cuesta repetir</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      No hace falta ordenar toda la planta de golpe. Con un proceso crítico disponible donde se trabaja ya cambia la forma de operar.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="06" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/gestion-competencias/" class="btn-ghost">
-        Ver gestión de competencias →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="06" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

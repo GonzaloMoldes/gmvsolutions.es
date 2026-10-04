@@ -231,3 +231,23 @@ export function postToMarkdown(raw: string, slug: string): PostMarkdown {
     markdown: `${header}${htmlToMarkdown(extractBody(raw))}\n`,
   };
 }
+
+// ── Extraccion desde la pagina ya renderizada ───────────────────────────────
+
+// Convierte el HTML final de una pagina (con los textos de Sanity ya puestos)
+// en markdown con la misma cabecera que postToMarkdown. Solo el contenido entre
+// la cabecera y el pie del sitio: menu, pie y scripts no aportan a quien lo lee.
+export function renderedToMarkdown(html: string, slug: string): string {
+  const meta = (re: RegExp) => decodeEntities(html.match(re)?.[1] ?? '');
+  const title = meta(/<title>([^<]*)<\/title>/) || slug;
+  const description = meta(/<meta name="description" content="([^"]*)"/);
+  const canonical = (meta(/<link rel="canonical" href="([^"]*)"/) || `${BASE_URL}/${slug}/`).replace(/\/$/, '');
+  const main = html.match(/<main\b[^>]*>([\s\S]*)<\/main>/)?.[1] ?? html.replace(/^[\s\S]*?<\/header>/, '').replace(/<footer[\s\S]*$/, '');
+  const header =
+    `# ${title}\n\n` +
+    (description ? `> ${description}\n\n` : '') +
+    `**URL:** ${canonical}\n` +
+    `**Autor:** Gonzalo Moldes — Fundador de REELEVO\n\n---\n\n`;
+  // En el HTML final los botones seguidos quedan pegados: uno por linea.
+  return `${header}${htmlToMarkdown(main.replace(/<\/a>\s*<a\b/g, '</a><br><a'))}\n`;
+}

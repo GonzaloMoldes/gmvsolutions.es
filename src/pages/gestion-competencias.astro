@@ -4,34 +4,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Gestion de competencias industriales para pymes | REELEVO";
-const description = "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/gestion-competencias.json.
+const pagina = await getPagina('gestion-competencias');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/gestion-competencias/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es una matriz de competencias o skill matrix?',
-    a: 'Es el registro de qué operario está capacitado para qué proceso o máquina y en qué nivel de autonomía. Cruza personas con procesos y permite ver de un vistazo dónde depende todo de una sola persona, qué puesto queda descubierto en un turno y dónde hace falta reforzar formación.',
-  },
-  {
-    q: '¿Cómo se mantiene actualizada?',
-    a: 'Se alimenta de la ejecución real: cada vez que un operario completa un proceso, ese dato entra solo. Es la diferencia con un Excel, que refleja la foto del día que se creó porque nadie lo actualiza, y a los pocos meses deja de servir para decidir nada.',
-  },
-  {
-    q: '¿Cuántos niveles de competencia conviene definir?',
-    a: 'Tres o cuatro bastan en una pyme: en formación, apto con supervisión, autónomo y, si aporta, formador. Más niveles generan discusión sobre el matiz sin cambiar ninguna decisión. Lo que importa es que el criterio para subir de nivel sea observable y el mismo para todos.',
-  },
-  {
-    q: '¿Sirve para planificar la formación?',
-    a: 'Sí, y es de sus usos más directos. Al ver los huecos de la matriz sabes qué proceso tiene poca cobertura y a quién conviene formar antes de que una baja lo convierta en un problema, en lugar de planificar formación por intuición o por lo que se hizo el año pasado.',
-  },
-  {
-    q: '¿Y cuánto le queda al que está aprendiendo?',
-    a: 'Esa es la otra mitad de la pregunta, y sale de las rutas de aprendizaje: en qué paso va, cuántas ejecuciones lleva y cuánto tarda comparado con el titular del puesto. Deja de ser «yo creo que en dos semanas está» y pasa a ser algo que se mira.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -42,14 +25,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Gestión de Competencias Operativas</div>
-    <h1 class="fade-up delay-1">¿Quién puede cubrir <br><em>ese puesto el lunes?</em></h1>
-    <p class="fade-up delay-2">Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="competencias" />
   </section>
@@ -205,21 +192,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h3 class="cta-title fade-up delay-1">
-      Construye tu matriz de <em>competencias hoy</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Empieza por una línea. En cuanto veas qué proceso depende de una sola persona, ya sabes por dónde seguir.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/documentacion-procesos/" class="btn-ghost">
-        Ver documentación de procesos →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 

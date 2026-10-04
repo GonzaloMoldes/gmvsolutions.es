@@ -3,9 +3,13 @@ import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Software de mantenimiento preventivo y correctivo industrial | REELEVO";
-const description = "Mantenimiento preventivo integrado en el trabajo diario: planes preventivos y correctivos, órdenes automáticas y registro de intervenciones.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/mantenimiento.json.
+const pagina = await getPagina('mantenimiento');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/mantenimiento/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -14,24 +18,7 @@ const canonical = "https://www.gmvsolutions.es/mantenimiento/";
 // de 167 palabras a mitad de pagina ("Lo que nos diferencia"): el mantenimiento
 // integrado frente al sistema aparte. El argumento sobrevive, la seccion no
 // (tarea B2 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Es un GMAO o CMMS?',
-    a: 'Cubre lo que una pyme industrial suele necesitar de un GMAO —planes preventivos, órdenes, registro de intervenciones e histórico por equipo— sin la complejidad de una herramienta dedicada. Si necesitas gestión de repuestos, almacén técnico o costes de mantenimiento detallados, ahí un GMAO específico va más lejos.',
-  },
-  {
-    q: '¿Cubre mantenimiento preventivo y correctivo?',
-    a: 'Los dos, en el mismo módulo. El preventivo se programa por tiempo o por horas de máquina y genera la orden sola; el correctivo entra cuando alguien reporta una avería desde el puesto. Tenerlos juntos evita el clásico de que el correctivo se gestione por WhatsApp.',
-  },
-  {
-    q: '¿Cómo se generan las órdenes de trabajo?',
-    a: 'Automáticamente a partir del plan, con su responsable o turno asignado. La tarea aparece en la agenda del operario junto a las de producción, no en un sistema aparte que hay que acordarse de abrir.',
-  },
-  {
-    q: '¿Por qué integrar el mantenimiento con la operación y no llevarlo aparte?',
-    a: 'Porque cuando el preventivo vive en un Excel que solo abre el responsable, basta con que esté de vacaciones para que nadie lo recuerde, y siempre pierde la competición por la atención frente a la producción. Integrado en la misma agenda, el operario ya sabe usarlo: es la misma pantalla que abre cada día, y el SOP de la intervención es un proceso más al que llega por QR.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -42,14 +29,18 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Mantenimiento preventivo y correctivo</div>
-    <h1 class="fade-up delay-1">El mantenimiento que no ves <br><em>es el que para la línea</em></h1>
-    <p class="fade-up delay-2">Software de mantenimiento preventivo para pyme industrial. Hoy el plan vive en un Excel que solo abre una persona y el operario no sabe que le toca hasta que alguien se lo dice. Con REELEVO defines el plan de cada máquina una vez, las órdenes de trabajo se generan solas y aparecen en la agenda del operario junto a las de producción.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
-      <a href="/video-demo/" class="btn-ghost"
-         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
+      {pagina.hero.botones[1] && (
+<a href={pagina.hero.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">{pagina.hero.botones[1].texto}</a>
+)}
     </div>
     <Ilustracion escena="mantenimiento" />
   </section>
@@ -162,23 +153,19 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Mantenimiento en marcha</div>
-    <h3 class="cta-title fade-up delay-1">
-      El mantenimiento que no ves <br><em>deja de pillarte a contrapié</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Arranca con el plan de una sola máquina y deja de depender de notas sueltas y de la memoria de una persona.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-      <a href="/control-produccion/" class="btn-ghost">
-        Ver control de producción →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>

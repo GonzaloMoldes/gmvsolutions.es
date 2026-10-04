@@ -4,9 +4,13 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
 import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, sinMarcas } from '../lib/contenido';
 
-const title = "Workflows operativos industriales | REELEVO";
-const description = "Flujos de trabajo multi-paso y multi-operario con editor visual: aprobaciones, checkpoints y ramas paralelas para lo que supera un SOP simple.";
+// Textos editables desde Sanity (Páginas de funcionalidad). Respaldo: src/data/paginas/workflows.json.
+const pagina = await getPagina('workflows');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/workflows/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
@@ -15,28 +19,7 @@ const canonical = "https://www.gmvsolutions.es/workflows/";
 // media seccion de "Enfoque prudente". La otra mitad (cuando basta un SOP) ya
 // estaba en la primera pregunta, asi que la seccion se elimina en vez de
 // repetirse (tarea C2 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué diferencia hay entre un workflow y un SOP?',
-    a: 'Un SOP describe cómo ejecuta una persona una tarea. Un workflow encadena varios pasos con distintos responsables, condiciones y validaciones entre ellos. Si tu proceso lo hace una sola persona de principio a fin, un SOP basta y añadir un workflow solo mete complejidad.',
-  },
-  {
-    q: '¿Qué procesos merecen un workflow?',
-    a: 'Los que pasan por varias manos y se atascan en las transiciones. Un cambio de utillaje o de formato: parar, desmontar, ajustar, probar y validar, con un operario distinto en cada fase. Una puesta en marcha de línea donde dos equipos preparan en paralelo y el arranque espera a que ambos terminen. Una auditoría interna de ocho fases en tres días, cada una con su responsable y su checkpoint. También liberación de producto con validación de calidad, no conformidades y aprobaciones antes de expedir. Es decir, donde el problema no es ejecutar sino coordinar.',
-  },
-  {
-    q: '¿Hace falta saber programar para diseñarlos?',
-    a: 'No. Se montan en un editor visual encadenando pasos, responsables y condiciones. La parte difícil no suele ser la herramienta, sino ponerse de acuerdo en cómo debería funcionar realmente el proceso, que es una conversación que conviene tener igualmente.',
-  },
-  {
-    q: '¿Se puede ver por dónde va cada proceso en curso?',
-    a: 'Sí, con el estado de cada instancia y en qué paso está parada. Es lo que responde a la pregunta habitual de qué falta para poder expedir, sin ir preguntando de departamento en departamento.',
-  },
-  {
-    q: '¿Cualquiera puede diseñar un workflow que funcione?',
-    a: 'El editor es visual, pero no lo llamaríamos trivial: diseñar un flujo bien estructurado exige que quien lo monte conozca de verdad el proceso y sus excepciones. Nuestra recomendación es empezar por un proceso que ya se hace bien y estructurarlo, en vez de intentar arreglar con un workflow un proceso que todavía no está claro.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = softwareApplicationSchema();
 
@@ -72,12 +55,14 @@ const nodos = [
 
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Workflows operativos industriales</div>
-    <h1 class="fade-up delay-1">Algunos procesos necesitan <br><em>más de un operario y más de un paso</em></h1>
-    <p class="fade-up delay-2">Un cambio de utillaje pasa por cuatro manos en secuencia; una auditoría interna tiene seis fases con responsables distintos. Sin nada que los estructure, esos procesos se coordinan por WhatsApp y de viva voz: pasos saltados, aprobaciones que llegan tarde y nadie sabe quién bloquea qué.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1">{pagina.hero.titulo}{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <Ilustracion escena="workflows" />
   </section>
@@ -173,23 +158,19 @@ const nodos = [
 
   <!-- SIGUIENTE PASO -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h3 class="cta-title fade-up delay-1">
-      Empieza por el proceso <br><em>que siempre se atasca en la misma transición</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Coge uno que ya se hace bien y estructúralo.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1">{pagina.ctaFinal.titulo}{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarse gratis
-      </a>
-      <a href="/portal-operario/" class="btn-ghost">
-        Ver el portal del operario →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-trust fade-up delay-4">Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico</div>
+    <div class="cta-trust fade-up delay-4">{pagina.ctaFinal.nota}</div>
   </section>
 
 </BaseLayout>
