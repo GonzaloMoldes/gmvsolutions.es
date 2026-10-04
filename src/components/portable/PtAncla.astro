@@ -1,0 +1,10 @@
+---
+// Punto de anclaje para los indices de los articulos (#id).
+const { node } = Astro.props as { node: { id: string } };
+---
+
+<span id={node.id} class="pt-ancla"></span>
+
+<style>
+  .pt-ancla { display: block; position: relative; top: -88px; visibility: hidden; }
+</style>

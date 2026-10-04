@@ -1,7 +1,7 @@
 ---
 // Articulos del blog gestionados en Sanity. Los escritos en codigo tienen su
-// propio .astro en esta carpeta y tienen prioridad: src/lib/blog.ts rompe el
-// build si un articulo de Sanity repite la URL de uno de codigo.
+// propio .astro en esta carpeta y tienen prioridad: si un articulo esta en los dos
+// sitios, src/lib/blog.ts lo deja fuera de articulosSanityActivos y avisa.
 //
 // Sin Sanity configurado, getStaticPaths devuelve [] y esta ruta no genera nada.
 import { PortableText } from 'astro-portabletext';
@@ -9,11 +9,19 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import PtImagen from '../../components/portable/PtImagen.astro';
 import PtDestacado from '../../components/portable/PtDestacado.astro';
 import PtEnlace from '../../components/portable/PtEnlace.astro';
-import { getArticulos, urlImagen, type ArticuloSanity } from '../../lib/sanity';
+import PtEnlaces from '../../components/portable/PtEnlaces.astro';
+import PtTabla from '../../components/portable/PtTabla.astro';
+import PtDescarga from '../../components/portable/PtDescarga.astro';
+import PtAncla from '../../components/portable/PtAncla.astro';
+import PtSeparador from '../../components/portable/PtSeparador.astro';
+import PtHtml from '../../components/portable/PtHtml.astro';
+// Estilos propios de los articulos migrados que los tenian (cada uno bajo .post-<url>).
+import '../../styles/blog-migrado.css';
+import { urlImagen, type ArticuloSanity } from '../../lib/sanity';
+import { articulosSanityActivos } from '../../lib/blog';
 
 export async function getStaticPaths() {
-  const articulos = await getArticulos();
-  return articulos.map((articulo) => ({ params: { slug: articulo.slug }, props: { articulo } }));
+  return articulosSanityActivos.map((articulo) => ({ params: { slug: articulo.slug }, props: { articulo } }));
 }
 
 const { articulo } = Astro.props as { articulo: ArticuloSanity };
@@ -36,7 +44,16 @@ const faqSchema = faqs.length
   : undefined;
 
 const components = {
-  type: { image: PtImagen, destacado: PtDestacado },
+  type: {
+    image: PtImagen,
+    destacado: PtDestacado,
+    enlacesRelacionados: PtEnlaces,
+    tabla: PtTabla,
+    descarga: PtDescarga,
+    ancla: PtAncla,
+    separador: PtSeparador,
+    htmlBloque: PtHtml,
+  },
   mark: { link: PtEnlace },
 };
 ---
@@ -60,9 +77,15 @@ const components = {
     </figure>
   )}
 
-  <PortableText value={articulo.body} components={components} />
+  <!-- .post-<url> acota los estilos propios del articulo (blog-migrado.css); el
+       contenedor va DENTRO porque esas reglas son «.post-<url> .contenedor ...». -->
+  <div class={`post-${articulo.slug}`}>
+    {articulo.contenedor
+      ? <div class={articulo.contenedor}><PortableText value={articulo.body} components={components} /></div>
+      : <PortableText value={articulo.body} components={components} />}
+  </div>
 
-  {faqs.length > 0 && (
+  {faqs.length > 0 && articulo.mostrarFaqs !== false && (
     <section id="faq">
       <h2>Preguntas frecuentes</h2>
       {faqs.map((f) => (

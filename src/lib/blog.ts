@@ -443,23 +443,37 @@ const etiquetaFecha = (iso: string): string => {
 
 const articulosSanity = await getArticulos();
 const slugsCodigo = new Set(postsCodigo.map((p) => p.slug));
-const duplicados = articulosSanity.filter((a) => slugsCodigo.has(a.slug)).map((a) => a.slug);
-if (duplicados.length) {
-  throw new Error(`[blog] Articulos de Sanity con la misma URL que uno escrito en codigo: ${duplicados.join(', ')}`);
+// Transicion de la migracion: mientras un articulo exista a la vez en codigo y
+// en Sanity, gana el de codigo (su .astro sigue generando la pagina) y se avisa.
+// Al borrar el .astro, la version de Sanity pasa a servirse sola.
+const duplicados = new Set(articulosSanity.filter((a) => slugsCodigo.has(a.slug)).map((a) => a.slug));
+if (duplicados.size) {
+  console.warn(`[blog] ${duplicados.size} articulos estan en codigo y en Sanity; se usa la version de codigo: ${[...duplicados].join(', ')}`);
 }
+/** Articulos de Sanity que generan pagina propia (sin los que aun estan en codigo). */
+export const articulosSanityActivos = articulosSanity.filter((a) => !duplicados.has(a.slug));
 
-const postsSanity: BlogPost[] = articulosSanity
+// Orden editorial: primero los que tienen «orden» (los migrados conservan el de
+// este registro), despues el resto por fecha de publicacion, como cuando se
+// anadian al final de la lista.
+const postsSanity: BlogPost[] = [...articulosSanityActivos]
+  .sort((a, b) =>
+    a.orden != null && b.orden != null ? a.orden - b.orden
+      : a.orden != null ? -1
+      : b.orden != null ? 1
+      : a.publishedAt.localeCompare(b.publishedAt),
+  )
   .filter((a) => !a.noindex)
   .map((a) => ({
     slug: a.slug,
     cluster: a.cluster as ClusterKey,
-    category: a.category,
+    category: a.cardCategory || a.category,
     title: a.cardTitle || a.title,
     desc: a.cardDesc,
     dateLabel: etiquetaFecha(a.publishedAt),
-    readTime: a.readTime || '8 min.',
+    readTime: a.cardReadTime || a.readTime || '8 min.',
     lastmod: a.updatedAt || a.publishedAt,
-    priority: '0.8',
+    priority: a.priority || '0.8',
     origen: 'sanity' as const,
   }));
 

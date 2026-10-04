@@ -2,7 +2,7 @@
 // Los agentes de IA prefieren markdown a HTML (Roadmap IA 2026-06, Parte B2).
 import type { APIRoute } from 'astro';
 import { postToMarkdown } from '../../lib/htmlToMarkdown';
-import { getArticulos } from '../../lib/sanity';
+import { articulosSanityActivos } from '../../lib/blog';
 import { portableToMarkdown } from '../../lib/portableToMarkdown';
 
 // Fuente cruda de cada post (?raw devuelve el .astro como string en build).
@@ -18,15 +18,22 @@ const posts = Object.fromEntries(
 );
 
 // Articulos de Sanity: su markdown sale del Portable Text, no del .astro.
-const articulos = await getArticulos();
+const articulos = articulosSanityActivos;
 const sanityMd = Object.fromEntries(
   articulos
     .filter((a) => !a.noindex)
     .map((a) => [
       a.slug,
-      `# ${a.title}\n\n> ${a.description}\n\n**URL:** https://www.gmvsolutions.es/blog/${a.slug}\n**Publicado:** ${a.publishedAt}\n**Autor:** Gonzalo Moldes — Fundador de REELEVO\n\n---\n\n` +
+      // Misma cabecera que postToMarkdown (src/lib/htmlToMarkdown.ts).
+      `# ${a.title}\n\n` +
+        (a.description ? `> ${a.description}\n\n` : '') +
+        `**URL:** https://www.gmvsolutions.es/blog/${a.slug}\n` +
+        `**Publicado:** ${a.publishedAt}\n` +
+        `**Autor:** Gonzalo Moldes — Fundador de REELEVO\n\n---\n\n` +
         portableToMarkdown(a.body) +
-        (a.faqs?.length ? `\n\n## Preguntas frecuentes\n\n${a.faqs.map((f) => `### ${f.q}\n\n${f.a}`).join('\n\n')}` : '') +
+        (a.faqs?.length && a.mostrarFaqs !== false
+          ? `\n\n## Preguntas frecuentes\n\n${a.faqs.map((f) => `### ${f.q}\n\n${f.a}`).join('\n\n')}`
+          : '') +
         '\n',
     ]),
 );

@@ -40,6 +40,12 @@ export interface ArticuloSanity {
   description: string;
   cardTitle?: string;
   cardDesc: string;
+  cardCategory?: string;
+  cardReadTime?: string;
+  priority?: string;
+  orden?: number;
+  mostrarFaqs?: boolean;
+  contenedor?: string;
   noindex?: boolean;
   mainImage?: { asset?: unknown; alt?: string };
   body: unknown[];
@@ -48,7 +54,8 @@ export interface ArticuloSanity {
 
 const CAMPOS = `{
   _id, title, seoTitle, "slug": slug.current, cluster, category, publishedAt,
-  updatedAt, readTime, description, cardTitle, cardDesc, noindex, mainImage,
+  updatedAt, readTime, description, cardTitle, cardDesc, cardCategory, cardReadTime, priority,
+  orden, mostrarFaqs, contenedor, noindex, mainImage,
   body, faqs[]{ q, a }
 }`;
 
@@ -59,6 +66,20 @@ let cache: Promise<ArticuloSanity[]> | null = null;
  * al mas antiguo. Una sola peticion por build: el resultado se reutiliza.
  */
 export function getArticulos(): Promise<ArticuloSanity[]> {
+  // Modo fixture: lee los articulos de un .ndjson local en vez de Sanity. Sirve
+  // para revisar la migracion o trabajar sin red (SANITY_FIXTURE=ruta.ndjson).
+  const fixture = import.meta.env.SANITY_FIXTURE as string | undefined;
+  if (fixture) {
+    cache ??= import('node:fs/promises')
+      .then((fs) => fs.readFile(fixture, 'utf8'))
+      .then((txt) =>
+        txt.split('\n').filter(Boolean).map((l) => {
+          const d = JSON.parse(l);
+          return { ...d, slug: d.slug?.current ?? d.slug } as ArticuloSanity;
+        }).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)),
+      );
+    return cache;
+  }
   if (!client) return Promise.resolve([]);
   cache ??= client
     .fetch<ArticuloSanity[]>(

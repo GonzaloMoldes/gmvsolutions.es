@@ -84,7 +84,22 @@ Reglas que conviene respetar (las mismas que para los artículos de código):
 | `src/components/portable/` | Imagen, caja destacada y enlace dentro del cuerpo |
 | `vercel.json` | CSP ampliada para `*.sanity.io` (panel e imágenes) |
 
+## Migración de los 33 artículos escritos en código
+
+| Paso | Estado |
+|---|---|
+| Esquema ampliado: tablas, enlaces relacionados, cajas de dato, descarga, anclas, separador, bloque HTML, enlaces con medición CTA | Hecho |
+| Conversión: `node scripts/migrar-blog-a-sanity.mjs` → `scripts/migracion/articulos.ndjson` + `src/styles/blog-migrado.css` | Hecho |
+| Verificación local (modo `SANITY_FIXTURE`): 33/33 páginas con el mismo texto, enlaces, anclas, títulos, CTA, FAQ y altura; índice del blog, sitemap, `/llms.txt` y los 33 `.md` idénticos | Hecho |
+| Importar a Sanity: `SANITY_WRITE_TOKEN=… node scripts/importar-a-sanity.mjs` | Pendiente de acceso |
+| Borrar los 33 `.astro` y sus entradas de `src/lib/blog.ts` | Después de importar |
+
+Mientras un artículo esté en código y en Sanity a la vez, gana el de código y el log de build lo avisa con `[blog] … se usa la versión de código`. No hay corte.
+
+30 de los 33 artículos quedan íntegramente editables. Los tres con maquetación a medida (`onboarding-software-pymes`, `onboarding-vs-tradicional`, `gestion-competencias-industria`) guardan esas secciones como «Bloque HTML»; su texto normal es editable igual que el resto.
+
+**Revisar sin red:** `SANITY_FIXTURE=scripts/migracion/articulos.ndjson npm run build` construye leyendo los artículos del fichero en vez de Sanity.
+
 ## Siguientes pasos posibles
 
-- Migrar los 30 artículos actuales a Sanity (script de importación).
 - Hacer editables desde el panel otros bloques: preguntas frecuentes de las páginas, textos de la home, casos de cliente y testimonios.

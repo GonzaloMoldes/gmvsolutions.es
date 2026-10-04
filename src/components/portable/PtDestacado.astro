@@ -1,9 +1,15 @@
 ---
 // Caja destacada de un articulo de Sanity. Reutiliza .highlight-box, la misma
 // clase que usan los articulos escritos en codigo (estilos en ArticleLayout).
-const { node } = Astro.props as { node: { titulo?: string; texto: string } };
+// estilo «data-card» es la tarjeta de cifras.
+import { PortableText } from 'astro-portabletext';
+import PtEnlace from './PtEnlace.astro';
+
+const { node } = Astro.props as { node: { titulo?: string; estilo?: string; texto?: string; contenido?: unknown[] } };
 ---
 
-<div class="highlight-box">
-  <p>{node.titulo && <strong>{node.titulo} </strong>}{node.texto}</p>
+<div class={node.estilo || 'highlight-box'}>
+  {node.contenido?.length
+    ? <PortableText value={node.contenido} components={{ mark: { link: PtEnlace } }} />
+    : <p>{node.titulo && <strong>{node.titulo} </strong>}{node.texto}</p>}
 </div>
