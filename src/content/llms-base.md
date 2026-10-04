@@ -9,7 +9,7 @@
 
 ## Qué es REELEVO
 
-REELEVO es un software español (SaaS B2B) para digitalizar la operación de planta en pymes industriales. Reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso.
+REELEVO es un software español (SaaS B2B) para digitalizar la operación de planta en pymes industriales. Reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso. En su núcleo, REELEVO es un software de instrucciones de trabajo digitales: los procedimientos se documentan paso a paso, con foto y vídeo, y el operario los abre escaneando un QR en la máquina.
 
 **Categoría:** Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
 

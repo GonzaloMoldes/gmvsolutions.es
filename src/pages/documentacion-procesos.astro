@@ -5,12 +5,16 @@ import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
 
-const title = "Documentación y gestión de procesos industriales para pymes | REELEVO";
-const description = "Documentación de procesos: SOPs estandarizados en el puesto para reducir errores, acelerar el onboarding y sostener la continuidad operativa.";
+const title = "Software de instrucciones de trabajo digitales para pymes | REELEVO";
+const description = "Software de instrucciones de trabajo digitales para pymes industriales: SOPs paso a paso en el puesto, con QR, foto y vídeo, para reducir errores y acelerar el onboarding.";
 const canonical = "https://www.gmvsolutions.es/documentacion-procesos/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
 const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es un software de instrucciones de trabajo digitales?',
+    a: 'Una herramienta que sustituye los procedimientos en papel o en PDF por instrucciones paso a paso que el operario abre en el propio puesto, con foto y vídeo en cada paso y una única versión vigente. REELEVO es un software de instrucciones de trabajo digitales pensado para pymes industriales: se documenta desde el móvil y se consulta escaneando un QR en la máquina.',
+  },
   {
     q: '¿Qué diferencia hay entre esto y tener los SOPs en PDF?',
     a: 'Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí el proceso aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta.',
@@ -46,7 +50,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="capacidad">
   <!-- HERO + PROBLEMA -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Documentación y gestión de procesos</div>
+    <div class="eyebrow fade-up">Software de instrucciones de trabajo digitales</div>
     <h1 class="fade-up delay-1">El procedimiento no sirve <br><em>si está en una carpeta del servidor</em></h1>
     <p class="fade-up delay-2">Nadie abre un PDF del servidor con las manos sucias y la máquina parada. Por eso el procedimiento acaba siendo lo que recuerda el veterano, y por eso se documenta el 100 % y se usa el 0 %. Aquí vive en la máquina, se abre con el móvil y se consulta en tres segundos.</p>
     <div class="hero-cta fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
@@ -65,7 +69,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="fade-up">
         <div class="eyebrow">Cómo funciona</div>
         <h2 class="section-title">Documentación que se consulta</h2>
-        <p class="section-sub">La diferencia no está en el contenido del procedimiento, sino en dónde vive y quién lo escribe.</p>
+        <p class="section-sub">Un software de instrucciones de trabajo digitales no cambia el contenido del procedimiento: cambia dónde vive y quién lo escribe.</p>
       </div>
 
       <div class="solution-approach fade-up delay-1">
