@@ -3,6 +3,7 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Cobertura de turnos en produccion industrial | REELEVO";
 const description = "Detecta huecos de cobertura por turno en planta antes de que paren la línea y reorganiza asignaciones con la matriz de habilidades en tiempo real.";
@@ -52,6 +53,7 @@ const mapa = [
       <a href="/video-demo/" class="btn-ghost"
          data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
+    <Ilustracion escena="cobertura-turnos" />
   </section>
 
   <div class="divider"></div>
@@ -224,7 +226,7 @@ const mapa = [
     width: 34px;
     height: 34px;
     background: var(--orange);
-    color: #fff;
+    color: var(--steel, #141618);
     border-radius: 50%;
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
@@ -293,7 +295,7 @@ const mapa = [
   .cm-cell { font-family: 'DM Mono', monospace; font-size: .82rem; }
 
   .cm-ok { color: var(--green); }
-  .cm-warn { color: var(--orange); }
+  .cm-warn { color: var(--orange-ink); }
   .cm-danger { color: var(--red); }
 
   @media (max-width: 700px) {
@@ -312,7 +314,7 @@ const mapa = [
   }
 
   .leg-ok { color: var(--green); }
-  .leg-warn { color: var(--orange); }
+  .leg-warn { color: var(--orange-ink); }
   .leg-danger { color: var(--red); }
 
   .cm-note {
@@ -382,7 +384,7 @@ const mapa = [
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }

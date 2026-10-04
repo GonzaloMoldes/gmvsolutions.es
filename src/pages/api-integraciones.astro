@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "API de software industrial | REELEVO";
 const description = "Conecta REELEVO con tu ERP, Power BI y Teams: API REST documentada, 21 eventos de webhook y conector Power Automate para industria.";
@@ -51,6 +52,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
+    <Ilustracion escena="api-integraciones" />
   </section>
 
   <div class="divider"></div>
@@ -247,7 +249,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 0.75rem;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     background: rgba(255, 100, 0, 0.1);
     padding: 4px 10px;
     border-radius: 3px;
@@ -283,7 +285,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .event-tag {
     font-size: 0.8rem;
     padding: 4px 10px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(20,22,24, 0.06);
     border: 1px solid var(--border);
     border-radius: 3px;
     color: var(--gray);
@@ -317,7 +319,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: .06em;
-    color: var(--orange);
+    color: var(--orange-ink);
     min-width: 60px;
     margin-top: 2px;
   }
@@ -349,7 +351,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 
@@ -404,7 +406,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
@@ -416,7 +418,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .cta-trust {
     margin-top: 16px;
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(20,22,24, 0.45);
     letter-spacing: .04em;
   }
 </style>

@@ -129,7 +129,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   .article-container {
     max-width: 980px;
     margin: 0 auto;
-    background: rgba(60, 60, 60, 0.95);
+    background: var(--paper, #F6F5F2);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 48px 48px 40px;
@@ -151,7 +151,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   }
 
   .article-breadcrumb a:hover {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .article-category {
@@ -159,7 +159,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: .6rem;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 
@@ -200,7 +200,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     height: 44px;
     border-radius: 50%;
     background: var(--orange);
-    color: #fff;
+    color: var(--steel, #141618);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,7 +227,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   }
 
   .article-author-name:hover {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .article-author-role {
@@ -235,7 +235,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: .62rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .article-author-bio {
@@ -267,13 +267,13 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .03em;
-    color: rgba(255,255,255,.85);
+    color: rgba(20,22,24,.85);
     margin: 32px 0 12px;
   }
 
   .article-body :global(p) {
     font-size: 17px;
-    color: rgba(255,255,255,.8);
+    color: rgba(20,22,24,.8);
     line-height: 1.75;
     margin-bottom: 20px;
   }
@@ -292,7 +292,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
 
   .article-body :global(li) {
     font-size: 17px;
-    color: rgba(255,255,255,.8);
+    color: rgba(20,22,24,.8);
     line-height: 1.7;
     margin-bottom: 8px;
   }
@@ -303,7 +303,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   }
 
   .article-body :global(a) {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244,82,30,.3);
     transition: border-color .2s;
@@ -333,7 +333,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: .9rem;
     line-height: 1.7;
     margin-bottom: 12px;
-    color: rgba(255,255,255,.85);
+    color: rgba(20,22,24,.85);
   }
 
   .article-body :global(.data-card p:last-child) {
@@ -341,7 +341,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   }
 
   .article-body :global(.data-card strong) {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-size: 1rem;
   }
 
@@ -369,7 +369,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     padding: 12px 16px;
     text-align: left;
     font-weight: 600;
-    color: var(--orange);
+    color: var(--orange-ink);
     font-size: .8rem;
     letter-spacing: .02em;
   }
@@ -378,13 +378,13 @@ const mergedSchema = [articleSchema, ...extraSchema];
     border: 1px solid var(--border);
     padding: 12px 16px;
     line-height: 1.6;
-    color: rgba(255,255,255,.85);
+    color: rgba(20,22,24,.85);
     vertical-align: top;
   }
 
   /* Primera columna: el criterio que se compara. */
   .article-body :global(.tabla-comparativa td:first-child) {
-    color: #fff;
+    color: var(--steel, #141618);
     font-weight: 600;
     white-space: nowrap;
   }
@@ -411,7 +411,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: .9rem;
     line-height: 1.7;
     margin-bottom: 12px;
-    color: rgba(255,255,255,.85);
+    color: rgba(20,22,24,.85);
   }
 
   .article-body :global(.highlight-box p:last-child) {
@@ -423,7 +423,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
   }
 
   .article-body :global(.highlight-box a) {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-weight: 500;
     border-bottom: none;
   }
@@ -433,7 +433,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
      (visto en el botón de descarga de las plantillas, 2026-09-24). */
   .article-body :global(a.btn-primary),
   .article-body :global(.highlight-box a.btn-primary) {
-    color: #fff;
+    color: var(--steel, #141618);
     border-bottom: none;
   }
 
@@ -450,7 +450,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
     font-size: .62rem;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 

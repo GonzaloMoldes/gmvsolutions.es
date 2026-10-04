@@ -1,6 +1,7 @@
 ---
 import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Sobre REELEVO | Software de instrucciones de trabajo digitales";
 const description = "Sobre REELEVO: el equipo de GMV Solutions detrás del software de instrucciones de trabajo digitales para la pyme industrial española, y su método de implementación.";
@@ -96,6 +97,7 @@ const schema = [aboutPageSchema, faqSchema];
     <div class="eyebrow fade-up">El equipo</div>
     <h1 class="fade-up delay-1">Detrás de REELEVO <br><em>hay personas, no una corporación.</em></h1>
     <p class="fade-up delay-2">Somos un equipo pequeño, cercano y con foco muy concreto: construir el software de instrucciones de trabajo digitales que necesita la pyme industrial española para reducir su dependencia operativa, sin meterla en un proyecto pesado ni venderle una suite inflada.</p>
+    <Ilustracion escena="sobre-nosotros" />
   </section>
 
   <div class="divider"></div>
@@ -543,7 +545,7 @@ const schema = [aboutPageSchema, faqSchema];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -566,7 +568,7 @@ const schema = [aboutPageSchema, faqSchema];
     max-width: 760px;
     margin: 24px auto 0;
     padding: 20px 22px;
-    background: rgba(255,255,255,.03);
+    background: rgba(20,22,24,.03);
     border: 1px solid var(--border);
     border-radius: 6px;
     font-size: .86rem;

@@ -425,8 +425,8 @@ const READOUTS = {
     position: absolute;
     inset: -20px -12px;
     background-image:
-      linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      linear-gradient(rgba(20,22,24, .03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,22,24, .03) 1px, transparent 1px);
     background-size: 34px 34px;
     mask-image: radial-gradient(ellipse 78% 60% at 50% 34%, #000 26%, transparent 78%);
     pointer-events: none;
@@ -451,7 +451,7 @@ const READOUTS = {
     margin: 34px 0 32px;
     border: 1px solid var(--border);
     border-radius: 4px;
-    background: linear-gradient(180deg, rgba(26, 26, 26, .8), rgba(19, 19, 19, .5));
+    background: linear-gradient(180deg, rgba(255,255,255, .8), rgba(246,245,242, .5));
     padding: 18px 20px 20px;
   }
 
@@ -484,7 +484,7 @@ const READOUTS = {
   .pmap-chip::before {
     content: '';
     width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(255, 255, 255, .18);
+    background: rgba(20,22,24, .18);
     display: inline-block; margin-right: 9px; vertical-align: 1px;
     transition: background .2s, box-shadow .2s;
   }
@@ -551,7 +551,7 @@ const READOUTS = {
   }
   @keyframes pmapSpin { to { transform: rotate(360deg); } }
 
-  .pmap-ico { width: 32px; height: 32px; color: var(--orange); position: relative; z-index: 1; }
+  .pmap-ico { width: 32px; height: 32px; color: var(--orange-ink); position: relative; z-index: 1; }
 
   .pmap-num {
     position: absolute; left: calc(var(--pm-node) - 16px); top: -4px;
@@ -668,7 +668,7 @@ const READOUTS = {
     background: var(--black); padding: 0 14px;
     font-family: 'DM Mono', monospace; font-size: .6rem;
     letter-spacing: .13em; text-transform: uppercase;
-    color: var(--orange); white-space: nowrap;
+    color: var(--orange-ink); white-space: nowrap;
   }
 
   /* ── Transversal ── */
@@ -680,10 +680,10 @@ const READOUTS = {
   }
   .pmap-across-label {
     font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .14em;
-    text-transform: uppercase; color: var(--orange); margin: 0 0 14px;
+    text-transform: uppercase; color: var(--orange-ink); margin: 0 0 14px;
   }
   .pmap-across-mods { flex-direction: row; flex-wrap: wrap; }
-  .pmap-across-mods .pmap-mod { flex: 1 1 250px; background: rgba(10, 10, 10, .5); }
+  .pmap-across-mods .pmap-mod { flex: 1 1 250px; background: rgba(236,234,229, .5); }
 
   /* ── Responsive ── */
   @media (max-width: 1040px) {

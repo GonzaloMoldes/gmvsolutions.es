@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -55,20 +56,20 @@ const schema = [faqPageSchema(faqs), {
   .risk-card:hover::before { opacity: 1; }
   .risk-card-title { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 12px; }
   .risk-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; }
-  .risk-card .scenario-before { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px; margin-top: 20px; font-size: .82rem; color: var(--gray2); font-style: italic; line-height: 1.55; }
+  .risk-card .scenario-before { background: rgba(20,22,24,.03); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px; margin-top: 20px; font-size: .82rem; color: var(--gray2); font-style: italic; line-height: 1.55; }
   .risk-card .scenario-before strong { color: var(--white); font-weight: 500; font-style: normal; }
-  .risk-card .scenario-after { background: rgba(244,82,30,.06); border: 1px solid rgba(244,82,30,.2); border-radius: 2px; padding: 14px 16px; margin-top: 8px; font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.55; }
-  .risk-card .scenario-after strong { color: var(--orange); font-weight: 500; }
+  .risk-card .scenario-after { background: rgba(244,82,30,.06); border: 1px solid rgba(244,82,30,.2); border-radius: 2px; padding: 14px 16px; margin-top: 8px; font-size: .82rem; color: rgba(20,22,24,.75); line-height: 1.55; }
+  .risk-card .scenario-after strong { color: var(--orange-ink); font-weight: 500; }
   .timeline { margin-top: 56px; position: relative; }
   .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 1px; background: var(--border); }
   .timeline-item { display: flex; gap: 32px; padding: 0 0 40px; position: relative; }
   .timeline-item:last-child { padding-bottom: 0; }
   .timeline-dot { width: 56px; height: 56px; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
-  .timeline-dot-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); text-align: center; line-height: 1.3; }
+  .timeline-dot-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--orange-ink); text-align: center; line-height: 1.3; }
   .timeline-content { padding-top: 12px; }
   .timeline-heading { font-family: 'Oswald', sans-serif; font-size: .95rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; color: var(--white); }
   .timeline-desc { font-size: .95rem; color: var(--gray); line-height: 1.6; }
-  .step-card-number { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--orange); margin-bottom: 16px; }
+  .step-card-number { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--orange-ink); margin-bottom: 16px; }
   @media(max-width:960px) { .risk-grid { grid-template-columns: 1fr; } }
   @media(max-width:600px) {
     .risk-card { padding: 28px 24px; }
@@ -88,7 +89,8 @@ const schema = [faqPageSchema(faqs), {
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
-</section>
+  <Ilustracion escena="transferencia-conocimiento" />
+  </section>
 
 <div class="divider-full"></div>
 

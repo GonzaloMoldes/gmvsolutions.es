@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88" viewBox="0 0 96 88" role="img" aria-label="Pictograma: persona ante un monitor con gráfico">
+<circle cx="24" cy="26" r="9" fill="#141618"/><path d="M12 82V54a12 12 0 0 1 24 0v28z" fill="#141618"/>
+<rect x="44" y="20" width="44" height="32" rx="2" fill="none" stroke="#141618" stroke-width="4"/>
+<rect x="51" y="38" width="7" height="9" fill="#141618"/><rect x="62" y="32" width="7" height="15" fill="#141618"/><rect x="73" y="27" width="7" height="20" fill="#F4521E"/>
+<rect x="63" y="52" width="6" height="10" fill="#141618"/><rect x="55" y="62" width="22" height="4" fill="#141618"/>
+</svg>

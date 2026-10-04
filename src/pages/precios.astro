@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../components/Ilustracion.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
@@ -84,6 +85,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{primaryCtaLabel}</a>
       <a href="/vs-alternativas/" class="btn-ghost">Comparar alternativas</a>
     </div>
+    <Ilustracion escena="precios" />
   </section>
 
   <div class="divider"></div>
@@ -334,7 +336,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -406,7 +408,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .05em;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
@@ -415,7 +417,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 
@@ -599,7 +601,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .roi-result-payback {
@@ -625,7 +627,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .trial-title em {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-style: normal;
   }
 
@@ -677,7 +679,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .comp-table thead th.comp-highlight {
     background: rgba(244,82,30,.12);
-    color: var(--orange);
+    color: var(--orange-ink);
     border-bottom-color: var(--orange);
   }
 
@@ -695,7 +697,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .comp-table tbody tr:hover td {
-    background: rgba(255,255,255,.02);
+    background: rgba(20,22,24,.02);
   }
 
   .comp-table tbody tr:hover td.comp-highlight {

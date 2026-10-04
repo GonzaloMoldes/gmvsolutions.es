@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -51,10 +52,10 @@ const schema = [faqPageSchema(faqs), {
 <style>
   .cost-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; margin-top: 40px; margin-bottom: 2px; position: relative; overflow: hidden; }
   .cost-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
-  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 20px; }
   .cost-line { font-family: 'DM Sans', sans-serif; font-size: .95rem; color: var(--gray); line-height: 2; }
   .cost-line strong { color: var(--white); font-weight: 500; }
-  .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange); margin-top: 12px; letter-spacing: .02em; }
+  .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange-ink); margin-top: 12px; letter-spacing: .02em; }
   .scenario-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 2px; }
   .how-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; text-align: left; }
   @media(max-width:960px) { .scenario-grid-2 { grid-template-columns: 1fr; } .cost-card { padding: 28px 24px; } }
@@ -72,7 +73,8 @@ const schema = [faqPageSchema(faqs), {
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
-</section>
+  <Ilustracion escena="onboarding-operarios" />
+  </section>
 
 <div class="divider-full"></div>
 

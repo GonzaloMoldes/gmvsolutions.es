@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
@@ -62,6 +63,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Enfoque prudente · Continuidad operativa y revisión interna</div>
+    <Ilustracion escena="alimentacion" />
   </section>
 
   <div class="divider"></div>
@@ -252,7 +254,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 

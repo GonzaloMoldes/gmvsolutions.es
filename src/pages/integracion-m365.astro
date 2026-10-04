@@ -3,6 +3,7 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Integración Power BI en planta industrial | REELEVO";
 const description = "Integración de Power BI con tu planta industrial: explota los datos de operaciones en tu stack Microsoft (Power BI, Power Automate, Teams) sin desarrollo.";
@@ -60,6 +61,7 @@ const flujos = [
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
       <a href="/api-integraciones/" class="btn-ghost">Ver API completa →</a>
     </div>
+    <Ilustracion escena="integracion-m365" />
   </section>
 
   <div class="divider"></div>
@@ -243,7 +245,7 @@ const flujos = [
     font-size: .78rem;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     min-width: 100px;
     flex: 0 0 auto;
   }
@@ -293,7 +295,7 @@ const flujos = [
     max-width: 900px;
     margin-top: 28px;
     padding: 20px 24px;
-    background: rgba(255, 255, 255, .03);
+    background: rgba(20,22,24, .03);
     border-left: 2px solid var(--orange);
     border-radius: 0 4px 4px 0;
     font-size: .95rem;
@@ -310,7 +312,7 @@ const flujos = [
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }

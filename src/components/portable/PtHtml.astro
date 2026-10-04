@@ -1,0 +1,7 @@
+---
+// Bloque HTML: piezas a medida de los articulos migrados (comparativas, casos,
+// checklists). Lo escribe solo quien edita en Sanity, igual que antes el .astro.
+const { node } = Astro.props as { node: { html: string } };
+---
+
+<Fragment set:html={node.html} />

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 // Pagina deliberadamente sencilla: responde a las preguntas basicas de
 // seguridad sin entrar en detalle tecnico (proveedores, cabeceras, nombres de
@@ -65,6 +66,7 @@ const pilares = [
       <a href="mailto:hola@gmvsolutions.es" class="btn-ghost"
          data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Consulta de seguridad">Hablar con nosotros</a>
     </div>
+    <Ilustracion escena="seguridad" />
   </section>
 
   <div class="divider"></div>
@@ -146,7 +148,7 @@ const pilares = [
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 

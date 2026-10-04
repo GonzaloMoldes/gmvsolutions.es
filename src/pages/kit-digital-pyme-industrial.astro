@@ -9,6 +9,7 @@
 //
 // Estado recomendado hasta aprobacion: noindex (no incluir en sitemap todavia).
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Kit Digital: digitalización de planta industrial | REELEVO";
 const description = "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar procesos, onboarding y competencias.";
@@ -39,6 +40,7 @@ const schema = {
          data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Hablar con nosotros">Hablar con nosotros</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Información orientativa · Consulta siempre las bases oficiales vigentes</div>
+    <Ilustracion escena="kit-digital-pyme-industrial" />
   </section>
 
   <div class="divider"></div>
@@ -148,7 +150,7 @@ const schema = {
   .aid-card h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 10px; }
   .aid-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
   .aid-sources { margin-top: 28px; font-size: 0.82rem; color: var(--gray2); }
-  .aid-sources a { color: var(--orange); text-decoration: none; }
+  .aid-sources a { color: var(--orange-ink); text-decoration: none; }
   .steps-ol { max-width: 760px; margin: 32px 0 0; padding-left: 20px; color: var(--gray); line-height: 1.7; }
   .steps-ol li { margin-bottom: 12px; }
   @media (max-width: 900px) { .aid-grid { grid-template-columns: 1fr; } }

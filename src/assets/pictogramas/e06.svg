@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88" viewBox="0 0 96 88" role="img" aria-label="Pictograma: equipo de tres personas">
+<circle cx="20" cy="32" r="7" fill="#9A978F"/><path d="M11 82V56a9 9 0 0 1 18 0v26z" fill="#9A978F"/>
+<circle cx="76" cy="32" r="7" fill="#9A978F"/><path d="M67 82V56a9 9 0 0 1 18 0v26z" fill="#9A978F"/>
+<circle cx="48" cy="24" r="9" fill="#ECEAE5"/><path d="M37 21a11 11 0 0 1 22 0h3v4H34v-4z" fill="#F4521E"/>
+<path d="M36 82V50a12 12 0 0 1 24 0v32z" fill="#ECEAE5"/>
+</svg>

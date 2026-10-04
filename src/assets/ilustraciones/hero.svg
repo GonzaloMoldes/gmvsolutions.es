@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" role="img" aria-label="Ilustración: un operario con casco y chaleco reflectante sigue los pasos en la tablet del puesto mientras el jefe de producción consulta el turno">
+<!-- suelo y sombras -->
+<path d="M28 508Q52 470 210 478Q370 460 530 474Q700 464 708 506Q700 540 530 536Q370 550 210 540Q36 546 28 508Z" fill="#E2DFD8"/>
+<ellipse cx="248" cy="502" rx="58" ry="7" fill="#CFCBC2"/>
+<ellipse cx="532" cy="504" rx="54" ry="7" fill="#CFCBC2"/>
+<!-- máquina con baliza -->
+<rect x="50" y="250" width="164" height="252" rx="10" fill="#DAD7D0"/>
+<rect x="50" y="250" width="164" height="16" rx="8" fill="#CFCBC2"/>
+<rect x="68" y="282" width="100" height="78" rx="6" fill="#ECEAE5"/>
+<rect x="76" y="290" width="84" height="62" rx="4" fill="#E2DFD8"/>
+<path d="M92 340l14-22 12 14 10-8 14 16" fill="none" stroke="#C9C6BF" stroke-width="3" stroke-linejoin="round"/>
+<rect x="180" y="284" width="20" height="60" rx="4" fill="#CFCBC2"/>
+<circle cx="190" cy="298" r="5" fill="#3FB950" class="ilus-blink"/><circle cx="190" cy="314" r="5" fill="#F4521E"/><circle cx="190" cy="330" r="5" fill="#B9B6AE"/>
+<rect x="68" y="380" width="128" height="9" rx="4.5" fill="#C9C6BF"/>
+<rect x="68" y="398" width="88" height="9" rx="4.5" fill="#C9C6BF"/>
+<rect x="68" y="470" width="128" height="20" rx="4" fill="#CFCBC2"/>
+<rect x="94" y="196" width="8" height="54" fill="#B9B6AE"/>
+<rect x="88" y="208" width="20" height="13" rx="3" fill="#3FB950" class="ilus-blink"/>
+<rect x="88" y="222" width="20" height="13" rx="3" fill="#F2C14E" opacity=".55"/>
+<rect x="88" y="236" width="20" height="13" rx="3" fill="#F4521E" opacity=".35"/>
+<rect x="86" y="202" width="24" height="6" rx="3" fill="#9A978F"/>
+<!-- palé y cono -->
+<rect x="604" y="428" width="40" height="50" rx="2" fill="#D6D0C4"/><path d="M604 446h40" stroke="#C4BCAD" stroke-width="2"/>
+<rect x="646" y="440" width="36" height="38" rx="2" fill="#CDC6B8"/>
+<rect x="620" y="396" width="36" height="32" rx="2" fill="#CDC6B8"/><path d="M638 396v32" stroke="#C4BCAD" stroke-width="2"/>
+<rect x="596" y="478" width="92" height="8" rx="1" fill="#B9B6AE"/><rect x="602" y="486" width="10" height="10" fill="#A9A59D"/><rect x="637" y="486" width="10" height="10" fill="#A9A59D"/><rect x="672" y="486" width="10" height="10" fill="#A9A59D"/>
+<path d="M684 506L698 452L712 506Z" fill="#F4521E"/><path d="M698 452L712 506H698Z" fill="#D9441A"/><path d="M690 478h16l2 8h-20z" fill="#F6F5F2"/><rect x="678" y="504" width="40" height="6" rx="2" fill="#D9441A"/>
+<!-- adornos -->
+<path d="M432 336v18M423 345h18" stroke="#C9C6BF" stroke-width="3" stroke-linecap="round"/>
+<circle cx="650" cy="214" r="13" fill="none" stroke="#C9C6BF" stroke-width="3"/><path d="M650 207v14M643 214h14" stroke="#C9C6BF" stroke-width="3" stroke-linecap="round"/>
+<circle cx="160" cy="150" r="5" fill="none" stroke="#C9C6BF" stroke-width="3"/>
+<!-- tablet del puesto -->
+<path d="M372 298V500" stroke="#3A3E44" stroke-width="4"/>
+<path d="M346 502h52" stroke="#3A3E44" stroke-width="5" stroke-linecap="round"/>
+<rect x="336" y="228" width="74" height="70" rx="7" fill="#23272D"/>
+<rect x="342" y="234" width="62" height="58" rx="3" fill="#F6F5F2"/>
+<rect x="348" y="242" width="28" height="6" rx="3" fill="#F4521E"/>
+<rect x="348" y="254" width="48" height="5" rx="2.5" fill="#D3D0C9"/>
+<rect x="348" y="264" width="38" height="5" rx="2.5" fill="#D3D0C9"/>
+<circle cx="391" cy="280" r="7" fill="#3FB950" class="ilus-blink"/><path d="M387.5 280l2.5 2.5 4.5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- ═══ OPERARIO (mira a la derecha) ═══ -->
+<g class="ilus-breathe" style="--d:0.00s"><g transform="translate(248 500)">
+<!-- pierna trasera -->
+<path d="M-24 -182C-26 -142 -28 -114 -30 -94L-36 -12H-20L-12 -94C-8 -122 -2 -152 2 -182Z" fill="#2B3038"/>
+<!-- pierna delantera -->
+<path d="M-4 -182C0 -142 4 -114 8 -94L14 -12H30L26 -94C26 -130 26 -158 26 -182Z" fill="#3A4049"/>
+<path d="M17 -150L21 -24" stroke="#2B3038" stroke-width="1.5" opacity=".6"/>
+<path d="M8 -112h18v14H8z" fill="#2B3038" opacity=".55"/>
+<!-- botas -->
+<path d="M-40 -16h22c3 0 5 2 5 5v8h-31c-3 0-4-3-2-5z" fill="#141618"/><rect x="-44" y="-4" width="31" height="4" rx="2" fill="#5A5F66"/>
+<path d="M10 -18h22c8 0 14 6 16 12l1 3H10z" fill="#141618"/><rect x="10" y="-4" width="40" height="4" rx="2" fill="#5A5F66"/>
+<!-- brazo trasero -->
+<path d="M-24 -282Q-38 -244 -32 -206" fill="none" stroke="#D2421A" stroke-width="15" stroke-linecap="round"/>
+<circle cx="-31" cy="-198" r="8" fill="#4A4F57"/>
+<!-- torso: chaqueta de alta visibilidad -->
+<path d="M-20 -296C-30 -294 -35 -284 -34 -268L-31 -188C-31 -181 -27 -177 -21 -177H26C32 -177 36 -181 36 -188L37 -268C37 -284 30 -294 20 -296Z" fill="#F4521E"/>
+<path d="M-20 -296C-30 -294 -35 -284 -34 -268L-31 -188C-31 -181 -27 -177 -21 -177H-8L-6 -296Z" fill="#DB4618"/>
+<path d="M-33 -228H37V-219H-33Z" fill="#F2F0EA"/>
+<path d="M-32 -206H36V-198H-32Z" fill="#F2F0EA"/>
+<path d="M-33 -228H-7V-219H-33ZM-32 -206H-8V-198H-32Z" fill="#D8D5CC"/>
+<path d="M-14 -296L-12 -228M-2 -296L-1 -228" stroke="#F2F0EA" stroke-width="4" opacity="0"/>
+<path d="M6 -294V-178" stroke="#B83A12" stroke-width="2"/>
+<rect x="15" y="-266" width="15" height="13" rx="2" fill="none" stroke="#B83A12" stroke-width="1.6"/>
+<path d="M-8 -296L6 -282L20 -296Z" fill="#B83A12"/>
+<path d="M-31 -182H36" stroke="#B83A12" stroke-width="3"/>
+<!-- cuello y cabeza -->
+<path d="M0 -310h13v16H0z" fill="#D98B6E"/>
+<ellipse cx="8" cy="-326" rx="14.5" ry="16.5" fill="#F0A585"/>
+<path d="M21 -330Q28 -323 21 -317Z" fill="#F0A585"/>
+<ellipse cx="0" cy="-323" rx="3.5" ry="5" fill="#E3906F"/>
+<path d="M-6 -330Q-9 -314 -3 -310L3 -320Z" fill="#3B2A20"/>
+<circle cx="10.5" cy="-318" r="3.4" fill="#C97A5C" opacity=".3" data-cara=""/><ellipse cx="16.5" cy="-324.5" rx="1.9" ry="2.4" fill="#23272D"/><path d="M13 -330.5Q16.5 -332.5 20.5 -330.5" fill="none" stroke="#3B2A20" stroke-width="2" stroke-linecap="round"/><path d="M14.5 -313.5Q18 -311 21 -314" fill="none" stroke="#C97A5C" stroke-width="1.7" stroke-linecap="round"/>
+<!-- casco -->
+<path d="M-9 -330Q-8 -354 9 -355Q28 -355 28 -332Z" fill="#F2C14E"/>
+<path d="M9 -355Q-8 -354 -9 -330H2Q1 -350 9 -355Z" fill="#E0A92E"/>
+<path d="M-12 -333H36Q38 -333 38 -330V-328H-12Z" fill="#E0A92E"/>
+<path d="M10 -355V-333" stroke="#E0A92E" stroke-width="2.5"/>
+<!-- brazo delantero -->
+<path d="M26 -286L48 -240" fill="none" stroke="#F4521E" stroke-width="16" stroke-linecap="round"/>
+<path d="M48 -240L82 -252" fill="none" stroke="#F4521E" stroke-width="14" stroke-linecap="round"/>
+<path d="M76 -258L80 -246" stroke="#F2F0EA" stroke-width="5"/>
+<path d="M86 -258c6 -2 12 0 13 5c1 5 -4 8 -9 8c-5 0 -8 -3 -8 -7z" fill="#4A4F57"/>
+<path d="M95 -256l7 -5" stroke="#4A4F57" stroke-width="4" stroke-linecap="round"/>
+</g></g>
+
+<!-- ═══ JEFE DE PRODUCCIÓN (mira a la izquierda) ═══ -->
+<g class="ilus-breathe" style="--d:0.45s"><g transform="translate(532 502) scale(-1 1)">
+<path d="M-22 -182C-24 -142 -26 -114 -28 -94L-32 -12H-16L-10 -94C-6 -122 0 -152 2 -182Z" fill="#2B3038"/>
+<path d="M-2 -182C1 -142 4 -114 6 -94L10 -12H26L24 -94C24 -130 24 -158 24 -182Z" fill="#353B45"/>
+<path d="M15 -150L18 -24" stroke="#2B3038" stroke-width="1.5" opacity=".6"/>
+<path d="M-36 -16h20c3 0 5 2 5 5v8h-29c-3 0-4-3-2-5z" fill="#141618"/><rect x="-40" y="-4" width="29" height="4" rx="2" fill="#23272D"/>
+<path d="M8 -18h20c8 0 13 6 15 12l1 3H8z" fill="#141618"/><rect x="8" y="-4" width="37" height="4" rx="2" fill="#23272D"/>
+<!-- brazo trasero -->
+<path d="M-22 -282Q-34 -244 -28 -206" fill="none" stroke="#E4E1DA" stroke-width="15" stroke-linecap="round"/>
+<circle cx="-27" cy="-199" r="6.5" fill="#C27A5E"/>
+<!-- camisa -->
+<path d="M-18 -296C-28 -294 -33 -284 -32 -268L-29 -184H34L35 -268C35 -284 28 -294 18 -296Z" fill="#FFFFFF"/>
+<path d="M-18 -296C-28 -294 -33 -284 -32 -268L-29 -184H-6L-4 -296Z" fill="#E4E1DA"/>
+<path d="M4 -292V-186" stroke="#D3D0C9" stroke-width="1.5"/>
+<circle cx="7" cy="-270" r="1.6" fill="#B9B6AE"/><circle cx="7" cy="-252" r="1.6" fill="#B9B6AE"/><circle cx="7" cy="-234" r="1.6" fill="#B9B6AE"/>
+<path d="M-6 -297L4 -284L10 -297Z" fill="#E4E1DA"/><path d="M4 -284L14 -297L20 -295Z" fill="#E4E1DA"/>
+<rect x="14" y="-262" width="13" height="11" rx="2" fill="none" stroke="#D3D0C9" stroke-width="1.5"/>
+<rect x="18" y="-268" width="3" height="10" rx="1.5" fill="#F4521E"/>
+<path d="M-29 -186H34V-178H-29Z" fill="#141618"/><rect x="2" y="-186" width="8" height="8" rx="1" fill="#9A978F"/>
+<!-- cabeza -->
+<path d="M0 -310h12v16H0z" fill="#C27A5E"/>
+<ellipse cx="7" cy="-326" rx="14.5" ry="16.5" fill="#D9937A"/>
+<path d="M20 -330Q27 -323 20 -317Z" fill="#D9937A"/>
+<ellipse cx="-1" cy="-323" rx="3.5" ry="5" fill="#C9826A"/>
+<path d="M-8 -322Q-12 -346 6 -348Q22 -350 26 -336Q20 -338 12 -337Q6 -334 3 -328L-2 -320Z" fill="#141618"/>
+<path d="M3 -327H11" stroke="#23272D" stroke-width="1.6"/><rect x="11" y="-329" width="11" height="8" rx="2.5" fill="#FFFFFF" fill-opacity=".25" stroke="#23272D" stroke-width="1.8"/>
+<circle cx="9.5" cy="-318" r="3.4" fill="#A86650" opacity=".3"/><ellipse cx="15.8" cy="-324.5" rx="1.9" ry="2.4" fill="#23272D"/><path d="M12.5 -331Q16 -333 20 -331" fill="none" stroke="#141618" stroke-width="2" stroke-linecap="round"/><path d="M13.5 -313.5Q17 -311 20 -314" fill="none" stroke="#A86650" stroke-width="1.7" stroke-linecap="round"/>
+<!-- tablet sujeta al pecho -->
+<g transform="rotate(-8 30 -236)"><rect x="16" y="-262" width="32" height="44" rx="4" fill="#23272D"/><rect x="20" y="-258" width="24" height="36" rx="2" fill="#F4521E"/><rect x="24" y="-252" width="15" height="4" rx="2" fill="#F6F5F2"/><rect x="24" y="-244" width="10" height="4" rx="2" fill="#F6F5F2" opacity=".7"/></g>
+<path d="M-14 -280Q-20 -248 -6 -232" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round"/>
+<path d="M-14 -280Q-20 -248 -6 -232" fill="none" stroke="#D3D0C9" stroke-width="15" stroke-linecap="round" opacity=".3"/>
+<path d="M-6 -232L18 -236" fill="none" stroke="#D9937A" stroke-width="10" stroke-linecap="round"/>
+<circle cx="21" cy="-237" r="6.5" fill="#D9937A"/>
+<!-- brazo delantero levantado, palma abierta -->
+<path d="M24 -286L52 -258" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
+<path d="M24 -286L52 -258" fill="none" stroke="#E4E1DA" stroke-width="16" stroke-linecap="round" opacity=".35"/>
+<path d="M50 -262l6 6" stroke="#E4E1DA" stroke-width="12"/>
+<path d="M54 -256L78 -286" fill="none" stroke="#D9937A" stroke-width="11" stroke-linecap="round"/>
+<path d="M74 -292c2 -8 6 -12 10 -11c3 1 3 5 2 9l-2 8c-3 4 -8 4 -10 -1z" fill="#D9937A"/>
+<path d="M86 -296l4 -6" stroke="#D9937A" stroke-width="4" stroke-linecap="round"/>
+</g></g>
+
+<!-- bocadillos -->
+<g class="ilus-bubble" style="--i:0"><rect x="240" y="66" width="196" height="58" rx="18" fill="#F4521E"/><path d="M282 122l-6 24 28-24z" fill="#F4521E"/><path d="M262 95l7 7 13-14" fill="none" stroke="#141618" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="294" y="103" font-family="DM Sans, sans-serif" font-weight="700" font-size="22" fill="#141618">Paso 3 de 5</text></g>
+
+
+
+<g class="ilus-bubble" style="--i:1"><rect x="470" y="56" width="176" height="58" rx="18" fill="#FFFFFF"/><path d="M512 112l4 22 20-22z" fill="#FFFFFF"/><circle cx="496" cy="85" r="7" fill="#3FB950" class="ilus-blink"/><text x="512" y="93" font-family="DM Mono, monospace" font-weight="500" font-size="22" fill="#141618">L3 02:39</text></g>
+
+
+
+</svg>

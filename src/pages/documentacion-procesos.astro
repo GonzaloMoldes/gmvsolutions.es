@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Documentación de procesos y SOPs en el puesto | REELEVO";
 const description = "Documentación de procesos con REELEVO, el software de instrucciones de trabajo digitales: SOPs paso a paso en el puesto, con QR, foto y vídeo, para reducir errores y acelerar el onboarding.";
@@ -59,6 +60,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="/video-demo/" class="btn-ghost"
          data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
+    <Ilustracion escena="documentacion-procesos" />
   </section>
 
   <div class="divider"></div>
@@ -274,7 +276,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -298,7 +300,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     max-width: 900px;
     margin-top: 28px;
     padding: 20px 24px;
-    background: rgba(255, 255, 255, .03);
+    background: rgba(20,22,24, .03);
     border-left: 2px solid var(--orange);
     border-radius: 0 4px 4px 0;
     font-size: .92rem;
@@ -315,7 +317,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }

@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from "../../components/Icon.astro";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -58,6 +59,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Precio publicado por empresa · Puesta en marcha ágil</div>
+    <Ilustracion escena="gerente-propietario" />
   </section>
 
   <div class="divider"></div>
@@ -420,7 +422,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 6px;
   }
@@ -437,7 +439,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
@@ -460,7 +462,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .exec-benefits li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 4px;
   }
 
@@ -484,13 +486,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 12px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .executive-conclusion p {
     font-size: .95rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
   }
 
   .executive-conclusion strong {
@@ -511,7 +513,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cost-table-exec {
@@ -583,7 +585,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .roi-cards {
@@ -736,7 +738,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-mitigation strong {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .risk-impact ul,
@@ -758,7 +760,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-mitigation li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 3px;
   }
 
@@ -777,7 +779,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-probability strong {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-weight: 600;
   }
 
@@ -822,7 +824,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -931,7 +933,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -983,7 +985,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .ceo-quote blockquote {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 24px;
     font-style: italic;
   }
@@ -1021,7 +1023,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .ceo-metrics {
@@ -1049,7 +1051,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -1065,7 +1067,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .decision-factors {
@@ -1100,7 +1102,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -1171,7 +1173,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .recommendation-content p {
     font-size: .95rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 16px;
   }
 
@@ -1194,7 +1196,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .reason {
     font-size: .85rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
   }
 
   .reason strong {

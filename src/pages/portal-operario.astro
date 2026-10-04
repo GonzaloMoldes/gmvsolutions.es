@@ -3,6 +3,7 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Portal del operario: procesos y agenda en el móvil | REELEVO";
 const description = "El operario ve su agenda del día, accede a sus procesos y sigue su progreso de formación desde el móvil. Sin instalación ni formación previa.";
@@ -54,6 +55,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <a href="/video-demo/" class="btn-ghost"
          data-cta data-cta-intent="navegacion" data-cta-location="hero" data-cta-label="Ver el demo">Ver el demo →</a>
     </div>
+    <Ilustracion escena="portal-operario" />
   </section>
 
   <div class="divider"></div>
@@ -212,7 +214,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     height: 38px;
     min-width: 38px;
     background: var(--orange);
-    color: #fff;
+    color: var(--steel, #141618);
     border-radius: 50%;
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
@@ -286,7 +288,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
@@ -298,7 +300,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .cta-trust {
     margin-top: 16px;
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(20,22,24, 0.45);
     letter-spacing: .04em;
   }
 </style>

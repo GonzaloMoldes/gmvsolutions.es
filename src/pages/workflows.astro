@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { softwareApplicationSchema, faqPageSchema, type FaqItem } from '../lib/seo';
 import Screenshot from '../components/Screenshot.astro';
+import Ilustracion from '../components/Ilustracion.astro';
 
 const title = "Workflows operativos industriales | REELEVO";
 const description = "Flujos de trabajo multi-paso y multi-operario con editor visual: aprobaciones, checkpoints y ramas paralelas para lo que supera un SOP simple.";
@@ -78,6 +79,7 @@ const nodos = [
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarse gratis">Registrarse gratis</a>
     </div>
+    <Ilustracion escena="workflows" />
   </section>
 
   <div class="divider"></div>
@@ -220,7 +222,7 @@ const nodos = [
     height: 44px;
     min-width: 44px;
     background: var(--orange);
-    color: #fff;
+    color: var(--steel, #141618);
     border-radius: 50%;
     font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
@@ -244,7 +246,7 @@ const nodos = [
   .flow-arrow {
     text-align: center;
     font-size: 1.6rem;
-    color: var(--orange);
+    color: var(--orange-ink);
     padding: 6px 0;
     margin-left: 22px;
   }
@@ -275,7 +277,7 @@ const nodos = [
   }
 
   .node-i {
-    color: var(--orange);
+    color: var(--orange-ink);
     min-width: 20px;
     font-size: .95rem;
   }
@@ -311,7 +313,7 @@ const nodos = [
   }
 
   .roles-line a {
-    color: var(--orange);
+    color: var(--orange-ink);
     text-decoration: none;
     border-bottom: 1px solid rgba(244, 82, 30, .35);
   }
@@ -323,7 +325,7 @@ const nodos = [
   .cta-trust {
     margin-top: 16px;
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(20,22,24, 0.45);
     letter-spacing: .04em;
   }
 </style>

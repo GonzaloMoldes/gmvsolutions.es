@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88" viewBox="0 0 96 88" role="img" aria-label="Pictograma: persona señalando una máquina marcada">
+<circle cx="26" cy="22" r="9" fill="#141618"/><path d="M14 82V50a12 12 0 0 1 24 0v32z" fill="#141618"/>
+<path d="M34 50L50 38" stroke="#141618" stroke-width="5" stroke-linecap="round"/>
+<rect x="54" y="42" width="34" height="40" fill="#141618"/><circle cx="71" cy="60" r="7" fill="#ECEAE5"/>
+<path d="M71 8a8 8 0 0 1 8 8c0 6-8 15-8 15s-8-9-8-15a8 8 0 0 1 8-8z" fill="#F4521E"/><circle cx="71" cy="16" r="3" fill="#F6F5F2"/>
+</svg>

@@ -2,22 +2,14 @@
 // el resumen curado de REELEVO (llms.txt) + el contenido completo del blog en
 // markdown. Convencion emergente "llms-full" (Roadmap IA 2026-06, Parte B2).
 import type { APIRoute } from 'astro';
-import { postToMarkdown, type PostMarkdown } from '../lib/htmlToMarkdown';
+import { markdownArticulos as posts } from '../lib/blogMarkdown';
 import { buildLlmsTxt } from '../lib/llms';
 
 // Resumen de producto/empresa ya curado: reutilizamos el mismo /llms.txt como
 // intro en lugar de duplicar la informacion. Antes se leia public/llms.txt del
 // disco; ahora /llms.txt tambien se genera, asi que compartimos el constructor
-// y los dos ficheros no pueden divergir.
-
-const sources = import.meta.glob('./blog/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-
-const slugOf = (path: string) => path.replace(/^\.\/blog\//, '').replace(/\.astro$/, '');
-
-const posts: PostMarkdown[] = Object.entries(sources)
-  .filter(([path]) => !path.endsWith('index.astro'))
-  .map(([path, raw]) => postToMarkdown(raw, slugOf(path)))
-  .sort((a, b) => (a.date < b.date ? 1 : -1)); // mas reciente primero
+// y los dos ficheros no pueden divergir. Los articulos (de codigo y de Sanity)
+// son los mismos que sirve /blog/<slug>.md, del mas reciente al mas antiguo.
 
 export const GET: APIRoute = () => {
   const intro =

@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -58,6 +59,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
          data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     </div>
     <div class="hero-cta-note fade-up delay-4">Sin compromiso · Acompañamiento en la puesta en marcha</div>
+    <Ilustracion escena="competencias" />
   </section>
 
   <div class="divider"></div>
@@ -394,7 +396,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -424,7 +426,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-solution h4 {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .problem-description ul,
@@ -446,7 +448,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .problem-solution li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 3px;
   }
 
@@ -484,7 +486,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-process {
@@ -540,7 +542,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-benefits h4 {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-problems ul,
@@ -562,7 +564,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cert-benefits li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 4px;
   }
 
@@ -588,7 +590,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .95rem;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cert-data-grid {
@@ -645,7 +647,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .6rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 20px;
   }
 
@@ -654,7 +656,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
@@ -672,7 +674,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .integration-features li::before {
     content: '→';
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-right: 8px;
     font-weight: 500;
   }
@@ -687,7 +689,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .integration-flow {
@@ -733,7 +735,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .flow-arrow {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-size: 1.5rem;
     font-weight: 600;
   }
@@ -755,7 +757,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .case-quote blockquote {
     font-size: 1rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 20px;
     font-style: italic;
   }
@@ -814,7 +816,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .case-metric-number.new {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .case-metric-label {
@@ -846,7 +848,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .roi-item {
     font-size: .85rem;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     line-height: 1.5;
   }
 
@@ -931,7 +933,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -951,7 +953,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .phase-tasks li::before,
   .phase-hr li::before {
     content: '→';
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-right: 8px;
     font-weight: 500;
   }
