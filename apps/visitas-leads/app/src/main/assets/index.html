@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visitas Leads</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================= LISTADO ======================= -->
+<section id="view-list" class="view active">
+  <header class="bar">
+    <h1>Visitas</h1>
+    <div class="bar-actions">
+      <button class="btn-bar" data-action="excel-open" title="Abrir Excel">Abrir Excel</button>
+      <button class="btn-bar" data-action="excel-share" title="Compartir Excel">Compartir</button>
+      <button class="btn-bar icon" data-action="settings" title="Ajustes" aria-label="Ajustes">⚙</button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Buscar empresa, contacto, población…" autocomplete="off">
+    <div class="chips" id="filters">
+      <button class="chip" data-filter="hoy">Hoy</button>
+      <button class="chip active" data-filter="semana">Esta semana</button>
+      <button class="chip" data-filter="todas">Todas</button>
+      <button class="chip" data-filter="pendiente">Sin seguimiento</button>
+      <button class="chip" data-filter="volver">Volver</button>
+    </div>
+    <p class="stats" id="stats"></p>
+  </div>
+
+  <main id="list"></main>
+
+  <button class="fab" data-action="new" aria-label="Nueva visita">＋ Nueva visita</button>
+</section>
+
+<!-- ======================= FORMULARIO ======================= -->
+<section id="view-form" class="view">
+  <header class="bar">
+    <button class="btn-bar icon" data-action="back" aria-label="Volver">←</button>
+    <h1 id="form-title">Nueva visita</h1>
+    <div class="bar-actions"></div>
+  </header>
+
+  <form id="lead-form" autocomplete="off" novalidate>
+    <div class="card">
+      <label class="lbl">Tipo</label>
+      <div class="chips" data-bind="tipo">
+        <button type="button" class="chip" data-value="Lead">Lead</button>
+        <button type="button" class="chip" data-value="Propietario">Propietario</button>
+        <button type="button" class="chip" data-value="Cliente">Cliente</button>
+        <button type="button" class="chip" data-value="Visita Patrimonio">Visita Patrimonio</button>
+      </div>
+      <input type="hidden" name="tipo">
+
+      <div class="grid">
+        <label>Fecha<input type="date" name="fecha" required></label>
+        <label>PVS<input type="text" name="pvs"></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <label>Razón social *<input type="text" name="razonSocial" required autocapitalize="characters"></label>
+      <div class="grid">
+        <label>Persona de contacto<input type="text" name="contacto" autocapitalize="words"></label>
+        <label>Teléfono<input type="tel" name="telefono" inputmode="tel"></label>
+      </div>
+      <label>Correo<input type="email" name="correo" inputmode="email" autocapitalize="none"></label>
+      <div class="grid">
+        <label>Población<input type="text" name="poblacion" list="dl-poblacion" autocapitalize="characters"></label>
+        <label>Provincia<input type="text" name="provincia" list="dl-provincia"></label>
+      </div>
+      <datalist id="dl-poblacion"></datalist>
+      <datalist id="dl-provincia"><option value="Coruña"><option value="Lugo"></datalist>
+      <div class="chips small" data-fill="provincia">
+        <button type="button" class="chip" data-value="Coruña">Coruña</button>
+        <button type="button" class="chip" data-value="Lugo">Lugo</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <label>Situación<textarea name="situacion" rows="3"></textarea></label>
+      <div class="chips small" data-append="situacion" id="situacion-chips"></div>
+
+      <div class="grid">
+        <div>
+          <label class="lbl">Volver</label>
+          <div class="chips" data-bind="volver">
+            <button type="button" class="chip" data-value="Si">Sí</button>
+            <button type="button" class="chip" data-value="No">No</button>
+          </div>
+          <input type="hidden" name="volver">
+        </div>
+        <div>
+          <label class="lbl">% avance</label>
+          <div class="chips" data-bind="porcentaje">
+            <button type="button" class="chip" data-value="25">25%</button>
+            <button type="button" class="chip" data-value="50">50%</button>
+            <button type="button" class="chip" data-value="75">75%</button>
+            <button type="button" class="chip" data-value="100">100%</button>
+          </div>
+          <input type="hidden" name="porcentaje">
+        </div>
+      </div>
+    </div>
+
+    <details class="card">
+      <summary>Precio, firma y trabajo</summary>
+      <div class="grid">
+        <label>PVP entrada sin IVA (€)<input type="text" name="pvpEntrada" inputmode="decimal"></label>
+        <label>PVP total sin IVA (€)<input type="text" name="pvpTotal" inputmode="decimal"></label>
+      </div>
+      <div class="grid">
+        <label>Fecha firma<input type="date" name="fechaFirma"></label>
+        <label>Fecha trabajo realizado<input type="date" name="fechaTrabajo"></label>
+      </div>
+    </details>
+
+    <p class="envio-info" id="envio-info"></p>
+
+    <div class="form-actions">
+      <button type="button" class="btn danger" id="btn-delete" data-action="delete">Eliminar</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn" data-action="save">Guardar</button>
+      <button type="button" class="btn primary" data-action="save-send" id="btn-save-send">Guardar y enviar</button>
+    </div>
+  </form>
+</section>
+
+<!-- ======================= AJUSTES ======================= -->
+<section id="view-settings" class="view">
+  <header class="bar">
+    <button class="btn-bar icon" data-action="back" aria-label="Volver">←</button>
+    <h1>Ajustes</h1>
+    <div class="bar-actions"></div>
+  </header>
+
+  <form id="settings-form" autocomplete="off">
+    <div class="card">
+      <h2>Mis datos</h2>
+      <div class="grid">
+        <label>Mi nombre<input type="text" name="comercial"></label>
+        <label>Mi empresa<input type="text" name="miEmpresa"></label>
+      </div>
+      <div class="grid">
+        <label>Mi teléfono<input type="tel" name="miTelefono"></label>
+        <label>Mi correo<input type="email" name="miEmail"></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Envío tras la visita</h2>
+      <label class="check"><input type="checkbox" name="autoEnviar"> Al guardar una visita nueva, preparar el mensaje automáticamente</label>
+      <p class="hint">Si la lead tiene correo se envía email; si solo tiene móvil, WhatsApp. Variables: <code>{contacto}</code> <code>{empresa}</code> <code>{poblacion}</code> <code>{fecha}</code> <code>{comercial}</code> <code>{miEmpresa}</code> <code>{miTelefono}</code> <code>{miEmail}</code></p>
+      <label>Asunto del email<input type="text" name="emailAsunto"></label>
+      <label>Texto del email<textarea name="emailCuerpo" rows="10"></textarea></label>
+      <label>Texto de WhatsApp<textarea name="whatsappTexto" rows="5"></textarea></label>
+      <label>Prefijo de país para WhatsApp<input type="text" name="prefijo" inputmode="numeric"></label>
+    </div>
+
+    <div class="card">
+      <h2>Fichero Excel</h2>
+      <label>Nombre del fichero<input type="text" name="fichero"></label>
+      <p class="hint" id="excel-location"></p>
+      <label>Respuestas rápidas de "Situación" (una por línea)<textarea name="situaciones" rows="5"></textarea></label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn" data-action="reset-templates">Restaurar textos</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn primary" data-action="save-settings">Guardar ajustes</button>
+    </div>
+  </form>
+</section>
+
+<!-- ======================= MODAL ENVÍO ======================= -->
+<div class="modal" id="send-modal" hidden>
+  <div class="sheet">
+    <h2 id="send-title">Enviar seguimiento</h2>
+    <div class="chips" id="send-channels"></div>
+    <label id="send-subject-wrap">Asunto<input type="text" id="send-subject"></label>
+    <label>Mensaje<textarea id="send-body" rows="10"></textarea></label>
+    <p class="hint" id="send-to"></p>
+    <div class="form-actions">
+      <button type="button" class="btn" data-action="send-cancel">Ahora no</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn primary" data-action="send-go" id="send-go">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

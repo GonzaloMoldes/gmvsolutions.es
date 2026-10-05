@@ -1,0 +1,55 @@
+name: APK Visitas Leads
+
+on:
+  push:
+    paths:
+      - 'apps/visitas-leads/**'
+      - '.github/workflows/visitas-leads-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/visitas-leads
+    env:
+      VERSION_CODE: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Compilar APK
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleRelease
+          mkdir -p dist
+          cp app/build/outputs/apk/release/app-release.apk "dist/VisitasLeads-1.0.${VERSION_CODE}.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: VisitasLeads-1.0.${{ github.run_number }}
+          path: apps/visitas-leads/dist/*.apk
+
+      - name: Publicar descarga (Releases)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: visitas-leads-1.0.${{ github.run_number }}
+          name: Visitas Leads 1.0.${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          prerelease: ${{ github.ref != 'refs/heads/main' }}
+          make_latest: ${{ github.ref == 'refs/heads/main' }}
+          body: |
+            APK de la app Visitas Leads (rama `${{ github.ref_name }}`).
+            Descarga el fichero `.apk` desde la tablet e instálalo (permite "instalar apps desconocidas" para el navegador).
+            Se instala encima de la versión anterior sin perder los datos.
+          files: apps/visitas-leads/dist/*.apk

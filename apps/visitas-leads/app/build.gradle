@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'es.gmvsolutions.visitas'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'es.gmvsolutions.visitas'
+        minSdk 26
+        // 34 evita el modo "edge-to-edge" obligatorio de Android 15 (la app se instala a mano)
+        targetSdk 34
+        versionCode Integer.parseInt(System.getenv('VERSION_CODE') ?: '1')
+        versionName '1.0.' + (System.getenv('VERSION_CODE') ?: '0')
+    }
+
+    signingConfigs {
+        // Clave fija incluida en el repo: así cada APK nueva se instala encima de la
+        // anterior sin desinstalar (y sin perder los datos guardados en la tablet).
+        fija {
+            storeFile file('visitas.keystore')
+            storePassword 'visitasleads'
+            keyAlias 'visitas'
+            keyPassword 'visitasleads'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.fija
+        }
+        debug {
+            signingConfig signingConfigs.fija
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
