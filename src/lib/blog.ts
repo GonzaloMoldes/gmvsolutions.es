@@ -127,7 +127,7 @@ export const postUrl = (p: BlogPost) => `/blog/${p.slug}/`;
 
 // --- Contenido nuevo ---------------------------------------------------------
 /** Dias durante los que un articulo recien publicado se marca como nuevo. */
-export const NEW_POST_DAYS = 7;
+export const NEW_POST_DAYS = 15;
 
 const MESES: Record<string, string> = {
   'ene.': '01', 'feb.': '02', 'mar.': '03', 'abr.': '04', 'may.': '05', 'jun.': '06',

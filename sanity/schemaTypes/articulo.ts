@@ -371,7 +371,7 @@ export const articulo = defineType({
     defineField({
       name: 'noindex',
       title: 'Borrador (no indexar)',
-      description: 'Publica la página pero pide a Google que no la indexe y la deja fuera del sitemap.',
+      description: 'Publica la página pero pide a Google que no la indexe y la deja fuera del índice del blog, del sitemap, de /llms.txt y del aviso de «contenido nuevo». Desmárcalo para publicar de verdad.',
       type: 'boolean',
       group: 'seo',
       initialValue: false,

@@ -63,7 +63,9 @@ La web es estática: un artículo nuevo aparece cuando Vercel vuelve a construir
 1. Entra en `/admin/` → **Artículos del blog → +**.
 2. Rellena la pestaña **Contenido** y la de **SEO y tarjeta**. Los campos obligatorios avisan si faltan; el título para buscadores avisa si pasa de 65 caracteres.
 3. **Publish**. A los 1-2 minutos el artículo está en la web.
-4. ¿Quieres verlo publicado sin que lo indexe Google todavía? Marca **Borrador (no indexar)**: tiene página, pero queda fuera del índice del blog, del sitemap y de `/llms.txt`.
+4. ¿Quieres verlo publicado sin que lo indexe Google todavía? Marca **Borrador (no indexar)**: tiene página, pero queda fuera del índice del blog, del sitemap, de `/llms.txt` y del aviso dorado de «contenido nuevo». **Para publicarlo de verdad, desmárcalo y vuelve a pulsar Publish.**
+
+El aviso dorado de «Nuevo» en el menú y la sección «Novedades» del blog se encienden durante **15 días** desde la fecha de publicación del artículo más reciente (`NEW_POST_DAYS` en `src/lib/blog.ts`).
 
 Reglas que conviene respetar (las mismas que para los artículos de código):
 
