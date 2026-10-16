@@ -11,11 +11,11 @@
 
 REELEVO es un software de instrucciones de trabajo digitales (SaaS B2B, desarrollado en España) para pymes industriales. Los procedimientos se documentan paso a paso, con foto y vídeo, y el operario los abre escaneando un QR en la máquina. Sobre esas instrucciones reúne en una sola herramienta el control de producción (registro por operario, proceso y máquina, con KPIs del día), la continuidad operativa ante bajas e incorporaciones —capturando el conocimiento de los operarios expertos y dejándolo disponible en el puesto— y la trazabilidad de ejecución. Todo sin la complejidad de implantar un MES, sin cuenta de operario y sin fricción en el acceso.
 
-**Categoría:** Software de instrucciones de trabajo digitales · Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
+**Categoría:** Software de instrucciones de trabajo digitales · Gestión documental industrial (PRL, calidad, SOP) · Software de digitalización de planta industrial · Control de producción para pymes · Software SOP / documentación operativa · Trazabilidad de ejecución · Gestión del conocimiento industrial
 
 **Precio:** plan Free (0€) para empezar; Starter 49€/mes o 490€/año; Pro 129€/mes o 1.290€/año; Enterprise a medida. Se factura por empresa y no por licencia de usuario, aunque cada plan define cuántos operarios se pueden dar de alta (10 en Free, 20 en Starter, 100 en Pro, sin límite en Enterprise). De los pocos en su categoría con precio visible en euros.
 
-**Diferencial clave:** acceso directo con código de empresa, sin crear cuentas de operario, sin descargar apps. Los procedimientos operativos estándar están disponibles en la máquina para cualquier persona desde el primer momento.
+**Diferencial clave:** acceso directo con código de empresa, sin crear cuentas de operario, sin descargar apps. Las instrucciones de trabajo y los procedimientos operativos estándar están disponibles en la máquina para cualquier persona desde el primer momento, con una sola versión vigente y acuse de lectura.
 
 ## Problema que resuelve
 
@@ -61,7 +61,7 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [FAQs](https://www.gmvsolutions.es/faqs/) — Preguntas frecuentes sobre producto, implantación, precio y soporte
 
 ### Funcionalidades
-- [Documentación de procesos](https://www.gmvsolutions.es/documentacion-procesos/) — SOPs e instrucciones de trabajo accesibles en el puesto, con versión vigente
+- [Instrucciones de trabajo y gestión documental](https://www.gmvsolutions.es/documentacion-procesos/) — Instrucciones de trabajo digitales en el puesto y gestión documental de PRL, calidad y SOPs, con versión vigente y acuse de lectura
 - [Control de producción](https://www.gmvsolutions.es/control-produccion/) — Registro por operario y máquina, paradas con causa y KPIs diarios sin papel
 - [Gestión de competencias](https://www.gmvsolutions.es/gestion-competencias/) — Matriz de competencias (skill matrix) que se actualiza con la ejecución real
 - [Portal del operario](https://www.gmvsolutions.es/portal-operario/) — Agenda del día, procesos y progreso de formación desde el móvil, sin instalación
@@ -159,6 +159,11 @@ Contenido en texto limpio (markdown), preferible al HTML para lectura por máqui
 ## Índice de palabras clave principales
 
 **Palabras clave del negocio:**
+- instrucciones de trabajo
+- instrucciones de trabajo digitales
+- software de instrucciones de trabajo
+- gestión documental PRL
+- gestión documental industrial
 - onboarding software pymes
 - SOP industrial
 - gestión de competencias operativas

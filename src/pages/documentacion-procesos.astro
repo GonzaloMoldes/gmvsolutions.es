@@ -49,21 +49,21 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Cómo funciona</div>
-        <h2 class="section-title">Documentación que se consulta</h2>
-        <p class="section-sub">Un software de instrucciones de trabajo digitales no cambia el contenido del procedimiento: cambia dónde vive y quién lo escribe.</p>
+        <h2 class="section-title">Instrucciones de trabajo que se consultan</h2>
+        <p class="section-sub">Un software de instrucciones de trabajo digitales no cambia el contenido de la instrucción de trabajo: cambia dónde vive y quién la escribe.</p>
       </div>
 
       <div class="solution-approach fade-up delay-1">
         <div class="feature">
           <Icon name="movil" class="feature-icon icon--draw" />
           <h3>Accesible en tres segundos</h3>
-          <p>QR en la máquina y el SOP se abre directo desde el móvil, sin instalar nada, sin cuenta y sin contraseña que recordar. Si la wifi cae con el proceso ya abierto, sigue ahí.</p>
+          <p>QR en la máquina y la instrucción de trabajo se abre directa desde el móvil, sin instalar nada, sin cuenta y sin contraseña que recordar. Si la wifi cae con el proceso ya abierto, sigue ahí.</p>
         </div>
 
         <div class="feature">
           <Icon name="persona" class="feature-icon icon--draw" />
           <h3>Escrito por quien lo domina</h3>
-          <p>El operario experto lo documenta mientras trabaja, así que incluye los puntos críticos y el troubleshooting que solo él conoce: «si la presión sube, espera 30 segundos».</p>
+          <p>El operario experto escribe la instrucción de trabajo mientras trabaja, así que incluye los puntos críticos y el troubleshooting que solo él conoce: «si la presión sube, espera 30 segundos».</p>
         </div>
 
         <div class="feature">
@@ -87,8 +87,8 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
       <div class="screenshot-pair fade-up delay-2">
         <figure class="screenshot-fig">
-          <Screenshot name="sop-operario" alt="Vista del operario ejecutando un SOP en REELEVO: paso a paso con vídeo, confirmación y botón de incidencia" class="screenshot-img" layout="pair" />
-          <figcaption class="screenshot-caption">Vista del operario — SOP paso a paso con vídeo integrado y confirmación de cada paso</figcaption>
+          <Screenshot name="sop-operario" alt="Vista del operario siguiendo una instrucción de trabajo digital en REELEVO: paso a paso con vídeo, confirmación y botón de incidencia" class="screenshot-img" layout="pair" />
+          <figcaption class="screenshot-caption">Vista del operario — instrucción de trabajo paso a paso con vídeo integrado y confirmación de cada paso</figcaption>
         </figure>
         <figure class="screenshot-fig">
           <Screenshot name="gestion-productos-procesos" alt="Gestión de productos y procesos en REELEVO: lista de productos con secuencias de procesos" class="screenshot-img" layout="pair" />
@@ -109,9 +109,9 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">La objeción de verdad</div>
-        <h2 class="section-title">«Pasar mis procedimientos a esto <br><em>me va a costar meses</em>»</h2>
+        <h2 class="section-title">«Pasar mis instrucciones de trabajo a esto <br><em>me va a costar meses</em>»</h2>
         <p class="section-sub">
-          No es el precio ni la resistencia del operario: es que alguien tiene que escribir cien procedimientos desde cero.
+          No es el precio ni la resistencia del operario: es que alguien tiene que escribir cien instrucciones de trabajo desde cero.
         </p>
       </div>
 
@@ -147,6 +147,42 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <strong>Lo que esto no es:</strong> no documenta tu planta sola. El criterio lo sigue poniendo
         quien conoce la máquina. Lo que se ahorra es la página en blanco — que es donde estos proyectos se paran.
       </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GESTIÓN DOCUMENTAL — PRL, calidad y politicas (gestion documental generica, sept. 2026).
+       Limites: alcance = toda la plantilla, certificados en el proceso o asignados en
+       planificacion (sin asignacion por puesto/area); el acuse no es firma avanzada eIDAS. -->
+  <section class="section" id="gestion-documental">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Gestión documental</div>
+        <h2 class="section-title">PRL, calidad y políticas <br><em>en la misma gestión documental</em></h2>
+        <p class="section-sub">No solo las instrucciones de trabajo de máquina: las instrucciones de prevención, los procedimientos de calidad y las normas generales viven en el mismo sitio, con el mismo control de versiones y la misma evidencia.</p>
+      </div>
+
+      <div class="solution-approach fade-up delay-1">
+        <div class="feature">
+          <h3>Pendientes que se mantienen solos</h3>
+          <p>Al publicar una versión nueva, los afectados vuelven a quedar pendientes. Cada instrucción muestra quién la ha aceptado y quién falta, y cada trabajador ve todos sus pendientes en su portal.</p>
+        </div>
+        <div class="feature">
+          <h3>Lectura, test y acuse</h3>
+          <p>El trabajador lee, responde al test si lo hay y acepta la versión vigente con su código personal. Queda registrado quién, qué versión y cuándo.</p>
+        </div>
+        <div class="feature">
+          <h3>Certificación con caducidad</h3>
+          <p>Superar el test y aceptar deja al trabajador habilitado en esa instrucción, con caducidad configurable y aviso de lo que vence.</p>
+        </div>
+        <div class="feature">
+          <h3>Evidencia para auditoría</h3>
+          <p>El informe PDF periódico incluye los acuses del periodo: trabajador, instrucción, versión, fecha y vía. Sin carpetas ni hojas de firmas.</p>
+        </div>
+      </div>
+
+      <p class="roles-line fade-up delay-2">Cómo se desborda la gestión documental en papel y cómo se recupera: <a href="/blog/gestion-instrucciones-prl-e-it/">gestión documental de PRL e instrucciones de trabajo</a> · <a href="/blog/acuse-de-lectura-instrucciones-prl/">acuse de lectura</a> · <a href="/blog/como-digitalizar-instrucciones-de-trabajo/">cómo digitalizar las instrucciones de trabajo</a></p>
     </div>
   </section>
 

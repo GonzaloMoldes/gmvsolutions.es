@@ -1,0 +1,2395 @@
+{
+ "fecha": "2026-10-16",
+ "descripcion": "Keyword principal 'instrucciones de trabajo' y 'gestion documental' para PRL; articulo nuevo de gestion documental de PRL; ampliacion del articulo de digitalizar instrucciones.",
+ "crear": [
+  {
+   "_id": "articulo-gestion-instrucciones-prl-e-it",
+   "_type": "articulo",
+   "title": "Gestión documental de PRL e instrucciones de trabajo: por qué se vuelve incontrolable y cómo recuperar el control",
+   "seoTitle": "Gestión documental de PRL e instrucciones de trabajo",
+   "slug": {
+    "_type": "slug",
+    "current": "gestion-instrucciones-prl-e-it"
+   },
+   "cluster": "sop",
+   "category": "Gestión documental",
+   "publishedAt": "2026-10-16",
+   "readTime": "11 min.",
+   "description": "Cuando las instrucciones de PRL y de trabajo se multiplican, carpetas y Excel dejan de saber quién tiene qué pendiente. Los dolores y cómo resolverlos.",
+   "cardTitle": "Gestión documental de PRL e instrucciones de trabajo",
+   "cardDesc": "Por qué la gestión documental de PRL e instrucciones de trabajo se desborda con carpetas y Excel, los siete dolores que aparecen y cómo los resuelve REELEVO.",
+   "priority": "0.8",
+   "orden": 34,
+   "mostrarFaqs": false,
+   "noindex": false,
+   "body": [
+    {
+     "_key": "0fefd27cad49",
+     "_type": "destacado",
+     "estilo": "highlight-box",
+     "contenido": [
+      {
+       "_key": "740f5849a5ca",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "7984b0a0e139",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "TL;DR."
+        },
+        {
+         "_key": "3d81ef27eba9",
+         "_type": "span",
+         "marks": [],
+         "text": " Con pocas instrucciones y una plantilla estable, una carpeta y un Excel bastan para la gestión documental. Cuando las instrucciones de PRL y las instrucciones de trabajo se cuentan por decenas o cientos, la plantilla rota y hay varios turnos, el control se rompe, y no por falta de diligencia: "
+        },
+        {
+         "_key": "def03a29bf06",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "documentos, versiones, personas y caducidades se multiplican entre sí"
+        },
+        {
+         "_key": "30a9640853b1",
+         "_type": "span",
+         "marks": [],
+         "text": ". Este artículo cuenta un caso real, los siete dolores que aparecen cuando la gestión documental se desborda y cómo los resuelve REELEVO, área por área."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      }
+     ]
+    },
+    {
+     "_key": "565e8bd101bd",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "39a28d38b27d",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "En este artículo:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "35c0ba310bf1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "68ce583f0ebf",
+       "_type": "span",
+       "marks": [
+        "413eb32104d6"
+       ],
+       "text": "Un caso real: demasiada documentación para controlarla"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "413eb32104d6",
+       "_type": "link",
+       "href": "#caso"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "0347a50fc90b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b7a473697b44",
+       "_type": "span",
+       "marks": [
+        "8d7a9046b6a6"
+       ],
+       "text": "No es un problema de documentos, es de multiplicación"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "8d7a9046b6a6",
+       "_type": "link",
+       "href": "#multiplicacion"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "ab33e2224471",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "07420cd320e9",
+       "_type": "span",
+       "marks": [
+        "3fb5be2cbed9"
+       ],
+       "text": "Los siete dolores de una gestión documental desbordada"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "3fb5be2cbed9",
+       "_type": "link",
+       "href": "#dolores"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "019d0e6f926e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "793cc4c1526d",
+       "_type": "span",
+       "marks": [
+        "6b979d97a529"
+       ],
+       "text": "Por qué carpetas y Excel no escalan"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "6b979d97a529",
+       "_type": "link",
+       "href": "#excel"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1575a65fab95",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0752d6682a17",
+       "_type": "span",
+       "marks": [
+        "81406c410c3b"
+       ],
+       "text": "Cómo lo resuelve REELEVO, dolor por dolor"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "81406c410c3b",
+       "_type": "link",
+       "href": "#reelevo"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "0f96a57140c1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3a72d4e12687",
+       "_type": "span",
+       "marks": [
+        "908dded2c2db"
+       ],
+       "text": "Cómo empezar sin rehacer todo"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "908dded2c2db",
+       "_type": "link",
+       "href": "#empezar"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1501adc74331",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9da04bf6b478",
+       "_type": "span",
+       "marks": [
+        "b655dc367f08"
+       ],
+       "text": "Preguntas frecuentes"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "b655dc367f08",
+       "_type": "link",
+       "href": "#faq"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "729b4817387b",
+     "_type": "ancla",
+     "id": "caso"
+    },
+    {
+     "_key": "9fd96fdfe8b3",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "693ea9a83038",
+       "_type": "span",
+       "marks": [],
+       "text": "Un caso real: demasiada documentación para controlarla"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "e9e0356f956d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "901426fbb20e",
+       "_type": "span",
+       "marks": [],
+       "text": "La gestión documental de REELEVO, la que sirve para instrucciones de prevención, de calidad y políticas además de las instrucciones de trabajo de máquina, nació de una fábrica concreta. No tenían un problema de falta de documentación. Tenían el contrario: "
+      },
+      {
+       "_key": "455198689d7d",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "demasiadas instrucciones para poder controlarlas"
+      },
+      {
+       "_key": "ee1ef8a5a1e5",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "fed3b90728ea",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "afdfd0d1a2f3",
+       "_type": "span",
+       "marks": [],
+       "text": "Instrucciones de PRL por puesto, por equipo y por tarea. Instrucciones de trabajo de cada operación. Procedimientos de calidad. Normas generales de EPI y de circulación de carretillas. Cada una con su hoja de firmas, sus revisiones y su carpeta. Los responsables de prevención y de calidad dedicaban una parte creciente de su semana a una sola tarea: perseguir firmas y averiguar quién no había recibido qué."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "c8509dc1bac8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a751650deefe",
+       "_type": "span",
+       "marks": [],
+       "text": "Lo que más les preocupaba no era el trabajo, sino la incertidumbre. Ante una inspección, una auditoría o un incidente, no podían contestar con seguridad a una pregunta sencilla: "
+      },
+      {
+       "_key": "9abe9999a7cd",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "¿esta persona conocía la versión vigente de esta instrucción?"
+      },
+      {
+       "_key": "a4688d497fef",
+       "_type": "span",
+       "marks": [],
+       "text": " La información existía, repartida entre carpetas, un Excel maestro y la memoria de los encargados. Reunirla costaba días, y el resultado no era fiable."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "2f4399f4078e",
+     "_type": "ancla",
+     "id": "multiplicacion"
+    },
+    {
+     "_key": "121c4250ffd1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7442d0e67b06",
+       "_type": "span",
+       "marks": [],
+       "text": "No es un problema de documentos, es de multiplicación"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "ea434dc5ff16",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bcbfcf0e4d1b",
+       "_type": "span",
+       "marks": [],
+       "text": "La razón por la que esto le pasa a fábricas bien organizadas es aritmética. La gestión documental de PRL e instrucciones de trabajo depende de cinco factores a la vez:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "56c34b1ffc1c",
+     "_type": "destacado",
+     "estilo": "data-card",
+     "contenido": [
+      {
+       "_key": "4b60a41e71c0",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "15b6650488dd",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Documentos."
+        },
+        {
+         "_key": "199f7f7801e3",
+         "_type": "span",
+         "marks": [],
+         "text": " Instrucciones de PRL, instrucciones de trabajo, procedimientos de calidad y normas generales. Cada una evoluciona por su cuenta."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      },
+      {
+       "_key": "10992969ea9c",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "de2b64e414d0",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Personas."
+        },
+        {
+         "_key": "ddbe101cff1c",
+         "_type": "span",
+         "marks": [],
+         "text": " La plantilla fija, el personal de ETT que entra y sale, y varios turnos que casi nunca coinciden."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      },
+      {
+       "_key": "59d8cbf525ae",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "a1778b1456f9",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Alcance."
+        },
+        {
+         "_key": "2888f997e5d2",
+         "_type": "span",
+         "marks": [],
+         "text": " Una norma de EPI afecta a toda la plantilla; una instrucción de un equipo, solo a quienes lo usan. Cada cruce persona-instrucción es algo que alguien tiene que controlar."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      },
+      {
+       "_key": "8dfac38f47d7",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "90bcffa0f58a",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Versiones."
+        },
+        {
+         "_key": "3e34ba044e9c",
+         "_type": "span",
+         "marks": [],
+         "text": " Cada revisión de una instrucción vuelve a dejar pendientes a todos sus afectados. Con muchas instrucciones, hay revisiones casi cada semana."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      },
+      {
+       "_key": "05d453fecdfd",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "1c075e18c2b0",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Tiempo."
+        },
+        {
+         "_key": "4b378ebb64d0",
+         "_type": "span",
+         "marks": [],
+         "text": " Muchas formaciones de prevención exigen reciclaje periódico, y cada persona tiene sus propias fechas de caducidad."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      }
+     ]
+    },
+    {
+     "_key": "42ae841b632d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e23572fd1ed7",
+       "_type": "span",
+       "marks": [],
+       "text": "Ninguno de esos factores es grave por separado. El problema es que "
+      },
+      {
+       "_key": "5aaccce064ec",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "se multiplican"
+      },
+      {
+       "_key": "0ecbec47899c",
+       "_type": "span",
+       "marks": [],
+       "text": ": cada revisión, cada incorporación, cada cambio de puesto y cada caducidad abre un pendiente nuevo en una tabla que crece mucho más deprisa que la plantilla. Con hojas de firmas, cada pendiente se descubre a mano. Y lo que se descubre a mano, con suficiente volumen, deja de descubrirse."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "574678ed5f1b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a04d0674fe6b",
+       "_type": "span",
+       "marks": [],
+       "text": "Por eso añadir una persona más a perseguir firmas no lo arregla. El esfuerzo crece con la tabla, y la tabla crece cada vez que la empresa contrata, cambia un equipo o mejora un proceso."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "7443f3e9aa49",
+     "_type": "ancla",
+     "id": "dolores"
+    },
+    {
+     "_key": "df02bacedc01",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e883f0ae7711",
+       "_type": "span",
+       "marks": [],
+       "text": "Los siete dolores de una gestión documental desbordada"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "1a78e95e8d96",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "af59693ff62f",
+       "_type": "span",
+       "marks": [],
+       "text": "Son los que aparecían en el caso, y los que se repiten en casi cualquier fábrica que gestiona instrucciones de PRL e instrucciones de trabajo en papel. Si reconoces tres o más, tu sistema ya no está gestionando la documentación: la está archivando."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "18ab909ae16f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9243ed95da81",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "No hay vista por persona."
+      },
+      {
+       "_key": "0a994d954874",
+       "_type": "span",
+       "marks": [],
+       "text": " Para saber qué instrucciones le faltan a un trabajador hay que revisar carpetas buscando su nombre."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "6ba472bf7ff7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b6c4cfb47a61",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "El Excel maestro va por detrás."
+      },
+      {
+       "_key": "74243441ff82",
+       "_type": "span",
+       "marks": [],
+       "text": " Se actualiza «cuando hay tiempo», y todo el mundo sabe que no refleja el estado real."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "cb7dadbcbd11",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "dc6ebb6e3941",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Las revisiones se acumulan sin comunicar."
+      },
+      {
+       "_key": "5fe0c81ef095",
+       "_type": "span",
+       "marks": [],
+       "text": " La versión nueva está aprobada en la oficina, pero la ronda de firmas se hará «la semana que viene», con todos."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "a45a90fe0dc0",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "07daa8275aa2",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "El turno de noche y el personal de ETT son un agujero."
+      },
+      {
+       "_key": "1e00b316c8e5",
+       "_type": "span",
+       "marks": [],
+       "text": " Nunca coinciden con las sesiones y siempre quedan pendientes."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "bd9738dbd4ef",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "962cb3e071c7",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Conviven varias versiones de la misma instrucción."
+      },
+      {
+       "_key": "4de54c653c06",
+       "_type": "span",
+       "marks": [],
+       "text": " La plastificada del puesto no coincide con la de la intranet. Es el "
+      },
+      {
+       "_key": "3273dc348ea0",
+       "_type": "span",
+       "marks": [
+        "c25e85433ba7"
+       ],
+       "text": "hallazgo más repetido en las auditorías"
+      },
+      {
+       "_key": "17abae3d27ba",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "c25e85433ba7",
+       "_type": "link",
+       "href": "/blog/preparar-auditoria-iso-9001-produccion/"
+      }
+     ],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "ef8ba4517fb8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f47a19a3223a",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Las caducidades se descubren tarde."
+      },
+      {
+       "_key": "6bcfd8263cf9",
+       "_type": "span",
+       "marks": [],
+       "text": " Alguien lleva meses con el reciclaje vencido y se sabe por casualidad."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "6e016a496de0",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "743da6f466cc",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Demostrarlo cuesta días."
+      },
+      {
+       "_key": "3c0240644101",
+       "_type": "span",
+       "marks": [],
+       "text": " Ante una auditoría, una inspección o un incidente, la información existe pero hay que reunirla a mano, y el resultado no es fiable."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "number",
+     "level": 1
+    },
+    {
+     "_key": "d1e3f1613688",
+     "_type": "ancla",
+     "id": "excel"
+    },
+    {
+     "_key": "809f5a9e36db",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "dccb69be5fdb",
+       "_type": "span",
+       "marks": [],
+       "text": "Por qué carpetas y Excel no escalan"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "5a77c4385aa8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "671cc6a3dfa9",
+       "_type": "span",
+       "marks": [],
+       "text": "La gestión documental clásica tiene tres piezas: el documento en una carpeta (física o compartida), la hoja de firmas y un Excel que intenta resumir el estado. Cada pieza funciona; lo que falla es que "
+      },
+      {
+       "_key": "29757600be06",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "no están conectadas"
+      },
+      {
+       "_key": "0464d95064b1",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "bd7d7d83aefb",
+     "_type": "tabla",
+     "clase": "tabla-comparativa",
+     "cabecera": [
+      "Pregunta",
+      "Carpetas, firmas y Excel",
+      "Gestión documental conectada"
+     ],
+     "filas": [
+      {
+       "_key": "75a96f723f55",
+       "_type": "fila",
+       "celdas": [
+        "¿Cuál es la versión vigente?",
+        "La de la carpeta, si nadie ha dejado copias viejas",
+        "Solo hay una; las anteriores quedan como histórico"
+       ]
+      },
+      {
+       "_key": "d6ac2a9b3eab",
+       "_type": "fila",
+       "celdas": [
+        "¿Quién tiene pendiente la versión nueva?",
+        "Cruzar a mano firmas con plantilla",
+        "Lista generada sola al publicar la revisión"
+       ]
+      },
+      {
+       "_key": "bc9c67808053",
+       "_type": "fila",
+       "celdas": [
+        "¿Qué le falta a este trabajador?",
+        "Buscar su nombre en todas las carpetas",
+        "Vista por persona con todos sus pendientes"
+       ]
+      },
+      {
+       "_key": "270a920719ce",
+       "_type": "fila",
+       "celdas": [
+        "¿Qué caduca este mes?",
+        "Fórmulas en el Excel, si está al día",
+        "Aviso automático antes del vencimiento"
+       ]
+      },
+      {
+       "_key": "e4e8472c3465",
+       "_type": "fila",
+       "celdas": [
+        "¿Cómo llega una revisión al turno de noche?",
+        "Otra sesión, otra hoja de firmas",
+        "Cada persona la lee y acepta en su propio turno"
+       ]
+      },
+      {
+       "_key": "cf07e78b0035",
+       "_type": "fila",
+       "celdas": [
+        "¿Qué entrego en una auditoría?",
+        "Fotocopias y días de búsqueda",
+        "Un informe exportado en minutos"
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "81b55851117d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b5b5316eb61e",
+       "_type": "span",
+       "marks": [],
+       "text": "El Excel es el síntoma más claro: es un intento de tener una vista conjunta, pero se alimenta a mano a partir de papeles. Cada revisión, alta o baja exige que alguien lo actualice. Mientras el volumen es bajo, se hace. Cuando sube, se retrasa, y una tabla de control que va retrasada es peor que no tenerla, porque da una falsa sensación de control."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "7871f52feacd",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "8a9822d8fcde",
+       "_type": "span",
+       "marks": [],
+       "text": "Sobre la normativa, sin entrar en interpretación jurídica: la Ley 31/1995 de prevención obliga a informar y formar a cada trabajador sobre los riesgos de su puesto, también cuando cambian sus funciones o los equipos, y normas como ISO 45001 e ISO 9001 piden información documentada actualizada y evidencia de competencia. Ninguna impone una herramienta de gestión documental, pero todas presuponen que puedes demostrarlo para cada persona. Contrasta siempre con el texto legal y con tu servicio de prevención: esto es una guía práctica, no asesoramiento jurídico."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "510e22d0186b",
+     "_type": "ancla",
+     "id": "reelevo"
+    },
+    {
+     "_key": "85670e10d3b7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "811ef4063838",
+       "_type": "span",
+       "marks": [],
+       "text": "Cómo lo resuelve REELEVO, dolor por dolor"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "82403886b108",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a329741bdbbd",
+       "_type": "span",
+       "marks": [],
+       "text": "REELEVO junta en una sola gestión documental las instrucciones de trabajo de producción, las de prevención, las de calidad y las políticas generales, con o sin máquina asociada. Cada dolor del caso tiene su respuesta en un área concreta de la app."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "1b06c4c18115",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ebcabdef0dd7",
+       "_type": "span",
+       "marks": [],
+       "text": "1. Un único registro de instrucciones, con versiones"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "2493581e9203",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "4ddee533cdbe",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "3601007a9bf7",
+       "_type": "span",
+       "marks": [],
+       "text": " varias versiones de la misma instrucción conviviendo, y revisiones que no llegan. Cada instrucción de PRL o instrucción de trabajo tiene una sola versión vigente. Cada cambio crea una versión nueva y la anterior se conserva con su autor y su fecha. Al "
+      },
+      {
+       "_key": "4d40c52d47a0",
+       "_type": "span",
+       "marks": [
+        "9f0b00bcda5c"
+       ],
+       "text": "publicar una revisión"
+      },
+      {
+       "_key": "673f0aaae507",
+       "_type": "span",
+       "marks": [],
+       "text": ", los trabajadores afectados vuelven a quedar pendientes sin que nadie lo apunte."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "9f0b00bcda5c",
+       "_type": "link",
+       "href": "/documentacion-procesos/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "db4df65a2464",
+     "_type": "image",
+     "asset": {
+      "_type": "reference",
+      "_ref": "image-6b2b8bd361f7afc4bb395fa9342ae92d7fe0e916-2880x1800-png"
+     },
+     "alt": "Historial de versiones de una instrucción en REELEVO, con la versión actual marcada, los cambios de cada versión, quién la modificó y la fecha",
+     "caption": "Captura real del producto: historial de versiones de una instrucción"
+    },
+    {
+     "_key": "5a3853d68173",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d6c7b045715f",
+       "_type": "span",
+       "marks": [],
+       "text": "2. Pendientes por instrucción y por persona"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "1d805f818a51",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d6f09911f814",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "77928eceddc5",
+       "_type": "span",
+       "marks": [],
+       "text": " la falta de vista por persona y el Excel que va por detrás. Cada instrucción muestra quién ha aceptado la versión vigente y quién falta. Cada trabajador ve todos sus pendientes juntos en su "
+      },
+      {
+       "_key": "b7285837549c",
+       "_type": "span",
+       "marks": [
+        "5b218342c87f"
+       ],
+       "text": "portal"
+      },
+      {
+       "_key": "65ebafc9e2ed",
+       "_type": "span",
+       "marks": [],
+       "text": ", en su propio turno, sin esperar a una sesión. La lista se mantiene sola: nadie tiene que cruzar hojas de firmas con la plantilla."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "5b218342c87f",
+       "_type": "link",
+       "href": "/portal-operario/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "0b561e0abbfe",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3efdb6b1abdd",
+       "_type": "span",
+       "marks": [],
+       "text": "3. Avisos al publicar una versión nueva"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "f27e1b0698db",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5e1ed32b026f",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "9782cb045b29",
+       "_type": "span",
+       "marks": [],
+       "text": " revisiones aprobadas que se quedan sin comunicar. Los responsables reciben un correo cuando sale una versión nueva, y quienes ya estaban certificados en esa instrucción, un WhatsApp con el enlace directo para leerla."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "6cf0ae8ca847",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "839234266d22",
+       "_type": "span",
+       "marks": [],
+       "text": "4. Lectura, test y acuse en el propio turno"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "aae2ed957863",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7b9c9b48c33a",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "ad9322081e7a",
+       "_type": "span",
+       "marks": [],
+       "text": " el agujero del turno de noche y del personal de ETT. El trabajador, identificado con su código personal, lee la instrucción, responde al test si lo tiene y acepta la versión cuando le viene bien, sin depender de una sesión. Queda registrado quién, qué versión, cuándo y todos los intentos del test. El detalle de qué evidencia se sostiene está en el artículo sobre el "
+      },
+      {
+       "_key": "d4fdf042c498",
+       "_type": "span",
+       "marks": [
+        "8e16f8ec8fe6"
+       ],
+       "text": "acuse de lectura de instrucciones de PRL e IT"
+      },
+      {
+       "_key": "ea94a64138ed",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "8e16f8ec8fe6",
+       "_type": "link",
+       "href": "/blog/acuse-de-lectura-instrucciones-prl/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "5f6ff6dfdea8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9966fae549c9",
+       "_type": "span",
+       "marks": [],
+       "text": "5. Certificación con caducidad y aviso"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ab8e443ed976",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0bd7d88561a5",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "050e1b84407a",
+       "_type": "span",
+       "marks": [],
+       "text": " las caducidades que se descubren tarde. En prevención, calidad y políticas, superar el test y aceptar deja al trabajador habilitado en esa instrucción, visible en su "
+      },
+      {
+       "_key": "d44a4f1f1261",
+       "_type": "span",
+       "marks": [
+        "7cf1a31630f9"
+       ],
+       "text": "matriz de competencias"
+      },
+      {
+       "_key": "520a2be0be0f",
+       "_type": "span",
+       "marks": [],
+       "text": ", con caducidad configurable y un aviso diario de lo que vence en los próximos días."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "7cf1a31630f9",
+       "_type": "link",
+       "href": "/gestion-competencias/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "aec0b1c7f64a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "10e3748d83b0",
+       "_type": "span",
+       "marks": [],
+       "text": "6. Bloqueo en máquina para las instrucciones críticas"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "a47527a0f818",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "161a1f9cb617",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "432159af8455",
+       "_type": "span",
+       "marks": [],
+       "text": " que alguien trabaje con una versión que no conoce. Al escanear el QR para empezar a producir, la app no deja arrancar a quien no ha aceptado la última versión de la instrucción de trabajo, no ha superado el test obligatorio o tiene la habilitación caducada."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "0725898d6af4",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "76afe1fa8a96",
+       "_type": "span",
+       "marks": [],
+       "text": "7. Evidencia para auditoría e inspección en minutos"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "38b3f2871c0d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7103cc8add1c",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Resuelve:"
+      },
+      {
+       "_key": "2911ab205b0d",
+       "_type": "span",
+       "marks": [],
+       "text": " los días que cuesta demostrarlo. El informe PDF periódico incluye una página con los acuses del periodo: trabajador, instrucción, versión, fecha y vía. Y el registro de ejecuciones guarda quién hizo cada proceso, cuándo y con qué resultado."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "778aeace7cb9",
+     "_type": "image",
+     "asset": {
+      "_type": "reference",
+      "_ref": "image-8130c1fc0999a42c423171fd4ad58a241687cbdf-2880x1800-png"
+     },
+     "alt": "Estadísticas de REELEVO con el registro detallado de ejecuciones por proceso, operario, fecha, duración y pasos completados",
+     "caption": "Captura real del producto: registro de ejecuciones por proceso"
+    },
+    {
+     "_key": "1ffe73ec9573",
+     "_type": "destacado",
+     "estilo": "highlight-box",
+     "contenido": [
+      {
+       "_key": "0095653daebb",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "69a05788328a",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Lo que conviene saber antes."
+        },
+        {
+         "_key": "6f6e3bd5e3f8",
+         "_type": "span",
+         "marks": [],
+         "text": " Hoy el grupo afectado por una instrucción se define como toda la plantilla, los trabajadores certificados en ese proceso o los asignados en planificación; todavía no se asigna automáticamente por puesto o área. Una instrucción nueva aparece en el portal del trabajador, pero el WhatsApp solo llega a quien ya estaba certificado en ella. El acuse es una aceptación autenticada, no una firma avanzada eIDAS. Y la evidencia individual exige que cada trabajador entre con su código personal, no con un PIN compartido de turno."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      }
+     ]
+    },
+    {
+     "_key": "eaf1e04c8f43",
+     "_type": "ancla",
+     "id": "empezar"
+    },
+    {
+     "_key": "d268988aba68",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "dd86b5154809",
+       "_type": "span",
+       "marks": [],
+       "text": "Cómo empezar sin rehacer todo"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "5ae039101270",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fc07228f3eb1",
+       "_type": "span",
+       "marks": [],
+       "text": "El error habitual es intentar migrar todo el archivo y reconstruir el histórico de firmas antes de arrancar la nueva gestión documental. No hace falta, y suele atascar el proyecto durante meses."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "03ef7af64756",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5d6f3870af6b",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Inventario de lo crítico."
+      },
+      {
+       "_key": "7384030825d8",
+       "_type": "span",
+       "marks": [],
+       "text": " Lista las instrucciones de PRL de mayor riesgo y las instrucciones de trabajo cuyos cambios han causado defectos. Suelen ser una minoría."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "24ecf70545e0",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7e41237a920d",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Una sola versión vigente de cada una."
+      },
+      {
+       "_key": "e99849566df4",
+       "_type": "span",
+       "marks": [],
+       "text": " Retira las copias duplicadas de planta según las vayas subiendo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "533806e9cf81",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "eb94162e4563",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Define el alcance."
+      },
+      {
+       "_key": "1184dbda6d50",
+       "_type": "span",
+       "marks": [],
+       "text": " Para cada instrucción, a quién afecta. Empieza por las que afectan a toda la plantilla: son las que más firmas te cuestan hoy."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1458bf2e606d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "268a47efbc96",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Primera ronda desde hoy."
+      },
+      {
+       "_key": "0e9e7db0edc1",
+       "_type": "span",
+       "marks": [],
+       "text": " Todos aceptan la versión actual. Las hojas de papel antiguas se conservan como histórico, sin pasarlas a mano."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "149ea2e488ad",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1b1b451026f0",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Revisa los pendientes cada semana."
+      },
+      {
+       "_key": "d7ffff9ef40b",
+       "_type": "span",
+       "marks": [],
+       "text": " Si la lista baja, la gestión documental funciona. Después amplía al resto del archivo por bloques."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "cf1691630ca7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "93e32b6fa3d8",
+       "_type": "span",
+       "marks": [],
+       "text": "Si además quieres digitalizar las instrucciones de trabajo de producción, no solo las de prevención, el método paso a paso está en "
+      },
+      {
+       "_key": "1efadcf1452c",
+       "_type": "span",
+       "marks": [
+        "70459e31d9a0"
+       ],
+       "text": "cómo digitalizar las instrucciones de trabajo de una fábrica"
+      },
+      {
+       "_key": "31404f15adce",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "70459e31d9a0",
+       "_type": "link",
+       "href": "/blog/como-digitalizar-instrucciones-de-trabajo/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "23704e5dab7a",
+     "_type": "destacado",
+     "estilo": "highlight-box",
+     "contenido": [
+      {
+       "_key": "ff1592470ed2",
+       "_type": "block",
+       "style": "normal",
+       "markDefs": [
+        {
+         "_key": "6b831be6d626",
+         "_type": "link",
+         "href": "https://app.gmvsolutions.es/registro",
+         "cta": {
+          "intent": "registro",
+          "label": "Registrarme en REELEVO",
+          "location": "body"
+         }
+        }
+       ],
+       "children": [
+        {
+         "_key": "fa90bee7a1da",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Haz la prueba con la instrucción de PRL que más firmas te cuesta: súbela, define a quién afecta y mira la lista de pendientes."
+        },
+        {
+         "_key": "dae3e74a1596",
+         "_type": "span",
+         "marks": [],
+         "text": " "
+        },
+        {
+         "_key": "e6a40f3c976e",
+         "_type": "span",
+         "marks": [
+          "6b831be6d626"
+         ],
+         "text": "Registrarme en REELEVO →"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "938e856cb3e1",
+     "_type": "ancla",
+     "id": "faq"
+    },
+    {
+     "_key": "b37f737ef0a2",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1a2186c8e980",
+       "_type": "span",
+       "marks": [],
+       "text": "Preguntas frecuentes"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "ecb3377fae9f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "38ec7c205b8b",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la gestión documental de PRL?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "4c84bb8f3d7a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "11645d2372db",
+       "_type": "span",
+       "marks": [],
+       "text": "Es controlar el ciclo de vida de las instrucciones de prevención y de las instrucciones de trabajo: qué versión está vigente, a quién afecta cada una, quién la ha recibido, leído y aceptado, qué está pendiente y qué caduca. No es solo archivar documentos, sino poder demostrar en cualquier momento qué conocía cada trabajador."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "b2941f7da5e1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6a5e08811b35",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Por qué la gestión documental de PRL e instrucciones de trabajo se descontrola?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ee2d0187ab3c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "cffc3ff1f76f",
+       "_type": "span",
+       "marks": [],
+       "text": "Porque no es un problema de documentos, sino de combinaciones. Cada instrucción afecta a un grupo de personas, cada revisión obliga a volver a comunicarla, cada incorporación necesita todas las de su puesto y muchas formaciones caducan. Las combinaciones persona-instrucción-versión crecen mucho más deprisa que la plantilla, y ningún Excel mantenido a mano las sigue al día."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "c85e514b4365",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fd7af056c211",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Se puede llevar la gestión documental de PRL en Excel?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "0075da24c5c9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "44fad2e44274",
+       "_type": "span",
+       "marks": [],
+       "text": "Con pocas instrucciones y una plantilla estable, sí. El Excel deja de funcionar cuando las instrucciones cambian con frecuencia, hay rotación o personal de ETT y varios turnos: alguien tiene que cruzar a mano las hojas de firmas con la plantilla y con la versión vigente, ese cruce se retrasa y la hoja deja de reflejar la realidad sin que nadie lo note."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "bab21f00a944",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "08c6382feb0f",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué diferencia hay entre una instrucción de PRL y una instrucción de trabajo (IT)?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "1c386e3bb4a0",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ac9dc74248a6",
+       "_type": "span",
+       "marks": [],
+       "text": "La instrucción de PRL explica los riesgos y las medidas de protección de un puesto, un equipo o una tarea: EPI, bloqueo de energías, carretillas, productos químicos. La instrucción de trabajo explica cómo hacer una operación concreta para que salga bien. En planta se solapan a menudo, y por eso conviene llevarlas en la misma gestión documental, con el mismo control de versiones y la misma evidencia."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "7d2c4ed1a644",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9723f975e79d",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué debe hacer un software de gestión documental de PRL e instrucciones de trabajo?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "31f58787f500",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "91f215618cef",
+       "_type": "span",
+       "marks": [],
+       "text": "Como mínimo: guardar una sola versión vigente de cada instrucción con su histórico, saber a quién afecta, generar sola la lista de pendientes por instrucción y por persona, avisar cuando hay una versión nueva, controlar caducidades y exportar la evidencia para una auditoría o inspección. Si además impide trabajar a quien no ha aceptado la versión vigente, reduce el riesgo, no solo lo documenta."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "939fe2dd9951",
+     "_type": "enlacesRelacionados",
+     "etiqueta": "Relacionado",
+     "enlaces": [
+      {
+       "_key": "bc53647baf63",
+       "_type": "enlace",
+       "kicker": "Guía",
+       "titulo": "Acuse de lectura de PRL e IT",
+       "descripcion": "Qué evidencia demuestra que cada trabajador leyó la versión vigente.",
+       "href": "/blog/acuse-de-lectura-instrucciones-prl/"
+      },
+      {
+       "_key": "8f4f4f2dbb98",
+       "_type": "enlace",
+       "kicker": "Guía",
+       "titulo": "Cómo digitalizar las instrucciones de trabajo",
+       "descripcion": "El método en 12 pasos, de la primera máquina a la planta.",
+       "href": "/blog/como-digitalizar-instrucciones-de-trabajo/"
+      },
+      {
+       "_key": "c9b507ef54a2",
+       "_type": "enlace",
+       "kicker": "Producto",
+       "titulo": "Instrucciones de trabajo y gestión documental",
+       "descripcion": "Una sola versión vigente en el puesto, con su histórico.",
+       "href": "/documentacion-procesos/"
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "_key": "a480ad3d4c67",
+     "_type": "faq",
+     "q": "¿Qué es la gestión documental de PRL?",
+     "a": "Es controlar el ciclo de vida de las instrucciones de prevención y de las instrucciones de trabajo: qué versión está vigente, a quién afecta cada una, quién la ha recibido, leído y aceptado, qué está pendiente y qué caduca. No es solo archivar documentos, sino poder demostrar en cualquier momento qué conocía cada trabajador."
+    },
+    {
+     "_key": "8a4f2793a34e",
+     "_type": "faq",
+     "q": "¿Por qué la gestión documental de PRL e instrucciones de trabajo se descontrola?",
+     "a": "Porque no es un problema de documentos, sino de combinaciones. Cada instrucción afecta a un grupo de personas, cada revisión obliga a volver a comunicarla, cada incorporación necesita todas las de su puesto y muchas formaciones caducan. Las combinaciones persona-instrucción-versión crecen mucho más deprisa que la plantilla, y ningún Excel mantenido a mano las sigue al día."
+    },
+    {
+     "_key": "a7408b826194",
+     "_type": "faq",
+     "q": "¿Se puede llevar la gestión documental de PRL en Excel?",
+     "a": "Con pocas instrucciones y una plantilla estable, sí. El Excel deja de funcionar cuando las instrucciones cambian con frecuencia, hay rotación o personal de ETT y varios turnos: alguien tiene que cruzar a mano las hojas de firmas con la plantilla y con la versión vigente, ese cruce se retrasa y la hoja deja de reflejar la realidad sin que nadie lo note."
+    },
+    {
+     "_key": "8e2d65fed8ea",
+     "_type": "faq",
+     "q": "¿Qué diferencia hay entre una instrucción de PRL y una instrucción de trabajo (IT)?",
+     "a": "La instrucción de PRL explica los riesgos y las medidas de protección de un puesto, un equipo o una tarea: EPI, bloqueo de energías, carretillas, productos químicos. La instrucción de trabajo explica cómo hacer una operación concreta para que salga bien. En planta se solapan a menudo, y por eso conviene llevarlas en la misma gestión documental, con el mismo control de versiones y la misma evidencia."
+    },
+    {
+     "_key": "18b118500454",
+     "_type": "faq",
+     "q": "¿Qué debe hacer un software de gestión documental de PRL e instrucciones de trabajo?",
+     "a": "Como mínimo: guardar una sola versión vigente de cada instrucción con su histórico, saber a quién afecta, generar sola la lista de pendientes por instrucción y por persona, avisar cuando hay una versión nueva, controlar caducidades y exportar la evidencia para una auditoría o inspección. Si además impide trabajar a quien no ha aceptado la versión vigente, reduce el riesgo, no solo lo documenta."
+    }
+   ]
+  }
+ ],
+ "cambios": [
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "seo.title",
+   "from": "Documentación de procesos y SOPs en el puesto | REELEVO",
+   "to": "Software de instrucciones de trabajo y gestión documental | REELEVO"
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "seo.description",
+   "from": "Documentación de procesos con REELEVO, el software de instrucciones de trabajo digitales: SOPs paso a paso en el puesto, con QR, foto y vídeo, para reducir errores y acelerar el onboarding.",
+   "to": "Instrucciones de trabajo digitales en el puesto y gestión documental de PRL, calidad y SOPs: una sola versión vigente, acuse de lectura y QR por máquina."
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "hero.antetitulo",
+   "from": "Documentación y gestión de procesos",
+   "to": "Instrucciones de trabajo y gestión documental"
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "hero.titulo",
+   "from": "El procedimiento no sirve",
+   "to": "La instrucción de trabajo no sirve"
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "hero.texto",
+   "from": "Nadie abre un PDF del servidor con las manos sucias y la máquina parada. Por eso el procedimiento acaba siendo lo que recuerda el veterano, y por eso se documenta el 100 % y se usa el 0 %. Aquí vive en la máquina, se abre con el móvil y se consulta en tres segundos.",
+   "to": "Nadie abre un PDF del servidor con las manos sucias y la máquina parada. Por eso la instrucción de trabajo acaba siendo lo que recuerda el veterano, y por eso se documenta el 100 % y se usa el 0 %. Aquí vive en la máquina, se abre con el móvil y se consulta en tres segundos."
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "ctaFinal.titulo",
+   "from": "Documenta primero",
+   "to": "Digitaliza primero"
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "ctaFinal.tituloDestacado",
+   "from": "el proceso que más te cuesta repetir",
+   "to": "la instrucción de trabajo que más te cuesta repetir"
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "ctaFinal.texto",
+   "from": "No hace falta ordenar toda la planta de golpe. Con un proceso crítico disponible donde se trabaja ya cambia la forma de operar.",
+   "to": "No hace falta ordenar toda la planta de golpe. Con una instrucción de trabajo crítica disponible donde se trabaja ya cambia la forma de operar."
+  },
+  {
+   "id": "pagina-calidad-y-conformidad",
+   "path": "seo.title",
+   "from": "Trazabilidad operativa de calidad industrial | REELEVO",
+   "to": "Gestión documental y trazabilidad de calidad | REELEVO"
+  },
+  {
+   "id": "pagina-calidad-y-conformidad",
+   "path": "seo.description",
+   "from": "Trazabilidad operativa de calidad para auditoría interna en planta: qué proceso se siguió, cuándo y con qué resultado, sin depender de la memoria.",
+   "to": "Gestión documental y trazabilidad de calidad para auditoría: qué instrucción de trabajo se siguió, en qué versión, quién la aceptó, cuándo y con qué resultado."
+  },
+  {
+   "id": "pagina-calidad-y-conformidad",
+   "path": "hero.texto",
+   "from": "Reconstruir a mano quién hizo qué, con qué versión del procedimiento y en qué máquina se lleva días, y acaba dependiendo de que alguien se acuerde. Cuando cada ejecución deja su registro, esa respuesta pasa a estar a un clic.",
+   "to": "Reconstruir a mano quién hizo qué, con qué versión de la instrucción de trabajo y en qué máquina se lleva días, y acaba dependiendo de que alguien se acuerde. Cuando cada ejecución deja su registro, esa respuesta pasa a estar a un clic."
+  },
+  {
+   "id": "pagina-para-quien--responsable-calidad",
+   "path": "seo.title",
+   "from": "Software calidad operativa industrial | REELEVO",
+   "to": "Gestión documental para calidad industrial | REELEVO"
+  },
+  {
+   "id": "pagina-para-quien--responsable-calidad",
+   "path": "seo.description",
+   "from": "Software de calidad operativa con evidencia de ejecución: revisa qué se siguió y cuándo, soporta cambios de proceso y vigila puestos sensibles en planta.",
+   "to": "Gestión documental para calidad: instrucciones de trabajo con versión vigente, acuse de lectura y evidencia de ejecución para revisar qué se siguió y cuándo."
+  },
+  {
+   "id": "pagina-para-quien--responsable-calidad",
+   "path": "hero.texto",
+   "from": "REELEVO ayuda a calidad a revisar mejor lo que pasa en planta: qué referencia estaba visible, cuándo ocurrió el trabajo, cómo terminó y dónde sigue haciendo falta apoyo. Sin convertirlo en más burocracia y sin inflar el alcance legal.",
+   "to": "REELEVO ayuda a calidad a llevar la gestión documental y a revisar mejor lo que pasa en planta: qué instrucción de trabajo estaba visible, cuándo ocurrió el trabajo, cómo terminó y dónde sigue haciendo falta apoyo. Sin convertirlo en más burocracia y sin inflar el alcance legal."
+  },
+  {
+   "id": "pagina-firma-digital",
+   "path": "seo.description",
+   "from": "Firma digital en el flujo de planta: el operario firma al completar y el supervisor al validar. Evidencia para auditorías ISO sin papel.",
+   "to": "Firma digital en el flujo de planta: el operario firma al completar la instrucción de trabajo y el supervisor al validar. Evidencia para auditorías ISO sin papel."
+  },
+  {
+   "id": "pagina-portal-operario",
+   "path": "seo.title",
+   "from": "Portal del operario: procesos y agenda en el móvil | REELEVO",
+   "to": "Portal del operario: instrucciones de trabajo en el móvil | REELEVO"
+  },
+  {
+   "id": "pagina-portal-operario",
+   "path": "seo.description",
+   "from": "El operario ve su agenda del día, accede a sus procesos y sigue su progreso de formación desde el móvil. Sin instalación ni formación previa.",
+   "to": "El operario ve su agenda del día, abre sus instrucciones de trabajo, lee y acepta las pendientes y sigue su formación desde el móvil. Sin instalación."
+  },
+  {
+   "id": "pagina-portal-operario",
+   "path": "hero.texto",
+   "from": "Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus procesos en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas.",
+   "to": "Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus instrucciones de trabajo en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas."
+  },
+  {
+   "id": "pagina-como-funciona",
+   "path": "hero.texto",
+   "from": "Cuando falta alguien clave, el turno no debería tambalearse. Este es el recorrido real en 3 pasos: capturar conocimiento útil, dejarlo disponible en el puesto y ejecutarlo sin depender de una llamada.",
+   "to": "Cuando falta alguien clave, el turno no debería tambalearse. Este es el recorrido real en 3 pasos: convertir el conocimiento en instrucciones de trabajo, dejarlas disponibles en el puesto y ejecutarlo sin depender de una llamada."
+  },
+  {
+   "id": "pagina-vs-alternativas",
+   "path": "seo.title",
+   "from": "Comparativa de software SOP para pymes industriales | REELEVO",
+   "to": "Comparativa de software de instrucciones de trabajo | REELEVO"
+  },
+  {
+   "id": "pagina-vs-alternativas",
+   "path": "seo.description",
+   "from": "Alternativa ligera a MES y plataformas enterprise: compara REELEVO frente a Dozuki, Poka y GembaDocs para pyme industrial espanola.",
+   "to": "Comparativa de software de instrucciones de trabajo y SOP: REELEVO frente a Dozuki, Poka, GembaDocs y Knowby, y alternativa ligera a un MES para pyme industrial."
+  },
+  {
+   "id": "pagina-vs-dozuki",
+   "path": "seo.title",
+   "from": "REELEVO vs Dozuki: comparativa para pyme industrial",
+   "to": "REELEVO vs Dozuki: software de instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-vs-gembadocs",
+   "path": "seo.title",
+   "from": "GembaDocs vs REELEVO — Software documentación y lean manufacturing",
+   "to": "GembaDocs vs REELEVO — Software de instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-vs-knowby",
+   "path": "seo.title",
+   "from": "Knowby vs REELEVO — Comparativa de software de procedimientos",
+   "to": "Knowby vs REELEVO — Software de instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-vs-knowby",
+   "path": "ctaFinal.texto",
+   "from": "No es software genérico. Está especializado en pymes manufactureras españolas. SOP + Onboarding + Competencias integrado, precio transparente, soporte en español.",
+   "to": "No es software genérico. Está especializado en pymes manufactureras españolas. Instrucciones de trabajo + Onboarding + Competencias integrado, precio transparente, soporte en español."
+  },
+  {
+   "id": "pagina-vs-poka",
+   "path": "hero.tituloDestacado",
+   "from": "MES vs SOP operativo",
+   "to": "MES vs instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-vs-excel-papel",
+   "path": "seo.description",
+   "from": "Fábrica sin papel para la pyme industrial: deja el Excel y el papel y digitaliza procesos, partes y competencias sin un proyecto pesado.",
+   "to": "Fábrica sin papel para la pyme industrial: pasa las instrucciones de trabajo, los partes y las competencias del Excel y el papel al puesto, sin un proyecto pesado."
+  },
+  {
+   "id": "pagina-vs-mes-tradicional",
+   "path": "ctaFinal.texto",
+   "from": "No hace falta un proyecto de meses ni un despliegue pesado. Coge primero los puntos donde más improvisas y deja el resto para después.",
+   "to": "No hace falta un proyecto de meses ni un despliegue pesado. Coge primero las instrucciones de trabajo donde más improvisas y deja el resto para después."
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "seo.title",
+   "from": "Software SOP para industria alimentaria | REELEVO",
+   "to": "Instrucciones de trabajo para industria alimentaria | REELEVO"
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "seo.description",
+   "from": "Software SOP para industria alimentaria: estandariza procesos sensibles y mejora la trazabilidad en alimentación y la revisión interna en planta.",
+   "to": "Software de instrucciones de trabajo y SOP para industria alimentaria: estandariza procesos sensibles, gestión documental con versión vigente y trazabilidad."
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "hero.antetitulo",
+   "from": "Software SOP para industria alimentaria",
+   "to": "Instrucciones de trabajo y SOP para industria alimentaria"
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "hero.texto",
+   "from": "En una planta alimentaria un cambio de formato, una incorporación o una revisión interna no pueden depender de la memoria. REELEVO deja el proceso documentado en el puesto, con competencias visibles y más claridad para la revisión interna.",
+   "to": "En una planta alimentaria un cambio de formato, una incorporación o una revisión interna no pueden depender de la memoria. REELEVO deja la instrucción de trabajo en el puesto, con competencias visibles y más claridad para la revisión interna."
+  },
+  {
+   "id": "pagina-sectores--mecanizado-cnc",
+   "path": "seo.title",
+   "from": "Software de operaciones para mecanizado CNC | REELEVO",
+   "to": "Instrucciones de trabajo para mecanizado CNC | REELEVO"
+  },
+  {
+   "id": "pagina-sectores--mecanizado-cnc",
+   "path": "seo.description",
+   "from": "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES.",
+   "to": "Instrucciones de trabajo para mecanizado CNC: arranques, cambios de utillaje y criterios de control en el puesto, con competencias visibles y sin un MES."
+  },
+  {
+   "id": "pagina-sectores--mecanizado-cnc",
+   "path": "hero.antetitulo",
+   "from": "Software de operaciones para mecanizado CNC",
+   "to": "Instrucciones de trabajo para mecanizado CNC"
+  },
+  {
+   "id": "pagina-sectores--mecanizado-cnc",
+   "path": "hero.texto",
+   "from": "En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia visible, para sostener la continuidad sin depender de una sola persona.",
+   "to": "En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos críticos no deberían parar la operación. REELEVO deja la instrucción de trabajo en el puesto y la competencia visible, para sostener la continuidad sin depender de una sola persona."
+  },
+  {
+   "id": "pagina-para-quien--jefe-de-produccion",
+   "path": "ctaFinal.texto",
+   "from": "Entra y revísalo con tu equipo de turno: cobertura de bajas, matriz de habilidades, planificación por máquina y procesos listos en puesto.",
+   "to": "Entra y revísalo con tu equipo de turno: cobertura de bajas, matriz de habilidades, planificación por máquina y instrucciones de trabajo listas en el puesto."
+  },
+  {
+   "id": "pagina-para-quien--responsable-rrhh",
+   "path": "hero.texto",
+   "from": "Estandariza incorporaciones por puesto, baja la carga de tutoría repetitiva y gana una visión más clara de qué competencias tiene cada persona en planta.",
+   "to": "Estandariza incorporaciones por puesto con instrucciones de trabajo, baja la carga de tutoría repetitiva y gana una visión más clara de qué competencias tiene cada persona en planta."
+  },
+  {
+   "id": "pagina-para-quien--gerente-propietario",
+   "path": "ctaFinal.texto",
+   "from": "Regístrate, revisa el producto por dentro y valora si encaja con tu planta. Empezamos por procesos críticos y medimos impacto con tu realidad operativa.",
+   "to": "Regístrate, revisa el producto por dentro y valora si encaja con tu planta. Empezamos por las instrucciones de trabajo críticas y medimos impacto con tu realidad operativa."
+  },
+  {
+   "id": "pagina-onboarding-software-pymes",
+   "path": "seo.description",
+   "from": "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días.",
+   "to": "Onboarding software para pymes industriales: el nuevo sigue la instrucción de trabajo en el puesto, cubre bajas y reduce el tiempo de aprendizaje. Implantación en 2 días."
+  },
+  {
+   "id": "pagina-onboarding-software-pymes",
+   "path": "hero.texto",
+   "from": "Deja de estimar cuánto tarda un operario nuevo en ir solo: lo ves paso a paso. Cubre bajas sin llamar al experto y documenta los procedimientos en el puesto.",
+   "to": "Deja de estimar cuánto tarda un operario nuevo en ir solo: lo ves paso a paso. Cubre bajas sin llamar al experto y deja las instrucciones de trabajo en el puesto."
+  },
+  {
+   "id": "pagina-software-gestion-pyme-industrial",
+   "path": "seo.description",
+   "from": "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable.",
+   "to": "Software de gestión para pymes industriales: instrucciones de trabajo, gestión documental, producción, competencias y mantenimiento. No es un ERP contable."
+  },
+  {
+   "id": "pagina-software-gestion-pyme-industrial",
+   "path": "hero.texto",
+   "from": "Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué procedimiento y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.",
+   "to": "Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué instrucción de trabajo y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses."
+  },
+  {
+   "id": "pagina-kit-digital-pyme-industrial",
+   "path": "seo.description",
+   "from": "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar procesos, onboarding y competencias.",
+   "to": "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar instrucciones de trabajo, onboarding y competencias."
+  },
+  {
+   "id": "pagina-kit-digital-pyme-industrial",
+   "path": "hero.texto",
+   "from": "Las ayudas a la digitalización de pymes pueden ayudarte a ordenar procesos, onboarding y competencias en planta. Te contamos qué existe, qué puede cubrir y cómo encaja REELEVO.",
+   "to": "Las ayudas a la digitalización de pymes pueden ayudarte a digitalizar instrucciones de trabajo, onboarding y competencias en planta. Te contamos qué existe, qué puede cubrir y cómo encaja REELEVO."
+  },
+  {
+   "id": "pagina-modo-offline",
+   "path": "seo.description",
+   "from": "El flujo de ejecución de REELEVO aguanta los cortes de wifi de planta: lo ya abierto sigue disponible y lo registrado se encola y sincroniza solo.",
+   "to": "Las instrucciones de trabajo de REELEVO aguantan los cortes de wifi de planta: lo ya abierto sigue disponible y lo registrado se encola y sincroniza solo."
+  },
+  {
+   "id": "pagina-por-que-usar-reelevo",
+   "path": "ctaFinal.texto",
+   "from": "No hace falta ordenar la planta entera para notar la diferencia. Coge el proceso que hoy depende de una sola persona y móntalo. Si eso funciona, el resto es repetir.",
+   "to": "No hace falta ordenar la planta entera para notar la diferencia. Coge la instrucción de trabajo que hoy depende de una sola persona y móntala. Si eso funciona, el resto es repetir."
+  },
+  {
+   "id": "pagina-mantenimiento",
+   "path": "hero.texto",
+   "from": "Software de mantenimiento preventivo para pyme industrial. Hoy el plan vive en un Excel que solo abre una persona y el operario no sabe que le toca hasta que alguien se lo dice. Con REELEVO defines el plan de cada máquina una vez, las órdenes de trabajo se generan solas y aparecen en la agenda del operario junto a las de producción.",
+   "to": "Software de mantenimiento preventivo para pyme industrial. Hoy el plan vive en un Excel que solo abre una persona y el operario no sabe que le toca hasta que alguien se lo dice. Con REELEVO defines el plan de cada máquina una vez, las órdenes de trabajo se generan solas y aparecen en la agenda del operario junto a las de producción, con la instrucción de trabajo de cada intervención."
+  },
+  {
+   "id": "pagina-workflows",
+   "path": "ctaFinal.texto",
+   "from": "Coge uno que ya se hace bien y estructúralo.",
+   "to": "Coge uno que ya tenga su instrucción de trabajo y estructúralo."
+  },
+  {
+   "id": "ajustes",
+   "path": "columnasPie[_key==\"c95ef536894b\"].enlaces[_key==\"f1933b3edb3f\"].texto",
+   "from": "Documentación de procesos",
+   "to": "Instrucciones de trabajo y gestión documental"
+  },
+  {
+   "id": "ajustes",
+   "path": "columnasPie[_key==\"e63f869217dc\"].enlaces[_key==\"8129c8693f22\"].texto",
+   "from": "Comparativa de software SOP",
+   "to": "Comparativa de software de instrucciones de trabajo"
+  },
+  {
+   "id": "faq-como-accede-el-operario-al-proceso-en",
+   "path": "q",
+   "from": "¿Cómo accede el operario al proceso en el puesto?",
+   "to": "¿Cómo accede el operario a la instrucción de trabajo en el puesto?"
+  },
+  {
+   "id": "faq-como-llega-el-proceso-al-puesto-de",
+   "path": "q",
+   "from": "¿Cómo llega el proceso al puesto de trabajo?",
+   "to": "¿Cómo llega la instrucción de trabajo al puesto?"
+  },
+  {
+   "id": "faq-como-llega-el-proceso-al-puesto-de",
+   "path": "a",
+   "from": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. **Sin app que instalar, sin cuenta que crear.**\n\nTambién puede acceder buscando el proceso por nombre desde el portal si le resulta más cómodo.",
+   "to": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. **Sin app que instalar, sin cuenta que crear.**\n\nTambién puede acceder buscando la instrucción de trabajo por nombre desde el portal si le resulta más cómodo."
+  },
+  {
+   "id": "faq-los-procesos-pueden-incluir-fotos-videos-y",
+   "path": "a",
+   "from": "**Sí.** Cada paso de un procedimiento operativo puede incluir texto, **fotos** (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), **vídeos cortos** y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso.",
+   "to": "**Sí.** Cada paso de una instrucción de trabajo puede incluir texto, **fotos** (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), **vídeos cortos** y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso."
+  },
+  {
+   "id": "faq-que-criterios-importan-de-verdad-al-comparar",
+   "path": "q",
+   "from": "¿Qué criterios importan de verdad al comparar software SOP?",
+   "to": "¿Qué criterios importan de verdad al comparar software de instrucciones de trabajo?"
+  },
+  {
+   "id": "faq-que-diferencia-hay-entre-esto-y-tener",
+   "path": "q",
+   "from": "¿Qué diferencia hay entre esto y tener los SOPs en PDF?",
+   "to": "¿Qué diferencia hay entre esto y tener las instrucciones de trabajo en PDF?"
+  },
+  {
+   "id": "faq-que-diferencia-hay-entre-esto-y-tener",
+   "path": "a",
+   "from": "Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí el proceso aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta.",
+   "to": "Dónde vive el documento y si alguien lo mira. Un PDF en una carpeta compartida obliga al operario a ir a buscarlo, así que en la práctica pregunta al veterano. Aquí la instrucción de trabajo aparece en el puesto, con fotos y vídeo del paso, y con una única versión vigente para toda la planta."
+  },
+  {
+   "id": "faq-que-pasa-cuando-se-actualiza-un-procedimiento",
+   "path": "q",
+   "from": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
+   "to": "¿Qué pasa cuando se actualiza una instrucción de trabajo?"
+  },
+  {
+   "id": "faq-que-pasa-cuando-se-actualiza-un-procedimiento",
+   "path": "a",
+   "from": "Cuando un administrador actualiza un SOP, el cambio se refleja **de inmediato**. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.\n\nREELEVO mantiene el **historial de versiones** de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo.",
+   "to": "Cuando un administrador actualiza una instrucción de trabajo, el cambio se refleja **de inmediato**. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.\n\nREELEVO mantiene el **historial de versiones** de cada instrucción de trabajo para que puedas ver qué ha cambiado, quién lo cambió y cuándo. Es la base de su gestión documental, que también cubre instrucciones de PRL, de calidad y políticas con [acuse de lectura](/blog/acuse-de-lectura-instrucciones-prl/)."
+  },
+  {
+   "id": "faq-como-organizo-los-procesos-si-tengo-varias",
+   "path": "a",
+   "from": "El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: **Producción › Línea 3 › Torno CNC › Arranque** y el operario llega al proceso correcto en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas.",
+   "to": "El panel permite organizar las instrucciones de trabajo y los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: **Producción › Línea 3 › Torno CNC › Arranque** y el operario llega a la instrucción de trabajo correcta en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas."
+  },
+  {
+   "id": "articulo-onboarding-software-pymes",
+   "path": "body[_key==\"ea9ee300c3f1\"].contenido[_key==\"ec682ae9dc13\"].children[_key==\"5455e6dccc38\"].text",
+   "from": " REELEVO es un software SOP industrial con gestión de competencias para pymes. ",
+   "to": " REELEVO es un software de instrucciones de trabajo con gestión de competencias para pymes. "
+  },
+  {
+   "id": "articulo-control-de-calidad-en-excel",
+   "path": "body[_key==\"4b9b02476899\"].contenido[_key==\"97c9e44bd7dd\"].children[_key==\"e66622b0b0ca\"].text",
+   "from": "4. No hay vínculo con el procedimiento.",
+   "to": "4. No hay vínculo con la instrucción de trabajo."
+  },
+  {
+   "id": "articulo-control-de-calidad-en-excel",
+   "path": "body[_key==\"4b9b02476899\"].contenido[_key==\"97c9e44bd7dd\"].children[_key==\"3632570fc1fd\"].text",
+   "from": " La hoja dice \"cota verificada: OK\". No dice con qué versión de la instrucción se verificó, ni con qué criterio, ni si esa versión era la vigente ese día. Si la tolerancia cambió en abril, no hay forma de saber contra qué se comparó en marzo.",
+   "to": " La hoja dice \"cota verificada: OK\". No dice con qué versión de la instrucción de trabajo se verificó, ni con qué criterio, ni si esa versión era la vigente ese día. Si la tolerancia cambió en abril, no hay forma de saber contra qué se comparó en marzo."
+  },
+  {
+   "id": "articulo-control-de-calidad-en-excel",
+   "path": "body[_key==\"5f9a40b98e05\"].children[_key==\"b4365b862e8e\"].text",
+   "from": " Cada registro va ligado a la versión del procedimiento vigente en ese momento, que es la columna que a Excel le falta y la que hace posible responder preguntas de hace ocho meses.",
+   "to": " Cada registro va ligado a la versión de la instrucción de trabajo vigente en ese momento, que es la columna que a Excel le falta y la que hace posible responder preguntas de hace ocho meses."
+  },
+  {
+   "id": "articulo-crisis-perdida-conocimiento-planta-industrial",
+   "path": "body[_key==\"942fe23975fa\"].children[_key==\"e996781b2282\"].text",
+   "from": " Los procedimientos no pueden ser estáticos. Necesitan un mecanismo para que los operarios reporten problemas, propongan mejoras y reciban validación del supervisor. Así el conocimiento mejora con cada turno en lugar de degradarse.",
+   "to": " Las instrucciones de trabajo no pueden ser estáticas. Necesitan un mecanismo para que los operarios reporten problemas, propongan mejoras y reciban validación del supervisor. Así el conocimiento mejora con cada turno en lugar de degradarse."
+  },
+  {
+   "id": "articulo-crisis-perdida-conocimiento-planta-industrial",
+   "path": "body[_key==\"4d8ae6d58e2c\"].children[_key==\"7bb4d84851a1\"].text",
+   "from": "El formato que mejor aguanta este uso es el procedimiento estructurado por pasos. Si todavía no tienes ninguno escrito, empieza por ",
+   "to": "El formato que mejor aguanta este uso es la instrucción de trabajo estructurada por pasos, con su gestión documental: una sola versión vigente y un responsable de mantenerla. Si todavía no tienes ninguno escrito, empieza por "
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "body[_key==\"1c988ae023b2\"].children[_key==\"547c74f55189\"].text",
+   "from": " Un procedimiento imperfecto pero real es infinitamente más útil que un manual perfecto que nadie consulta.",
+   "to": " Una instrucción de trabajo imperfecta pero real es infinitamente más útil que un manual perfecto que nadie consulta."
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "body[_key==\"84e99eabf1aa\"].children[_key==\"55cf131f0f30\"].text",
+   "from": "La accesibilidad es lo que determina si los procedimientos se usan o se ignoran.",
+   "to": "La accesibilidad es lo que determina si las instrucciones de trabajo se usan o se ignoran."
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "body[_key==\"1f2c3e064b2e\"].children[_key==\"30ccad3c4779\"].text",
+   "from": "Un operario que NO domina el proceso sigue los procedimientos documentados.",
+   "to": "Un operario que NO domina el proceso sigue las instrucciones de trabajo documentadas."
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "body[_key==\"dece4974a26a\"].children[_key==\"1f86673caf12\"].text",
+   "from": "Se actualizan los procedimientos con las correcciones.",
+   "to": "Se actualizan las instrucciones de trabajo con las correcciones."
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "body[_key==\"ff735a0fd6a6\"].contenido[_key==\"184165407031\"].children[_key==\"3c407e54ac69\"].text",
+   "from": " es un software de instrucciones de trabajo digitales para pymes industriales que ayuda a capturar procedimientos operativos paso a paso y a dejarlos accesibles directamente en cada máquina para cualquier sustituto. Sin manuales de 40 páginas ni carpetas difíciles de consultar en planta.",
+   "to": " es un software de instrucciones de trabajo digitales para pymes industriales que ayuda a capturar instrucciones de trabajo paso a paso y a dejarlas accesibles directamente en cada máquina para cualquier sustituto. Sin manuales de 40 páginas ni carpetas difíciles de consultar en planta."
+  },
+  {
+   "id": "articulo-errores-humanos-produccion",
+   "path": "body[_key==\"38d16effe207\"].contenido[_key==\"a1633da2e888\"].children[_key==\"adf8f6bc2cc6\"].text",
+   "from": " Que la instrucción vigente esté en el puesto, en el momento, sin ir a buscarla. Ataca de lleno el error por desconocimiento y buena parte del despiste, porque sustituye memoria por consulta. Es lo que más recorrido tiene en una pyme y lo que menos cuesta implantar.",
+   "to": " Que la instrucción de trabajo vigente esté en el puesto, en el momento, sin ir a buscarla. Ataca de lleno el error por desconocimiento y buena parte del despiste, porque sustituye memoria por consulta. Es lo que más recorrido tiene en una pyme y lo que menos cuesta implantar."
+  },
+  {
+   "id": "articulo-errores-humanos-produccion",
+   "path": "body[_key==\"eba11adf36b0\"].children[_key==\"dc4532327206\"].text",
+   "from": " El pedido especial, la muestra para el cliente, el retrabajo. No hay procedimiento porque \"es una excepción\", y las excepciones son entre el 5 y el 15% de la producción de cualquier taller.",
+   "to": " El pedido especial, la muestra para el cliente, el retrabajo. No hay instrucción de trabajo porque \"es una excepción\", y las excepciones son entre el 5 y el 15% de la producción de cualquier taller."
+  },
+  {
+   "id": "articulo-coste-absentismo-pymes-industriales",
+   "path": "body[_key==\"10268dd38351\"].children[_key==\"6487b81d1763\"].text",
+   "from": "Un sustituto sin instrucciones claras improvisa. Eso genera defectos de calidad, reprocesos y, en el peor caso, incidencias de seguridad. Los errores en los primeros días de un operario sustituto son ",
+   "to": "Un sustituto sin instrucciones de trabajo claras improvisa. Eso genera defectos de calidad, reprocesos y, en el peor caso, incidencias de seguridad. Los errores en los primeros días de un operario sustituto son "
+  },
+  {
+   "id": "articulo-coste-absentismo-pymes-industriales",
+   "path": "body[_key==\"61bab1b5c6ad\"].children[_key==\"ac23c95966c7\"].text",
+   "from": " — no en manuales de 50 páginas que nadie lee, sino en procedimientos operativos paso a paso accesibles en el puesto de trabajo.",
+   "to": " — no en manuales de 50 páginas que nadie lee, sino en instrucciones de trabajo paso a paso accesibles en el puesto de trabajo."
+  },
+  {
+   "id": "articulo-coste-absentismo-pymes-industriales",
+   "path": "body[_key==\"f3528be50192\"].children[_key==\"28f09c9d329a\"].text",
+   "from": "Han hecho que los SOPs estén disponibles donde se necesitan",
+   "to": "Han hecho que las instrucciones de trabajo estén disponibles donde se necesitan"
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "body[_key==\"bca33ea39b3c\"].children[_key==\"f6386d8e3964\"].text",
+   "from": " Un procedimiento que exige quince minutos donde de verdad hacen falta veinticinco no se cumple: se rodea. Es el origen del ",
+   "to": " Una instrucción de trabajo que exige quince minutos donde de verdad hacen falta veinticinco no se cumple: se rodea. Es el origen del "
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "body[_key==\"4992a51701f5\"].children[_key==\"97836ecc1618\"].text",
+   "from": " Si el resultado del primer análisis es arreglar la instrucción de una operación que todos odian, el sistema se gana la credibilidad que necesita para durar.",
+   "to": " Si el resultado del primer análisis es arreglar la instrucción de trabajo de una operación que todos odian, el sistema se gana la credibilidad que necesita para durar."
+  },
+  {
+   "id": "articulo-onboarding-software-pymes",
+   "path": "body[_key==\"5aeff4714c9e\"].contenido[_key==\"8a11aa12a47c\"].children[_key==\"73a769b33caa\"].text",
+   "from": " Un onboarding software ordena la incorporación de operarios llevando el proceso documentado al puesto y registrando qué sabe hacer cada persona. En una pyme industrial lo que decide la compra no es el tamaño de la plantilla, sino la rotación y cuántas horas de tu mejor operario se van en tutorizar. Un software de RRHH genérico cubre el papeleo del alta, no la incorporación al puesto.",
+   "to": " Un onboarding software ordena la incorporación de operarios llevando la instrucción de trabajo al puesto y registrando qué sabe hacer cada persona. En una pyme industrial lo que decide la compra no es el tamaño de la plantilla, sino la rotación y cuántas horas de tu mejor operario se van en tutorizar. Un software de RRHH genérico cubre el papeleo del alta, no la incorporación al puesto."
+  },
+  {
+   "id": "articulo-plan-contingencia-bajas-produccion",
+   "path": "body[_key==\"ec1a58428d26\"].children[_key==\"a2531d7f6735\"].text",
+   "from": "Con el mapa de competencias y los procesos documentados, cubrir una baja se vuelve un procedimiento, no una emergencia: la matriz te dice quién puede cubrir, y el proceso en el puesto le da al sustituto el cómo. El responsable reorganiza el turno antes de que la línea pare, no después. Lo ves aplicado en ",
+   "to": "Con el mapa de competencias y las instrucciones de trabajo de cada puesto, cubrir una baja se vuelve un procedimiento, no una emergencia: la matriz te dice quién puede cubrir, y la instrucción de trabajo en el puesto le da al sustituto el cómo. El responsable reorganiza el turno antes de que la línea pare, no después. Lo ves aplicado en "
+  },
+  {
+   "id": "articulo-preparar-auditoria-iso-9001-produccion",
+   "path": "description",
+   "from": "Qué mira un auditor ISO 9001 en planta, los cinco hallazgos más habituales en producción y cómo llegar con la información documentada en orden.",
+   "to": "Qué mira un auditor ISO 9001 en planta, los cinco hallazgos más habituales en producción y cómo llegar con la gestión documental y las instrucciones de trabajo en orden."
+  },
+  {
+   "id": "articulo-preparar-auditoria-iso-9001-produccion",
+   "path": "body[_key==\"3fb7b4457d80\"].contenido[_key==\"028a101fa907\"].children[_key==\"3f8f2c1e20db\"].text",
+   "from": "5. El procedimiento que no describe la realidad.",
+   "to": "5. La instrucción de trabajo que no describe la realidad."
+  },
+  {
+   "id": "articulo-preparar-auditoria-iso-9001-produccion",
+   "path": "body[_key==\"276b2f110b40\"].children[_key==\"905a1e720d96\"].text",
+   "from": " Con una hoja, puesto por puesto: ¿qué documentación hay aquí?, ¿es la vigente?, ¿coincide con lo que me cuenta quien trabaja aquí? Este recorrido, hecho de verdad, encuentra más que cualquier revisión documental.",
+   "to": " Con una hoja, puesto por puesto: ¿qué instrucciones de trabajo hay aquí?, ¿es la versión vigente?, ¿coincide con lo que me cuenta quien trabaja aquí? Este recorrido, hecho de verdad, encuentra más que cualquier revisión documental."
+  },
+  {
+   "id": "articulo-software-sop-para-fabricas-comparativa",
+   "path": "body[_key==\"758cc3abd9fe\"].children[_key==\"5e3cb0f9a77b\"].text",
+   "from": "Un software SOP industrial —o, en su versión más operativa, un software de instrucciones de trabajo digitales— sirve para que el conocimiento de cómo se hacen las cosas deje de vivir solo en la cabeza de unas pocas personas. Documenta procesos, los deja accesibles en el puesto y permite que un operario nuevo o un sustituto siga la referencia sin depender de una llamada al experto. Si todavía no tienes claro qué debe contener cada procedimiento, empieza por ",
+   "to": "Un software SOP industrial —o, en su versión más operativa, un software de instrucciones de trabajo digitales— sirve para que el conocimiento de cómo se hacen las cosas deje de vivir solo en la cabeza de unas pocas personas. Convierte los procesos en instrucciones de trabajo, las deja accesibles en el puesto con su gestión documental y permite que un operario nuevo o un sustituto siga la referencia sin depender de una llamada al experto. Si todavía no tienes claro qué debe contener cada procedimiento, empieza por "
+  },
+  {
+   "id": "articulo-plantilla-sop-produccion",
+   "path": "body[_key==\"87258633db7b\"].children[_key==\"433572eb8992\"].text",
+   "from": "La plantilla es el punto de partida. El salto de valor llega cuando ese SOP deja de ser un archivo y pasa a estar accesible en la máquina —por ejemplo, con un QR— para que el operario lo consulte cuando lo necesita y lo mejore cuando descubre algo. Así se mantiene vivo. Puedes ver cómo funciona en ",
+   "to": "La plantilla es el punto de partida. El salto de valor llega cuando ese SOP deja de ser un archivo y pasa a ser una instrucción de trabajo digital accesible en la máquina —por ejemplo, con un QR— para que el operario lo consulte cuando lo necesita y lo mejore cuando descubre algo. Así se mantiene vivo. Puedes ver cómo funciona en "
+  },
+  {
+   "id": "articulo-programa-de-mantenimiento-preventivo",
+   "path": "body[_key==\"371ae470d50d\"].children[_key==\"971e81a88c45\"].text",
+   "from": "Cuando el mantenimiento preventivo falla en una pyme, casi nunca es porque falte una instrucción bien escrita para una máquina en concreto. Falla porque nadie tiene la vista de conjunto: qué máquinas están cubiertas, cuáles se han quedado fuera, si las frecuencias se cumplen y quién debería estar dando la cara si no se cumplen. Eso es exactamente lo que resuelve un programa, y es distinto de resolver una tarea.",
+   "to": "Cuando el mantenimiento preventivo falla en una pyme, casi nunca es porque falte una instrucción de trabajo bien escrita para una máquina en concreto. Falla porque nadie tiene la vista de conjunto: qué máquinas están cubiertas, cuáles se han quedado fuera, si las frecuencias se cumplen y quién debería estar dando la cara si no se cumplen. Eso es exactamente lo que resuelve un programa, y es distinto de resolver una tarea."
+  },
+  {
+   "id": "articulo-reducir-onboarding-operarios-cinco-a-un-dia",
+   "path": "body[_key==\"422a7c2d691d\"].contenido[_key==\"c484b67389e9\"].children[_key==\"cdc2d05ec2ff\"].text",
+   "from": " El onboarding tradicional depende del tutor y es lento. Con el proceso accesible en el puesto y una matriz de competencias clara, el objetivo es acortar la curva de autonomía del operario nuevo sin saturar a tu mejor operario. No es magia: es método.",
+   "to": " El onboarding tradicional depende del tutor y es lento. Con la instrucción de trabajo accesible en el puesto y una matriz de competencias clara, el objetivo es acortar la curva de autonomía del operario nuevo sin saturar a tu mejor operario. No es magia: es método."
+  },
+  {
+   "id": "articulo-reducir-onboarding-operarios-cinco-a-un-dia",
+   "path": "body[_key==\"9158a6b898de\"].children[_key==\"692796117137\"].text",
+   "from": "El proceso en el puesto como acelerador",
+   "to": "La instrucción de trabajo en el puesto como acelerador"
+  },
+  {
+   "id": "articulo-reducir-onboarding-operarios-cinco-a-un-dia",
+   "path": "body[_key==\"83ce59a547eb\"].children[_key==\"b2a283b6fcbd\"].text",
+   "from": "El proceso en el puesto como acelerador",
+   "to": "La instrucción de trabajo en el puesto como acelerador"
+  },
+  {
+   "id": "articulo-sop-mantenimiento-preventivo-guia-plantilla",
+   "path": "body[_key==\"8ac5b32fc33d\"].children[_key==\"91c5be52ee63\"].text",
+   "from": "Sí, es el mismo documento con distinto nombre. Manual, SOP y procedimiento describen el mismo contenido: qué tarea, dónde, cómo, cada cuánto y quién la ejecuta. La palabra cambia según el sector o la persona, no lo que hay que documentar.",
+   "to": "Sí, es el mismo documento con distinto nombre. Manual, SOP, procedimiento o instrucción de trabajo describen el mismo contenido: qué tarea, dónde, cómo, cada cuánto y quién la ejecuta. La palabra cambia según el sector o la persona, no lo que hay que documentar."
+  },
+  {
+   "id": "articulo-sop-mantenimiento-preventivo-guia-plantilla",
+   "path": "faqs[_key==\"bcaf015983d3\"].a",
+   "from": "Sí, es el mismo documento con distinto nombre. Manual, SOP y procedimiento describen el mismo contenido: qué tarea, dónde, cómo, cada cuánto y quién la ejecuta. La palabra cambia según el sector o la persona, no lo que hay que documentar.",
+   "to": "Sí, es el mismo documento con distinto nombre. Manual, SOP, procedimiento o instrucción de trabajo describen el mismo contenido: qué tarea, dónde, cómo, cada cuánto y quién la ejecuta. La palabra cambia según el sector o la persona, no lo que hay que documentar."
+  },
+  {
+   "id": "articulo-acuse-de-lectura-instrucciones-prl",
+   "path": "body[_key==\"cc66f8532e35\"].children[_key==\"ad8555abbed4\"].text",
+   "from": "En casi todas las fábricas, las instrucciones de trabajo, los procedimientos de calidad y las fichas de prevención se comunican de una forma parecida: se imprime el documento, se explica en una reunión o en el puesto, y se pasa una hoja para que firmen los asistentes. La hoja va a una carpeta. Mientras no pasa nada, el sistema parece funcionar.",
+   "to": "En casi todas las fábricas, las instrucciones de trabajo, los procedimientos de calidad y las fichas de prevención funcionan, en su gestión documental, de una forma parecida: se imprime el documento, se explica en una reunión o en el puesto, y se pasa una hoja para que firmen los asistentes. La hoja va a una carpeta. Mientras no pasa nada, el sistema parece funcionar."
+  },
+  {
+   "id": "articulo-acuse-de-lectura-instrucciones-prl",
+   "path": "body[_key==\"ea577636da62\"].children[_key==\"b7ccf78833e2\"].text",
+   "from": ", la copia plastificada de hace dos versiones, visto desde el lado de las personas: el documento está controlado en la oficina y fuera de control en la planta.",
+   "to": ", la copia plastificada de hace dos versiones, visto desde el lado de las personas: la gestión documental funciona en la oficina y no llega a la planta."
+  },
+  {
+   "id": "articulo-acuse-de-lectura-instrucciones-prl",
+   "path": "body[_key==\"78c1c2257086\"].children[_key==\"0c40085bccd6\"].text",
+   "from": "Como software de instrucciones de trabajo digitales, REELEVO gestiona en el mismo sitio las instrucciones de producción, prevención, calidad y políticas generales, con o sin máquina asociada, y registra la evidencia en el propio flujo de trabajo:",
+   "to": "Como software de instrucciones de trabajo digitales, REELEVO lleva en la misma gestión documental las instrucciones de trabajo de producción, las de prevención, las de calidad y las políticas generales, con o sin máquina asociada, y registra la evidencia en el propio flujo de trabajo:"
+  },
+  {
+   "id": "articulo-como-digitalizar-instrucciones-de-trabajo",
+   "path": "description",
+   "from": "Método en 12 pasos para llevar las instrucciones de trabajo del papel o el PDF al puesto: qué hacer en cada paso y cómo se hace en REELEVO, con capturas.",
+   "to": "Método en 12 pasos y cuatro semanas para llevar las instrucciones de trabajo del papel o el PDF al puesto: qué hacer en cada paso y cómo se hace en REELEVO."
+  },
+  {
+   "id": "articulo-acuse-de-lectura-instrucciones-prl",
+   "path": "category",
+   "from": "Documentación de procesos",
+   "to": "Gestión documental"
+  },
+  {
+   "id": "home",
+   "path": "recorrido.pasos[_key==\"ad83a6a885a1\"].enlace.texto",
+   "from": "Documentación de procesos",
+   "to": "Instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-gestion-competencias",
+   "path": "ctaFinal.botones[_key==\"75da282a0127\"].texto",
+   "from": "Ver documentación de procesos →",
+   "to": "Ver instrucciones de trabajo →"
+  },
+  {
+   "id": "pagina-kaizen",
+   "path": "ctaFinal.botones[_key==\"75da282a0127\"].texto",
+   "from": "Ver documentación de procesos →",
+   "to": "Ver instrucciones de trabajo →"
+  }
+ ],
+ "insertar": [
+  {
+   "id": "articulo-como-digitalizar-instrucciones-de-trabajo",
+   "insertAfter": "body[_key==\"713b182300fb\"]",
+   "rev": "GKkIZOaLTGFZeRI97WxEvV",
+   "items": [
+    {
+     "_key": "7984b0a0e139",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Hacen falta tres personas y unas horas a la semana, no dedicación completa: quien coordina (calidad, ingeniería o el jefe de producción), el operario experto de cada proceso y un operario con menos experiencia que haga de probador en el paso 9. El objetivo realista del primer mes no es el archivo entero, sino entre tres y cinco instrucciones de trabajo críticas en el puesto, validadas y con un primer dato de errores."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}

@@ -1,13 +1,13 @@
 {
   "seo": {
     "title": "Software de gestión para pyme industrial | REELEVO",
-    "description": "Software de gestión para pymes industriales: producción, competencias, mantenimiento y procesos de planta. No es un ERP contable."
+    "description": "Software de gestión para pymes industriales: instrucciones de trabajo, gestión documental, producción, competencias y mantenimiento. No es un ERP contable."
   },
   "hero": {
     "antetitulo": "Software de gestión para pyme industrial",
     "titulo": "El software de gestión",
     "tituloDestacado": "que vive en la planta, no en la oficina",
-    "texto": "Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué procedimiento y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.",
+    "texto": "Cuando una pyme industrial busca «software de gestión» encuentra ERPs horizontales pensados para administración. REELEVO gestiona lo otro: quién produce qué, con qué instrucción de trabajo y con qué formación. No es contabilidad ni facturación —eso es un ERP, y se conecta con él por API— y no te obliga a un proyecto MES de meses.",
     "botones": [
       {
         "texto": "Registrarme en REELEVO",

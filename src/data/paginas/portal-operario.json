@@ -1,13 +1,13 @@
 {
   "seo": {
-    "title": "Portal del operario: procesos y agenda en el móvil | REELEVO",
-    "description": "El operario ve su agenda del día, accede a sus procesos y sigue su progreso de formación desde el móvil. Sin instalación ni formación previa."
+    "title": "Portal del operario: instrucciones de trabajo en el móvil | REELEVO",
+    "description": "El operario ve su agenda del día, abre sus instrucciones de trabajo, lee y acepta las pendientes y sigue su formación desde el móvil. Sin instalación."
   },
   "hero": {
     "antetitulo": "Portal del operario industrial",
     "titulo": "El operario no necesita",
     "tituloDestacado": "que nadie le diga qué toca hoy",
-    "texto": "Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus procesos en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas.",
+    "texto": "Un operario sin contexto depende siempre del encargado: pregunta qué toca, espera a que alguien tenga un rato y trabaja sin saber si va bien. Con REELEVO su agenda está en el móvil, sus instrucciones de trabajo en el QR y su progreso a la vista. Sin formación previa y sin contraseñas complicadas.",
     "botones": [
       {
         "texto": "Registrarme en REELEVO",

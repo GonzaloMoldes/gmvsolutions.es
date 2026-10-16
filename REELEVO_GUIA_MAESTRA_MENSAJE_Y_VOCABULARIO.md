@@ -6,6 +6,22 @@
 
 ---
 
+> ## ⚠️ Actualización 2026-10-16 — cambio de keyword principal
+>
+> Esta actualización **prevalece** sobre cualquier mención a `software SOP industrial` como categoría principal en el resto del documento.
+>
+> 1. **Keyword principal de marca: `instrucciones de trabajo`.** Es la que mejor define a REELEVO. Se usa siempre que encaje de forma natural, en todas las páginas: title, meta description, H1 o eyebrow, primer párrafo, anchors internos y alt de capturas. Variantes: `instrucción de trabajo`, `instrucciones de trabajo digitales`, `software de instrucciones de trabajo`.
+> 2. **`SOP` pasa a ser secundaria**, junto a la principal (`instrucciones de trabajo y SOP`). Se mantiene como principal solo en las piezas cuya búsqueda es SOP: `/blog/que-es-un-sop-industrial/`, `/blog/plantilla-sop-produccion/`, `/blog/software-sop-para-fabricas-comparativa/` y el SOP de mantenimiento.
+> 3. **Keyword central para PRL, calidad y casos de volumen documental: `gestión documental`.** `/blog/gestion-instrucciones-prl-e-it/`, `/blog/acuse-de-lectura-instrucciones-prl/`, `/calidad-y-conformidad/`, `/para-quien/responsable-calidad/` y la sección de gestión documental de `/documentacion-procesos/`.
+> 4. **Sustituciones habituales:** «el proceso en el puesto» → «la instrucción de trabajo en el puesto»; «el SOP» (como objeto que abre el operario) → «la instrucción de trabajo»; «documentación de procesos» (como nombre del módulo) → «instrucciones de trabajo» o «instrucciones de trabajo y gestión documental». La URL `/documentacion-procesos/` no cambia.
+> 5. **Límite:** sin keyword stuffing (ver regla del punto 6.B de `REELEVO-posicionamiento-vs-Mapex-Azumuta.md`). No se sustituye «proceso» cuando se habla del proceso productivo en sí (producción, OEE, tiempos), ni dentro de testimonios o citas.
+>
+> 6. **Dónde se cambia:** los títulos, descripciones, cabeceras, FAQ y el blog viven en Sanity (`/admin/`); el código solo guarda las secciones intermedias y los textos de respaldo (`src/data/`). Los cambios masivos se preparan como fichero en `scripts/sanity/` y se aplican con `scripts/sanity/aplicar-cambios.mjs`, que no pisa lo editado en el panel.
+>
+> **Frase canónica actualizada:** REELEVO es un software de instrucciones de trabajo para pymes industriales que lleva la instrucción correcta al puesto, reduce la dependencia de personas clave y deja evidencia de lo que se ejecuta.
+
+---
+
 ## 1. La idea central
 
 REELEVO es un **software SOP industrial para pymes**, pero comercialmente no debe explicarse solo como documentacion.
@@ -651,7 +667,7 @@ Cuando haya prueba social, priorizar:
 
 Si solo hubiera que recordar 5 reglas, serian estas:
 
-1. Decir siempre `software SOP industrial` antes que inventar una categoria nueva.
+1. Decir siempre `instrucciones de trabajo` (y `software SOP industrial` como secundaria) antes que inventar una categoria nueva. Ver la actualizacion de 2026-10-16 al principio.
 2. Traducir funcionalidades en consecuencias operativas.
 3. Evitar claims absolutos, garantias y cifras dudosas.
 4. Usar siempre el espanol claro antes que el anglicismo.

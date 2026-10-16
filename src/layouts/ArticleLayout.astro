@@ -514,8 +514,11 @@ const mergedSchema = [articleSchema, ...extraSchema];
     border-top: 1px solid var(--border);
   }
 
+  /* Incluye el caso de cuatro tarjetas: su regla :has() es mas especifica y,
+     sin repetirla aqui, mantenia dos columnas en movil y desbordaba la pagina. */
   @media (max-width: 900px) {
-    .article-body :global(.related-links-grid) {
+    .article-body :global(.related-links-grid),
+    .article-body :global(.related-links-grid:has(> :nth-child(4))) {
       grid-template-columns: 1fr;
     }
   }

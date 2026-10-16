@@ -34,8 +34,8 @@
       "preguntas": [
         {
           "id": "faq-como-llega-el-proceso-al-puesto-de",
-          "q": "¿Cómo llega el proceso al puesto de trabajo?",
-          "a": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. **Sin app que instalar, sin cuenta que crear.**\n\nTambién puede acceder buscando el proceso por nombre desde el portal si le resulta más cómodo."
+          "q": "¿Cómo llega la instrucción de trabajo al puesto?",
+          "a": "Cada proceso queda disponible directamente en el puesto de trabajo. El operario entra desde el acceso del puesto, introduce el código de empresa y ve qué tiene que hacer al instante. **Sin app que instalar, sin cuenta que crear.**\n\nTambién puede acceder buscando la instrucción de trabajo por nombre desde el portal si le resulta más cómodo."
         },
         {
           "id": "faq-en-que-dispositivos-funciona-reelevo-necesita-una",
@@ -60,12 +60,12 @@
         {
           "id": "faq-los-procesos-pueden-incluir-fotos-videos-y",
           "q": "¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?",
-          "a": "**Sí.** Cada paso de un procedimiento operativo puede incluir texto, **fotos** (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), **vídeos cortos** y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso."
+          "a": "**Sí.** Cada paso de una instrucción de trabajo puede incluir texto, **fotos** (por ejemplo, la posición correcta de una herramienta o el aspecto de una pieza buena), **vídeos cortos** y archivos adjuntos. En la industria muchos procesos se entienden mejor con una imagen que con cien palabras, y REELEVO está pensado para eso."
         },
         {
           "id": "faq-como-organizo-los-procesos-si-tengo-varias",
           "q": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
-          "a": "El panel permite organizar los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: **Producción › Línea 3 › Torno CNC › Arranque** y el operario llega al proceso correcto en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas."
+          "a": "El panel permite organizar las instrucciones de trabajo y los SOPs por planta, sección, línea y máquina. Puedes estructurarlo como: **Producción › Línea 3 › Torno CNC › Arranque** y el operario llega a la instrucción de trabajo correcta en dos toques. Así cada puesto encuentra lo que necesita sin búsquedas largas."
         },
         {
           "id": "faq-se-puede-usar-con-operarios-que-no",
@@ -84,8 +84,8 @@
         },
         {
           "id": "faq-que-pasa-cuando-se-actualiza-un-procedimiento",
-          "q": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
-          "a": "Cuando un administrador actualiza un SOP, el cambio se refleja **de inmediato**. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.\n\nREELEVO mantiene el **historial de versiones** de cada procedimiento para que puedas ver qué ha cambiado, quién lo cambió y cuándo."
+          "q": "¿Qué pasa cuando se actualiza una instrucción de trabajo?",
+          "a": "Cuando un administrador actualiza una instrucción de trabajo, el cambio se refleja **de inmediato**. La próxima vez que el operario acceda al proceso verá la versión más reciente. No hay que redistribuir documentos ni actualizar archivos en distintos ordenadores.\n\nREELEVO mantiene el **historial de versiones** de cada instrucción de trabajo para que puedas ver qué ha cambiado, quién lo cambió y cuándo. Es la base de su gestión documental, que también cubre instrucciones de PRL, de calidad y políticas con [acuse de lectura](/blog/acuse-de-lectura-instrucciones-prl/)."
         },
         {
           "id": "faq-que-pasa-si-el-operario-experto-no",
