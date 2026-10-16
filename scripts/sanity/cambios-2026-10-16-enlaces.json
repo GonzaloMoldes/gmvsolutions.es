@@ -1,0 +1,87 @@
+{
+ "fecha": "2026-10-16",
+ "descripcion": "Enlaces internos a las comparativas una a una desde el articulo de software SOP.",
+ "crear": [],
+ "cambios": [],
+ "insertar": [
+  {
+   "id": "articulo-software-sop-para-fabricas-comparativa",
+   "rev": "izTxq0ghp67TRuiuzCQb3b",
+   "insertAfter": "body[_key==\"544787945354\"]",
+   "items": [
+    {
+     "_key": "35c0ba310bf1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Si ya tienes candidatos concretos, las comparativas una a una de software de instrucciones de trabajo están en "
+      },
+      {
+       "_key": "3d81ef27eba9",
+       "_type": "span",
+       "marks": [
+        "7984b0a0e139"
+       ],
+       "text": "Dozuki vs REELEVO"
+      },
+      {
+       "_key": "def03a29bf06",
+       "_type": "span",
+       "marks": [],
+       "text": ", "
+      },
+      {
+       "_key": "740f5849a5ca",
+       "_type": "span",
+       "marks": [
+        "30a9640853b1"
+       ],
+       "text": "GembaDocs vs REELEVO"
+      },
+      {
+       "_key": "39a28d38b27d",
+       "_type": "span",
+       "marks": [],
+       "text": " y "
+      },
+      {
+       "_key": "413eb32104d6",
+       "_type": "span",
+       "marks": [
+        "565e8bd101bd"
+       ],
+       "text": "Knowby vs REELEVO"
+      },
+      {
+       "_key": "68ce583f0ebf",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "7984b0a0e139",
+       "_type": "link",
+       "href": "/vs-dozuki/"
+      },
+      {
+       "_key": "30a9640853b1",
+       "_type": "link",
+       "href": "/vs-gembadocs/"
+      },
+      {
+       "_key": "565e8bd101bd",
+       "_type": "link",
+       "href": "/vs-knowby/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}
