@@ -255,8 +255,13 @@ export function breadcrumbItems(pathname: string, baseURL = BASE_URL, seccion?: 
  * Devuelve null en la home.
  */
 export function buildBreadcrumb(pathname: string, baseURL = BASE_URL, seccion?: SeccionMiga) {
-  const items = breadcrumbItems(pathname, baseURL, seccion);
-  if (!items) return null;
+  const todos = breadcrumbItems(pathname, baseURL, seccion);
+  if (!todos) return null;
+  // Google exige `item` en todos los elementos menos el ultimo. Las secciones sin
+  // pagina propia (para-quien, casos-de-uso, sectores, legal) no tienen URL: se
+  // muestran como texto en la miga visible, pero se dejan fuera del JSON-LD.
+  // Antes se emitian sin `item` y Search Console las marcaba como problema critico.
+  const items = todos.filter((item, index) => item.url || index === todos.length - 1);
 
   return {
     '@context': 'https://schema.org',
