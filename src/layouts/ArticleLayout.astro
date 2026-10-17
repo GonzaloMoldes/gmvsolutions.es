@@ -63,7 +63,8 @@ const author = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: title,
+  // Los validadores avisan por encima de 110 caracteres: si el H1 es mas largo, el titulo SEO.
+  headline: title.length > 110 && seoTitle ? seoTitle : title,
   description,
   datePublished: date,
   dateModified: dateModified ?? date,
