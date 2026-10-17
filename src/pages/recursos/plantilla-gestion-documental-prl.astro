@@ -1,0 +1,165 @@
+---
+// Recurso descargable: plantilla Excel de gestion documental de PRL e IT.
+// El archivo se genera con scripts/descargables/generar-plantilla-prl.py y se
+// entrega con la descarga con cuenta lead (data-descarga + <DescargaConCuenta />).
+// Se lista en /recursos/ desde src/lib/recursos.ts (fecha de publicacion alli).
+//
+// PRUDENCIA: la plantilla no se importa en REELEVO; no prometerlo. Normativa
+// parafraseada, no asesoramiento juridico. Datos de ejemplo ficticios.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Screenshot from '../../components/Screenshot.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import DescargaConCuenta from '../../components/DescargaConCuenta.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
+
+const title = "Plantilla Excel de gestión documental de PRL | REELEVO";
+const description = "Plantilla Excel gratuita para la gestión documental de PRL e instrucciones de trabajo: versión vigente, acuses, pendientes y caducidades de cada trabajador.";
+const canonical = "https://www.gmvsolutions.es/recursos/plantilla-gestion-documental-prl/";
+
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué controla esta plantilla de gestión documental de PRL?',
+    a: 'Para cada trabajador y cada instrucción de prevención, de trabajo, de calidad o política: si ha aceptado la versión vigente, si está pendiente, si su reciclaje ha caducado o va a caducar en los próximos 30 días, o si la instrucción no le afecta.',
+  },
+  {
+    q: '¿Tengo que rellenar la matriz a mano?',
+    a: 'No. Rellenas tres hojas: Instrucciones, Trabajadores y Acuses (una fila cada vez que alguien acepta una versión). La matriz y el resumen se calculan solos a partir de ellas.',
+  },
+  {
+    q: '¿Qué pasa cuando cambio la versión de una instrucción?',
+    a: 'Subes el número de versión en la hoja Instrucciones y todos los que la tenían aceptada pasan solos a «Pendiente» hasta que registres su nuevo acuse. Los acuses anteriores se quedan como histórico.',
+  },
+  {
+    q: '¿Sirve para controlar la formación de PRL del personal de ETT?',
+    a: 'Sí. Cada trabajador tiene una columna ETT y el resumen cuenta el personal de ETT activo. Para las incorporaciones, basta con darlas de alta en Trabajadores: la matriz les marca como pendientes todas las instrucciones que afectan a su puesto.',
+  },
+  {
+    q: '¿Funciona en Excel y en Google Sheets?',
+    a: 'Está hecha para Excel 2019 o posterior y Microsoft 365. También se abre en LibreOffice y en Google Sheets, aunque el formato condicional puede verse algo distinto.',
+  },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "DigitalDocument",
+    "name": "Plantilla de gestión documental de PRL e instrucciones de trabajo",
+    "description": description,
+    "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "inLanguage": "es-ES",
+    "isAccessibleForFree": true,
+    "datePublished": "2026-10-17",
+    "url": canonical,
+    "publisher": { "@id": "https://www.gmvsolutions.es/#organization" }
+  },
+  faqPageSchema(faqs),
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="recursos" pageType="recurso">
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Plantilla Excel gratuita</div>
+    <h1 class="fade-up delay-1">Plantilla de gestión documental <br><em>de PRL e instrucciones de trabajo</em></h1>
+    <p class="fade-up delay-2">Saber, para cada trabajador, qué versión de cada instrucción de prevención y de trabajo conoce, qué tiene pendiente y qué caduca. Rellenas tres hojas y la matriz de pendientes se calcula sola.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href={canonical} class="btn-primary" data-descarga="plantilla-gestion-documental-prl"
+         data-cta data-cta-intent="descarga" data-cta-location="hero" data-cta-label="Descargar la plantilla">Descargar la plantilla</a>
+    </div>
+    <p class="hero-note fade-up delay-3">Excel · Gratis · Con datos de ejemplo para ver cómo funciona</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Qué incluye</div>
+        <h2 class="section-title">Cinco hojas, <em>tres que rellenas</em></h2>
+        <p class="section-sub">La tabla persona × instrucción es la que en papel se descontrola. Aquí no se teclea: sale de cruzar los acuses con la versión vigente, el alcance y el reciclaje de cada instrucción.</p>
+      </div>
+      <div class="hojas fade-up delay-1">
+        <div class="hoja"><div class="hoja-tag input">Rellenas</div><h3>Instrucciones</h3><p>PRL, instrucciones de trabajo, calidad y políticas. Versión vigente, responsable, a quién afecta (toda la plantilla o por puesto) y cada cuántos meses hay que reciclarla.</p></div>
+        <div class="hoja"><div class="hoja-tag input">Rellenas</div><h3>Trabajadores</h3><p>Puesto, turno, si es de ETT y si sigue activo. Cada fila muestra sus pendientes, caducados y lo que caduca pronto.</p></div>
+        <div class="hoja"><div class="hoja-tag input">Rellenas</div><h3>Acuses</h3><p>Una fila cada vez que alguien lee y acepta una versión: quién, qué instrucción, qué versión, cuándo, test y vía. Es el histórico que se defiende en una auditoría.</p></div>
+        <div class="hoja"><div class="hoja-tag">Se calcula</div><h3>Matriz</h3><p>El estado de cada persona en cada instrucción: OK, Pendiente, Caducado, Caduca pronto o «no le afecta». Con colores.</p></div>
+        <div class="hoja"><div class="hoja-tag">Se calcula</div><h3>Resumen</h3><p>Combinaciones a controlar, pendientes, caducados y porcentaje al día. Con fecha de referencia para ver cómo estabas el día de una auditoría.</p></div>
+      </div>
+
+      <div class="screenshot-pair fade-up delay-2">
+        <figure class="screenshot-fig">
+          <Screenshot name="plantilla-prl-matriz" alt="Hoja Matriz de la plantilla de gestión documental de PRL: estado de cada trabajador en cada instrucción, con Pendiente, Caducado, Caduca pronto y OK en colores" class="screenshot-img" layout="pair" />
+          <figcaption class="screenshot-caption">La matriz se calcula sola a partir de los acuses</figcaption>
+        </figure>
+        <figure class="screenshot-fig">
+          <Screenshot name="plantilla-prl-resumen" alt="Hoja Resumen de la plantilla: instrucciones, trabajadores activos, combinaciones a controlar, pendientes, caducados y porcentaje al día" class="screenshot-img" layout="pair" />
+          <figcaption class="screenshot-caption">El resumen, con fecha de referencia editable</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Cómo se usa</div>
+        <h2 class="section-title">En tres pasos</h2>
+      </div>
+      <ol class="pasos fade-up delay-1">
+        <li><strong>Da de alta tus instrucciones y tu plantilla.</strong> Empieza por las de PRL de mayor riesgo y las que afectan a toda la plantilla. Borra los datos de ejemplo.</li>
+        <li><strong>Registra los acuses desde hoy.</strong> No hace falta pasar el histórico de hojas de firmas: haz una primera ronda con la versión vigente y anota cada acuse en la hoja Acuses.</li>
+        <li><strong>Revisa el resumen cada semana.</strong> Al publicar una revisión, sube su versión y mira a quién deja pendiente. Si la lista baja, el sistema funciona.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="limites fade-up">
+        <div class="eyebrow">Hasta dónde llega</div>
+        <h2 class="section-title">Cuándo se queda corta <em>una hoja de cálculo</em></h2>
+        <p>Funciona bien con unas decenas de instrucciones y una plantilla estable. Se queda corta cuando los acuses se pasan a mano desde hojas de firmas, cuando hay varios turnos o personal de ETT que nunca coincide con las sesiones, cuando las revisiones son frecuentes, o cuando necesitas que nadie trabaje con una versión que no ha aceptado, no solo saberlo después.</p>
+        <p>Por qué pasa y cómo se resuelve está en <a href="/blog/gestion-instrucciones-prl-e-it/">gestión documental de PRL e instrucciones de trabajo</a>. Y qué evidencia demuestra que cada trabajador leyó la versión vigente, en <a href="/blog/acuse-de-lectura-instrucciones-prl/">acuse de lectura de instrucciones de PRL e IT</a>.</p>
+        <p class="aviso">Herramienta práctica de control interno, no asesoramiento jurídico. Contrasta los requisitos con la Ley 31/1995, tu evaluación de riesgos y tu servicio de prevención.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqs} />
+
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Descarga gratuita</div>
+    <h3 class="cta-title fade-up delay-1">Empieza por la instrucción <br><em>que más firmas te cuesta</em></h3>
+    <p class="cta-sub fade-up delay-2">Y cuando la hoja se te quede pequeña, en REELEVO la misma lógica funciona sola: pendientes que se generan al publicar, acuse de cada trabajador en su turno y bloqueo en máquina.</p>
+    <div class="cta-actions fade-up delay-3">
+      <a href={canonical} class="btn-primary" data-descarga="plantilla-gestion-documental-prl"
+         data-cta data-cta-intent="descarga" data-cta-location="footer" data-cta-label="Descargar la plantilla">Descargar la plantilla</a>
+      <a href="/documentacion-procesos/#gestion-documental" class="btn-ghost">Ver la gestión documental de REELEVO →</a>
+    </div>
+  </section>
+
+  <DescargaConCuenta />
+</BaseLayout>
+
+<style>
+  .hero-cta { margin-top: 28px; display: flex; justify-content: center; }
+  .hero-note { margin-top: 14px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray2); }
+  .hojas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+  .hoja { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 20px 18px; }
+  .hoja h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin: 8px 0; }
+  .hoja p { font-size: .88rem; line-height: 1.6; color: var(--gray); margin: 0; }
+  .hoja-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray2); border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
+  .hoja-tag.input { color: #7A5A00; background: #FFF4CC; border-color: #F0DC9A; }
+  .pasos { margin-top: 28px; padding-left: 22px; max-width: 760px; }
+  .pasos li { margin-bottom: 14px; line-height: 1.7; color: var(--gray); }
+  .pasos strong { color: var(--white); }
+  .limites { max-width: 800px; }
+  .limites p { line-height: 1.75; color: var(--gray); margin-top: 16px; }
+  .limites a { color: var(--orange-ink); }
+  .limites .aviso { font-size: .85rem; font-style: italic; }
+  @media (max-width: 1000px) { .hojas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .hojas { grid-template-columns: 1fr; } }
+</style>

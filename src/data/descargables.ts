@@ -24,6 +24,7 @@ export interface Descargable {
 }
 
 const DOCX = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+const XLSX = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
 export const DESCARGABLES = {
   'plantilla-sop': {
@@ -39,6 +40,15 @@ export const DESCARGABLES = {
     tipo: 'plantilla',
     modulo: 'procesos',
     mime: DOCX,
+  },
+  // Se genera con scripts/descargables/generar-plantilla-prl.py (y recalc.py para
+  // dejar los valores calculados en el archivo).
+  'plantilla-gestion-documental-prl': {
+    titulo: 'Plantilla de gestión documental de PRL e instrucciones de trabajo',
+    archivo: 'plantilla-gestion-documental-prl-reelevo.xlsx',
+    tipo: 'plantilla',
+    modulo: 'procesos',
+    mime: XLSX,
   },
 } as const satisfies Record<string, Descargable>
 

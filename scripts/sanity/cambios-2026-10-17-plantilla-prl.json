@@ -1,0 +1,49 @@
+{
+ "fecha": "2026-10-17",
+ "descripcion": "Enlaces a la plantilla Excel de gestion documental de PRL desde el articulo de PRL.",
+ "crear": [],
+ "cambios": [],
+ "insertar": [
+  {
+   "id": "articulo-gestion-instrucciones-prl-e-it",
+   "rev": "izTxq0ghp67TRuiuzCQKdn",
+   "insertAfter": "body[_key==\"81b55851117d\"]",
+   "items": [
+    {
+     "_key": "30a9640853b1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Si hoy lo llevas en Excel y quieres hacerlo bien mientras tanto, hemos preparado una "
+      },
+      {
+       "_key": "3d81ef27eba9",
+       "_type": "span",
+       "marks": [
+        "7984b0a0e139"
+       ],
+       "text": "plantilla gratuita de gestión documental de PRL"
+      },
+      {
+       "_key": "def03a29bf06",
+       "_type": "span",
+       "marks": [],
+       "text": " que hace sola el cruce: rellenas instrucciones, trabajadores y acuses, y la matriz de pendientes y caducidades se calcula. Y te enseña, con tus propios datos, lo rápido que crece la tabla."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "7984b0a0e139",
+       "_type": "link",
+       "href": "/recursos/plantilla-gestion-documental-prl/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}

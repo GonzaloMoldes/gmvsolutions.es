@@ -18,6 +18,8 @@
 >
 > 6. **Dónde se cambia:** los títulos, descripciones, cabeceras, FAQ y el blog viven en Sanity (`/admin/`); el código solo guarda las secciones intermedias y los textos de respaldo (`src/data/`). Los cambios masivos se preparan como fichero en `scripts/sanity/` y se aplican con `scripts/sanity/aplicar-cambios.mjs`, que no pisa lo editado en el panel.
 >
+> 7. **Recursos o blog (2026-10-17):** en `/recursos/` solo va lo que tiene un archivo descargable (plantilla Excel, Word o PDF). Todo lo demás, guías paso a paso incluidas, va en el blog. Un artículo de Sanity con el bloque «Descarga de plantilla» se lista solo en Recursos (su URL sigue en `/blog/`); un recurso nuevo en código se registra en `src/lib/recursos.ts`. Recursos tiene el mismo aviso de contenido nuevo de 15 días que el blog.
+>
 > **Frase canónica actualizada:** REELEVO es un software de instrucciones de trabajo para pymes industriales que lleva la instrucción correcta al puesto, reduce la dependencia de personas clave y deja evidencia de lo que se ejecuta.
 
 ---

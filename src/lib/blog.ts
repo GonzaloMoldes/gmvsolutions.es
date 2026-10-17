@@ -144,8 +144,24 @@ export const publishedISO = (p: BlogPost): string => {
   return `${anio}-${mm}-${dia.padStart(2, '0')}`;
 };
 
+// --- Blog y Recursos ---------------------------------------------------------
+// Regla editorial (octubre de 2026): en /recursos/ solo va lo que tiene un archivo
+// descargable; todo lo demas, guias paso a paso incluidas, va en el blog. Un
+// articulo de Sanity cuenta como recurso cuando su cuerpo lleva el bloque
+// «Descarga de plantilla». Su URL sigue en /blog/<slug>/ (no se mueve para no
+// perder lo indexado), pero sale en el indice de /recursos/ y no en el del blog.
+/** Slugs de los articulos de Sanity con descargable: se listan en /recursos/. */
+export const slugsRecurso = new Set(
+  articulosSanityActivos
+    .filter((a) => !a.noindex && (a.body ?? []).some((b) => (b as { _type?: string })?._type === 'descarga'))
+    .map((a) => a.slug),
+);
+
+/** Articulos que se listan en el indice del blog (sin los que son recursos). */
+export const postsBlog: BlogPost[] = posts.filter((p) => !slugsRecurso.has(p.slug));
+
 /** Publicacion mas reciente del blog, para el aviso de contenido nuevo del menu. */
-export const latestPublishedISO = posts.map(publishedISO).sort().at(-1)!;
+export const latestPublishedISO = postsBlog.map(publishedISO).sort().at(-1)!;
 
 // --- Guardia anti-deriva -----------------------------------------------------
 // Se ejecuta en build. Compara el registro con los ficheros reales del directorio

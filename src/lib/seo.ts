@@ -182,6 +182,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   'plan-contingencia-bajas-produccion': 'Plan de contingencia para bajas en producción',
   'plantilla-sop-produccion': 'Plantilla de SOP de producción',
   'plantilla-instruccion-de-trabajo': 'Plantilla de instrucción de trabajo',
+  'plantilla-gestion-documental-prl': 'Plantilla de gestión documental de PRL',
   'reducir-onboarding-operarios-cinco-a-un-dia': 'Reducir la curva de onboarding de 5 días a 1',
   'software-sop-para-fabricas-comparativa': 'Software SOP para fábricas: comparativa',
   'sop-mantenimiento-preventivo-guia-plantilla': 'SOP de mantenimiento preventivo: guía y plantilla',
@@ -217,7 +218,13 @@ export interface BreadcrumbItem {
  * Devuelve null en la home (un breadcrumb de un solo item no aporta).
  * Reutilizado por el JSON-LD (buildBreadcrumb) y por el componente visible (Breadcrumbs.astro).
  */
-export function breadcrumbItems(pathname: string, baseURL = BASE_URL): BreadcrumbItem[] | null {
+/** Sustituye la primera seccion de la ruta en la miga (p. ej. las plantillas que viven en /blog/ pero se listan en Recursos). */
+export interface SeccionMiga {
+  nombre: string;
+  ruta: string;
+}
+
+export function breadcrumbItems(pathname: string, baseURL = BASE_URL, seccion?: SeccionMiga): BreadcrumbItem[] | null {
   const clean = pathname.replace(/\/+$/, '');
   if (clean === '') return null; // home
 
@@ -230,6 +237,10 @@ export function breadcrumbItems(pathname: string, baseURL = BASE_URL): Breadcrum
     acc += `/${segment}`;
     const isLast = index === segments.length - 1;
     const navigable = !isLast && !NON_NAVIGABLE_SECTIONS.has(segment);
+    if (index === 0 && seccion && !isLast) {
+      items.push({ name: seccion.nombre, url: `${baseURL}${seccion.ruta}` });
+      return;
+    }
     items.push({
       name: labelFor(segment),
       url: navigable ? `${baseURL}${acc}/` : undefined,
@@ -243,8 +254,8 @@ export function breadcrumbItems(pathname: string, baseURL = BASE_URL): Breadcrum
  * Construye el JSON-LD BreadcrumbList para una ruta.
  * Devuelve null en la home.
  */
-export function buildBreadcrumb(pathname: string, baseURL = BASE_URL) {
-  const items = breadcrumbItems(pathname, baseURL);
+export function buildBreadcrumb(pathname: string, baseURL = BASE_URL, seccion?: SeccionMiga) {
+  const items = breadcrumbItems(pathname, baseURL, seccion);
   if (!items) return null;
 
   return {

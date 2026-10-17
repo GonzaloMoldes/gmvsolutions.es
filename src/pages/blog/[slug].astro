@@ -18,7 +18,7 @@ import PtHtml from '../../components/portable/PtHtml.astro';
 // Estilos propios de los articulos migrados que los tenian (cada uno bajo .post-<url>).
 import '../../styles/blog-migrado.css';
 import { urlImagen, type ArticuloSanity } from '../../lib/sanity';
-import { articulosSanityActivos } from '../../lib/blog';
+import { articulosSanityActivos, slugsRecurso } from '../../lib/blog';
 
 export async function getStaticPaths() {
   return articulosSanityActivos.map((articulo) => ({ params: { slug: articulo.slug }, props: { articulo } }));
@@ -70,6 +70,7 @@ const components = {
   image={imagen}
   schema={faqSchema}
   noindex={articulo.noindex}
+  esRecurso={slugsRecurso.has(articulo.slug)}
 >
   {imagen && (
     <figure class="pt-portada">

@@ -5,6 +5,13 @@ export interface Props {
 const { activeNav } = Astro.props;
 
 import { latestPublishedISO, NEW_POST_DAYS } from '../lib/blog';
+import { latestRecursoISO } from '../lib/recursos';
+
+// Aviso de contenido nuevo: el desplegable y la hamburguesa se encienden con lo
+// ultimo publicado en el blog o en Recursos; cada entrada, con lo suyo.
+const ultimaNovedadISO = [latestPublishedISO, latestRecursoISO].sort().at(-1)!;
+const publicadoDe = (href: string) =>
+  href === '/blog/' ? latestPublishedISO : href === '/recursos/' ? latestRecursoISO : undefined;
 import { getAjustes } from '../lib/contenido';
 
 // Boton de registro: editable en Sanity (Ajustes generales).
@@ -69,7 +76,7 @@ const SOLUCIONES = [
 ];
 
 const RECURSOS = [
-  { href: '/recursos/', label: 'Recursos', sub: 'Guías y materiales descargables' },
+  { href: '/recursos/', label: 'Recursos', sub: 'Plantillas y materiales descargables' },
   { href: '/blog/', label: 'Blog', sub: 'Artículos sobre operaciones industriales' },
   { href: '/faqs/', label: 'Preguntas frecuentes', sub: 'Dudas sobre implementación y uso' },
 ];
@@ -142,7 +149,7 @@ const RECURSOS = [
         class={`nav-dropdown-trigger${activeNav === 'recursos' || activeNav === 'blog' ? ' nav-active' : ''}`}
         aria-expanded="false"
         aria-haspopup="true"
-        data-published={latestPublishedISO}
+        data-published={ultimaNovedadISO}
       >
         Recursos
         <span class="new-badge">Nuevo</span>
@@ -150,9 +157,9 @@ const RECURSOS = [
       </button>
       <div class="nav-dropdown-menu">
         {RECURSOS.map((it) => (
-          <a href={it.href} data-published={it.href === '/blog/' ? latestPublishedISO : undefined}>
+          <a href={it.href} data-published={publicadoDe(it.href)}>
             {it.label}
-            {it.href === '/blog/' && <span class="new-badge">Nuevo contenido</span>}
+            {publicadoDe(it.href) && <span class="new-badge">Nuevo contenido</span>}
             <span class="nav-sub-label">{it.sub}</span>
           </a>
         ))}
@@ -177,7 +184,7 @@ const RECURSOS = [
       aria-label="Menú"
       aria-controls="mobileMenu"
       aria-expanded="false"
-      data-published={latestPublishedISO}
+      data-published={ultimaNovedadISO}
     >
       <span></span><span></span><span></span>
     </button>
@@ -206,8 +213,8 @@ const RECURSOS = [
   <a href="/precios/">Precios</a>
 
   <div class="mobile-section-title">Recursos y Blog</div>
-  {RECURSOS.map((it) => it.href === '/blog/'
-    ? <a href={it.href} data-published={latestPublishedISO}>{it.label} <span class="new-badge">Nuevo contenido</span></a>
+  {RECURSOS.map((it) => publicadoDe(it.href)
+    ? <a href={it.href} data-published={publicadoDe(it.href)}>{it.label} <span class="new-badge">Nuevo contenido</span></a>
     : <a href={it.href}>{it.label}</a>)}
 
   <div class="mobile-cta-group">

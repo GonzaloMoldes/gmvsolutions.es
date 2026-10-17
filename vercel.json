@@ -22,6 +22,21 @@
       "permanent": true
     },
     {
+      "source": "/recursos/onboarding-software-pymes/",
+      "destination": "/blog/onboarding-software-pymes/",
+      "permanent": true
+    },
+    {
+      "source": "/recursos/gestion-competencias-industria/",
+      "destination": "/blog/gestion-competencias-industria/",
+      "permanent": true
+    },
+    {
+      "source": "/recursos/onboarding-vs-tradicional/",
+      "destination": "/blog/onboarding-vs-tradicional/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "gmvsolutions.es" }],
       "destination": "https://www.gmvsolutions.es/:path*",
