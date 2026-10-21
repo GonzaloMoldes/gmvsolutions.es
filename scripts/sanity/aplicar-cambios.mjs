@@ -73,8 +73,10 @@ for (const c of spec.cambios) {
 
 for (const ins of spec.insertar) {
   const doc = docs.get(ins.id);
-  const textos = ins.items.map((b) => (b.children ?? []).map((s) => s.text).join(''));
-  const yaEsta = doc && JSON.stringify(doc.body ?? []).includes(JSON.stringify(textos[0]).slice(1, 60));
+  // Texto que identifica lo insertado: el de un bloque, o la pregunta de una FAQ.
+  const textos = ins.items.map((b) => b.q ?? (b.children ?? []).map((s) => s.text).join(''));
+  const campo = ins.insertAfter.split('[')[0];
+  const yaEsta = doc && textos[0] && JSON.stringify(doc[campo] ?? []).includes(JSON.stringify(textos[0]).slice(1, 60));
   if (!doc || doc._rev !== ins.rev || yaEsta) {
     resumen.saltados.push(`${ins.id} · insercion (${!doc ? 'no existe' : yaEsta ? 'ya insertado' : 'editado desde que se preparo'})`);
     continue;
