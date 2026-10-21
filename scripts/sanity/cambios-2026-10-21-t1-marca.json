@@ -1,0 +1,26 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T1 Marca REELEVO en la home: title, meta y linea sobre el H1.",
+ "crear": [],
+ "cambios": [
+  {
+   "id": "home",
+   "path": "seo.title",
+   "from": "Software de instrucciones de trabajo digitales para pymes | REELEVO",
+   "to": "REELEVO · Instrucciones de trabajo y matriz de competencias"
+  },
+  {
+   "id": "home",
+   "path": "seo.description",
+   "from": "REELEVO es el software de instrucciones de trabajo digitales para pymes industriales: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada y sin la complejidad de un MES.",
+   "to": "REELEVO: instrucciones de trabajo digitales y matriz de competencias para pymes industriales. Paso a paso en el puesto, con QR y vídeo, sin un MES."
+  },
+  {
+   "id": "home",
+   "path": "hero.referencia",
+   "from": "Hecho en España · pymes industriales",
+   "to": "REELEVO · Hecho en España para pymes industriales"
+  }
+ ],
+ "insertar": []
+}

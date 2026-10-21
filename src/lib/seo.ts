@@ -14,7 +14,20 @@ export const organizationSchema = {
   name: 'GMV Solutions',
   alternateName: 'REELEVO',
   url: BASE_URL,
-  logo: `${BASE_URL}/favicon.svg`,
+  // PNG cuadrado de 1000 px: Google no siempre acepta SVG como logo de la organizacion.
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/screenshots/reelevo-brand-logo.png`,
+    width: 1000,
+    height: 1000,
+  },
+  // La marca es REELEVO; GMV Solutions es la empresa. Ayuda a que Google no la
+  // confunda con "relevo" en las busquedas de marca.
+  brand: {
+    '@type': 'Brand',
+    name: 'REELEVO',
+    logo: `${BASE_URL}/screenshots/reelevo-brand-logo.png`,
+  },
   description:
     'REELEVO es el software de instrucciones de trabajo digitales para pymes industriales españolas: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada, continuidad ante bajas y trazabilidad, sin la complejidad de un MES.',
   email: 'hola@gmvsolutions.es',
