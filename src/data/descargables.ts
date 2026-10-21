@@ -50,6 +50,14 @@ export const DESCARGABLES = {
     modulo: 'procesos',
     mime: XLSX,
   },
+  // Se genera con scripts/descargables/generar-plantilla-polivalencia.py (y recalc.py).
+  'plantilla-matriz-polivalencia': {
+    titulo: 'Plantilla de matriz de polivalencia',
+    archivo: 'plantilla-matriz-polivalencia-reelevo.xlsx',
+    tipo: 'plantilla',
+    modulo: 'procesos',
+    mime: XLSX,
+  },
 } as const satisfies Record<string, Descargable>
 
 export type DescargableId = keyof typeof DESCARGABLES

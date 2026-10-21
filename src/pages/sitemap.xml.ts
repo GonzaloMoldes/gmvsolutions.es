@@ -24,6 +24,7 @@ export async function GET() {
     page('/video-demo/', '0.8', 'monthly'),
     page('/recursos/', '0.75', 'weekly'),
     page('/recursos/plantilla-gestion-documental-prl/', '0.8', 'monthly', '2026-10-17'),
+    page('/recursos/matriz-de-polivalencia/', '0.8', 'monthly', '2026-10-21'),
     page('/faqs/', '0.7', 'monthly'),
     page('/onboarding-software-pymes/', '0.8', 'monthly'),
     page('/software-gestion-pyme-industrial/', '0.8', 'monthly'),

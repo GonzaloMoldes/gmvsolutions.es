@@ -54,7 +54,8 @@ Acciones que un agente puede ofrecer al usuario sobre REELEVO (URLs estables):
 - [Precios](https://www.gmvsolutions.es/precios/) — Plan Free (0€), Starter (49€/mes), Pro (129€/mes) y Enterprise, con precio anual. Calculadora de escenario de coste
 - [Software de gestión para pyme industrial](https://www.gmvsolutions.es/software-gestion-pyme-industrial/) — Visión global del software de operaciones para pymes industriales
 - [Vs Alternativas](https://www.gmvsolutions.es/vs-alternativas/) — Comparativa vs Dozuki, Poka (IFS), GembaDocs, Knowby y métodos tradicionales
-- [Recursos](https://www.gmvsolutions.es/recursos/) — Plantillas descargables: gestión documental de PRL (Excel), instrucción de trabajo y SOP de producción (Word)
+- [Recursos](https://www.gmvsolutions.es/recursos/) — Plantillas descargables: matriz de polivalencia y gestión documental de PRL (Excel), instrucción de trabajo y SOP de producción (Word)
+- [Matriz de polivalencia](https://www.gmvsolutions.es/recursos/matriz-de-polivalencia/) — Qué es, niveles 0-4, ejemplo, plantilla Excel gratuita y generador online que marca los puestos en riesgo
 - [Plantilla de gestión documental de PRL](https://www.gmvsolutions.es/recursos/plantilla-gestion-documental-prl/) — Excel gratuito: versión vigente, acuses, pendientes y caducidades por trabajador
 - [Sobre nosotros](https://www.gmvsolutions.es/sobre-nosotros/) — Quién está detrás de REELEVO y por qué existe
 - [Por qué usar REELEVO](https://www.gmvsolutions.es/por-que-usar-reelevo/) — Diferencias frente a MES, Excel y plataformas enterprise para la pyme industrial

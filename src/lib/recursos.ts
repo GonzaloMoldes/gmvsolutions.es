@@ -24,6 +24,13 @@ const formatoDe = (archivo: string) =>
 
 const recursosCodigo: (Omit<Recurso, 'formato'> & { descargable: DescargableId })[] = [
   {
+    url: '/recursos/matriz-de-polivalencia/',
+    titulo: 'Matriz de polivalencia: plantilla Excel y generador online',
+    desc: 'Operarios por puestos con niveles de 0 a 4. Marca los puestos que dependen de una sola persona. En Excel o directamente en el navegador.',
+    publicado: '2026-10-21',
+    descargable: 'plantilla-matriz-polivalencia',
+  },
+  {
     url: '/recursos/plantilla-gestion-documental-prl/',
     titulo: 'Plantilla de gestión documental de PRL e instrucciones de trabajo',
     desc: 'Excel para saber qué versión conoce cada trabajador, qué tiene pendiente y qué caduca. La matriz de pendientes se calcula sola.',
