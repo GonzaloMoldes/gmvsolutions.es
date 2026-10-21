@@ -1,0 +1,46 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T2 /gestion-competencias/: title, meta, entradilla con matriz de polivalencia y FAQ de diferencia.",
+ "crear": [
+  {
+   "_id": "faq-diferencia-matriz-polivalencia-competencias",
+   "_type": "preguntaFrecuente",
+   "q": "¿Qué diferencia hay entre una matriz de polivalencia y una matriz de competencias?",
+   "a": "En muchas plantas se usan como sinónimos. Si se quiere afinar, la matriz de polivalencia cruza operarios con puestos o máquinas y dice quién puede cubrir qué y con qué autonomía. La matriz de competencias es más amplia: incluye también conocimientos que no son un puesto, como una instrucción de PRL, un control de calidad o un idioma. Para organizar turnos y cubrir bajas, la que necesitas es la de polivalencia. En REELEVO las dos viven en la misma matriz."
+  }
+ ],
+ "cambios": [
+  {
+   "id": "pagina-gestion-competencias",
+   "path": "seo.title",
+   "from": "Gestion de competencias industriales para pymes | REELEVO",
+   "to": "Matriz de competencias y polivalencia: software para pyme industrial | REELEVO"
+  },
+  {
+   "id": "pagina-gestion-competencias",
+   "path": "seo.description",
+   "from": "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta.",
+   "to": "Matriz de competencias o de polivalencia (skill matrix) para pyme industrial: quién sabe hacer qué, en qué nivel y qué puesto depende de una sola persona."
+  },
+  {
+   "id": "pagina-gestion-competencias",
+   "path": "hero.texto",
+   "from": "Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.",
+   "to": "Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias (o matriz de polivalencia) real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona."
+  }
+ ],
+ "insertar": [
+  {
+   "id": "pagina-gestion-competencias",
+   "rev": "07zc6zFwHok32rvMDZImRU",
+   "insertAfter": "faq.items[_key==\"135076d5fb63\"]",
+   "items": [
+    {
+     "_key": "faqpoliv01",
+     "_type": "reference",
+     "_ref": "faq-diferencia-matriz-polivalencia-competencias"
+    }
+   ]
+  }
+ ]
+}

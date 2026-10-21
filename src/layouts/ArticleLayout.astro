@@ -18,6 +18,8 @@ export interface Props {
   schema?: object | object[];
   /** Borradores: noindex hasta que el copy este listo. */
   noindex?: boolean;
+  /** Plantillas con descargable: viven en /blog/ pero se presentan como Recursos. */
+  esRecurso?: boolean;
 }
 
 const {
@@ -32,6 +34,7 @@ const {
   image = 'https://www.gmvsolutions.es/og-default.jpg',
   schema,
   noindex = false,
+  esRecurso = false,
 } = Astro.props;
 
 const dateFormatted = new Date(date).toLocaleDateString('es-ES', {
@@ -60,7 +63,8 @@ const author = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: title,
+  // Los validadores avisan por encima de 110 caracteres: si el H1 es mas largo, el titulo SEO.
+  headline: title.length > 110 && seoTitle ? seoTitle : title,
   description,
   datePublished: date,
   dateModified: dateModified ?? date,
@@ -87,7 +91,7 @@ const mergedSchema = [articleSchema, ...extraSchema];
 // que ademas produce la ruta correcta (Inicio -> Blog -> articulo). No se duplica aqui.
 ---
 
-<BaseLayout title={seoTitle ?? title} ogTitle={title} description={description} canonical={canonical} schema={mergedSchema} activeNav="blog" pageType="blog" noindex={noindex} ogType="article" publishedTime={date}>
+<BaseLayout title={seoTitle ?? title} ogTitle={title} description={description} canonical={canonical} schema={mergedSchema} activeNav={esRecurso ? 'recursos' : 'blog'} pageType={esRecurso ? 'recurso' : 'blog'} seccionMiga={esRecurso ? { nombre: 'Recursos', ruta: '/recursos/' } : undefined} noindex={noindex} ogType="article" publishedTime={date}>
   <article class="article-page">
     <div class="article-container">
 
@@ -114,7 +118,9 @@ const mergedSchema = [articleSchema, ...extraSchema];
       </div>
 
       <div class="article-back">
-        <a href="/blog/" class="btn-ghost">← Volver al blog</a>
+        {esRecurso
+          ? <a href="/recursos/" class="btn-ghost">← Volver a recursos</a>
+          : <a href="/blog/" class="btn-ghost">← Volver al blog</a>}
       </div>
 
     </div>
@@ -514,8 +520,11 @@ const mergedSchema = [articleSchema, ...extraSchema];
     border-top: 1px solid var(--border);
   }
 
+  /* Incluye el caso de cuatro tarjetas: su regla :has() es mas especifica y,
+     sin repetirla aqui, mantenia dos columnas en movil y desbordaba la pagina. */
   @media (max-width: 900px) {
-    .article-body :global(.related-links-grid) {
+    .article-body :global(.related-links-grid),
+    .article-body :global(.related-links-grid:has(> :nth-child(4))) {
       grid-template-columns: 1fr;
     }
   }

@@ -23,6 +23,8 @@ export async function GET() {
     page('/sobre-nosotros/', '0.7', 'monthly'),
     page('/video-demo/', '0.8', 'monthly'),
     page('/recursos/', '0.75', 'weekly'),
+    page('/recursos/plantilla-gestion-documental-prl/', '0.8', 'monthly', '2026-10-17'),
+    page('/recursos/matriz-de-polivalencia/', '0.8', 'monthly', '2026-10-21'),
     page('/faqs/', '0.7', 'monthly'),
     page('/onboarding-software-pymes/', '0.8', 'monthly'),
     page('/software-gestion-pyme-industrial/', '0.8', 'monthly'),
@@ -78,10 +80,9 @@ export async function GET() {
     // 2026-07-27, o su fecha real de publicacion si no se ha tocado desde entonces.
     ...posts.map((post) => page(`/blog/${post.slug}/`, post.priority, 'monthly', post.lastmod)),
 
-    // /recursos/gestion-competencias-industria/, /recursos/onboarding-software-pymes/ y
-    // /recursos/onboarding-vs-tradicional/ NO van en el sitemap: canonicalizan a su
-    // equivalente en /blog/. Un sitemap solo debe listar URLs canonicas; incluir la
-    // version descartada manda una senal contradictoria al rastreador.
+    // Los antiguos resumenes /recursos/gestion-competencias-industria/,
+    // /recursos/onboarding-software-pymes/ y /recursos/onboarding-vs-tradicional/ ya no
+    // existen: redirigen con 301 a su articulo del blog (vercel.json).
 
     page('/legal/aviso-legal/', '0.3', 'yearly'),
     page('/legal/cookies/', '0.3', 'yearly'),

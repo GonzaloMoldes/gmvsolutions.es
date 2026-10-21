@@ -1,13 +1,13 @@
 {
   "seo": {
-    "title": "Gestion de competencias industriales para pymes | REELEVO",
-    "description": "Visualiza matriz de habilidades por puesto, detecta brechas de competencias y reduce dependencia operativa con seguimiento real en planta."
+    "title": "Matriz de competencias y polivalencia: software para pyme industrial | REELEVO",
+    "description": "Matriz de competencias o de polivalencia (skill matrix) para pyme industrial: quién sabe hacer qué, en qué nivel y qué puesto depende de una sola persona."
   },
   "hero": {
     "antetitulo": "Gestión de Competencias Operativas",
     "titulo": "¿Quién puede cubrir",
     "tituloDestacado": "ese puesto el lunes?",
-    "texto": "Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.",
+    "texto": "Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias (o matriz de polivalencia) real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.",
     "botones": [
       {
         "texto": "Registrarme en REELEVO",
@@ -45,6 +45,16 @@
         "id": "faq-y-cuanto-le-queda-al-que-esta",
         "q": "¿Y cuánto le queda al que está aprendiendo?",
         "a": "Esa es la otra mitad de la pregunta, y sale de las rutas de aprendizaje: en qué paso va, cuántas ejecuciones lleva y cuánto tarda comparado con el titular del puesto. Deja de ser «yo creo que en dos semanas está» y pasa a ser algo que se mira."
+      },
+      {
+        "id": "faq-diferencia-matriz-polivalencia-competencias",
+        "q": "¿Qué diferencia hay entre una matriz de polivalencia y una matriz de competencias?",
+        "a": "En muchas plantas se usan como sinónimos. Si se quiere afinar, la matriz de polivalencia cruza operarios con puestos o máquinas y dice quién puede cubrir qué y con qué autonomía. La matriz de competencias es más amplia: incluye también conocimientos que no son un puesto, como una instrucción de PRL, un control de calidad o un idioma. Para organizar turnos y cubrir bajas, la que necesitas es la de polivalencia. En REELEVO las dos viven en la misma matriz."
+      },
+      {
+        "id": "faq-matriz-polivalencia-en-excel",
+        "q": "¿Puedo hacer la matriz de polivalencia en Excel?",
+        "a": "Sí, y para empezar es lo más rápido: en Recursos tienes una plantilla Excel gratuita y un generador online de matriz de polivalencia, con los niveles de 0 a 4 ya definidos. El problema no es construirla, sino mantenerla. A los pocos meses deja de reflejar la realidad, porque nadie la actualiza cuando alguien aprende un puesto nuevo o deja de practicarlo. En REELEVO el nivel se actualiza solo con cada ejecución registrada."
       }
     ]
   },
@@ -59,7 +69,7 @@
         "url": "https://app.gmvsolutions.es/registro"
       },
       {
-        "texto": "Ver documentación de procesos →",
+        "texto": "Ver instrucciones de trabajo →",
         "url": "/documentacion-procesos/"
       }
     ],

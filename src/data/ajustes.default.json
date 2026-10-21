@@ -19,7 +19,7 @@
     {
       "titulo": "Procesos y personas",
       "enlaces": [
-        { "texto": "Documentación de procesos", "url": "/documentacion-procesos/" },
+        { "texto": "Instrucciones de trabajo y gestión documental", "url": "/documentacion-procesos/" },
         { "texto": "Gestión de competencias", "url": "/gestion-competencias/" },
         { "texto": "Kaizen y mejora continua", "url": "/kaizen/" },
         { "texto": "Portal del operario", "url": "/portal-operario/" },
@@ -31,7 +31,7 @@
       "enlaces": [
         { "texto": "Alternativa al MES tradicional", "url": "/vs-mes-tradicional/" },
         { "texto": "REELEVO vs Excel y papel", "url": "/vs-excel-papel/" },
-        { "texto": "Comparativa de software SOP", "url": "/vs-alternativas/" },
+        { "texto": "Comparativa de software de instrucciones de trabajo", "url": "/vs-alternativas/" },
         { "texto": "Kit Digital para industria", "url": "/kit-digital-pyme-industrial/" }
       ]
     },

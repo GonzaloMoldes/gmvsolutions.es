@@ -82,7 +82,7 @@ const faqSchema = {
       "name": "¿Los procesos pueden incluir fotos, vídeos y archivos adjuntos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Cada paso puede incluir texto, fotos, vídeos cortos y archivos adjuntos para que el proceso sea más claro en el puesto de trabajo."
+        "text": "Sí. Cada paso de la instrucción de trabajo puede incluir texto, fotos, vídeos cortos y archivos adjuntos para que sea más clara en el puesto."
       }
     },
     {
@@ -90,7 +90,7 @@ const faqSchema = {
       "name": "¿Cómo organizo los procesos si tengo varias secciones o líneas de producción?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo encuentre el proceso correcto sin depender de búsquedas largas o carpetas."
+        "text": "Las instrucciones de trabajo y los SOPs se pueden organizar por planta, sección, línea y máquina, de forma que cada equipo encuentre la instrucción correcta sin depender de búsquedas largas o carpetas."
       }
     },
     {
@@ -111,7 +111,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "¿Qué pasa cuando se actualiza un procedimiento operativo?",
+      "name": "¿Qué pasa cuando se actualiza una instrucción de trabajo?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "El operario accede siempre a la versión más reciente y REELEVO mantiene un historial de versiones para saber qué cambió, quién lo cambió y cuándo."
@@ -186,7 +186,7 @@ const faqSchema = {
       "name": "¿Puedo exportar mis procesos si dejo de usar REELEVO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Desde el panel se pueden exportar los procesos e instrucciones, y en caso de cierre del servicio se facilitaría la exportación completa con aviso previo."
+        "text": "Sí. Desde el panel se pueden exportar los procesos y las instrucciones de trabajo, y en caso de cierre del servicio se facilitaría la exportación completa con aviso previo."
       }
     }
   ]
@@ -245,7 +245,7 @@ const schema = [howToSchema, faqSchema];
         <div class="step-content">
           <div class="step-role">El operario experto</div>
           <h2 class="section-title">Convierte la experiencia del experto en una <em>referencia útil</em></h2>
-          <p class="section-sub">El operario que sabe deja el proceso explicado con sus propias palabras.
+          <p class="section-sub">El operario que sabe deja la instrucción de trabajo explicada con sus propias palabras.
  Sin guión y sin procesos pesados. El conocimiento tácito de fábrica deja de vivir solo en su cabeza y pasa a un <a href="/">software de instrucciones de trabajo digitales</a>.
           </p>
 
@@ -259,7 +259,7 @@ const schema = [howToSchema, faqSchema];
             <div class="scenario-card">
               <div class="scenario-tag">Ejecución</div>
               <h3 class="scenario-card-title">«Esto es lo que hago»</h3>
-              <p>Cada paso del proceso operativo, con los trucos y detalles que vienen de la experiencia.</p>
+              <p>Cada paso de la instrucción de trabajo, con los trucos y detalles que vienen de la experiencia.</p>
             </div>
 
             <div class="scenario-card">
@@ -271,7 +271,7 @@ const schema = [howToSchema, faqSchema];
 
           <p class="step-aside">
             <strong>Y si ya lo tienes escrito, no hay que teclearlo otra vez.</strong>Subes el Word o el
- PDF y la IA propone el proceso troceado en pasos; para lo que nunca se documentó, puedes
+ PDF y la IA propone la instrucción de trabajo troceada en pasos; para lo que nunca se documentó, puedes
             grabar al operario en vídeo y proponer los pasos a partir de lo que se ve. En los dos casos
             lo revisas y lo apruebas antes de que llegue al puesto. <a href="/documentacion-procesos/#importar">Cómo funciona la importación →</a>
           </p>
@@ -290,7 +290,7 @@ const schema = [howToSchema, faqSchema];
         <div class="step-content">
           <div class="step-role">El responsable / supervisor</div>
           <h2 class="section-title">Deja el trabajo listo para <em>quien lo necesite</em></h2>
-          <p class="section-sub">El responsable organiza los procesos en el panel y los deja disponibles donde se necesitan.
+          <p class="section-sub">El responsable organiza las instrucciones de trabajo en el panel y las deja disponibles donde se necesitan.
  Así el puesto deja de depender de la memoria del titular o de encontrar a alguien libre para explicarlo.
           </p>
 
@@ -303,7 +303,7 @@ const schema = [howToSchema, faqSchema];
               </div>
               <div class="benefit-result">
                 <div class="benefit-result-label">Beneficio</div>
-                <p>Cada máquina tiene su documentación accesible en segundos</p>
+                <p>Cada máquina tiene sus instrucciones de trabajo accesibles en segundos</p>
               </div>
             </div>
 
@@ -355,7 +355,7 @@ const schema = [howToSchema, faqSchema];
               <div class="scenario-card-tag">1. Accede al proceso</div>
               <h3 class="scenario-card-title">Desde cualquier móvil</h3>
               <div class="scenario-before">Sin REELEVO: Buscar al supervisor, esperar explicación, preguntar dudas</div>
-              <div class="scenario-after">Con REELEVO: Encuentra el proceso del puesto y empieza sin esperar</div>
+              <div class="scenario-after">Con REELEVO: Encuentra la instrucción de trabajo del puesto y empieza sin esperar</div>
             </div>
 
             <div class="scenario-card">
@@ -394,7 +394,7 @@ const schema = [howToSchema, faqSchema];
         <div class="benefit-card">
           <Icon name="persona" class="benefit-card-icon" />
           <h3 class="benefit-card-title">Autonomía más ordenada</h3>
-          <p class="benefit-card-desc">El sustituto encuentra el proceso cuando lo necesita.
+          <p class="benefit-card-desc">El sustituto encuentra la instrucción de trabajo cuando la necesita.
  Menos dependencia del tutor, menos esperas, menos trabajo a ciegas.
           </p>
         </div>
@@ -533,7 +533,7 @@ const schema = [howToSchema, faqSchema];
         </a>
 
         <a href="/vs-alternativas/" class="explore-card">
-          <div class="explore-kicker">Software SOP industrial</div>
+          <div class="explore-kicker">Instrucciones de trabajo</div>
           <h3 class="explore-title">Cuando estás comparando herramientas y enfoques</h3>
           <p class="explore-desc">Revisa precios, adopción y diferencias frente a otras plataformas del mercado.</p>
         </a>

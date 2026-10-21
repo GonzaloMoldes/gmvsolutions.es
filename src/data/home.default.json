@@ -1,10 +1,10 @@
 {
   "seo": {
-    "title": "Software de instrucciones de trabajo digitales para pymes | REELEVO",
-    "description": "REELEVO es el software de instrucciones de trabajo digitales para pymes industriales: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada y sin la complejidad de un MES."
+    "title": "REELEVO · Instrucciones de trabajo y matriz de competencias",
+    "description": "REELEVO: instrucciones de trabajo digitales y matriz de competencias para pymes industriales. Paso a paso en el puesto, con QR y vídeo, sin un MES."
   },
   "hero": {
-    "referencia": "Hecho en España · pymes industriales",
+    "referencia": "REELEVO · Hecho en España para pymes industriales",
     "titulo": "Software de instrucciones de trabajo digitales.",
     "entradilla": "Tu planta depende de dos o tres personas. Si una falta un martes a las seis, lo notas en la línea. REELEVO convierte lo que saben en instrucciones de trabajo digitales, paso a paso y en el puesto, para que el turno siga sin ellas.",
     "ctaPrincipal": {
@@ -126,7 +126,7 @@
         "titulo": "Documenta el proceso",
         "texto": "El que sabe lo graba en pasos, con foto o vídeo. Una vez.",
         "enlace": {
-          "texto": "Documentación de procesos",
+          "texto": "Instrucciones de trabajo",
           "url": "/documentacion-procesos/"
         }
       },

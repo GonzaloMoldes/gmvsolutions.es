@@ -1,0 +1,212 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T8: titles <=60 y metas <=155 en paginas y articulos de Sanity (los articulos via seoTitle, sin tocar el H1).",
+ "crear": [],
+ "cambios": [
+  {
+   "id": "pagina-calidad-y-conformidad",
+   "path": "seo.description",
+   "from": "Gestión documental y trazabilidad de calidad para auditoría: qué instrucción de trabajo se siguió, en qué versión, quién la aceptó, cuándo y con qué resultado.",
+   "to": "Gestión documental y trazabilidad de calidad para auditoría: qué instrucción de trabajo se siguió, en qué versión, quién la aceptó y con qué resultado."
+  },
+  {
+   "id": "pagina-como-funciona",
+   "path": "seo.title",
+   "from": "Cómo funciona REELEVO: instrucciones de trabajo digitales en 3 pasos",
+   "to": "Cómo funciona REELEVO: instrucciones de trabajo en 3 pasos"
+  },
+  {
+   "id": "pagina-como-funciona",
+   "path": "seo.description",
+   "from": "Cómo funciona REELEVO, el software de instrucciones de trabajo digitales: capturar el proceso, dejarlo en el puesto y ejecutarlo paso a paso con trazabilidad.",
+   "to": "REELEVO paso a paso: capturas el proceso, lo dejas en el puesto y el operario sigue la instrucción de trabajo digital, con trazabilidad de cada ejecución."
+  },
+  {
+   "id": "pagina-documentacion-procesos",
+   "path": "seo.title",
+   "from": "Software de instrucciones de trabajo y gestión documental | REELEVO",
+   "to": "Instrucciones de trabajo y gestión documental | REELEVO"
+  },
+  {
+   "id": "pagina-firma-digital",
+   "path": "seo.description",
+   "from": "Firma digital en el flujo de planta: el operario firma al completar la instrucción de trabajo y el supervisor al validar. Evidencia para auditorías ISO sin papel.",
+   "to": "Firma digital en planta: el operario firma al completar la instrucción de trabajo y el supervisor al validar. Evidencia para auditorías ISO sin papel."
+  },
+  {
+   "id": "pagina-kit-digital-pyme-industrial",
+   "path": "seo.description",
+   "from": "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar instrucciones de trabajo, onboarding y competencias.",
+   "to": "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar instrucciones de trabajo y onboarding."
+  },
+  {
+   "id": "pagina-mantenimiento",
+   "path": "seo.title",
+   "from": "Software de mantenimiento preventivo y correctivo industrial | REELEVO",
+   "to": "Software de mantenimiento preventivo industrial | REELEVO"
+  },
+  {
+   "id": "pagina-onboarding-software-pymes",
+   "path": "seo.description",
+   "from": "Onboarding software para pymes industriales: el nuevo sigue la instrucción de trabajo en el puesto, cubre bajas y reduce el tiempo de aprendizaje. Implantación en 2 días.",
+   "to": "Onboarding software para pymes industriales: el nuevo sigue la instrucción de trabajo en el puesto y aprende antes. Implantación en 2 días."
+  },
+  {
+   "id": "pagina-para-quien--responsable-calidad",
+   "path": "seo.description",
+   "from": "Gestión documental para calidad: instrucciones de trabajo con versión vigente, acuse de lectura y evidencia de ejecución para revisar qué se siguió y cuándo.",
+   "to": "Gestión documental para calidad: instrucciones de trabajo con versión vigente, acuse de lectura y evidencia de qué se siguió y cuándo."
+  },
+  {
+   "id": "pagina-portal-operario",
+   "path": "seo.title",
+   "from": "Portal del operario: instrucciones de trabajo en el móvil | REELEVO",
+   "to": "Instrucciones de trabajo en el móvil del operario | REELEVO"
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "seo.title",
+   "from": "Instrucciones de trabajo para industria alimentaria | REELEVO",
+   "to": "Instrucciones de trabajo en industria alimentaria | REELEVO"
+  },
+  {
+   "id": "pagina-sectores--alimentacion",
+   "path": "seo.description",
+   "from": "Software de instrucciones de trabajo y SOP para industria alimentaria: estandariza procesos sensibles, gestión documental con versión vigente y trazabilidad.",
+   "to": "Software de instrucciones de trabajo y SOP para industria alimentaria: procesos sensibles estandarizados, versión vigente y trazabilidad."
+  },
+  {
+   "id": "pagina-sobre-nosotros",
+   "path": "seo.title",
+   "from": "Sobre REELEVO | Software de instrucciones de trabajo digitales",
+   "to": "Sobre REELEVO: software de instrucciones de trabajo"
+  },
+  {
+   "id": "pagina-sobre-nosotros",
+   "path": "seo.description",
+   "from": "Sobre REELEVO: el equipo de GMV Solutions detrás del software de instrucciones de trabajo digitales para la pyme industrial española, y su método de implementación.",
+   "to": "El equipo de GMV Solutions detrás de REELEVO, software de instrucciones de trabajo digitales para la pyme industrial, y su método de implementación."
+  },
+  {
+   "id": "pagina-video-demo",
+   "path": "seo.title",
+   "from": "Demo del software de instrucciones de trabajo digitales | REELEVO",
+   "to": "Demo de REELEVO: instrucciones de trabajo digitales"
+  },
+  {
+   "id": "pagina-vs-alternativas",
+   "path": "seo.title",
+   "from": "Comparativa de software de instrucciones de trabajo | REELEVO",
+   "to": "Software de instrucciones de trabajo: comparativa | REELEVO"
+  },
+  {
+   "id": "pagina-vs-alternativas",
+   "path": "seo.description",
+   "from": "Comparativa de software de instrucciones de trabajo y SOP: REELEVO frente a Dozuki, Poka, GembaDocs y Knowby, y alternativa ligera a un MES para pyme industrial.",
+   "to": "Software de instrucciones de trabajo y SOP: REELEVO frente a Dozuki, Poka, GembaDocs y Knowby, y alternativa ligera a un MES para la pyme."
+  },
+  {
+   "id": "pagina-vs-excel-papel",
+   "path": "seo.description",
+   "from": "Fábrica sin papel para la pyme industrial: pasa las instrucciones de trabajo, los partes y las competencias del Excel y el papel al puesto, sin un proyecto pesado.",
+   "to": "Fábrica sin papel para la pyme: instrucciones de trabajo, partes y competencias pasan del Excel y el papel al puesto, sin un proyecto pesado."
+  },
+  {
+   "id": "pagina-vs-poka",
+   "path": "seo.title",
+   "from": "Poka/IFS vs REELEVO — Comparativa de software industrial para pymes",
+   "to": "Poka/IFS vs REELEVO: comparativa para pymes industriales"
+  },
+  {
+   "id": "precios",
+   "path": "seo.title",
+   "from": "Precios del software de instrucciones de trabajo digitales | REELEVO",
+   "to": "Precios del software de instrucciones de trabajo | REELEVO"
+  },
+  {
+   "id": "precios",
+   "path": "seo.description",
+   "from": "Precio del software de instrucciones de trabajo digitales REELEVO para pyme industrial: plan gratuito para empezar y desde 49 €/mes por empresa, sin licencia por usuario.",
+   "to": "Precio de REELEVO, software de instrucciones de trabajo para pyme industrial: plan gratuito y desde 49 €/mes por empresa, sin licencia por usuario."
+  },
+  {
+   "id": "paginaFaqs",
+   "path": "seo.title",
+   "from": "FAQ del software de instrucciones de trabajo digitales | REELEVO",
+   "to": "FAQ del software de instrucciones de trabajo | REELEVO"
+  },
+  {
+   "id": "articulo-como-digitalizar-instrucciones-de-trabajo",
+   "path": "description",
+   "from": "Método en 12 pasos y cuatro semanas para llevar las instrucciones de trabajo del papel o el PDF al puesto: qué hacer en cada paso y cómo se hace en REELEVO.",
+   "to": "Método en 12 pasos y cuatro semanas para llevar las instrucciones de trabajo del papel al puesto: qué hacer en cada paso y cómo se hace en REELEVO."
+  },
+  {
+   "id": "articulo-conocimiento-tacito-taller-industrial",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Conocimiento tácito: por qué tu taller depende de él"
+  },
+  {
+   "id": "articulo-coste-absentismo-pymes-industriales",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Coste del absentismo en pymes industriales: datos 2025"
+  },
+  {
+   "id": "articulo-documentar-conocimiento-operarios-expertos",
+   "path": "description",
+   "from": "Cómo documentar el conocimiento de operarios expertos: método de captura en 4 fases para transferir el saber hacer antes de que se vaya. Para pyme industrial.",
+   "to": "Cómo documentar el conocimiento de operarios expertos: método de captura en 4 fases para transferir el saber hacer antes de que se vaya."
+  },
+  {
+   "id": "articulo-lean-manufacturing",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Lean Manufacturing: qué es y cómo aplicarlo en una pyme"
+  },
+  {
+   "id": "articulo-onboarding-digital-errores-manuales",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Onboarding digital en planta: menos errores manuales"
+  },
+  {
+   "id": "articulo-onboarding-digital-errores-manuales",
+   "path": "description",
+   "from": "Cómo el onboarding digital con instrucciones de trabajo en el puesto reduce los errores manuales del operario nuevo. Qué falla en papel y por dónde empezar.",
+   "to": "Cómo el onboarding digital con instrucciones de trabajo en el puesto reduce los errores del operario nuevo. Qué falla en papel y por dónde empezar."
+  },
+  {
+   "id": "articulo-onboarding-vs-tradicional",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Onboarding software vs métodos tradicionales (2026)"
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "path": "description",
+   "from": "Plantilla de instrucción de trabajo en Word: pasos con foto, puntos críticos, autocontrol y qué hacer ante una anomalía. Con ejemplo relleno. Cómo hacerla en el puesto.",
+   "to": "Plantilla de instrucción de trabajo en Word: pasos con foto, puntos críticos, autocontrol y qué hacer ante una anomalía. Con ejemplo relleno."
+  },
+  {
+   "id": "articulo-preparar-auditoria-iso-9001-produccion",
+   "path": "description",
+   "from": "Qué mira un auditor ISO 9001 en planta, los cinco hallazgos más habituales en producción y cómo llegar con la gestión documental y las instrucciones de trabajo en orden.",
+   "to": "Qué mira un auditor ISO 9001 en planta, los cinco hallazgos más habituales en producción y cómo llegar con las instrucciones de trabajo en orden."
+  },
+  {
+   "id": "articulo-programa-de-mantenimiento-preventivo",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Programa de mantenimiento preventivo paso a paso"
+  },
+  {
+   "id": "articulo-programa-de-mantenimiento-preventivo",
+   "path": "description",
+   "from": "Cómo montar un programa de mantenimiento preventivo en una pyme industrial: qué máquinas incluir, cómo construir el calendario, quién lo gestiona y los errores que lo hacen fracasar.",
+   "to": "Cómo montar un programa de mantenimiento preventivo en una pyme industrial: qué máquinas incluir, el calendario, quién lo gestiona y errores a evitar."
+  }
+ ],
+ "insertar": []
+}

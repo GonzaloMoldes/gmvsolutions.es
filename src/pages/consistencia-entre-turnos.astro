@@ -13,8 +13,8 @@ import { faqPageSchema, type FaqItem } from '../lib/seo';
 // Regla al tocar esta pagina: la variacion se mira SIEMPRE por proceso, nunca por
 // persona. En cuanto el copy suena a control de personal, el jefe de produccion
 // deja de comprarlo. Por eso la seccion de limites no es opcional.
-const title = "Estandarizar procesos entre turnos y operarios | REELEVO";
-const description = "Cuando cada turno hace la misma pieza a su manera: una sola versión del proceso en el puesto, aviso al cambiar y detección de lo que más varía.";
+const title = "Estandarizar instrucciones de trabajo entre turnos | REELEVO";
+const description = "Cuando cada turno hace la misma pieza a su manera: una sola versión de la instrucción de trabajo en el puesto, aviso al cambiar y qué varía más.";
 const canonical = "https://www.gmvsolutions.es/consistencia-entre-turnos/";
 
 const faqs: FaqItem[] = [
@@ -61,7 +61,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   description={description}
   canonical={canonical}
   ogTitle="REELEVO — Que el proceso salga igual lo haga quien lo haga"
-  ogDescription="Una sola versión del proceso en el puesto, aviso cuando cambia y detección de los procesos que más varían entre personas y entre turnos."
+  ogDescription="Una sola versión de la instrucción de trabajo en el puesto, aviso cuando cambia y detección de los procesos que más varían entre personas y entre turnos."
   activeNav="casos-de-uso"
   schema={schema}
   pageType="caso_uso"
@@ -71,7 +71,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <section class="page-hero">
   <div class="eyebrow fade-up">Consistencia entre turnos</div>
   <h1 class="fade-up delay-1">Tres turnos haciendo <br><em>la misma pieza de tres maneras</em></h1>
-  <p class="fade-up delay-2">No es indisciplina. Es que la instrucción está en un plastificado de hace tres años, cada uno aprendió de alguien distinto y nadie ha dicho nunca cuál de las tres formas es la buena.</p>
+  <p class="fade-up delay-2">No es indisciplina. Es que la instrucción de trabajo está en un plastificado de hace tres años, cada uno aprendió de alguien distinto y nadie ha dicho nunca cuál de las tres formas es la buena.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
@@ -198,14 +198,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-eyebrow fade-up">¿Lo ves para tu planta?</div>
-  <h3 class="cta-title fade-up delay-1">Empieza por el proceso <br><em>que cada turno hace distinto</em></h3>
+  <h3 class="cta-title fade-up delay-1">Empieza por la instrucción de trabajo <br><em>que cada turno hace distinta</em></h3>
   <p class="cta-sub fade-up delay-2">Uno basta. Documenta el arranque o el cambio de referencia que más discusiones genera, ponlo en la máquina y mira qué pasa en la primera semana con los tres turnos trabajando contra el mismo texto.</p>
   <div class="cta-actions fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="07" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
   </div>
   <div class="cta-note fade-up delay-4" style="margin-top:18px;">
-    Relacionado: <a href="/documentacion-procesos/">documentación de procesos</a> · <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a> · <a href="/por-que-usar-reelevo/">los nueve problemas</a>
+    Relacionado: <a href="/documentacion-procesos/">instrucciones de trabajo y gestión documental</a> · <a href="/casos-de-uso/onboarding-operarios/">onboarding de operarios</a> · <a href="/por-que-usar-reelevo/">los nueve problemas</a>
   </div>
 </section>
 

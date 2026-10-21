@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterModal from '../components/NewsletterModal.astro';
 import MarcoTaller from '../components/MarcoTaller.astro';
-import { organizationSchema, buildBreadcrumb, BASE_URL } from '../lib/seo';
+import { organizationSchema, buildBreadcrumb, BASE_URL, type SeccionMiga } from '../lib/seo';
 import '../styles/global.css';
 
 export interface Props {
@@ -24,6 +24,8 @@ export interface Props {
   ogType?: string;
   // ISO 8601. Solo tiene sentido junto a ogType="article".
   publishedTime?: string;
+  // Primera seccion de la miga cuando no coincide con la URL (plantillas en /blog/ listadas en Recursos).
+  seccionMiga?: SeccionMiga;
 }
 
 const {
@@ -42,11 +44,12 @@ const {
   noindex = false,
   ogType = 'website',
   publishedTime,
+  seccionMiga,
 } = Astro.props;
 
 // Schema sitewide (S1-C3): Organization en todas las paginas + BreadcrumbList
 // generado automaticamente desde la ruta. La home omite breadcrumb.
-const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname);
+const breadcrumbSchema = buildBreadcrumb(Astro.url.pathname, undefined, seccionMiga);
 
 // Version markdown de la pagina. Se anuncia con <link rel="alternate"
 // type="text/markdown"> para que los agentes prefieran el texto limpio al HTML.
@@ -222,7 +225,7 @@ const showNewsletterModal = import.meta.env.PUBLIC_NEWSLETTER_MODAL === 'on';
     <Header activeNav={activeNav} />
 
     <main style="position:relative;">
-      <Breadcrumbs />
+      <Breadcrumbs seccion={seccionMiga} />
       <slot />
     </main>
 

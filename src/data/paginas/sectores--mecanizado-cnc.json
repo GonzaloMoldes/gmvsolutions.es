@@ -1,13 +1,13 @@
 {
   "seo": {
-    "title": "Software de operaciones para mecanizado CNC | REELEVO",
-    "description": "Software de operaciones para mecanizado CNC: continuidad en puestos críticos, procesos en el puesto y competencias visibles, sin la complejidad de un MES."
+    "title": "Instrucciones de trabajo para mecanizado CNC | REELEVO",
+    "description": "Instrucciones de trabajo para mecanizado CNC: arranques, cambios de utillaje y criterios de control en el puesto, con competencias visibles y sin un MES."
   },
   "hero": {
-    "antetitulo": "Software de operaciones para mecanizado CNC",
+    "antetitulo": "Instrucciones de trabajo para mecanizado CNC",
     "titulo": "Continuidad operativa en",
     "tituloDestacado": "mecanizado y CNC",
-    "texto": "En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos críticos no deberían parar la operación. REELEVO deja el proceso en el puesto y la competencia visible, para sostener la continuidad sin depender de una sola persona.",
+    "texto": "En talleres y plantas CNC, los arranques, los cambios de referencia y las ausencias en puestos críticos no deberían parar la operación. REELEVO deja la instrucción de trabajo en el puesto y la competencia visible, para sostener la continuidad sin depender de una sola persona.",
     "botones": [
       {
         "texto": "Registrarme en REELEVO",
