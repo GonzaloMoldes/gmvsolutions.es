@@ -63,7 +63,7 @@ const parche = (id) => porDoc.get(id) ?? porDoc.set(id, { set: {}, insert: [] })
 for (const c of spec.cambios) {
   const doc = docs.get(c.id);
   const actual = doc ? leer(doc, c.path) : undefined;
-  if (!doc || actual !== c.from) {
+  if (!doc || actual !== (c.from ?? undefined)) { // from: null = campo vacio
     resumen.saltados.push(`${c.id} · ${c.path} (${doc ? 'editado desde que se preparo' : 'no existe'})`);
     continue;
   }
