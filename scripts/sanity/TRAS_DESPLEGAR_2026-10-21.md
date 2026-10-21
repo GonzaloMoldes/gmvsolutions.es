@@ -1,5 +1,7 @@
 # Cambios de Sanity que se aplican después de desplegar `seo/mejoras-keywords`
 
+**Estado: aplicados el 21-10-2026 a las 23:00 (UTC), tras fusionar en `main`.**
+
 Enlazan a páginas que llegan con este despliegue (`/recursos/matriz-de-polivalencia/`
 y `/recursos/plantilla-gestion-documental-prl/`, esta última de la PR anterior). Si se
 aplican antes, publican enlaces rotos.
