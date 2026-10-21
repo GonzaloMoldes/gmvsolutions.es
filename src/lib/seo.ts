@@ -14,9 +14,22 @@ export const organizationSchema = {
   name: 'GMV Solutions',
   alternateName: 'REELEVO',
   url: BASE_URL,
-  logo: `${BASE_URL}/favicon.svg`,
+  // PNG cuadrado de 1000 px: Google no siempre acepta SVG como logo de la organizacion.
+  logo: {
+    '@type': 'ImageObject',
+    url: `${BASE_URL}/screenshots/reelevo-brand-logo.png`,
+    width: 1000,
+    height: 1000,
+  },
+  // La marca es REELEVO; GMV Solutions es la empresa. Ayuda a que Google no la
+  // confunda con "relevo" en las busquedas de marca.
+  brand: {
+    '@type': 'Brand',
+    name: 'REELEVO',
+    logo: `${BASE_URL}/screenshots/reelevo-brand-logo.png`,
+  },
   description:
-    'REELEVO es el software español para digitalizar la planta industrial de las pymes: control de producción, continuidad operativa y trazabilidad de ejecución, sin la complejidad de un MES.',
+    'REELEVO es el software de instrucciones de trabajo digitales para pymes industriales españolas: procedimientos paso a paso en el puesto, con QR, foto y vídeo, ejecución registrada, continuidad ante bajas y trazabilidad, sin la complejidad de un MES.',
   email: 'hola@gmvsolutions.es',
   address: {
     '@type': 'PostalAddress',
@@ -28,9 +41,12 @@ export const organizationSchema = {
   foundingDate: '2025',
   areaServed: 'ES',
   knowsAbout: [
+    'Software de instrucciones de trabajo digitales',
+    'Instrucciones de trabajo digitales',
+    'Instrucciones de trabajo',
+    'Gestión documental industrial',
     'Software SOP industrial',
     'Procedimientos operativos estándar',
-    'Documentación operativa',
     'Continuidad operativa en planta',
     'Visibilidad operativa industrial',
     'Reducción de dependencia operativa',
@@ -72,7 +88,9 @@ export function softwareApplicationSchema() {
     '@type': 'SoftwareApplication',
     '@id': `${BASE_URL}/#software`,
     name: 'REELEVO',
+    description: 'Software de instrucciones de trabajo digitales para pymes industriales.',
     applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Software de instrucciones de trabajo digitales',
     operatingSystem: 'Web, Android, iOS',
     offers: {
       '@type': 'AggregateOffer',
@@ -124,7 +142,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   recursos: 'Recursos',
   faqs: 'FAQs',
   'onboarding-software-pymes': 'Onboarding software para pymes',
-  'documentacion-procesos': 'Documentación de procesos',
+  'documentacion-procesos': 'Instrucciones de trabajo',
   'gestion-competencias': 'Gestión de competencias',
   'calidad-y-conformidad': 'Calidad y conformidad',
   'cobertura-turnos': 'Cobertura de turnos',
@@ -177,6 +195,8 @@ const SEGMENT_LABELS: Record<string, string> = {
   'plan-contingencia-bajas-produccion': 'Plan de contingencia para bajas en producción',
   'plantilla-sop-produccion': 'Plantilla de SOP de producción',
   'plantilla-instruccion-de-trabajo': 'Plantilla de instrucción de trabajo',
+  'plantilla-gestion-documental-prl': 'Plantilla de gestión documental de PRL',
+  'matriz-de-polivalencia': 'Matriz de polivalencia',
   'reducir-onboarding-operarios-cinco-a-un-dia': 'Reducir la curva de onboarding de 5 días a 1',
   'software-sop-para-fabricas-comparativa': 'Software SOP para fábricas: comparativa',
   'sop-mantenimiento-preventivo-guia-plantilla': 'SOP de mantenimiento preventivo: guía y plantilla',
@@ -212,7 +232,13 @@ export interface BreadcrumbItem {
  * Devuelve null en la home (un breadcrumb de un solo item no aporta).
  * Reutilizado por el JSON-LD (buildBreadcrumb) y por el componente visible (Breadcrumbs.astro).
  */
-export function breadcrumbItems(pathname: string, baseURL = BASE_URL): BreadcrumbItem[] | null {
+/** Sustituye la primera seccion de la ruta en la miga (p. ej. las plantillas que viven en /blog/ pero se listan en Recursos). */
+export interface SeccionMiga {
+  nombre: string;
+  ruta: string;
+}
+
+export function breadcrumbItems(pathname: string, baseURL = BASE_URL, seccion?: SeccionMiga): BreadcrumbItem[] | null {
   const clean = pathname.replace(/\/+$/, '');
   if (clean === '') return null; // home
 
@@ -225,6 +251,10 @@ export function breadcrumbItems(pathname: string, baseURL = BASE_URL): Breadcrum
     acc += `/${segment}`;
     const isLast = index === segments.length - 1;
     const navigable = !isLast && !NON_NAVIGABLE_SECTIONS.has(segment);
+    if (index === 0 && seccion && !isLast) {
+      items.push({ name: seccion.nombre, url: `${baseURL}${seccion.ruta}` });
+      return;
+    }
     items.push({
       name: labelFor(segment),
       url: navigable ? `${baseURL}${acc}/` : undefined,
@@ -238,9 +268,14 @@ export function breadcrumbItems(pathname: string, baseURL = BASE_URL): Breadcrum
  * Construye el JSON-LD BreadcrumbList para una ruta.
  * Devuelve null en la home.
  */
-export function buildBreadcrumb(pathname: string, baseURL = BASE_URL) {
-  const items = breadcrumbItems(pathname, baseURL);
-  if (!items) return null;
+export function buildBreadcrumb(pathname: string, baseURL = BASE_URL, seccion?: SeccionMiga) {
+  const todos = breadcrumbItems(pathname, baseURL, seccion);
+  if (!todos) return null;
+  // Google exige `item` en todos los elementos menos el ultimo. Las secciones sin
+  // pagina propia (para-quien, casos-de-uso, sectores, legal) no tienen URL: se
+  // muestran como texto en la miga visible, pero se dejan fuera del JSON-LD.
+  // Antes se emitian sin `item` y Search Console las marcaba como problema critico.
+  const items = todos.filter((item, index) => item.url || index === todos.length - 1);
 
   return {
     '@context': 'https://schema.org',

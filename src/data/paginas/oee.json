@@ -1,0 +1,69 @@
+{
+  "seo": {
+    "title": "Software de OEE para pyme industrial | REELEVO",
+    "description": "Calcula el OEE de cada máquina con los datos que ya registra el operario en planta: disponibilidad, rendimiento y calidad, con snapshot diario automático."
+  },
+  "hero": {
+    "antetitulo": "OEE · Lean · Datos de ejecución",
+    "titulo": "El OEE de tu planta,",
+    "tituloDestacado": "calculado solo",
+    "texto": "Casi nadie tiene OEE, y quien lo tiene no se lo cree: sale de un Excel con datos apuntados en papel y tecleados el lunes. REELEVO calcula disponibilidad, rendimiento y calidad de cada máquina con lo que el operario ya registra al ejecutar el proceso — sin consolidar nada y sin pedirte un sensor en una máquina de 1998.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver planes",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-el-oee-y-como-se",
+        "q": "¿Qué es el OEE y cómo se calcula?",
+        "a": "El OEE (Overall Equipment Effectiveness) mide qué parte del tiempo productivo de una máquina se aprovecha de verdad. Se calcula multiplicando tres factores: disponibilidad (tiempo planificado menos paradas), rendimiento (ciclo real frente al ciclo ideal) y calidad (unidades buenas sobre unidades producidas). Un 100% significaría producir siempre, al ritmo previsto y sin ningún rechazo."
+      },
+      {
+        "id": "faq-de-donde-salen-los-datos-del-oee",
+        "q": "¿De dónde salen los datos del OEE en REELEVO?",
+        "a": "De la ejecución real en planta, no de un parte rellenado después. Cuando el operario escanea el QR y ejecuta el proceso queda registrado el tiempo, las unidades producidas, las rechazadas y las paradas con su motivo. El OEE se calcula con eso, así que no hay doble captura ni una hoja aparte que alguien tenga que mantener."
+      },
+      {
+        "id": "faq-que-hace-falta-configurar-para-que-el",
+        "q": "¿Qué hace falta configurar para que el OEE sea fiable?",
+        "a": "Tres cosas: el tiempo planificado del turno, el tiempo de ciclo ideal de cada proceso y que el operario registre los rechazos. Sin tiempo planificado no hay disponibilidad, sin ciclo ideal no hay rendimiento, y sin rechazos registrados la calidad se asume al 100%. REELEVO marca cuándo la calidad es una estimación en vez de un dato medido."
+      },
+      {
+        "id": "faq-necesito-conectar-sensores-a-las-maquinas",
+        "q": "¿Necesito conectar sensores a las máquinas?",
+        "a": "No para empezar. El OEE se calcula con lo que registra el operario en el flujo del proceso, que es lo que permite tener OEE en máquinas antiguas sin electrónica. Si tienes máquinas conectadas, REELEVO admite telemetría por MTConnect y MachineMetrics para afinar los tiempos de parada."
+      },
+      {
+        "id": "faq-que-es-el-analisis-timwoods",
+        "q": "¿Qué es el análisis TIMWOODS?",
+        "a": "Es la clasificación de los ocho desperdicios Lean: transporte, inventario, movimiento, espera, sobreproducción, sobreprocesamiento, defectos y talento desaprovechado. REELEVO reparte por esas categorías lo que aparece en planta, de forma que la conversación deja de ser \"vamos mal\" y pasa a ser \"el 40% de lo que perdemos es espera\"."
+      },
+      {
+        "id": "faq-que-plan-necesito-para-tener-oee-y",
+        "q": "¿Qué plan necesito para tener OEE y análisis Lean?",
+        "a": "El registro de paradas, unidades y rechazos y el monitoreo en vivo están desde el plan Starter, así que el OEE base lo tienes desde el principio. La analítica avanzada, el análisis Lean —TIMWOODS, VSM y takt time— y los reportes PDF programados por email son del plan Pro. El detalle actualizado está en la página de precios."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza por una máquina",
+    "titulo": "No necesitas sensores.",
+    "tituloDestacado": "Necesitas que quede registrado",
+    "texto": "Empieza por la máquina que más te tensiona, con el proceso que ya ejecutan tus operarios. El OEE aparece solo en cuanto hay ejecuciones registradas.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ],
+    "nota": "Plan gratuito para empezar · Sin tarjeta"
+  }
+}

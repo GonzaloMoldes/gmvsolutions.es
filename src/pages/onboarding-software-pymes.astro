@@ -3,32 +3,19 @@ import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqSection from '../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../lib/seo';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Onboarding software para pymes industriales | REELEVO";
-const description = "Onboarding software especializado para pymes industriales. Reduce tiempo de aprendizaje, cubre bajas y documenta procesos. Implementación en 2 días.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/onboarding-software-pymes.json.
+const pagina = await getPagina('onboarding-software-pymes');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 // Era la unica pagina sin canonical explicito: heredaba el dominio del `site` de
 // astro.config, asi que al pasar el sitio a www se quedo apuntando al apex.
 const canonical = "https://www.gmvsolutions.es/onboarding-software-pymes/";
 
 // Una sola lista alimenta el bloque visible y el FAQPage del head (auditoria P6).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Qué es un onboarding software para planta?',
-    a: 'Es la herramienta que ordena la incorporación de un operario: le da el proceso documentado en el puesto desde el primer día y registra qué ha ejecutado y con qué autonomía. Se diferencia de un software de RRHH en que no se queda en el papeleo del alta, sino que llega a la máquina.',
-  },
-  {
-    q: '¿Sustituye al operario que tutoriza?',
-    a: 'No, le cambia el papel. En lugar de explicar cada paso desde cero en cada incorporación, el tutor verifica el resultado y resuelve lo que la documentación no cubre. El objetivo es que el conocimiento deje de pasar por una sola persona, no prescindir de ella.',
-  },
-  {
-    q: '¿A partir de qué tamaño de plantilla compensa?',
-    a: 'Más que el tamaño, decide la rotación. Una planta de 15 personas que incorpora a alguien cada mes o trabaja con ETT lo aprovecha más que una de 60 con plantilla estable. La pregunta útil es cuántas horas de tu mejor operario se van en tutorizar cada alta.',
-  },
-  {
-    q: '¿Cuánto se tarda en ponerlo en marcha?',
-    a: 'La configuración técnica es de un día al ser SaaS. El plazo real lo marca documentar los procesos de los puestos por los que más gente pasa: empezando por dos o tres, la primera incorporación puede arrancar con el proceso en el puesto en un par de semanas.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -51,12 +38,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="landing">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Onboarding Software Especializado</div>
-    <h1 class="fade-up delay-1">Onboarding software <br><em>para pymes industriales</em></h1>
-    <p class="fade-up delay-2">Deja de estimar cuánto tarda un operario nuevo en ir solo: lo ves paso a paso. Cubre bajas sin llamar al experto y documenta los procedimientos en el puesto.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarse gratis">Registrarse gratis</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-trigger="05" data-cta-label="Registrarse gratis">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
   </section>
 
@@ -86,7 +75,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="problem-card">
           <Icon name="alerta" class="problem-icon icon--draw" />
           <h3>Errores frecuentes</h3>
-          <p>Sin instrucciones claras en el puesto, la incorporación decide por criterio propio en sus primeros días. De ahí salen defectos y reprocesos que nadie atribuye al onboarding.</p>
+          <p>Sin instrucciones de trabajo claras en el puesto, la incorporación decide por criterio propio en sus primeros días. De ahí salen defectos y reprocesos que nadie atribuye al onboarding.</p>
         </div>
 
         <div class="problem-card">
@@ -126,14 +115,14 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="solution-features fade-up delay-1">
         <div class="feature-card">
           <div class="feature-num">1</div>
-          <h3>Documentación paso a paso</h3>
-          <p>Cada operario documenta su proceso mientras lo ejecuta. No manuales de 50 páginas: procedimientos reales, accesibles en la máquina.</p>
+          <h3>Instrucciones de trabajo paso a paso</h3>
+          <p>Cada operario documenta su proceso mientras lo ejecuta. No manuales de 50 páginas: instrucciones de trabajo reales, accesibles en la máquina.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-num">2</div>
           <h3>Acceso en el puesto</h3>
-          <p>Los nuevos operarios consultan el procedimiento directamente en la máquina. No hay que buscar archivos ni hacer preguntas al tutor.</p>
+          <p>Los nuevos operarios consultan la instrucción de trabajo directamente en la máquina. No hay que buscar archivos ni hacer preguntas al tutor.</p>
         </div>
 
         <div class="feature-card">
@@ -145,7 +134,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
         <div class="feature-card">
           <div class="feature-num">4</div>
           <h3>Cobertura de bajas</h3>
-          <p>Cuando el experto falta, el sustituto accede al procedimiento completo y puede arrancar sin esperar a que alguien coja el teléfono.</p>
+          <p>Cuando el experto falta, el sustituto accede a la instrucción de trabajo completa y puede arrancar sin esperar a que alguien coja el teléfono.</p>
         </div>
 
         <div class="feature-card">
@@ -174,7 +163,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
  Regla: PLAN_CORRECCIONES_WEB_VS_APP_2026-08.md, Anexo III. -->
       <div class="fade-up">
         <div class="eyebrow">Qué cambia</div>
-        <h2 class="section-title">Qué cambia cuando el procedimiento está en el puesto</h2>
+        <h2 class="section-title">Qué cambia cuando la instrucción de trabajo está en el puesto</h2>
       </div>
 
       <div class="results-comparison fade-up delay-1">
@@ -269,7 +258,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>Comparte en planta (inmediato)</h3>
-            <p>Los nuevos operarios ven los procedimientos en el puesto. Trabajan independientemente desde el primer día.</p>
+            <p>Los nuevos operarios ven las instrucciones de trabajo en el puesto. Trabajan independientemente desde el primer día.</p>
           </div>
         </div>
       </div>
@@ -330,17 +319,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Empieza por el primer día</div>
-    <h2 class="cta-title fade-up delay-1">Comienza tu onboarding <em>sin montar un proyecto eterno</em>
-    </h2>
-    <p class="cta-sub fade-up delay-2">Abre la puerta con una primera prueba y mira cómo baja la fricción cuando el equipo aprende con materiales que sí usa.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h2 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h2>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarse gratis">Registrarse gratis
-      </a>
-      <a href="/precios/" class="btn-ghost">Ver cómo arrancar →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-trigger="05" data-cta-label="Registrarse gratis">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
   </section>
 
@@ -403,7 +392,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .cost-calc li strong {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .highlight-box {
@@ -487,7 +476,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 
   .metric-arrow {
     text-align: center;
-    color: var(--orange);
+    color: var(--orange-ink);
     font-weight: 600;
   }
 

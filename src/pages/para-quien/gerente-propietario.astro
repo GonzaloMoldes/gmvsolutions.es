@@ -1,30 +1,22 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from "../../components/Icon.astro";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/seo';
 import Screenshot from '../../components/Screenshot.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../../lib/contenido';
 
-const title = "Software operaciones pyme industrial para gerencia | REELEVO";
-const description = "Reduce el riesgo operativo y da continuidad al negocio industrial: menos dependencia de personas clave, plataforma ligera y precio por empresa.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/para-quien--gerente-propietario.json.
+const pagina = await getPagina('para-quien/gerente-propietario');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/para-quien/gerente-propietario/";
 
 // Esta pagina no tenia FAQ ni FAQPage en el head. Se anade, y absorbe la seccion "Cuando encaja"
 // (tarea D4 de PLAN_SIMPLIFICACION_EDITORIAL_WEB_2026-08.md).
-const faqs: FaqItem[] = [
-  {
-    q: '¿Cuándo tiene sentido para una gerencia meterse en esto?',
-    a: 'Cuando el coste de improvisar ya se nota en el día a día: hay puestos donde faltar una persona desordena la operación, los expertos siguen dedicando demasiado tiempo a enseñar, quieres ordenar procesos críticos sin depender de un proyecto de IT largo, o buscas claridad comercial con precio visible e implantación asumible. No hace falta convertirlo en un proyecto estratégico enorme.',
-  },
-  {
-    q: '¿Cuánto compromiso supone empezar?',
-    a: 'Se empieza por un proceso y un puesto, con precio público y sin llamada comercial obligatoria. La idea es justo la contraria a una transformación gigantesca: si el primer proceso documentado no cambia nada en tu operativa, no hay motivo para seguir.',
-  },
-  {
-    q: '¿Qué riesgo reduce concretamente?',
-    a: 'El de depender de dos o tres personas para que la planta funcione. Cuando el conocimiento crítico está solo en la cabeza de quien lleva quince años, una baja, una jubilación o una salida se convierten en un problema de continuidad, no de recursos humanos.',
-  },
-];
+const faqs: FaqItem[] = pagina.faq.items.map(({ q, a }) => ({ q, a: sinMarcas(a) }));
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -50,14 +42,17 @@ const schema = [pageSchema, faqPageSchema(faqs)];
 >
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Para gerentes y propietarios</div>
-    <h1 class="fade-up delay-1">Control operativo para gerencia, <br><em>sin complejidad MES</em>.</h1>
-    <p class="fade-up delay-2">Identifica riesgos de continuidad, ordena puestos críticos y gana visibilidad diaria sin abrir un proyecto largo ni difícil de defender internamente.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}.</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Precio publicado por empresa · Puesta en marcha ágil</div>
+    <Ilustracion escena="gerente-propietario" />
   </section>
 
   <div class="divider"></div>
@@ -76,7 +71,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
       <div class="proof-grid fade-up delay-1">
         <div class="proof-card proof-shot">
           <div class="proof-frame">
-            <Screenshot name="sop-operario" alt="Acceso al proceso desde el puesto en REELEVO" layout="pair" />
+            <Screenshot name="sop-operario" alt="Instrucción de trabajo abierta desde el puesto en REELEVO, paso a paso con vídeo" layout="pair" />
           </div>
           <div class="proof-caption">Captura real del producto: el trabajo aparece en el puesto sin añadir fricción al operario.</div>
         </div>
@@ -161,7 +156,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
           <div class="risk-mitigation">
             <strong>Con REELEVO:</strong>
             <ul>
-              <li>El proceso se enseña igual en cada incorporación</li>
+              <li>La instrucción de trabajo se enseña igual en cada incorporación</li>
               <li>Se reduce la necesidad de tutoría continua</li></ul>
           </div>
           <div class="risk-probability">Resultado: <strong>menos tiempo improductivo de los expertos</strong></div>
@@ -280,19 +275,16 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   <div class="divider"></div>
 
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Para decisores</div>
-    <h3 class="cta-title fade-up delay-1">Reduce el riesgo operativo <em>de forma sostenida</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">Regístrate, revisa el producto por dentro y valora si encaja con tu planta.
- Empezamos por procesos críticos y medimos impacto con tu realidad operativa.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="fade-up delay-3" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO →
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">Ver también <a href="/precios/">precios</a> o <a href="/por-que-usar-reelevo/">qué resuelve</a>. <br />Precio publicado · Implantación ligera · Evaluación guiada con foco en riesgo operativo
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
     </section>
 </BaseLayout>
 
@@ -420,7 +412,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 6px;
   }
@@ -437,7 +429,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 8px;
   }
 
@@ -460,7 +452,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .exec-benefits li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 4px;
   }
 
@@ -484,13 +476,13 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 12px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .executive-conclusion p {
     font-size: .95rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
   }
 
   .executive-conclusion strong {
@@ -511,7 +503,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .cost-table-exec {
@@ -583,7 +575,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .roi-cards {
@@ -736,7 +728,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-mitigation strong {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .risk-impact ul,
@@ -758,7 +750,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-mitigation li {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
     margin-bottom: 3px;
   }
 
@@ -777,7 +769,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   }
 
   .risk-probability strong {
-    color: var(--orange);
+    color: var(--orange-ink);
     font-weight: 600;
   }
 
@@ -822,7 +814,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -931,7 +923,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -983,7 +975,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .ceo-quote blockquote {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 24px;
     font-style: italic;
   }
@@ -1021,7 +1013,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .ceo-metrics {
@@ -1049,7 +1041,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-family: 'Oswald', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     line-height: 1;
     margin-bottom: 4px;
   }
@@ -1065,7 +1057,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   .decision-factors {
@@ -1100,7 +1092,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-align: center;
   }
 
@@ -1171,7 +1163,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .recommendation-content p {
     font-size: .95rem;
     line-height: 1.65;
-    color: rgba(255, 255, 255, .9);
+    color: rgba(20,22,24, .9);
     margin-bottom: 16px;
   }
 
@@ -1194,7 +1186,7 @@ const schema = [pageSchema, faqPageSchema(faqs)];
   .reason {
     font-size: .85rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(20,22,24, .8);
   }
 
   .reason strong {

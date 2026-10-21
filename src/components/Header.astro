@@ -5,6 +5,17 @@ export interface Props {
 const { activeNav } = Astro.props;
 
 import { latestPublishedISO, NEW_POST_DAYS } from '../lib/blog';
+import { latestRecursoISO } from '../lib/recursos';
+
+// Aviso de contenido nuevo: el desplegable y la hamburguesa se encienden con lo
+// ultimo publicado en el blog o en Recursos; cada entrada, con lo suyo.
+const ultimaNovedadISO = [latestPublishedISO, latestRecursoISO].sort().at(-1)!;
+const publicadoDe = (href: string) =>
+  href === '/blog/' ? latestPublishedISO : href === '/recursos/' ? latestRecursoISO : undefined;
+import { getAjustes } from '../lib/contenido';
+
+// Boton de registro: editable en Sanity (Ajustes generales).
+const ajustes = await getAjustes();
 
 // Un solo origen para el mega-menu de escritorio y el menu movil. Antes cada
 // uno tenia su propio marcado con los mismos 34 enlaces escritos dos veces, y
@@ -16,7 +27,7 @@ const PLATAFORMA = [
     items: [
       { href: '/software-gestion-pyme-industrial/', label: 'Software de gestión industrial', sub: 'Toda la planta en una herramienta' },
       { href: '/gestion-competencias/', label: 'Gestión de competencias', sub: 'Skill matrix y certificaciones' },
-      { href: '/documentacion-procesos/', label: 'Documentación de procesos', sub: 'SOPs, checklists y versionado' },
+      { href: '/documentacion-procesos/', label: 'Instrucciones de trabajo', sub: 'Gestión documental, SOPs y versiones' },
       { href: '/control-produccion/', label: 'Control de producción', sub: 'KPIs en tiempo real, sin papel' },
       { href: '/oee/', label: 'OEE y análisis Lean', sub: 'Disponibilidad × rendimiento × calidad' },
       { href: '/mantenimiento/', label: 'Mantenimiento preventivo', sub: 'Planes, órdenes y registro automático' },
@@ -34,7 +45,7 @@ const PLATAFORMA = [
       { href: '/api-integraciones/', label: 'API e integraciones', sub: 'ERP, Power BI, Teams y webhooks' },
       { href: '/integracion-m365/', label: 'Integración Microsoft 365', sub: 'Power BI, Power Automate y Teams' },
       { href: '/cobertura-turnos/', label: 'Cobertura de turnos', sub: 'Alerta automática antes de que falle el turno' },
-      { href: '/calidad-y-conformidad/', label: 'Calidad y conformidad', sub: 'Lo que sí es y sus límites reales' },
+      { href: '/calidad-y-conformidad/', label: 'Calidad y conformidad', sub: 'Gestión documental y evidencia para auditorías' },
       { href: '/seguridad/', label: 'Seguridad y RGPD', sub: 'RLS, roles, auditoría y datos en la UE' },
     ],
   },
@@ -65,7 +76,7 @@ const SOLUCIONES = [
 ];
 
 const RECURSOS = [
-  { href: '/recursos/', label: 'Recursos', sub: 'Guías y materiales descargables' },
+  { href: '/recursos/', label: 'Recursos', sub: 'Plantillas y materiales descargables' },
   { href: '/blog/', label: 'Blog', sub: 'Artículos sobre operaciones industriales' },
   { href: '/faqs/', label: 'Preguntas frecuentes', sub: 'Dudas sobre implementación y uso' },
 ];
@@ -138,7 +149,7 @@ const RECURSOS = [
         class={`nav-dropdown-trigger${activeNav === 'recursos' || activeNav === 'blog' ? ' nav-active' : ''}`}
         aria-expanded="false"
         aria-haspopup="true"
-        data-published={latestPublishedISO}
+        data-published={ultimaNovedadISO}
       >
         Recursos
         <span class="new-badge">Nuevo</span>
@@ -146,9 +157,9 @@ const RECURSOS = [
       </button>
       <div class="nav-dropdown-menu">
         {RECURSOS.map((it) => (
-          <a href={it.href} data-published={it.href === '/blog/' ? latestPublishedISO : undefined}>
+          <a href={it.href} data-published={publicadoDe(it.href)}>
             {it.label}
-            {it.href === '/blog/' && <span class="new-badge">Nuevo contenido</span>}
+            {publicadoDe(it.href) && <span class="new-badge">Nuevo contenido</span>}
             <span class="nav-sub-label">{it.sub}</span>
           </a>
         ))}
@@ -163,17 +174,17 @@ const RECURSOS = [
          depender de la duracion del trial, que hoy no cuadra entre
          TRIAL_DURATION_DAYS y el email de bienvenida de la app. -->
     <a
-      href="https://app.gmvsolutions.es/registro"
+      href={ajustes.ctaCabecera.url}
       class="header-cta"
-      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label="Probar gratis"
-    >Probar gratis</a>
+      data-cta data-cta-intent="registro" data-cta-location="header" data-cta-label={ajustes.ctaCabecera.texto}
+    >{ajustes.ctaCabecera.texto}</a>
     <button
       class="hamburger"
       id="hamburgerBtn"
       aria-label="Menú"
       aria-controls="mobileMenu"
       aria-expanded="false"
-      data-published={latestPublishedISO}
+      data-published={ultimaNovedadISO}
     >
       <span></span><span></span><span></span>
     </button>
@@ -202,17 +213,17 @@ const RECURSOS = [
   <a href="/precios/">Precios</a>
 
   <div class="mobile-section-title">Recursos y Blog</div>
-  {RECURSOS.map((it) => it.href === '/blog/'
-    ? <a href={it.href} data-published={latestPublishedISO}>{it.label} <span class="new-badge">Nuevo contenido</span></a>
+  {RECURSOS.map((it) => publicadoDe(it.href)
+    ? <a href={it.href} data-published={publicadoDe(it.href)}>{it.label} <span class="new-badge">Nuevo contenido</span></a>
     : <a href={it.href}>{it.label}</a>)}
 
   <div class="mobile-cta-group">
 
-    <a href="https://app.gmvsolutions.es/registro" class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"
-       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label="Probar gratis">
-      Probar gratis
+    <a href={ajustes.ctaCabecera.url} class="btn-primary" style="text-align:center;font-size:.8rem;padding:14px 28px;"
+       data-cta data-cta-intent="registro" data-cta-location="menu_movil" data-cta-label={ajustes.ctaCabecera.texto}>
+      {ajustes.ctaCabecera.texto}
     </a>
-    <p class="mobile-cta-note">Sin tarjeta · Sin compromiso</p>
+    <p class="mobile-cta-note">{ajustes.notaMenuMovil}</p>
   </div>
 </div>
 

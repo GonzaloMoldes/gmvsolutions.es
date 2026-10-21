@@ -1,0 +1,25 @@
+---
+// Enlace dentro de un articulo de Sanity. Conserva el aspecto de boton y los
+// atributos data-cta-* que mide el listener de BaseLayout (evento cta_click).
+const { node } = Astro.props as {
+  node: {
+    markDef?: {
+      href?: string;
+      clase?: string;
+      cta?: { intent?: string; location?: string; trigger?: string; label?: string };
+    };
+  };
+};
+const d = node.markDef ?? {};
+const cta = d.cta && (d.cta.intent || d.cta.label)
+  ? {
+      'data-cta': '',
+      ...(d.cta.intent ? { 'data-cta-intent': d.cta.intent } : {}),
+      ...(d.cta.location ? { 'data-cta-location': d.cta.location } : {}),
+      ...(d.cta.trigger ? { 'data-cta-trigger': d.cta.trigger } : {}),
+      ...(d.cta.label ? { 'data-cta-label': d.cta.label } : {}),
+    }
+  : {};
+---
+
+<a href={d.href ?? '#'} class={d.clase} {...cta}><slot /></a>

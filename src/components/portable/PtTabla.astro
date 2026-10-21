@@ -1,0 +1,24 @@
+---
+// Tabla de un articulo de Sanity. Las celdas admiten **negrita** con dobles
+// asteriscos, que es lo unico que usaban las tablas de los articulos migrados.
+const { node } = Astro.props as {
+  node: { caption?: string; clase?: string; cabecera?: string[]; filas?: { celdas?: string[] }[] };
+};
+// La clase va en un envoltorio y no en la <table>: los estilos del articulo
+// (.tabla-comparativa, .tabla-simple) esperan ese contenedor, que es el que hace
+// scroll horizontal en movil. Con la clase en la tabla, la pagina se desbordaba.
+const html = (t = '') =>
+  t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+---
+
+<div class={node.clase}>
+<table>
+  {node.caption && <caption>{node.caption}</caption>}
+  {node.cabecera?.length ? (
+    <thead><tr>{node.cabecera.map((c) => <th set:html={html(c)} />)}</tr></thead>
+  ) : null}
+  <tbody>
+    {(node.filas ?? []).map((f) => <tr>{(f.celdas ?? []).map((c) => <td set:html={html(c)} />)}</tr>)}
+  </tbody>
+</table>
+</div>

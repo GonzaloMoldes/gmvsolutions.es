@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -29,20 +30,20 @@ const faqs: FaqItem[] = [
 const schema = [faqPageSchema(faqs), {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "REELEVO — Onboarding software para personal ETT",
-  "description": "Onboarding software para personal ETT con gestión de competencias. Incorporar temporales sin perder productividad del tutor. HR software for manufacturing.",
+  "name": "Formar al personal de ETT en planta desde el primer día",
+  "description": "Para la fábrica que recibe personal de ETT: el temporal aprende su puesto con la instrucción de trabajo en la máquina, sin consumir a tus tutores.",
   "url": "https://www.gmvsolutions.es/casos-de-uso/personal-ett/",
-  "keywords": "onboarding software ETT, gestión de competencias temporal, HR software manufacturing",
+  "keywords": "formación personal ETT en planta, incorporación de temporales, instrucciones de trabajo, empresa usuaria",
   "isPartOf": { "@id": "https://www.gmvsolutions.es/#organization" }
 }];
 ---
 
 <BaseLayout
-  title="Onboarding de personal ETT industrial | REELEVO"
-  description="Onboarding de personal ETT industrial para productividad temprana: el temporal aprende en el puesto sin consumir a tus tutores, con competencias visibles."
+  title="Formar al personal de ETT en planta desde el primer día | REELEVO"
+  description="Para la fábrica que recibe personal de ETT: el temporal aprende su puesto con la instrucción de trabajo en la máquina, sin consumir a tus tutores."
   canonical="https://www.gmvsolutions.es/casos-de-uso/personal-ett/"
-  ogTitle="REELEVO — Onboarding software para ETT | Sin tutorías infinitas"
-  ogDescription="Onboarding software que acelera incorporación de personal ETT. Gestión de competencias desde el primer día. Menos dependencia del tutor."
+  ogTitle="Formar al personal de ETT en planta desde el primer día | REELEVO"
+  ogDescription="Para la planta que recibe personal de ETT: instrucción de trabajo en el puesto, competencias visibles y menos horas de tutor por incorporación."
   activeNav="casos-de-uso"
   schema={schema}
   pageType="caso_uso"
@@ -51,10 +52,10 @@ const schema = [faqPageSchema(faqs), {
 <style>
   .cost-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 36px 40px; margin-top: 40px; margin-bottom: 2px; position: relative; overflow: hidden; }
   .cost-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
-  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+  .cost-card-label { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 20px; }
   .cost-line { font-family: 'DM Sans', sans-serif; font-size: .95rem; color: var(--gray); line-height: 2; }
   .cost-line strong { color: var(--white); font-weight: 500; }
-  .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange); margin-top: 12px; letter-spacing: .02em; }
+  .cost-line .cost-total { display: block; font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--orange-ink); margin-top: 12px; letter-spacing: .02em; }
   .scenario-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: 2px; }
   .how-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; text-align: left; }
   @media(max-width:960px) { .scenario-grid-2 { grid-template-columns: 1fr; } .cost-card { padding: 28px 24px; } }
@@ -63,16 +64,17 @@ const schema = [faqPageSchema(faqs), {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="eyebrow fade-up">Onboarding de personal ETT industrial</div>
+  <div class="eyebrow fade-up">Para la empresa que recibe personal de ETT</div>
   <h1 class="fade-up delay-1">El temporal ETT aprende <br><em>sin consumir a tus tutores.</em></h1>
-  <p class="fade-up delay-2">El personal ETT llega sin conocer tu maquinaria ni procesos. Con el proceso disponible en el puesto aprende rápido y la matriz de competencias deja claro qué domina, sin que el experto pierda días haciendo tutoría.</p>
+  <p class="fade-up delay-2">El personal de ETT llega a tu planta sin conocer tu maquinaria ni tus procesos. Con la instrucción de trabajo disponible en el puesto aprende rápido y la matriz de competencias deja claro qué domina, sin que el experto pierda días haciendo tutoría. REELEVO no es un software para agencias de trabajo temporal: es para la fábrica que recibe a su personal.</p>
   <div class="hero-cta-group fade-up delay-3">
     <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
        data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Registrarme en REELEVO">Registrarme en REELEVO</a>
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
-</section>
+  <Ilustracion escena="onboarding-operarios" />
+  </section>
 
 <div class="divider-full"></div>
 
@@ -138,7 +140,7 @@ const schema = [faqPageSchema(faqs), {
   <div class="section-inner">
     <div class="eyebrow fade-up">Lo que cambia</div>
     <h2 class="section-title fade-up delay-1">Acceso simple para <br><em>personal temporal</em></h2>
-    <p class="section-sub fade-up delay-2">El ETT encuentra el proceso en el puesto y el experto puede seguir centrado en producir. Menos coste oculto de tutoría.</p>
+    <p class="section-sub fade-up delay-2">El ETT encuentra la instrucción de trabajo en el puesto y el experto puede seguir centrado en producir. Menos coste oculto de tutoría.</p>
 
     <div class="benefit-list fade-up delay-3">
 
@@ -192,8 +194,8 @@ const schema = [faqPageSchema(faqs), {
       </div>
       <div class="step-card" style="text-align:left;">
         <div class="step-card-number">03</div>
-        <h3 class="step-card-title">Sigue el proceso con una referencia clara</h3>
-        <p class="step-card-desc">Instrucciones paso a paso del experto y guía de incidencias si algo no va. El ETT trabaja con el estándar del puesto desde el arranque.</p>
+        <h3 class="step-card-title">Sigue la instrucción de trabajo con una referencia clara</h3>
+        <p class="step-card-desc">Instrucción de trabajo paso a paso del experto y guía de incidencias si algo no va. El ETT trabaja con el estándar del puesto desde el arranque.</p>
       </div>
     </div>
 

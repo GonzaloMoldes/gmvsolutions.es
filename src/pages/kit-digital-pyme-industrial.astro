@@ -9,9 +9,14 @@
 //
 // Estado recomendado hasta aprobacion: noindex (no incluir en sitemap todavia).
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Kit Digital: digitalización de planta industrial | REELEVO";
-const description = "Ayudas a la digitalización para la pyme industrial: cómo encajan el Kit Digital y otros programas para digitalizar procesos, onboarding y competencias.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/kit-digital-pyme-industrial.json.
+const pagina = await getPagina('kit-digital-pyme-industrial');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/kit-digital-pyme-industrial/";
 
 const schema = {
@@ -27,18 +32,18 @@ const schema = {
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="" pageType="landing" noindex={true}>
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Ayudas a la digitalización</div>
-    <h1 class="fade-up delay-1">Digitaliza tu planta industrial <br><em>con el Kit Digital</em></h1>
-    <p class="fade-up delay-2">
-      <!-- BORRADOR / CONDICIONAL hasta verificacion legal -->
-      Las ayudas a la digitalización de pymes pueden ayudarte a ordenar procesos, onboarding y
-      competencias en planta. Te contamos qué existe, qué puede cubrir y cómo encaja REELEVO.
-    </p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <!-- BORRADOR / CONDICIONAL hasta verificacion legal -->
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
     <div class="hero-cta-group fade-up delay-3" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-      <a href="mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital" class="btn-ghost"
-         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Hablar con nosotros">Hablar con nosotros</a>
+      {pagina.hero.botones[0] && (
+<a href={pagina.hero.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="hero" data-cta-label="Hablar con nosotros">{pagina.hero.botones[0].texto}</a>
+)}
     </div>
     <div class="hero-cta-note fade-up delay-4">Información orientativa · Consulta siempre las bases oficiales vigentes</div>
+    <Ilustracion escena="kit-digital-pyme-industrial" />
   </section>
 
   <div class="divider"></div>
@@ -81,7 +86,7 @@ const schema = {
         <h2 class="section-title">Qué pueden cubrir en digitalización de planta</h2>
         <p class="section-sub">
           <!-- BORRADOR / CONDICIONAL --> Según la categoría y las bases vigentes, este tipo de ayudas
-          puede orientarse a soluciones de gestión de procesos, documentación operativa y formación interna.
+          puede orientarse a soluciones de gestión de procesos, instrucciones de trabajo, gestión documental y formación interna.
           El alcance concreto depende de la convocatoria y del perfil de la empresa.
         </p>
       </div>
@@ -103,7 +108,7 @@ const schema = {
         </p>
       </div>
       <div class="hero-cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-        <a href="/documentacion-procesos/" class="btn-ghost">Documentación de procesos →</a>
+        <a href="/documentacion-procesos/" class="btn-ghost">Instrucciones de trabajo →</a>
         <a href="/gestion-competencias/" class="btn-ghost">Gestión de competencias →</a>
         <a href="/precios/" class="btn-ghost">Ver precios →</a>
       </div>
@@ -130,14 +135,14 @@ const schema = {
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">Siguiente paso</div>
-    <h3 class="cta-title fade-up delay-1">¿Quieres valorar tu caso?</h3>
-    <p class="cta-sub fade-up delay-2">
-      Cuéntanos tu situación y te orientamos sobre cómo digitalizar tu planta y qué ayudas podrían aplicar.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="mailto:hola@gmvsolutions.es?subject=Ayudas%20digitalizacion%20Kit%20Digital" class="btn-ghost"
-         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Hablar con nosotros">Hablar con nosotros</a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-ghost"
+         data-cta data-cta-intent="contacto" data-cta-location="footer" data-cta-label="Hablar con nosotros">{pagina.ctaFinal.botones[0].texto}</a>
+)}
     </div>
   </section>
 </BaseLayout>
@@ -148,7 +153,7 @@ const schema = {
   .aid-card h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 10px; }
   .aid-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
   .aid-sources { margin-top: 28px; font-size: 0.82rem; color: var(--gray2); }
-  .aid-sources a { color: var(--orange); text-decoration: none; }
+  .aid-sources a { color: var(--orange-ink); text-decoration: none; }
   .steps-ol { max-width: 760px; margin: 32px 0 0; padding-left: 20px; color: var(--gray); line-height: 1.7; }
   .steps-ol li { margin-bottom: 12px; }
   @media (max-width: 900px) { .aid-grid { grid-template-columns: 1fr; } }

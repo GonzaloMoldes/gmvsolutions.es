@@ -1,0 +1,78 @@
+{
+  "seo": {
+    "title": "Matriz de competencias y polivalencia: software para pyme industrial | REELEVO",
+    "description": "Matriz de competencias o de polivalencia (skill matrix) para pyme industrial: quién sabe hacer qué, en qué nivel y qué puesto depende de una sola persona."
+  },
+  "hero": {
+    "antetitulo": "Gestión de Competencias Operativas",
+    "titulo": "¿Quién puede cubrir",
+    "tituloDestacado": "ese puesto el lunes?",
+    "texto": "Hoy la respuesta está en la cabeza del encargado y cambia según a quién preguntes: cuando falta alguien se «llama al que sabe», si está disponible. Con una matriz de competencias (o matriz de polivalencia) real ves quién está capacitado para qué proceso, en qué nivel, y dónde tu planta depende de una sola persona.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver el demo →",
+        "url": "/video-demo/"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-una-matriz-de-competencias-o",
+        "q": "¿Qué es una matriz de competencias o skill matrix?",
+        "a": "Es el registro de qué operario está capacitado para qué proceso o máquina y en qué nivel de autonomía. Cruza personas con procesos y permite ver de un vistazo dónde depende todo de una sola persona, qué puesto queda descubierto en un turno y dónde hace falta reforzar formación."
+      },
+      {
+        "id": "faq-como-se-mantiene-actualizada",
+        "q": "¿Cómo se mantiene actualizada?",
+        "a": "Se alimenta de la ejecución real: cada vez que un operario completa un proceso, ese dato entra solo. Es la diferencia con un Excel, que refleja la foto del día que se creó porque nadie lo actualiza, y a los pocos meses deja de servir para decidir nada."
+      },
+      {
+        "id": "faq-cuantos-niveles-de-competencia-conviene-definir",
+        "q": "¿Cuántos niveles de competencia conviene definir?",
+        "a": "Tres o cuatro bastan en una pyme: en formación, apto con supervisión, autónomo y, si aporta, formador. Más niveles generan discusión sobre el matiz sin cambiar ninguna decisión. Lo que importa es que el criterio para subir de nivel sea observable y el mismo para todos."
+      },
+      {
+        "id": "faq-sirve-para-planificar-la-formacion",
+        "q": "¿Sirve para planificar la formación?",
+        "a": "Sí, y es de sus usos más directos. Al ver los huecos de la matriz sabes qué proceso tiene poca cobertura y a quién conviene formar antes de que una baja lo convierta en un problema, en lugar de planificar formación por intuición o por lo que se hizo el año pasado."
+      },
+      {
+        "id": "faq-y-cuanto-le-queda-al-que-esta",
+        "q": "¿Y cuánto le queda al que está aprendiendo?",
+        "a": "Esa es la otra mitad de la pregunta, y sale de las rutas de aprendizaje: en qué paso va, cuántas ejecuciones lleva y cuánto tarda comparado con el titular del puesto. Deja de ser «yo creo que en dos semanas está» y pasa a ser algo que se mira."
+      },
+      {
+        "id": "faq-diferencia-matriz-polivalencia-competencias",
+        "q": "¿Qué diferencia hay entre una matriz de polivalencia y una matriz de competencias?",
+        "a": "En muchas plantas se usan como sinónimos. Si se quiere afinar, la matriz de polivalencia cruza operarios con puestos o máquinas y dice quién puede cubrir qué y con qué autonomía. La matriz de competencias es más amplia: incluye también conocimientos que no son un puesto, como una instrucción de PRL, un control de calidad o un idioma. Para organizar turnos y cubrir bajas, la que necesitas es la de polivalencia. En REELEVO las dos viven en la misma matriz."
+      },
+      {
+        "id": "faq-matriz-polivalencia-en-excel",
+        "q": "¿Puedo hacer la matriz de polivalencia en Excel?",
+        "a": "Sí, y para empezar es lo más rápido: en Recursos tienes una plantilla Excel gratuita y un generador online de matriz de polivalencia, con los niveles de 0 a 4 ya definidos. El problema no es construirla, sino mantenerla. A los pocos meses deja de reflejar la realidad, porque nadie la actualiza cuando alguien aprende un puesto nuevo o deja de practicarlo. En REELEVO el nivel se actualiza solo con cada ejecución registrada."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Siguiente paso",
+    "titulo": "Construye tu matriz de",
+    "tituloDestacado": "competencias hoy",
+    "texto": "Empieza por una línea. En cuanto veas qué proceso depende de una sola persona, ya sabes por dónde seguir.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver instrucciones de trabajo →",
+        "url": "/documentacion-procesos/"
+      }
+    ],
+    "nota": ""
+  }
+}

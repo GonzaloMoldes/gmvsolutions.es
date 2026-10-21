@@ -1,9 +1,14 @@
 ---
 import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Ilustracion from '../components/Ilustracion.astro';
+import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
-const title = "Sobre REELEVO — software para pyme industrial española";
-const description = "Sobre REELEVO: el equipo de GMV Solutions, su método de implementación y la credibilidad detrás del software para la pyme industrial española.";
+// Textos editables desde Sanity (Páginas). Respaldo: src/data/paginas/sobre-nosotros.json.
+const pagina = await getPagina('sobre-nosotros');
+
+const title = pagina.seo.title;
+const description = pagina.seo.description;
 const canonical = "https://www.gmvsolutions.es/sobre-nosotros/";
 
 const aboutPageSchema = {
@@ -36,7 +41,7 @@ const faqSchema = {
       "name": "¿Puedo exportar todos mis procesos documentados?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Desde el panel de administración se pueden exportar procesos, pasos e instrucciones en CSV y Excel, y los datos siguen siendo propiedad de la empresa."
+        "text": "Sí. Desde el panel de administración se pueden exportar procesos, pasos e instrucciones de trabajo en CSV y Excel, y los datos siguen siendo propiedad de la empresa."
       }
     },
     {
@@ -93,9 +98,10 @@ const schema = [aboutPageSchema, faqSchema];
   activeNav="nosotros" pageType="core">
   <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">El equipo</div>
-    <h1 class="fade-up delay-1">Detrás de REELEVO <br><em>hay personas, no una corporación.</em></h1>
-    <p class="fade-up delay-2">Somos un equipo pequeño, cercano y con foco muy concreto: ayudar a pymes industriales españolas a reducir dependencia operativa sin meterlas en un proyecto pesado ni venderles una suite inflada.</p>
+    <div class="eyebrow fade-up">{pagina.hero.antetitulo}</div>
+    <h1 class="fade-up delay-1"><Fragment set:html={conSaltos(pagina.hero.titulo)} />{pagina.hero.tituloDestacado && <> <br> <em>{pagina.hero.tituloDestacado}</em></>}</h1>
+    <p class="fade-up delay-2" set:html={conNegritas(pagina.hero.texto)} />
+    <Ilustracion escena="sobre-nosotros" />
   </section>
 
   <div class="divider"></div>
@@ -328,7 +334,7 @@ const schema = [aboutPageSchema, faqSchema];
         </div>
         <div class="faq-item-static">
           <h3 class="faq-q">¿Puedo exportar todos mis procesos documentados?</h3>
-          <p class="faq-a">Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos, pasos e instrucciones en formato CSV (desde el plan Starter). Los datos son tuyos y siempre accesibles.</p>
+          <p class="faq-a">Sí. Desde el panel de administración puedes exportar en cualquier momento todos los procesos, pasos e instrucciones de trabajo en formato CSV (desde el plan Starter). Los datos son tuyos y siempre accesibles.</p>
         </div>
         <div class="faq-item-static">
           <h3 class="faq-q">¿Qué pasa si REELEVO deja de operar?</h3>
@@ -372,26 +378,19 @@ const schema = [aboutPageSchema, faqSchema];
 
   <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Hablamos?</div>
-    <h3 class="cta-title fade-up delay-1">
-      Cuéntanos tu situación. <br><em>Sin presión, sin script de ventas.</em>
-    </h3>
-    <p class="cta-sub fade-up delay-2">
-      Somos un equipo pequeño. Si contactas, hablará contigo alguien que entiende el producto
-      y el problema que intentas resolver.
-    </p>
+    <div class="cta-eyebrow fade-up">{pagina.ctaFinal.antetitulo}</div>
+    <h3 class="cta-title fade-up delay-1"><Fragment set:html={conSaltos(pagina.ctaFinal.titulo)} />{pagina.ctaFinal.tituloDestacado && <> <br> <em>{pagina.ctaFinal.tituloDestacado}</em></>}</h3>
+    <p class="cta-sub fade-up delay-2" set:html={conNegritas(pagina.ctaFinal.texto)} />
     <div class="cta-actions fade-up delay-3">
-      <a href="mailto:hola@gmvsolutions.es" class="btn-primary">
-        Escribirnos directamente →
-      </a>
-      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
+      {pagina.ctaFinal.botones[0] && (
+<a href={pagina.ctaFinal.botones[0].url} class="btn-primary">{pagina.ctaFinal.botones[0].texto}</a>
+)}
+      {pagina.ctaFinal.botones[1] && (
+<a href={pagina.ctaFinal.botones[1].url} class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">{pagina.ctaFinal.botones[1].texto}</a>
+)}
     </div>
-    <div class="cta-note fade-up delay-4">
-      Respuesta en menos de 24h · Sin compromiso
-    </div>
+    <div class="cta-note fade-up delay-4" set:html={conNegritas(pagina.ctaFinal.nota)} />
   </section>
 </BaseLayout>
 
@@ -543,7 +542,7 @@ const schema = [aboutPageSchema, faqSchema];
     font-size: .7rem;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -566,7 +565,7 @@ const schema = [aboutPageSchema, faqSchema];
     max-width: 760px;
     margin: 24px auto 0;
     padding: 20px 22px;
-    background: rgba(255,255,255,.03);
+    background: rgba(20,22,24,.03);
     border: 1px solid var(--border);
     border-radius: 6px;
     font-size: .86rem;

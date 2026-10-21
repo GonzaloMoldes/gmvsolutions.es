@@ -2,9 +2,10 @@
 // Breadcrumb visible y coherente con el JSON-LD (gate: "breadcrumbs visibles y coherentes").
 // Reutiliza la misma logica de rutas/etiquetas que el BreadcrumbList (src/lib/seo.ts).
 // Se posiciona en el hueco que el hero ya reserva bajo el header fijo (sin alterar paddings).
-import { breadcrumbItems } from '../lib/seo';
+import { breadcrumbItems, type SeccionMiga } from '../lib/seo';
 
-const items = breadcrumbItems(Astro.url.pathname);
+const { seccion } = Astro.props as { seccion?: SeccionMiga };
+const items = breadcrumbItems(Astro.url.pathname, undefined, seccion);
 ---
 
 {items && (
@@ -57,7 +58,7 @@ const items = breadcrumbItems(Astro.url.pathname);
     pointer-events: auto;
   }
   .breadcrumbs a:hover {
-    color: var(--orange);
+    color: var(--orange-ink);
   }
   .breadcrumbs span[aria-current='page'] {
     color: var(--gray2);

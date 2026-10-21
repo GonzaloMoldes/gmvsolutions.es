@@ -1,0 +1,330 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T4 SOP: que-es-un-sop-industrial (title, definicion, ejemplo, FAQs, enlaces a plantillas) y titles/metas distintos en instrucciones-de-trabajo-vs-sop y plantilla-sop-produccion.",
+ "crear": [],
+ "cambios": [
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "title",
+   "from": "Qué es un SOP industrial y cómo implementarlo en tu planta",
+   "to": "Qué es un SOP en la industria: definición, ejemplo y plantilla"
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "description",
+   "from": "Qué es un SOP industrial: qué son los procedimientos operativos estándar, por qué importan, cómo crearlos y una plantilla de SOP para empezar en tu planta.",
+   "to": "Un SOP (procedimiento operativo estándar) es el documento que dice cómo se hace un proceso, paso a paso. Definición, ejemplo y plantilla para tu planta."
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "cardDesc",
+   "from": "Guía completa sobre procedimientos operativos estándar para pymes industriales. Qué son, por qué importan, cómo crearlos y qué herramientas usar.",
+   "to": "Qué es un SOP o procedimiento operativo estándar en una planta, un ejemplo completo y cómo crearlo en cinco pasos."
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "body[_key==\"64ae14346792\"].children[_key==\"32f546cff919\"].text",
+   "from": "Un SOP (Standard Operating Procedure) o procedimiento operativo estándar es un documento que describe paso a paso cómo realizar una tarea concreta dentro de una organización. En el contexto industrial, un SOP define exactamente cómo operar una máquina, ejecutar un proceso de producción, realizar un cambio de formato o actuar ante una incidencia.",
+   "to": "Un SOP (procedimiento operativo estándar, del inglés Standard Operating Procedure) es un documento que describe paso a paso cómo realizar un proceso concreto para que salga igual lo haga quien lo haga. En la industria, un SOP define cómo operar una máquina, ejecutar un proceso de producción, hacer un cambio de formato o actuar ante una incidencia."
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "body[_key==\"02b69677a90e\"].children[_key==\"88cc190fab57\"].text",
+   "from": "La definición es sencilla. Lo que no es sencillo es la realidad de la mayoría de pymes industriales españolas: ",
+   "to": "La definición es sencilla. Lo difícil es la realidad de muchas pymes industriales: "
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "body[_key==\"02b69677a90e\"].children[_key==\"754a4f4dccfc\"].text",
+   "from": "solo el 23% tiene procedimientos operativos documentados y actualizados",
+   "to": "los procedimientos no están escritos, o están en documentos que nadie actualiza"
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "body[_key==\"02b69677a90e\"].children[_key==\"72a3d82c73dc\"].text",
+   "from": ". El 77% restante depende de lo que el operario experto tiene en la cabeza — lo que en inglés se llama \"tribal knowledge\" o conocimiento tácito.",
+   "to": ". El proceso depende de lo que el operario experto tiene en la cabeza, lo que en inglés se llama \"tribal knowledge\" o conocimiento tácito."
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "body[_key==\"4828e0f882f2\"].children[_key==\"5def29c196bd\"].text",
+   "from": "¿Qué diferencia hay entre un SOP y una instrucción de trabajo?",
+   "to": "¿Qué diferencia hay entre SOP e instrucción de trabajo?"
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "path": "faqs[_key==\"a1df3b0bd6ee\"].q",
+   "from": "¿Qué diferencia hay entre un SOP y una instrucción de trabajo?",
+   "to": "¿Qué diferencia hay entre SOP e instrucción de trabajo?"
+  },
+  {
+   "id": "articulo-instrucciones-de-trabajo-vs-sop",
+   "path": "title",
+   "from": "Instrucciones de trabajo vs SOP: qué necesita tu taller",
+   "to": "Instrucción de trabajo vs SOP: diferencias y cuál usar"
+  },
+  {
+   "id": "articulo-instrucciones-de-trabajo-vs-sop",
+   "path": "description",
+   "from": "Instrucción de trabajo, SOP y procedimiento: qué significan, en qué se diferencian y cuál necesita tu taller para reducir errores.",
+   "to": "Instrucción de trabajo y SOP no son lo mismo: cambia el alcance, el detalle y quién los usa. Las diferencias y cuál necesita tu taller."
+  },
+  {
+   "id": "articulo-plantilla-sop-produccion",
+   "path": "title",
+   "from": "Plantilla SOP de producción para descargar",
+   "to": "Plantilla de SOP de producción en Word (descarga gratis)"
+  },
+  {
+   "id": "articulo-plantilla-sop-produccion",
+   "path": "description",
+   "from": "Plantilla de SOP de producción lista para usar: estructura, campos imprescindibles y ejemplo. Descárgala y adáptala a los procesos críticos de tu planta.",
+   "to": "Descarga gratis una plantilla de SOP de producción en Word, con los campos imprescindibles y un ejemplo, y adáptala a los procesos críticos de tu planta."
+  }
+ ],
+ "insertar": [
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "body[_key==\"2911aeca1179\"]",
+   "items": [
+    {
+     "_key": "7984b0a0e139",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Ejemplo de SOP industrial"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "def03a29bf06",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3d81ef27eba9",
+       "_type": "span",
+       "marks": [],
+       "text": "Así queda un SOP de arranque de una inyectora tras una parada de fin de semana. Es un ejemplo ilustrativo: los apartados son los habituales, el contenido cambia en cada planta."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "30a9640853b1",
+     "_type": "tabla",
+     "clase": "tabla-comparativa",
+     "cabecera": [
+      "Apartado",
+      "Ejemplo: arranque de la inyectora 2"
+     ],
+     "filas": [
+      {
+       "_key": "740f5849a5ca",
+       "_type": "fila",
+       "celdas": [
+        "Objeto",
+        "Arrancar la máquina tras una parada larga sin fabricar piezas defectuosas y sin riesgos para el operario."
+       ]
+      },
+      {
+       "_key": "39a28d38b27d",
+       "_type": "fila",
+       "celdas": [
+        "Alcance",
+        "Inyectora 2, todos los moldes. Lunes por la mañana o tras cualquier parada de más de 24 horas."
+       ]
+      },
+      {
+       "_key": "565e8bd101bd",
+       "_type": "fila",
+       "celdas": [
+        "Responsable",
+        "Operario de inyección autónomo en el puesto. Valida la primera pieza el jefe de turno o calidad."
+       ]
+      },
+      {
+       "_key": "413eb32104d6",
+       "_type": "fila",
+       "celdas": [
+        "Seguridad y EPI",
+        "Guantes térmicos y gafas. Comprobar resguardos y paro de emergencia antes de arrancar."
+       ]
+      },
+      {
+       "_key": "68ce583f0ebf",
+       "_type": "fila",
+       "celdas": [
+        "Pasos",
+        "1. Comprobar temperatura del molde y del material. 2. Purgar el cilindro. 3. Arrancar en manual y sacar cinco piezas de prueba. 4. Control dimensional de la primera pieza buena. 5. Pasar a automático."
+       ]
+      },
+      {
+       "_key": "35c0ba310bf1",
+       "_type": "fila",
+       "celdas": [
+        "Si algo falla",
+        "Rebabas: revisar la presión de cierre. Piezas incompletas: revisar la temperatura del material. Si persiste, parar y avisar a mantenimiento."
+       ]
+      },
+      {
+       "_key": "8d7a9046b6a6",
+       "_type": "fila",
+       "celdas": [
+        "Registro y versión",
+        "Primera pieza validada y anotada. Versión vigente y fecha de la última revisión."
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "019d0e6f926e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b7a473697b44",
+       "_type": "span",
+       "marks": [],
+       "text": "Puedes partir de la "
+      },
+      {
+       "_key": "3fb5be2cbed9",
+       "_type": "span",
+       "marks": [
+        "0347a50fc90b"
+       ],
+       "text": "plantilla de SOP de producción"
+      },
+      {
+       "_key": "07420cd320e9",
+       "_type": "span",
+       "marks": [],
+       "text": ", en Word, con estos apartados ya montados. Si lo que necesitas es el detalle de una tarea concreta en el puesto, usa la "
+      },
+      {
+       "_key": "6b979d97a529",
+       "_type": "span",
+       "marks": [
+        "ab33e2224471"
+       ],
+       "text": "plantilla de instrucción de trabajo"
+      },
+      {
+       "_key": "793cc4c1526d",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "0347a50fc90b",
+       "_type": "link",
+       "href": "/blog/plantilla-sop-produccion/"
+      },
+      {
+       "_key": "ab33e2224471",
+       "_type": "link",
+       "href": "/blog/plantilla-instruccion-de-trabajo/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "body[_key==\"641388b43d4b\"]",
+   "items": [
+    {
+     "_key": "0752d6682a17",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "81406c410c3b",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué significa SOP en ingeniería industrial?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "908dded2c2db",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1575a65fab95",
+       "_type": "span",
+       "marks": [],
+       "text": "SOP son las siglas de Standard Operating Procedure, procedimiento operativo estándar. En ingeniería industrial es la forma documentada y acordada de ejecutar un proceso para que el resultado no dependa de quién lo haga. Se usa en producción, mantenimiento, calidad y seguridad, y es la base para formar operarios, auditar el proceso y mejorarlo. No hay que confundirlo con S&OP (Sales and Operations Planning), que es la planificación de ventas y operaciones."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "faqs[_key==\"4e20061648d4\"]",
+   "items": [
+    {
+     "_key": "3a72d4e12687",
+     "q": "¿Qué significa SOP en ingeniería industrial?",
+     "a": "SOP son las siglas de Standard Operating Procedure, procedimiento operativo estándar. En ingeniería industrial es la forma documentada y acordada de ejecutar un proceso para que el resultado no dependa de quién lo haga. Se usa en producción, mantenimiento, calidad y seguridad, y es la base para formar operarios, auditar el proceso y mejorarlo. No hay que confundirlo con S&OP (Sales and Operations Planning), que es la planificación de ventas y operaciones."
+    }
+   ]
+  },
+  {
+   "id": "articulo-que-es-un-sop-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "body[_key==\"47b315d045f1\"]",
+   "items": [
+    {
+     "_key": "729b4817387b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0f96a57140c1",
+       "_type": "span",
+       "marks": [],
+       "text": "Lo vemos con más detalle, y con cuándo usar cada uno, en "
+      },
+      {
+       "_key": "9da04bf6b478",
+       "_type": "span",
+       "marks": [
+        "b655dc367f08"
+       ],
+       "text": "instrucciones de trabajo vs SOP"
+      },
+      {
+       "_key": "1501adc74331",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "b655dc367f08",
+       "_type": "link",
+       "href": "/blog/instrucciones-de-trabajo-vs-sop/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}

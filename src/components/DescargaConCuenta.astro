@@ -17,6 +17,8 @@ import { AVISO_CUENTA_LEAD, TEXTO_CONSENTIMIENTO_COMERCIAL } from '../lib/descar
 
 // Sólo títulos: el script necesita el nombre del recurso para el encabezado, nada más.
 const titulos = Object.fromEntries(Object.entries(DESCARGABLES).map(([id, r]) => [id, r.titulo]));
+// Extension real de cada archivo, para el evento file_download (antes iba fija a docx).
+const extensiones = Object.fromEntries(Object.entries(DESCARGABLES).map(([id, r]) => [id, r.archivo.split('.').pop()]));
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 const privacyHref = '/legal/privacidad/';
 ---
@@ -27,6 +29,7 @@ const privacyHref = '/legal/privacidad/';
   aria-labelledby="dc-titulo"
   aria-describedby="dc-sub"
   data-titulos={JSON.stringify(titulos)}
+  data-extensiones={JSON.stringify(extensiones)}
   data-sitekey={siteKey}
 >
   <div class="dc-card">
@@ -101,6 +104,7 @@ const privacyHref = '/legal/privacidad/';
 
   function iniciar(modal: HTMLDialogElement) {
     const titulos: Titulos = JSON.parse(modal.dataset.titulos || '{}')
+    const extensiones: Record<string, string> = JSON.parse(modal.dataset.extensiones || '{}')
     const siteKey = modal.dataset.sitekey || ''
     const form = modal.querySelector<HTMLFormElement>('#dc-form')!
     const submit = modal.querySelector<HTMLButtonElement>('#dc-submit')!
@@ -293,7 +297,7 @@ const privacyHref = '/legal/privacidad/';
       if (!json.cliente) {
         empujar({ event: 'generate_lead', lead_type: 'descarga', cta_location: 'descarga_modal', recurso })
       }
-      empujar({ event: 'file_download', file_name: archivo, file_extension: 'docx', cta_location: 'descarga_modal', recurso })
+      empujar({ event: 'file_download', file_name: archivo, file_extension: extensiones[recurso] || 'docx', cta_location: 'descarga_modal', recurso })
     })
   }
 </script>
@@ -425,7 +429,7 @@ const privacyHref = '/legal/privacidad/';
     display: block;
     width: 100%;
     background: var(--orange, #F4521E);
-    color: #fff;
+    color: var(--steel, #141618);
     border: none;
     border-radius: 4px;
     padding: 13px 16px;

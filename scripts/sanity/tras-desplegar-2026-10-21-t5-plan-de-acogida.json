@@ -1,0 +1,896 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T5 (tras desplegar): articulo /blog/plan-de-acogida-operarios/. Enlaza a /recursos/plantilla-gestion-documental-prl/ y /recursos/matriz-de-polivalencia/, que llegan con este despliegue.",
+ "crear": [
+  {
+   "_id": "articulo-plan-de-acogida-operarios",
+   "_type": "articulo",
+   "title": "Plan de acogida para nuevos operarios: guía y plantilla",
+   "slug": {
+    "_type": "slug",
+    "current": "plan-de-acogida-operarios"
+   },
+   "cluster": "onboarding",
+   "category": "Onboarding",
+   "publishedAt": "2026-10-21",
+   "readTime": "8 min.",
+   "description": "Qué incluir en el plan de acogida de un operario: formación de PRL del art. 19, instrucciones del puesto, tutor y checklist de la primera semana.",
+   "cardTitle": "Plan de acogida para nuevos operarios",
+   "cardDesc": "Qué tiene que incluir en planta, un checklist de la primera semana para copiar y por qué un manual en PDF no basta.",
+   "priority": "0.8",
+   "orden": 35,
+   "mostrarFaqs": false,
+   "noindex": false,
+   "body": [
+    {
+     "_key": "7984b0a0e139",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Un plan de acogida para nuevos operarios es el recorrido que sigue cada incorporación desde antes de su primer día hasta que trabaja sola en su puesto: qué recibe, qué formación hace, quién le enseña y cómo se comprueba que ha aprendido. En una planta no es un trámite de recursos humanos. Es lo que decide si el nuevo trabaja seguro y produce bien en su primera semana, o si aprende a base de errores."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "def03a29bf06",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3d81ef27eba9",
+       "_type": "span",
+       "marks": [],
+       "text": "Esta guía cuenta qué tiene que incluir, trae un checklist de la primera semana que puedes copiar como plantilla y explica por qué un manual en PDF no basta."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "30a9640853b1",
+     "_type": "ancla",
+     "id": "que-es"
+    },
+    {
+     "_key": "39a28d38b27d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "740f5849a5ca",
+       "_type": "span",
+       "marks": [],
+       "text": "Qué es un plan de acogida (y qué no es)"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "413eb32104d6",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "565e8bd101bd",
+       "_type": "span",
+       "marks": [],
+       "text": "Es un proceso, no un documento. El manual de bienvenida, la presentación de la empresa o la carpeta con normas son piezas del plan, pero el plan es el orden en que pasan las cosas y quién se encarga de cada una. Si dos operarios que entran el mismo mes viven incorporaciones distintas según el tutor que les toque, no hay plan: hay costumbre."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "35c0ba310bf1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "68ce583f0ebf",
+       "_type": "span",
+       "marks": [],
+       "text": "Tampoco es solo la acogida del primer día. En una planta, la parte que más cuesta es la que va del primer día a la autonomía en el puesto, y es la que más a menudo se deja a la improvisación."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "8d7a9046b6a6",
+     "_type": "ancla",
+     "id": "que-incluir"
+    },
+    {
+     "_key": "0347a50fc90b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b7a473697b44",
+       "_type": "span",
+       "marks": [],
+       "text": "Qué debe incluir un plan de acogida en planta"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "07420cd320e9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3fb5be2cbed9",
+       "_type": "span",
+       "marks": [],
+       "text": "1. Formación preventiva general y específica del puesto"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "6b979d97a529",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ab33e2224471",
+       "_type": "span",
+       "marks": [],
+       "text": "El artículo 19 de la Ley 31/1995 de Prevención de Riesgos Laborales obliga a dar a cada trabajador, en el momento de su contratación y sea cual sea la modalidad o duración del contrato, una formación teórica y práctica, suficiente y adecuada, en materia preventiva. Esa formación tiene que estar centrada en su puesto o función, repetirse cuando cambian el puesto, los equipos o los riesgos, impartirse dentro de la jornada siempre que sea posible y no costarle nada al trabajador."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "1575a65fab95",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "793cc4c1526d",
+       "_type": "span",
+       "marks": [],
+       "text": "En la práctica son dos capas: la general de la planta (emergencias, circulación, EPI comunes) y la específica del puesto (los riesgos de esa máquina y cómo se trabaja con ella). La segunda es la que más se diluye, porque nadie la asume como suya. Y conviene poder demostrar después qué recibió cada persona y en qué versión: es lo que ordena la "
+      },
+      {
+       "_key": "81406c410c3b",
+       "_type": "span",
+       "marks": [
+        "019d0e6f926e"
+       ],
+       "text": "plantilla de gestión documental de PRL"
+      },
+      {
+       "_key": "0752d6682a17",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "019d0e6f926e",
+       "_type": "link",
+       "href": "/recursos/plantilla-gestion-documental-prl/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "3a72d4e12687",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "908dded2c2db",
+       "_type": "span",
+       "marks": [],
+       "text": "2. Las instrucciones de trabajo del puesto"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "b655dc367f08",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0f96a57140c1",
+       "_type": "span",
+       "marks": [],
+       "text": "El nuevo tiene que aprender cómo se hace el trabajo en esa planta, no cómo lo hace el tutor. Para eso, cada puesto necesita sus instrucciones de trabajo escritas, con los puntos críticos y qué hacer si algo sale mal, y accesibles en el propio puesto. Si no existen, el plan de acogida es el mejor momento para empezar: documenta los puestos por los que entra la gente nueva."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "1501adc74331",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9da04bf6b478",
+       "_type": "span",
+       "marks": [],
+       "text": "3. Un tutor con tiempo asignado"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "693ea9a83038",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "729b4817387b",
+       "_type": "span",
+       "marks": [],
+       "text": "Alguien que domine el puesto, que sepa que esa semana es tutor y que tenga tiempo para ello. Si el tutor enseña además de producir al cien por cien, enseñará deprisa y de memoria. Que siga la instrucción del puesto al explicar hace que todos los nuevos aprendan lo mismo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "901426fbb20e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9fd96fdfe8b3",
+       "_type": "span",
+       "marks": [],
+       "text": "4. Un checklist de la primera semana"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ee1ef8a5a1e5",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "455198689d7d",
+       "_type": "span",
+       "marks": [],
+       "text": "Una lista corta de lo que tiene que haber pasado cada día, con quién se encarga y una casilla de hecho. Sirve para que nada dependa de la memoria de nadie y para que el responsable vea de un vistazo cómo va cada incorporación."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "e9e0356f956d",
+     "_type": "ancla",
+     "id": "checklist"
+    },
+    {
+     "_key": "fed3b90728ea",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "afdfd0d1a2f3",
+       "_type": "span",
+       "marks": [],
+       "text": "Ejemplo de checklist de acogida para la primera semana"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "9abe9999a7cd",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a751650deefe",
+       "_type": "span",
+       "marks": [],
+       "text": "Cópialo como plantilla y adáptalo a tu planta. Las responsabilidades son orientativas."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "a4688d497fef",
+     "_type": "tabla",
+     "clase": "tabla-comparativa",
+     "cabecera": [
+      "Cuándo",
+      "Qué",
+      "Quién"
+     ],
+     "filas": [
+      {
+       "_key": "c8509dc1bac8",
+       "_type": "fila",
+       "celdas": [
+        "Antes del día 1",
+        "Puesto, turno y tutor asignados. EPI de su talla preparados. Alta en los sistemas que vaya a usar.",
+        "Jefe de producción y RR. HH."
+       ]
+      },
+      {
+       "_key": "2f4399f4078e",
+       "_type": "fila",
+       "celdas": [
+        "Día 1",
+        "Bienvenida y recorrido por la planta: salidas, puntos de encuentro, zonas de paso y zonas restringidas.",
+        "Tutor"
+       ]
+      },
+      {
+       "_key": "7442d0e67b06",
+       "_type": "fila",
+       "celdas": [
+        "Día 1",
+        "Formación preventiva general y entrega de EPI, con registro firmado.",
+        "Prevención"
+       ]
+      },
+      {
+       "_key": "121c4250ffd1",
+       "_type": "fila",
+       "celdas": [
+        "Día 1",
+        "Formación específica de los riesgos del puesto y de la máquina.",
+        "Prevención y tutor"
+       ]
+      },
+      {
+       "_key": "bcbfcf0e4d1b",
+       "_type": "fila",
+       "celdas": [
+        "Días 1-2",
+        "Lectura de las instrucciones de trabajo del puesto, con acuse de lectura.",
+        "Operario"
+       ]
+      },
+      {
+       "_key": "ea434dc5ff16",
+       "_type": "fila",
+       "celdas": [
+        "Días 2-3",
+        "Ejecución del proceso con el tutor al lado, siguiendo la instrucción paso a paso.",
+        "Tutor"
+       ]
+      },
+      {
+       "_key": "56c34b1ffc1c",
+       "_type": "fila",
+       "celdas": [
+        "Días 3-4",
+        "Ejecución con supervisión puntual. Dudas y errores anotados para mejorar la instrucción.",
+        "Tutor"
+       ]
+      },
+      {
+       "_key": "15b6650488dd",
+       "_type": "fila",
+       "celdas": [
+        "Día 5",
+        "Comprobación: hace el proceso solo y supera los puntos críticos. Se actualiza su nivel en la matriz de polivalencia.",
+        "Jefe de turno"
+       ]
+      },
+      {
+       "_key": "199f7f7801e3",
+       "_type": "fila",
+       "celdas": [
+        "Día 5",
+        "Conversación de cierre: qué le ha faltado, qué no se entendía.",
+        "Jefe de producción"
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "a1778b1456f9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "4b60a41e71c0",
+       "_type": "span",
+       "marks": [],
+       "text": "Para el seguimiento de niveles por puesto puedes usar la "
+      },
+      {
+       "_key": "ddbe101cff1c",
+       "_type": "span",
+       "marks": [
+        "de2b64e414d0"
+       ],
+       "text": "matriz de polivalencia"
+      },
+      {
+       "_key": "10992969ea9c",
+       "_type": "span",
+       "marks": [],
+       "text": ": el nuevo entra en nivel 1 (en formación) y el checklist termina cuando llega a 3 (autónomo)."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "de2b64e414d0",
+       "_type": "link",
+       "href": "/recursos/matriz-de-polivalencia/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "2888f997e5d2",
+     "_type": "ancla",
+     "id": "pdf"
+    },
+    {
+     "_key": "90bcffa0f58a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "59d8cbf525ae",
+       "_type": "span",
+       "marks": [],
+       "text": "Por qué un manual de acogida en PDF no basta"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "8dfac38f47d7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3e34ba044e9c",
+       "_type": "span",
+       "marks": [],
+       "text": "El manual en PDF es útil para lo general: quiénes somos, horarios, normas. Pero se queda corto justo en lo que importa en planta:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "05d453fecdfd",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1c075e18c2b0",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "No está en el puesto."
+      },
+      {
+       "_key": "4b378ebb64d0",
+       "_type": "span",
+       "marks": [],
+       "text": " Se lee el primer día en una sala y no se vuelve a abrir. Las dudas aparecen tres días después, delante de la máquina."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "0ecbec47899c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e23572fd1ed7",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "No dice si se ha entendido."
+      },
+      {
+       "_key": "5aaccce064ec",
+       "_type": "span",
+       "marks": [],
+       "text": " Entregar un PDF no demuestra que la persona lo haya leído, y menos que lo haya entendido."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "574678ed5f1b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "42ae841b632d",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Se desactualiza."
+      },
+      {
+       "_key": "a04d0674fe6b",
+       "_type": "span",
+       "marks": [],
+       "text": " Cambia un parámetro o una pieza y el PDF sigue igual. El nuevo aprende una versión que ya no vale."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "df02bacedc01",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7443f3e9aa49",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "No da visibilidad."
+      },
+      {
+       "_key": "e883f0ae7711",
+       "_type": "span",
+       "marks": [],
+       "text": " El responsable no sabe en qué punto está cada incorporación sin preguntar a cada tutor."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1a78e95e8d96",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "af59693ff62f",
+       "_type": "span",
+       "marks": [],
+       "text": "Por eso el plan funciona mejor cuando las instrucciones viven en el puesto, cada lectura deja constancia y el progreso de cada persona se ve sin preguntar."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "9243ed95da81",
+     "_type": "ancla",
+     "id": "reelevo"
+    },
+    {
+     "_key": "18ab909ae16f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0a994d954874",
+       "_type": "span",
+       "marks": [],
+       "text": "Cómo se hace con REELEVO"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "5fe0c81ef095",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b6c4cfb47a61",
+       "_type": "span",
+       "marks": [],
+       "text": "En REELEVO el nuevo accede a la instrucción de trabajo de la máquina desde el propio puesto y la sigue paso a paso, la misma que siguieron todos los anteriores. Cada lectura queda registrada con su versión, el responsable ve qué ha completado cada operario y la matriz de competencias se actualiza con la ejecución real. Lo contamos en "
+      },
+      {
+       "_key": "6ba472bf7ff7",
+       "_type": "span",
+       "marks": [
+        "74243441ff82"
+       ],
+       "text": "onboarding de operarios"
+      },
+      {
+       "_key": "dc6ebb6e3941",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "74243441ff82",
+       "_type": "link",
+       "href": "/casos-de-uso/onboarding-operarios/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "4de54c653c06",
+     "_type": "destacado",
+     "estilo": "highlight-box",
+     "contenido": [
+      {
+       "_key": "07daa8275aa2",
+       "_type": "block",
+       "style": "normal",
+       "markDefs": [
+        {
+         "_key": "cb7dadbcbd11",
+         "_type": "link",
+         "href": "https://app.gmvsolutions.es/registro",
+         "cta": {
+          "intent": "registro",
+          "label": "Registrarme en REELEVO",
+          "location": "body"
+         }
+        }
+       ],
+       "children": [
+        {
+         "_key": "1e00b316c8e5",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Monta tu primer puesto de acogida con su instrucción de trabajo y pruébalo con la próxima incorporación."
+        },
+        {
+         "_key": "a45a90fe0dc0",
+         "_type": "span",
+         "marks": [],
+         "text": " "
+        },
+        {
+         "_key": "962cb3e071c7",
+         "_type": "span",
+         "marks": [
+          "cb7dadbcbd11"
+         ],
+         "text": "Registrarme en REELEVO →"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "c25e85433ba7",
+     "_type": "ancla",
+     "id": "faq"
+    },
+    {
+     "_key": "17abae3d27ba",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "3273dc348ea0",
+       "_type": "span",
+       "marks": [],
+       "text": "Preguntas frecuentes"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "f47a19a3223a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bd9738dbd4ef",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es un plan de acogida para nuevos operarios?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ef8ba4517fb8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6bcfd8263cf9",
+       "_type": "span",
+       "marks": [],
+       "text": "Es el recorrido ordenado que sigue cada persona que se incorpora a la planta, desde antes del primer día hasta que trabaja sola en su puesto: qué se le entrega, qué formación recibe y quién se la da, en qué orden aprende los puestos y cómo se comprueba que los ha aprendido."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "3c0240644101",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "743da6f466cc",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Es obligatorio tener un plan de acogida?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "d1e3f1613688",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6e016a496de0",
+       "_type": "span",
+       "marks": [],
+       "text": "La ley no exige un documento llamado así. Lo que sí exige el artículo 19 de la Ley 31/1995 de Prevención de Riesgos Laborales es formar a cada trabajador en materia preventiva al contratarle, de forma teórica y práctica, suficiente y adecuada, y centrada en su puesto. El plan de acogida es la forma ordenada de cumplirlo y, además, de enseñarle el trabajo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "809f5a9e36db",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "dccb69be5fdb",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cuánto debe durar un plan de acogida en una fábrica?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "29757600be06",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "671cc6a3dfa9",
+       "_type": "span",
+       "marks": [],
+       "text": "Depende de la complejidad del puesto. La parte de bienvenida y formación preventiva general cabe en el primer día. Lo que lleva más tiempo es que la persona sea autónoma en su puesto, y eso conviene medirlo por hitos (ha hecho el proceso con supervisión, lo ha hecho solo, ha superado la comprobación) y no por días."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "5a77c4385aa8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0464d95064b1",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué pasa con el personal de ETT?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "75a96f723f55",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bd7d7d83aefb",
+       "_type": "span",
+       "marks": [],
+       "text": "También necesita acogida en planta, y suele ser el que más rápido entra a trabajar. La empresa usuaria debe informarle de los riesgos de su puesto y de las medidas de protección, y facilitar a la ETT la información necesaria para que le forme. Contrasta el reparto de obligaciones con tu servicio de prevención."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "bc9c67808053",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d6ac2a9b3eab",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Quién debe hacer de tutor?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "e4e8472c3465",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "270a920719ce",
+       "_type": "span",
+       "marks": [],
+       "text": "Alguien que domine el puesto y que tenga tiempo asignado para enseñar, no que lo haga además de su trabajo. Ayuda que el tutor no explique de memoria, sino siguiendo la instrucción de trabajo del puesto: así todos los nuevos aprenden lo mismo, sea quien sea el tutor."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "cf07e78b0035",
+     "_type": "enlacesRelacionados",
+     "etiqueta": "Relacionado",
+     "enlaces": [
+      {
+       "_key": "b5b5316eb61e",
+       "_type": "enlace",
+       "kicker": "Caso de uso",
+       "titulo": "Onboarding de operarios",
+       "descripcion": "Que cada incorporación aprenda el mismo proceso, sea quien sea el tutor.",
+       "href": "/casos-de-uso/onboarding-operarios/"
+      },
+      {
+       "_key": "81b55851117d",
+       "_type": "enlace",
+       "kicker": "Plantilla",
+       "titulo": "Gestión documental de PRL",
+       "descripcion": "Excel para saber qué versión conoce cada trabajador y qué tiene pendiente.",
+       "href": "/recursos/plantilla-gestion-documental-prl/"
+      },
+      {
+       "_key": "8a9822d8fcde",
+       "_type": "enlace",
+       "kicker": "Guía",
+       "titulo": "TWI: formar en el puesto en 4 pasos",
+       "descripcion": "El método clásico para que el tutor enseñe bien.",
+       "href": "/blog/twi-formacion-operarios-en-el-puesto/"
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "_key": "7871f52feacd",
+     "_type": "faq",
+     "q": "¿Qué es un plan de acogida para nuevos operarios?",
+     "a": "Es el recorrido ordenado que sigue cada persona que se incorpora a la planta, desde antes del primer día hasta que trabaja sola en su puesto: qué se le entrega, qué formación recibe y quién se la da, en qué orden aprende los puestos y cómo se comprueba que los ha aprendido."
+    },
+    {
+     "_key": "510e22d0186b",
+     "_type": "faq",
+     "q": "¿Es obligatorio tener un plan de acogida?",
+     "a": "La ley no exige un documento llamado así. Lo que sí exige el artículo 19 de la Ley 31/1995 de Prevención de Riesgos Laborales es formar a cada trabajador en materia preventiva al contratarle, de forma teórica y práctica, suficiente y adecuada, y centrada en su puesto. El plan de acogida es la forma ordenada de cumplirlo y, además, de enseñarle el trabajo."
+    },
+    {
+     "_key": "811ef4063838",
+     "_type": "faq",
+     "q": "¿Cuánto debe durar un plan de acogida en una fábrica?",
+     "a": "Depende de la complejidad del puesto. La parte de bienvenida y formación preventiva general cabe en el primer día. Lo que lleva más tiempo es que la persona sea autónoma en su puesto, y eso conviene medirlo por hitos (ha hecho el proceso con supervisión, lo ha hecho solo, ha superado la comprobación) y no por días."
+    },
+    {
+     "_key": "85670e10d3b7",
+     "_type": "faq",
+     "q": "¿Qué pasa con el personal de ETT?",
+     "a": "También necesita acogida en planta, y suele ser el que más rápido entra a trabajar. La empresa usuaria debe informarle de los riesgos de su puesto y de las medidas de protección, y facilitar a la ETT la información necesaria para que le forme. Contrasta el reparto de obligaciones con tu servicio de prevención."
+    },
+    {
+     "_key": "a329741bdbbd",
+     "_type": "faq",
+     "q": "¿Quién debe hacer de tutor?",
+     "a": "Alguien que domine el puesto y que tenga tiempo asignado para enseñar, no que lo haga además de su trabajo. Ayuda que el tutor no explique de memoria, sino siguiendo la instrucción de trabajo del puesto: así todos los nuevos aprenden lo mismo, sea quien sea el tutor."
+    }
+   ]
+  }
+ ],
+ "cambios": [],
+ "insertar": []
+}

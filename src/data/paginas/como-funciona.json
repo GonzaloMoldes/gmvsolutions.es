@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Cómo funciona REELEVO: instrucciones de trabajo en 3 pasos",
+    "description": "REELEVO paso a paso: capturas el proceso, lo dejas en el puesto y el operario sigue la instrucción de trabajo digital, con trazabilidad de cada ejecución."
+  },
+  "hero": {
+    "antetitulo": "Flujo completo",
+    "titulo": "Así pasa tu planta de depender del experto\na trabajar con",
+    "tituloDestacado": "más continuidad",
+    "texto": "Cuando falta alguien clave, el turno no debería tambalearse. Este es el recorrido real en 3 pasos: convertir el conocimiento en instrucciones de trabajo, dejarlas disponibles en el puesto y ejecutarlo sin depender de una llamada.",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Última comprobación",
+    "titulo": "Elige un proceso crítico",
+    "tituloDestacado": "y pruébalo en contexto real",
+    "texto": "Entra, revisa cómo se trabaja en el puesto y valida si encaja con tu realidad operativa.",
+    "nota": "Sin letra pequeña · Acompañamiento en marcha · Resultado visible desde el primer bloque",
+    "botones": [
+      {
+        "texto": "Registrarme en REELEVO →",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver precios",
+        "url": "/precios/"
+      }
+    ]
+  },
+  "tipo": "general"
+}

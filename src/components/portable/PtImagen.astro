@@ -1,0 +1,27 @@
+---
+// Imagen dentro del cuerpo de un articulo de Sanity (Portable Text).
+import { urlImagen } from '../../lib/sanity';
+
+const { node } = Astro.props as { node: { asset?: unknown; alt?: string; caption?: string } };
+const src = urlImagen(node, 1200);
+---
+
+{src && (
+  <figure class="pt-imagen">
+    <img src={src} alt={node.alt ?? ''} width="1200" loading="lazy" decoding="async" />
+    {node.caption && <figcaption>{node.caption}</figcaption>}
+  </figure>
+)}
+
+<style>
+  .pt-imagen { margin: 32px 0; }
+  .pt-imagen img { width: 100%; height: auto; display: block; border: 1px solid var(--border); }
+  .pt-imagen figcaption {
+    margin-top: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--gray2);
+  }
+</style>

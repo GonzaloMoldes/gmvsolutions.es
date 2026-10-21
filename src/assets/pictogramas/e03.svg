@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88" viewBox="0 0 96 88" role="img" aria-label="Pictograma: persona grabando con el móvil">
+<circle cx="30" cy="22" r="9" fill="#141618"/><path d="M18 82V50a12 12 0 0 1 24 0v32z" fill="#141618"/>
+<path d="M40 54L54 50" stroke="#141618" stroke-width="5" stroke-linecap="round"/>
+<rect x="54" y="32" width="18" height="30" rx="3" fill="#141618"/><circle cx="63" cy="43" r="4.5" fill="#F4521E"/>
+<path d="M78 38c4 3 4 9 0 12M83 34c7 5 7 15 0 20" fill="none" stroke="#F4521E" stroke-width="3" stroke-linecap="round"/>
+</svg>

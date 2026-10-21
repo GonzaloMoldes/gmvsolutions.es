@@ -9,7 +9,8 @@ const canonical = "https://www.gmvsolutions.es/blog/";
 // Los datos ya no viven aqui: vienen de src/lib/blog.ts, el registro unico que
 // comparten esta pagina, /sitemap.xml y /llms.txt. Anadir un articulo alli lo
 // publica en los tres sitios a la vez.
-import { clusters, posts as articles, publishedISO, latestPublishedISO, NEW_POST_DAYS } from '../../lib/blog';
+// Las plantillas con descargable se listan en /recursos/, no aqui (ver postsBlog).
+import { clusters, postsBlog as articles, publishedISO, latestPublishedISO, NEW_POST_DAYS } from '../../lib/blog';
 
 // Candidatos a "Novedades": lo publicado en los NEW_POST_DAYS dias previos a la
 // ultima publicacion. Cualquier articulo que el navegador marque como nuevo esta
@@ -42,8 +43,8 @@ const schema = {
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="eyebrow fade-up">Blog de REELEVO</div>
-    <h1 class="fade-up delay-1">Guías, análisis y recursos <br><em>sobre documentación operativa</em></h1>
-    <p class="fade-up delay-2">Artículos especializados para pymes industriales, organizados por intención: SOP, onboarding, competencias y conocimiento, y absentismo.</p>
+    <h1 class="fade-up delay-1">Guías y análisis <br><em>sobre instrucciones de trabajo y planta</em></h1>
+    <p class="fade-up delay-2">Artículos para pymes industriales, organizados por tema: instrucciones de trabajo y SOP, gestión documental, onboarding, competencias y continuidad. Las plantillas descargables están en <a href="/recursos/">Recursos</a>.</p>
     <nav class="blog-index fade-up delay-3" aria-label="Índice por tema">
       {clusters.map((c) => (
         <a href={`#${c.key}`} class="blog-index__link">{c.label}</a>
@@ -151,7 +152,7 @@ const schema = {
   }
   .blog-index__link:hover {
     border-color: var(--orange);
-    color: var(--orange);
+    color: var(--orange-ink);
   }
 
   /* Novedades */
@@ -204,7 +205,7 @@ const schema = {
     font-size: .6rem;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 12px;
   }
 
@@ -239,7 +240,7 @@ const schema = {
     font-family: 'DM Mono', monospace;
     font-size: .7rem;
     letter-spacing: .08em;
-    color: var(--orange);
+    color: var(--orange-ink);
     text-transform: uppercase;
   }
 

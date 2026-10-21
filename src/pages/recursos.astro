@@ -1,29 +1,44 @@
 ---
-import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { recursos, latestRecursoISO } from '../lib/recursos';
+import { NEW_POST_DAYS } from '../lib/blog';
 
-const title = "Recursos de documentación operativa industrial | REELEVO";
-const description = "Guías prácticas sobre SOP, absentismo, onboarding de operarios y transferencia de conocimiento en pymes industriales españolas.";
+// Regla editorial (octubre de 2026): aqui solo va lo que tiene un archivo
+// descargable. Las guias paso a paso y los articulos informativos estan en /blog/.
+// El listado sale de src/lib/recursos.ts: paginas en src/pages/recursos/ y
+// articulos de Sanity con bloque de descarga.
+const title = "Plantillas de instrucciones de trabajo y PRL | REELEVO";
+const description = "Plantillas gratis en Excel y Word para pyme industrial: matriz de polivalencia, gestión documental de PRL, instrucciones de trabajo y SOP.";
 const canonical = "https://www.gmvsolutions.es/recursos/";
+
+// Candidatos a "Novedades": lo publicado en los NEW_POST_DAYS dias previos al
+// ultimo recurso. Cual se ve de verdad lo decide el script de Header.astro.
+const limiteNovedades = new Date(Date.parse(latestRecursoISO) - NEW_POST_DAYS * 864e5).toISOString().slice(0, 10);
+const novedades = recursos.filter((r) => r.publicado > limiteNovedades);
+
+const MESES = ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
+const fecha = (iso: string) => {
+  const [a, m, d] = iso.split('-');
+  return `${parseInt(d, 10)} ${MESES[parseInt(m, 10) - 1]} ${a}`;
+};
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "headline": "Recursos sobre documentación operativa industrial",
+  "headline": "Plantillas descargables de REELEVO",
   "description": description,
   "url": canonical,
-  "about": [
-    "Software SOP industrial",
-    "Onboarding de operarios",
-    "Transferencia de conocimiento",
-    "Cobertura de bajas",
-    "Documentación operativa industrial",
-    "Matriz de habilidades"
-  ],
-  "author": {
-    "@type": "Organization",
-    "name": "GMV Solutions"
-  }
+  "about": ["Instrucciones de trabajo", "Gestión documental industrial", "Prevención de riesgos laborales", "Procedimientos operativos estándar"],
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": recursos.map((r, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `https://www.gmvsolutions.es${r.url}`,
+      "name": r.titulo,
+    })),
+  },
+  "author": { "@type": "Organization", "name": "GMV Solutions" }
 };
 ---
 
@@ -35,729 +50,98 @@ const schema = {
   activeNav="recursos"
   pageType="recurso_hub"
 >
-  <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="eyebrow fade-up">Centro de conocimiento</div>
-    <h1 class="fade-up delay-1">Recursos y <em>guías prácticas</em> <br>para tu planta.</h1>
-    <p class="fade-up delay-2">Herramientas gratuitas y guías sobre documentación de procesos de producción, documentación operativa, gestión del absentismo y cómo dejar de depender de una sola persona.</p>
-    
-    <div class="hero-cta fade-up delay-3" style="margin-top:24px;">
-      <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="hero" data-cta-label="Probar gratis">Probar gratis</a>
+    <div class="eyebrow fade-up">Recursos</div>
+    <h1 class="fade-up delay-1">Plantillas gratuitas <br><em>para tu planta</em></h1>
+    <p class="fade-up delay-2">Archivos listos para descargar y rellenar: matriz de polivalencia, gestión documental de PRL, instrucciones de trabajo y SOP de producción. Las guías y los artículos están en el <a href="/blog/">blog</a>.</p>
+  </section>
+
+  <!-- NOVEDADES: oculta salvo que el script de Header.astro marque la seccion con .is-new -->
+  <section class="section blog-news" id="novedades" data-published={latestRecursoISO}>
+    <div class="section-inner">
+      <div class="eyebrow blog-news__eyebrow">Publicado en los últimos {NEW_POST_DAYS} días</div>
+      <h2 class="section-title">Novedades</h2>
+      <div class="articles-grid">
+        {novedades.map((r) => (
+          <a href={r.url} class="article-card" data-published={r.publicado}>
+            <div class="article-card-category">Plantilla {r.formato}<span class="new-badge">Nuevo</span></div>
+            <h3 class="article-card-title">{r.titulo}</h3>
+            <p class="article-card-desc">{r.desc}</p>
+            <div class="article-card-meta"><span>{fecha(r.publicado)}</span></div>
+            <div class="article-card-link">Ver y descargar →</div>
+          </a>
+        ))}
+      </div>
     </div>
-<nav class="resource-index fade-up delay-3" aria-label="Índice de recursos">
-      <a href="#temas" class="resource-index__link">Explora por intención</a>
-      <a href="#guias" class="resource-index__link">Guías prácticas</a>
-      <a href="#herramientas" class="resource-index__link">Herramientas</a>
-    </nav>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CLUSTER TEMÁTICO -->
-  <section class="section" id="temas">
+  <section class="section" id="plantillas">
     <div class="section-inner">
       <div class="fade-up">
-        <div class="eyebrow">Explora por intención</div>
-        <h2 class="section-title">Empieza por el problema que quieres resolver</h2>
-        <p class="section-sub">
-          Esta es la malla principal de contenidos de REELEVO: guías, casos de uso y páginas de producto
-          conectadas entre sí para SOPs, onboarding, cobertura de bajas, transferencia de conocimiento
-          y matriz de habilidades.
-        </p>
+        <div class="eyebrow">Descargables</div>
+        <h2 class="section-title">Todas las plantillas</h2>
+        <p class="section-sub">Gratis. Te pedimos nombre, empresa y correo de trabajo, y la descarga empieza al momento.</p>
       </div>
-
-      <div class="topics-grid fade-up delay-1">
-        <div class="topic-card">
-          <div class="topic-label">Software SOP industrial</div>
-          <h3 class="topic-title">Qué es, cómo se implanta y cómo comparar herramientas</h3>
-          <p class="topic-desc">Empieza por la guía base y continúa con la comparativa de alternativas para ver encaje, precio y enfoque real para pyme industrial.</p>
-          <div class="topic-links">
-            <a href="/blog/que-es-un-sop-industrial/">Leer guía SOP →</a>
-            <a href="/vs-alternativas/">Ver comparativa →</a>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-label">Onboarding de operarios</div>
-          <h3 class="topic-title">Reducir tutorías, variabilidad y tiempo hasta producir</h3>
-          <p class="topic-desc">Ve cómo REELEVO ordena el onboarding en planta y cómo RRHH puede ganar más claridad sobre el progreso real de cada incorporación.</p>
-          <div class="topic-links">
-            <a href="/casos-de-uso/onboarding-operarios/">Ver caso de uso →</a>
-            <a href="/para-quien/responsable-rrhh/">Ver visibilidad para RRHH →</a>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-label">Transferencia de conocimiento</div>
-          <h3 class="topic-title">Capturar el saber hacer del experto antes de que se pierda</h3>
-          <p class="topic-desc">Combina la guía metodológica con la página de producto orientada a jubilaciones, salidas y dependencia de personas clave.</p>
-          <div class="topic-links">
-            <a href="/blog/documentar-conocimiento-operarios-expertos/">Leer metodología →</a>
-            <a href="/casos-de-uso/transferencia-conocimiento/">Ver caso de uso →</a>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-label">Cobertura de bajas</div>
-          <h3 class="topic-title">Evitar llamadas al experto y cubrir ausencias con estándar</h3>
-          <p class="topic-desc">Une el problema económico del absentismo con la solución operativa de tener el proceso disponible en cada máquina.</p>
-          <div class="topic-links">
-            <a href="/blog/coste-absentismo-pymes-industriales/">Ver análisis de coste →</a>
-            <a href="/casos-de-uso/cobertura-bajas/">Ver solución en planta →</a>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-label">Cómo funciona REELEVO</div>
-          <h3 class="topic-title">Ver el flujo real desde el experto hasta el puesto</h3>
-          <p class="topic-desc">Si estás comparando enfoques, empieza por el flujo completo y aterrízalo en SOPs, onboarding y continuidad operativa.</p>
-          <div class="topic-links">
-            <a href="/como-funciona/">Ver flujo completo →</a>
-            <a href="/vs-alternativas/">Comparar enfoques →</a>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-label">Matriz de habilidades</div>
-          <h3 class="topic-title">Ver quién sabe hacer qué y cómo mantenerlo actualizado</h3>
-          <p class="topic-desc">Explora cómo RRHH puede usar lo que ocurre en planta para actualizar mejor la polivalencia y reducir el riesgo de dependencia operativa.</p>
-          <div class="topic-links">
-            <a href="/para-quien/responsable-rrhh/">Ver página para RRHH →</a>
-            <a href="/blog/crisis-perdida-conocimiento-planta-industrial/">Leer análisis de riesgo →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- CTA intermedio (PROPUESTA_9_DISPARADORES_COMERCIAL_2026-08, M6b): esta
-       pagina solo ofrecia registrarse en el hero y en el cierre. Quien llega por
-       busqueda a media pagina no tenia salida sin hacer scroll hasta el final. -->
-  <div class="divider"></div>
-
-  <section class="section section-center">
-    <div class="section-inner" style="max-width:680px;">
-      <p class="section-sub fade-up" style="margin-bottom:24px;">Las guías ayudan a entender el problema. Montar un proceso real en tu propia planta ayuda más, y no cuesta nada.</p>
-      <div class="fade-up delay-1">
-        <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-           data-cta data-cta-intent="registro" data-cta-location="mitad" data-cta-label="Probarlo en tu planta">Probarlo en tu planta</a>
-      </div>
-      <p class="cta-note fade-up delay-2" style="margin-top:16px;">60 días del plan Pro, sin tarjeta</p>
-    </div>
-  </section>
-
-
-  <div class="divider"></div>
-
-  <!-- GUÍAS PRÁCTICAS -->
-  <section class="section" id="guias">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Guías prácticas</div>
-        <h2 class="section-title">Onboarding y gestión de competencias</h2>
-        <p class="section-sub">
-          Guías especializadas sobre implementación de onboarding software,
-          gestión de competencias operativas y comparativas con métodos tradicionales.
-        </p>
-      </div>
-
       <div class="articles-grid fade-up delay-1">
-        <a href="/recursos/onboarding-software-pymes/" class="article-card">
-          <div class="article-card-category">Onboarding Software</div>
-          <h3 class="article-card-title">Onboarding software para pymes: Guía completa 2026</h3>
-          <p class="article-card-desc">Qué es un onboarding software, cómo ordena la incorporación de operarios y qué mirar al elegirlo. Guía de compra y ROI realista para pyme industrial.</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>12 min.</span>
-          </div>
-          <div class="article-card-link">Leer guía →</div>
-        </a>
-
-        <a href="/recursos/gestion-competencias-industria/" class="article-card">
-          <div class="article-card-category">Gestión de Competencias</div>
-          <h3 class="article-card-title">Gestión de competencias en industria: Guía + Plantilla</h3>
-          <p class="article-card-desc">Guía completa de gestión de competencias para pymes industriales. Aprende a documentar y medir competencias operativas reales. Incluye plantilla descargable.</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>15 min.</span>
-          </div>
-          <div class="article-card-link">Leer guía →</div>
-        </a>
-
-        <a href="/recursos/onboarding-vs-tradicional/" class="article-card">
-          <div class="article-card-category">Comparativa</div>
-          <h3 class="article-card-title">Onboarding software vs métodos tradicionales</h3>
-          <p class="article-card-desc">Comparativa ejecutiva por escenario: coste, tiempo, calidad y gestión de competencias. Cuándo conviene cada enfoque en una pyme industrial.</p>
-          <div class="article-card-meta">
-            <span>7 abr. 2026</span>
-            <span>·</span>
-            <span>14 min.</span>
-          </div>
-          <div class="article-card-link">Leer guía →</div>
-        </a>
+        {recursos.map((r) => (
+          <a href={r.url} class="article-card" data-published={r.publicado}>
+            <div class="article-card-category">Plantilla {r.formato}<span class="new-badge">Nuevo</span></div>
+            <h3 class="article-card-title">{r.titulo}</h3>
+            <p class="article-card-desc">{r.desc}</p>
+            <div class="article-card-meta"><span>{fecha(r.publicado)}</span></div>
+            <div class="article-card-link">Ver y descargar →</div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- HERRAMIENTAS — Calculadoras -->
-  <section class="section" id="herramientas">
-    <div class="section-inner">
-      <div class="fade-up">
-        <div class="eyebrow">Herramientas gratuitas</div>
-        <h2 class="section-title">Calculadoras</h2>
-        <p class="section-sub">
-          Herramientas online para evaluar tu situación actual
-          y ver cuánto te está costando la dependencia operativa.
-        </p>
-      </div>
-
-      <div class="tools-grid fade-up delay-1">
-        <div class="tool-card featured">
-          <div class="tool-tag">Más usada</div>
-          <Icon name="grafica" class="tool-icon" />
-          <h3 class="tool-title">Calculadora de riesgo operativo</h3>
-          <p class="tool-desc">
-            16 preguntas sobre tu planta. Resultado inmediato con tu nivel de riesgo
-            y un plan de acción personalizado.
-          </p>
-          <div class="tool-features">
-            <div class="tool-feature">✓ Evaluación en 2 minutos</div>
-            <div class="tool-feature">✓ Informe personalizado</div>
-            <div class="tool-feature">✓ Benchmark con el sector</div>
-            <div class="tool-feature">✓ ROI estimado</div>
-          </div>
-          <div class="tool-cta">
-          </div>
-        </div>
-
-        <div class="tool-card">
-          <Icon name="dinero" class="tool-icon" />
-          <h3 class="tool-title">Calculadora de ROI</h3>
-          <p class="tool-desc">
-            Calcula cuánto te ahorrarías con REELEVO en función
-            del tamaño de tu equipo y tu tasa de absentismo.
-          </p>
-          <div class="tool-features">
-            <div class="tool-feature">✓ Personalizada por datos reales</div>
-            <div class="tool-feature">✓ Tiempo de amortización</div>
-            <div class="tool-feature">✓ Ahorro anual estimado</div>
-          </div>
-          <div class="tool-cta">
-            <a href="/precios/#roi" class="btn-ghost">Calcular ROI →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-eyebrow fade-up">¿Tienes una pregunta?</div>
+    <div class="cta-eyebrow fade-up">Cuando la plantilla se queda corta</div>
     <h3 class="cta-title fade-up delay-1">
-      Hablemos de tu <em>situación</em>
+      La misma lógica, <em>sin mantenerla a mano</em>
     </h3>
     <p class="cta-sub fade-up delay-2">
-      Cada empresa es diferente. Cuéntanos tu caso
-      y te ayudamos a encontrar la mejor solución.
+      En REELEVO las instrucciones de trabajo y la gestión documental viven en el puesto:
+      una sola versión vigente, pendientes que se calculan solos y acuse de cada trabajador.
     </p>
     <div class="cta-actions fade-up delay-3">
       <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
-         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Registrarme en REELEVO">
-        Registrarme en REELEVO
-      </a>
-    </div>
-    <div class="cta-note fade-up delay-4">
-      Precio publicado · Soporte en español
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Probar gratis">Probar gratis</a>
+      <a href="/blog/" class="btn-ghost">Leer el blog →</a>
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
-  .resource-index {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 28px;
-  }
-  .resource-index__link {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--gray);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 8px 16px;
-    transition: border-color .2s, color .2s;
-  }
-  .resource-index__link:hover {
-    border-color: var(--orange);
-    color: var(--orange);
-  }
-
-  .topics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .topic-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 28px;
-    transition: border-color .25s, transform .25s;
-  }
-
-  .topic-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-  }
-
-  .topic-label {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .topic-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-
-  .topic-desc {
-    font-size: .95rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-
-  .topic-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .topic-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: .72rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--orange);
-    text-decoration: none;
-  }
-
-  .topic-links a:hover {
-    text-decoration: underline;
-  }
-
-  /* Tools grid */
-  .tools-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .tool-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    transition: border-color .25s;
-  }
-
-  .tool-card:hover {
-    border-color: var(--border-hover);
-  }
-
-  .tool-card.featured {
-    border-color: var(--orange);
-  }
-
-  .tool-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .tool-icon {
-    margin-bottom: 20px;
-  }
-
-  .tool-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    margin-bottom: 12px;
-  }
-
-  .tool-desc {
-    font-size: .9rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 24px;
-  }
-
-  .tool-features {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 28px;
-    flex: 1;
-  }
-
-  .tool-feature {
-    font-size: .82rem;
-    color: rgba(255, 255, 255, .75);
-    line-height: 1.4;
-  }
-
-  .tool-feature .check { color: var(--green); }
-
-  /* Guides grid */
-  .guides-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .guide-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 28px;
-    transition: border-color .25s;
-  }
-
-  .guide-card:hover {
-    border-color: var(--border-hover);
-  }
-
-  .guide-category {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .guide-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .guide-desc {
-    font-size: .95rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 16px;
-  }
-
-  .guide-meta {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .guide-time, .guide-difficulty {
-    font-size: .75rem;
-    color: var(--gray2);
-  }
-
-  .guide-topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .guide-topics span {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    color: var(--gray);
-    background: var(--surface2);
-    padding: 4px 10px;
-    border-radius: 3px;
-  }
-
-  .guides-cta {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 40px;
-    text-align: center;
-    margin-top: 32px;
-  }
-
-  .guides-cta h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .03em;
-    margin-bottom: 8px;
-  }
-
-  .guides-cta p {
-    font-size: .9rem;
-    color: var(--gray);
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-
-  /* Studies */
-  .studies-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-    text-align: left;
-  }
-
-  .study-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 36px 32px;
-  }
-
-  .study-type {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .study-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-
-  .study-stats {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 20px;
-  }
-
-  .study-stat { text-align: center; }
-
-  .study-stat-number {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--orange);
-    line-height: 1;
-  }
-
-  .study-stat-label {
-    font-size: .7rem;
-    color: var(--gray);
-    margin-top: 4px;
-    line-height: 1.3;
-  }
-
-  .study-desc {
-    font-size: .9rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 20px;
-  }
-
-  .study-highlights h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 8px;
-  }
-
-  .study-highlights ul {
-    list-style: none;
-    font-size: .8rem;
-    line-height: 1.6;
-  }
-
-  .study-highlights li {
-    margin-bottom: 4px;
-    color: rgba(255, 255, 255, .8);
-  }
-
-  .study-highlights li::before {
-    content: '→';
-    color: var(--orange);
-    margin-right: 8px;
-    font-weight: 500;
-  }
-
-  .study-highlights strong {
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  /* Coming soon — guías y webinars */
-  .coming-soon-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 64px 40px;
-    text-align: center;
-    margin-top: 48px;
-  }
-
-  .coming-soon-icon {
-    font-size: 3rem;
-    margin-bottom: 24px;
-  }
-
-  .coming-soon-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .coming-soon-desc {
-    font-size: .95rem;
-    color: var(--gray);
-    line-height: 1.7;
-    max-width: 500px;
-    margin: 0 auto 32px;
-  }
-
-  /* Webinars — Próximamente */
-  .webinars-coming-soon {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 64px 40px;
-    text-align: center;
-    margin-top: 48px;
-  }
-
-  /* Articles grid */
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-
+  /* Mismas tarjetas y mismo aviso de novedades que /blog/ */
+  .blog-news:not(.is-new),
+  .blog-news .article-card:not(.is-new) { display: none; }
+  .blog-news__eyebrow { color: var(--gold); }
+  .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
   .article-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 28px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color .25s;
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 32px 28px; text-decoration: none; color: inherit; transition: border-color .25s;
   }
-
-  .article-card:hover {
-    border-color: var(--border-hover);
-  }
-
+  .article-card:hover { border-color: var(--border-hover); }
+  .article-card.is-new { border-color: var(--gold-border); box-shadow: 0 0 24px var(--gold-glow); }
   .article-card-category {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--orange-ink); margin-bottom: 12px;
   }
-
   .article-card-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    margin-bottom: 12px;
-    line-height: 1.2;
+    font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .02em; margin-bottom: 12px; line-height: 1.2;
   }
-
-  .article-card-desc {
-    font-size: .95rem;
-    color: var(--gray);
-    line-height: 1.65;
-    margin-bottom: 20px;
-    flex: 1;
-  }
-
-  .article-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: .75rem;
-    color: var(--gray2);
-    margin-bottom: 20px;
-  }
-
-  .article-card-link {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .08em;
-    color: var(--orange);
-    text-transform: uppercase;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .topics-grid,
-    .tools-grid,
-    .articles-grid,
-    .guides-grid,
-    .studies-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .study-stats {
-      justify-content: center;
-    }
-  }
+  .article-card-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; margin-bottom: 20px; flex: 1; }
+  .article-card-meta { display: flex; align-items: center; gap: 6px; font-size: .75rem; color: var(--gray2); margin-bottom: 20px; }
+  .article-card-link { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .08em; color: var(--orange-ink); text-transform: uppercase; }
+  .page-hero p a { color: var(--orange-ink); }
+  @media (max-width: 900px) { .articles-grid { grid-template-columns: 1fr; } }
 </style>
-

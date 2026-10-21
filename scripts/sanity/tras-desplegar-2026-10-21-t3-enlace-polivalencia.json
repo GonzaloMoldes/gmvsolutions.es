@@ -1,0 +1,49 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T3 (tras desplegar): enlace desde /blog/gestion-competencias-industria/ a /recursos/matriz-de-polivalencia/.",
+ "crear": [],
+ "cambios": [],
+ "insertar": [
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "op79fflKKnOcSGwgxujswv",
+   "insertAfter": "body[_key==\"19342d697ef1\"]",
+   "items": [
+    {
+     "_key": "30a9640853b1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0fefd27cad49",
+       "_type": "span",
+       "marks": [],
+       "text": "Si quieres empezar por la hoja, tienes una "
+      },
+      {
+       "_key": "3d81ef27eba9",
+       "_type": "span",
+       "marks": [
+        "7984b0a0e139"
+       ],
+       "text": "plantilla Excel gratuita y un generador online de matriz de polivalencia"
+      },
+      {
+       "_key": "def03a29bf06",
+       "_type": "span",
+       "marks": [],
+       "text": ", con los niveles de 0 a 4 definidos y los puestos que dependen de una sola persona marcados como riesgo."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "7984b0a0e139",
+       "_type": "link",
+       "href": "/recursos/matriz-de-polivalencia/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}

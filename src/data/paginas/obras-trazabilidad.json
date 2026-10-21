@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "Trazabilidad industrial por obra y pieza | REELEVO",
+    "description": "Trazabilidad por pieza en fabricación por encargo: QR individual por unidad, avance de obra e historial por proyecto. Para pymes industriales."
+  },
+  "hero": {
+    "antetitulo": "Trazabilidad por pieza · Obras y proyectos · QR individual por unidad",
+    "titulo": "Cada pieza que sale de tu fábrica",
+    "tituloDestacado": "sabe exactamente quién la hizo",
+    "texto": "Fabricas por encargo, pero si un cliente reclama una pieza nadie recuerda qué lote era ni quién la mecanizó. REELEVO agrupa la producción bajo un proyecto, genera un QR individual por cada pieza terminada y te dice al instante quién la produjo, cuándo, en qué proceso y dentro de qué obra.",
+    "botones": [
+      {
+        "texto": "Registrarse gratis",
+        "url": "https://app.gmvsolutions.es/registro"
+      }
+    ]
+  },
+  "faq": {
+    "items": [
+      {
+        "id": "faq-que-es-la-trazabilidad-por-pieza",
+        "q": "¿Qué es la trazabilidad por pieza?",
+        "a": "Es poder reconstruir la historia completa de una unidad concreta: qué procesos pasó, quién los ejecutó, en qué máquina, cuándo y con qué resultado. En fabricación por encargo importa más que en serie, porque cada pieza puede tener su propia configuración y su propio historial."
+      },
+      {
+        "id": "faq-como-se-identifica-cada-pieza",
+        "q": "¿Cómo se identifica cada pieza?",
+        "a": "Con un QR individual por unidad producida, que acompaña a la pieza y da acceso a su historial. Escanearlo devuelve lo que se hizo con ella, sin tener que cruzar tres Excel ni preguntar a quien estaba ese día."
+      },
+      {
+        "id": "faq-sirve-si-fabricamos-por-proyecto-u-obra",
+        "q": "¿Sirve si fabricamos por proyecto u obra en vez de por lotes?",
+        "a": "Es justo el caso para el que está pensado. Además de la pieza, se sigue el avance de la obra o el proyecto completo, de modo que puedes ver a la vez el detalle de una unidad y cómo va el encargo del cliente."
+      },
+      {
+        "id": "faq-cuanto-tarda-en-reconstruirse-el-historial-de",
+        "q": "¿Cuánto tarda en reconstruirse el historial de una pieza?",
+        "a": "Minutos, porque el dato se captura durante la ejecución y no se reconstruye a posteriori. Ese es el cambio real frente al papel: la diferencia entre responder a un cliente en la misma llamada o pedirle un par de días para investigarlo."
+      },
+      {
+        "id": "faq-esto-sustituye-a-un-mes-o-a",
+        "q": "¿Esto sustituye a un MES o a un ERP?",
+        "a": "No. REELEVO rastrea la producción por obra y por pieza, genera los QR individuales con historial completo y te da el avance del proyecto en tiempo real, que es lo que suele faltar en una pyme que fabrica por encargo. Lo que no hace es planificar la capacidad productiva, gestionar el almacén de materia prima ni llevar el coste de la orden de fabricación: eso sigue siendo territorio de un MES o de tu ERP."
+      }
+    ]
+  },
+  "ctaFinal": {
+    "antetitulo": "Empieza por una obra",
+    "titulo": "Convierte cada pieza en una unidad",
+    "tituloDestacado": "que no se pierde por el camino",
+    "texto": "Con una obra y unas piezas ya se ve si el historial te sirve para responder a un cliente.",
+    "botones": [
+      {
+        "texto": "Crear la primera obra",
+        "url": "https://app.gmvsolutions.es/registro"
+      },
+      {
+        "texto": "Ver workflows →",
+        "url": "/workflows/"
+      }
+    ],
+    "nota": "Te acompañamos en la puesta en marcha · Sin compromiso y con foco práctico"
+  }
+}

@@ -1,0 +1,20 @@
+---
+// Bloque «enlaces relacionados»: mismas clases que el bloque escrito a mano en
+// los articulos de codigo (estilos en ArticleLayout).
+const { node } = Astro.props as {
+  node: { etiqueta?: string; enlaces?: { kicker?: string; titulo: string; descripcion?: string; href: string }[] };
+};
+---
+
+<div class="related-links">
+  {node.etiqueta && <div class="related-links-label">{node.etiqueta}</div>}
+  <div class="related-links-grid">
+    {(node.enlaces ?? []).map((e) => (
+      <a href={e.href} class="related-link-card">
+        {e.kicker && <div class="related-link-kicker">{e.kicker}</div>}
+        <div class="related-link-title">{e.titulo}</div>
+        {e.descripcion && <div class="related-link-desc">{e.descripcion}</div>}
+      </a>
+    ))}
+  </div>
+</div>

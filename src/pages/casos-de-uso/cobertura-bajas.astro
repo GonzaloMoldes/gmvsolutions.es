@@ -1,4 +1,5 @@
 ---
+import Ilustracion from '../../components/Ilustracion.astro';
 import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqSection from '../../components/FaqSection.astro';
@@ -38,7 +39,7 @@ const schema = [faqPageSchema(faqs), {
 
 <BaseLayout
   title="Cubrir bajas en planta industrial | REELEVO"
-  description="Cubrir bajas en planta industrial con sustitución sin caída de ritmo: el sustituto encuentra el proceso en el puesto y la línea sigue operando."
+  description="Cubrir bajas en planta industrial sin caída de ritmo: el sustituto encuentra la instrucción de trabajo del experto en el puesto y la línea sigue operando."
   canonical="https://www.gmvsolutions.es/casos-de-uso/cobertura-bajas/"
   ogTitle="REELEVO — Cobertura de bajas en producción | Continuidad operativa en planta"
   ogDescription="REELEVO ayuda a cubrir bajas con una referencia clara en el puesto, menos llamadas al experto y más continuidad operativa."
@@ -58,7 +59,8 @@ const schema = [faqPageSchema(faqs), {
     <a href="/como-funciona/" class="btn-ghost">Ver cómo funciona →</a>
   </div>
   <p class="hero-cta-note fade-up delay-3">Te acompañamos en la puesta en marcha · Sin compromiso</p>
-</section>
+  <Ilustracion escena="cobertura-bajas" />
+  </section>
 
 <div class="divider-full"></div>
 
@@ -75,7 +77,7 @@ const schema = [faqPageSchema(faqs), {
     </div>
     <div class="stat-item fade-up delay-2">
       <div class="stat-num">Acceso directo</div>
-      <div class="stat-label">El sustituto encuentra el proceso del puesto en la máquina, sin depender de localizar al experto</div>
+      <div class="stat-label">El sustituto encuentra la instrucción de trabajo del puesto en la máquina, sin depender de localizar al experto</div>
     </div>
   </div>
 </div>
@@ -102,7 +104,7 @@ const schema = [faqPageSchema(faqs), {
         <div class="scenario-card-tag">Baja larga</div>
         <div class="scenario-card-title">La baja de larga duración</div>
         <div class="scenario-before"><strong>Sin REELEVO:</strong> 3 semanas después, nadie sabe con certeza si el proceso se está haciendo bien.</div>
-        <div class="scenario-after"><strong>Con REELEVO:</strong> El proceso de Martínez está documentado. El sustituto lo sigue con una referencia clara y menos dependencia del recuerdo.</div>
+        <div class="scenario-after"><strong>Con REELEVO:</strong> El proceso de Martínez está escrito como instrucción de trabajo. El sustituto lo sigue con una referencia clara y menos dependencia del recuerdo.</div>
       </div>
 
       <div class="scenario-card">
@@ -122,7 +124,7 @@ const schema = [faqPageSchema(faqs), {
 <section class="section" id="solucion">
   <div class="section-inner">
     <div class="eyebrow fade-up">Plan de contingencia ante bajas</div>
-    <h2 class="section-title fade-up delay-1">El proceso del experto, <em>disponible en la máquina</em></h2>
+    <h2 class="section-title fade-up delay-1">La instrucción de trabajo del experto, <em>disponible en la máquina</em></h2>
     <p class="section-sub fade-up delay-2">El conocimiento de Martínez deja de estar en su cabeza y pasa a estar disponible para cualquier sustituto en el punto exacto donde se necesita.</p>
 
     <div class="benefit-list fade-up delay-3">
@@ -139,7 +141,7 @@ const schema = [faqPageSchema(faqs), {
         <Icon name="formacion" class="benefit-icon icon--draw" />
         <div>
           <div class="benefit-title">El sustituto arranca con una referencia clara</div>
-          <div class="benefit-desc">Encuentra qué hacer en el puesto, sigue las instrucciones del experto y gana autonomía sin depender de tutorías largas ni esperas innecesarias.</div>
+          <div class="benefit-desc">Encuentra qué hacer en el puesto, sigue la instrucción de trabajo del experto y gana autonomía sin depender de tutorías largas ni esperas innecesarias.</div>
         </div>
       </div>
 
@@ -188,7 +190,7 @@ const schema = [faqPageSchema(faqs), {
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--orange-ink);
     margin-bottom: 16px;
   }
 </style>

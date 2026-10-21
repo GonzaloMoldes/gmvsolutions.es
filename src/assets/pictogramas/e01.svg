@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="88" viewBox="0 0 96 88" role="img" aria-label="Pictograma: persona ante una pantalla">
+<circle cx="30" cy="22" r="9" fill="#141618"/><path d="M18 82V50a12 12 0 0 1 24 0v32z" fill="#141618"/>
+<path d="M40 54L54 58" stroke="#141618" stroke-width="5" stroke-linecap="round"/>
+<rect x="54" y="30" width="34" height="24" rx="2" fill="none" stroke="#141618" stroke-width="4"/>
+<path d="M62 42l5 5 10-11" fill="none" stroke="#F4521E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="68" y="54" width="6" height="10" fill="#141618"/><rect x="60" y="64" width="22" height="4" fill="#141618"/>
+</svg>
