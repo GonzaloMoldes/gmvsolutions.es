@@ -1,0 +1,27 @@
+{
+ "fecha": "2026-10-21",
+ "descripcion": "T2 (tras desplegar): FAQ \"¿Puedo hacer la matriz de polivalencia en Excel?\" con enlace a /recursos/matriz-de-polivalencia/.",
+ "crear": [
+  {
+   "_id": "faq-matriz-polivalencia-en-excel",
+   "_type": "preguntaFrecuente",
+   "q": "¿Puedo hacer la matriz de polivalencia en Excel?",
+   "a": "Sí, y para empezar es lo más rápido: tienes una [plantilla gratuita y un generador online](/recursos/matriz-de-polivalencia/). El problema no es construirla, sino mantenerla. A los pocos meses deja de reflejar la realidad, porque nadie la actualiza cuando alguien aprende un puesto nuevo o deja de practicarlo. En REELEVO el nivel se actualiza solo con cada ejecución registrada."
+  }
+ ],
+ "cambios": [],
+ "insertar": [
+  {
+   "id": "pagina-gestion-competencias",
+   "rev": "__REV_TRAS_T2__",
+   "insertAfter": "faq.items[_key==\"faqpoliv01\"]",
+   "items": [
+    {
+     "_key": "faqpoliv02",
+     "_type": "reference",
+     "_ref": "faq-matriz-polivalencia-en-excel"
+    }
+   ]
+  }
+ ]
+}
