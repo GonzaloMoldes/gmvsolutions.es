@@ -245,6 +245,7 @@ a:hover{color:var(--steel);}
 .section-title{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;margin-bottom:16px;}
 .section-title em{color:var(--orange-ink);font-style:normal;}
 .section-sub{font-size:1rem;color:var(--gray);max-width:560px;line-height:1.7;}
+.section-sub a{color:var(--orange-ink);}
 /* Medida de lectura. Los parrafos sin clase heredaban el ancho de .section-inner
    (1100px), que a 17px son ~110 caracteres por linea: el ojo pierde el salto de
    linea. 68ch los deja en el rango comodo sin tocar .section-sub ni las tarjetas,

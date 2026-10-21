@@ -1,0 +1,448 @@
+---
+// Recurso descargable: matriz de polivalencia (plantilla Excel + generador online).
+// La plantilla se genera con scripts/descargables/generar-plantilla-polivalencia.py
+// y se entrega con la descarga con cuenta lead (data-descarga + <DescargaConCuenta />).
+// El generador funciona solo en el navegador: no envia nada a ningun servidor; lo
+// que se rellena se guarda, si se puede, en localStorage de ese navegador.
+// Se lista en /recursos/ desde src/lib/recursos.ts (fecha de publicacion alli).
+//
+// Niveles 0-4 y regla de riesgo (un solo autonomo) iguales que en la plantilla.
+// Datos de ejemplo ficticios.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import DescargaConCuenta from '../../components/DescargaConCuenta.astro';
+import { faqPageSchema, type FaqItem } from '../../lib/seo';
+
+const title = "Matriz de polivalencia: plantilla Excel gratis y generador online | REELEVO";
+const description = "Qué es una matriz de polivalencia, sus niveles de 0 a 4 y un ejemplo. Plantilla Excel gratis y generador online que marca los puestos en riesgo.";
+const canonical = "https://www.gmvsolutions.es/recursos/matriz-de-polivalencia/";
+
+const NIVELES = [
+  { n: 0, nombre: 'No formado', desc: 'No ha hecho el puesto ni ha recibido formación para él.' },
+  { n: 1, nombre: 'En formación', desc: 'Está aprendiendo. No puede quedarse solo en el puesto.' },
+  { n: 2, nombre: 'Con supervisión', desc: 'Hace el trabajo, pero necesita a alguien cerca para dudas, cambios o incidencias.' },
+  { n: 3, nombre: 'Autónomo', desc: 'Cubre el puesto solo, con calidad y seguridad, en cualquier turno.' },
+  { n: 4, nombre: 'Puede formar', desc: 'Es autónomo y además sabe enseñar el puesto a otra persona.' },
+];
+
+// Ejemplo visual (ficticio). Misma regla que el generador: autonomos = nivel >= 3.
+const ejPuestos = ['Inyectora 1', 'Inyectora 2', 'Montaje', 'Control calidad', 'Envasado'];
+const ejOperarios: [string, number[]][] = [
+  ['Ana', [4, 3, 2, 1, 3]],
+  ['Luis', [3, 2, 4, 0, 2]],
+  ['Carmen', [2, 1, 3, 3, 4]],
+  ['Javier', [1, 0, 3, 0, 3]],
+  ['Marta', [0, 0, 2, 0, 3]],
+];
+const ejAutonomos = ejPuestos.map((_, i) => ejOperarios.filter(([, ns]) => ns[i] >= 3).length);
+const estado = (a: number) => (a === 0 ? 'Sin cobertura' : a === 1 ? 'Riesgo' : 'OK');
+
+const faqs: FaqItem[] = [
+  {
+    q: '¿Qué es una matriz de polivalencia?',
+    a: 'Una tabla que cruza a los operarios con los puestos o máquinas de la planta y marca, en cada cruce, con qué nivel de autonomía puede trabajar esa persona en ese puesto. Sirve para cubrir bajas y vacaciones, organizar turnos y ver qué puestos dependen de una sola persona.',
+  },
+  {
+    q: '¿Qué niveles se usan en una matriz de polivalencia?',
+    a: 'Lo más habitual es una escala de 0 a 4: 0 no formado, 1 en formación, 2 con supervisión, 3 autónomo y 4 puede formar a otros. Lo importante no es el número de niveles, sino que cada uno tenga un criterio claro y que lo aplique igual quien evalúa en cada turno.',
+  },
+  {
+    q: '¿Cuántos operarios autónomos necesita cada puesto?',
+    a: 'Depende del puesto, de los turnos y de lo crítico que sea. Un puesto con una sola persona autónoma está en riesgo: si falta, se para o lo cubre alguien sin preparar. Muchas plantas se fijan como objetivo al menos tres personas autónomas por puesto crítico, repartidas entre turnos.',
+  },
+  {
+    q: '¿Qué diferencia hay entre una matriz de polivalencia y una matriz de competencias?',
+    a: 'A menudo se usan como sinónimos. La matriz de polivalencia cruza personas con puestos o máquinas; la matriz de competencias es más amplia e incluye conocimientos que no son un puesto, como una instrucción de PRL, un control de calidad o un idioma. Para cubrir turnos y bajas, la que necesitas es la de polivalencia.',
+  },
+  {
+    q: '¿El generador guarda mis datos?',
+    a: 'No los envía a ningún sitio. Todo se calcula en tu navegador y, si el navegador lo permite, se guarda en él para que no lo pierdas al recargar. Para tenerlo fuera, descárgalo en Excel o CSV.',
+  },
+  {
+    q: '¿Cada cuánto hay que actualizar la matriz de polivalencia?',
+    a: 'Cada vez que alguien aprende un puesto, cambia de línea o lleva tiempo sin practicar uno. En la práctica, revisarla al menos una vez al mes y siempre antes de planificar vacaciones. Ese es su punto débil en Excel: si nadie la actualiza, a los pocos meses ya no refleja la planta.',
+  },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "DigitalDocument",
+    "name": "Plantilla de matriz de polivalencia",
+    "description": description,
+    "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "inLanguage": "es-ES",
+    "isAccessibleForFree": true,
+    "datePublished": "2026-10-21",
+    "url": canonical,
+    "publisher": { "@id": "https://www.gmvsolutions.es/#organization" }
+  },
+  faqPageSchema(faqs),
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema} activeNav="recursos" pageType="recurso">
+  <section class="page-hero">
+    <div class="eyebrow fade-up">Plantilla Excel gratis · Generador online</div>
+    <h1 class="fade-up delay-1">Matriz de polivalencia: <br><em>plantilla Excel y generador</em></h1>
+    <p class="fade-up delay-2">Una matriz de polivalencia es una tabla que cruza a los operarios con los puestos de la planta y marca, en cada cruce, con qué nivel de autonomía puede trabajar esa persona en ese puesto. Sirve para cubrir bajas y vacaciones, organizar turnos y ver qué puestos dependen de una sola persona.</p>
+    <div class="hero-cta fade-up delay-3">
+      <a href={canonical} class="btn-primary" data-descarga="plantilla-matriz-polivalencia"
+         data-cta data-cta-intent="descarga" data-cta-location="hero" data-cta-label="Descargar la plantilla Excel">Descargar la plantilla Excel</a>
+      <a href="#generador" class="btn-ghost">Hacerla online ↓</a>
+    </div>
+    <p class="hero-note fade-up delay-3">Gratis · Niveles de 0 a 4 · Detecta los puestos en riesgo</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="niveles">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">La escala</div>
+        <h2 class="section-title">Los niveles de polivalencia, <em>de 0 a 4</em></h2>
+        <p class="section-sub">Cinco niveles bastan. Lo que importa es que cada uno tenga un criterio claro y que lo aplique igual quien evalúa en cada turno.</p>
+      </div>
+      <ol class="niveles fade-up delay-1">
+        {NIVELES.map((l) => (
+          <li class={`nivel n${l.n}`}>
+            <span class="nivel-num">{l.n}</span>
+            <div><h3>{l.nombre}</h3><p>{l.desc}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="ejemplo">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Ejemplo</div>
+        <h2 class="section-title">Ejemplo de matriz de polivalencia</h2>
+        <p class="section-sub">Cinco operarios y cinco puestos de una planta de inyección (datos ficticios). La última fila es la que importa: cuántas personas pueden cubrir cada puesto solas.</p>
+      </div>
+      <div class="tabla-ej fade-up delay-1">
+        <div class="tabla-scroll">
+          <table class="mp">
+            <thead>
+              <tr><th scope="col">Operario</th>{ejPuestos.map((p) => <th scope="col">{p}</th>)}</tr>
+            </thead>
+            <tbody>
+              {ejOperarios.map(([nombre, ns]) => (
+                <tr><th scope="row">{nombre}</th>{ns.map((n) => <td class={`n${n}`}>{n}</td>)}</tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr><th scope="row">Autónomos (3-4)</th>{ejAutonomos.map((a) => <td>{a}</td>)}</tr>
+              <tr><th scope="row">Estado</th>{ejAutonomos.map((a) => <td class={`est est-${estado(a) === 'OK' ? 'ok' : estado(a) === 'Riesgo' ? 'riesgo' : 'sin'}`}>{estado(a)}</td>)}</tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="tabla-nota">Inyectora 2 y Control calidad dependen de una sola persona. Si Ana o Carmen faltan una semana, esos puestos se paran o los cubre alguien que no está preparado. Lo útil de la matriz es verlo antes, no el lunes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="generador">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Generador online</div>
+        <h2 class="section-title">Haz tu matriz de polivalencia <em>aquí mismo</em></h2>
+        <p class="section-sub">Añade operarios y puestos, elige el nivel de cada cruce y mira qué puestos quedan en riesgo. No se envía nada: todo se calcula en tu navegador.</p>
+      </div>
+
+      <div class="gen" data-gen>
+        <div class="gen-add">
+          <form class="gen-form" data-add="operario">
+            <label for="gen-operario">Operario</label>
+            <div class="gen-row"><input id="gen-operario" type="text" maxlength="40" placeholder="Nombre" autocomplete="off" /><button type="submit" class="btn-ghost">Añadir</button></div>
+          </form>
+          <form class="gen-form" data-add="puesto">
+            <label for="gen-puesto">Puesto o máquina</label>
+            <div class="gen-row"><input id="gen-puesto" type="text" maxlength="40" placeholder="Ej.: Prensa 3" autocomplete="off" /><button type="submit" class="btn-ghost">Añadir</button></div>
+          </form>
+        </div>
+
+        <div class="tabla-scroll gen-tabla" data-tabla aria-live="polite"></div>
+
+        <div class="gen-resumen" data-resumen aria-live="polite"></div>
+
+        <div class="gen-acciones">
+          <button type="button" class="btn-primary" data-exportar="xlsx">Descargar en Excel (.xlsx)</button>
+          <button type="button" class="btn-ghost" data-exportar="csv">Descargar CSV</button>
+          <button type="button" class="gen-link" data-accion="ejemplo">Cargar ejemplo</button>
+          <button type="button" class="gen-link" data-accion="vaciar">Vaciar</button>
+        </div>
+        <p class="gen-leyenda">0 No formado · 1 En formación · 2 Con supervisión · 3 Autónomo · 4 Puede formar. Riesgo = un solo autónomo en el puesto.</p>
+      </div>
+
+      <div class="gen-cta fade-up">
+        <h3>Llévala a REELEVO y que se actualice sola</h3>
+        <p>En una hoja, el nivel lo cambia alguien a mano (o nadie). En REELEVO se alimenta de cada ejecución registrada en el puesto, detecta a quien lleva tiempo sin practicar y avisa de los puestos que se quedan sin cobertura en el próximo turno.</p>
+        <div class="gen-cta-acciones">
+          <a href="https://app.gmvsolutions.es/registro" class="btn-primary"
+             data-cta data-cta-intent="registro" data-cta-location="generador" data-cta-label="Llévala a REELEVO">Probar gratis</a>
+          <a href="/gestion-competencias/" class="btn-ghost">Ver la matriz de competencias de REELEVO →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="errores">
+    <div class="section-inner prosa">
+      <div class="fade-up">
+        <div class="eyebrow">Lo que suele fallar</div>
+        <h2 class="section-title">Errores comunes al hacer <em>una matriz de polivalencia</em></h2>
+      </div>
+      <ul class="errores fade-up delay-1">
+        <li><strong>Niveles sin criterio.</strong> Si «autónomo» significa una cosa para el jefe de turno de mañana y otra para el de noche, la matriz no compara nada. Escribe qué tiene que demostrar alguien para pasar de un nivel al siguiente.</li>
+        <li><strong>Puestos demasiado genéricos.</strong> «Línea 2» no dice si esa persona sabe hacer un cambio de formato o solo alimentar la máquina. Si dos tareas exigen formación distinta, van en columnas distintas.</li>
+        <li><strong>Contar personas, no turnos.</strong> Tres autónomos en un puesto no sirven si los tres están en el turno de mañana. Mira la cobertura de cada turno, no solo el total.</li>
+        <li><strong>No caducar nunca.</strong> Quien lleva meses sin hacer un puesto ya no es el autónomo que era. Si el nivel no baja con la falta de práctica, la matriz se va inflando.</li>
+        <li><strong>Hacerla una vez al año.</strong> Una matriz que solo se mira para la auditoría no ayuda a cubrir la baja del lunes. Tiene que actualizarse cuando cambia la planta, no cuando toca.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="polivalencia-vs-competencias">
+    <div class="section-inner prosa">
+      <div class="fade-up">
+        <div class="eyebrow">Conceptos</div>
+        <h2 class="section-title">Matriz de polivalencia <em>vs matriz de competencias</em></h2>
+      </div>
+      <div class="fade-up delay-1">
+        <p>En muchas plantas son la misma tabla con dos nombres. Si se quiere afinar: la <strong>matriz de polivalencia</strong> cruza personas con puestos o máquinas y responde a «¿quién puede cubrir este puesto?». La <strong>matriz de competencias</strong> (o <em>skill matrix</em>) es más amplia e incluye conocimientos que no son un puesto: una instrucción de PRL, un control de calidad, una certificación o un idioma.</p>
+        <p>Para organizar turnos y cubrir bajas, empieza por la de polivalencia. Cuando necesites saber además quién tiene vigente cada formación o certificación, la tabla crece hacia la de competencias. Cómo se lleva en REELEVO está en <a href="/gestion-competencias/">matriz de competencias y polivalencia</a>, y por qué se degrada una matriz en Excel, en <a href="/blog/gestion-competencias-industria/">gestión de competencias en la industria</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqs} />
+
+  <section class="cta-section">
+    <div class="cta-eyebrow fade-up">Descarga gratuita</div>
+    <h3 class="cta-title fade-up delay-1">Empieza por los puestos <br><em>que más te preocupan</em></h3>
+    <p class="cta-sub fade-up delay-2">La plantilla trae la matriz, los totales por puesto y un resumen de riesgo que se calculan solos. Y cuando quieras que se mantenga sin teclear, REELEVO hace lo mismo a partir del trabajo real en planta.</p>
+    <div class="cta-actions fade-up delay-3">
+      <a href={canonical} class="btn-primary" data-descarga="plantilla-matriz-polivalencia"
+         data-cta data-cta-intent="descarga" data-cta-location="footer" data-cta-label="Descargar la plantilla Excel">Descargar la plantilla Excel</a>
+      <a href="https://app.gmvsolutions.es/registro" class="btn-ghost"
+         data-cta data-cta-intent="registro" data-cta-location="footer" data-cta-label="Probar REELEVO gratis">Probar REELEVO gratis →</a>
+    </div>
+  </section>
+
+  <DescargaConCuenta />
+</BaseLayout>
+
+<script>
+  import { xlsxBlob } from '../../lib/xlsx-mini';
+
+  type Estado = { operarios: string[]; puestos: string[]; niveles: Record<string, number> };
+  const CLAVE = 'reelevo-matriz-polivalencia-v1';
+  const NOMBRES = ['No formado', 'En formación', 'Con supervisión', 'Autónomo', 'Puede formar'];
+  const EJEMPLO: Estado = {
+    operarios: ['Ana', 'Luis', 'Carmen', 'Javier'],
+    puestos: ['Inyectora 1', 'Inyectora 2', 'Montaje', 'Envasado'],
+    niveles: {},
+  };
+  [[4, 3, 2, 3], [3, 2, 4, 2], [2, 1, 3, 4], [1, 0, 3, 3]].forEach((fila, o) =>
+    fila.forEach((n, p) => { EJEMPLO.niveles[`${o}:${p}`] = n; }));
+
+  const raiz = document.querySelector<HTMLElement>('[data-gen]');
+  if (raiz) {
+    const tabla = raiz.querySelector<HTMLElement>('[data-tabla]')!;
+    const resumen = raiz.querySelector<HTMLElement>('[data-resumen]')!;
+    const copia = (e: Estado): Estado => JSON.parse(JSON.stringify(e));
+    let st: Estado = copia(EJEMPLO);
+    try {
+      const g = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+      if (g && Array.isArray(g.operarios) && Array.isArray(g.puestos) && g.niveles) st = g;
+    } catch { /* sin almacenamiento: se queda el ejemplo */ }
+
+    const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify(st)); } catch { /* nada */ } };
+    const nivel = (o: number, p: number) => st.niveles[`${o}:${p}`] ?? 0;
+    const autonomos = (p: number) => st.operarios.filter((_, o) => nivel(o, p) >= 3).length;
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+    // Al borrar una fila o columna, las claves "o:p" se recolocan.
+    const quitar = (tipo: 'operario' | 'puesto', i: number) => {
+      const nuevos: Record<string, number> = {};
+      for (const [k, v] of Object.entries(st.niveles)) {
+        let [o, p] = k.split(':').map(Number);
+        if (tipo === 'operario') { if (o === i) continue; if (o > i) o--; }
+        else { if (p === i) continue; if (p > i) p--; }
+        nuevos[`${o}:${p}`] = v;
+      }
+      st.niveles = nuevos;
+      (tipo === 'operario' ? st.operarios : st.puestos).splice(i, 1);
+    };
+
+    const pintar = () => {
+      if (!st.operarios.length || !st.puestos.length) {
+        tabla.innerHTML = `<p class="gen-vacio">Añade al menos un operario y un puesto para empezar.</p>`;
+      } else {
+        const opciones = (sel: number) => NOMBRES.map((n, i) => `<option value="${i}"${i === sel ? ' selected' : ''}>${i} · ${n}</option>`).join('');
+        const cab = st.puestos.map((p, j) => `<th scope="col"><span>${esc(p)}</span><button type="button" class="gen-x" data-quitar="puesto" data-i="${j}" aria-label="Quitar el puesto ${esc(p)}">×</button></th>`).join('');
+        const filas = st.operarios.map((o, i) => `<tr><th scope="row"><span>${esc(o)}</span><button type="button" class="gen-x" data-quitar="operario" data-i="${i}" aria-label="Quitar a ${esc(o)}">×</button></th>${
+          st.puestos.map((p, j) => { const n = nivel(i, j); return `<td class="n${n}"><select data-o="${i}" data-p="${j}" aria-label="Nivel de ${esc(o)} en ${esc(p)}">${opciones(n)}</select></td>`; }).join('')}</tr>`).join('');
+        const aut = st.puestos.map((_, j) => `<td>${autonomos(j)}</td>`).join('');
+        const est = st.puestos.map((_, j) => { const a = autonomos(j); return a === 0 ? '<td class="est est-sin">Sin cobertura</td>' : a === 1 ? '<td class="est est-riesgo">Riesgo</td>' : '<td class="est est-ok">OK</td>'; }).join('');
+        tabla.innerHTML = `<table class="mp mp-gen"><thead><tr><th scope="col">Operario</th>${cab}</tr></thead><tbody>${filas}</tbody><tfoot><tr><th scope="row">Autónomos (3-4)</th>${aut}</tr><tr><th scope="row">Estado</th>${est}</tr></tfoot></table>`;
+      }
+      const sin = st.puestos.filter((_, j) => st.operarios.length && autonomos(j) === 0);
+      const riesgo = st.puestos.filter((_, j) => autonomos(j) === 1);
+      const lista = (xs: string[]) => xs.map((x) => `<strong>${esc(x)}</strong>`).join(', ');
+      resumen.innerHTML = !st.puestos.length || !st.operarios.length ? '' :
+        (!sin.length && !riesgo.length
+          ? `<p class="ok">Todos los puestos tienen al menos dos operarios autónomos.</p>`
+          : `${riesgo.length ? `<p class="riesgo"><span>${riesgo.length === 1 ? '1 puesto en riesgo' : `${riesgo.length} puestos en riesgo`}</span> (un solo autónomo): ${lista(riesgo)}.</p>` : ''}${
+             sin.length ? `<p class="sin"><span>${sin.length === 1 ? '1 puesto sin cobertura' : `${sin.length} puestos sin cobertura`}</span> (ningún autónomo): ${lista(sin)}.</p>` : ''}`);
+    };
+
+    raiz.querySelectorAll<HTMLFormElement>('[data-add]').forEach((f) => f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = f.querySelector('input')!;
+      const v = input.value.trim().slice(0, 40);
+      if (!v) return;
+      (f.dataset.add === 'operario' ? st.operarios : st.puestos).push(v);
+      input.value = '';
+      guardar(); pintar(); input.focus();
+    }));
+    tabla.addEventListener('change', (e) => {
+      const s = e.target as HTMLSelectElement;
+      if (s.tagName !== 'SELECT') return;
+      st.niveles[`${s.dataset.o}:${s.dataset.p}`] = Number(s.value);
+      guardar(); pintar();
+    });
+    tabla.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-quitar]');
+      if (!b) return;
+      quitar(b.dataset.quitar as 'operario' | 'puesto', Number(b.dataset.i));
+      guardar(); pintar();
+    });
+    raiz.querySelector('[data-accion="ejemplo"]')!.addEventListener('click', () => { st = copia(EJEMPLO); guardar(); pintar(); });
+    raiz.querySelector('[data-accion="vaciar"]')!.addEventListener('click', () => { st = { operarios: [], puestos: [], niveles: {} }; guardar(); pintar(); });
+
+    const descargar = (blob: Blob, nombre: string) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = nombre;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+    const estadoTxt = (a: number) => (a === 0 ? 'Sin cobertura' : a === 1 ? 'Riesgo' : 'OK');
+    raiz.querySelectorAll<HTMLButtonElement>('[data-exportar]').forEach((b) => b.addEventListener('click', () => {
+      if (!st.operarios.length || !st.puestos.length) return;
+      const matriz: (string | number)[][] = [
+        ['Operario', ...st.puestos, 'Puestos en los que es autónomo'],
+        ...st.operarios.map((o, i) => [o, ...st.puestos.map((_, j) => nivel(i, j)), st.puestos.filter((_, j) => nivel(i, j) >= 3).length]),
+        [],
+        ['Autónomos (nivel 3 o 4)', ...st.puestos.map((_, j) => autonomos(j))],
+        ['Estado del puesto', ...st.puestos.map((_, j) => estadoTxt(autonomos(j)))],
+      ];
+      const fecha = new Date().toISOString().slice(0, 10);
+      if (b.dataset.exportar === 'csv') {
+        const celda = (v: string | number) => { const s = String(v); return /[;"\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+        const csv = '﻿' + matriz.map((f) => f.map(celda).join(';')).join('\r\n');
+        descargar(new Blob([csv], { type: 'text/csv;charset=utf-8' }), `matriz-polivalencia-${fecha}.csv`);
+      } else {
+        const resumenHoja: (string | number)[][] = [
+          ['Puesto', 'Autónomos', 'Pueden formar', 'Estado'],
+          ...st.puestos.map((p, j) => [p, autonomos(j), st.operarios.filter((_, i) => nivel(i, j) === 4).length, estadoTxt(autonomos(j))]),
+          [],
+          ['Niveles: 0 No formado · 1 En formación · 2 Con supervisión · 3 Autónomo · 4 Puede formar'],
+          ['Riesgo = un solo autónomo. Sin cobertura = ninguno. Generado en gmvsolutions.es/recursos/matriz-de-polivalencia/'],
+        ];
+        descargar(xlsxBlob([
+          { nombre: 'Matriz', filas: matriz, anchos: [26, ...st.puestos.map(() => 14), 16] },
+          { nombre: 'Resumen', filas: resumenHoja, anchos: [28, 12, 14, 16] },
+        ]), `matriz-polivalencia-${fecha}.xlsx`);
+      }
+      (window as any).dataLayer?.push({ event: 'generador_polivalencia_export', formato: b.dataset.exportar });
+    }));
+
+    pintar();
+  }
+</script>
+
+<style>
+  .hero-cta { margin-top: 28px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 14px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray2); }
+
+  .niveles { list-style: none; padding: 0; margin: 36px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  .nivel { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .nivel h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin: 0 0 6px; }
+  .nivel p { font-size: .88rem; line-height: 1.6; color: var(--gray); margin: 0; }
+  .nivel-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: 'Oswald', sans-serif; font-weight: 600; border: 1px solid var(--border); }
+
+  /* Colores de nivel, compartidos por la escala, el ejemplo y el generador */
+  :global(.n0) { --bg: #FFFFFF; --fg: var(--gray2); }
+  :global(.n1) { --bg: #FDE2D8; --fg: #8A2A0A; }
+  :global(.n2) { --bg: #FFF0C2; --fg: #6B4E00; }
+  :global(.n3) { --bg: #D9F2E1; --fg: #1E6B3A; }
+  :global(.n4) { --bg: #9FDDB4; --fg: #0F4A25; }
+  .nivel .nivel-num { background: var(--bg); color: var(--fg); }
+
+  .tabla-ej { margin-top: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+  .tabla-scroll { overflow-x: auto; }
+  :global(.mp) { border-collapse: collapse; font-size: .9rem; min-width: 100%; }
+  :global(.mp th), :global(.mp td) { border: 1px solid var(--border); padding: 9px 12px; text-align: center; }
+  :global(.mp thead th) { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: .85rem; white-space: nowrap; background: var(--surface2); }
+  :global(.mp tbody th), :global(.mp tfoot th) { text-align: left; font-family: 'Oswald', sans-serif; font-weight: 600; white-space: nowrap; background: var(--surface2); }
+  :global(.mp tbody td) { background: var(--bg); color: var(--fg); font-weight: 600; }
+  :global(.mp tfoot td) { font-weight: 600; background: var(--surface2); }
+  :global(.mp .est) { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  :global(.est-ok) { color: #1E6B3A; background: #D9F2E1 !important; }
+  :global(.est-riesgo) { color: #B3360C; background: #FDE2D8 !important; }
+  :global(.est-sin) { color: #FFFFFF; background: var(--orange) !important; }
+  .tabla-nota { margin: 18px 0 0; font-size: .95rem; line-height: 1.7; color: var(--gray); }
+
+  .gen { margin-top: 36px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .gen-add { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .gen-form { min-width: 0; }
+  .gen-row .btn-ghost { flex: none; padding-left: 18px; padding-right: 18px; }
+  .gen-form label { display: block; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 6px; }
+  .gen-row { display: flex; gap: 8px; }
+  .gen-row input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 4px; font: inherit; background: #fff; color: var(--white); }
+  .gen-row input:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
+  .gen-tabla { margin-top: 22px; }
+  :global(.mp-gen td) { padding: 4px; }
+  :global(.mp-gen select) { width: 100%; min-width: 146px; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 600; font-size: .82rem; padding: 6px 4px; cursor: pointer; }
+  :global(.mp-gen th span) { vertical-align: middle; }
+  :global(.gen-x) { margin-left: 6px; border: 0; background: none; color: var(--gray2); cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 2px; }
+  :global(.gen-x:hover) { color: var(--orange-ink); }
+  :global(.gen-vacio) { color: var(--gray2); font-style: italic; margin: 0; }
+  .gen-resumen { margin-top: 18px; }
+  .gen-resumen :global(p) { margin: 0 0 8px; padding: 12px 14px; border-radius: 4px; font-size: .95rem; line-height: 1.6; }
+  .gen-resumen :global(p span) { font-weight: 700; }
+  .gen-resumen :global(.ok) { background: #D9F2E1; color: #1E6B3A; }
+  .gen-resumen :global(.riesgo) { background: #FDE2D8; color: #8A2A0A; }
+  .gen-resumen :global(.sin) { background: #FBD3C4; color: #7A1F04; }
+  .gen-acciones { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .gen-link { border: 0; background: none; color: var(--orange-ink); font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; padding: 8px 6px; }
+  .gen-leyenda { margin: 14px 0 0; font-size: .8rem; color: var(--gray2); }
+
+  .gen-cta { margin-top: 28px; border: 1px solid var(--orange); border-radius: 8px; padding: 26px; background: var(--orange-dim); }
+  .gen-cta h3 { font-family: 'Oswald', sans-serif; font-size: 1.35rem; margin: 0 0 10px; }
+  .gen-cta p { margin: 0; line-height: 1.7; color: var(--gray); max-width: 760px; }
+  .gen-cta-acciones { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .prosa p { line-height: 1.75; color: var(--gray); margin: 16px 0 0; max-width: 800px; }
+  .prosa a { color: var(--orange-ink); }
+  .errores { margin: 28px 0 0; padding-left: 20px; max-width: 800px; }
+  .errores li { margin-bottom: 14px; line-height: 1.7; color: var(--gray); }
+  .errores strong { color: var(--white); }
+
+  @media (max-width: 1000px) { .niveles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) {
+    .niveles, .gen-add { grid-template-columns: minmax(0, 1fr); }
+    .gen, .tabla-ej, .gen-cta { padding: 16px; }
+  }
+</style>

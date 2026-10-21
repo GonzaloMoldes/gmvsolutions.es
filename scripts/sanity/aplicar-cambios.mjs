@@ -63,7 +63,7 @@ const parche = (id) => porDoc.get(id) ?? porDoc.set(id, { set: {}, insert: [] })
 for (const c of spec.cambios) {
   const doc = docs.get(c.id);
   const actual = doc ? leer(doc, c.path) : undefined;
-  if (!doc || actual !== c.from) {
+  if (!doc || actual !== (c.from ?? undefined)) { // from: null = campo vacio
     resumen.saltados.push(`${c.id} · ${c.path} (${doc ? 'editado desde que se preparo' : 'no existe'})`);
     continue;
   }
@@ -73,8 +73,10 @@ for (const c of spec.cambios) {
 
 for (const ins of spec.insertar) {
   const doc = docs.get(ins.id);
-  const textos = ins.items.map((b) => (b.children ?? []).map((s) => s.text).join(''));
-  const yaEsta = doc && JSON.stringify(doc.body ?? []).includes(JSON.stringify(textos[0]).slice(1, 60));
+  // Texto que identifica lo insertado: el de un bloque, o la pregunta de una FAQ.
+  const textos = ins.items.map((b) => b.q ?? (b.children ?? []).map((s) => s.text).join(''));
+  const campo = ins.insertAfter.split('[')[0];
+  const yaEsta = doc && textos[0] && JSON.stringify(doc[campo] ?? []).includes(JSON.stringify(textos[0]).slice(1, 60));
   if (!doc || doc._rev !== ins.rev || yaEsta) {
     resumen.saltados.push(`${ins.id} · insercion (${!doc ? 'no existe' : yaEsta ? 'ya insertado' : 'editado desde que se preparo'})`);
     continue;
