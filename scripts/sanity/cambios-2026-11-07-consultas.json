@@ -1,0 +1,2559 @@
+{
+ "fecha": "2026-11-07",
+ "descripcion": "Consultas de Search Console (nov. 2026): articulo nuevo /blog/trazabilidad-de-piezas/, toma de tiempos, sinonimos de ficha/hoja/formato/instructivo de trabajo, 5S en el taller de mantenimiento, matriz ILUO y respuestas a preguntas de tipo IA en seis articulos.",
+ "crear": [
+  {
+   "_id": "articulo-trazabilidad-de-piezas",
+   "_type": "articulo",
+   "title": "Trazabilidad de piezas: cómo la hace REELEVO, de la máquina a la ficha de cada pieza",
+   "seoTitle": "Trazabilidad de piezas metálicas: cómo la hace REELEVO",
+   "slug": {
+    "_type": "slug",
+    "current": "trazabilidad-de-piezas"
+   },
+   "cluster": "trazabilidad",
+   "category": "Trazabilidad",
+   "publishedAt": "2026-11-07",
+   "readTime": "9 min.",
+   "description": "Trazabilidad de piezas con REELEVO: QR por pieza, quién la hizo, con qué lote y proceso, ficha para el cliente y retirada acotada. Más allá del Data Matrix",
+   "cardTitle": "Trazabilidad de piezas: cómo la hace REELEVO",
+   "cardDesc": "Del QR de la máquina a la ficha de cada pieza: qué se registra, cómo se consulta y cómo se acota una retirada. Con un ejemplo hacia atrás y hacia delante.",
+   "priority": "0.8",
+   "orden": 36,
+   "mostrarFaqs": false,
+   "noindex": false,
+   "body": [
+    {
+     "_key": "2cc7ca122707",
+     "_type": "destacado",
+     "contenido": [
+      {
+       "_key": "313ae7f31ebe",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "105f1670f77f",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "TL;DR."
+        },
+        {
+         "_key": "a464553afb41",
+         "_type": "span",
+         "marks": [],
+         "text": " Marcar una pieza con un Data Matrix o una etiqueta la identifica, pero no cuenta su historia. La trazabilidad de piezas es poder decir, de cada unidad, "
+        },
+        {
+         "_key": "cab1f750cc28",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "quién la hizo, en qué máquina, con qué proceso y versión, con qué lote de material, qué controles pasó y a qué obra o cliente fue"
+        },
+        {
+         "_key": "058d9f0e39db",
+         "_type": "span",
+         "marks": [],
+         "text": ". REELEVO la captura mientras se trabaja: el operario ejecuta el proceso desde el QR de la máquina, cada pieza terminada recibe su propio QR y su ficha se consulta en segundos, también desde el cliente. Si aparece un defecto, la retirada se acota por lote, orden, fechas u obra."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      }
+     ],
+     "estilo": "highlight-box"
+    },
+    {
+     "_key": "47573dcfbf4f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "db22bc607747",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "En este artículo:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "5c2e7f7d26ff",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1c49dc5dd13d",
+       "_type": "span",
+       "marks": [
+        "0e6e258a9697"
+       ],
+       "text": "Identificar no es trazar"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "0e6e258a9697",
+       "_type": "link",
+       "href": "#marcar"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "c60f474c8d78",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "cac78fb49f10",
+       "_type": "span",
+       "marks": [
+        "2d2973a46cda"
+       ],
+       "text": "Qué tiene que contar la ficha de una pieza"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "2d2973a46cda",
+       "_type": "link",
+       "href": "#ficha"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "12e7a1b26f17",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b5969e28ed30",
+       "_type": "span",
+       "marks": [
+        "4d3ceeb26c0a"
+       ],
+       "text": "Cómo la hace REELEVO, paso a paso"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "4d3ceeb26c0a",
+       "_type": "link",
+       "href": "#reelevo"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "b4e8a78511ca",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fafa012e450e",
+       "_type": "span",
+       "marks": [
+        "c242dcd0508c"
+       ],
+       "text": "Un ejemplo hacia atrás y hacia delante"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "c242dcd0508c",
+       "_type": "link",
+       "href": "#ejemplo"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "fb40d0d05f05",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "c552b7073234",
+       "_type": "span",
+       "marks": [
+        "5efdadd66bb8"
+       ],
+       "text": "Cuando algo sale mal: una retirada acotada"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "5efdadd66bb8",
+       "_type": "link",
+       "href": "#retirada"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "d813bc151bef",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "c29534aa3716",
+       "_type": "span",
+       "marks": [
+        "0529abb59eac"
+       ],
+       "text": "Lo que REELEVO no hace"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "0529abb59eac",
+       "_type": "link",
+       "href": "#limites"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "dc2dc13c85de",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7fc4c241632c",
+       "_type": "span",
+       "marks": [
+        "b54fe40cded3"
+       ],
+       "text": "Cómo empezar con una obra"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "b54fe40cded3",
+       "_type": "link",
+       "href": "#empezar"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "d65bab8ac81b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "2a6b4759c0e8",
+       "_type": "span",
+       "marks": [
+        "58e169c3ba64"
+       ],
+       "text": "Preguntas frecuentes"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "58e169c3ba64",
+       "_type": "link",
+       "href": "#faq"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "2133450f50c7",
+     "_type": "ancla",
+     "id": "marcar"
+    },
+    {
+     "_key": "f50343d354f6",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "13f382483735",
+       "_type": "span",
+       "marks": [],
+       "text": "Identificar no es trazar: Data Matrix, láser, etiqueta o QR"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "3c63487c45c4",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "085f7653eca2",
+       "_type": "span",
+       "marks": [],
+       "text": "Cuando se busca «trazabilidad de piezas», casi todo lo que aparece habla de marcado: grabado láser, micropercusión, códigos Data Matrix en la propia pieza metálica, etiquetas con número de serie. Es una parte necesaria, pero es solo la mitad. El marcado responde a "
+      },
+      {
+       "_key": "6322bce8d5b8",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "qué pieza es esta"
+      },
+      {
+       "_key": "2bd8fe32b3c5",
+       "_type": "span",
+       "marks": [],
+       "text": ". La trazabilidad responde a "
+      },
+      {
+       "_key": "20af57432859",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "qué le pasó"
+      },
+      {
+       "_key": "2ee61d878048",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "d24bd3c39461",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b568c58ef6f7",
+       "_type": "span",
+       "marks": [],
+       "text": "Un código grabado en una pieza mecánica sin un registro detrás es un número que no lleva a ninguna parte. Y el registro es donde fallan casi todos los talleres: el parte se rellena al final del turno, el lote se apunta de memoria y la medición de la primera pieza queda en una hoja que nadie encuentra el día de la reclamación. Los tres tramos de la trazabilidad (hacia atrás, interna y hacia delante) están explicados en "
+      },
+      {
+       "_key": "076176600453",
+       "_type": "span",
+       "marks": [
+        "3373fd12968e"
+       ],
+       "text": "trazabilidad de un producto"
+      },
+      {
+       "_key": "ee9723b9373e",
+       "_type": "span",
+       "marks": [],
+       "text": "; aquí bajamos a la unidad: la pieza."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "3373fd12968e",
+       "_type": "link",
+       "href": "/blog/trazabilidad-de-un-producto/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "6da0fc091640",
+     "_type": "tabla",
+     "clase": "tabla-comparativa",
+     "cabecera": [
+      "Cómo se identifica la pieza",
+      "Qué resuelve",
+      "Qué no resuelve"
+     ],
+     "filas": [
+      {
+       "_key": "9780eb50acd3",
+       "_type": "fila",
+       "celdas": [
+        "Data Matrix o número grabado (láser, micropercusión)",
+        "Identificación permanente, que aguanta procesos y tratamientos; se lee con un lector",
+        "No guarda nada: el historial tiene que vivir en otro sistema"
+       ]
+      },
+      {
+       "_key": "28be84f9b11e",
+       "_type": "fila",
+       "celdas": [
+        "Etiqueta con número de serie o de lote",
+        "Barata y rápida de implantar",
+        "Se despega o se pierde; sin registro detrás, solo es un número"
+       ]
+      },
+      {
+       "_key": "0f0054b36b82",
+       "_type": "fila",
+       "celdas": [
+        "QR por pieza con ficha consultable",
+        "Cualquiera con un móvil abre el historial de esa unidad",
+        "Necesita una etiqueta que acompañe a la pieza; no es un marcado permanente"
+       ]
+      }
+     ]
+    },
+    {
+     "_key": "af926c83c9a5",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "118b6cae816d",
+       "_type": "span",
+       "marks": [],
+       "text": "No son excluyentes. Si tu cliente o tu sector te exige marcado permanente, el Data Matrix grabado sigue siendo la identificación física. Lo que ningún marcado sustituye es el registro de lo que ocurrió en planta, y de eso va el resto del artículo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "f9ba42f8a25a",
+     "_type": "ancla",
+     "id": "ficha"
+    },
+    {
+     "_key": "08c6790c3040",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1b711a646d79",
+       "_type": "span",
+       "marks": [],
+       "text": "Qué tiene que contar la ficha de una pieza"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "fca615242143",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "9e0775fd239b",
+       "_type": "span",
+       "marks": [],
+       "text": "Da igual que fabriques en una línea de producción o por encargo en un taller: la trazabilidad de piezas está bien montada cuando, dada una unidad concreta, puedes responder a estas preguntas sin llamar a nadie."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "1c009f512112",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f6b4e570f880",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Qué es y para quién:"
+      },
+      {
+       "_key": "fc7b036cca75",
+       "_type": "span",
+       "marks": [],
+       "text": " producto, obra o pedido y cliente."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "6745a906dfe3",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5a023dbf2f9a",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Quién la hizo:"
+      },
+      {
+       "_key": "208ba1d5dee9",
+       "_type": "span",
+       "marks": [],
+       "text": " los operarios de cada operación, no solo quien la cerró."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "0b4e25fd480a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6b367d3e44e1",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Dónde y cómo:"
+      },
+      {
+       "_key": "0ccd2469d489",
+       "_type": "span",
+       "marks": [],
+       "text": " en qué máquina, con qué proceso y con qué versión de la instrucción de trabajo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "befe888879b8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7e802d706fe5",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Cuándo:"
+      },
+      {
+       "_key": "d7a802bed1a3",
+       "_type": "span",
+       "marks": [],
+       "text": " fecha, hora y turno de cada ejecución."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "20a2e8211856",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f048194d3308",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Con qué material:"
+      },
+      {
+       "_key": "a76103ecc817",
+       "_type": "span",
+       "marks": [],
+       "text": " qué lote de cada material entró, si se traza por lote. Lo desarrollamos en "
+      },
+      {
+       "_key": "40eb8992d182",
+       "_type": "span",
+       "marks": [
+        "852556f36934"
+       ],
+       "text": "trazabilidad de lotes de materia prima"
+      },
+      {
+       "_key": "d57822e7976d",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "852556f36934",
+       "_type": "link",
+       "href": "/blog/trazabilidad-lotes-materia-prima/"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "db08daa7f853",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "4ada286122c2",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Qué controles pasó:"
+      },
+      {
+       "_key": "5fb3e8653b84",
+       "_type": "span",
+       "marks": [],
+       "text": " mediciones, comprobaciones con foto, rechazos y retrabajos."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "37d9c8791685",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5f7e3348aff6",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Quién la dio por buena:"
+      },
+      {
+       "_key": "0deb92792bb6",
+       "_type": "span",
+       "marks": [],
+       "text": " la firma de cierre o la validación del supervisor, si el proceso la pide."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "753824e903df",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d79aa60ed14f",
+       "_type": "span",
+       "marks": [],
+       "text": "Si para contestar alguna hay que cruzar un parte en papel con un Excel y con la memoria de alguien, la cadena tiene un eslabón roto. Y casi siempre se rompe en el mismo sitio: entre lo que pasa en la máquina y lo que se apunta después."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "a7c7358cd4cb",
+     "_type": "ancla",
+     "id": "reelevo"
+    },
+    {
+     "_key": "aa41f4c383fb",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7253445ac7de",
+       "_type": "span",
+       "marks": [],
+       "text": "Cómo la hace REELEVO, paso a paso"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "5adc0d7e6931",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "07aba29b910f",
+       "_type": "span",
+       "marks": [],
+       "text": "REELEVO no añade un parte de trazabilidad: la trazabilidad sale del propio trabajo. El operario ejecuta el proceso en la máquina y lo que hace queda registrado en ese momento. Así funciona de principio a fin."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "da00f410d057",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "26cf3261a44f",
+       "_type": "span",
+       "marks": [],
+       "text": "1. Abres la obra y defines qué hay que fabricar"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "bed443c414e2",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "c827bf35f011",
+       "_type": "span",
+       "marks": [],
+       "text": "Agrupas la producción bajo una "
+      },
+      {
+       "_key": "2f2cb109abb4",
+       "_type": "span",
+       "marks": [
+        "07c2b474f00d"
+       ],
+       "text": "obra o proyecto"
+      },
+      {
+       "_key": "b88e122a7c20",
+       "_type": "span",
+       "marks": [],
+       "text": ": el encargo de un cliente, un pedido o un proyecto. Dentro van los productos y las unidades planificadas. Desde ese momento, todo lo que se fabrica para esa obra queda vinculado a ella, y ves el avance: unidades hechas frente a planificadas."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "07c2b474f00d",
+       "_type": "link",
+       "href": "/obras-trazabilidad/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "3c975e87e0c6",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "2e1934c26c6f",
+       "_type": "span",
+       "marks": [],
+       "text": "2. El operario trabaja desde el QR de la máquina"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "2f26e36b8bca",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e56ee9f73ced",
+       "_type": "span",
+       "marks": [],
+       "text": "Cada máquina tiene su QR. El operario lo escanea con el móvil o la tablet del puesto, se identifica con su nombre y un PIN, sin instalar ninguna app, elige la obra en la que está trabajando y sigue el proceso paso a paso. Es la misma "
+      },
+      {
+       "_key": "182c7c9aad34",
+       "_type": "span",
+       "marks": [
+        "c580529e488a"
+       ],
+       "text": "instrucción de trabajo digital"
+      },
+      {
+       "_key": "f6edc1c47559",
+       "_type": "span",
+       "marks": [],
+       "text": " que consulta para trabajar, así que registrar no es una tarea aparte."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "c580529e488a",
+       "_type": "link",
+       "href": "/documentacion-procesos/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "64c6330d21e4",
+     "_type": "image",
+     "alt": "Impresión de los códigos QR de las máquinas desde REELEVO, con el nombre de cada máquina junto a su código",
+     "asset": {
+      "_ref": "image-e96b54f8ebbf679a40597aaffab0c2fe69d8b15c-2880x1800-png",
+      "_type": "reference"
+     },
+     "caption": "Captura real del producto: impresión de los QR de máquina"
+    },
+    {
+     "_key": "38720c925f47",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "cbe00e8a3333",
+       "_type": "span",
+       "marks": [],
+       "text": "3. Cada ejecución deja su registro"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "8589720ad5eb",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f2713909b564",
+       "_type": "span",
+       "marks": [],
+       "text": "Mientras trabaja queda registrado quién ejecuta, en qué máquina, qué proceso y qué versión, y cuándo empieza y termina. Según cómo esté configurado el proceso, también las mediciones, el checklist con foto de evidencia, las unidades buenas y rechazadas, las paradas con su motivo y la firma de cierre. Si el supervisor tiene que validar la ejecución, su validación queda unida a ella."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "25209cf42d63",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5b0874cf259d",
+       "_type": "span",
+       "marks": [],
+       "text": "4. Los lotes de material, en la misma sesión"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "113cebcd86aa",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f1693b8d9178",
+       "_type": "span",
+       "marks": [],
+       "text": "Si el proceso lo tiene activado, al arrancar se registra qué lote de cada material está en la máquina y en qué cantidad, y se añade otro en cuanto cambia a mitad del trabajo. Los lotes quedan en la sesión y cada pieza sabe de qué sesión salió, así que no hay que copiar el lote pieza a pieza."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "99e38daf30c1",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "4735bcc34c25",
+       "_type": "span",
+       "marks": [],
+       "text": "5. Cada pieza terminada recibe su QR"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "11e4ec4373fa",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6860faae9ea3",
+       "_type": "span",
+       "marks": [],
+       "text": "Al cerrar, la pieza terminada recibe un QR individual vinculado a la obra, y desde el portal se imprimen las etiquetas que la acompañan. Ese QR es la puerta a su historia: lo puede escanear el operario del siguiente proceso, el de expediciones o el responsable de calidad."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "a1a448fc7f9b",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f791e4456156",
+       "_type": "span",
+       "marks": [],
+       "text": "6. La ficha de la pieza, también para el cliente"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "cd187dd30a89",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e676bca24465",
+       "_type": "span",
+       "marks": [],
+       "text": "Al escanear el QR se abre la ficha de esa pieza: obra, producto, operarios que intervinieron, ejecuciones y lote. Si la empresa lo activa, la ficha incluye un informe PDF descargable, de modo que puedes enviar a un cliente la trazabilidad de su pieza con un enlace en lugar de preparar un dossier a mano."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "7d0d8e54eb29",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f20cc6f23549",
+       "_type": "span",
+       "marks": [],
+       "text": "7. Un panel que avisa de los huecos"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "0aac22dcb350",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "528e3aceec74",
+       "_type": "span",
+       "marks": [],
+       "text": "La trazabilidad se degrada en silencio: un lote sin apuntar aquí, una sesión sin cerrar allá. El panel de trazabilidad muestra qué parte de la cadena está completa en los últimos 30 días, cuántas piezas tienen lote, cuántas están en cuarentena y qué retiradas siguen abiertas, y una revisión automática diaria vigila los huecos en la cadena de lotes. Mejor enterarse un martes cualquiera que el día de la reclamación."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "98102e712825",
+     "_type": "ancla",
+     "id": "ejemplo"
+    },
+    {
+     "_key": "9d30ae71609d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1d012d05d346",
+       "_type": "span",
+       "marks": [],
+       "text": "Un ejemplo hacia atrás y hacia delante"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "bf9f86254e99",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d1f1d0e1a691",
+       "_type": "span",
+       "marks": [
+        "em"
+       ],
+       "text": "Escenario ilustrativo, no un caso de cliente."
+      },
+      {
+       "_key": "4c1921e9d078",
+       "_type": "span",
+       "marks": [],
+       "text": " Un taller de calderería fabrica soportes soldados para la obra de un cliente. Tres semanas después de la entrega, el cliente avisa de que una soldadura de un soporte ha fallado en el montaje."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "96ab0af2564c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "2a30193ed7a6",
+       "_type": "span",
+       "marks": [],
+       "text": "Hacia atrás: de la pieza a su origen"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "490cc679bdae",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a0bcc2c96a4b",
+       "_type": "span",
+       "marks": [],
+       "text": "El responsable de calidad escanea el QR de la pieza reclamada. En la ficha ve quién la soldó, en qué puesto, con qué versión de la instrucción, en qué turno, qué lotes de hilo y de chapa se usaron y qué comprobaciones se registraron. Esa pieza se soldó con un lote de hilo que entró a mitad de turno."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "3962fc73430f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "2f82c96c8b7e",
+       "_type": "span",
+       "marks": [],
+       "text": "Hacia delante: del origen a todas las piezas afectadas"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ff71c00cb183",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b71434e72af1",
+       "_type": "span",
+       "marks": [],
+       "text": "La siguiente pregunta ya no es sobre una pieza, sino sobre todas: ¿dónde más acabó ese lote? Al buscarlo aparecen las sesiones que lo consumieron y, desde ellas, las piezas, sus obras y sus clientes. Eso es la trazabilidad hacia delante: en vez de revisar todo lo fabricado ese mes, se revisan las piezas que llevan ese lote."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "7fcb3cefbfe9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "033579efee16",
+       "_type": "span",
+       "marks": [],
+       "text": "La diferencia está en el tiempo y en el alcance. Sin registro, la respuesta prudente es amplia y lenta. Con él, se acota a las piezas que de verdad comparten el origen del problema, y al cliente se le contesta con datos en lugar de con un «lo estamos investigando»."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "a034822c89a0",
+     "_type": "ancla",
+     "id": "retirada"
+    },
+    {
+     "_key": "8819833a4d0e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "c9a56f2d54c7",
+       "_type": "span",
+       "marks": [],
+       "text": "Cuando algo sale mal: una retirada acotada"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "26baeeffd6eb",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0dde75ac8fe3",
+       "_type": "span",
+       "marks": [],
+       "text": "Si el problema obliga a retirar o bloquear piezas, en REELEVO se abre una retirada y se acota su alcance por "
+      },
+      {
+       "_key": "e5a8f0dd18a9",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "lote de material, orden de producción, rango de fechas u obra"
+      },
+      {
+       "_key": "6d4872b2f7a6",
+       "_type": "span",
+       "marks": [],
+       "text": ". Cada retirada lleva una severidad, "
+      },
+      {
+       "_key": "c523d9786aa5",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "obligatoria, precautoria o informativa"
+      },
+      {
+       "_key": "343969adbcca",
+       "_type": "span",
+       "marks": [],
+       "text": ", para no tratar igual un aviso preventivo que una retirada de verdad, y las piezas afectadas pueden quedar en cuarentena hasta que se decida qué hacer con ellas."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "76d288863e68",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "85a3418350ad",
+       "_type": "span",
+       "marks": [],
+       "text": "Acotar bien es lo que separa retirar veinte piezas de retirar la producción de un mes. Y solo se puede acotar si el dato se capturó en el momento, con el lote y la sesión correctos. Cómo encaja esto con auditorías y reclamaciones está en "
+      },
+      {
+       "_key": "1fd5216c6eaa",
+       "_type": "span",
+       "marks": [
+        "55d834033baf"
+       ],
+       "text": "calidad y conformidad"
+      },
+      {
+       "_key": "ce40e0da828c",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "55d834033baf",
+       "_type": "link",
+       "href": "/calidad-y-conformidad/"
+      }
+     ],
+     "style": "normal"
+    },
+    {
+     "_key": "1d4543fae9e3",
+     "_type": "ancla",
+     "id": "limites"
+    },
+    {
+     "_key": "a22ff919ed4a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "dd262df464b4",
+       "_type": "span",
+       "marks": [],
+       "text": "Lo que REELEVO no hace"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "c4d48b204a83",
+     "_type": "destacado",
+     "contenido": [
+      {
+       "_key": "96dc47107482",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "3aa0c3c4fc05",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Lo que no hace."
+        },
+        {
+         "_key": "5134cf37f8af",
+         "_type": "span",
+         "marks": [],
+         "text": " REELEVO no graba ni marca la pieza: no sustituye a un sistema de marcado láser o de micropercusión, y su identificador es un QR en etiqueta, no un Data Matrix grabado. Registra lo que se ejecuta y se declara en planta, así que la trazabilidad es tan buena como la disciplina del registro; por eso avisa de los huecos. Tampoco gestiona el almacén ni el stock de materia prima, ni planifica la capacidad: eso sigue en tu ERP o en un MES. Es la capa de planta de la trazabilidad, la que casi siempre falta."
+        }
+       ],
+       "markDefs": [],
+       "style": "normal"
+      }
+     ],
+     "estilo": "highlight-box"
+    },
+    {
+     "_key": "9f0a58025499",
+     "_type": "ancla",
+     "id": "empezar"
+    },
+    {
+     "_key": "2d6e100316b0",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "19430f72aedd",
+       "_type": "span",
+       "marks": [],
+       "text": "Cómo empezar con una obra"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "da0e945e7b20",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6e7ca6b66f7b",
+       "_type": "span",
+       "marks": [],
+       "text": "No hace falta implantarlo en toda la planta para saber si te sirve. La prueba más útil es pequeña:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "40494025e8e2",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ce28d961ab60",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Elige una obra o un pedido real"
+      },
+      {
+       "_key": "9408d63e7acc",
+       "_type": "span",
+       "marks": [],
+       "text": " que pase por dos o tres procesos."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "efdb6de8baa6",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b3dc3e856523",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Pon el QR en las máquinas de esos procesos"
+      },
+      {
+       "_key": "e5221ebb8a7f",
+       "_type": "span",
+       "marks": [],
+       "text": " y deja en REELEVO las instrucciones de esas operaciones."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "4b54ce4b0123",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5a6365564615",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Decide qué materiales trazas por lote:"
+      },
+      {
+       "_key": "a07af85fae12",
+       "_type": "span",
+       "marks": [],
+       "text": " solo los que pueden provocar un defecto o una retirada."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "0ff96f0f918a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0ac088d97bf3",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Imprime los QR de las piezas"
+      },
+      {
+       "_key": "73d792dc39c0",
+       "_type": "span",
+       "marks": [],
+       "text": " al terminarlas y colócalos donde acompañen a la pieza."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "dfa4468bb8a3",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "80496d23c65d",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Haz un simulacro al acabar."
+      },
+      {
+       "_key": "b701274465c1",
+       "_type": "span",
+       "marks": [],
+       "text": " Coge una pieza al azar y cronometra cuánto tardas en saber quién la hizo, con qué lote y qué controles pasó. Después elige un lote y mira a qué piezas fue."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "6df0ccd2c01f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "b23cc252c758",
+       "_type": "span",
+       "marks": [],
+       "text": "Si el simulacro se responde en minutos y sin preguntar a nadie, ya tienes trazabilidad de piezas. Si no, sabrás exactamente qué eslabón falta."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "90610d7883d1",
+     "_type": "destacado",
+     "contenido": [
+      {
+       "_key": "767a5cdee0a6",
+       "_type": "block",
+       "children": [
+        {
+         "_key": "759f890680f7",
+         "_type": "span",
+         "marks": [
+          "strong"
+         ],
+         "text": "Prueba con una obra: un pedido, dos máquinas y un QR por pieza."
+        },
+        {
+         "_key": "e5b4221953e8",
+         "_type": "span",
+         "marks": [],
+         "text": " "
+        },
+        {
+         "_key": "bbfce8f5bdaf",
+         "_type": "span",
+         "marks": [
+          "040a892fec14"
+         ],
+         "text": "Crear la primera obra →"
+        }
+       ],
+       "markDefs": [
+        {
+         "_key": "040a892fec14",
+         "_type": "link",
+         "href": "https://app.gmvsolutions.es/registro",
+         "cta": {
+          "intent": "registro",
+          "label": "Crear la primera obra",
+          "location": "body"
+         }
+        }
+       ],
+       "style": "normal"
+      }
+     ],
+     "estilo": "highlight-box"
+    },
+    {
+     "_key": "f3de8f1f2ee6",
+     "_type": "ancla",
+     "id": "faq"
+    },
+    {
+     "_key": "508c299cd35a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "c054522f3b45",
+       "_type": "span",
+       "marks": [],
+       "text": "Preguntas frecuentes"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "fe4b4800a44e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ce4d5ac8d7a6",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la trazabilidad de piezas?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "8a80da4bc92f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "191f39edb9a2",
+       "_type": "span",
+       "marks": [],
+       "text": "Es poder reconstruir la historia de una unidad concreta: quién la fabricó, en qué máquina, con qué proceso y versión, con qué lote de material, qué controles pasó y a qué obra o cliente fue. Va más allá de marcarla: el marcado identifica la pieza y el registro cuenta qué le pasó."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "e0fd93a0697f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e1f023d6a2e8",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Data Matrix o QR para la trazabilidad de piezas metálicas?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "348b737ae37a",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "61177493d5cf",
+       "_type": "span",
+       "marks": [],
+       "text": "Depende de lo que necesites del código. Un Data Matrix grabado por láser o micropercusión es permanente y aguanta procesos y tratamientos; un QR en etiqueta es más barato y cualquiera lo lee con el móvil. En los dos casos el código solo identifica: el historial de la pieza tiene que estar registrado en otro sitio."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "34c38abf5109",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d60c1047e84f",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la trazabilidad hacia delante? ¿Un ejemplo?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "418643776528",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "95d2016f3334",
+       "_type": "span",
+       "marks": [],
+       "text": "Es seguir un origen hasta todo lo que salió de él. Por ejemplo, si un lote de hilo de soldadura resulta defectuoso, la trazabilidad hacia delante te dice en qué piezas, obras y clientes acabó ese lote, para revisar solo esas piezas en lugar de toda la producción del periodo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "1469a52af9a8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "80f877fd0253",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cómo asegurar la trazabilidad de piezas sin un MES?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "12d20a43b393",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "78cc04416f72",
+       "_type": "span",
+       "marks": [],
+       "text": "Registrando el dato en el puesto mientras se trabaja, no al final del turno: quién ejecuta, en qué máquina, con qué proceso, con qué lote y qué controles. REELEVO lo hace desde el QR de la máquina y genera un QR por pieza. Un MES añade planificación y captura de máquina, pero no es requisito para trazar piezas."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "2c41100f03e6",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "82c6336ae4ec",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Puede el cliente ver la trazabilidad de su pieza?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "494db9d06d9e",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "e97e42bd454d",
+       "_type": "span",
+       "marks": [],
+       "text": "Sí. En REELEVO cada pieza tiene una ficha a la que se llega escaneando su QR, con la obra, el producto, los operarios que intervinieron, las ejecuciones y el lote. La empresa puede activar además un informe PDF descargable para enviárselo al cliente con un enlace, sin preparar un dossier a mano."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "8af53ecb3e3e",
+     "_type": "enlacesRelacionados",
+     "etiqueta": "Relacionado",
+     "enlaces": [
+      {
+       "_key": "6277c00c3d7b",
+       "_type": "enlace",
+       "kicker": "Guía",
+       "titulo": "Trazabilidad de un producto",
+       "descripcion": "Los tres tramos y los datos mínimos para reconstruir su historia.",
+       "href": "/blog/trazabilidad-de-un-producto/"
+      },
+      {
+       "_key": "a5f68a893174",
+       "_type": "enlace",
+       "kicker": "Guía",
+       "titulo": "Trazabilidad de lotes de materia prima",
+       "descripcion": "Qué lote de cada material fue a cada pieza y a cada obra.",
+       "href": "/blog/trazabilidad-lotes-materia-prima/"
+      },
+      {
+       "_key": "ba3b3d522622",
+       "_type": "enlace",
+       "kicker": "Producto",
+       "titulo": "Obras y trazabilidad",
+       "descripcion": "QR individual por pieza y avance de cada obra.",
+       "href": "/obras-trazabilidad/"
+      },
+      {
+       "_key": "eba2fea824f1",
+       "_type": "enlace",
+       "kicker": "Producto",
+       "titulo": "Calidad y conformidad",
+       "descripcion": "Evidencia de ejecución para auditorías y reclamaciones.",
+       "href": "/calidad-y-conformidad/"
+      }
+     ]
+    }
+   ],
+   "faqs": [
+    {
+     "_key": "04c7b46cd30b",
+     "_type": "faq",
+     "q": "¿Qué es la trazabilidad de piezas?",
+     "a": "Es poder reconstruir la historia de una unidad concreta: quién la fabricó, en qué máquina, con qué proceso y versión, con qué lote de material, qué controles pasó y a qué obra o cliente fue. Va más allá de marcarla: el marcado identifica la pieza y el registro cuenta qué le pasó."
+    },
+    {
+     "_key": "2edc553049a2",
+     "_type": "faq",
+     "q": "¿Data Matrix o QR para la trazabilidad de piezas metálicas?",
+     "a": "Depende de lo que necesites del código. Un Data Matrix grabado por láser o micropercusión es permanente y aguanta procesos y tratamientos; un QR en etiqueta es más barato y cualquiera lo lee con el móvil. En los dos casos el código solo identifica: el historial de la pieza tiene que estar registrado en otro sitio."
+    },
+    {
+     "_key": "026774468a51",
+     "_type": "faq",
+     "q": "¿Qué es la trazabilidad hacia delante? ¿Un ejemplo?",
+     "a": "Es seguir un origen hasta todo lo que salió de él. Por ejemplo, si un lote de hilo de soldadura resulta defectuoso, la trazabilidad hacia delante te dice en qué piezas, obras y clientes acabó ese lote, para revisar solo esas piezas en lugar de toda la producción del periodo."
+    },
+    {
+     "_key": "0bae61351ebf",
+     "_type": "faq",
+     "q": "¿Cómo asegurar la trazabilidad de piezas sin un MES?",
+     "a": "Registrando el dato en el puesto mientras se trabaja, no al final del turno: quién ejecuta, en qué máquina, con qué proceso, con qué lote y qué controles. REELEVO lo hace desde el QR de la máquina y genera un QR por pieza. Un MES añade planificación y captura de máquina, pero no es requisito para trazar piezas."
+    },
+    {
+     "_key": "8dc9f747572e",
+     "_type": "faq",
+     "q": "¿Puede el cliente ver la trazabilidad de su pieza?",
+     "a": "Sí. En REELEVO cada pieza tiene una ficha a la que se llega escaneando su QR, con la obra, el producto, los operarios que intervinieron, las ejecuciones y el lote. La empresa puede activar además un informe PDF descargable para enviárselo al cliente con un enlace, sin preparar un dossier a mano."
+    }
+   ]
+  }
+ ],
+ "cambios": [
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Toma de tiempos en producción sin cronómetro ni MES"
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "description",
+   "from": "Cómo obtener tiempos reales de producción en una pyme industrial sin estudio de cronometraje ni captura automática, y qué hacer con la dispersión.",
+   "to": "Toma de tiempos en producción sin estudio de cronometraje ni MES: cómo sacar tiempos reales del registro en el puesto y qué hacer con la dispersión."
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "body[_key==\"04760b5dfb28\"].children[_key==\"790aaff69166\"].text",
+   "from": "Por qué el cronómetro engaña",
+   "to": "Por qué la toma de tiempos con cronómetro engaña"
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "body[_key==\"e83dbb05ee2c\"].children[_key==\"591fe2694e9b\"].text",
+   "from": "Por qué el cronómetro engaña",
+   "to": "Por qué la toma de tiempos con cronómetro engaña"
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "path": "body[_key==\"3a990a0974d5\"].children[_key==\"6afd2d4bdce7\"].text",
+   "from": "El estudio de tiempos clásico —alguien con un cronómetro y una hoja detrás del operario— sigue siendo una herramienta válida para analizar a fondo una operación concreta. Como base para presupuestar durante años, tiene tres agujeros:",
+   "to": "La toma de tiempos clásica —alguien con un cronómetro y una hoja detrás del operario, lo que los manuales llaman estudio de tiempos— sigue siendo una herramienta válida para analizar a fondo una operación concreta. Como base para presupuestar durante años, tiene tres agujeros:"
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "path": "seoTitle",
+   "from": null,
+   "to": "Plantilla de instrucción de trabajo: ficha en Word gratis"
+  }
+ ],
+ "insertar": [
+  {
+   "id": "articulo-trazabilidad-de-un-producto",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "body[_key==\"8901e6716c95\"].enlaces[_key==\"bf11f8d116b1\"]",
+   "items": [
+    {
+     "_key": "b35109353d3c",
+     "_type": "enlace",
+     "kicker": "Guía",
+     "titulo": "Trazabilidad de piezas",
+     "descripcion": "Cómo la hace REELEVO: QR por pieza, ficha y retirada acotada.",
+     "href": "/blog/trazabilidad-de-piezas/"
+    }
+   ]
+  },
+  {
+   "id": "articulo-trazabilidad-lotes-materia-prima",
+   "rev": "6PahXDAqdeBo5CX2IRnST8",
+   "insertAfter": "body[_key==\"0346b05a7d91\"].enlaces[_key==\"f9777231c77a\"]",
+   "items": [
+    {
+     "_key": "c8eb6a720886",
+     "_type": "enlace",
+     "kicker": "Guía",
+     "titulo": "Trazabilidad de piezas",
+     "descripcion": "Cómo la hace REELEVO: QR por pieza, ficha y retirada acotada.",
+     "href": "/blog/trazabilidad-de-piezas/"
+    }
+   ]
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "rev": "izTxq0ghp67TRuiuzCQZiF",
+   "insertAfter": "body[_key==\"dc6b053a6ac5\"]",
+   "items": [
+    {
+     "_key": "166c7cb7e0f9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "423360b16483",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la toma de tiempos en producción y cómo se hace?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "997abcdf566c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1e82ac721fa7",
+       "_type": "span",
+       "marks": [],
+       "text": "Es medir cuánto tarda cada operación para presupuestar, planificar y fijar estándares. La forma clásica es el estudio con cronómetro: un observador mide unas cuantas repeticiones. La alternativa es que el operario marque inicio y fin en el puesto cada vez que ejecuta, y acumular semanas de datos reales con distintos operarios y turnos."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "rev": "izTxq0ghp67TRuiuzCQZiF",
+   "insertAfter": "faqs[_key==\"a58f594c439c\"]",
+   "items": [
+    {
+     "_key": "577ac50c6465",
+     "_type": "faq",
+     "q": "¿Qué es la toma de tiempos en producción y cómo se hace?",
+     "a": "Es medir cuánto tarda cada operación para presupuestar, planificar y fijar estándares. La forma clásica es el estudio con cronómetro: un observador mide unas cuantas repeticiones. La alternativa es que el operario marque inicio y fin en el puesto cada vez que ejecuta, y acumular semanas de datos reales con distintos operarios y turnos."
+    }
+   ]
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "rev": "SyZJew7qfHOvGTF9wqdmss",
+   "insertAfter": "body[_key==\"11c4e4087dfe\"]",
+   "items": [
+    {
+     "_key": "7ad47fcb6fba",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0badee5e4749",
+       "_type": "span",
+       "marks": [],
+       "text": "Según la empresa la llamarás "
+      },
+      {
+       "_key": "c2c778389ee1",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "ficha de instrucción de trabajo"
+      },
+      {
+       "_key": "faa84d5cd8bd",
+       "_type": "span",
+       "marks": [],
+       "text": ", "
+      },
+      {
+       "_key": "8e61c30f3eb3",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "hoja de instrucciones"
+      },
+      {
+       "_key": "3bc6d4cf4841",
+       "_type": "span",
+       "marks": [],
+       "text": ", "
+      },
+      {
+       "_key": "d6e455eab60f",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "formato de instrucción de trabajo"
+      },
+      {
+       "_key": "ff833765e8ef",
+       "_type": "span",
+       "marks": [],
+       "text": " o, en Latinoamérica, "
+      },
+      {
+       "_key": "5ebb9e43a7c5",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "instructivo de trabajo"
+      },
+      {
+       "_key": "5c89a87e4e42",
+       "_type": "span",
+       "marks": [],
+       "text": ". Es el mismo documento, y esta plantilla sirve para cualquiera de ellos. Qué tiene que llevar la hoja que se cuelga en el puesto lo detallamos en "
+      },
+      {
+       "_key": "c73e5c27591b",
+       "_type": "span",
+       "marks": [
+        "332efaf4a079"
+       ],
+       "text": "instrucciones de trabajo y gestión documental"
+      },
+      {
+       "_key": "87d645f7bbb3",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "332efaf4a079",
+       "_type": "link",
+       "href": "/documentacion-procesos/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "rev": "SyZJew7qfHOvGTF9wqdmss",
+   "insertAfter": "body[_key==\"b75aada362fe\"]",
+   "items": [
+    {
+     "_key": "a826770bdd1f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fffa48ff633e",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Es lo mismo una ficha, una hoja, un formato o un instructivo de trabajo?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "35767843d8f9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bc6ef715666f",
+       "_type": "span",
+       "marks": [],
+       "text": "Sí, son nombres distintos del mismo documento: el que explica paso a paso cómo se hace una tarea concreta en un puesto, con sus parámetros, sus puntos críticos y su autocontrol. «Instructivo» es más habitual en Latinoamérica; «ficha» y «hoja», en España. Lo que no es lo mismo es un SOP, que ordena el proceso completo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "rev": "SyZJew7qfHOvGTF9wqdmss",
+   "insertAfter": "faqs[_key==\"b69b40a808e1\"]",
+   "items": [
+    {
+     "_key": "dfe6b9858043",
+     "_type": "faq",
+     "q": "¿Es lo mismo una ficha, una hoja, un formato o un instructivo de trabajo?",
+     "a": "Sí, son nombres distintos del mismo documento: el que explica paso a paso cómo se hace una tarea concreta en un puesto, con sus parámetros, sus puntos críticos y su autocontrol. «Instructivo» es más habitual en Latinoamérica; «ficha» y «hoja», en España. Lo que no es lo mismo es un SOP, que ordena el proceso completo."
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "body[_key==\"6124c34d9bd9\"]",
+   "items": [
+    {
+     "_key": "b32830f4a6c8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d1b00eb4bd85",
+       "_type": "span",
+       "marks": [
+        "fe4eb0c7c75a"
+       ],
+       "text": "5S en el taller de mantenimiento"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "fe4eb0c7c75a",
+       "_type": "link",
+       "href": "#mantenimiento"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "body[_key==\"c68ac3336113\"]",
+   "items": [
+    {
+     "_key": "3ad34b942553",
+     "_type": "ancla",
+     "id": "mantenimiento"
+    },
+    {
+     "_key": "a0d9561a3433",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bfe49b5e4f4a",
+       "_type": "span",
+       "marks": [],
+       "text": "5S en el taller de mantenimiento"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "58e758502668",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6a6487e8bdb1",
+       "_type": "span",
+       "marks": [],
+       "text": "El taller de mantenimiento es donde las 5S más rinden y donde menos se aplican. Da servicio a todos los demás puestos, y su desorden se paga con la línea parada: cada minuto que el mecánico pasa buscando un repuesto, una llave o el manual de una máquina es un minuto más de avería. Lo mismo vale para un taller mecánico de reparación."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "9d8ed27659aa",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5e174559eb2b",
+       "_type": "span",
+       "marks": [],
+       "text": "Aplicadas a mantenimiento, las cinco eses tienen un contenido muy concreto:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "d0a919a9ab60",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d6acaa59fa9c",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Clasificar:"
+      },
+      {
+       "_key": "3b69b58f7976",
+       "_type": "span",
+       "marks": [],
+       "text": " repuestos de máquinas que ya no están en planta, piezas desmontadas «por si acaso» y herramienta duplicada o rota. Lo que no corresponde a ninguna máquina, fuera."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1e8f22f10662",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0078d491a9bb",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Ordenar:"
+      },
+      {
+       "_key": "4a5bdaf98ba5",
+       "_type": "span",
+       "marks": [],
+       "text": " repuestos críticos identificados con la máquina a la que pertenecen y con su mínimo, panel de sombras para la herramienta y un carro de intervención preparado para las averías más frecuentes."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "7e7d8c7d771c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f1cbd5f287a2",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Limpiar:"
+      },
+      {
+       "_key": "fa35824d1f55",
+       "_type": "span",
+       "marks": [],
+       "text": " aquí limpiar es inspeccionar. Limpiando la máquina se ven fugas, holguras y desgastes antes de que paren la línea; es la base del mantenimiento autónomo del TPM."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "c78f22401250",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "330d212e2f0f",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Estandarizar:"
+      },
+      {
+       "_key": "ea3cf4f2b8e1",
+       "_type": "span",
+       "marks": [],
+       "text": " cada máquina con sus puntos de engrase e inspección y su instrucción de intervención, en el puesto y no en un archivador. Es lo que conecta las 5S con el "
+      },
+      {
+       "_key": "839d60157878",
+       "_type": "span",
+       "marks": [
+        "1aeb22e72996"
+       ],
+       "text": "programa de mantenimiento preventivo"
+      },
+      {
+       "_key": "908206c861e8",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "1aeb22e72996",
+       "_type": "link",
+       "href": "/blog/programa-de-mantenimiento-preventivo/"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "d65a6d5755a3",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f3591576e076",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Mantener:"
+      },
+      {
+       "_key": "8e9cd5cae045",
+       "_type": "span",
+       "marks": [],
+       "text": " una auditoría corta del taller con dueño y día, y una regla simple: ninguna orden de trabajo se cierra sin devolver la herramienta y el material sobrante a su sitio."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1764f8bc18be",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "72a524dd1aa6",
+       "_type": "span",
+       "marks": [],
+       "text": "El checklist de fin de turno cambia de contenido, pero no de forma: de seis a ocho puntos, dos minutos y específicos del taller. Si además las intervenciones de preventivo se registran donde se hacen, como en el "
+      },
+      {
+       "_key": "4d6ca3a2be45",
+       "_type": "span",
+       "marks": [
+        "d960f2032b3f"
+       ],
+       "text": "mantenimiento preventivo de REELEVO"
+      },
+      {
+       "_key": "8e6dd9fe70a6",
+       "_type": "span",
+       "marks": [],
+       "text": ", la quinta ese y el preventivo se sostienen con la misma disciplina."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "d960f2032b3f",
+       "_type": "link",
+       "href": "/mantenimiento/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "body[_key==\"d043cee602c7\"]",
+   "items": [
+    {
+     "_key": "629fc6db0837",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "52ca13ba2d74",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cómo se aplican las 5S en un taller de mantenimiento?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "4b3b016ec0dc",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "eeba99f96bb9",
+       "_type": "span",
+       "marks": [],
+       "text": "Igual que en un puesto de producción, pero con el foco en repuestos y herramienta: fuera lo que no corresponde a ninguna máquina, repuestos críticos identificados por máquina y con su mínimo, panel de sombras, limpieza como inspección de fugas y desgastes, y una auditoría corta con dueño. En mantenimiento, el desorden se paga en minutos de avería."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "faqs[_key==\"fa30f4e74d94\"]",
+   "items": [
+    {
+     "_key": "b8ea3f2877a9",
+     "_type": "faq",
+     "q": "¿Cómo se aplican las 5S en un taller de mantenimiento?",
+     "a": "Igual que en un puesto de producción, pero con el foco en repuestos y herramienta: fuera lo que no corresponde a ninguna máquina, repuestos críticos identificados por máquina y con su mínimo, panel de sombras, limpieza como inspección de fugas y desgastes, y una auditoría corta con dueño. En mantenimiento, el desorden se paga en minutos de avería."
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "CNSJ5f4UoAa2CdDoq3unIy",
+   "insertAfter": "body[_key==\"135d206edd99\"]",
+   "items": [
+    {
+     "_key": "0b1c5407b84f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "60d2723b73b9",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la matriz ILUO?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ffd03eef3619",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7a77a380ba07",
+       "_type": "span",
+       "marks": [],
+       "text": "Es una notación clásica de la matriz de polivalencia con cuatro letras como niveles: I, en formación; L, trabaja con ayuda; U, autónomo, cumple calidad y tiempo; O, puede formar a otros. Cada letra añade un lado al cuadrado hasta cerrarlo, y equivale a los niveles 1 a 4 de una escala de 0 a 4."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "CNSJ5f4UoAa2CdDoq3unIy",
+   "insertAfter": "faqs[_key==\"2e504dc82627\"]",
+   "items": [
+    {
+     "_key": "0e0247136a8a",
+     "_type": "faq",
+     "q": "¿Qué es la matriz ILUO?",
+     "a": "Es una notación clásica de la matriz de polivalencia con cuatro letras como niveles: I, en formación; L, trabaja con ayuda; U, autónomo, cumple calidad y tiempo; O, puede formar a otros. Cada letra añade un lado al cuadrado hasta cerrarlo, y equivale a los niveles 1 a 4 de una escala de 0 a 4."
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "CNSJ5f4UoAa2CdDoq3unIy",
+   "insertAfter": "body[_key==\"d10479020f67\"]",
+   "items": [
+    {
+     "_key": "5d13b96f6d9c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fb4de5c92282",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cuál es el mejor software para crear una matriz de competencias?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ea5daf4a25a2",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7b6b27a4ac9e",
+       "_type": "span",
+       "marks": [],
+       "text": "Depende de para qué la quieras. Para un diagnóstico en una planta pequeña basta un Excel. Un software de RRHH registra formaciones, pero no sabe quién ejecuta qué en la máquina. Para que el nivel se actualice con el trabajo real y marque los puestos en riesgo, hace falta una herramienta conectada a la ejecución, como "
+      },
+      {
+       "_key": "37de8c208bf7",
+       "_type": "span",
+       "marks": [
+        "13ffeebeebe0"
+       ],
+       "text": "REELEVO"
+      },
+      {
+       "_key": "549efbb4113b",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "13ffeebeebe0",
+       "_type": "link",
+       "href": "/gestion-competencias/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "CNSJ5f4UoAa2CdDoq3unIy",
+   "insertAfter": "faqs[_key==\"3ba342def440\"]",
+   "items": [
+    {
+     "_key": "46ba4b05dde2",
+     "_type": "faq",
+     "q": "¿Cuál es el mejor software para crear una matriz de competencias?",
+     "a": "Depende de para qué la quieras. Para un diagnóstico en una planta pequeña basta un Excel. Un software de RRHH registra formaciones, pero no sabe quién ejecuta qué en la máquina. Para que el nivel se actualice con el trabajo real y marque los puestos en riesgo, hace falta una herramienta conectada a la ejecución, como REELEVO."
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-digital-errores-manuales",
+   "rev": "CNSJ5f4UoAa2CdDoq3tQmi",
+   "insertAfter": "body[_key==\"b3cc1d7ed6a4\"]",
+   "items": [
+    {
+     "_key": "537685fd2864",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d51c6d9d27e8",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué plataformas de onboarding reducen los errores manuales?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "1c6a61c84f70",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6e9ea3736d1d",
+       "_type": "span",
+       "marks": [],
+       "text": "Las que llevan la instrucción de trabajo al puesto, no las que solo gestionan el alta o un curso inicial. Reducen errores cuando el operario consulta los pasos y parámetros vigentes mientras trabaja, queda registrado qué versión siguió y se ve quién es ya autónomo en cada proceso. Es el enfoque de REELEVO."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-digital-errores-manuales",
+   "rev": "CNSJ5f4UoAa2CdDoq3tQmi",
+   "insertAfter": "faqs[_key==\"afef5e229b45\"]",
+   "items": [
+    {
+     "_key": "3072b6aa6e4f",
+     "_type": "faq",
+     "q": "¿Qué plataformas de onboarding reducen los errores manuales?",
+     "a": "Las que llevan la instrucción de trabajo al puesto, no las que solo gestionan el alta o un curso inicial. Reducen errores cuando el operario consulta los pasos y parámetros vigentes mientras trabaja, queda registrado qué versión siguió y se ve quién es ya autónomo en cada proceso. Es el enfoque de REELEVO."
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-software-pymes",
+   "rev": "07zc6zFwHok32rvMDZIhq4",
+   "insertAfter": "body[_key==\"ed126a0ab32d\"]",
+   "items": [
+    {
+     "_key": "6dc06628b12c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a2582ce2cdbd",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué software de onboarding es asequible y funciona para una pyme industrial?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "7ae2752b8370",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f162b291eaa9",
+       "_type": "span",
+       "marks": [],
+       "text": "El que resuelve la parte operativa sin un proyecto de implantación: instrucciones de trabajo en el puesto y registro de lo que ejecuta la persona nueva y con qué autonomía, sin instalación local ni licencia por operario, y con precio público. REELEVO tiene un plan gratuito y planes de pago desde 49 € al mes por empresa, detallados en "
+      },
+      {
+       "_key": "3d75c83e2aac",
+       "_type": "span",
+       "marks": [
+        "2e31625a42b0"
+       ],
+       "text": "precios"
+      },
+      {
+       "_key": "9c4772c3b694",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "2e31625a42b0",
+       "_type": "link",
+       "href": "/precios/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-software-pymes",
+   "rev": "07zc6zFwHok32rvMDZIhq4",
+   "insertAfter": "faqs[_key==\"9d41116693c1\"]",
+   "items": [
+    {
+     "_key": "bfda6391144c",
+     "_type": "faq",
+     "q": "¿Qué software de onboarding es asequible y funciona para una pyme industrial?",
+     "a": "El que resuelve la parte operativa sin un proyecto de implantación: instrucciones de trabajo en el puesto y registro de lo que ejecuta la persona nueva y con qué autonomía, sin instalación local ni licencia por operario, y con precio público. REELEVO tiene un plan gratuito y planes de pago desde 49 € al mes por empresa, detallados en precios."
+    }
+   ]
+  },
+  {
+   "id": "articulo-digitalizar-produccion-pyme-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "body[_key==\"9d4625a215b5\"]",
+   "items": [
+    {
+     "_key": "2dd357d842e4",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f78d41a00e91",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Por dónde empezar a digitalizar una fábrica: por la captura de datos de OEE o por un MES?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "761028758a33",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "155509a70cf5",
+       "_type": "span",
+       "marks": [],
+       "text": "En una pyme, por ninguno de los dos: por el proceso en el puesto y el registro de cada ejecución. Con eso ya salen tiempos, rechazos, paradas y un OEE suficiente para decidir, sin sensores. El MES llega después, si la planificación y la captura de máquina lo justifican. Empezar por el MES suele acabar digitalizando el desorden."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-digitalizar-produccion-pyme-industrial",
+   "rev": "op79fflKKnOcSGwgy1HoXK",
+   "insertAfter": "faqs[_key==\"768646a54025\"]",
+   "items": [
+    {
+     "_key": "4a745cf9dd93",
+     "_type": "faq",
+     "q": "¿Por dónde empezar a digitalizar una fábrica: por la captura de datos de OEE o por un MES?",
+     "a": "En una pyme, por ninguno de los dos: por el proceso en el puesto y el registro de cada ejecución. Con eso ya salen tiempos, rechazos, paradas y un OEE suficiente para decidir, sin sensores. El MES llega después, si la planificación y la captura de máquina lo justifican. Empezar por el MES suele acabar digitalizando el desorden."
+    }
+   ]
+  },
+  {
+   "id": "articulo-kpis-de-produccion-pyme-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "body[_key==\"7b94d3acb78d\"]",
+   "items": [
+    {
+     "_key": "b11a2cffbe3d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ba3ed71a6e90",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué software se usa para recoger datos de las máquinas y calcular el OEE?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "afc31632bae7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6da067e96472",
+       "_type": "span",
+       "marks": [],
+       "text": "Hay tres familias: sistemas MES o de monitorización que leen la máquina con sensores o conectados al autómata, hojas de cálculo alimentadas con partes, y herramientas que registran la ejecución en el puesto. REELEVO es de la tercera: calcula el "
+      },
+      {
+       "_key": "4571c56bbdeb",
+       "_type": "span",
+       "marks": [
+        "4b6e1db28667"
+       ],
+       "text": "OEE"
+      },
+      {
+       "_key": "5645fecffd65",
+       "_type": "span",
+       "marks": [],
+       "text": " con lo que registra el operario y admite telemetría por MTConnect o MachineMetrics si la máquina está conectada."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "4b6e1db28667",
+       "_type": "link",
+       "href": "/oee/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-kpis-de-produccion-pyme-industrial",
+   "rev": "op79fflKKnOcSGwgxujtwM",
+   "insertAfter": "faqs[_key==\"326b5a5edc8a\"]",
+   "items": [
+    {
+     "_key": "a00b29f44613",
+     "_type": "faq",
+     "q": "¿Qué software se usa para recoger datos de las máquinas y calcular el OEE?",
+     "a": "Hay tres familias: sistemas MES o de monitorización que leen la máquina con sensores o conectados al autómata, hojas de cálculo alimentadas con partes, y herramientas que registran la ejecución en el puesto. REELEVO es de la tercera: calcula el OEE con lo que registra el operario y admite telemetría por MTConnect o MachineMetrics si la máquina está conectada."
+    }
+   ]
+  }
+ ]
+}

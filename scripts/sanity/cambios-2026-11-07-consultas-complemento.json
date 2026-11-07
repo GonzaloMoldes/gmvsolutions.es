@@ -1,0 +1,752 @@
+{
+ "fecha": "2026-11-07",
+ "descripcion": "Complemento de cambios-2026-11-07-consultas.json: las inserciones en el cuerpo que no entraron porque aplicar-cambios.mjs solo conservaba la ultima insercion de cada documento (corregido en el mismo commit). Mismo contenido, con la revision actual de cada documento.",
+ "crear": [],
+ "cambios": [],
+ "insertar": [
+  {
+   "id": "articulo-medir-tiempos-de-produccion",
+   "rev": "mi50riUajCAAvkj4upAXjz",
+   "insertAfter": "body[_key==\"dc6b053a6ac5\"]",
+   "items": [
+    {
+     "_key": "166c7cb7e0f9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "423360b16483",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la toma de tiempos en producción y cómo se hace?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "997abcdf566c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "1e82ac721fa7",
+       "_type": "span",
+       "marks": [],
+       "text": "Es medir cuánto tarda cada operación para presupuestar, planificar y fijar estándares. La forma clásica es el estudio con cronómetro: un observador mide unas cuantas repeticiones. La alternativa es que el operario marque inicio y fin en el puesto cada vez que ejecuta, y acumular semanas de datos reales con distintos operarios y turnos."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "rev": "AyYeODuricDqdMKvHKTN7j",
+   "insertAfter": "body[_key==\"11c4e4087dfe\"]",
+   "items": [
+    {
+     "_key": "7ad47fcb6fba",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0badee5e4749",
+       "_type": "span",
+       "marks": [],
+       "text": "Según la empresa la llamarás "
+      },
+      {
+       "_key": "c2c778389ee1",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "ficha de instrucción de trabajo"
+      },
+      {
+       "_key": "faa84d5cd8bd",
+       "_type": "span",
+       "marks": [],
+       "text": ", "
+      },
+      {
+       "_key": "8e61c30f3eb3",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "hoja de instrucciones"
+      },
+      {
+       "_key": "3bc6d4cf4841",
+       "_type": "span",
+       "marks": [],
+       "text": ", "
+      },
+      {
+       "_key": "d6e455eab60f",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "formato de instrucción de trabajo"
+      },
+      {
+       "_key": "ff833765e8ef",
+       "_type": "span",
+       "marks": [],
+       "text": " o, en Latinoamérica, "
+      },
+      {
+       "_key": "5ebb9e43a7c5",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "instructivo de trabajo"
+      },
+      {
+       "_key": "5c89a87e4e42",
+       "_type": "span",
+       "marks": [],
+       "text": ". Es el mismo documento, y esta plantilla sirve para cualquiera de ellos. Qué tiene que llevar la hoja que se cuelga en el puesto lo detallamos en "
+      },
+      {
+       "_key": "c73e5c27591b",
+       "_type": "span",
+       "marks": [
+        "332efaf4a079"
+       ],
+       "text": "instrucciones de trabajo y gestión documental"
+      },
+      {
+       "_key": "87d645f7bbb3",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "332efaf4a079",
+       "_type": "link",
+       "href": "/documentacion-procesos/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-plantilla-instruccion-de-trabajo",
+   "rev": "AyYeODuricDqdMKvHKTN7j",
+   "insertAfter": "body[_key==\"b75aada362fe\"]",
+   "items": [
+    {
+     "_key": "a826770bdd1f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fffa48ff633e",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Es lo mismo una ficha, una hoja, un formato o un instructivo de trabajo?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "35767843d8f9",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bc6ef715666f",
+       "_type": "span",
+       "marks": [],
+       "text": "Sí, son nombres distintos del mismo documento: el que explica paso a paso cómo se hace una tarea concreta en un puesto, con sus parámetros, sus puntos críticos y su autocontrol. «Instructivo» es más habitual en Latinoamérica; «ficha» y «hoja», en España. Lo que no es lo mismo es un SOP, que ordena el proceso completo."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "AyYeODuricDqdMKvHKTNXf",
+   "insertAfter": "body[_key==\"6124c34d9bd9\"]",
+   "items": [
+    {
+     "_key": "b32830f4a6c8",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d1b00eb4bd85",
+       "_type": "span",
+       "marks": [
+        "fe4eb0c7c75a"
+       ],
+       "text": "5S en el taller de mantenimiento"
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "fe4eb0c7c75a",
+       "_type": "link",
+       "href": "#mantenimiento"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "AyYeODuricDqdMKvHKTNXf",
+   "insertAfter": "body[_key==\"c68ac3336113\"]",
+   "items": [
+    {
+     "_key": "3ad34b942553",
+     "_type": "ancla",
+     "id": "mantenimiento"
+    },
+    {
+     "_key": "a0d9561a3433",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "bfe49b5e4f4a",
+       "_type": "span",
+       "marks": [],
+       "text": "5S en el taller de mantenimiento"
+      }
+     ],
+     "markDefs": [],
+     "style": "h2"
+    },
+    {
+     "_key": "58e758502668",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6a6487e8bdb1",
+       "_type": "span",
+       "marks": [],
+       "text": "El taller de mantenimiento es donde las 5S más rinden y donde menos se aplican. Da servicio a todos los demás puestos, y su desorden se paga con la línea parada: cada minuto que el mecánico pasa buscando un repuesto, una llave o el manual de una máquina es un minuto más de avería. Lo mismo vale para un taller mecánico de reparación."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "9d8ed27659aa",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "5e174559eb2b",
+       "_type": "span",
+       "marks": [],
+       "text": "Aplicadas a mantenimiento, las cinco eses tienen un contenido muy concreto:"
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    },
+    {
+     "_key": "d0a919a9ab60",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d6acaa59fa9c",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Clasificar:"
+      },
+      {
+       "_key": "3b69b58f7976",
+       "_type": "span",
+       "marks": [],
+       "text": " repuestos de máquinas que ya no están en planta, piezas desmontadas «por si acaso» y herramienta duplicada o rota. Lo que no corresponde a ninguna máquina, fuera."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1e8f22f10662",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "0078d491a9bb",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Ordenar:"
+      },
+      {
+       "_key": "4a5bdaf98ba5",
+       "_type": "span",
+       "marks": [],
+       "text": " repuestos críticos identificados con la máquina a la que pertenecen y con su mínimo, panel de sombras para la herramienta y un carro de intervención preparado para las averías más frecuentes."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "7e7d8c7d771c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f1cbd5f287a2",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Limpiar:"
+      },
+      {
+       "_key": "fa35824d1f55",
+       "_type": "span",
+       "marks": [],
+       "text": " aquí limpiar es inspeccionar. Limpiando la máquina se ven fugas, holguras y desgastes antes de que paren la línea; es la base del mantenimiento autónomo del TPM."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "c78f22401250",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "330d212e2f0f",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Estandarizar:"
+      },
+      {
+       "_key": "ea3cf4f2b8e1",
+       "_type": "span",
+       "marks": [],
+       "text": " cada máquina con sus puntos de engrase e inspección y su instrucción de intervención, en el puesto y no en un archivador. Es lo que conecta las 5S con el "
+      },
+      {
+       "_key": "839d60157878",
+       "_type": "span",
+       "marks": [
+        "1aeb22e72996"
+       ],
+       "text": "programa de mantenimiento preventivo"
+      },
+      {
+       "_key": "908206c861e8",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "1aeb22e72996",
+       "_type": "link",
+       "href": "/blog/programa-de-mantenimiento-preventivo/"
+      }
+     ],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "d65a6d5755a3",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f3591576e076",
+       "_type": "span",
+       "marks": [
+        "strong"
+       ],
+       "text": "Mantener:"
+      },
+      {
+       "_key": "8e9cd5cae045",
+       "_type": "span",
+       "marks": [],
+       "text": " una auditoría corta del taller con dueño y día, y una regla simple: ninguna orden de trabajo se cierra sin devolver la herramienta y el material sobrante a su sitio."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal",
+     "listItem": "bullet",
+     "level": 1
+    },
+    {
+     "_key": "1764f8bc18be",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "72a524dd1aa6",
+       "_type": "span",
+       "marks": [],
+       "text": "El checklist de fin de turno cambia de contenido, pero no de forma: de seis a ocho puntos, dos minutos y específicos del taller. Si además las intervenciones de preventivo se registran donde se hacen, como en el "
+      },
+      {
+       "_key": "4d6ca3a2be45",
+       "_type": "span",
+       "marks": [
+        "d960f2032b3f"
+       ],
+       "text": "mantenimiento preventivo de REELEVO"
+      },
+      {
+       "_key": "8e6dd9fe70a6",
+       "_type": "span",
+       "marks": [],
+       "text": ", la quinta ese y el preventivo se sostienen con la misma disciplina."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "d960f2032b3f",
+       "_type": "link",
+       "href": "/mantenimiento/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-5s-en-un-taller-industrial",
+   "rev": "AyYeODuricDqdMKvHKTNXf",
+   "insertAfter": "body[_key==\"d043cee602c7\"]",
+   "items": [
+    {
+     "_key": "629fc6db0837",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "52ca13ba2d74",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cómo se aplican las 5S en un taller de mantenimiento?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "4b3b016ec0dc",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "eeba99f96bb9",
+       "_type": "span",
+       "marks": [],
+       "text": "Igual que en un puesto de producción, pero con el foco en repuestos y herramienta: fuera lo que no corresponde a ninguna máquina, repuestos críticos identificados por máquina y con su mínimo, panel de sombras, limpieza como inspección de fugas y desgastes, y una auditoría corta con dueño. En mantenimiento, el desorden se paga en minutos de avería."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "AyYeODuricDqdMKvHKTNkd",
+   "insertAfter": "body[_key==\"135d206edd99\"]",
+   "items": [
+    {
+     "_key": "0b1c5407b84f",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "60d2723b73b9",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué es la matriz ILUO?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ffd03eef3619",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7a77a380ba07",
+       "_type": "span",
+       "marks": [],
+       "text": "Es una notación clásica de la matriz de polivalencia con cuatro letras como niveles: I, en formación; L, trabaja con ayuda; U, autónomo, cumple calidad y tiempo; O, puede formar a otros. Cada letra añade un lado al cuadrado hasta cerrarlo, y equivale a los niveles 1 a 4 de una escala de 0 a 4."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "AyYeODuricDqdMKvHKTNkd",
+   "insertAfter": "faqs[_key==\"2e504dc82627\"]",
+   "items": [
+    {
+     "_key": "0e0247136a8a",
+     "_type": "faq",
+     "q": "¿Qué es la matriz ILUO?",
+     "a": "Es una notación clásica de la matriz de polivalencia con cuatro letras como niveles: I, en formación; L, trabaja con ayuda; U, autónomo, cumple calidad y tiempo; O, puede formar a otros. Cada letra añade un lado al cuadrado hasta cerrarlo, y equivale a los niveles 1 a 4 de una escala de 0 a 4."
+    }
+   ]
+  },
+  {
+   "id": "articulo-gestion-competencias-industria",
+   "rev": "AyYeODuricDqdMKvHKTNkd",
+   "insertAfter": "body[_key==\"d10479020f67\"]",
+   "items": [
+    {
+     "_key": "5d13b96f6d9c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "fb4de5c92282",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Cuál es el mejor software para crear una matriz de competencias?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "ea5daf4a25a2",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "7b6b27a4ac9e",
+       "_type": "span",
+       "marks": [],
+       "text": "Depende de para qué la quieras. Para un diagnóstico en una planta pequeña basta un Excel. Un software de RRHH registra formaciones, pero no sabe quién ejecuta qué en la máquina. Para que el nivel se actualice con el trabajo real y marque los puestos en riesgo, hace falta una herramienta conectada a la ejecución, como "
+      },
+      {
+       "_key": "37de8c208bf7",
+       "_type": "span",
+       "marks": [
+        "13ffeebeebe0"
+       ],
+       "text": "REELEVO"
+      },
+      {
+       "_key": "549efbb4113b",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "13ffeebeebe0",
+       "_type": "link",
+       "href": "/gestion-competencias/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-digital-errores-manuales",
+   "rev": "AZy6BeWaA4r6kdvrkhWt8k",
+   "insertAfter": "body[_key==\"b3cc1d7ed6a4\"]",
+   "items": [
+    {
+     "_key": "537685fd2864",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "d51c6d9d27e8",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué plataformas de onboarding reducen los errores manuales?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "1c6a61c84f70",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6e9ea3736d1d",
+       "_type": "span",
+       "marks": [],
+       "text": "Las que llevan la instrucción de trabajo al puesto, no las que solo gestionan el alta o un curso inicial. Reducen errores cuando el operario consulta los pasos y parámetros vigentes mientras trabaja, queda registrado qué versión siguió y se ve quién es ya autónomo en cada proceso. Es el enfoque de REELEVO."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-onboarding-software-pymes",
+   "rev": "AZy6BeWaA4r6kdvrkhWtEq",
+   "insertAfter": "body[_key==\"ed126a0ab32d\"]",
+   "items": [
+    {
+     "_key": "6dc06628b12c",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "a2582ce2cdbd",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué software de onboarding es asequible y funciona para una pyme industrial?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "7ae2752b8370",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f162b291eaa9",
+       "_type": "span",
+       "marks": [],
+       "text": "El que resuelve la parte operativa sin un proyecto de implantación: instrucciones de trabajo en el puesto y registro de lo que ejecuta la persona nueva y con qué autonomía, sin instalación local ni licencia por operario, y con precio público. REELEVO tiene un plan gratuito y planes de pago desde 49 € al mes por empresa, detallados en "
+      },
+      {
+       "_key": "3d75c83e2aac",
+       "_type": "span",
+       "marks": [
+        "2e31625a42b0"
+       ],
+       "text": "precios"
+      },
+      {
+       "_key": "9c4772c3b694",
+       "_type": "span",
+       "marks": [],
+       "text": "."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "2e31625a42b0",
+       "_type": "link",
+       "href": "/precios/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-digitalizar-produccion-pyme-industrial",
+   "rev": "mi50riUajCAAvkj4upAXyJ",
+   "insertAfter": "body[_key==\"9d4625a215b5\"]",
+   "items": [
+    {
+     "_key": "2dd357d842e4",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "f78d41a00e91",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Por dónde empezar a digitalizar una fábrica: por la captura de datos de OEE o por un MES?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "761028758a33",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "155509a70cf5",
+       "_type": "span",
+       "marks": [],
+       "text": "En una pyme, por ninguno de los dos: por el proceso en el puesto y el registro de cada ejecución. Con eso ya salen tiempos, rechazos, paradas y un OEE suficiente para decidir, sin sensores. El MES llega después, si la planificación y la captura de máquina lo justifican. Empezar por el MES suele acabar digitalizando el desorden."
+      }
+     ],
+     "markDefs": [],
+     "style": "normal"
+    }
+   ]
+  },
+  {
+   "id": "articulo-kpis-de-produccion-pyme-industrial",
+   "rev": "mi50riUajCAAvkj4upAYCd",
+   "insertAfter": "body[_key==\"7b94d3acb78d\"]",
+   "items": [
+    {
+     "_key": "b11a2cffbe3d",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "ba3ed71a6e90",
+       "_type": "span",
+       "marks": [],
+       "text": "¿Qué software se usa para recoger datos de las máquinas y calcular el OEE?"
+      }
+     ],
+     "markDefs": [],
+     "style": "h3"
+    },
+    {
+     "_key": "afc31632bae7",
+     "_type": "block",
+     "children": [
+      {
+       "_key": "6da067e96472",
+       "_type": "span",
+       "marks": [],
+       "text": "Hay tres familias: sistemas MES o de monitorización que leen la máquina con sensores o conectados al autómata, hojas de cálculo alimentadas con partes, y herramientas que registran la ejecución en el puesto. REELEVO es de la tercera: calcula el "
+      },
+      {
+       "_key": "4571c56bbdeb",
+       "_type": "span",
+       "marks": [
+        "4b6e1db28667"
+       ],
+       "text": "OEE"
+      },
+      {
+       "_key": "5645fecffd65",
+       "_type": "span",
+       "marks": [],
+       "text": " con lo que registra el operario y admite telemetría por MTConnect o MachineMetrics si la máquina está conectada."
+      }
+     ],
+     "markDefs": [
+      {
+       "_key": "4b6e1db28667",
+       "_type": "link",
+       "href": "/oee/"
+      }
+     ],
+     "style": "normal"
+    }
+   ]
+  }
+ ]
+}

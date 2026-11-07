@@ -99,10 +99,19 @@ if (!aplicar) {
 }
 
 for (const d of spec.crear) if (!docs.has(d._id)) await client.createIfNotExists(d);
+// Un parche por operacion, todos en una transaccion: un mismo parche solo admite
+// un insert (el cliente se queda con el ultimo), y con varias inserciones en un
+// documento se perdian todas menos una. La transaccion es atomica, asi que basta
+// con comprobar la revision en el primer parche.
 for (const [id, p] of porDoc) {
-  let patch = client.patch(id).ifRevisionId(docs.get(id)._rev);
-  if (Object.keys(p.set).length) patch = patch.set(p.set);
-  for (const ins of p.insert) patch = patch.insert('after', ins.insertAfter, ins.items);
-  await patch.commit();
+  const ops = [];
+  if (Object.keys(p.set).length) ops.push((patch) => patch.set(p.set));
+  for (const ins of p.insert) ops.push((patch) => patch.insert('after', ins.insertAfter, ins.items));
+  const tx = client.transaction();
+  ops.forEach((op, i) => {
+    const patch = client.patch(id);
+    tx.patch(op(i === 0 ? patch.ifRevisionId(docs.get(id)._rev) : patch));
+  });
+  await tx.commit();
 }
 console.log('\nHecho. Si el webhook de Vercel esta configurado, la web se reconstruye sola en 1-2 minutos.');

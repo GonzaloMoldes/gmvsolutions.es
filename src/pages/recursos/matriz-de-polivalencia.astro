@@ -17,12 +17,13 @@ const title = "Matriz de polivalencia: plantilla Excel gratis y generador online
 const description = "Qué es una matriz de polivalencia, sus niveles de 0 a 4 y un ejemplo. Plantilla Excel gratis y generador online que marca los puestos en riesgo.";
 const canonical = "https://www.gmvsolutions.es/recursos/matriz-de-polivalencia/";
 
+// iluo: letra equivalente en la notacion ILUO (el nivel 0 no tiene letra).
 const NIVELES = [
   { n: 0, nombre: 'No formado', desc: 'No ha hecho el puesto ni ha recibido formación para él.' },
-  { n: 1, nombre: 'En formación', desc: 'Está aprendiendo. No puede quedarse solo en el puesto.' },
-  { n: 2, nombre: 'Con supervisión', desc: 'Hace el trabajo, pero necesita a alguien cerca para dudas, cambios o incidencias.' },
-  { n: 3, nombre: 'Autónomo', desc: 'Cubre el puesto solo, con calidad y seguridad, en cualquier turno.' },
-  { n: 4, nombre: 'Puede formar', desc: 'Es autónomo y además sabe enseñar el puesto a otra persona.' },
+  { n: 1, nombre: 'En formación', iluo: 'I', desc: 'Está aprendiendo. No puede quedarse solo en el puesto.' },
+  { n: 2, nombre: 'Con supervisión', iluo: 'L', desc: 'Hace el trabajo, pero necesita a alguien cerca para dudas, cambios o incidencias.' },
+  { n: 3, nombre: 'Autónomo', iluo: 'U', desc: 'Cubre el puesto solo, con calidad y seguridad, en cualquier turno.' },
+  { n: 4, nombre: 'Puede formar', iluo: 'O', desc: 'Es autónomo y además sabe enseñar el puesto a otra persona.' },
 ];
 
 // Ejemplo visual (ficticio). Misma regla que el generador: autonomos = nivel >= 3.
@@ -45,6 +46,10 @@ const faqs: FaqItem[] = [
   {
     q: '¿Qué niveles se usan en una matriz de polivalencia?',
     a: 'Lo más habitual es una escala de 0 a 4: 0 no formado, 1 en formación, 2 con supervisión, 3 autónomo y 4 puede formar a otros. Lo importante no es el número de niveles, sino que cada uno tenga un criterio claro y que lo aplique igual quien evalúa en cada turno.',
+  },
+  {
+    q: '¿Qué es la matriz ILUO?',
+    a: 'Es la misma matriz de polivalencia con otra notación: cuatro letras en lugar de números. I, en formación; L, trabaja con ayuda; U, autónomo, cumple calidad y tiempo; O, puede formar a otros. Cada letra añade un lado al cuadrado hasta cerrarlo. Equivale a los niveles 1 a 4 de esta escala, y el 0 se deja en blanco.',
   },
   {
     q: '¿Cuántos operarios autónomos necesita cada puesto?',
@@ -107,10 +112,11 @@ const schema = [
         {NIVELES.map((l) => (
           <li class={`nivel n${l.n}`}>
             <span class="nivel-num">{l.n}</span>
-            <div><h3>{l.nombre}</h3><p>{l.desc}</p></div>
+            <div><h3>{l.nombre}{l.iluo && <span class="nivel-iluo" title="Equivalente en la notación ILUO"> · {l.iluo}</span>}</h3><p>{l.desc}</p></div>
           </li>
         ))}
       </ol>
+      <p class="iluo-nota fade-up delay-2"><strong>¿En tu planta se usa la matriz ILUO?</strong> Es la misma escala con letras: I (en formación), L (trabaja con ayuda), U (autónomo) y O (puede formar a otros), dibujadas añadiendo un lado al cuadrado hasta cerrarlo. La equivalencia es directa con los niveles 1 a 4; el nivel 0 se deja en blanco. La plantilla y el generador usan números porque se filtran y se suman mejor en Excel.</p>
     </div>
   </section>
 
@@ -380,6 +386,8 @@ const schema = [
   .nivel { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
   .nivel h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; margin: 0 0 6px; }
   .nivel p { font-size: .88rem; line-height: 1.6; color: var(--gray); margin: 0; }
+  .nivel-iluo { font-family: 'DM Mono', monospace; font-weight: 400; color: var(--gray2); }
+  .iluo-nota { margin: 28px 0 0; max-width: 760px; font-size: .95rem; line-height: 1.7; color: var(--gray); }
   .nivel-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: 'Oswald', sans-serif; font-weight: 600; border: 1px solid var(--border); }
 
   /* Colores de nivel, compartidos por la escala, el ejemplo y el generador */
