@@ -20,12 +20,12 @@ const escenasRaw = import.meta.glob('../assets/ilustraciones/*.svg', {
 }) as Record<string, string>;
 const raw = (n: string) => escenasRaw[`../assets/ilustraciones/${n}.svg`];
 
-/** Grupos de personaje (<g class="ilus-breathe">) de una escena, en orden. */
-function personajes(svg: string): string[] {
+/** Grupos <g class="…"> de una escena (personajes o bocadillos), en orden y con sus anidados. */
+function grupos(svg: string, clase: string): string[] {
   const out: string[] = [];
   let pos = 0;
   for (;;) {
-    const i = svg.indexOf('<g class="ilus-breathe"', pos);
+    const i = svg.indexOf(`<g class="${clase}"`, pos);
     if (i < 0) break;
     let d = 0, j = i;
     const re = /<g\b[^>]*>|<\/g>/g;
@@ -40,6 +40,7 @@ function personajes(svg: string): string[] {
   }
   return out;
 }
+const personajes = (svg: string) => grupos(svg, 'ilus-breathe');
 /** Quita el translate/scale propio del personaje para recolocarlo. */
 const sinPosicion = (g: string) => g.replace(/<g transform="translate\([^)]*\)(?: scale\([^)]*\))?">/, '<g>');
 
@@ -101,6 +102,30 @@ const PARADAS: Parada[] = [
     titulo: 'La mejora llega a todos',
     dice: 'Cambio el procedimiento una vez y les llega a los tres turnos. Y sé quién lo ha leído.',
     texto: 'Publicas la versión nueva y llega a mañana, tarde y noche a la vez, con acuse de lectura de cada operario. La anterior queda en el historial.' },
+];
+
+// Lo que dicen los personajes de cada escena, entre ellos (índice = orden del
+// personaje en la escena una vez quitado el jefe duplicado).
+const DIALOGOS: [number, string][][] = [
+  [[0, 'Buenos días, Andrés. Voy por el paso 3 del cambio de formato: lo tengo aquí en la tablet, tal y como lo dejó Javi.']],
+  [[1, 'Rosa, explícame otra vez cómo calibras el tope. Te grabo y lo subimos a REELEVO, que lo convierte en pasos.'],
+   [0, 'Treinta años haciéndolo de memoria… Primero lo pongo a cero y luego lo compruebo con la galga. Grábalo despacio, que esto no lo sabe nadie más.']],
+  [[0, 'Andrés, he leído el procedimiento que habéis subido. Con una foto en cada paso lo entiende hasta quien no ha visto nunca la máquina.']],
+  [[0, 'Antes buscaba el PDF en esa carpeta y nunca sabía si era la última versión. Ahora escaneo el QR de la máquina y me sale el bueno en tres segundos.']],
+  [[0, 'Javi está de baja y yo nunca había arrancado la punzonadora. Escaneo el QR y tengo el arranque paso a paso, con sus fotos. No he tenido que llamarle.']],
+  [[0, 'Es mi primer día. Voy por el paso 2 de 6, y si dudo miro la foto o el vídeo de cómo lo hace Pedro.'],
+   [1, 'Y yo sigo con mi máquina sin pararla cada cinco minutos. Si algo no te cuadra, pulsa «Hay un problema» y te dice qué hacer.']],
+  [[0, 'Termino el cambio de formato y firmo aquí. Queda registrado que lo he hecho yo, a esta hora y con la versión 4.'],
+   [1, 'Me llega al móvil y lo valido desde aquí. Antes tenía que ir a buscar el parte firmado al final del turno.']],
+  [[0, 'Escaneo la pieza 817 y veo toda su historia: quién la cortó, quién la soldó, en qué máquina y con qué lote de chapa. Si el cliente pregunta, se lo digo al momento.']],
+  [],
+  [],
+  [[1, 'Enhorabuena: ya estás habilitado en el puesto 3. Lo dice la matriz, que se actualiza sola con lo que ejecutas cada día.'],
+   [0, '¡Genial! Así, cuando falte alguien en ese puesto, ya saben que pueden contar conmigo.']],
+  [[0, 'Si coloco el útil antes de soltar la pieza, me ahorro un paso. Lo propongo desde el QR de la máquina y le llega a Andrés para revisarlo.']],
+  [[0, 'Turno de mañana: me ha llegado la versión nueva del procedimiento y ya la he leído.'],
+   [1, 'Tarde: la misma que tú. Se acabaron las hojas viejas plastificadas en la máquina.'],
+   [2, 'Y noche, igual. Por fin los tres turnos hacemos el ajuste de la misma manera.']],
 ];
 const DICE_INICIO = '¡Buenos días! Soy Andrés, jefe de producción. Te enseño cómo trabajamos aquí desde que usamos REELEVO.';
 const DICE_FIN = 'Hoy faltó Javi y la punzonadora siguió funcionando. Ni una llamada.';
@@ -228,8 +253,20 @@ function ajustar(nombre: string, svg: string) {
   });
   return svg;
 }
+const cabezas: Record<number, [number, number][]> = {};
 const escena = (x: number, nombre: string, n: number) => {
-  const e = interior(ajustar(nombre, raw(nombre)));
+  let svg = ajustar(nombre, raw(nombre));
+  grupos(svg, 'ilus-bubble').forEach((b) => { svg = svg.replace(b, ''); });
+  const e = interior(svg);
+  // Dónde queda la cabeza de cada personaje en el mundo (para sus bocadillos).
+  const [, , vw, vh] = e.viewBox.split(/\s+/).map(Number);
+  const k = Math.min(ESC_W / vw, ESC_H / vh);
+  const ox = x + (ESC_W - vw * k) / 2, oy = TECHO + (ESC_H - vh * k);
+  cabezas[n] = personajes(svg).map((g) => {
+    const t = g.match(/translate\(([-\d.]+) ([-\d.]+)\)(?: scale\(([-\d.]+)(?: ([-\d.]+))?\))?/)!;
+    const sx = Number(t[3] ?? 1), sy = Math.abs(Number(t[4] ?? t[3] ?? 1));
+    return [ox + (Number(t[1]) + 8 * sx) * k, oy + (Number(t[2]) - 352 * sy) * k];
+  });
   piezas.push({ x, n, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${e.viewBox}" preserveAspectRatio="xMidYMax meet">${e.cuerpo}</svg>` });
 };
 
@@ -303,6 +340,7 @@ const finalX = x + PASILLO / 2;
 x += PASILLO + 160;
 const MUNDO_W = x;
 const POSICIONES = [inicioX, ...paradasX, finalX];
+const CHARLAS = DIALOGOS.map((d, n) => d.map(([i, texto]) => ({ texto, pos: cabezas[n]?.[i] })).filter((l) => l.pos));
 const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo, dispara, dice, responde, cabeza }));
 
 const title = 'Recorrido por la fábrica · Cómo funciona REELEVO (prototipo)';
@@ -431,6 +469,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       <!-- Bocadillos en HTML (se ajustan al texto) -->
       <div class="rec-boc rec-boc-guia" id="rec-boc-guia" hidden></div>
       <div class="rec-boc rec-boc-huevo" id="rec-boc-huevo" hidden></div>
+      <div class="rec-boc rec-boc-escena" id="rec-boc-escena" hidden></div>
 
       <!-- Tarjeta de cada parada, dentro de la escena -->
       <div class="rec-pop" id="rec-pop" aria-live="polite">
@@ -469,7 +508,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
     </div>
   </section>
 
-  <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, HUEVOS, SUELO: SUELO_Y + 6, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], DICE: [DICE_INICIO, ...PARADAS.map((p) => p.dice), DICE_FIN] }}>
+  <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, HUEVOS, CHARLAS, SUELO: SUELO_Y + 6, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], DICE: [DICE_INICIO, ...PARADAS.map((p) => p.dice), DICE_FIN] }}>
     const escenario = document.getElementById('rec-escenario');
     const mundo = document.getElementById('rec-mundo');
     const guia = document.getElementById('rec-guia');
@@ -481,6 +520,8 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
     const senala = document.getElementById('rec-brazo-senala');
     const bocGuia = document.getElementById('rec-boc-guia');
     const bocHuevo = document.getElementById('rec-boc-huevo');
+    const bocEscena = document.getElementById('rec-boc-escena');
+    let charla = { timers: [], pos: null };
     const pop = document.getElementById('rec-pop');
     const contador = document.getElementById('rec-contador');
     const tarjetas = [...document.querySelectorAll('.rec-tarjeta')];
@@ -506,6 +547,22 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       colocar(bocGuia, gx + 30, SUELO - 270);
       const h = HUEVOS[huevoActivo.i];
       if (h) colocar(bocHuevo, h.cabeza[0], h.cabeza[1] - 20);
+      if (charla.pos) encajar(charla.pos[0], charla.pos[1] - 14);
+    }
+    // El bocadillo de la escena no puede quedar bajo la tarjeta ni salirse del
+    // escenario: se desplaza y el pico sigue apuntando a quien habla.
+    function encajar(wx, wy) {
+      const W = escenario.clientWidth;
+      const tope = pop.classList.contains('abierto') && W >= 760 ? pop.offsetLeft - 12 : W - 8;
+      const w = bocEscena.offsetWidth || 250;
+      const centro = wx * s - off;
+      const x = Math.max(8 + w / 2, Math.min(centro, tope - w / 2));
+      bocEscena.style.left = `${x}px`;
+      // En móvil la tarjeta ocupa la parte de arriba: el bocadillo baja hasta quedar debajo.
+      const suelo = pop.classList.contains('abierto') && W < 760 ? pop.offsetTop + pop.offsetHeight + 8 : 8;
+      bocEscena.style.top = `${Math.max(wy * s + ty, suelo + bocEscena.offsetHeight)}px`;
+      const dx = Math.max(-w / 2 + 18, Math.min(centro - x, w / 2 - 18));
+      bocEscena.style.setProperty('--dx', `${dx}px`);
     }
     function colocar(el, wx, wy) {
       el.style.left = `${wx * s - off}px`;
@@ -528,6 +585,30 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       bocGuia.textContent = texto;
       bocGuia.hidden = false;
     }
+    // Conversación de la parada: primero habla Andrés y luego, por turnos, los
+    // personajes de la escena. Cada frase dura según lo larga que es.
+    const dura = (t) => 1600 + t.length * 48;
+    function callar() {
+      charla.timers.forEach(clearTimeout);
+      charla = { timers: [], pos: null };
+      bocEscena.hidden = true;
+    }
+    function conversar(n) {
+      callar();
+      const movil = escenario.clientWidth < 760;
+      let t = movil ? 700 : dura(DICE[n]);
+      (CHARLAS[n] || []).forEach((l) => {
+        charla.timers.push(setTimeout(() => {
+          if (!movil) decir('');
+          charla.pos = l.pos;
+          bocEscena.textContent = l.texto;
+          bocEscena.hidden = false;
+          bocEscena.style.animation = 'none'; void bocEscena.offsetWidth; bocEscena.style.animation = '';
+          camara();
+        }, t));
+        t += dura(l.texto);
+      });
+    }
     function mostrar(n) {
       tarjetas.forEach((t) => { t.hidden = Number(t.dataset.tarjeta) !== n; });
       pop.classList.add('abierto');
@@ -541,6 +622,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       escenas.forEach((e) => e.classList.toggle('actual', Number(e.dataset.escena) === n));
       contador.textContent = n === 0 ? 'Inicio' : n === 13 ? 'Fin' : `${n} / 12 · ${TITULOS[n]}`;
       decir(DICE[n]);
+      conversar(n);
       camara();
       try { if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] }); } catch (e) { /* sin analítica */ }
     }
@@ -550,6 +632,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       destino = n;
       pop.classList.remove('abierto');
       decir('');
+      callar();
       if (reducido) { gx = POSICIONES[n]; llegar(); return; }
       ultimo = 0;
       requestAnimationFrame(paso);
@@ -659,13 +742,16 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   .rec-boc-guia::after { border-top-color: var(--steel); left: auto; right: 16px; }
   .rec-boc-huevo { background: #fff; color: var(--steel); border: 1px solid var(--border); }
   .rec-boc-huevo::after { border-top-color: #fff; }
+  .rec-boc-escena { background: #fff; color: var(--steel); border: 1px solid var(--border); transform: translate(-50%, -100%); width: max-content; max-width: 250px; }
+  .rec-boc-escena::after { border-top-color: #fff; left: calc(50% - 10px + var(--dx, 0px)); }
   .rec-boc[hidden] { display: none; }
   @media (prefers-reduced-motion: no-preference) {
-    .rec-boc:not([hidden]) { animation: recBoc .4s cubic-bezier(.34, 1.56, .64, 1); }
+    .rec-boc:not([hidden]):not(.rec-boc-escena) { animation: recBoc .4s cubic-bezier(.34, 1.56, .64, 1); }
+    .rec-boc-escena:not([hidden]) { animation: recBocC .4s cubic-bezier(.34, 1.56, .64, 1); }
   }
 
   /* Tarjeta de la parada */
-  .rec-pop { position: absolute; z-index: 4; top: 16px; right: 16px; width: min(350px, 30%); max-height: calc(100% - 100px); overflow: auto; background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: 0 18px 40px rgba(20,22,24,.18); opacity: 0; transform: translateY(10px) scale(.97); pointer-events: none; transition: opacity .25s, transform .25s; }
+  .rec-pop { position: absolute; z-index: 4; top: 16px; right: 16px; width: min(330px, 28%); max-height: calc(100% - 100px); overflow: auto; background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: 0 18px 40px rgba(20,22,24,.18); opacity: 0; transform: translateY(10px) scale(.97); pointer-events: none; transition: opacity .25s, transform .25s; }
   .rec-pop.abierto { opacity: 1; transform: none; pointer-events: auto; }
   .rec-tarjeta[hidden] { display: none; }
   .rec-tag { display: inline-block; font: 500 .66rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; border-left: 3px solid var(--c); padding: 2px 8px; color: var(--gray); }
@@ -697,6 +783,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   }
   @keyframes recPop { to { opacity: 1; transform: none; } }
   @keyframes recBoc { from { opacity: 0; transform: translate(-20px, -90%) scale(.9); } to { opacity: 1; transform: translate(-20px, -100%); } }
+  @keyframes recBocC { from { opacity: 0; transform: translate(-50%, -90%) scale(.9); } to { opacity: 1; transform: translate(-50%, -100%); } }
   @keyframes recBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
   @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
   @keyframes recVapor { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: .9; } 100% { opacity: 0; transform: translateY(-10px); } }
@@ -712,6 +799,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   }
   /* Móvil: la tarjeta ocupa la parte de arriba del escenario; la fábrica, la de abajo */
   @media (max-width: 759px) {
+    .rec-boc-escena { max-width: min(320px, 86vw); font-size: 13.5px; }
     .rec-pop { top: 10px; left: 10px; right: 10px; width: auto; max-height: 40%; padding: 14px 16px; }
     .rec-tarjeta h2 { font-size: 1.1rem; margin: 6px 0 8px; }
     .rec-grafico { max-height: 120px; }
