@@ -1,0 +1,568 @@
+---
+// PROTOTIPO · Recorrido interactivo por la fábrica (presentación con estética de
+// juego de plataformas). El jefe de producción recorre una nave panorámica de
+// izquierda a derecha y se para en cada punto; en cada parada se ve lo que hace
+// REELEVO con una captura real anotada.
+//
+// - No se indexa (noindex) y no está en el sitemap ni en el menú: es para revisar.
+// - El escenario reutiliza las escenas de src/assets/ilustraciones/ tal cual,
+//   colocadas sobre un único suelo, y el guía es el jefe de producción de
+//   control-produccion.svg con las piernas y los brazos separados para andar.
+// - Controles: flechas ← → (o A / D), botones ◀ ▶ y los puntos de la barra.
+// - Con «reducir movimiento» no hay paseo: la cámara salta de parada en parada.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const escenasRaw = import.meta.glob('../assets/ilustraciones/*.svg', {
+  query: '?raw', import: 'default', eager: true,
+}) as Record<string, string>;
+const capturas = import.meta.glob<{ default: ImageMetadata }>('../assets/tour/*.webp', { eager: true });
+const captura = (n: string) => capturas[`../assets/tour/${n}.webp`]?.default;
+
+type Caja = [number, number, number, number, string];
+interface Parada {
+  zona: number;
+  escena: string;
+  titulo: string;
+  texto: string;
+  quien: string;
+  img?: string;
+  recorte?: [number, number, number, number];
+  cajas?: Caja[];
+  pendiente?: string;
+}
+
+const ZONAS = [
+  { nombre: 'Oficina', sub: 'Preparas una vez', color: 'var(--steel)' },
+  { nombre: 'Planta', sub: 'Se ejecuta cada turno', color: 'var(--orange)' },
+  { nombre: 'Sala de control', sub: 'Se mide solo', color: 'var(--green)' },
+  { nombre: 'Mejora continua', sub: 'Mejora siempre', color: '#C99A1E' },
+];
+
+const PARADAS: Parada[] = [
+  { zona: 0, escena: 'transferencia-conocimiento', titulo: 'Sube lo que ya tienes', quien: 'Jefe de producción',
+    texto: 'Arrastra el Word o el PDF del procedimiento, o un vídeo del experto explicándolo. La IA extrae los pasos y el proceso queda en revisión hasta que lo apruebas.',
+    img: '01-importar', recorte: [520, 15, 620, 440],
+    cajas: [[544, 141, 1112, 323, 'Arrastra aquí el PDF o el Word'], [543, 64, 1112, 110, 'La IA extrae los pasos'], [561, 404, 920, 421, 'Queda en revisión hasta que lo apruebas']] },
+  { zona: 0, escena: 'gerente-propietario', titulo: 'Lo dejas a punto', quien: 'Jefe de producción',
+    texto: 'Revisas cada paso, le añades fotos o vídeo y lo ordenas. Ese procedimiento es el que verá el operario en la máquina, siempre en su última versión.',
+    img: '02-editor', recorte: [520, 300, 615, 390],
+    cajas: [[524, 317, 1128, 368, 'Cada paso, con su título'], [934, 328, 974, 358, 'Fotos y vídeo adjuntos'], [1012, 328, 1058, 358, 'Reordenas los pasos']] },
+  { zona: 0, escena: 'documentacion-procesos', titulo: 'Un QR en cada máquina', quien: 'Jefe de producción',
+    texto: 'Das de alta tus máquinas y cada una tiene su QR. Lo imprimes y lo pegas en el puesto. Los operarios no necesitan cuenta ni instalar nada.',
+    img: '03-qr', recorte: [236, 20, 1176, 790],
+    cajas: [[1264, 168, 1400, 203, 'Das de alta la máquina'], [728, 505, 792, 790, 'Su QR, listo'], [385, 52, 505, 83, 'Imprimes los QR']] },
+  { zona: 1, escena: 'cobertura-bajas', titulo: 'Hoy falta el experto', quien: 'Operaria sustituta',
+    texto: 'Javi, el experto de la punzonadora, está de baja. Marta escanea el QR con su móvil, se identifica y le aparece el procedimiento de esa máquina.',
+    img: '04-acceso', recorte: [500, 25, 440, 445],
+    cajas: [[576, 86, 748, 108, 'La máquina que escaneó'], [755, 84, 842, 111, 'Identificada, sin cuenta'], [545, 175, 880, 235, 'El procedimiento de esa máquina']] },
+  { zona: 1, escena: 'onboarding-operarios', titulo: 'Paso a paso', quien: 'Operaria sustituta',
+    texto: 'Sigue el procedimiento paso a paso y confirma cada uno. Si algo no cuadra, pulsa «Hay un problema»: le sale la solución o se avisa al supervisor.',
+    img: '05-pasos', recorte: [500, 320, 440, 550],
+    cajas: [[556, 340, 885, 445, 'Un paso cada vez, explicado'], [575, 536, 862, 580, 'Confirma y sigue'], [575, 591, 862, 635, 'Avisa si hay un problema'], [546, 680, 892, 830, 'El siguiente se abre al confirmar']] },
+  { zona: 1, escena: 'firma-digital', titulo: 'Se firma y se valida', quien: 'Operaria y supervisor',
+    texto: 'Al terminar, la operaria firma la ejecución y el supervisor la valida desde su puesto. Sin papel y con fecha, hora y nombre.',
+    pendiente: 'Validación del supervisor' },
+  { zona: 1, escena: 'trazabilidad', titulo: 'Cada pieza, trazada', quien: 'Automático',
+    texto: 'La pieza terminada recibe su propio QR. Al escanearlo se ve quién la hizo, cuándo, en qué máquina, con qué proceso y con qué lote.',
+    pendiente: 'Ficha de la pieza con su QR' },
+  { zona: 2, escena: 'control-produccion', titulo: 'Ves la planta en directo', quien: 'Jefe de producción',
+    texto: 'Desde la oficina ves quién está trabajando, en qué máquina, con qué proceso y desde hace cuánto. Se actualiza solo, sin preguntar a nadie.',
+    img: '08-monitor', recorte: [440, 70, 645, 590],
+    cajas: [[474, 187, 692, 283, 'Cuántos trabajan ahora'], [475, 384, 620, 440, 'Quién está en cada máquina'], [620, 388, 762, 434, 'Con qué proceso y desde cuándo'], [473, 138, 822, 158, 'Se actualiza solo']] },
+  { zona: 2, escena: 'oee', titulo: 'Todo queda registrado', quien: 'Automático',
+    texto: 'Cada ejecución se registra sola: qué proceso, en qué máquina, cuántas veces, quién firmó y con qué resultado. De ahí salen el OEE y la analítica, sin partes.',
+    img: '09-registro', recorte: [238, 82, 1174, 498],
+    cajas: [[262, 262, 510, 310, 'Cada proceso, con su máquina'], [918, 268, 982, 304, 'Ejecuciones, registradas solas'], [1106, 268, 1142, 304, 'Firmadas por el operario'], [1215, 268, 1392, 304, 'Resultado de cada proceso']] },
+  { zona: 2, escena: 'competencias', titulo: 'Sabes quién sabe hacer qué', quien: 'Jefe de producción y RR. HH.',
+    texto: 'La matriz de polivalencia se calcula con lo que cada persona ejecuta de verdad. Marta acaba de sumar la punzonadora, y ya sabes quién puede cubrir cada puesto.',
+    img: '10-matriz', recorte: [40, 80, 1765, 520],
+    cajas: [[52, 170, 940, 228, 'Calculada con lo ejecutado'], [53, 309, 388, 468, 'Cobertura de la planta'], [755, 309, 1090, 468, 'Quién trabaja ya solo'], [1106, 309, 1442, 468, 'Quién está aprendiendo']] },
+  { zona: 3, escena: 'kaizen', titulo: 'La planta propone, REELEVO avisa', quien: 'Toda la planta',
+    texto: 'El operario anota lo que hizo distinto y propone soluciones desde el QR. REELEVO marca las máquinas cuyo conocimiento depende de muy pocas personas.',
+    img: '11-riesgo', recorte: [360, 15, 932, 435],
+    cajas: [[1172, 186, 1242, 212, 'Depende de muy pocos'], [398, 238, 592, 284, 'Lo que se hizo distinto'], [620, 238, 812, 284, 'Soluciones por validar']] },
+  { zona: 3, escena: 'consistencia-turnos', titulo: 'La mejora llega a todos', quien: 'Jefe de producción',
+    texto: 'Actualizas el procedimiento y la nueva versión llega a todos los turnos a la vez. Queda el historial de cada cambio y puedes volver atrás si hace falta.',
+    img: '12-versiones', recorte: [365, 0, 925, 480],
+    cajas: [[380, 200, 470, 222, 'La versión vigente'], [695, 270, 970, 462, 'Qué cambió en cada versión'], [1195, 355, 1268, 378, 'Vuelves atrás si hace falta']] },
+];
+
+// --- Mundo -------------------------------------------------------------------
+// Coordenadas propias: cada escena mide 640 de ancho, entre escenas hay un pasillo
+// donde se para el guía, y entre zonas una puerta.
+const ESC_W = 640, ESC_H = 440, PASILLO = 170, PUERTA = 120, TECHO = 56, MUNDO_H = 560, SUELO_Y = 500;
+const piezas: { x: number; svg: string; n: number }[] = [];
+const paradasX: number[] = [];
+const puertas: { x: number; zona: number }[] = [];
+const carteles: { x: number; zona: number }[] = [];
+
+const interior = (raw: string) => {
+  const m = raw.match(/<svg[^>]*viewBox="([^"]+)"[^>]*>([\s\S]*)<\/svg>\s*$/);
+  return { viewBox: m![1], cuerpo: m![2] };
+};
+
+let x = 40;
+// Entrada: la escena hero hace de puerta de la fábrica.
+const hero = interior(escenasRaw['../assets/ilustraciones/hero.svg']);
+piezas.push({ x, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${hero.viewBox}" preserveAspectRatio="xMidYMax meet">${hero.cuerpo}</svg>`, n: 0 });
+const inicioX = x + ESC_W + PASILLO / 2;
+x += ESC_W;
+
+PARADAS.forEach((p, i) => {
+  if (i === 0 || PARADAS[i - 1].zona !== p.zona) {
+    puertas.push({ x: x + 10, zona: p.zona });
+    x += PUERTA;
+    carteles.push({ x: x + 10, zona: p.zona });
+  }
+  paradasX.push(x + PASILLO / 2);
+  x += PASILLO;
+  const e = interior(escenasRaw[`../assets/ilustraciones/${p.escena}.svg`]);
+  piezas.push({ x, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${e.viewBox}" preserveAspectRatio="xMidYMax meet">${e.cuerpo}</svg>`, n: i + 1 });
+  x += ESC_W;
+});
+const finalX = x + PASILLO / 2;
+x += PASILLO + 140;
+const MUNDO_W = x;
+
+// Posiciones de parada: 0 = entrada, 1..12 = paradas, 13 = final.
+const POSICIONES = [inicioX, ...paradasX, finalX];
+
+// Anotaciones en % del recorte.
+const pct = (v: number, o: number, t: number) => ((v - o) / t) * 100;
+const datos = PARADAS.map((p, i) => {
+  const img = p.img ? captura(p.img) : undefined;
+  const [x0, y0, w, h] = p.recorte ?? [0, 0, 1, 1];
+  return {
+    n: i + 1, zona: p.zona, titulo: p.titulo, texto: p.texto, quien: p.quien, pendiente: p.pendiente,
+    img: img ? { src: img.src, w: img.width, h: img.height } : undefined,
+    recorte: { w, h },
+    cajas: (p.cajas ?? []).map(([a, b, c, d, t]) => ({ x: a - x0 - 6, y: b - y0 - 6, w: c - a + 12, h: d - b + 12, t,
+      l: pct(a - 6, x0, w), tp: pct(b - 6, y0, h) })),
+  };
+});
+
+const title = 'Recorrido por la fábrica · Cómo funciona REELEVO (prototipo)';
+const description = 'Prototipo de presentación interactiva: recorre una fábrica y ve qué hace REELEVO en cada punto.';
+---
+
+<BaseLayout title={title} description={description} noindex={true} pageType="core">
+  <section class="rec" aria-labelledby="rec-titulo">
+    <header class="rec-cab">
+      <div class="eyebrow">Prototipo · Recorrido interactivo</div>
+      <h1 id="rec-titulo">Recorre la fábrica y mira <em>qué hace REELEVO</em></h1>
+      <p class="rec-ayuda">Usa las flechas <kbd>←</kbd> <kbd>→</kbd> del teclado o los botones para avanzar. El jefe de producción se para en cada punto y te enseña la app.</p>
+    </header>
+
+    <!-- Barra de progreso: 12 paradas por zonas -->
+    <nav class="rec-barra" aria-label="Paradas del recorrido">
+      {ZONAS.map((z, zi) => (
+        <div class="rec-zona" style={`--c:${z.color}`}>
+          <span class="rec-zona-nombre">{z.nombre}</span>
+          <div class="rec-puntos">
+            {datos.filter((d) => d.zona === zi).map((d) => (
+              <button type="button" class="rec-punto" data-ir={d.n} aria-label={`Parada ${d.n}: ${d.titulo}`}>{d.n}</button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </nav>
+
+    <div class="rec-juego">
+    <!-- Escenario: ventana que sigue al guía por el mundo panorámico -->
+    <div class="rec-escenario" id="rec-escenario" tabindex="0" aria-label="Escenario del recorrido. Usa las flechas para avanzar.">
+      <svg class="rec-mundo" id="rec-mundo" viewBox={`0 0 ${MUNDO_W} ${MUNDO_H}`} width={MUNDO_W} height={MUNDO_H} aria-hidden="true">
+        <!-- Pared y suelo continuos -->
+        <rect x="0" y="0" width={MUNDO_W} height={SUELO_Y - 60} fill="#ECEAE5" />
+        <rect x="0" y={SUELO_Y - 60} width={MUNDO_W} height="12" fill="#E2DFD8" />
+        <rect x="0" y={SUELO_Y - 48} width={MUNDO_W} height={MUNDO_H - SUELO_Y + 48} fill="#E2DFD8" />
+        <rect x="0" y={SUELO_Y + 18} width={MUNDO_W} height="3" fill="#D3D0C9" />
+        {Array.from({ length: Math.ceil(MUNDO_W / 160) }, (_, k) => (
+          <rect x={k * 160 + 40} y={SUELO_Y + 30} width="60" height="5" rx="2" fill="#F2C14E" opacity=".55" />
+        ))}
+
+        <!-- Puertas entre zonas -->
+        {puertas.map((p) => (
+          <g>
+            <rect x={p.x} y="150" width="100" height={SUELO_Y - 192} rx="4" fill="#DAD7D0" />
+            <rect x={p.x + 10} y="162" width="80" height={SUELO_Y - 204} rx="2" fill="#C9C6BF" />
+            <rect x={p.x + 64} y="300" width="10" height="4" rx="2" fill="#5A5F66" />
+            <rect x={p.x + 22} y="122" width="56" height="20" rx="3" fill="#3FB950" />
+            <text x={p.x + 50} y="136" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" font-weight="600" fill="#FFFFFF">PASO</text>
+          </g>
+        ))}
+
+        <!-- Carteles de zona -->
+        {carteles.map((c) => (
+          <g>
+            <rect x={c.x} y="10" width="250" height="36" rx="4" fill="#141618" />
+            <rect x={c.x} y="10" width="8" height="36" rx="2" fill={ZONAS[c.zona].color} />
+            <text x={c.x + 20} y="33" font-family="Oswald, sans-serif" font-size="17" font-weight="600" letter-spacing="1" fill="#FFFFFF">{ZONAS[c.zona].nombre.toUpperCase()}</text>
+            <text x={c.x + 242} y="33" text-anchor="end" font-family="DM Mono, monospace" font-size="10" fill="#B9B6AE">{ZONAS[c.zona].sub.toLowerCase()}</text>
+          </g>
+        ))}
+
+        <!-- Escenas reutilizadas -->
+        {piezas.map((p) => <g class="rec-escena" data-escena={p.n} set:html={p.svg} />)}
+
+        <!-- Marcas de parada en el suelo -->
+        {POSICIONES.slice(1, -1).map((px, i) => (
+          <g class="rec-marca" data-marca={i + 1}>
+            <ellipse cx={px} cy={SUELO_Y + 4} rx="34" ry="8" fill="#F4521E" opacity=".18" />
+            <text x={px} y={SUELO_Y + 50} text-anchor="middle" font-family="DM Mono, monospace" font-size="13" font-weight="700" fill="#C2410C">{String(i + 1).padStart(2, '0')}</text>
+          </g>
+        ))}
+
+        <!-- Final -->
+        <g>
+          <rect x={finalX + 40} y="170" width="110" height={SUELO_Y - 212} rx="4" fill="#F4521E" />
+          <rect x={finalX + 52} y="182" width="86" height={SUELO_Y - 224} rx="2" fill="#D2421A" />
+          <text x={finalX + 95} y="160" text-anchor="middle" font-family="Oswald, sans-serif" font-size="16" font-weight="600" fill="#141618">FIN DEL RECORRIDO</text>
+        </g>
+
+        <!-- Guía: jefe de producción (de control-produccion.svg) con piernas y brazos sueltos -->
+        <g id="rec-guia" transform={`translate(${inicioX} ${SUELO_Y + 6})`}>
+          <ellipse cx="0" cy="0" rx="46" ry="9" fill="#141618" opacity=".12" />
+          <g id="rec-guia-cuerpo" transform="scale(0.78)">
+            <g id="rec-pierna-a">
+              <path d="M-24 -182C-26 -142 -28 -114 -30 -94L-36 -12H-20L-12 -94C-8 -122 -2 -152 2 -182Z" fill="#2B3038"/>
+              <path d="M-40 -16h22c3 0 5 2 5 5v8h-31c-3 0-4-3-2-5z" fill="#141618"/>
+              <rect x="-44" y="-4" width="31" height="4" rx="2" fill="#5A5F66"/>
+            </g>
+            <g id="rec-pierna-b">
+              <path d="M-4 -182C0 -142 4 -114 8 -94L14 -12H30L26 -94C26 -130 26 -158 26 -182Z" fill="#3A4049"/>
+              <path d="M17 -150L21 -24" stroke="#2B3038" stroke-width="1.5" opacity=".6"/>
+              <path d="M10 -18h22c8 0 14 6 16 12l1 3H10z" fill="#141618"/>
+              <rect x="10" y="-4" width="40" height="4" rx="2" fill="#5A5F66"/>
+            </g>
+            <g id="rec-brazo-a">
+              <path d="M-24 -282Q-38 -244 -32 -206" fill="none" stroke="#E4E1DA" stroke-width="15" stroke-linecap="round"/>
+              <circle cx="-31" cy="-198" r="7.5" fill="#D9937A"/>
+            </g>
+            <path d="M-20 -296C-30 -294 -35 -284 -34 -268L-31 -188C-31 -181 -27 -177 -21 -177H26C32 -177 36 -181 36 -188L37 -268C37 -284 30 -294 20 -296Z" fill="#FFFFFF"/>
+            <path d="M-20 -296C-30 -294 -35 -284 -34 -268L-31 -188C-31 -181 -27 -177 -21 -177H-8L-6 -296Z" fill="#E4E1DA"/>
+            <path d="M4 -292V-186" stroke="#D3D0C9" stroke-width="1.5"/>
+            <circle cx="7" cy="-270" r="1.6" fill="#B9B6AE"/>
+            <circle cx="7" cy="-252" r="1.6" fill="#B9B6AE"/>
+            <circle cx="7" cy="-234" r="1.6" fill="#B9B6AE"/>
+            <path d="M-6 -297L4 -284L10 -297ZM4 -284L14 -297L20 -295Z" fill="#E4E1DA"/>
+            <rect x="14" y="-262" width="13" height="11" rx="2" fill="none" stroke="#D3D0C9" stroke-width="1.5"/>
+            <path d="M-31 -186H35V-178H-31Z" fill="#141618"/>
+            <rect x="2" y="-186" width="8" height="8" rx="1" fill="#9A978F"/>
+            <path d="M0 -310h13v16H0z" fill="#C27A5E"/>
+            <ellipse cx="8" cy="-326" rx="14.5" ry="16.5" fill="#D9937A"/>
+            <path d="M21 -330Q28 -323 21 -317Z" fill="#D9937A"/>
+            <ellipse cx="0" cy="-323" rx="3.5" ry="5" fill="#C9826A"/>
+            <circle cx="10.5" cy="-318" r="3.4" fill="#A86650" opacity=".3"/>
+            <ellipse cx="16.5" cy="-324.5" rx="1.9" ry="2.4" fill="#23272D"/>
+            <path d="M13 -330.5Q16.5 -332.5 20.5 -330.5" fill="none" stroke="#3B2A20" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14.5 -313.5Q18 -311 21 -314" fill="none" stroke="#A86650" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M-8 -322Q-12 -346 6 -348Q22 -350 26 -336Q20 -338 12 -337Q6 -334 3 -328L-2 -320Z" fill="#2B1D16"/>
+            <path d="M3 -327H11" stroke="#23272D" stroke-width="1.6"/>
+            <rect x="11" y="-329" width="11" height="8" rx="2.5" fill="#FFFFFF" fill-opacity=".25" stroke="#23272D" stroke-width="1.8"/>
+            <!-- Brazo delantero: colgando al andar, señalando al pararse -->
+            <g id="rec-brazo-b">
+              <path d="M27 -284Q38 -248 34 -212" fill="none" stroke="#F2F0EC" stroke-width="16" stroke-linecap="round"/>
+              <circle cx="34" cy="-204" r="7.5" fill="#D9937A"/>
+            </g>
+            <g id="rec-brazo-senala" style="display:none">
+              <path d="M26 -286L70 -309" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
+              <path d="M70 -309L96 -340" fill="none" stroke="#D9937A" stroke-width="13" stroke-linecap="round"/>
+              <circle cx="96" cy="-340" r="7.5" fill="#D9937A"/>
+            </g>
+          </g>
+          <!-- Bocadillo del guía -->
+          <g id="rec-bocadillo" style="display:none">
+            <rect id="rec-bocadillo-fondo" x="-20" y="-330" width="220" height="44" rx="8" fill="#141618" />
+            <path d="M8 -287L18 -272L30 -287Z" fill="#141618" />
+            <text id="rec-bocadillo-texto" x="-6" y="-302" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"></text>
+          </g>
+        </g>
+      </svg>
+
+      <div class="rec-controles">
+        <button type="button" class="rec-btn" id="rec-atras" aria-label="Parada anterior">◀</button>
+        <span class="rec-contador" id="rec-contador" aria-live="polite">Inicio</span>
+        <button type="button" class="rec-btn rec-btn-adelante" id="rec-adelante" aria-label="Siguiente parada">▶</button>
+      </div>
+    </div>
+
+    <!-- Panel de explicación de la parada -->
+    <div class="rec-panel" id="rec-panel" aria-live="polite">
+      <article class="rec-ficha" data-ficha="0">
+        <div class="rec-texto">
+          <div class="rec-zona-tag" style="--c:var(--orange)">Antes de empezar</div>
+          <h2>Una mañana cualquiera en la fábrica</h2>
+          <p>Vas a recorrer la nave con el jefe de producción. En 12 paradas verás todo lo que hace REELEVO: desde subir un procedimiento hasta que la mejora llega a todos los turnos.</p>
+          <p class="rec-pista">Pulsa <kbd>→</kbd> o <b>▶</b> para empezar.</p>
+        </div>
+      </article>
+      {datos.map((d) => (
+        <article class="rec-ficha" data-ficha={d.n} hidden>
+          <div class="rec-texto rec-cabecera-ficha">
+            <div class="rec-zona-tag" style={`--c:${ZONAS[d.zona].color}`}>{ZONAS[d.zona].nombre} · {ZONAS[d.zona].sub.toLowerCase()}</div>
+            <div class="rec-num">{String(d.n).padStart(2, '0')}<span>/12</span></div>
+            <h2>{d.titulo}</h2>
+          </div>
+          <div class="rec-texto rec-cuerpo-ficha">
+            <p>{d.texto}</p>
+            {d.cajas.length > 0 && (
+              <ol class="rec-leyenda">{d.cajas.map((c, i) => <li><b>{i + 1}</b>{c.t}</li>)}</ol>
+            )}
+            <div class="rec-chip">{d.quien}</div>
+          </div>
+          {d.img ? (
+            <figure class:list={['rec-pantalla', { alta: d.recorte.h > d.recorte.w }]}>
+              <div class="rec-barra-ventana"><i></i><i></i><i></i><span>Captura real · REELEVO</span></div>
+              <div class="rec-lienzo" style={`aspect-ratio:${d.recorte.w}/${d.recorte.h}`}>
+                <img src={d.img.src} width={d.img.w} height={d.img.h} alt={`Captura de REELEVO: ${d.titulo.toLowerCase()}`} loading="lazy" decoding="async" />
+                <svg class="rec-capa" viewBox={`0 0 ${d.recorte.w} ${d.recorte.h}`} preserveAspectRatio="none" aria-hidden="true">
+                  <defs><mask id={`rec-m${d.n}`}><rect width={d.recorte.w} height={d.recorte.h} fill="white" />{d.cajas.map((c) => <rect x={c.x} y={c.y} width={c.w} height={c.h} rx="6" fill="black" />)}</mask></defs>
+                  <rect width={d.recorte.w} height={d.recorte.h} fill="rgba(8,9,10,.42)" mask={`url(#rec-m${d.n})`} />
+                  {d.cajas.map((c) => <rect class="rec-anillo" x={c.x} y={c.y} width={c.w} height={c.h} rx="6" />)}
+                </svg>
+                {d.cajas.map((c, i) => <span class="rec-pin" style={`left:${c.l}%;top:${c.tp}%`}>{i + 1}</span>)}
+              </div>
+            </figure>
+          ) : (
+            <figure class="rec-pantalla rec-pendiente">
+              <div class="rec-barra-ventana"><i></i><i></i><i></i><span>Captura pendiente</span></div>
+              <div class="rec-pendiente-cuerpo">
+                <strong>Captura pendiente</strong>
+                <span>{d.pendiente}</span>
+                <small>Esta parada mostrará la pantalla real en cuanto tengamos la captura.</small>
+              </div>
+            </figure>
+          )}
+        </article>
+      ))}
+      <article class="rec-ficha" data-ficha="13" hidden>
+        <div class="rec-texto">
+          <div class="rec-zona-tag" style="--c:var(--green)">Fin del recorrido</div>
+          <h2>Hoy faltó Javi y la punzonadora siguió funcionando</h2>
+          <p>Eso es REELEVO: el procedimiento de cada máquina en el móvil del operario, y lo que pasa en planta, en tu pantalla. Sin instalar nada y sin cuentas de operario.</p>
+          <div class="rec-ctas">
+            <a class="btn-primary" href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="recorrido" data-cta-label="Registrarme gratis">Registrarme gratis</a>
+            <a class="btn-ghost" href="/video-demo/">Ver la demo interactiva</a>
+            <button type="button" class="btn-ghost" id="rec-reiniciar">Volver a empezar</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    </div>
+  </section>
+
+  <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], BOCADILLOS: ['¡Vamos allá!', ...PARADAS.map((p) => p.titulo), '¡Listo!'] }}>
+    const escenario = document.getElementById('rec-escenario');
+    const mundo = document.getElementById('rec-mundo');
+    const guia = document.getElementById('rec-guia');
+    const cuerpo = document.getElementById('rec-guia-cuerpo');
+    const piernaA = document.getElementById('rec-pierna-a');
+    const piernaB = document.getElementById('rec-pierna-b');
+    const brazoA = document.getElementById('rec-brazo-a');
+    const brazoB = document.getElementById('rec-brazo-b');
+    const senala = document.getElementById('rec-brazo-senala');
+    const bocadillo = document.getElementById('rec-bocadillo');
+    const bocTexto = document.getElementById('rec-bocadillo-texto');
+    const bocFondo = document.getElementById('rec-bocadillo-fondo');
+    const contador = document.getElementById('rec-contador');
+    const fichas = [...document.querySelectorAll('.rec-ficha')];
+    const puntos = [...document.querySelectorAll('.rec-punto')];
+    const escenas = [...document.querySelectorAll('.rec-escena')];
+    const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SUELO = Number(guia.getAttribute('transform').match(/translate\([^ ]+ ([^)]+)\)/)[1]);
+
+    let parada = 0;           // parada actual (0 = inicio, 13 = fin)
+    let gx = POSICIONES[0];   // posición del guía
+    let destino = null;       // parada hacia la que camina
+    let fase = 0;
+    let ultimo = 0;
+    const VEL = 340;          // unidades del mundo por segundo
+
+    function escala() { return escenario.clientHeight / MUNDO_H; }
+    function camara() {
+      const s = escala();
+      const ancho = escenario.clientWidth;
+      const total = MUNDO_W * s;
+      let off = gx * s - ancho * 0.14;
+      off = Math.max(0, Math.min(off, total - ancho));
+      mundo.style.transform = `translateX(${-off}px) scale(${s})`;
+    }
+    function pose(andando, dir) {
+      const a = andando ? Math.sin(fase) * 16 : 0;
+      piernaA.setAttribute('transform', `rotate(${a} -11 -182)`);
+      piernaB.setAttribute('transform', `rotate(${-a} 11 -182)`);
+      brazoA.setAttribute('transform', `rotate(${-a * 0.8} -27 -282)`);
+      brazoB.setAttribute('transform', `rotate(${a * 0.8} 28 -284)`);
+      const bote = andando ? Math.abs(Math.sin(fase)) * -5 : 0;
+      cuerpo.setAttribute('transform', `translate(0 ${bote}) scale(${0.78 * dir} 0.78)`);
+      brazoB.style.display = andando ? '' : 'none';
+      senala.style.display = andando ? 'none' : '';
+      guia.setAttribute('transform', `translate(${gx} ${SUELO})`);
+    }
+    function decir(texto) {
+      bocTexto.textContent = texto;
+      const w = Math.max(120, bocTexto.getComputedTextLength() + 28);
+      bocFondo.setAttribute('width', w);
+      bocadillo.style.display = '';
+    }
+    function mostrar(n) {
+      fichas.forEach((f) => { f.hidden = Number(f.dataset.ficha) !== n; });
+      puntos.forEach((p) => {
+        const k = Number(p.dataset.ir);
+        p.classList.toggle('activo', k === n);
+        p.classList.toggle('visto', k < n);
+        if (k === n) p.setAttribute('aria-current', 'step'); else p.removeAttribute('aria-current');
+      });
+      escenas.forEach((e) => { if (Number(e.dataset.escena) <= n) e.classList.add('vista'); });
+      escenas.forEach((e) => e.classList.toggle('actual', Number(e.dataset.escena) === n));
+      contador.textContent = n === 0 ? 'Inicio' : n === 13 ? 'Fin' : `${n} / 12 · ${TITULOS[n]}`;
+      decir(BOCADILLOS[n]);
+      try {
+        if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] });
+      } catch (e) { /* sin analítica */ }
+    }
+    function ir(n) {
+      n = Math.max(0, Math.min(13, n));
+      if (n === parada && destino === null) return;
+      destino = n;
+      bocadillo.style.display = 'none';
+      if (reducido) { gx = POSICIONES[n]; llegar(); return; }
+      ultimo = 0;
+      requestAnimationFrame(paso);
+    }
+    function llegar() {
+      parada = destino; destino = null;
+      pose(false, 1); camara(); mostrar(parada);
+    }
+    function paso(t) {
+      if (destino === null) return;
+      const dt = ultimo ? Math.min(0.05, (t - ultimo) / 1000) : 0.016;
+      ultimo = t;
+      const obj = POSICIONES[destino];
+      const dir = obj >= gx ? 1 : -1;
+      // Saltos largos (barra de progreso) van más rápido para no hacerse eternos.
+      const vel = Math.abs(obj - gx) > 2500 ? VEL * 4 : VEL;
+      gx += dir * vel * dt;
+      fase += dt * 11;
+      if ((dir > 0 && gx >= obj) || (dir < 0 && gx <= obj)) { gx = obj; llegar(); return; }
+      pose(true, dir); camara();
+      requestAnimationFrame(paso);
+    }
+
+    document.getElementById('rec-adelante').addEventListener('click', () => ir((destino ?? parada) + 1));
+    document.getElementById('rec-atras').addEventListener('click', () => ir((destino ?? parada) - 1));
+    document.getElementById('rec-reiniciar').addEventListener('click', () => ir(0));
+    puntos.forEach((p) => p.addEventListener('click', () => ir(Number(p.dataset.ir))));
+    document.addEventListener('keydown', (e) => {
+      const t = e.target;
+      if (t instanceof HTMLElement && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName))) return;
+      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { e.preventDefault(); ir((destino ?? parada) + 1); }
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') { e.preventDefault(); ir((destino ?? parada) - 1); }
+    });
+    // Deslizar el dedo sobre el escenario también avanza.
+    let x0 = null;
+    escenario.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    escenario.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) ir((destino ?? parada) + (dx < 0 ? 1 : -1));
+    });
+    window.addEventListener('resize', camara);
+    pose(false, 1); camara(); mostrar(0);
+  </script>
+</BaseLayout>
+
+<style>
+  .rec { max-width: 1320px; margin: 0 auto; padding: 96px 24px 64px; }
+  .rec-cab h1 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.05; margin: 10px 0 8px; }
+  .rec-cab h1 em { font-style: normal; color: var(--orange-ink); }
+  .rec-ayuda { color: var(--gray); margin: 0 0 22px; max-width: 720px; }
+  kbd { font-family: 'DM Mono', monospace; font-size: .8em; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; background: var(--surface2); }
+
+  /* barra de progreso */
+  .rec-barra { display: grid; grid-template-columns: 3fr 4fr 3fr 2fr; gap: 10px; margin-bottom: 14px; }
+  .rec-zona { border-top: 3px solid var(--c); padding-top: 6px; }
+  .rec-zona-nombre { display: block; font: 500 .66rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 6px; }
+  .rec-puntos { display: flex; gap: 6px; flex-wrap: wrap; }
+  .rec-punto { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); background: var(--paper); font: 600 .78rem 'Oswald', sans-serif; color: var(--gray); cursor: pointer; }
+  .rec-punto.visto { background: var(--surface3); color: var(--steel); }
+  .rec-punto.activo { background: var(--orange); border-color: var(--orange); color: #fff; box-shadow: 0 0 0 4px var(--orange-dim); }
+
+  /* escenario */
+  .rec-escenario { position: relative; height: min(56vh, 520px); min-height: 300px; overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: #ECEAE5; outline: none; }
+  .rec-escenario:focus-visible { box-shadow: 0 0 0 3px var(--orange-dim); }
+  .rec-mundo { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+  .rec-controles { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; align-items: center; gap: 14px; pointer-events: none; }
+  .rec-btn { pointer-events: auto; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--steel); color: #fff; font-size: 1.2rem; cursor: pointer; box-shadow: 0 6px 16px rgba(20,22,24,.25); }
+  .rec-btn-adelante { background: var(--orange); }
+  .rec-contador { pointer-events: auto; font: 500 .74rem 'DM Mono', monospace; background: rgba(246,245,242,.92); border: 1px solid var(--border); padding: 7px 12px; border-radius: 999px; max-width: 52vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* animaciones de las escenas: las de Ilustracion.astro, disparadas al llegar */
+  .rec-escena :global(.ilus-bubble) { opacity: 0; transform: translateY(10px) scale(.85); transform-box: fill-box; transform-origin: 30% 100%; }
+  .rec-escena.vista :global(.ilus-bubble) { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .rec-escena.actual :global(.ilus-bubble) { opacity: 0; animation: recPop .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(.2s + var(--i, 0) * .3s); }
+    .rec-escena :global(.ilus-breathe) { animation: recBreathe 4.2s ease-in-out infinite; animation-delay: var(--d, 0s); transform-box: fill-box; transform-origin: 50% 100%; }
+    .rec-escena :global(.ilus-blink) { animation: recBlink 2.4s ease-in-out infinite; }
+  }
+  @keyframes recPop { to { opacity: 1; transform: none; } }
+  @keyframes recBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+  @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+  /* panel */
+  .rec-panel { margin-top: 22px; }
+  .rec-ficha[hidden] { display: none; }
+  .rec-ficha { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-areas: "cab fig" "cuerpo fig"; column-gap: 36px; row-gap: 0; align-items: start; }
+  .rec-cabecera-ficha { grid-area: cab; }
+  .rec-cuerpo-ficha { grid-area: cuerpo; }
+  .rec-ficha > .rec-pantalla { grid-area: fig; }
+  .rec-ficha[data-ficha="0"], .rec-ficha[data-ficha="13"] { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+  .rec-zona-tag { display: inline-block; font: 500 .68rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; border-left: 3px solid var(--c); padding: 2px 8px; color: var(--gray); }
+  .rec-num { font: 700 2.6rem/1 'Oswald', sans-serif; color: var(--orange); margin: 12px 0 2px; }
+  .rec-num span { font-size: 1rem; color: var(--gray2); margin-left: 4px; }
+  .rec-texto h2 { font: 600 1.6rem/1.1 'Oswald', sans-serif; text-transform: uppercase; margin: 10px 0 10px; }
+  .rec-texto p { color: var(--gray); line-height: 1.65; margin: 0 0 14px; }
+  .rec-pista { font-family: 'DM Mono', monospace; font-size: .85rem; }
+  .rec-leyenda { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+  .rec-leyenda li { display: flex; gap: 10px; align-items: center; font-size: .92rem; }
+  .rec-leyenda b, .rec-pin { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--orange); color: #fff; font: 600 .78rem 'Oswald', sans-serif; display: grid; place-items: center; }
+  .rec-chip { display: inline-block; font: .66rem 'DM Mono', monospace; padding: 4px 8px; border-radius: 4px; background: var(--orange-dim); color: var(--orange-ink); }
+  .rec-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+  .rec-pantalla { margin: 0; background: #0E1012; border-radius: 10px; overflow: hidden; border: 1px solid #2A2E33; box-shadow: 0 20px 44px rgba(20,22,24,.2); }
+  .rec-pantalla.alta { max-width: 340px; justify-self: center; width: 100%; }
+  .rec-barra-ventana { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #1B1E22; }
+  .rec-barra-ventana i { width: 9px; height: 9px; border-radius: 50%; background: #3A3F45; }
+  .rec-barra-ventana span { margin-left: auto; font: .62rem 'DM Mono', monospace; color: #8A9097; }
+  .rec-lienzo { position: relative; overflow: hidden; }
+  .rec-lienzo img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .rec-capa { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .rec-anillo { fill: none; stroke: var(--orange); stroke-width: 2.5px; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 6px rgba(244,82,30,.7)); }
+  .rec-pin { position: absolute; transform: translate(-50%, -50%); width: 26px; height: 26px; box-shadow: 0 0 0 4px rgba(244,82,30,.35), 0 4px 10px rgba(0,0,0,.4); z-index: 2; }
+  .rec-pendiente { border-style: dashed; border-color: var(--border); background: var(--paper); box-shadow: none; }
+  .rec-pendiente .rec-barra-ventana { background: var(--surface3); }
+  .rec-pendiente .rec-barra-ventana span { color: var(--gray2); }
+  .rec-pendiente-cuerpo { aspect-ratio: 16 / 10; display: grid; place-content: center; gap: 6px; text-align: center; padding: 24px; color: var(--gray); }
+  .rec-pendiente-cuerpo strong { font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--steel); }
+  .rec-pendiente-cuerpo small { font-family: 'DM Mono', monospace; font-size: .72rem; }
+
+  /* Escritorio: fábrica y explicación lado a lado, todo a la vista sin bajar */
+  @media (min-width: 1000px) {
+    .rec-juego { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+    .rec-escenario { height: clamp(360px, calc(100vh - 360px), 600px); }
+    .rec-panel { margin-top: 0; max-height: clamp(360px, calc(100vh - 360px), 600px); overflow: auto; padding-right: 6px; }
+    .rec-ficha, .rec-ficha[data-ficha="0"], .rec-ficha[data-ficha="13"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "cab" "fig" "cuerpo"; row-gap: 14px; }
+    .rec-num { font-size: 2.1rem; margin-top: 8px; }
+    .rec-texto h2 { font-size: 1.35rem; }
+    .rec-texto p { margin-bottom: 10px; }
+    .rec-leyenda { margin-bottom: 10px; gap: 6px; }
+    .rec-pantalla.alta { max-width: 240px; }
+  }
+  @media (max-width: 900px) {
+    .rec { padding: 92px 16px 48px; }
+    .rec-barra { grid-template-columns: 1fr 1fr; }
+    .rec-escenario { height: 46vh; min-height: 280px; }
+    .rec-ficha { grid-template-columns: minmax(0, 1fr); grid-template-areas: "cab" "fig" "cuerpo"; row-gap: 16px; }
+    .rec-btn { width: 52px; height: 52px; }
+  }
+</style>
