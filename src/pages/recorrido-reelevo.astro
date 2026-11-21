@@ -1,36 +1,49 @@
 ---
 // PROTOTIPO · Recorrido interactivo por la fábrica (presentación con estética de
-// juego de plataformas). El jefe de producción recorre una nave panorámica de
-// izquierda a derecha y se para en cada punto; en cada parada se ve lo que hace
-// REELEVO con una captura real anotada.
+// juego de plataformas). Andrés, el jefe de producción, recorre una nave
+// panorámica de izquierda a derecha y se para en 12 puntos. En cada parada se
+// abre, dentro de la escena, una tarjeta con un gráfico dibujado que explica lo
+// que hace REELEVO en ese momento (sin capturas de la app).
 //
 // - No se indexa (noindex) y no está en el sitemap ni en el menú: es para revisar.
 // - El escenario reutiliza las escenas de src/assets/ilustraciones/ tal cual,
-//   colocadas sobre un único suelo, y el guía es el jefe de producción de
+//   sobre un único suelo. Andrés es el jefe de producción de
 //   control-produccion.svg con las piernas y los brazos separados para andar.
-// - Controles: flechas ← → (o A / D), botones ◀ ▶ y los puntos de la barra.
+// - Detalles de fondo con personajes de otras escenas: café, saludo, tuercas
+//   y carretilla. Reaccionan cuando Andrés pasa cerca.
+// - Controles: flechas ← → (o A / D), botones ◀ ▶, deslizar y la barra de paradas.
 // - Con «reducir movimiento» no hay paseo: la cámara salta de parada en parada.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const escenasRaw = import.meta.glob('../assets/ilustraciones/*.svg', {
   query: '?raw', import: 'default', eager: true,
 }) as Record<string, string>;
-const capturas = import.meta.glob<{ default: ImageMetadata }>('../assets/tour/*.webp', { eager: true });
-const captura = (n: string) => capturas[`../assets/tour/${n}.webp`]?.default;
+const raw = (n: string) => escenasRaw[`../assets/ilustraciones/${n}.svg`];
 
-type Caja = [number, number, number, number, string];
-interface Parada {
-  zona: number;
-  escena: string;
-  titulo: string;
-  texto: string;
-  quien: string;
-  img?: string;
-  recorte?: [number, number, number, number];
-  cajas?: Caja[];
-  pendiente?: string;
+/** Grupos de personaje (<g class="ilus-breathe">) de una escena, en orden. */
+function personajes(svg: string): string[] {
+  const out: string[] = [];
+  let pos = 0;
+  for (;;) {
+    const i = svg.indexOf('<g class="ilus-breathe"', pos);
+    if (i < 0) break;
+    let d = 0, j = i;
+    const re = /<g\b[^>]*>|<\/g>/g;
+    re.lastIndex = i;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(svg))) {
+      d += m[0].startsWith('<g') ? 1 : -1;
+      if (d === 0) { j = re.lastIndex; break; }
+    }
+    out.push(svg.slice(i, j));
+    pos = j;
+  }
+  return out;
 }
+/** Quita el translate/scale propio del personaje para recolocarlo. */
+const sinPosicion = (g: string) => g.replace(/<g transform="translate\([^)]*\)(?: scale\([^)]*\))?">/, '<g>');
 
+// ---------------------------------------------------------------- guion
 const ZONAS = [
   { nombre: 'Oficina', sub: 'Preparas una vez', color: 'var(--steel)' },
   { nombre: 'Planta', sub: 'Se ejecuta cada turno', color: 'var(--orange)' },
@@ -38,111 +51,262 @@ const ZONAS = [
   { nombre: 'Mejora continua', sub: 'Mejora siempre', color: '#C99A1E' },
 ];
 
+interface Parada { zona: number; escena: string; titulo: string; texto: string; dice: string; quien: string; grafico: string; }
 const PARADAS: Parada[] = [
-  { zona: 0, escena: 'transferencia-conocimiento', titulo: 'Sube lo que ya tienes', quien: 'Jefe de producción',
-    texto: 'Arrastra el Word o el PDF del procedimiento, o un vídeo del experto explicándolo. La IA extrae los pasos y el proceso queda en revisión hasta que lo apruebas.',
-    img: '01-importar', recorte: [520, 15, 620, 440],
-    cajas: [[544, 141, 1112, 323, 'Arrastra aquí el PDF o el Word'], [543, 64, 1112, 110, 'La IA extrae los pasos'], [561, 404, 920, 421, 'Queda en revisión hasta que lo apruebas']] },
-  { zona: 0, escena: 'gerente-propietario', titulo: 'Lo dejas a punto', quien: 'Jefe de producción',
-    texto: 'Revisas cada paso, le añades fotos o vídeo y lo ordenas. Ese procedimiento es el que verá el operario en la máquina, siempre en su última versión.',
-    img: '02-editor', recorte: [520, 300, 615, 390],
-    cajas: [[524, 317, 1128, 368, 'Cada paso, con su título'], [934, 328, 974, 358, 'Fotos y vídeo adjuntos'], [1012, 328, 1058, 358, 'Reordenas los pasos']] },
-  { zona: 0, escena: 'documentacion-procesos', titulo: 'Un QR en cada máquina', quien: 'Jefe de producción',
-    texto: 'Das de alta tus máquinas y cada una tiene su QR. Lo imprimes y lo pegas en el puesto. Los operarios no necesitan cuenta ni instalar nada.',
-    img: '03-qr', recorte: [236, 20, 1176, 790],
-    cajas: [[1264, 168, 1400, 203, 'Das de alta la máquina'], [728, 505, 792, 790, 'Su QR, listo'], [385, 52, 505, 83, 'Imprimes los QR']] },
-  { zona: 1, escena: 'cobertura-bajas', titulo: 'Hoy falta el experto', quien: 'Operaria sustituta',
-    texto: 'Javi, el experto de la punzonadora, está de baja. Marta escanea el QR con su móvil, se identifica y le aparece el procedimiento de esa máquina.',
-    img: '04-acceso', recorte: [500, 25, 440, 445],
-    cajas: [[576, 86, 748, 108, 'La máquina que escaneó'], [755, 84, 842, 111, 'Identificada, sin cuenta'], [545, 175, 880, 235, 'El procedimiento de esa máquina']] },
-  { zona: 1, escena: 'onboarding-operarios', titulo: 'Paso a paso', quien: 'Operaria sustituta',
-    texto: 'Sigue el procedimiento paso a paso y confirma cada uno. Si algo no cuadra, pulsa «Hay un problema»: le sale la solución o se avisa al supervisor.',
-    img: '05-pasos', recorte: [500, 320, 440, 550],
-    cajas: [[556, 340, 885, 445, 'Un paso cada vez, explicado'], [575, 536, 862, 580, 'Confirma y sigue'], [575, 591, 862, 635, 'Avisa si hay un problema'], [546, 680, 892, 830, 'El siguiente se abre al confirmar']] },
-  { zona: 1, escena: 'firma-digital', titulo: 'Se firma y se valida', quien: 'Operaria y supervisor',
-    texto: 'Al terminar, la operaria firma la ejecución y el supervisor la valida desde su puesto. Sin papel y con fecha, hora y nombre.',
-    pendiente: 'Validación del supervisor' },
-  { zona: 1, escena: 'trazabilidad', titulo: 'Cada pieza, trazada', quien: 'Automático',
-    texto: 'La pieza terminada recibe su propio QR. Al escanearlo se ve quién la hizo, cuándo, en qué máquina, con qué proceso y con qué lote.',
-    pendiente: 'Ficha de la pieza con su QR' },
-  { zona: 2, escena: 'control-produccion', titulo: 'Ves la planta en directo', quien: 'Jefe de producción',
-    texto: 'Desde la oficina ves quién está trabajando, en qué máquina, con qué proceso y desde hace cuánto. Se actualiza solo, sin preguntar a nadie.',
-    img: '08-monitor', recorte: [440, 70, 645, 590],
-    cajas: [[474, 187, 692, 283, 'Cuántos trabajan ahora'], [475, 384, 620, 440, 'Quién está en cada máquina'], [620, 388, 762, 434, 'Con qué proceso y desde cuándo'], [473, 138, 822, 158, 'Se actualiza solo']] },
-  { zona: 2, escena: 'oee', titulo: 'Todo queda registrado', quien: 'Automático',
-    texto: 'Cada ejecución se registra sola: qué proceso, en qué máquina, cuántas veces, quién firmó y con qué resultado. De ahí salen el OEE y la analítica, sin partes.',
-    img: '09-registro', recorte: [238, 82, 1174, 498],
-    cajas: [[262, 262, 510, 310, 'Cada proceso, con su máquina'], [918, 268, 982, 304, 'Ejecuciones, registradas solas'], [1106, 268, 1142, 304, 'Firmadas por el operario'], [1215, 268, 1392, 304, 'Resultado de cada proceso']] },
-  { zona: 2, escena: 'competencias', titulo: 'Sabes quién sabe hacer qué', quien: 'Jefe de producción y RR. HH.',
-    texto: 'La matriz de polivalencia se calcula con lo que cada persona ejecuta de verdad. Marta acaba de sumar la punzonadora, y ya sabes quién puede cubrir cada puesto.',
-    img: '10-matriz', recorte: [40, 80, 1765, 520],
-    cajas: [[52, 170, 940, 228, 'Calculada con lo ejecutado'], [53, 309, 388, 468, 'Cobertura de la planta'], [755, 309, 1090, 468, 'Quién trabaja ya solo'], [1106, 309, 1442, 468, 'Quién está aprendiendo']] },
-  { zona: 3, escena: 'kaizen', titulo: 'La planta propone, REELEVO avisa', quien: 'Toda la planta',
-    texto: 'El operario anota lo que hizo distinto y propone soluciones desde el QR. REELEVO marca las máquinas cuyo conocimiento depende de muy pocas personas.',
-    img: '11-riesgo', recorte: [360, 15, 932, 435],
-    cajas: [[1172, 186, 1242, 212, 'Depende de muy pocos'], [398, 238, 592, 284, 'Lo que se hizo distinto'], [620, 238, 812, 284, 'Soluciones por validar']] },
-  { zona: 3, escena: 'consistencia-turnos', titulo: 'La mejora llega a todos', quien: 'Jefe de producción',
-    texto: 'Actualizas el procedimiento y la nueva versión llega a todos los turnos a la vez. Queda el historial de cada cambio y puedes volver atrás si hace falta.',
-    img: '12-versiones', recorte: [365, 0, 925, 480],
-    cajas: [[380, 200, 470, 222, 'La versión vigente'], [695, 270, 970, 462, 'Qué cambió en cada versión'], [1195, 355, 1268, 378, 'Vuelves atrás si hace falta']] },
+  { zona: 0, escena: 'transferencia-conocimiento', quien: 'Jefe de producción', grafico: 'subir',
+    titulo: 'Sube lo que ya tienes',
+    dice: 'Los procedimientos los teníamos en Word, en PDF… y en la cabeza de Javi. Los subimos tal cual.',
+    texto: 'Arrastras el Word o el PDF del procedimiento, o un vídeo del experto explicándolo. La IA lo ordena en pasos y queda en revisión hasta que lo apruebas.' },
+  { zona: 0, escena: 'gerente-propietario', quien: 'Jefe de producción', grafico: 'editar',
+    titulo: 'Lo dejas a punto',
+    dice: 'Luego lo repaso: una foto donde hace falta, un vídeo cortito y aviso en los pasos delicados.',
+    texto: 'Cada paso con su foto o su vídeo, los puntos críticos marcados y qué hacer si algo falla. Es exactamente lo que verá el operario en la máquina.' },
+  { zona: 0, escena: 'documentacion-procesos', quien: 'Jefe de producción', grafico: 'qr',
+    titulo: 'Un QR en cada máquina',
+    dice: 'Cada máquina tiene su QR. Lo imprimimos, lo pegamos y listo: nadie tiene que crearse una cuenta.',
+    texto: 'Imprimes el QR de cada máquina y lo pegas en el puesto. El operario entra con su nombre y un PIN, sin instalar ninguna app.' },
+  { zona: 1, escena: 'cobertura-bajas', quien: 'Operaria sustituta', grafico: 'baja',
+    titulo: 'Hoy falta el experto',
+    dice: 'Hoy Javi está de baja, y nadie conoce la punzonadora como él. Le toca a Marta, que nunca la ha usado.',
+    texto: 'Marta escanea el QR de la punzonadora con su móvil y le aparece el procedimiento de esa máquina, en su versión vigente. No tiene que llamar a nadie.' },
+  { zona: 1, escena: 'onboarding-operarios', quien: 'Operaria sustituta', grafico: 'pasos',
+    titulo: 'Paso a paso',
+    dice: 'Marta va paso a paso. Si algo no le cuadra, pulsa «Hay un problema» y le sale qué hacer.',
+    texto: 'Un paso cada vez, explicado, y el siguiente no se abre hasta confirmar el anterior. Si algo falla, ve la solución o se avisa al supervisor.' },
+  { zona: 1, escena: 'firma-digital', quien: 'Operaria y supervisor', grafico: 'firma',
+    titulo: 'Se firma y se valida',
+    dice: 'Cuando acaba, firma en la tablet y el supervisor lo valida desde el móvil. Se acabó perseguir papeles.',
+    texto: 'La operaria firma al terminar y el supervisor valida la ejecución. Queda quién, cuándo y con qué versión del procedimiento.' },
+  { zona: 1, escena: 'trazabilidad', quien: 'Automático', grafico: 'pieza',
+    titulo: 'Cada pieza, trazada',
+    dice: 'Cada pieza lleva su QR. Si un cliente pregunta, sé quién la hizo, cuándo y con qué lote, en un minuto.',
+    texto: 'La pieza terminada recibe su propio QR. Al escanearlo se ve su historia: quién la hizo, en qué máquina, con qué proceso y con qué lote de material.' },
+  { zona: 2, escena: 'control-produccion', quien: 'Jefe de producción', grafico: 'directo',
+    titulo: 'La planta, en directo',
+    dice: 'Desde aquí veo quién está en cada máquina y cómo va el turno, sin bajar a preguntar.',
+    texto: 'Quién está trabajando, en qué máquina, con qué proceso y desde hace cuánto. Si una máquina se para, lo ves al momento.' },
+  { zona: 2, escena: 'oee', quien: 'Automático', grafico: 'datos',
+    titulo: 'Todo queda registrado',
+    dice: 'Y nadie rellena partes: tiempos, piezas, rechazos y paradas se apuntan solos. El OEE sale de ahí.',
+    texto: 'Cada ejecución deja su dato sin que nadie lo apunte: cuánto tardó, cuántas piezas, cuántos rechazos y qué paradas hubo. Con eso tienes el OEE de cada máquina.' },
+  { zona: 2, escena: 'competencias', quien: 'Jefe de producción y RR. HH.', grafico: 'matriz',
+    titulo: 'Quién sabe hacer qué',
+    dice: 'Mira: Marta ya aparece en la punzonadora. Ahora sé con quién cuento para cubrir cada puesto.',
+    texto: 'La matriz de competencias se actualiza con lo que cada persona ejecuta de verdad. Ves de un vistazo quién puede cubrir cada puesto y qué formación caduca.' },
+  { zona: 3, escena: 'kaizen', quien: 'Toda la planta', grafico: 'mejora',
+    titulo: 'La planta propone, REELEVO avisa',
+    dice: 'Los operarios proponen mejoras desde el propio QR. Y REELEVO me avisa si un puesto depende de una sola persona.',
+    texto: 'Quien está en la máquina anota lo que hizo distinto y propone mejoras. REELEVO marca los puestos cuyo conocimiento depende de muy pocas personas.' },
+  { zona: 3, escena: 'consistencia-turnos', quien: 'Jefe de producción', grafico: 'version',
+    titulo: 'La mejora llega a todos',
+    dice: 'Cambio el procedimiento una vez y les llega a los tres turnos. Y sé quién lo ha leído.',
+    texto: 'Publicas la versión nueva y llega a mañana, tarde y noche a la vez, con acuse de lectura de cada operario. La anterior queda en el historial.' },
 ];
+const DICE_INICIO = '¡Buenos días! Soy Andrés, jefe de producción. Te enseño cómo trabajamos aquí desde que usamos REELEVO.';
+const DICE_FIN = 'Hoy faltó Javi y la punzonadora siguió funcionando. Ni una llamada.';
 
-// --- Mundo -------------------------------------------------------------------
-// Coordenadas propias: cada escena mide 640 de ancho, entre escenas hay un pasillo
-// donde se para el guía, y entre zonas una puerta.
-const ESC_W = 640, ESC_H = 440, PASILLO = 170, PUERTA = 120, TECHO = 56, MUNDO_H = 560, SUELO_Y = 500;
-const piezas: { x: number; svg: string; n: number }[] = [];
-const paradasX: number[] = [];
-const puertas: { x: number; zona: number }[] = [];
-const carteles: { x: number; zona: number }[] = [];
-
-const interior = (raw: string) => {
-  const m = raw.match(/<svg[^>]*viewBox="([^"]+)"[^>]*>([\s\S]*)<\/svg>\s*$/);
-  return { viewBox: m![1], cuerpo: m![2] };
+// ---------------------------------------------------------------- gráficos de las tarjetas
+// Dibujos sencillos con la paleta de la web (viewBox 320 × 150).
+const T = (x: number, y: number, t: string, o = '') => `<text x="${x}" y="${y}" font-family="DM Mono, monospace" font-size="10" fill="#141618" ${o}>${t}</text>`;
+const QR = (x: number, y: number, c: number, f: (r: number, k: number) => boolean) =>
+  `<g transform="translate(${x} ${y})">${[0, 1, 2, 3].map((r) => [0, 1, 2, 3].map((k) => (f(r, k) ? `<rect x="${k * c}" y="${r * c}" width="${c - 1}" height="${c - 1}" fill="#141618"/>` : '')).join('')).join('')}</g>`;
+const GRAFICOS: Record<string, string> = {
+  subir: `
+    <rect x="14" y="14" width="44" height="54" rx="4" fill="#fff" stroke="#141618" stroke-width="2"/><rect x="22" y="26" width="28" height="4" rx="2" fill="#D3D0C9"/><rect x="22" y="36" width="22" height="4" rx="2" fill="#D3D0C9"/>${T(25, 60, 'DOC', 'font-weight="700"')}
+    <rect x="64" y="22" width="44" height="54" rx="4" fill="#fff" stroke="#141618" stroke-width="2"/><rect x="64" y="22" width="44" height="16" rx="4" fill="#F4521E"/>${T(73, 34, 'PDF', 'font-weight="700" fill="#fff"')}<rect x="72" y="46" width="28" height="4" rx="2" fill="#D3D0C9"/><rect x="72" y="56" width="20" height="4" rx="2" fill="#D3D0C9"/>
+    <rect x="30" y="84" width="58" height="40" rx="5" fill="#141618"/><path d="M53 95l14 9-14 9z" fill="#F4521E"/>${T(24, 142, 'vídeo del experto')}
+    <path d="M122 72h44" stroke="#141618" stroke-width="3"/><path d="M166 64l12 8-12 8z" fill="#141618"/><rect x="128" y="44" width="30" height="18" rx="9" fill="#141618"/>${T(136, 57, 'IA', 'fill="#fff" font-weight="700"')}
+    <rect x="190" y="14" width="118" height="100" rx="8" fill="#fff" stroke="#D3D0C9" stroke-width="2"/>
+    ${[0, 1, 2].map((i) => `<circle cx="206" cy="${36 + i * 26}" r="9" fill="#F4521E"/>${T(203, 40 + i * 26, String(i + 1), 'fill="#fff" font-weight="700"')}<rect x="222" y="${32 + i * 26}" width="${70 - i * 12}" height="7" rx="3" fill="#D3D0C9"/>`).join('')}
+    <rect x="222" y="122" width="86" height="20" rx="10" fill="#F2C14E"/>${T(234, 136, 'en revisión', 'font-weight="600"')}`,
+  editar: `
+    <rect x="20" y="8" width="280" height="134" rx="10" fill="#fff" stroke="#D3D0C9" stroke-width="2"/>
+    <circle cx="42" cy="30" r="10" fill="#F4521E"/>${T(39, 34, '3', 'fill="#fff" font-weight="700"')}<text x="60" y="35" font-family="Oswald, sans-serif" font-size="15" font-weight="600" fill="#141618">AJUSTAR EL TOPE</text>
+    <rect x="36" y="50" width="110" height="70" rx="6" fill="#E2DFD8"/><path d="M48 110l26-30 18 20 12-12 30 22z" fill="#B9B6AE"/><circle cx="122" cy="66" r="7" fill="#F2C14E"/>
+    <rect x="156" y="50" width="60" height="40" rx="6" fill="#141618"/><path d="M180 61l12 9-12 9z" fill="#F4521E"/>${T(160, 104, 'vídeo 20 s')}
+    <path d="M238 90l18-32 18 32z" fill="#F2C14E" stroke="#141618" stroke-width="2" stroke-linejoin="round"/><rect x="254" y="68" width="4" height="11" rx="2" fill="#141618"/><circle cx="256" cy="84" r="2.4" fill="#141618"/>${T(222, 104, 'punto crítico')}
+    <rect x="156" y="114" width="132" height="20" rx="10" fill="#ECEAE5"/>${T(166, 128, 'si falla → haz esto')}`,
+  qr: `
+    <rect x="18" y="62" width="74" height="46" rx="6" fill="#3A3E44"/><rect x="30" y="50" width="50" height="14" rx="2" fill="#141618"/><rect x="30" y="104" width="50" height="30" fill="#fff" stroke="#D3D0C9"/>
+    ${QR(42, 108, 6, (r, k) => (r * 7 + k * 3) % 3 !== 0)}
+    ${T(26, 146, 'imprimes')}
+    <path d="M106 86h40" stroke="#141618" stroke-width="3" stroke-dasharray="6 5"/><path d="M146 78l12 8-12 8z" fill="#141618"/>
+    <rect x="170" y="16" width="132" height="120" rx="8" fill="#DAD7D0"/><rect x="184" y="30" width="66" height="46" rx="4" fill="#3A3E44"/><circle cx="282" cy="36" r="6" fill="#3FB950"/>
+    <rect x="262" y="88" width="32" height="32" rx="3" fill="#fff" stroke="#F4521E" stroke-width="3"/>${QR(268, 94, 6, (r, k) => (r + k) % 2 === 0)}
+    <rect x="178" y="98" width="76" height="20" rx="10" fill="#fff"/>${T(186, 112, 'sin cuentas')}`,
+  baja: `
+    <path d="M30 26h40" stroke="#5A5F66" stroke-width="4" stroke-linecap="round"/><path d="M50 26v12" stroke="#5A5F66" stroke-width="3"/>
+    <path d="M28 64q22-30 44 0z" fill="#F2C14E"/><rect x="24" y="62" width="52" height="6" rx="3" fill="#E0A92E"/>
+    <rect x="14" y="80" width="74" height="22" rx="11" fill="#fff" stroke="#D3D0C9"/><circle cx="27" cy="91" r="4" fill="#D93636"/>${T(35, 95, 'JAVI · baja')}
+    <path d="M98 76h34" stroke="#141618" stroke-width="3"/><path d="M132 68l12 8-12 8z" fill="#141618"/>
+    <rect x="152" y="10" width="68" height="130" rx="10" fill="#141618"/><rect x="158" y="22" width="56" height="106" rx="4" fill="#fff"/>
+    <rect x="170" y="34" width="32" height="32" rx="3" fill="none" stroke="#F4521E" stroke-width="3"/><path d="M164 50h44" stroke="#3FB950" stroke-width="2.5"/>${T(162, 86, 'punzonadora', 'font-size="9"')}<rect x="164" y="94" width="40" height="5" rx="2" fill="#D3D0C9"/><rect x="164" y="104" width="30" height="5" rx="2" fill="#D3D0C9"/>
+    <rect x="226" y="40" width="92" height="46" rx="8" fill="#F4521E"/><path d="M232 86l-6 10 16-10z" fill="#F4521E"/>${T(232, 58, 'Procedimiento', 'font-weight="700" font-size="9.5"')}${T(232, 75, 'vigente ✓')}`,
+  pasos: `
+    <rect x="20" y="6" width="96" height="140" rx="12" fill="#141618"/><rect x="27" y="18" width="82" height="116" rx="5" fill="#fff"/>
+    ${T(34, 32, 'Paso 3 de 7', 'font-weight="700"')}<rect x="34" y="40" width="68" height="28" rx="3" fill="#E2DFD8"/>
+    <rect x="34" y="76" width="68" height="20" rx="4" fill="#fff" stroke="#3FB950" stroke-width="2"/>${T(40, 90, '✓ correcto', 'fill="#1F8A3E" font-weight="700"')}
+    <rect x="34" y="102" width="68" height="20" rx="4" fill="#fff" stroke="#D93636" stroke-width="2"/>${T(37, 116, '⚠ problema', 'fill="#D93636" font-weight="700"')}
+    <path d="M116 112h44" stroke="#D93636" stroke-width="3" stroke-dasharray="5 4"/><path d="M160 104l12 8-12 8z" fill="#D93636"/>
+    <rect x="182" y="24" width="128" height="46" rx="10" fill="#ECEAE5"/>${T(192, 43, 'Solución:', 'font-weight="700"')}${T(192, 59, 'cómo resolverlo')}
+    <rect x="182" y="88" width="128" height="46" rx="10" fill="#F4521E"/>${T(192, 107, 'o aviso al', 'font-weight="700"')}${T(192, 123, 'supervisor')}`,
+  firma: `
+    <rect x="16" y="22" width="108" height="80" rx="8" fill="#141618"/><rect x="24" y="30" width="92" height="64" rx="3" fill="#fff"/>
+    <path d="M34 78c10-22 18 8 26-10s14 14 22-2 10 8 22-4" fill="none" stroke="#141618" stroke-width="2.5" stroke-linecap="round"/><path d="M34 86h72" stroke="#D3D0C9" stroke-width="1.5"/>${T(24, 122, 'firma la operaria')}
+    <path d="M132 62h30" stroke="#141618" stroke-width="3"/><path d="M162 54l12 8-12 8z" fill="#141618"/>
+    <rect x="184" y="14" width="52" height="96" rx="9" fill="#141618"/><rect x="189" y="24" width="42" height="76" rx="3" fill="#fff"/><circle cx="210" cy="58" r="14" fill="#3FB950"/><path d="M203 58l5 5 10-11" fill="none" stroke="#fff" stroke-width="3"/>${T(176, 126, 'valida el jefe')}
+    <g transform="rotate(-8 282 70)"><rect x="250" y="40" width="64" height="58" rx="6" fill="none" stroke="#F4521E" stroke-width="3"/>${T(258, 60, 'Marta', 'fill="#C2410C" font-weight="700"')}${T(258, 76, '08:42')}${T(258, 90, 'versión 4')}</g>`,
+  pieza: `
+    <path d="M24 50l34-20 34 20v40l-34 20-34-20z" fill="#B9B6AE" stroke="#5A5F66" stroke-width="2"/><circle cx="58" cy="70" r="12" fill="#ECEAE5" stroke="#5A5F66" stroke-width="2"/>
+    <rect x="66" y="88" width="32" height="32" rx="3" fill="#fff" stroke="#F4521E" stroke-width="3"/>${QR(72, 94, 5, (r, k) => (r * k + r) % 2 === 0)}
+    <path d="M112 22v96" stroke="#141618" stroke-width="2"/><path d="M98 104h14" stroke="#141618" stroke-width="2"/>
+    ${['quién: Marta', 'cuándo: 08:42', 'máquina: punzonadora', 'lote: 2231'].map((t, i) => `<path d="M112 ${22 + i * 32}h14" stroke="#141618" stroke-width="2"/><rect x="126" y="${11 + i * 32}" width="${Math.min(186, t.length * 7 + 22)}" height="22" rx="11" fill="${i === 3 ? '#F2C14E' : '#ECEAE5'}"/>${T(137, 26 + i * 32, t, 'font-weight="600"')}`).join('')}`,
+  directo: `
+    <rect x="14" y="6" width="292" height="138" rx="10" fill="#141618"/>
+    ${[['M', '02:38', true], ['L', '00:14', true], ['A', '01:05', true], ['', 'parada', false]].map(([ini, t, ok], k) => {
+      const x = 26 + (k % 2) * 140, y = 18 + Math.floor(k / 2) * 62;
+      return `<rect x="${x}" y="${y}" width="128" height="52" rx="6" fill="${ok ? '#1E3B27' : '#3B1E1E'}" stroke="${ok ? '#3FB950' : '#D93636'}" stroke-width="1.5"/><text x="${x + 10}" y="${y + 18}" font-family="Oswald, sans-serif" font-size="11" fill="#fff">MÁQUINA ${k + 1}</text>${ok ? `<circle cx="${x + 20}" cy="${y + 35}" r="9" fill="#F4521E"/><text x="${x + 16}" y="${y + 39}" font-family="DM Mono, monospace" font-size="10" font-weight="700" fill="#fff">${ini}</text><text x="${x + 76}" y="${y + 39}" font-family="DM Mono, monospace" font-size="12" font-weight="700" fill="#3FB950">${t}</text>` : `<text x="${x + 10}" y="${y + 39}" font-family="DM Mono, monospace" font-size="12" font-weight="700" fill="#FF7B72">● ${t}</text>`}`;
+    }).join('')}`,
+  datos: `
+    <rect x="10" y="54" width="78" height="42" rx="8" fill="#F4521E"/>${T(18, 72, 'ejecución', 'font-weight="700"')}${T(18, 87, 'de Marta')}
+    <path d="M90 75h18" stroke="#141618" stroke-width="3"/><path d="M108 67l10 8-10 8z" fill="#141618"/>
+    ${[['tiempo', '12 min'], ['piezas', '48'], ['rechazos', '1'], ['paradas', '0']].map(([a, b], i) => `<rect x="124" y="${8 + i * 35}" width="96" height="29" rx="6" fill="#ECEAE5"/>${T(132, 27 + i * 35, a)}${T(188, 27 + i * 35, b, 'font-weight="700"')}`).join('')}
+    <path d="M222 75h14" stroke="#141618" stroke-width="3"/>
+    <path d="M244 104a38 38 0 0 1 72 0" fill="none" stroke="#E2DFD8" stroke-width="12"/><path d="M244 104a38 38 0 0 1 60-28" fill="none" stroke="#3FB950" stroke-width="12"/>
+    <text x="280" y="104" text-anchor="middle" font-family="Oswald, sans-serif" font-size="18" font-weight="600" fill="#141618">OEE</text>${T(250, 128, 'por máquina')}`,
+  matriz: `
+    ${['Punzonadora', 'Plegadora', 'Torno'].map((m, c) => `<text x="${130 + c * 64}" y="20" font-family="DM Mono, monospace" font-size="9" fill="#5A5F66" text-anchor="middle">${m}</text>`).join('')}
+    ${([['Javi', [3, 2, 1]], ['Luis', [0, 3, 2]], ['Marta', [2, 0, 1]]] as [string, number[]][]).map(([n, v], r) => `<text x="20" y="${50 + r * 34}" font-family="Oswald, sans-serif" font-size="13" fill="#141618">${n}</text>` + v.map((lv, c) => {
+      const nuevo = r === 2 && c === 0;
+      const col = ['#E2DFD8', '#F2C14E', '#9FD2AD', '#3FB950'][lv];
+      return `<rect x="${104 + c * 64}" y="${32 + r * 34}" width="52" height="25" rx="5" fill="${col}" ${nuevo ? 'stroke="#F4521E" stroke-width="3"' : ''}/>`;
+    }).join('')).join('')}
+    <rect x="96" y="128" width="92" height="18" rx="9" fill="#F4521E"/>${T(106, 141, '¡Marta, apta!', 'fill="#fff" font-weight="700"')}`,
+  mejora: `
+    <rect x="16" y="72" width="40" height="40" rx="3" fill="#fff" stroke="#F4521E" stroke-width="3"/>${QR(23, 79, 7, (r, k) => (r + k) % 2 === 0)}
+    <circle cx="86" cy="44" r="18" fill="#F2C14E"/><rect x="79" y="60" width="14" height="10" rx="2" fill="#5A5F66"/><path d="M58 84q10-24 18-30" fill="none" stroke="#141618" stroke-width="2" stroke-dasharray="4 4"/>
+    <rect x="122" y="8" width="186" height="82" rx="8" fill="#ECEAE5"/><text x="132" y="26" font-family="Oswald, sans-serif" font-size="12" fill="#141618">MEJORAS</text>
+    <rect x="132" y="34" width="78" height="44" rx="5" fill="#fff"/>${T(138, 52, 'Idea de')}${T(138, 67, 'Marta', 'font-weight="700"')}<rect x="218" y="34" width="82" height="44" rx="5" fill="#fff"/>${T(224, 52, 'Hice algo')}${T(224, 67, 'distinto')}
+    <rect x="122" y="102" width="186" height="38" rx="8" fill="#F4521E"/>${T(132, 125, '⚠ solo 1 persona sabe esto', 'font-weight="700"')}`,
+  version: `
+    <rect x="12" y="30" width="56" height="70" rx="5" fill="#fff" stroke="#B9B6AE" stroke-width="2"/>${T(28, 72, 'v3', 'fill="#B9B6AE" font-weight="700" font-size="16"')}<path d="M16 34l48 62" stroke="#D93636" stroke-width="2.5"/>
+    <path d="M74 65h22" stroke="#141618" stroke-width="3"/><path d="M96 57l10 8-10 8z" fill="#141618"/>
+    <rect x="114" y="22" width="64" height="84" rx="5" fill="#fff" stroke="#F4521E" stroke-width="3"/>${T(132, 72, 'v4', 'fill="#C2410C" font-weight="700" font-size="18"')}
+    ${['Mañana', 'Tarde', 'Noche'].map((t, i) => `<path d="M180 64L206 ${27 + i * 42}" stroke="#141618" stroke-width="2"/><rect x="206" y="${14 + i * 42}" width="102" height="26" rx="13" fill="#ECEAE5"/>${T(218, 31 + i * 42, t, 'font-weight="600"')}<circle cx="292" cy="${27 + i * 42}" r="8" fill="#3FB950"/><path d="M288 ${27 + i * 42}l3 3 6-6" fill="none" stroke="#fff" stroke-width="2"/>`).join('')}`,
 };
 
+// ---------------------------------------------------------------- mundo
+const ESC_W = 640, ESC_H = 440, PASILLO = 170, PUERTA = 120, TECHO = 56, MUNDO_H = 560, SUELO_Y = 500;
+const BASE = TECHO + 400; // línea de suelo de las escenas (donde pisan sus personajes)
+const piezas: { x: number; svg: string; n: number }[] = [];
+const paradasX: number[] = [];
+const puertas: number[] = [];
+const carteles: { x: number; zona: number }[] = [];
+const huevos: { tipo: string; svg: string; dispara: number; dice: string; responde?: string; cabeza: [number, number] }[] = [];
+
+const interior = (r: string) => {
+  const m = r.match(/<svg[^>]*viewBox="([^"]+)"[^>]*>([\s\S]*)<\/svg>\s*$/);
+  return { viewBox: m![1], cuerpo: m![2] };
+};
+// Andrés ya está en escena como guía: donde la ilustración trae al mismo jefe de
+// producción, se quita (él ocupa su sitio) o, si hace de supervisor, se le cambia
+// la camisa para que no parezcan la misma persona.
+const AJUSTES: Record<string, { quitar?: number[]; supervisor?: number[] }> = {
+  hero: { quitar: [1] },
+  'control-produccion': { quitar: [0] },
+  oee: { quitar: [0] },
+  'firma-digital': { supervisor: [1] },
+};
+function ajustar(nombre: string, svg: string) {
+  const a = AJUSTES[nombre];
+  if (!a) return svg;
+  const gs = personajes(svg);
+  (a.quitar ?? []).forEach((k) => { svg = svg.replace(gs[k], ''); });
+  (a.supervisor ?? []).forEach((k) => {
+    const azul = gs[k].replaceAll('#FFFFFF', '#4E7FA0').replaceAll('#E4E1DA', '#3F6A88').replaceAll('#F2F0EC', '#4E7FA0');
+    svg = svg.replace(gs[k], azul);
+  });
+  return svg;
+}
+const escena = (x: number, nombre: string, n: number) => {
+  const e = interior(ajustar(nombre, raw(nombre)));
+  piezas.push({ x, n, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${e.viewBox}" preserveAspectRatio="xMidYMax meet">${e.cuerpo}</svg>` });
+};
+
+// Personajes de otras escenas para los detalles de fondo.
+const cafetera = sinPosicion(personajes(raw('sobre-nosotros'))[2]);
+const saludador = sinPosicion(personajes(raw('onboarding-operarios'))[1]);
+const tecnico = sinPosicion(personajes(raw('mantenimiento'))[0]);
+
+function huevoCafe(sx: number) {
+  const px = sx + 90, mx = sx + 168;
+  const mano: [number, number] = [px + 54.6 * 0.8, BASE - 199.1 * 0.8];
+  huevos.push({ tipo: 'cafe', dispara: px, cabeza: [px + 6, BASE - 290], dice: 'El primero del día. ¿Un café, Andrés?', responde: '¡Luego, que tengo visita!', svg: `
+    <rect x="${mx}" y="${BASE - 150}" width="86" height="150" rx="6" fill="#DAD7D0"/><rect x="${mx}" y="${BASE - 150}" width="86" height="12" rx="6" fill="#C9C6BF"/>
+    <rect x="${mx + 12}" y="${BASE - 128}" width="62" height="34" rx="4" fill="#3A3E44"/><text x="${mx + 43}" y="${BASE - 106}" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" font-weight="700" fill="#F2C14E">CAFÉ</text>
+    <rect x="${mx + 30}" y="${BASE - 80}" width="26" height="10" rx="2" fill="#141618"/><rect x="${mx + 24}" y="${BASE - 46}" width="38" height="5" rx="2" fill="#5A5F66"/>
+    <circle cx="${mx + 72}" cy="${BASE - 80}" r="4" class="ilus-blink" fill="#3FB950"/>
+    <g transform="translate(${px} ${BASE}) scale(0.8)">${cafetera}</g>
+    <rect x="${mano[0] - 7}" y="${mano[1] - 15}" width="13" height="15" rx="2" fill="#fff" stroke="#141618" stroke-width="1.5"/><path d="M${mano[0] + 6} ${mano[1] - 11}q6 0 6 4t-6 4" fill="none" stroke="#141618" stroke-width="1.5"/>
+    <path class="rec-vapor" d="M${mano[0] - 3} ${mano[1] - 20}q-4-6 0-12t0-12" fill="none" stroke="#B9B6AE" stroke-width="2" stroke-linecap="round"/>
+    <path class="rec-vapor" style="animation-delay:.7s" d="M${mano[0] + 3} ${mano[1] - 20}q-4-6 0-12t0-12" fill="none" stroke="#B9B6AE" stroke-width="2" stroke-linecap="round"/>` });
+}
+function huevoSaludo(sx: number) {
+  const px = sx + 150;
+  huevos.push({ tipo: 'saludo', dispara: px - 40, cabeza: [px - 6, BASE - 290], dice: '¡Buenos días, jefe!', responde: '¡Buenos días, Luis! ¿Qué tal el fin de semana?', svg: `
+    <g class="rec-saluda"><g transform="translate(${px} ${BASE}) scale(-0.8 0.8)">${saludador}</g></g>` });
+}
+function huevoTuercas(sx: number) {
+  // Máquina y técnico de mantenimiento.svg, con el engranaje girando.
+  const ox = sx - 170, oy = TECHO;
+  huevos.push({ tipo: 'tuercas', dispara: sx + 60, cabeza: [sx + 80, BASE - 290], dice: 'Esta tuerca no se me escapa.', responde: 'Gracias, Fermín. Sin ti esto no anda.', svg: `
+    <g transform="translate(${ox} ${oy})">
+      <rect x="340" y="140" width="250" height="262" rx="8" fill="#DAD7D0"/><rect x="360" y="170" width="120" height="120" rx="4" fill="#3A3E44"/>
+      <g class="rec-gira"><circle cx="420" cy="230" r="34" fill="none" stroke="#B9B6AE" stroke-width="10" stroke-dasharray="10 8"/><circle cx="420" cy="230" r="14" fill="#B9B6AE"/></g>
+      <path d="M480 170L520 156V304L480 290Z" fill="#C9C6BF"/><rect x="540" y="170" width="34" height="10" rx="5" fill="#C9C6BF"/><circle cx="557" cy="206" r="8" class="ilus-blink" fill="#F2C14E"/>
+      <g class="rec-aprieta"><g transform="translate(250 400) scale(0.8)">${tecnico}</g></g>
+    </g>` });
+}
+function huevoCarretilla(sx: number) {
+  // Carretilla de precios.svg con cajas de cartón en lugar de la caja «Pro».
+  huevos.push({ tipo: 'carretilla', dispara: sx + 120, cabeza: [sx + 230, BASE - 210], dice: '¡Paso, paso, que voy cargado!', svg: `
+    <g class="rec-carretilla"><g transform="translate(${sx - 300} ${TECHO + 60}) scale(0.86)">
+      <rect x="480" y="160" width="12" height="242" fill="#3A3E44"/><rect x="500" y="160" width="12" height="242" fill="#3A3E44"/>
+      <rect x="400" y="300" width="92" height="8" fill="#141618"/>
+      <rect x="406" y="250" width="42" height="50" fill="#C9A26B" stroke="#9E7B4A" stroke-width="2"/><rect x="448" y="262" width="38" height="38" fill="#D8B37A" stroke="#9E7B4A" stroke-width="2"/><rect x="418" y="214" width="40" height="36" fill="#D8B37A" stroke="#9E7B4A" stroke-width="2"/>
+      <path d="M512 300H600V380H512Z" fill="#F2C14E"/><path d="M530 300V230H580L596 300" fill="none" stroke="#141618" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="536" cy="386" r="16" fill="#141618"/><circle cx="536" cy="386" r="6" fill="#8A8780"/><circle cx="586" cy="386" r="16" fill="#141618"/><circle cx="586" cy="386" r="6" fill="#8A8780"/>
+      <rect x="602" y="320" width="16" height="50" fill="#3A3E44"/>
+      <path d="M544 300Q545 274 562 271L572 271Q586 275 586 300Z" fill="#F4521E"/><path d="M544 300Q545 274 562 271L564 300Z" fill="#DB4618"/><path d="M545 288H586V293H545Z" fill="#F2F0EA"/><path d="M561 262h9v10h-9z" fill="#C27A5E"/><ellipse cx="566" cy="252" rx="11" ry="12" fill="#D9937A"/><path d="M576 249Q581 253 576 257Z" fill="#D9937A"/><ellipse cx="560" cy="254" rx="2.6" ry="3.8" fill="#C9826A"/><ellipse cx="572" cy="253" rx="1.5" ry="1.9" fill="#23272D"/><path d="M570 260Q573 262 575 259.5" fill="none" stroke="#A86650" stroke-width="1.4" stroke-linecap="round"/><path d="M554 248Q555 232 567 232Q580 232 580 247Z" fill="#F2C14E"/><path d="M567 232Q555 232 554 248H562Q561 236 567 232Z" fill="#E0A92E"/><path d="M552 246H585V249H552Z" fill="#E0A92E"/><path d="M550 282L532 286" stroke="#F4521E" stroke-width="10" stroke-linecap="round"/><circle cx="529" cy="286" r="5.5" fill="#4A4F57"/>
+    </g></g>` });
+}
+
 let x = 40;
-// Entrada: la escena hero hace de puerta de la fábrica.
-const hero = interior(escenasRaw['../assets/ilustraciones/hero.svg']);
-piezas.push({ x, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${hero.viewBox}" preserveAspectRatio="xMidYMax meet">${hero.cuerpo}</svg>`, n: 0 });
-const inicioX = x + ESC_W + PASILLO / 2;
+escena(x, 'hero', 0);
+const inicioX = x + ESC_W + 60;
 x += ESC_W;
+huevoCafe(x + 120);
+x += 420;
 
 PARADAS.forEach((p, i) => {
-  if (i === 0 || PARADAS[i - 1].zona !== p.zona) {
-    puertas.push({ x: x + 10, zona: p.zona });
-    x += PUERTA;
-    carteles.push({ x: x + 10, zona: p.zona });
-  }
+  const cambia = i === 0 || PARADAS[i - 1].zona !== p.zona;
+  if (cambia && p.zona === 2) { huevoCarretilla(x + 60); x += 460; }
+  if (cambia) { puertas.push(x + 10); x += PUERTA; carteles.push({ x: x + 10, zona: p.zona }); }
+  if (cambia && p.zona === 1) { huevoSaludo(x); x += 260; }
+  if (i === 6) { huevoTuercas(x + 40); x += 420; }
   paradasX.push(x + PASILLO / 2);
   x += PASILLO;
-  const e = interior(escenasRaw[`../assets/ilustraciones/${p.escena}.svg`]);
-  piezas.push({ x, svg: `<svg x="${x}" y="${TECHO}" width="${ESC_W}" height="${ESC_H}" viewBox="${e.viewBox}" preserveAspectRatio="xMidYMax meet">${e.cuerpo}</svg>`, n: i + 1 });
+  escena(x, p.escena, i + 1);
   x += ESC_W;
 });
 const finalX = x + PASILLO / 2;
-x += PASILLO + 140;
+x += PASILLO + 160;
 const MUNDO_W = x;
-
-// Posiciones de parada: 0 = entrada, 1..12 = paradas, 13 = final.
 const POSICIONES = [inicioX, ...paradasX, finalX];
-
-// Anotaciones en % del recorte.
-const pct = (v: number, o: number, t: number) => ((v - o) / t) * 100;
-const datos = PARADAS.map((p, i) => {
-  const img = p.img ? captura(p.img) : undefined;
-  const [x0, y0, w, h] = p.recorte ?? [0, 0, 1, 1];
-  return {
-    n: i + 1, zona: p.zona, titulo: p.titulo, texto: p.texto, quien: p.quien, pendiente: p.pendiente,
-    img: img ? { src: img.src, w: img.width, h: img.height } : undefined,
-    recorte: { w, h },
-    cajas: (p.cajas ?? []).map(([a, b, c, d, t]) => ({ x: a - x0 - 6, y: b - y0 - 6, w: c - a + 12, h: d - b + 12, t,
-      l: pct(a - 6, x0, w), tp: pct(b - 6, y0, h) })),
-  };
-});
+const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo, dispara, dice, responde, cabeza }));
 
 const title = 'Recorrido por la fábrica · Cómo funciona REELEVO (prototipo)';
-const description = 'Prototipo de presentación interactiva: recorre una fábrica y ve qué hace REELEVO en cada punto.';
+const description = 'Prototipo de presentación interactiva: recorre una fábrica con Andrés y ve qué hace REELEVO en cada punto.';
 ---
 
 <BaseLayout title={title} description={description} noindex={true} pageType="core">
@@ -150,28 +314,24 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
     <header class="rec-cab">
       <div class="eyebrow">Prototipo · Recorrido interactivo</div>
       <h1 id="rec-titulo">Recorre la fábrica y mira <em>qué hace REELEVO</em></h1>
-      <p class="rec-ayuda">Usa las flechas <kbd>←</kbd> <kbd>→</kbd> del teclado o los botones para avanzar. El jefe de producción se para en cada punto y te enseña la app.</p>
+      <p class="rec-ayuda">Avanza con las flechas <kbd>←</kbd> <kbd>→</kbd> o con los botones. Andrés se para en cada punto y te lo explica.</p>
     </header>
 
-    <!-- Barra de progreso: 12 paradas por zonas -->
     <nav class="rec-barra" aria-label="Paradas del recorrido">
       {ZONAS.map((z, zi) => (
         <div class="rec-zona" style={`--c:${z.color}`}>
           <span class="rec-zona-nombre">{z.nombre}</span>
           <div class="rec-puntos">
-            {datos.filter((d) => d.zona === zi).map((d) => (
-              <button type="button" class="rec-punto" data-ir={d.n} aria-label={`Parada ${d.n}: ${d.titulo}`}>{d.n}</button>
+            {PARADAS.map((p, i) => ({ p, n: i + 1 })).filter(({ p }) => p.zona === zi).map(({ p, n }) => (
+              <button type="button" class="rec-punto" data-ir={n} aria-label={`Parada ${n}: ${p.titulo}`}>{n}</button>
             ))}
           </div>
         </div>
       ))}
     </nav>
 
-    <div class="rec-juego">
-    <!-- Escenario: ventana que sigue al guía por el mundo panorámico -->
     <div class="rec-escenario" id="rec-escenario" tabindex="0" aria-label="Escenario del recorrido. Usa las flechas para avanzar.">
       <svg class="rec-mundo" id="rec-mundo" viewBox={`0 0 ${MUNDO_W} ${MUNDO_H}`} width={MUNDO_W} height={MUNDO_H} aria-hidden="true">
-        <!-- Pared y suelo continuos -->
         <rect x="0" y="0" width={MUNDO_W} height={SUELO_Y - 60} fill="#ECEAE5" />
         <rect x="0" y={SUELO_Y - 60} width={MUNDO_W} height="12" fill="#E2DFD8" />
         <rect x="0" y={SUELO_Y - 48} width={MUNDO_W} height={MUNDO_H - SUELO_Y + 48} fill="#E2DFD8" />
@@ -180,18 +340,15 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
           <rect x={k * 160 + 40} y={SUELO_Y + 30} width="60" height="5" rx="2" fill="#F2C14E" opacity=".55" />
         ))}
 
-        <!-- Puertas entre zonas -->
-        {puertas.map((p) => (
+        {puertas.map((px) => (
           <g>
-            <rect x={p.x} y="150" width="100" height={SUELO_Y - 192} rx="4" fill="#DAD7D0" />
-            <rect x={p.x + 10} y="162" width="80" height={SUELO_Y - 204} rx="2" fill="#C9C6BF" />
-            <rect x={p.x + 64} y="300" width="10" height="4" rx="2" fill="#5A5F66" />
-            <rect x={p.x + 22} y="122" width="56" height="20" rx="3" fill="#3FB950" />
-            <text x={p.x + 50} y="136" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" font-weight="600" fill="#FFFFFF">PASO</text>
+            <rect x={px} y="150" width="100" height={SUELO_Y - 192} rx="4" fill="#DAD7D0" />
+            <rect x={px + 10} y="162" width="80" height={SUELO_Y - 204} rx="2" fill="#C9C6BF" />
+            <rect x={px + 64} y="300" width="10" height="4" rx="2" fill="#5A5F66" />
+            <rect x={px + 22} y="122" width="56" height="20" rx="3" fill="#3FB950" />
+            <text x={px + 50} y="136" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" font-weight="600" fill="#FFFFFF">PASO</text>
           </g>
         ))}
-
-        <!-- Carteles de zona -->
         {carteles.map((c) => (
           <g>
             <rect x={c.x} y="10" width="250" height="36" rx="4" fill="#141618" />
@@ -201,25 +358,24 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
           </g>
         ))}
 
-        <!-- Escenas reutilizadas -->
+        <!-- Detalles de fondo -->
+        {huevos.map((h) => <g class={`rec-huevo rec-huevo-${h.tipo}`} set:html={h.svg} />)}
+
         {piezas.map((p) => <g class="rec-escena" data-escena={p.n} set:html={p.svg} />)}
 
-        <!-- Marcas de parada en el suelo -->
         {POSICIONES.slice(1, -1).map((px, i) => (
-          <g class="rec-marca" data-marca={i + 1}>
+          <g>
             <ellipse cx={px} cy={SUELO_Y + 4} rx="34" ry="8" fill="#F4521E" opacity=".18" />
             <text x={px} y={SUELO_Y + 50} text-anchor="middle" font-family="DM Mono, monospace" font-size="13" font-weight="700" fill="#C2410C">{String(i + 1).padStart(2, '0')}</text>
           </g>
         ))}
-
-        <!-- Final -->
         <g>
           <rect x={finalX + 40} y="170" width="110" height={SUELO_Y - 212} rx="4" fill="#F4521E" />
           <rect x={finalX + 52} y="182" width="86" height={SUELO_Y - 224} rx="2" fill="#D2421A" />
           <text x={finalX + 95} y="160" text-anchor="middle" font-family="Oswald, sans-serif" font-size="16" font-weight="600" fill="#141618">FIN DEL RECORRIDO</text>
         </g>
 
-        <!-- Guía: jefe de producción (de control-produccion.svg) con piernas y brazos sueltos -->
+        <!-- Andrés: jefe de producción de control-produccion.svg con piernas y brazos sueltos -->
         <g id="rec-guia" transform={`translate(${inicioX} ${SUELO_Y + 6})`}>
           <ellipse cx="0" cy="0" rx="46" ry="9" fill="#141618" opacity=".12" />
           <g id="rec-guia-cuerpo" transform="scale(0.78)">
@@ -259,7 +415,6 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
             <path d="M-8 -322Q-12 -346 6 -348Q22 -350 26 -336Q20 -338 12 -337Q6 -334 3 -328L-2 -320Z" fill="#2B1D16"/>
             <path d="M3 -327H11" stroke="#23272D" stroke-width="1.6"/>
             <rect x="11" y="-329" width="11" height="8" rx="2.5" fill="#FFFFFF" fill-opacity=".25" stroke="#23272D" stroke-width="1.8"/>
-            <!-- Brazo delantero: colgando al andar, señalando al pararse -->
             <g id="rec-brazo-b">
               <path d="M27 -284Q38 -248 34 -212" fill="none" stroke="#F2F0EC" stroke-width="16" stroke-linecap="round"/>
               <circle cx="34" cy="-204" r="7.5" fill="#D9937A"/>
@@ -270,14 +425,41 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
               <circle cx="96" cy="-340" r="7.5" fill="#D9937A"/>
             </g>
           </g>
-          <!-- Bocadillo del guía -->
-          <g id="rec-bocadillo" style="display:none">
-            <rect id="rec-bocadillo-fondo" x="-20" y="-330" width="220" height="44" rx="8" fill="#141618" />
-            <path d="M8 -287L18 -272L30 -287Z" fill="#141618" />
-            <text id="rec-bocadillo-texto" x="-6" y="-302" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF"></text>
-          </g>
         </g>
       </svg>
+
+      <!-- Bocadillos en HTML (se ajustan al texto) -->
+      <div class="rec-boc rec-boc-guia" id="rec-boc-guia" hidden></div>
+      <div class="rec-boc rec-boc-huevo" id="rec-boc-huevo" hidden></div>
+
+      <!-- Tarjeta de cada parada, dentro de la escena -->
+      <div class="rec-pop" id="rec-pop" aria-live="polite">
+        <article class="rec-tarjeta" data-tarjeta="0">
+          <div class="rec-tag" style="--c:var(--orange)">Antes de empezar</div>
+          <h2>Una mañana cualquiera en la fábrica</h2>
+          <p>Andrés te enseña la nave en 12 paradas: desde que se sube un procedimiento hasta que la mejora llega a todos los turnos. Fíjate también en lo que pasa por el camino.</p>
+          <p class="rec-pista">Pulsa <kbd>→</kbd> o <b>▶</b> para empezar.</p>
+        </article>
+        {PARADAS.map((p, i) => (
+          <article class="rec-tarjeta" data-tarjeta={i + 1} hidden>
+            <div class="rec-tag" style={`--c:${ZONAS[p.zona].color}`}>{ZONAS[p.zona].nombre} · {String(i + 1).padStart(2, '0')}/12</div>
+            <h2>{p.titulo}</h2>
+            <p class="rec-cita">«{p.dice}»</p>
+            <svg class="rec-grafico" viewBox="0 0 320 150" role="img" aria-label={`Esquema: ${p.titulo.toLowerCase()}`} set:html={GRAFICOS[p.grafico]} />
+            <p>{p.texto}</p>
+            <div class="rec-chip">{p.quien}</div>
+          </article>
+        ))}
+        <article class="rec-tarjeta" data-tarjeta="13" hidden>
+          <div class="rec-tag" style="--c:var(--green)">Fin del recorrido</div>
+          <h2>Hoy faltó Javi y la punzonadora siguió funcionando</h2>
+          <p>Eso es REELEVO: el procedimiento de cada máquina en el móvil del operario, y lo que pasa en planta, en tu pantalla. Sin instalar nada y sin cuentas de operario.</p>
+          <div class="rec-ctas">
+            <a class="btn-primary" href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="recorrido" data-cta-label="Registrarme gratis">Registrarme gratis</a>
+            <button type="button" class="btn-ghost" id="rec-reiniciar">Volver a empezar</button>
+          </div>
+        </article>
+      </div>
 
       <div class="rec-controles">
         <button type="button" class="rec-btn" id="rec-atras" aria-label="Parada anterior">◀</button>
@@ -285,73 +467,9 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
         <button type="button" class="rec-btn rec-btn-adelante" id="rec-adelante" aria-label="Siguiente parada">▶</button>
       </div>
     </div>
-
-    <!-- Panel de explicación de la parada -->
-    <div class="rec-panel" id="rec-panel" aria-live="polite">
-      <article class="rec-ficha" data-ficha="0">
-        <div class="rec-texto">
-          <div class="rec-zona-tag" style="--c:var(--orange)">Antes de empezar</div>
-          <h2>Una mañana cualquiera en la fábrica</h2>
-          <p>Vas a recorrer la nave con el jefe de producción. En 12 paradas verás todo lo que hace REELEVO: desde subir un procedimiento hasta que la mejora llega a todos los turnos.</p>
-          <p class="rec-pista">Pulsa <kbd>→</kbd> o <b>▶</b> para empezar.</p>
-        </div>
-      </article>
-      {datos.map((d) => (
-        <article class="rec-ficha" data-ficha={d.n} hidden>
-          <div class="rec-texto rec-cabecera-ficha">
-            <div class="rec-zona-tag" style={`--c:${ZONAS[d.zona].color}`}>{ZONAS[d.zona].nombre} · {ZONAS[d.zona].sub.toLowerCase()}</div>
-            <div class="rec-num">{String(d.n).padStart(2, '0')}<span>/12</span></div>
-            <h2>{d.titulo}</h2>
-          </div>
-          <div class="rec-texto rec-cuerpo-ficha">
-            <p>{d.texto}</p>
-            {d.cajas.length > 0 && (
-              <ol class="rec-leyenda">{d.cajas.map((c, i) => <li><b>{i + 1}</b>{c.t}</li>)}</ol>
-            )}
-            <div class="rec-chip">{d.quien}</div>
-          </div>
-          {d.img ? (
-            <figure class:list={['rec-pantalla', { alta: d.recorte.h > d.recorte.w }]}>
-              <div class="rec-barra-ventana"><i></i><i></i><i></i><span>Captura real · REELEVO</span></div>
-              <div class="rec-lienzo" style={`aspect-ratio:${d.recorte.w}/${d.recorte.h}`}>
-                <img src={d.img.src} width={d.img.w} height={d.img.h} alt={`Captura de REELEVO: ${d.titulo.toLowerCase()}`} loading="lazy" decoding="async" />
-                <svg class="rec-capa" viewBox={`0 0 ${d.recorte.w} ${d.recorte.h}`} preserveAspectRatio="none" aria-hidden="true">
-                  <defs><mask id={`rec-m${d.n}`}><rect width={d.recorte.w} height={d.recorte.h} fill="white" />{d.cajas.map((c) => <rect x={c.x} y={c.y} width={c.w} height={c.h} rx="6" fill="black" />)}</mask></defs>
-                  <rect width={d.recorte.w} height={d.recorte.h} fill="rgba(8,9,10,.42)" mask={`url(#rec-m${d.n})`} />
-                  {d.cajas.map((c) => <rect class="rec-anillo" x={c.x} y={c.y} width={c.w} height={c.h} rx="6" />)}
-                </svg>
-                {d.cajas.map((c, i) => <span class="rec-pin" style={`left:${c.l}%;top:${c.tp}%`}>{i + 1}</span>)}
-              </div>
-            </figure>
-          ) : (
-            <figure class="rec-pantalla rec-pendiente">
-              <div class="rec-barra-ventana"><i></i><i></i><i></i><span>Captura pendiente</span></div>
-              <div class="rec-pendiente-cuerpo">
-                <strong>Captura pendiente</strong>
-                <span>{d.pendiente}</span>
-                <small>Esta parada mostrará la pantalla real en cuanto tengamos la captura.</small>
-              </div>
-            </figure>
-          )}
-        </article>
-      ))}
-      <article class="rec-ficha" data-ficha="13" hidden>
-        <div class="rec-texto">
-          <div class="rec-zona-tag" style="--c:var(--green)">Fin del recorrido</div>
-          <h2>Hoy faltó Javi y la punzonadora siguió funcionando</h2>
-          <p>Eso es REELEVO: el procedimiento de cada máquina en el móvil del operario, y lo que pasa en planta, en tu pantalla. Sin instalar nada y sin cuentas de operario.</p>
-          <div class="rec-ctas">
-            <a class="btn-primary" href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="recorrido" data-cta-label="Registrarme gratis">Registrarme gratis</a>
-            <a class="btn-ghost" href="/video-demo/">Ver la demo interactiva</a>
-            <button type="button" class="btn-ghost" id="rec-reiniciar">Volver a empezar</button>
-          </div>
-        </div>
-      </article>
-    </div>
-    </div>
   </section>
 
-  <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], BOCADILLOS: ['¡Vamos allá!', ...PARADAS.map((p) => p.titulo), '¡Listo!'] }}>
+  <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, HUEVOS, SUELO: SUELO_Y + 6, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], DICE: [DICE_INICIO, ...PARADAS.map((p) => p.dice), DICE_FIN] }}>
     const escenario = document.getElementById('rec-escenario');
     const mundo = document.getElementById('rec-mundo');
     const guia = document.getElementById('rec-guia');
@@ -361,33 +479,39 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
     const brazoA = document.getElementById('rec-brazo-a');
     const brazoB = document.getElementById('rec-brazo-b');
     const senala = document.getElementById('rec-brazo-senala');
-    const bocadillo = document.getElementById('rec-bocadillo');
-    const bocTexto = document.getElementById('rec-bocadillo-texto');
-    const bocFondo = document.getElementById('rec-bocadillo-fondo');
+    const bocGuia = document.getElementById('rec-boc-guia');
+    const bocHuevo = document.getElementById('rec-boc-huevo');
+    const pop = document.getElementById('rec-pop');
     const contador = document.getElementById('rec-contador');
-    const fichas = [...document.querySelectorAll('.rec-ficha')];
+    const tarjetas = [...document.querySelectorAll('.rec-tarjeta')];
     const puntos = [...document.querySelectorAll('.rec-punto')];
     const escenas = [...document.querySelectorAll('.rec-escena')];
     const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const SUELO = Number(guia.getAttribute('transform').match(/translate\([^ ]+ ([^)]+)\)/)[1]);
 
-    let parada = 0;           // parada actual (0 = inicio, 13 = fin)
-    let gx = POSICIONES[0];   // posición del guía
-    let destino = null;       // parada hacia la que camina
-    let fase = 0;
-    let ultimo = 0;
-    const VEL = 340;          // unidades del mundo por segundo
+    let parada = 0, gx = POSICIONES[0], destino = null, fase = 0, ultimo = 0, dir = 1;
+    let s = 1, off = 0, ty = 0;
+    const VEL = 340;
+    const huevoActivo = { i: -1, hasta: 0, respuesta: 0 };
+    const disparados = new Set();
 
-    function escala() { return escenario.clientHeight / MUNDO_H; }
+    // Encuadre: en escritorio el mundo ocupa toda la altura; en móvil se ancla abajo
+    // y la tarjeta ocupa la parte de arriba del escenario.
     function camara() {
-      const s = escala();
-      const ancho = escenario.clientWidth;
-      const total = MUNDO_W * s;
-      let off = gx * s - ancho * 0.14;
-      off = Math.max(0, Math.min(off, total - ancho));
-      mundo.style.transform = `translateX(${-off}px) scale(${s})`;
+      const W = escenario.clientWidth, H = escenario.clientHeight;
+      const movil = W < 760;
+      s = (movil ? H * 0.58 : H) / MUNDO_H;
+      ty = H - MUNDO_H * s;
+      off = Math.max(0, Math.min(gx * s - W * (movil ? 0.12 : 0.25), MUNDO_W * s - W));
+      mundo.style.transform = `translate(${-off}px, ${ty}px) scale(${s})`;
+      colocar(bocGuia, gx + 30, SUELO - 270);
+      const h = HUEVOS[huevoActivo.i];
+      if (h) colocar(bocHuevo, h.cabeza[0], h.cabeza[1] - 20);
     }
-    function pose(andando, dir) {
+    function colocar(el, wx, wy) {
+      el.style.left = `${wx * s - off}px`;
+      el.style.top = `${wy * s + ty}px`;
+    }
+    function pose(andando) {
       const a = andando ? Math.sin(fase) * 16 : 0;
       piernaA.setAttribute('transform', `rotate(${a} -11 -182)`);
       piernaB.setAttribute('transform', `rotate(${-a} 11 -182)`);
@@ -400,13 +524,13 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       guia.setAttribute('transform', `translate(${gx} ${SUELO})`);
     }
     function decir(texto) {
-      bocTexto.textContent = texto;
-      const w = Math.max(120, bocTexto.getComputedTextLength() + 28);
-      bocFondo.setAttribute('width', w);
-      bocadillo.style.display = '';
+      if (!texto) { bocGuia.hidden = true; return; }
+      bocGuia.textContent = texto;
+      bocGuia.hidden = false;
     }
     function mostrar(n) {
-      fichas.forEach((f) => { f.hidden = Number(f.dataset.ficha) !== n; });
+      tarjetas.forEach((t) => { t.hidden = Number(t.dataset.tarjeta) !== n; });
+      pop.classList.add('abierto');
       puntos.forEach((p) => {
         const k = Number(p.dataset.ir);
         p.classList.toggle('activo', k === n);
@@ -416,71 +540,107 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       escenas.forEach((e) => { if (Number(e.dataset.escena) <= n) e.classList.add('vista'); });
       escenas.forEach((e) => e.classList.toggle('actual', Number(e.dataset.escena) === n));
       contador.textContent = n === 0 ? 'Inicio' : n === 13 ? 'Fin' : `${n} / 12 · ${TITULOS[n]}`;
-      decir(BOCADILLOS[n]);
-      try {
-        if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] });
-      } catch (e) { /* sin analítica */ }
+      decir(DICE[n]);
+      camara();
+      try { if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] }); } catch (e) { /* sin analítica */ }
     }
     function ir(n) {
       n = Math.max(0, Math.min(13, n));
       if (n === parada && destino === null) return;
       destino = n;
-      bocadillo.style.display = 'none';
+      pop.classList.remove('abierto');
+      decir('');
       if (reducido) { gx = POSICIONES[n]; llegar(); return; }
       ultimo = 0;
       requestAnimationFrame(paso);
     }
     function llegar() {
-      parada = destino; destino = null;
-      pose(false, 1); camara(); mostrar(parada);
+      parada = destino; destino = null; dir = 1;
+      if (huevoActivo.i !== -1) {
+        document.querySelector(`.rec-huevo-${HUEVOS[huevoActivo.i].tipo}`)?.classList.remove('activo');
+        huevoActivo.i = -1;
+      }
+      bocHuevo.hidden = true;
+      pose(false); mostrar(parada);
+    }
+    // Detalles de fondo: cuando Andrés pasa cerca, el personaje dice algo y él responde.
+    function huevos(t) {
+      HUEVOS.forEach((h, i) => {
+        const cerca = Math.abs(gx - h.dispara) < 110;
+        if (cerca && !disparados.has(i) && huevoActivo.i === -1) {
+          disparados.add(i);
+          huevoActivo.i = i; huevoActivo.hasta = t + 2600; huevoActivo.respuesta = t + 1300;
+          bocHuevo.textContent = h.dice; bocHuevo.hidden = false;
+          document.querySelector(`.rec-huevo-${h.tipo}`)?.classList.add('activo');
+        }
+        if (!cerca && Math.abs(gx - h.dispara) > 600) disparados.delete(i);
+      });
+      const h = HUEVOS[huevoActivo.i];
+      if (h) {
+        if (h.responde && t > huevoActivo.respuesta && bocGuia.hidden) decir(h.responde);
+        if (t > huevoActivo.hasta) {
+          bocHuevo.hidden = true;
+          document.querySelector(`.rec-huevo-${h.tipo}`)?.classList.remove('activo');
+          if (destino !== null) decir('');
+          huevoActivo.i = -1;
+        }
+      }
     }
     function paso(t) {
       if (destino === null) return;
       const dt = ultimo ? Math.min(0.05, (t - ultimo) / 1000) : 0.016;
       ultimo = t;
       const obj = POSICIONES[destino];
-      const dir = obj >= gx ? 1 : -1;
-      // Saltos largos (barra de progreso) van más rápido para no hacerse eternos.
+      dir = obj >= gx ? 1 : -1;
       const vel = Math.abs(obj - gx) > 2500 ? VEL * 4 : VEL;
       gx += dir * vel * dt;
       fase += dt * 11;
       if ((dir > 0 && gx >= obj) || (dir < 0 && gx <= obj)) { gx = obj; llegar(); return; }
-      pose(true, dir); camara();
+      huevos(t);
+      pose(true); camara();
       requestAnimationFrame(paso);
     }
+    // Al pararse, el último bocadillo de un detalle se cierra solo.
+    setInterval(() => {
+      if (destino === null && huevoActivo.i !== -1 && performance.now() > huevoActivo.hasta) {
+        bocHuevo.hidden = true;
+        document.querySelector(`.rec-huevo-${HUEVOS[huevoActivo.i].tipo}`)?.classList.remove('activo');
+        huevoActivo.i = -1;
+      }
+    }, 500);
 
-    document.getElementById('rec-adelante').addEventListener('click', () => ir((destino ?? parada) + 1));
-    document.getElementById('rec-atras').addEventListener('click', () => ir((destino ?? parada) - 1));
+    const siguiente = () => ir((destino ?? parada) + 1);
+    const anterior = () => ir((destino ?? parada) - 1);
+    document.getElementById('rec-adelante').addEventListener('click', siguiente);
+    document.getElementById('rec-atras').addEventListener('click', anterior);
     document.getElementById('rec-reiniciar').addEventListener('click', () => ir(0));
     puntos.forEach((p) => p.addEventListener('click', () => ir(Number(p.dataset.ir))));
     document.addEventListener('keydown', (e) => {
       const t = e.target;
       if (t instanceof HTMLElement && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName))) return;
-      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { e.preventDefault(); ir((destino ?? parada) + 1); }
-      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') { e.preventDefault(); ir((destino ?? parada) - 1); }
+      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { e.preventDefault(); siguiente(); }
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') { e.preventDefault(); anterior(); }
     });
-    // Deslizar el dedo sobre el escenario también avanza.
     let x0 = null;
     escenario.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     escenario.addEventListener('touchend', (e) => {
       if (x0 === null) return;
       const dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) > 40) ir((destino ?? parada) + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 40) (dx < 0 ? siguiente : anterior)();
     });
     window.addEventListener('resize', camara);
-    pose(false, 1); camara(); mostrar(0);
+    pose(false); mostrar(0);
   </script>
 </BaseLayout>
 
 <style>
-  .rec { max-width: 1320px; margin: 0 auto; padding: 96px 24px 64px; }
+  .rec { max-width: 1320px; margin: 0 auto; padding: 96px 24px 56px; }
   .rec-cab h1 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.05; margin: 10px 0 8px; }
   .rec-cab h1 em { font-style: normal; color: var(--orange-ink); }
-  .rec-ayuda { color: var(--gray); margin: 0 0 22px; max-width: 720px; }
+  .rec-ayuda { color: var(--gray); margin: 0 0 18px; max-width: 760px; }
   kbd { font-family: 'DM Mono', monospace; font-size: .8em; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; background: var(--surface2); }
 
-  /* barra de progreso */
-  .rec-barra { display: grid; grid-template-columns: 3fr 4fr 3fr 2fr; gap: 10px; margin-bottom: 14px; }
+  .rec-barra { display: grid; grid-template-columns: 3fr 4fr 3fr 2fr; gap: 10px; margin-bottom: 12px; }
   .rec-zona { border-top: 3px solid var(--c); padding-top: 6px; }
   .rec-zona-nombre { display: block; font: 500 .66rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--gray2); margin-bottom: 6px; }
   .rec-puntos { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -488,81 +648,79 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   .rec-punto.visto { background: var(--surface3); color: var(--steel); }
   .rec-punto.activo { background: var(--orange); border-color: var(--orange); color: #fff; box-shadow: 0 0 0 4px var(--orange-dim); }
 
-  /* escenario */
-  .rec-escenario { position: relative; height: min(56vh, 520px); min-height: 300px; overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: #ECEAE5; outline: none; }
+  .rec-escenario { position: relative; height: clamp(440px, calc(100vh - 250px), 660px); overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: #ECEAE5; outline: none; }
   .rec-escenario:focus-visible { box-shadow: 0 0 0 3px var(--orange-dim); }
   .rec-mundo { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
-  .rec-controles { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; align-items: center; gap: 14px; pointer-events: none; }
+
+  /* Bocadillos */
+  .rec-boc { position: absolute; z-index: 3; max-width: 270px; transform: translate(-20px, -100%); padding: 10px 14px; border-radius: 12px; font: 500 .9rem/1.4 'DM Sans', sans-serif; box-shadow: 0 8px 20px rgba(20,22,24,.18); pointer-events: none; }
+  .rec-boc::after { content: ''; position: absolute; left: 22px; bottom: -9px; border: 10px solid transparent; border-bottom: 0; }
+  .rec-boc-guia { background: var(--steel); color: #fff; transform: translate(-100%, -100%); }
+  .rec-boc-guia::after { border-top-color: var(--steel); left: auto; right: 16px; }
+  .rec-boc-huevo { background: #fff; color: var(--steel); border: 1px solid var(--border); }
+  .rec-boc-huevo::after { border-top-color: #fff; }
+  .rec-boc[hidden] { display: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .rec-boc:not([hidden]) { animation: recBoc .4s cubic-bezier(.34, 1.56, .64, 1); }
+  }
+
+  /* Tarjeta de la parada */
+  .rec-pop { position: absolute; z-index: 4; top: 16px; right: 16px; width: min(350px, 30%); max-height: calc(100% - 100px); overflow: auto; background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: 0 18px 40px rgba(20,22,24,.18); opacity: 0; transform: translateY(10px) scale(.97); pointer-events: none; transition: opacity .25s, transform .25s; }
+  .rec-pop.abierto { opacity: 1; transform: none; pointer-events: auto; }
+  .rec-tarjeta[hidden] { display: none; }
+  .rec-tag { display: inline-block; font: 500 .66rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; border-left: 3px solid var(--c); padding: 2px 8px; color: var(--gray); }
+  .rec-tarjeta h2 { font: 600 1.3rem/1.1 'Oswald', sans-serif; text-transform: uppercase; margin: 10px 0 10px; }
+  .rec-grafico { display: block; width: 100%; height: auto; background: #fff; border-radius: 8px; border: 1px solid var(--border); padding: 6px; margin-bottom: 12px; }
+  .rec-tarjeta p { color: var(--gray); line-height: 1.6; margin: 0 0 12px; font-size: .95rem; }
+  .rec-pista { font-family: 'DM Mono', monospace; font-size: .85rem; }
+  .rec-cita { display: none; }
+  .rec-chip { display: inline-block; font: .66rem 'DM Mono', monospace; padding: 4px 8px; border-radius: 4px; background: var(--orange-dim); color: var(--orange-ink); }
+  .rec-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+  .rec-controles { position: absolute; z-index: 5; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; align-items: center; gap: 14px; pointer-events: none; }
   .rec-btn { pointer-events: auto; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--steel); color: #fff; font-size: 1.2rem; cursor: pointer; box-shadow: 0 6px 16px rgba(20,22,24,.25); }
   .rec-btn-adelante { background: var(--orange); }
-  .rec-contador { pointer-events: auto; font: 500 .74rem 'DM Mono', monospace; background: rgba(246,245,242,.92); border: 1px solid var(--border); padding: 7px 12px; border-radius: 999px; max-width: 52vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rec-contador { pointer-events: auto; font: 500 .74rem 'DM Mono', monospace; background: rgba(246,245,242,.92); border: 1px solid var(--border); padding: 7px 12px; border-radius: 999px; max-width: 50vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  /* animaciones de las escenas: las de Ilustracion.astro, disparadas al llegar */
+  /* Animaciones de las escenas (las de Ilustracion.astro) y de los detalles */
   .rec-escena :global(.ilus-bubble) { opacity: 0; transform: translateY(10px) scale(.85); transform-box: fill-box; transform-origin: 30% 100%; }
   .rec-escena.vista :global(.ilus-bubble) { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: no-preference) {
     .rec-escena.actual :global(.ilus-bubble) { opacity: 0; animation: recPop .55s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(.2s + var(--i, 0) * .3s); }
-    .rec-escena :global(.ilus-breathe) { animation: recBreathe 4.2s ease-in-out infinite; animation-delay: var(--d, 0s); transform-box: fill-box; transform-origin: 50% 100%; }
-    .rec-escena :global(.ilus-blink) { animation: recBlink 2.4s ease-in-out infinite; }
+    .rec-escena :global(.ilus-breathe), .rec-huevo :global(.ilus-breathe) { animation: recBreathe 4.2s ease-in-out infinite; animation-delay: var(--d, 0s); transform-box: fill-box; transform-origin: 50% 100%; }
+    .rec-escena :global(.ilus-blink), .rec-huevo :global(.ilus-blink) { animation: recBlink 2.4s ease-in-out infinite; }
+    .rec-huevo :global(.rec-vapor) { animation: recVapor 2.2s ease-out infinite; }
+    .rec-huevo :global(.rec-gira) { transform-box: fill-box; transform-origin: center; animation: recGira 3s linear infinite; }
+    .rec-huevo :global(.rec-aprieta) { transform-box: fill-box; transform-origin: 50% 100%; animation: recAprieta 1.1s ease-in-out infinite; }
+    .rec-huevo :global(.rec-carretilla) { animation: recCarretilla 9s ease-in-out infinite alternate; }
+    .rec-huevo-saludo.activo :global(.rec-saluda) { transform-box: fill-box; transform-origin: 50% 100%; animation: recSaluda .5s ease-in-out 4 alternate; }
   }
   @keyframes recPop { to { opacity: 1; transform: none; } }
+  @keyframes recBoc { from { opacity: 0; transform: translate(-20px, -90%) scale(.9); } to { opacity: 1; transform: translate(-20px, -100%); } }
   @keyframes recBreathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
   @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+  @keyframes recVapor { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: .9; } 100% { opacity: 0; transform: translateY(-10px); } }
+  @keyframes recGira { to { transform: rotate(360deg); } }
+  @keyframes recAprieta { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-1.5deg); } }
+  @keyframes recCarretilla { from { transform: translateX(0); } to { transform: translateX(190px); } }
+  @keyframes recSaluda { from { transform: rotate(0); } to { transform: rotate(-3deg) translateY(-4px); } }
 
-  /* panel */
-  .rec-panel { margin-top: 22px; }
-  .rec-ficha[hidden] { display: none; }
-  .rec-ficha { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-areas: "cab fig" "cuerpo fig"; column-gap: 36px; row-gap: 0; align-items: start; }
-  .rec-cabecera-ficha { grid-area: cab; }
-  .rec-cuerpo-ficha { grid-area: cuerpo; }
-  .rec-ficha > .rec-pantalla { grid-area: fig; }
-  .rec-ficha[data-ficha="0"], .rec-ficha[data-ficha="13"] { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
-  .rec-zona-tag { display: inline-block; font: 500 .68rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; border-left: 3px solid var(--c); padding: 2px 8px; color: var(--gray); }
-  .rec-num { font: 700 2.6rem/1 'Oswald', sans-serif; color: var(--orange); margin: 12px 0 2px; }
-  .rec-num span { font-size: 1rem; color: var(--gray2); margin-left: 4px; }
-  .rec-texto h2 { font: 600 1.6rem/1.1 'Oswald', sans-serif; text-transform: uppercase; margin: 10px 0 10px; }
-  .rec-texto p { color: var(--gray); line-height: 1.65; margin: 0 0 14px; }
-  .rec-pista { font-family: 'DM Mono', monospace; font-size: .85rem; }
-  .rec-leyenda { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
-  .rec-leyenda li { display: flex; gap: 10px; align-items: center; font-size: .92rem; }
-  .rec-leyenda b, .rec-pin { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--orange); color: #fff; font: 600 .78rem 'Oswald', sans-serif; display: grid; place-items: center; }
-  .rec-chip { display: inline-block; font: .66rem 'DM Mono', monospace; padding: 4px 8px; border-radius: 4px; background: var(--orange-dim); color: var(--orange-ink); }
-  .rec-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
-
-  .rec-pantalla { margin: 0; background: #0E1012; border-radius: 10px; overflow: hidden; border: 1px solid #2A2E33; box-shadow: 0 20px 44px rgba(20,22,24,.2); }
-  .rec-pantalla.alta { max-width: 340px; justify-self: center; width: 100%; }
-  .rec-barra-ventana { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #1B1E22; }
-  .rec-barra-ventana i { width: 9px; height: 9px; border-radius: 50%; background: #3A3F45; }
-  .rec-barra-ventana span { margin-left: auto; font: .62rem 'DM Mono', monospace; color: #8A9097; }
-  .rec-lienzo { position: relative; overflow: hidden; }
-  .rec-lienzo img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-  .rec-capa { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .rec-anillo { fill: none; stroke: var(--orange); stroke-width: 2.5px; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 6px rgba(244,82,30,.7)); }
-  .rec-pin { position: absolute; transform: translate(-50%, -50%); width: 26px; height: 26px; box-shadow: 0 0 0 4px rgba(244,82,30,.35), 0 4px 10px rgba(0,0,0,.4); z-index: 2; }
-  .rec-pendiente { border-style: dashed; border-color: var(--border); background: var(--paper); box-shadow: none; }
-  .rec-pendiente .rec-barra-ventana { background: var(--surface3); }
-  .rec-pendiente .rec-barra-ventana span { color: var(--gray2); }
-  .rec-pendiente-cuerpo { aspect-ratio: 16 / 10; display: grid; place-content: center; gap: 6px; text-align: center; padding: 24px; color: var(--gray); }
-  .rec-pendiente-cuerpo strong { font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--steel); }
-  .rec-pendiente-cuerpo small { font-family: 'DM Mono', monospace; font-size: .72rem; }
-
-  /* Escritorio: fábrica y explicación lado a lado, todo a la vista sin bajar */
-  @media (min-width: 1000px) {
-    .rec-juego { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
-    .rec-escenario { height: clamp(360px, calc(100vh - 360px), 600px); }
-    .rec-panel { margin-top: 0; max-height: clamp(360px, calc(100vh - 360px), 600px); overflow: auto; padding-right: 6px; }
-    .rec-ficha, .rec-ficha[data-ficha="0"], .rec-ficha[data-ficha="13"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "cab" "fig" "cuerpo"; row-gap: 14px; }
-    .rec-num { font-size: 2.1rem; margin-top: 8px; }
-    .rec-texto h2 { font-size: 1.35rem; }
-    .rec-texto p { margin-bottom: 10px; }
-    .rec-leyenda { margin-bottom: 10px; gap: 6px; }
-    .rec-pantalla.alta { max-width: 240px; }
-  }
   @media (max-width: 900px) {
-    .rec { padding: 92px 16px 48px; }
+    .rec { padding: 92px 16px 40px; }
     .rec-barra { grid-template-columns: 1fr 1fr; }
-    .rec-escenario { height: 46vh; min-height: 280px; }
-    .rec-ficha { grid-template-columns: minmax(0, 1fr); grid-template-areas: "cab" "fig" "cuerpo"; row-gap: 16px; }
-    .rec-btn { width: 52px; height: 52px; }
+    .rec-escenario { height: max(560px, 78vh); }
+  }
+  /* Móvil: la tarjeta ocupa la parte de arriba del escenario; la fábrica, la de abajo */
+  @media (max-width: 759px) {
+    .rec-pop { top: 10px; left: 10px; right: 10px; width: auto; max-height: 40%; padding: 14px 16px; }
+    .rec-tarjeta h2 { font-size: 1.1rem; margin: 6px 0 8px; }
+    .rec-grafico { max-height: 120px; }
+    .rec-tarjeta p { font-size: .88rem; }
+    .rec-boc { max-width: 220px; font-size: .82rem; }
+    .rec-boc-guia { display: none; }
+    .rec-tarjeta .rec-cita { display: block; font-style: italic; color: var(--steel); background: #fff; border-left: 3px solid var(--orange); padding: 8px 10px; border-radius: 4px; }
+    .rec-pop { max-height: 44%; }
+    .rec-chip { display: none; }
+    .rec-btn { width: 50px; height: 50px; }
   }
 </style>
