@@ -1,7 +1,7 @@
 ---
 import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import StorylaneDemo from '../components/StorylaneDemo.astro';
+import RecorridoReelevo from '../components/RecorridoReelevo.astro';
 import Ilustracion from '../components/Ilustracion.astro';
 import { getPagina, conNegritas, conSaltos, sinMarcas } from '../lib/contenido';
 
@@ -219,17 +219,16 @@ const schema = [howToSchema, faqSchema];
 
   <div class="divider"></div>
 
-  <!-- DEMO INTERACTIVO -->
+  <!-- RECORRIDO INTERACTIVO (sustituye a la demo de Storylane, que sigue en /video-demo/) -->
   <section class="section section-center">
     <div class="section-inner">
       <div class="fade-up">
         <div class="eyebrow">Pruébalo tú</div>
         <h2 class="section-title">Míralo por dentro <em>antes de seguir leyendo</em></h2>
-        <p class="section-sub">Recorre el producto a tu ritmo, haciendo clic tú mismo. Sin registro y sin instalar nada.
-        </p>
+        <p class="section-sub">Acompaña a Andrés por la fábrica con las flechas y mira qué hace REELEVO en cada puesto. Sin registro y sin instalar nada.</p>
       </div>
       <div class="demo-slot fade-up delay-1">
-        <StorylaneDemo />
+        <RecorridoReelevo />
       </div>
     </div>
   </section>

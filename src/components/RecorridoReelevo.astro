@@ -1,11 +1,11 @@
 ---
-// PROTOTIPO · Recorrido interactivo por la fábrica (presentación con estética de
+// Recorrido interactivo por la fábrica (presentación con estética de
 // juego de plataformas). Andrés, el jefe de producción, recorre una nave
 // panorámica de izquierda a derecha y se para en 12 puntos. En cada parada se
 // abre, dentro de la escena, una tarjeta con un gráfico dibujado que explica lo
 // que hace REELEVO en ese momento (sin capturas de la app).
 //
-// - No se indexa (noindex) y no está en el sitemap ni en el menú: es para revisar.
+// - Va incrustado en /como-funciona/ (sección «Pruébalo tú»), en lugar de la demo de Storylane.
 // - El escenario reutiliza las escenas de src/assets/ilustraciones/ tal cual,
 //   sobre un único suelo. Andrés es el jefe de producción de
 //   control-produccion.svg con las piernas y los brazos separados para andar.
@@ -13,7 +13,6 @@
 //   y carretilla. Reaccionan cuando Andrés pasa cerca.
 // - Controles: flechas ← → (o A / D), botones ◀ ▶, deslizar y la barra de paradas.
 // - Con «reducir movimiento» no hay paseo: la cámara salta de parada en parada.
-import BaseLayout from '../layouts/BaseLayout.astro';
 
 const escenasRaw = import.meta.glob('../assets/ilustraciones/*.svg', {
   query: '?raw', import: 'default', eager: true,
@@ -343,17 +342,9 @@ const POSICIONES = [inicioX, ...paradasX, finalX];
 const CHARLAS = DIALOGOS.map((d, n) => d.map(([i, texto]) => ({ texto, pos: cabezas[n]?.[i] })).filter((l) => l.pos));
 const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo, dispara, dice, responde, cabeza }));
 
-const title = 'Recorrido por la fábrica · Cómo funciona REELEVO (prototipo)';
-const description = 'Prototipo de presentación interactiva: recorre una fábrica con Andrés y ve qué hace REELEVO en cada punto.';
 ---
 
-<BaseLayout title={title} description={description} noindex={true} pageType="core">
-  <section class="rec" aria-labelledby="rec-titulo">
-    <header class="rec-cab">
-      <div class="eyebrow">Prototipo · Recorrido interactivo</div>
-      <h1 id="rec-titulo">Recorre la fábrica y mira <em>qué hace REELEVO</em></h1>
-      <p class="rec-ayuda">Avanza con las flechas <kbd>←</kbd> <kbd>→</kbd> o con los botones. Andrés se para en cada punto y te lo explica.</p>
-    </header>
+<div class="rec">
 
     <nav class="rec-barra" aria-label="Paradas del recorrido">
       {ZONAS.map((z, zi) => (
@@ -475,14 +466,14 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       <div class="rec-pop" id="rec-pop" aria-live="polite">
         <article class="rec-tarjeta" data-tarjeta="0">
           <div class="rec-tag" style="--c:var(--orange)">Antes de empezar</div>
-          <h2>Una mañana cualquiera en la fábrica</h2>
+          <h3>Una mañana cualquiera en la fábrica</h3>
           <p>Andrés te enseña la nave en 12 paradas: desde que se sube un procedimiento hasta que la mejora llega a todos los turnos. Fíjate también en lo que pasa por el camino.</p>
           <p class="rec-pista">Pulsa <kbd>→</kbd> o <b>▶</b> para empezar.</p>
         </article>
         {PARADAS.map((p, i) => (
           <article class="rec-tarjeta" data-tarjeta={i + 1} hidden>
             <div class="rec-tag" style={`--c:${ZONAS[p.zona].color}`}>{ZONAS[p.zona].nombre} · {String(i + 1).padStart(2, '0')}/12</div>
-            <h2>{p.titulo}</h2>
+            <h3>{p.titulo}</h3>
             <p class="rec-cita">«{p.dice}»</p>
             <svg class="rec-grafico" viewBox="0 0 320 150" role="img" aria-label={`Esquema: ${p.titulo.toLowerCase()}`} set:html={GRAFICOS[p.grafico]} />
             <p>{p.texto}</p>
@@ -491,7 +482,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
         ))}
         <article class="rec-tarjeta" data-tarjeta="13" hidden>
           <div class="rec-tag" style="--c:var(--green)">Fin del recorrido</div>
-          <h2>Hoy faltó Javi y la punzonadora siguió funcionando</h2>
+          <h3>Hoy faltó Javi y la punzonadora siguió funcionando</h3>
           <p>Eso es REELEVO: el procedimiento de cada máquina en el móvil del operario, y lo que pasa en planta, en tu pantalla. Sin instalar nada y sin cuentas de operario.</p>
           <div class="rec-ctas">
             <a class="btn-primary" href="https://app.gmvsolutions.es/registro" data-cta data-cta-intent="registro" data-cta-location="recorrido" data-cta-label="Registrarme gratis">Registrarme gratis</a>
@@ -506,7 +497,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
         <button type="button" class="rec-btn rec-btn-adelante" id="rec-adelante" aria-label="Siguiente parada">▶</button>
       </div>
     </div>
-  </section>
+</div>
 
   <script define:vars={{ POSICIONES, MUNDO_W, MUNDO_H, HUEVOS, CHARLAS, SUELO: SUELO_Y + 6, TITULOS: ['Inicio', ...PARADAS.map((p) => p.titulo), 'Fin'], DICE: [DICE_INICIO, ...PARADAS.map((p) => p.dice), DICE_FIN] }}>
     const escenario = document.getElementById('rec-escenario');
@@ -609,6 +600,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
         t += dura(l.texto);
       });
     }
+    let iniciado = false;
     function mostrar(n) {
       tarjetas.forEach((t) => { t.hidden = Number(t.dataset.tarjeta) !== n; });
       pop.classList.add('abierto');
@@ -624,7 +616,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       decir(DICE[n]);
       conversar(n);
       camara();
-      try { if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] }); } catch (e) { /* sin analítica */ }
+      if (n !== 0 || iniciado) try { if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] }); } catch (e) { /* sin analítica */ }
     }
     function ir(n) {
       n = Math.max(0, Math.min(13, n));
@@ -698,7 +690,10 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
     document.getElementById('rec-atras').addEventListener('click', anterior);
     document.getElementById('rec-reiniciar').addEventListener('click', () => ir(0));
     puntos.forEach((p) => p.addEventListener('click', () => ir(Number(p.dataset.ir))));
+    let enVista = false;
+    new IntersectionObserver(([en]) => { enVista = en.isIntersecting; }, { threshold: 0.4 }).observe(escenario);
     document.addEventListener('keydown', (e) => {
+      if (!enVista) return;
       const t = e.target;
       if (t instanceof HTMLElement && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName))) return;
       if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { e.preventDefault(); siguiente(); }
@@ -712,15 +707,11 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
       if (Math.abs(dx) > 40) (dx < 0 ? siguiente : anterior)();
     });
     window.addEventListener('resize', camara);
-    pose(false); mostrar(0);
+    pose(false); mostrar(0); iniciado = true;
   </script>
-</BaseLayout>
 
 <style>
-  .rec { max-width: 1320px; margin: 0 auto; padding: 96px 24px 56px; }
-  .rec-cab h1 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.05; margin: 10px 0 8px; }
-  .rec-cab h1 em { font-style: normal; color: var(--orange-ink); }
-  .rec-ayuda { color: var(--gray); margin: 0 0 18px; max-width: 760px; }
+  .rec { text-align: left; }
   kbd { font-family: 'DM Mono', monospace; font-size: .8em; border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; background: var(--surface2); }
 
   .rec-barra { display: grid; grid-template-columns: 3fr 4fr 3fr 2fr; gap: 10px; margin-bottom: 12px; }
@@ -755,7 +746,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   .rec-pop.abierto { opacity: 1; transform: none; pointer-events: auto; }
   .rec-tarjeta[hidden] { display: none; }
   .rec-tag { display: inline-block; font: 500 .66rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; border-left: 3px solid var(--c); padding: 2px 8px; color: var(--gray); }
-  .rec-tarjeta h2 { font: 600 1.3rem/1.1 'Oswald', sans-serif; text-transform: uppercase; margin: 10px 0 10px; }
+  .rec-tarjeta h3 { font: 600 1.3rem/1.1 'Oswald', sans-serif; text-transform: uppercase; margin: 10px 0 10px; }
   .rec-grafico { display: block; width: 100%; height: auto; background: #fff; border-radius: 8px; border: 1px solid var(--border); padding: 6px; margin-bottom: 12px; }
   .rec-tarjeta p { color: var(--gray); line-height: 1.6; margin: 0 0 12px; font-size: .95rem; }
   .rec-pista { font-family: 'DM Mono', monospace; font-size: .85rem; }
@@ -793,7 +784,6 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   @keyframes recSaluda { from { transform: rotate(0); } to { transform: rotate(-3deg) translateY(-4px); } }
 
   @media (max-width: 900px) {
-    .rec { padding: 92px 16px 40px; }
     .rec-barra { grid-template-columns: 1fr 1fr; }
     .rec-escenario { height: max(560px, 78vh); }
   }
@@ -801,7 +791,7 @@ const description = 'Prototipo de presentación interactiva: recorre una fábric
   @media (max-width: 759px) {
     .rec-boc-escena { max-width: min(320px, 86vw); font-size: 13.5px; }
     .rec-pop { top: 10px; left: 10px; right: 10px; width: auto; max-height: 40%; padding: 14px 16px; }
-    .rec-tarjeta h2 { font-size: 1.1rem; margin: 6px 0 8px; }
+    .rec-tarjeta h3 { font-size: 1.1rem; margin: 6px 0 8px; }
     .rec-grafico { max-height: 120px; }
     .rec-tarjeta p { font-size: .88rem; }
     .rec-boc { max-width: 220px; font-size: .82rem; }
