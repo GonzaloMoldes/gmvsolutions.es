@@ -600,7 +600,33 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
         t += dura(l.texto);
       });
     }
-    let iniciado = false;
+    // Analítica: hasta dónde llega cada visitante. Solo se envía desde la web
+    // publicada (las vistas previas de Vercel comparten la propiedad de GA4).
+    // Cada visita cuenta una vez por parada: «avance» solo al superar su récord.
+    const PRODUCCION = /^(www\.)?gmvsolutions\.es$/.test(location.hostname);
+    const medidos = (window.__recorridoEventos = []);
+    let modo = 'flecha', iniciado = false, maxParada = 0, saltado = false, completado = false;
+    function medir(nombre, datos) {
+      medidos.push([nombre, datos]);
+      if (!PRODUCCION) return;
+      try { if (typeof window.gtag === 'function') window.gtag('event', nombre, datos); } catch (e) { /* sin analítica */ }
+    }
+    function navegar(n, como) {
+      modo = como;
+      if (como === 'salto') saltado = true;
+      if (!iniciado && n > 0) { iniciado = true; medir('recorrido_inicio', { modo: como }); }
+      ir(n);
+    }
+    function registrar(n) {
+      if (n > maxParada) {
+        maxParada = n;
+        medir('recorrido_avance', { parada_max: n, titulo: TITULOS[n], modo });
+      }
+      if (n === 13 && !completado) {
+        completado = true;
+        medir('recorrido_completado', { modo: saltado ? 'salto' : 'flecha' });
+      }
+    }
     function mostrar(n) {
       tarjetas.forEach((t) => { t.hidden = Number(t.dataset.tarjeta) !== n; });
       pop.classList.add('abierto');
@@ -616,7 +642,7 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       decir(DICE[n]);
       conversar(n);
       camara();
-      if (n !== 0 || iniciado) try { if (typeof window.gtag === 'function') window.gtag('event', 'recorrido_parada', { parada: n, titulo: TITULOS[n] }); } catch (e) { /* sin analítica */ }
+      registrar(n);
     }
     function ir(n) {
       n = Math.max(0, Math.min(13, n));
@@ -684,12 +710,12 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       }
     }, 500);
 
-    const siguiente = () => ir((destino ?? parada) + 1);
-    const anterior = () => ir((destino ?? parada) - 1);
+    const siguiente = () => navegar((destino ?? parada) + 1, 'flecha');
+    const anterior = () => navegar((destino ?? parada) - 1, 'flecha');
     document.getElementById('rec-adelante').addEventListener('click', siguiente);
     document.getElementById('rec-atras').addEventListener('click', anterior);
-    document.getElementById('rec-reiniciar').addEventListener('click', () => ir(0));
-    puntos.forEach((p) => p.addEventListener('click', () => ir(Number(p.dataset.ir))));
+    document.getElementById('rec-reiniciar').addEventListener('click', () => navegar(0, 'salto'));
+    puntos.forEach((p) => p.addEventListener('click', () => navegar(Number(p.dataset.ir), 'salto')));
     let enVista = false;
     new IntersectionObserver(([en]) => { enVista = en.isIntersecting; }, { threshold: 0.4 }).observe(escenario);
     document.addEventListener('keydown', (e) => {
@@ -707,7 +733,7 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       if (Math.abs(dx) > 40) (dx < 0 ? siguiente : anterior)();
     });
     window.addEventListener('resize', camara);
-    pose(false); mostrar(0); iniciado = true;
+    pose(false); mostrar(0);
   </script>
 
 <style>
