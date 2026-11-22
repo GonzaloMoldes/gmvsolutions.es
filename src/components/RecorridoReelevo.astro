@@ -339,7 +339,7 @@ const finalX = x + PASILLO / 2;
 x += PASILLO + 160;
 const MUNDO_W = x;
 const POSICIONES = [inicioX, ...paradasX, finalX];
-const CHARLAS = DIALOGOS.map((d, n) => d.map(([i, texto]) => ({ texto, pos: cabezas[n]?.[i] })).filter((l) => l.pos));
+const CHARLAS = DIALOGOS.map((d, n) => d.map(([i, texto]) => ({ texto, i, pos: cabezas[n]?.[i] })).filter((l) => l.pos));
 const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo, dispara, dice, responde, cabeza }));
 
 ---
@@ -533,12 +533,20 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       const movil = W < 760;
       s = (movil ? H * 0.58 : H) / MUNDO_H;
       ty = H - MUNDO_H * s;
-      off = Math.max(0, Math.min(gx * s - W * (movil ? 0.12 : 0.25), MUNDO_W * s - W));
+      let o = gx * s - W * (movil ? 0.12 : 0.25);
+      // Mientras habla alguien de la escena, la cámara lo encuadra en la zona libre
+      // (a la izquierda de la tarjeta en escritorio), con sitio para su bocadillo.
+      if (charla.pos) {
+        const libre = !movil && pop.classList.contains('abierto') ? pop.offsetLeft - 12 : W;
+        const m = Math.min(150, libre / 2), sx = charla.pos[0] * s;
+        o = Math.min(Math.max(o, sx - (libre - m)), sx - m);
+      }
+      off = Math.max(0, Math.min(o, MUNDO_W * s - W));
       mundo.style.transform = `translate(${-off}px, ${ty}px) scale(${s})`;
       colocar(bocGuia, gx + 30, SUELO - 270);
       const h = HUEVOS[huevoActivo.i];
       if (h) colocar(bocHuevo, h.cabeza[0], h.cabeza[1] - 20);
-      if (charla.pos) encajar(charla.pos[0], charla.pos[1] - 14);
+      if (charla.pos) encajar(charla.pos[0], charla.pos[1]);
     }
     // El bocadillo de la escena no puede quedar bajo la tarjeta ni salirse del
     // escenario: se desplaza y el pico sigue apuntando a quien habla.
@@ -584,20 +592,42 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       charla = { timers: [], pos: null };
       bocEscena.hidden = true;
     }
+    // Punto encima de la cabeza de quien habla, medido en el dibujo (coordenadas del mundo).
+    function cabeza(n, i, reserva) {
+      const g = escenas.find((e) => Number(e.dataset.escena) === n)?.querySelectorAll('g.ilus-breathe')[i];
+      const c = g?.querySelector('ellipse[rx="14.5"][ry="16.5"]');
+      if (!c) return reserva;
+      const m = mundo.getBoundingClientRect(), r = c.getBoundingClientRect();
+      return [(r.left + r.width / 2 - m.left) / s, (r.top - m.top) / s - r.height / s * 0.7];
+    }
+    // La cámara se desliza suave cuando no es por el paseo de Andrés.
+    let suaveT = 0;
+    function suave() {
+      mundo.classList.add('suave');
+      clearTimeout(suaveT);
+      suaveT = setTimeout(() => mundo.classList.remove('suave'), 650);
+    }
     function conversar(n) {
       callar();
       const movil = escenario.clientWidth < 760;
       let t = movil ? 700 : dura(DICE[n]);
       (CHARLAS[n] || []).forEach((l) => {
         charla.timers.push(setTimeout(() => {
-          if (!movil) decir('');
-          charla.pos = l.pos;
+          // Uno detrás de otro: se retira el bocadillo anterior (también el de Andrés),
+          // la cámara encuadra a quien habla y entonces aparece su frase.
+          decir('');
+          bocEscena.hidden = true;
+          const antes = off;
+          charla.pos = cabeza(n, l.i, l.pos);
+          suave(); camara();
           bocEscena.textContent = l.texto;
-          bocEscena.hidden = false;
-          bocEscena.style.animation = 'none'; void bocEscena.offsetWidth; bocEscena.style.animation = '';
-          camara();
+          charla.timers.push(setTimeout(() => {
+            bocEscena.hidden = false;
+            camara();
+            bocEscena.style.animation = 'none'; void bocEscena.offsetWidth; bocEscena.style.animation = '';
+          }, Math.abs(off - antes) > 4 ? 620 : 120));
         }, t));
-        t += dura(l.texto);
+        t += dura(l.texto) + 300;
       });
     }
     // Analítica: hasta dónde llega cada visitante. Solo se envía desde la web
@@ -650,6 +680,7 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
       destino = n;
       pop.classList.remove('abierto');
       decir('');
+      if (charla.pos) suave();
       callar();
       if (reducido) { gx = POSICIONES[n]; llegar(); return; }
       ultimo = 0;
@@ -751,6 +782,7 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
   .rec-escenario { position: relative; height: clamp(440px, calc(100vh - 250px), 660px); overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: #ECEAE5; outline: none; }
   .rec-escenario:focus-visible { box-shadow: 0 0 0 3px var(--orange-dim); }
   .rec-mundo { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+  @media (prefers-reduced-motion: no-preference) { .rec-mundo.suave { transition: transform .6s cubic-bezier(.4, 0, .2, 1); } }
 
   /* Bocadillos */
   .rec-boc { position: absolute; z-index: 3; max-width: 270px; transform: translate(-20px, -100%); padding: 10px 14px; border-radius: 12px; font: 500 .9rem/1.4 'DM Sans', sans-serif; box-shadow: 0 8px 20px rgba(20,22,24,.18); pointer-events: none; }
@@ -759,7 +791,7 @@ const HUEVOS = huevos.map(({ tipo, dispara, dice, responde, cabeza }) => ({ tipo
   .rec-boc-guia::after { border-top-color: var(--steel); left: auto; right: 16px; }
   .rec-boc-huevo { background: #fff; color: var(--steel); border: 1px solid var(--border); }
   .rec-boc-huevo::after { border-top-color: #fff; }
-  .rec-boc-escena { background: #fff; color: var(--steel); border: 1px solid var(--border); transform: translate(-50%, -100%); width: max-content; max-width: 250px; }
+  .rec-boc-escena { z-index: 6; background: #fff; color: var(--steel); border: 1px solid var(--border); transform: translate(-50%, -100%); width: max-content; max-width: 250px; }
   .rec-boc-escena::after { border-top-color: #fff; left: calc(50% - 10px + var(--dx, 0px)); }
   .rec-boc[hidden] { display: none; }
   @media (prefers-reduced-motion: no-preference) {
